@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Llistat d'alumnes</h2>
+  <p></p>
+
+  <% if (Alumnes.length === 0) { %>
+      <p><br />
+      No hi ha alumnes registrats
+      </p>
+      <%} else { %>           
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Primer Cognom</th>
+        <th>Segon Cognom</th>
+        <th>Data Naixement</th>
+        <th>Núm. Afiliació SS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% var i; for (i=0; i < Alumnes.length; i++) { %>
+      <tr>
+      <td><%=Alumnes[i].nomAlumne%></td>
+      <td><%=Alumnes[i].cognomAlumne1%></td>
+      <td><%=Alumnes[i].cognomAlumne2%></td>
+      <td><%=Alumnes[i].dataNaixement%></td>
+      <td><%=Alumnes[i].seguretatSoc%></td>
+      <td>
+      <a href="/dades_mod/<%=Alumnes[i].id%>" class="btn btn-primary btn-sm" role="button">Modifica</a>
+      <a href="/dades_supr/<%=Alumnes[i].id%>" class="btn btn-danger btn-sm" role="button">Esborra</a>
+      </td>
+
+     <% }; %><% } %>
+     </tr>
+
+    </tbody>
+  </table>
+</div>

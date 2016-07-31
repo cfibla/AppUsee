@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>jQuery Autotab Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="css/screen.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.autotab.js"></script>
+        <script>
+        $(function () {
+            $.autotab({ tabOnSelect: true });
+            $('.number').autotab('filter', 'number');
+            $('.text').autotab('filter', 'text');
+            $('.alpha').autotab('filter', 'alpha');
+            $('.alphanumeric').autotab('filter', { format: 'alphanumeric', uppercase: true });
+            $('#regex').autotab('filter', { format: 'custom', pattern: '[^0-9\.]', maxlength: 15 });
+            $('#function').autotab('filter', function (value, element) {
+                var parsedValue = parseInt(value, 10);
+
+                if (!value || parsedValue != value) {
+                    return '';
+                }
+
+                var newValue = element.value + value;
+
+                if (newValue > 12) {
+                    $.autotab.next();
+                    return 2;
+                }
+                else if (element.value.length == 0 && value > 1) {
+                    $.autotab.next();
+                    return value;
+                }
+                else if (element.value.length == 1 && parsedValue === 0 && newValue != 10) {
+                    $.autotab.next();
+                    return 1;
+                }
+
+                return value;
+            });
+            $('.hexadecimal').autotab('filter', 'hexadecimal');
+            $('.ip').autotab('filter', { format: 'number', trigger: '.' });
+            $('.pin').autotab('filter', 'number');
+
+            $('#remove-autotab').on('click', function () {
+                $.autotab.remove();
+                $('#autotab-status span').removeClass('on').addClass('off').text('Off');
+            });
+
+            $('#restore-autotab').on('click', function () {
+                $.autotab.restore();
+                $('#autotab-status span').removeClass('off').addClass('on').text('On');
+            });
+
+            $('.remove-example').on('click', function () {
+                $(this).parent().remove();
+                $.autotab.refresh();
+            });
+        });
+        </script>
+    </head>
+
+    <body>
+        <div id="container">
+            <h1>jQuery Autotab Demo</h1>
+            <p>Autotab's full documentation can be found in <a href="https://github.com/Mathachew/jquery-autotab/blob/master/README.md">ReadMe.md</a> on GitHub.</p>
+
+            <p><a href="./angular.html">Angular</a> and <a href="./knockout.html">Knockout</a> demos are also available.</p>
+
+            <hr>
+
+            <p><strong>Note:</strong> For the purposes of this demo, I am calling <code>$.autotab({ tabOnSelect: true });</code> to initialize the auto tabbing order.</p>
+
+            <hr>
+
+            <div>
+                <p>Use the buttons below to turn Autotab on or off. Turning Autotab off will remove both auto tabbing and filtering.</p>
+
+                <button id="restore-autotab">Turn On</button>
+                <button id="remove-autotab">Turn Off</button>
+                <span id="autotab-status">Autotab status: <span class="on">On</span></span>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="number1">Phone Number</label>
+
+                    <input type="text" id="number1" class="number" maxlength="3" size="3">
+                    -
+                    <input type="text" id="number2" class="number" maxlength="3" size="3">
+                    -
+                    <input type="text" id="number3" class="number" maxlength="4" size="5">
+                </div>
+                <pre>
+$('.number').autotab('filter', 'number');
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="text1">Text characters only</label>
+
+                    <input type="text" id="text1" class="text" maxlength="5" size="4">
+                    -
+                    <input type="text" id="text2" class="text" maxlength="4" size="4">
+                    -
+                    <input type="text" id="text3" class="text" maxlength="5" size="4">
+                </div>
+                <pre>
+$('.text').autotab('filter', 'text');
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="alpha1">Alpha only</label>
+
+                    <input type="text" id="alpha1" class="alpha" maxlength="5" size="4">
+                    -
+                    <input type="text" id="alpha2" class="alpha" maxlength="5" size="4">
+                    -
+                    <input type="text" id="alpha3" class="alpha" maxlength="5" size="4">
+                    -
+                    <input type="text" id="alpha4" class="alpha" maxlength="5" size="4">
+                    -
+                    <input type="text" id="alpha5" class="alpha" maxlength="5" size="4">
+                </div>
+                <pre>
+$('.alpha').autotab('filter', 'alpha');
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="alphanumeric1">Uppercase letters and numbers</label>
+
+                    <input type="text" id="alphanumeric1" class="alphanumeric" maxlength="5" size="4">
+                    -
+                    <input type="text" id="alphanumeric2" class="alphanumeric" maxlength="5" size="4">
+                    -
+                    <input type="text" id="alphanumeric3" class="alphanumeric" maxlength="5" size="4">
+                    -
+                    <input type="text" id="alphanumeric4" class="alphanumeric" maxlength="5" size="4">
+                    -
+                    <input type="text" id="alphanumeric5" class="alphanumeric" maxlength="5" size="4">
+                </div>
+                <pre>
+$('.alphanumeric').autotab('filter', { format: 'alphanumeric', uppercase: true });
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="regex">Regular Expression (Allows numbers and periods)</label>
+                    <input type="text" id="regex" maxlength="15" size="13">
+                </div>
+                <pre>
+$('#regex').autotab({ format: 'custom', pattern: '[^0-9\.]' });
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="function">Custom function that forces a number range of 1 to 12</label>
+                    <input type="text" id="function" maxlength="2" size="3">
+                </div>
+                <pre>
+$('#function').autotab(function (value, element) {
+    var parsedValue = parseInt(value, 10);
+
+    if (!value || parsedValue != value) {
+        return '';
+    }
+
+    var newValue = element.value + value;
+
+    if (newValue &gt; 12) {
+        $.autotab.next();
+        return 2;
+    }
+    else if (element.value.length == 0 &amp;&amp; value &gt; 1) {
+        $.autotab.next();
+        return value;
+    }
+    else if (element.value.length == 1 &amp;&amp; parsedValue === 0 &amp;&amp; newValue != 10) {
+        $.autotab.next();
+        return 1;
+    }
+
+    return value;
+});
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="regex">Hexadecimal (Allows numbers, a-f, and A-F)</label>
+
+                    <input type="text" id="hexadecimal1" class="hexadecimal" maxlength="4" size="3">
+                    :
+                    <input type="text" id="hexadecimal2" class="hexadecimal" maxlength="4" size="3">
+                    :
+                    <input type="text" id="hexadecimal3" class="hexadecimal" maxlength="4" size="3">
+                    :
+                    <input type="text" id="hexadecimal4" class="hexadecimal" maxlength="4" size="3">
+                    :
+                    <input type="text" id="hexadecimal5" class="hexadecimal" maxlength="4" size="3">
+                    :
+                    <input type="text" id="hexadecimal6" class="hexadecimal" maxlength="4" size="3">
+                    :
+                    <input type="text" id="hexadecimal7" class="hexadecimal" maxlength="4" size="3">
+                    :
+                    <input type="text" id="hexadecimal8" class="hexadecimal" maxlength="4" size="3">
+                </div>
+                <pre>
+$('.hexadecimal').autotab('filter', 'hexadecimal');
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="ip1">Numbers only with support for auto tabbing on periods</label>
+
+                    <input type="text" id="ip1" class="ip" maxlength="3" size="4">
+                    .
+                    <input type="text" id="ip2" class="ip" maxlength="3" size="4">
+                    .
+                    <input type="text" id="ip3" class="ip" maxlength="3" size="4">
+                    .
+                    <input type="text" id="ip4" class="ip" maxlength="3" size="4">
+                </div>
+                <pre>
+$('.ip').autotab('filter', { format: 'number', trigger: '.' });
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="pin1">Filtering and auto tabbing on password fields</label>
+
+                    <input type="password" id="pin1" class="pin" maxlength="3" size="4">
+                    .
+                    <input type="password" id="pin2" class="pin" maxlength="3" size="4">
+                </div>
+                <pre>
+$('.pin').autotab('filter', 'number');
+</pre>
+            </div>
+
+            <div class="example">
+                <div class="remove-example">
+                    <a href="javascript:;" title="Remove example">X</a>
+                </div>
+
+                <div>
+                    <label for="all1">Any and all characters with tabbing support on non-text form fields. Textarea will auto tab when the defined <code>maxlength</code> is reached, disabled fields are skipped entirely, and the select list will auto tab when a value is selected. Auto tabbing on select lists only applies for single select and is configurable using <code>tabOnSelect</code>.</label>
+
+                    <input type="text" class="all" maxlength="5" size="4">
+                    <button value="button">Standard Button</button>
+                    <input type="text" class="all" maxlength="3" size="1" disabled="disabled" value="zxy">
+                    <input type="text" class="all" maxlength="5" size="4">
+                    <input type="submit" value="Submit Button">
+                    <input type="text" class="all" maxlength="5" size="4">
+                    <button value="button" disabled="disabled">Disabled Button</button>
+                    <input type="text" class="all" maxlength="5" size="4">
+                    <br> <input type="button" value="Input Button">
+                    <br>
+                    <select>
+                        <option>First</option>
+                        <option>Second</option>
+                        <option>Third</option>
+                    </select>
+                    <br>
+                    <input type="radio" name="radio">
+                    <br>
+                    <input type="checkbox">
+                    <br>
+                    <textarea cols="20" rows="2" maxlength="10" class="all"></textarea>
+                    <br>
+                    <input type="text" class="all" maxlength="5" size="4">
+                    <br>
+                    Email: <input type="email">
+                    <br>
+                    Number: <input type="number" maxlength="3">
+                    <br>
+                    Tel: <input type="number" maxlength="10">
+                    <br>
+                    Range: <input type="range">
+                    <br>
+                    URL: <input type="url">
+                </div>
+                <pre>
+// Note: This call is not necessary as 'all' is the default format
+$('.all').autotab('filter', 'all');
+</pre>
+            </div>
+        </div>
+
+        <script>
+            (function (p) {
+                if (p.indexOf('file:') == 0) {
+                    return;
+                }
+
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                ga('create', 'UA-16922340-11', 'auto');
+                ga('send', 'pageview');
+            })(window.location.protocol);
+        </script>
+    </body>
+</html>

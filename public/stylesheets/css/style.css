@@ -1,0 +1,44 @@
+* {
+  background: #f8f7f7;
+
+}
+
+body { 
+    margin: 2em; 
+    /*font-family: sans-serif;*/    
+    font-size: 100%; 
+    background: #f8f7f7;
+}
+
+label { 
+ /*   float: left; 
+    display: block; 
+    width: 11em; */
+}
+.fons{
+    padding-top:20em;
+}
+.escola {
+   /* margin-top: 50%;*/
+    padding: 1em 2em 5em 2em;
+    border:1px #e4e4e4 solid;
+    border-radius: 1em;
+}
+span.glyphicon-user {
+    font-size: 1.2em;
+}
+.boton-index{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.panel-title a{
+    text-decoration: none;
+}
+a:hover{
+    font-weight: bold;
+    text-decoration: none;
+}
+#newEE_error{
+    text-align: center;
+    color: red;
+}

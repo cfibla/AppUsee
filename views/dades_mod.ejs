@@ -1,0 +1,374 @@
+
+    <div class="container">
+      <div class="row">
+        <form role="form">
+          <div class="form-group">
+            <div class="col-md-2">
+              <label for="ejemplo_archivo_1">Foto alumne</label>
+              <div class="thumbnail">
+                <img src="http://placehold.it/300x300">
+              </div>
+              <input type="file" id="ejemplo_archivo_1">
+            </div>
+<!---<p class="help-block">Ejemplo de texto de ayuda.</p>-->
+          </div>
+        </form>
+      </div>
+    </div>
+
+<!--DADES ALUMNE-->
+    <div class="container">
+      <div class="row">
+        <form role="form">
+          <div class="form-group">
+            <div class="col-md-2">
+              <h4>Fitxa alumne</h4>
+            </div>
+
+            <div class="col-md-10">
+              <hr>
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="nom_alumne">Nom</label>
+              <input type="text" class="form-control" id="nom_alumne"
+                     placeholder="<%=alumne.nomAlumne%>" disabled>
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="cognom1_alumne">Primer cognom</label>
+              <input type="text" class="form-control" id="cognom1_alumne"
+                     placeholder="<%=alumne.cognomAlumne1%>" disabled>
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="cognom2_alumne">Segon cognom</label>
+              <input type="text" class="form-control" id="cognom2_alumne"
+                     placeholder="<%=alumne.cognomAlumne2%>" disabled>
+            </div>
+
+            <div class="form-group col-md-3">
+              <label for="data_naixement">Data naixement</label>
+              <input type="date" class="form-control" id="data_naixement"
+                     placeholder="<%=alumne.dataNaixement%>" disabled>
+            </div>
+
+            <div class="form-group col-md-3">
+              <label for="targeta_SS">Targeta SS</label>
+              <input type="text" class="form-control" id="targeta_SS"
+                     placeholder="<%=alumne.seguretatSoc%>" disabled>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+<!--ATENCIÓ ALUMNE-->
+    
+    <div class="container">
+      <div class="row">
+      <form role="form" method="post" action="/dades_update/<%=alumne._id%>?_method=put" >
+        <div class="col-md-12">
+         <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                  Atenció EE-USEE</a>
+              </h3>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <div class="form-group col-md-3">
+                  <h6>Seguiment atenció a la diversitat </h6>
+<!--
+<% var i; for (i=0; i < alumne.checks.length; i++) {
+if (alumne.checks[i]=="true"){
+document.getElementById(i).checked = true;
+  }
+}; %>
+ <label class="checkbox-inline">
+<input type="checkbox" value="true" name="checks.0" id="0"
+                 
+<%if (alumne.checks[0]){
+%>checked <%}%>
+>Directe</label>
+
+<label class="checkbox-inline">
+<input type="checkbox" value="true" name="checks.1" id="1"
+
+<%if (alumne.checks[1]){
+%>checked <%}%>>Indirecte</label>
+-->
+
+                <%  var i; for (i=0; i < alumne.checks.length; i++) {
+                    var checkCond ='';
+                    if (alumne.checks[i]){
+                    var checkCond='checked';
+                      }
+                  };
+                  console.log('hola');%>
+                 
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.0" id="0" <%=checkCond%>>Directe</label>
+
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.1" id="1" <%=checkCond%>>Indirecte</label>
+
+                </div>
+
+                <div class="form-group col-md-3">
+                    <h6>Atenció </h6>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">AiLL</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">EE</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">EE-USEE</label>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <h6>Seguiment serveis externs </h6>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">EAP</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">TS EAP</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">CREDAG</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">CREDV</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">CSMIJ</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">SDTIC</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">CDIAP</label>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <h6>Seguiment mèdic </h6>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">Pediatria</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">Neuropediatria</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="">Altres especialitats</label>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="altres_especialitats">Altres especialitats</label>
+                    <input type="text" class="form-control" id="altres_especialitats" 
+                           placeholder="dades">
+                </div>
+          
+                <div class="form-group col-md-6">
+                    <label for="serveis_privats">Atenció serveis privats</label>
+                    <input type="text" class="form-control" id="serveis_privats" 
+                           placeholder="dades">
+                </div>
+
+                <div class="form-group col-md-2">
+                      <label for="repeticio">Repetició</label>
+                      <select class="form-control" id="repeticio">
+                        <option>No</option>
+                        <option>Si</option>
+                      </select>
+                </div>
+
+                <div class="form-group col-md-2">
+                      <label for="beca">Beca</label>
+                      <select class="form-control" id="beca">
+                        <option>No</option>
+                        <option>Si</option>
+                      </select>
+                </div>
+
+                <div class="form-group col-md-3">
+                      <label for="disminucio">Certificat disminució</label>
+                      <select class="form-control" id="disminucio">
+                        <option>No</option>
+                        <option>Si (indicar %)</option>
+                      </select>
+                </div>
+
+                <div class="form-group col-md-3">
+                      <label for="dictamen">Dictamen</label>
+                      <select class="form-control" id="dictamen">
+                        <option>No</option>
+                        <option>Si (motiu)</option>
+                      </select>
+                </div>
+
+                <div class="form-group col-md-2">
+                      <label for="valoracio_eap">Valoració EAP</label>
+                      <select class="form-control" id="valoracio_eap">
+                        <option>No</option>
+                        <option>Si (Any)</option>
+                      </select>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+<!--ADAPTACIONS ALUMNE -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                Adaptacions</a>
+              </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+
+                <div class="form-group col-md-4">
+                  <h6>Programació individualitzada (P.I.) </h6>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">No</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Curricular</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Metodològic</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Conductual</label>
+                </div>
+
+                <div class="form-group col-md-8">
+                  <h6>Àrees adaptades </h6>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Català</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Castellà</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Matemàtiques</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Medi natural</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Medi social</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Educació Física</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="">Àrea artística</label>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
+                    <select class="form-control" id="material_diferenciat">
+                      <option>No</option>
+                      <option>Si</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="adequacio_continguts">Adequació de continguts</label>
+                    <select class="form-control" id="adequacio_continguts">
+                      <option>No</option>
+                      <option>Si</option>
+                    </select>
+                </div>
+
+                 <div class="form-group col-md-2">
+                    <label for="full_derivacio">Full de derivació</label>
+                    <select class="form-control" id="full_derivacio">
+                      <option>No</option>
+                      <option>Si</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="qui_fa_derivacio">Qui el fa?</label>
+                    <select class="form-control" id="qui_fa_derivacio">
+                      <option>Tutor</option>
+                      <option>Família</option>
+                      <option>Atenció a la diversitat</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="motiu_derivacio">Motiu</label>
+                  <input type="text" class="form-control" id="motiu_derivacio" 
+                         placeholder="Motiu">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- SEGUIMENT ALUMNE -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                  Seguiment</a>
+                </h4>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class="form-group col-md-10"></div>
+                  <div class="form-group col-md-2">
+                      <label for="any_curs">Curs</label>
+                      <input type="text" class="form-control" id="any_curs" 
+                             placeholder="2015/16">
+                  </div>
+
+                  <div class="form-group col-md-12">
+                      <label for="actuacions">Actuacions</label>
+                      <textarea class="form-control" rows="3" id="actuacions"></textarea>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                      <label for="informacio_cad">Informació CAD seguiment</label>
+                      <textarea class="form-control" rows="3" id="informacio_cad"></textarea>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                      <label for="altres_coord">Altres coordinacions / Coordinacions amb tutors</label>
+                      <textarea class="form-control" rows="3" id="altres_coord"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div> 
+        </div>
+            <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+            <a href="/" class="btn btn-default" role="button">Cancel·la</a>
+            <button type="submit" class="btn btn-primary">Desa</button>
+            </div>
+          </form>
+        </div>
+    </div>
+
+   
+    
+
+
+
+      
+
+  <!-- Librería jQuery requerida por los plugins de JavaScript 
+    <script src="http://code.jquery.com/jquery.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  
+
+    <!-- Todos los plugins JavaScript de Bootstrap (también puedes
+         incluir archivos JavaScript individuales de los únicos
+         plugins que utilices) 
+    <script src="/stylesheets/js/bootstrap.min.js"></script> -->
+
