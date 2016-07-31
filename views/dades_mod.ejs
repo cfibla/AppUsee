@@ -104,8 +104,8 @@ document.getElementById(i).checked = true;
 -->
 
                 <%  var i; for (i=0; i < alumne.checks.length; i++) {
-                    var checkCond ='';
-                    if (alumne.checks[i]==="true"){
+                    var checkCond =null;
+                    if (alumne.checks[i]==true){
                     var checkCond='checked';
                       }
                   };
@@ -122,11 +122,11 @@ document.getElementById(i).checked = true;
                 <div class="form-group col-md-3">
                     <h6>Atenció </h6>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true"  <%=checkCond%>>AiLL</label>
+                    <input type="checkbox" value="true" name="checks.2" <%=checkCond%>>AiLL</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true"  <%=checkCond%>>EE</label>
+                    <input type="checkbox" value="true" name="checks.3" <%=checkCond%>>EE</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true"  <%=checkCond%>>EE-USEE</label>
+                    <input type="checkbox" value="true" name="checks.4" <%=checkCond%>>EE-USEE</label>
                 </div>
 
                 <div class="form-group col-md-6">
