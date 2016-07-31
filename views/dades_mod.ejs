@@ -83,35 +83,20 @@
               <div class="panel-body">
                 <div class="form-group col-md-3">
                   <h6>Seguiment atenció a la diversitat </h6>
-<!--
-<% var i; for (i=0; i < alumne.checks.length; i++) {
-if (alumne.checks[i]=="true"){
-document.getElementById(i).checked = true;
-  }
-}; %>
- <label class="checkbox-inline">
-<input type="checkbox" value="true" name="checks.0" id="0"
-                 
-<%if (alumne.checks[0]){
-%>checked <%}%>
->Directe</label>
 
-<label class="checkbox-inline">
-<input type="checkbox" value="true" name="checks.1" id="1"
-
-<%if (alumne.checks[1]){
-%>checked <%}%>>Indirecte</label>
--->
 
                 <%  var i; for (i=0; i < alumne.checks.length; i++) {
-                    var checkCond = ' ';
+                    var checkCond = 'null'
                     if (alumne.checks[i] ===true){
                       checkCond ='checked';
-                      } else{
-                      checkCond = ' ';
-                      }
+                      
+                      } else {
+                      checkCond = 'null';
+                      console.log('hola');
+                      
+                      };
                   };
-                  console.log('hola');%>
+                  %>
                  
                   <label class="checkbox-inline">
                   <input type="checkbox" value="true" name="checks.0" id="0" <%=checkCond%>>Directe</label>
@@ -134,7 +119,7 @@ document.getElementById(i).checked = true;
                 <div class="form-group col-md-6">
                     <h6>Seguiment serveis externs </h6>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">EAP</label>
+                    <input type="checkbox" value="" null>EAP</label>
                     <label class="checkbox-inline">
                     <input type="checkbox" value="">TS EAP</label>
                     <label class="checkbox-inline">
@@ -374,3 +359,24 @@ document.getElementById(i).checked = true;
          plugins que utilices) 
     <script src="/stylesheets/js/bootstrap.min.js"></script> -->
 
+
+
+<!--
+<% var i; for (i=0; i < alumne.checks.length; i++) {
+if (alumne.checks[i]=="true"){
+document.getElementById(i).checked = true;
+  }
+}; %>
+ <label class="checkbox-inline">
+<input type="checkbox" value="true" name="checks.0" id="0"
+                 
+<%if (alumne.checks[0]){
+%>checked <%}%>
+>Directe</label>
+
+<label class="checkbox-inline">
+<input type="checkbox" value="true" name="checks.1" id="1"
+
+<%if (alumne.checks[1]){
+%>checked <%}%>>Indirecte</label>
+-->
