@@ -104,9 +104,11 @@ document.getElementById(i).checked = true;
 -->
 
                 <%  var i; for (i=0; i < alumne.checks.length; i++) {
-                    var checkCond =null;
-                    if (alumne.checks[i]==true){
-                    var checkCond='checked';
+                    var checkCond = ' ';
+                    if (alumne.checks[i] ===true){
+                      checkCond ='checked';
+                      } else{
+                      checkCond = ' ';
                       }
                   };
                   console.log('hola');%>
