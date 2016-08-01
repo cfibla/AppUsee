@@ -85,35 +85,34 @@
                   <h6>Seguiment atenció a la diversitat </h6>
 
 
-                <%  
-                var i; for (i=0; i < alumne.checks.length; i++) {
-                    var checkCond = '';
-                    if (alumne.checks[i] ===null){
-                      checkCond ='';
-                      } else {
-                      checkCond = 'checked';
-                      console.log('hola');
-                      
-                      };
-                  };
+
+
+                  <%function checkCond(id){
+                  var cc='';
+                  if (alumne.checks[id] === true) {
+                  cc ="checked";
+                  }
+                  return cc;
+
+                  }
                   %>
                  
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="checks.0" id="0" <%=checkCond%>>Directe</label>
+                  <input type="checkbox" value="true" name="checks.0" id="0" <%=checkCond(0)%>>Directe</label>
 
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="checks.1" id="1" <%=checkCond%>>Indirecte</label>
+                  <input type="checkbox" value="true" name="checks.1" id="1" <%=checkCond(1)%>>Indirecte</label>
 
                 </div>
 
                 <div class="form-group col-md-3">
                     <h6>Atenció </h6>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.2" <%=checkCond%>>AiLL</label>
+                    <input type="checkbox" value="true" name="checks.2" <%=checkCond(2)%>>AiLL</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.3" <%=checkCond%>>EE</label>
+                    <input type="checkbox" value="true" name="checks.3" <%=checkCond(3)%>>EE</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.4" <%=checkCond%>>EE-USEE</label>
+                    <input type="checkbox" value="true" name="checks.4" <%=checkCond(4)%>>EE-USEE</label>
                 </div>
 
                 <div class="form-group col-md-6">
@@ -359,7 +358,19 @@
          plugins que utilices) 
     <script src="/stylesheets/js/bootstrap.min.js"></script> -->
 
-
+<!--
+<%  
+var i; for (i=0; i < alumne.checks.length; i++) {
+ var checkCond = '';
+if (alumne.checks[i] ===null){
+checkCond ='';
+} else {
+checkCond = 'checked';
+console.log('hola');
+                      
+};
+};
+%>-->
 
 <!--
 <% var i; for (i=0; i < alumne.checks.length; i++) {
