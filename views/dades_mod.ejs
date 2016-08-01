@@ -85,15 +85,12 @@
                   <h6>Seguiment atenció a la diversitat </h6>
 
 
-
-
                   <%function checkCond(id){
                   var cc='';
                   if (alumne.checks[id] === true) {
                   cc ="checked";
                   }
                   return cc;
-
                   }
                   %>
                  
@@ -118,19 +115,19 @@
                 <div class="form-group col-md-6">
                     <h6>Seguiment serveis externs </h6>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="" null>EAP</label>
+                    <input type="checkbox" value="true" name="checks.5" <%=checkCond(5)%>>EAP</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">TS EAP</label>
+                    <input type="checkbox" value="true" name="checks.6" <%=checkCond(6)%>>TS EAP</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">CREDAG</label>
+                    <input type="checkbox" value="true" name="checks.7" <%=checkCond(7)%>>CREDAG</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">CREDV</label>
+                    <input type="checkbox" value="true" name="checks.8" <%=checkCond(8)%>>CREDV</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">CSMIJ</label>
+                    <input type="checkbox" value="true" name="checks.9" <%=checkCond(9)%>>CSMIJ</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">SDTIC</label>
+                    <input type="checkbox" value="true" name="checks.10" <%=checkCond(10)%>>SDTIC</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">CDIAP</label>
+                    <input type="checkbox" value="true" name="checks.11" <%=checkCond(11)%>>CDIAP</label>
                 </div>
 
                 <div class="form-group col-md-4">

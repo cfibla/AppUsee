@@ -67,17 +67,12 @@ exports.update = function (req, res){
 	
 	var alumneId = req.params.id;
 	var alum = req.body;
-	var alumneChecks = alum.checks;
+	var alumneChecks = req.params.checks;
 
 	delete alum.id;
 	delete alum._id;
 
-//	var i; for (i=0; i < alumneChecks.length; i++) {
-//                  if (alumneChecks[i]=="null"){
-//                  delete alum.checks[i];
-//                    }
-//                  };
-
+	models.Alumne.checks = null;
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum,
 
