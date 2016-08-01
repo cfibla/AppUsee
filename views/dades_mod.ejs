@@ -85,13 +85,13 @@
                   <h6>Seguiment atenció a la diversitat </h6>
 
 
-                <%  var i; for (i=0; i < alumne.checks.length; i++) {
-                    var checkCond = 'null'
-                    if (alumne.checks[i] ===true){
-                      checkCond ='checked';
-                      
+                <%  
+                var i; for (i=0; i < alumne.checks.length; i++) {
+                    var checkCond = '';
+                    if (alumne.checks[i] ===null){
+                      checkCond ='';
                       } else {
-                      checkCond = 'null';
+                      checkCond = 'checked';
                       console.log('hola');
                       
                       };
