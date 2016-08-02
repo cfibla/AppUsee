@@ -82,7 +82,7 @@ exports.update = function (req, res){
 	});
 */
 
-	models.Alumne.findByIdAndUpdate(alumneId, {$set: {'checks':[alum.checks]}}, {new: true},
+	models.Alumne.findByIdAndUpdate(alumneId, {$set: {'checks':alum.checks[]}}, {new: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
