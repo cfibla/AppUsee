@@ -82,7 +82,7 @@ exports.update = function (req, res){
 	});
 
 
-	models.Alumne.findByIdAndUpdate(alumneId, alum,
+	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
