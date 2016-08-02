@@ -82,7 +82,7 @@ exports.update = function (req, res){
 	});
 */
 
-	models.Alumne.update({_id:alumneId},{$set:{checks:alum.checks}},
+	models.Alumne.update({_id:alumneId},{$set:{checks:[alum.checks]}},
 
 		function (error, alumne){
 		if (error) res.json(error);
