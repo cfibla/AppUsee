@@ -89,6 +89,7 @@ exports.update = function (req, res){
 			res.json(error)
 		} else {
 			alumne.checks = alum.checks;
+			alumne.save();
 			res.redirect('/');}
 	});
 
