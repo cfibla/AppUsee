@@ -76,7 +76,7 @@ exports.update = function (req, res){
 		if (error){
 			return res.json(error);
 		} else {
-			alumne.checks=[];
+			alumne.checks=[ ];
 			alumne.save();
 		}
 	});
