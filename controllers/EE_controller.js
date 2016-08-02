@@ -82,11 +82,14 @@ exports.update = function (req, res){
 	});
 */
 
-	models.Alumne.update({_id:alumneId},{$set:{checks:[alum.checks]}},
+	models.Alumne.findOne({_id:alumneId},
 
 		function (error, alumne){
-		if (error) res.json(error);
-		res.redirect('/');
+		if (error) {
+			res.json(error)
+		} else {
+			alumne.checks = alum.checks;
+			res.redirect('/');}
 	});
 
 	};
