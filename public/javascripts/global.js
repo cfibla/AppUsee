@@ -6,11 +6,3 @@ $(":checkbox").change(function ()
     })
 
      });
-
- function checkCond(id){
-                  var cc='';
-                  if (alumne.checks[id] === true) {
-                  cc ="checked";
-                  }
-                  return cc;
-                  }
