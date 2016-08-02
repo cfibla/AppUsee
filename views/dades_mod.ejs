@@ -94,17 +94,6 @@
                   }
                   %>
 
-                  <%
-                  $(document).ready(function (){
-
-                       $(":checkbox").change(function () 
-                          {
-                           alert('I have been checked');
-                          })
-
-                    });
-                   
-                    %>
                  
                   <label class="checkbox-inline">
                   <input type="checkbox" value="true" name="checks.0" id="0" <%=checkCond(0)%>>Directe</label>
@@ -359,6 +348,7 @@
       
 
   <!-- Librería jQuery requerida por los plugins de JavaScript -->
+  <script src="../public/javascripts/global.js"></script>
     <script src="http://code.jquery.com/jquery.js"></script>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  
 
