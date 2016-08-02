@@ -82,17 +82,11 @@ exports.update = function (req, res){
 	});
 */
 
-	models.Alumne.findOne({_id:alumneId},
+	models.Alumne.findByIdAndUpdate(alumneId, alum,
 
 		function (error, alumne){
-		if (error) {
-			res.json(error)
-		} else {
-			for (var i = 0; i < alum.checks.length; i++) {
-				alumne.checks[i] = alum.checks[i];
-			}
-			alumne.save();
-			res.redirect('/');}
+		if (error) res.json(error);
+		res.redirect('/');
 	});
 
 	};
