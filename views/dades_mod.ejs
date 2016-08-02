@@ -93,6 +93,18 @@
                   return cc;
                   }
                   %>
+
+                  <%
+                  $(document).ready(function ()
+                    {
+                       $(":checkbox").change(function () 
+                          {
+                           alert('I have been checked');
+                          }
+
+                    });
+                    });
+                    %>
                  
                   <label class="checkbox-inline">
                   <input type="checkbox" value="true" name="checks.0" id="0" <%=checkCond(0)%>>Directe</label>
