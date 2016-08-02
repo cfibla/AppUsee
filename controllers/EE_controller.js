@@ -88,7 +88,9 @@ exports.update = function (req, res){
 		if (error) {
 			res.json(error)
 		} else {
-			alumne.checks = alum.checks;
+			for (var i = 0; i < alumne.checks.length; i++) {
+				alumne.checks[i] = alum.checks[i];
+			}
 			alumne.save();
 			res.redirect('/');}
 	});
