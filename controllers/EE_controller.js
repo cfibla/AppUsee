@@ -72,7 +72,7 @@ exports.update = function (req, res){
 	delete alum.id;
 	delete alum._id;
 
-/*	models.Alumne.findOne(alumneId, function(error, alumne){
+	models.Alumne.findOne({_id: alumneId}, function(error, alumne){
 		if (error){
 			return res.json(error);
 		} else {
@@ -80,7 +80,7 @@ exports.update = function (req, res){
 			alumne.save();
 		}
 	});
-*/
+
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum,
 
