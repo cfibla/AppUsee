@@ -8,6 +8,7 @@ $(":checkbox").change(function () {
    } else {
 
    	alert("El checkbox con valor " + $(this).val() + " ha sido deseleccionado");
+   	$(this).val('false');
    }
 
 
