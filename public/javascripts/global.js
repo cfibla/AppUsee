@@ -1,13 +1,14 @@
  $(document).ready(function (){
 
-$(":checkbox").change(function () 
-   {
-   
+$(":checkbox").change(function () {
+   if($(this).is(':checked')){
 
-   if(('input[type=checkbox]').is(':checked')) {
-   $(this).prop('checked',true);
- 	} else {
-   $(this).prop('checked',false);}
+   	alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
+
+   } else {
+
+   	alert("El checkbox con valor " + $(this).val() + " ha sido deseleccionado");
+   }
 
 
 
