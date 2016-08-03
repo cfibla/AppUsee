@@ -70,7 +70,7 @@ exports.update = function (req, res){
 	
 
 	
-	models.Alumne.findOne({_id: alumneId}, {$set:{ checks:[]}}, function(error, alumne){
+	models.Alumne.update({_id: alumneId}, {$set:{ checks:[]}}, function(error, alumne){
 		if (error){
 			return res.json(error);
 		} 
