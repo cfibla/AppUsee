@@ -70,11 +70,10 @@ exports.update = function (req, res){
 	
 
 	
-	models.Alumne.update({_id: alumneId}, {$set:{ checks:[]}}, function(error, alumne){
+	models.Alumne.findByIdAndUpdate({_id: alumneId}, {$set:{ checks:[]}}, function(error, alumne){
 		if (error){
 			return res.json(error);
 		} 
-			alumne.save();
 		});
 
 	delete alum.id;
