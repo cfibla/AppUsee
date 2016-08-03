@@ -82,7 +82,7 @@ exports.update = function (req, res){
 	delete alum.id;
 	delete alum._id;
 
-	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true},
+	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
