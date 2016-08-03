@@ -69,10 +69,8 @@ exports.update = function (req, res){
 	var alum = req.body;
 	
 
-	delete alum.id;
-	delete alum._id;
-
-/*	models.Alumne.findOne({_id: alumneId}, function(error, alumne){
+	
+	models.Alumne.findOne({_id: alumneId}, function(error, alumne){
 		if (error){
 			return res.json(error);
 		} else {
@@ -80,7 +78,9 @@ exports.update = function (req, res){
 			alumne.save();
 		}
 	});
-*/
+
+	delete alum.id;
+	delete alum._id;
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true},
 
