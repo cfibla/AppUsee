@@ -75,8 +75,7 @@ exports.update = function (req, res){
 			return res.json(error);
 		} 
 			alumne.save();
-		}
-	});
+		});
 
 	delete alum.id;
 	delete alum._id;
