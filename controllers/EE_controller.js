@@ -70,15 +70,14 @@ exports.update = function (req, res){
 	
 
 	
-/*	models.Alumne.findOne({_id: alumneId}, function(error, alumne){
+	models.Alumne.findOne({_id: alumneId}, {$set:{ checks:[]}}, function(error, alumne){
 		if (error){
 			return res.json(error);
-		} else {
-			alumne.checks=[ ];
+		} 
 			alumne.save();
 		}
 	});
-*/
+
 	delete alum.id;
 	delete alum._id;
 

@@ -10,7 +10,7 @@ $(":checkbox").change(function () {
    	alert("El checkbox con valor " + $(this).val() + " ha sido deseleccionado");
 
    	$(this).val('null');
-   	$(this).prop('checked', true);
+   	$(this).prop('checked', false);
    }
 
 
