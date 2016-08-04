@@ -145,14 +145,16 @@
 
                 <div class="form-group col-md-2">
                     <label for="altres_especialitats">Altres especialitats</label>
-                    <input type="text" class="form-control" id="altres_especialitats" name="altresEsp"
-                           placeholder="Altres especialitats"||<%=alumne.altresEsp%>>
+                    <input type="text" class="form-control" id="altres_especialitats" name="altresEsp" 
+                    value = <%=alumne.altresEsp||" "%>
+                    placeholder= "Altres especialitats">
                 </div>
           
                 <div class="form-group col-md-6">
                     <label for="serveis_privats">Atenció serveis privats</label>
                     <input type="text" class="form-control" id="serveis_privats" name="atServPrivats"
-                           placeholder= <%=alumne.atServPrivats%> >
+                    value = <%=alumne.atServPrivats||" "%>
+                    placeholder= "Atenció serveis privats">
                 </div>
 
                 <div class="form-group col-md-2">
