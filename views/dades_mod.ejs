@@ -108,11 +108,11 @@
                 <div class="form-group col-md-3">
                     <h6>Atenció </h6>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true" data-unchecked="null" name="checks.2" <%=checkCond(2)%>>AiLL</label>
+                    <input type="checkbox" value="true" name="checks.2" <%=checkCond(2)%>>AiLL</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true" data-unchecked="null" name="checks.3" <%=checkCond(3)%>>EE</label>
+                    <input type="checkbox" value="true" name="checks.3" <%=checkCond(3)%>>EE</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="true" data-unchecked="null" name="checks.4" <%=checkCond(4)%>>EE-USEE</label>
+                    <input type="checkbox" value="true" name="checks.4" <%=checkCond(4)%>>EE-USEE</label>
                 </div>
 
                 <div class="form-group col-md-6">
@@ -136,23 +136,23 @@
                 <div class="form-group col-md-4">
                     <h6>Seguiment mèdic </h6>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">Pediatria</label>
+                    <input type="checkbox" value="true" name="checks.12" <%=checkCond(12)%>>Pediatria</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">Neuropediatria</label>
+                    <input type="checkbox" value="true" name="checks.13" <%=checkCond(13)%>>Neuropediatria</label>
                     <label class="checkbox-inline">
-                    <input type="checkbox" value="">Altres especialitats</label>
+                    <input type="checkbox" value="true" name="checks.14" <%=checkCond(14)%>>Altres especialitats</label>
                 </div>
 
                 <div class="form-group col-md-2">
                     <label for="altres_especialitats">Altres especialitats</label>
-                    <input type="text" class="form-control" id="altres_especialitats" 
-                           placeholder="dades">
+                    <input type="text" class="form-control" id="altres_especialitats" name="altresEsp"
+                           placeholder="Altres especialitats">
                 </div>
           
                 <div class="form-group col-md-6">
                     <label for="serveis_privats">Atenció serveis privats</label>
-                    <input type="text" class="form-control" id="serveis_privats" 
-                           placeholder="dades">
+                    <input type="text" class="form-control" id="serveis_privats" name="atServPrivats"
+                           placeholder="Atenció serveis privats">
                 </div>
 
                 <div class="form-group col-md-2">
