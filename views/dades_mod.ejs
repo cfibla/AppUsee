@@ -79,13 +79,8 @@
                   Atenció EE-USEE</a>
               </h3>
             </div>
-            <div id="collapse3" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <div class="form-group col-md-3">
-                  <h6>Seguiment atenció a la diversitat </h6>
-
-
-                  <%function checkCond(id){
+<!--FUNCION CHECKOUT-->
+                <%function checkCond(id){
                   var cc='';
                   if (alumne.checks[id] === true) {
                   cc ="checked";
@@ -96,17 +91,19 @@
                   }
                   %>
 
-                 
+            <div id="collapse3" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <div class="form-group col-md-3">
+                  <label for="seguiment_atenció_a_la_diversitat">Seguiment atenció a la diversitat </label><br>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" data-unchecked="false" name="checks.0" id="0" <%=checkCond(0)%>>Directe</label>
-
+                  <input type="checkbox" value="true" name="checks.0" id="0" <%=checkCond(0)%>>Directe</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" data-unchecked="false" name="checks.1" id="1" <%=checkCond(1)%>>Indirecte</label>
+                  <input type="checkbox" value="true" name="checks.1" id="1" <%=checkCond(1)%>>Indirecte</label>
 
                 </div>
 
                 <div class="form-group col-md-3">
-                    <h6>Atenció </h6>
+                <label for="atencio">Atenció </label><br>
                     <label class="checkbox-inline">
                     <input type="checkbox" value="true" name="checks.2" <%=checkCond(2)%>>AiLL</label>
                     <label class="checkbox-inline">
@@ -116,7 +113,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <h6>Seguiment serveis externs </h6>
+                <label for="seguiment_serveis_externs">Seguiment serveis externs </label><br>
                     <label class="checkbox-inline">
                     <input type="checkbox" value="true" name="checks.5" <%=checkCond(5)%>>EAP</label>
                     <label class="checkbox-inline">
@@ -133,8 +130,8 @@
                     <input type="checkbox" value="true" name="checks.11" <%=checkCond(11)%>>CDIAP</label>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <h6>Seguiment mèdic </h6>
+                <div class="form-group col-md-3">
+                    <label for="seguiment_medic">Seguiment mèdic </label><br>
                     <label class="checkbox-inline">
                     <input type="checkbox" value="true" name="checks.12" <%=checkCond(12)%>>Pediatria</label>
                     <label class="checkbox-inline">
@@ -143,7 +140,7 @@
                     <input type="checkbox" value="true" name="checks.14" <%=checkCond(14)%>>Altres especialitats</label>
                 </div>
 
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <label for="altres_especialitats">Altres especialitats</label>
                     <input type="text" class="form-control" id="altres_especialitats" name="altresEsp" 
                     value = "<%=alumne.altresEsp%>"
@@ -158,43 +155,65 @@
                 </div>
 
                 <div class="form-group col-md-2">
-                      <label for="repeticio">Repetició</label>
-                      <select class="form-control" id="repeticio">
-                        <option>No</option>
-                        <option>Si</option>
-                      </select>
+                      <label for="repeticio">Repetició </label><br>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.1" value="true">Si
+                        </label>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.1" value="null">No
+                        </label>
+                
                 </div>
 
                 <div class="form-group col-md-2">
-                      <label for="beca">Beca</label>
-                      <select class="form-control" id="beca">
-                        <option>No</option>
-                        <option>Si</option>
-                      </select>
+                      <label for="beca">Beca </label><br>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.2" value="true">Si
+                        </label>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.2" value="null">No
+                        </label>
                 </div>
 
                 <div class="form-group col-md-3">
-                      <label for="disminucio">Certificat disminució</label>
-                      <select class="form-control" id="disminucio">
-                        <option>No</option>
-                        <option>Si (indicar %)</option>
-                      </select>
+                      <label for="disminucio">Certificat disminució</label><br>
+                      <label class="radio-inline">
+                        <input type="radio" name="radios.3" value="true">Si
+                        </label>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.3" value="null">No
+                        </label>
+
+                        <input type="text" class="form-control" id="percent_dim" name="percentDim"
+                    value = "" placeholder= "Indicar %">
                 </div>
 
                 <div class="form-group col-md-3">
-                      <label for="dictamen">Dictamen</label>
-                      <select class="form-control" id="dictamen">
-                        <option>No</option>
-                        <option>Si (motiu)</option>
-                      </select>
+                      <label for="dictamen">Dictamen</label><br>
+                      <label class="radio-inline">
+                        <input type="radio" name="radios.3" value="true">Si
+                        </label>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.3" value="null">No
+                        </label>
+
+                        <input type="text" class="form-control" id="percent_dim" name="percentDim"
+                    value = "" placeholder= "Indicar motiu">
+                    
                 </div>
 
                 <div class="form-group col-md-2">
                       <label for="valoracio_eap">Valoració EAP</label>
-                      <select class="form-control" id="valoracio_eap">
-                        <option>No</option>
-                        <option>Si (Any)</option>
-                      </select>
+                       <label class="radio-inline">
+                        <input type="radio" name="radios.3" value="true">Si
+                        </label>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.3" value="null">No
+                        </label>
+
+                        <input type="text" class="form-control" id="percent_dim" name="percentDim"
+                    value = "" placeholder= "Any">
+                    
                 </div>
 
 
