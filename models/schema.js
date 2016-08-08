@@ -23,6 +23,7 @@ module.exports = new mongoose.Schema ({
 
 // ATENCIÓ EE-USEE	
 	checks:[Boolean],
+	radios:[Boolean],
 //	atesA:{
 		aill: Boolean,
 		ee: Boolean,

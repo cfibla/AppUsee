@@ -157,10 +157,10 @@
                 <div class="form-group col-md-2 alturaBox">
                       <label for="repeticio">Repetició</label><br>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.1" value="true">Si
+                        <input type="radio" name="radios.0" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.1" value="null">No
+                        <input type="radio" name="radios.0" value="null">No
                         </label>
                 
                 </div>
@@ -168,20 +168,20 @@
                 <div class="form-group col-md-2 alturaBox">
                       <label for="beca">Beca</label><br>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.2" value="true">Si
+                        <input type="radio" name="radios.1" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.2" value="null">No
+                        <input type="radio" name="radios.1" value="null">No
                         </label>
                 </div>
 
                 <div class="form-group col-md-3 alturaBox">
                       <label for="disminucio">Certificat disminució</label><br>
                       <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="true">Si
+                        <input type="radio" name="radios.2" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="null">No
+                        <input type="radio" name="radios.2" value="null">No
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
@@ -203,12 +203,12 @@
                 </div>
 
                 <div class="form-group col-md-2 alturaBox">
-                      <label for="valoracio_eap">Valoració EAP</label>
+                      <label for="valoracio_eap">Valoració EAP</label><br>
                        <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="true">Si
+                        <input type="radio" name="radios.4" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="null">No
+                        <input type="radio" name="radios.4" value="null">No
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
@@ -243,52 +243,56 @@
             <div id="collapse2" class="panel-collapse collapse">
               <div class="panel-body">
 
-                <div class="form-group col-md-4">
-                  <h6>Programació individualitzada (P.I.) </h6>
+                <div class="form-group col-md-4 alturaBox">
+                <label for="programació_individualitzada">Programació individualitzada (P.I.)</label><br>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">No</label>
+                    <input type="checkbox" value="true" name="checks.15" <%=checkCond(15)%>>No</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Curricular</label>
+                    <input type="checkbox" value="true" name="checks.16" <%=checkCond(16)%>>Curricular</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Metodològic</label>
+                    <input type="checkbox" value="true" name="checks.17" <%=checkCond(17)%>>Metodològica</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Conductual</label>
+                    <input type="checkbox" value="true" name="checks.18" <%=checkCond(18)%>>Conductual</label>
                 </div>
 
-                <div class="form-group col-md-8">
-                  <h6>Àrees adaptades </h6>
+                <div class="form-group col-md-8 alturaBox">
+                <label for="arees_adaptades">Àrees adaptades</label><br>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Català</label>
+                    <input type="checkbox" value="true" name="checks.19" <%=checkCond(19)%>>Català</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Castellà</label>
+                    <input type="checkbox" value="true" name="checks.20" <%=checkCond(20)%>>Castellà</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Matemàtiques</label>
+                    <input type="checkbox" value="true" name="checks.21" <%=checkCond(21)%>>Matemàtiques</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Medi natural</label>
+                    <input type="checkbox" value="true" name="checks.22" <%=checkCond(22)%>>Medi natural</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Medi social</label>
+                    <input type="checkbox" value="true" name="checks.23" <%=checkCond(23)%>>Medi social</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Educació Física</label>
+                    <input type="checkbox" value="true" name="checks.24" <%=checkCond(24)%>>Educació Física</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="">Àrea artística</label>
+                    <input type="checkbox" value="true" name="checks.25" <%=checkCond(25)%>>Àrea artística</label>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-3 alturaBox">
                     <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
-                    <select class="form-control" id="material_diferenciat">
-                      <option>No</option>
-                      <option>Si</option>
-                    </select>
+                    <label class="radio-inline">
+                        <input type="radio" name="radios.4" value="true">Si
+                        </label>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.4" value="null">No
+                    </label>
                 </div>
 
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2 alturaBox">
                     <label for="adequacio_continguts">Adequació de continguts</label>
-                    <select class="form-control" id="adequacio_continguts">
-                      <option>No</option>
-                      <option>Si</option>
-                    </select>
+                    <label class="radio-inline">
+                        <input type="radio" name="radios.5" value="true">Si
+                        </label>
+                        <label class="radio-inline">
+                        <input type="radio" name="radios.5" value="null">No
+                    </label>
                 </div>
 
-                 <div class="form-group col-md-2">
+                 <div class="form-group col-md-2 alturaBox">
                     <label for="full_derivacio">Full de derivació</label>
                     <select class="form-control" id="full_derivacio">
                       <option>No</option>
@@ -296,7 +300,7 @@
                     </select>
                 </div>
 
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2 alturaBox">
                     <label for="qui_fa_derivacio">Qui el fa?</label>
                     <select class="form-control" id="qui_fa_derivacio">
                       <option>Tutor</option>
@@ -305,7 +309,7 @@
                     </select>
                 </div>
 
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-3 alturaBox">
                   <label for="motiu_derivacio">Motiu</label>
                   <input type="text" class="form-control" id="motiu_derivacio" 
                          placeholder="Motiu">
