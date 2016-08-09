@@ -1,9 +1,10 @@
  $(document).ready(function (){
 
-$(":checkbox").change(function () {
+$(":radio").change(function () {
    if($(this).is(':checked')){
 
    	alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
+   	$(this).prop('checked', true);
 
    } else {
 
