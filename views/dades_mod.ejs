@@ -92,7 +92,7 @@
                   %>
 <!--FUNCION RADIOS-->
                 <%function radioCond(id){
-                  var cc='';
+                  var rc='';
                   if (alumne.radios[id] === true) {
                   rc ="checked";
                   } else {
@@ -171,7 +171,7 @@
                         <input type="radio" name="radios.0" value="true" <%=radioCond(0)%>>Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.1" value="true" <%=radioCond(1)%>>No
+                        <input type="radio" name="radios.0" value="false" <%=radioCond(0)%>>No
                         </label>
                 
                 </div>
@@ -189,10 +189,10 @@
                 <div class="form-group col-md-3 alturaBox">
                       <label for="disminucio">Certificat disminució</label><br>
                       <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="true">Si
+                        <input type="radio" name="radios.4" value="true" <%=radioCond(4)%>>Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.5" value="true">No
+                        <input type="radio" name="radios.5" value="true" <%=radioCond(5)%>>No
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
@@ -202,10 +202,10 @@
                 <div class="form-group col-md-3 alturaBox">
                       <label for="dictamen">Dictamen</label><br>
                       <label class="radio-inline">
-                        <input type="radio" name="radios.6" value="true">Si
+                        <input type="radio" name="radios.6" value="true" <%=radioCond(6)%>>Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.7" value="null">No
+                        <input type="radio" name="radios.7" value="null" <%=radioCond(7)%>>No
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
@@ -216,10 +216,10 @@
                 <div class="form-group col-md-2 alturaBox">
                       <label for="valoracio_eap">Valoració EAP</label><br>
                        <label class="radio-inline">
-                        <input type="radio" name="radios.8" value="true">Si
+                        <input type="radio" name="radios.8" value="true" <%=radioCond(8)%>>Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.9" value="null">No
+                        <input type="radio" name="radios.9" value="null" <%=radioCond(9)%>>No
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
