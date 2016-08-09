@@ -90,6 +90,17 @@
                   return cc;
                   }
                   %>
+<!--FUNCION RADIOS-->
+                <%function radioCond(id){
+                  var cc='';
+                  if (alumne.radios[id] === true) {
+                  rc ="checked";
+                  } else {
+                  rc = '';
+                  }
+                  return rc;
+                  }
+                  %>
 
             <div id="collapse3" class="panel-collapse collapse in">
               <div class="panel-body">
@@ -157,10 +168,10 @@
                 <div class="form-group col-md-2 alturaBox">
                       <label for="repeticio">Repetició</label><br>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.0" value="true">Si
+                        <input type="radio" name="radios.0" value="true" <%=radioCond(0)%>>Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.0" value="null">No
+                        <input type="radio" name="radios.1" value="true" <%=radioCond(1)%>>No
                         </label>
                 
                 </div>
@@ -168,20 +179,20 @@
                 <div class="form-group col-md-2 alturaBox">
                       <label for="beca">Beca</label><br>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.1" value="true">Si
+                        <input type="radio" name="radios.2" value="true" <%=radioCond(2)%>>Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.1" value="null">No
+                        <input type="radio" name="radios.3" value="true" <%=radioCond(3)%>>No
                         </label>
                 </div>
 
                 <div class="form-group col-md-3 alturaBox">
                       <label for="disminucio">Certificat disminució</label><br>
                       <label class="radio-inline">
-                        <input type="radio" name="radios.2" value="true">Si
+                        <input type="radio" name="radios.4" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.2" value="null">No
+                        <input type="radio" name="radios.5" value="true">No
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
@@ -191,10 +202,10 @@
                 <div class="form-group col-md-3 alturaBox">
                       <label for="dictamen">Dictamen</label><br>
                       <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="true">Si
+                        <input type="radio" name="radios.6" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="null">No
+                        <input type="radio" name="radios.7" value="null">No
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
@@ -205,10 +216,10 @@
                 <div class="form-group col-md-2 alturaBox">
                       <label for="valoracio_eap">Valoració EAP</label><br>
                        <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="true">Si
+                        <input type="radio" name="radios.8" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="null">No
+                        <input type="radio" name="radios.9" value="null">No
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
@@ -275,20 +286,20 @@
                 <div class="form-group col-md-3 alturaBox">
                     <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
                     <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="true">Si
+                        <input type="radio" name="radios.10" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="null">No
+                        <input type="radio" name="radios.11" value="null">No
                     </label>
                 </div>
 
                 <div class="form-group col-md-2 alturaBox">
                     <label for="adequacio_continguts">Adequació de continguts</label>
                     <label class="radio-inline">
-                        <input type="radio" name="radios.5" value="true">Si
+                        <input type="radio" name="radios.12" value="true">Si
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.5" value="null">No
+                        <input type="radio" name="radios.13" value="null">No
                     </label>
                 </div>
 
