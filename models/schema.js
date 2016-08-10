@@ -31,6 +31,15 @@ module.exports = new mongoose.Schema ({
 	atServPrivats:{
 		type: String
 	},
+	percentDim:{
+		type: Number
+	},
+	motiuDic:{
+		type: String
+	},
+	anyVal:{
+		type: String
+	},
 	derivacio:{
 		type: String
 	}

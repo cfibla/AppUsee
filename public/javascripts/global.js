@@ -1,7 +1,31 @@
 $(document).ready(function (){
 
-$(".derivacio option[value=alumne.derivacio]").prop('selected', true);
-/*$(":radio").change(function () {
+
+$(":radio").change(function () {
+   if($("input:radio[name = radios.2]").val('false')){
+
+   	
+   	$("input:text[name = percentDim]").prop('disabled', true);
+   	$("input:text[name = percentDim]").val('');
+
+   } 
+
+	if($("input:radio[name = radios.3]").val('false')){
+
+   	
+   	$("input:text[name = motiuDic]").prop('disabled', true);
+   	$("input:text[name = motiuDic]").val('');
+
+   } 
+
+
+   // alert('I have been checked');
+ });
+
+
+
+/*
+$(":radio").change(function () {
    if($(this).is(':checked')){
 
    	alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
@@ -18,6 +42,8 @@ $(".derivacio option[value=alumne.derivacio]").prop('selected', true);
 
 
    // alert('I have been checked');
- });*/
+ });
 
-     });
+
+*/
+});
