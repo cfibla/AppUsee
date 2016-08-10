@@ -1,6 +1,6 @@
- $(document).ready(function (){
+$(document).ready(function (){
 
-$("div.derivacio select").val("alumne.derivacio");
+$(".derivacio option[value=alumne.derivacio]").prop('selected', true);
 /*$(":radio").change(function () {
    if($(this).is(':checked')){
 

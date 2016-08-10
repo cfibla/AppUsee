@@ -107,6 +107,31 @@
                   return rf;
                   }
                   %>
+<!--FUNCION OPTION-->
+                <%function tutor(){
+                  var tut='';
+                  if (alumne.derivacio === "tutor") {
+                  tut ="selected";
+                  }
+                  return tut;
+                  }
+
+                  function fam(){
+                  var fa='';
+                  if (alumne.derivacio === "familia") {
+                  fa ="selected";
+                  }
+                  return fa;
+                  }
+
+                  function aD(){
+                  var atd='';
+                  if (alumne.derivacio === "atDiv") {
+                  atd ="selected";
+                  }
+                  return atd;
+                  }
+                  %>
 
             <div id="collapse3" class="panel-collapse collapse in">
               <div class="panel-body">
@@ -323,9 +348,10 @@
                 <div class="form-group col-md-2 alturaBox" id="derivacio">
                     <label for="qui_fa_derivacio">Qui el fa?</label>
                     <select class="form-control" id="qui_fa_derivacio" name="derivacio">
-                      <option value="tutor">Tutor</option>
-                      <option value="familia">Família</option>
-                      <option value="atDiv">Atenció a la diversitat</option>
+                      <option value="">Seleccioneu</option>
+                      <option value="tutor" <%=tutor()%>>Tutor</option>
+                      <option value="familia" <%=fam()%>>Família</option>
+                      <option value="atDiv" <%=aD()%>>Atenció a la diversitat</option>
                     </select>
                 </div>
 
