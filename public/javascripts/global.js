@@ -1,6 +1,7 @@
  $(document).ready(function (){
 
-$(":radio").change(function () {
+$("div.derivacio select").val("alumne.derivacio");
+/*$(":radio").change(function () {
    if($(this).is(':checked')){
 
    	alert("El checkbox con valor " + $(this).val() + " ha sido seleccionado");
@@ -17,6 +18,6 @@ $(":radio").change(function () {
 
 
    // alert('I have been checked');
- });
+ });*/
 
      });

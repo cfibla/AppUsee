@@ -21,35 +21,9 @@ module.exports = new mongoose.Schema ({
 	},
 
 
-// ATENCIÓ EE-USEE	
 	checks:[Boolean],
 	radios:[Boolean],
-//	atesA:{
-		aill: Boolean,
-		ee: Boolean,
-		usee: Boolean,
-//	},
-//	segServExt:{
-		eap: Boolean,
-		tseap: Boolean,
-		credag: Boolean,
-		credv: Boolean,
-		csmij: Boolean,
-		sdtic: Boolean,
-		cdiap: Boolean,
-//	},
-//	segMedic:{
-		ped: Boolean,
-		neuroped: Boolean,
-		altres: Boolean,
 
-	
-	repeticio: Boolean,
-	beca: Boolean,
-	certDim: Boolean,
-	dictamen: Boolean,
-	valEap: Boolean,
-//	},
 
 	altresEsp:{
 		type: String
@@ -57,6 +31,9 @@ module.exports = new mongoose.Schema ({
 	atServPrivats:{
 		type: String
 	},
+	derivacio:{
+		type: String
+	}
 
 
 })
