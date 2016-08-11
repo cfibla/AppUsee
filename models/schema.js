@@ -32,7 +32,7 @@ module.exports = new mongoose.Schema ({
 		type: String
 	},
 	percentDim:{
-		type: Number
+		type: String
 	},
 	motiuDic:{
 		type: String

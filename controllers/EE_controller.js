@@ -70,7 +70,7 @@ exports.update = function (req, res){
 	
 
 	
-	models.Alumne.findByIdAndUpdate({_id: alumneId}, {$set:{ checks:[], radios:[]}}, function(error, alumne){
+	models.Alumne.findByIdAndUpdate({_id: alumneId}, {$set:{ checks:[], radios:[], percentDim:'null'}}, function(error, alumne){
 		if (error){
 			return res.json(error);
 		} 

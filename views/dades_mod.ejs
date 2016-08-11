@@ -231,7 +231,7 @@
                       <label for="disminucio">Certificat disminució</label><br>
                         <label class="radio-inline">
                         <input type="radio" name="radios.2" value="false" <%=radioFalse(2)%>
-                        onclick="percentDim.disabled = true">No
+                        onclick="percentDim.disabled = true; percentDim.value = ''">No
                         </label>
                         <label class="radio-inline">
                         <input type="radio" name="radios.2" value="true" <%=radioTrue(2)%>
@@ -365,7 +365,7 @@
 
                 <div class="form-group col-md-2 alturaBox" id="derivacio">
                     <label for="qui_fa_derivacio">Qui el fa?</label>
-                    <select class="form-control" id="qui_fa_derivacio" name="derivacio"  <%=inputRadios(7)%>>
+                    <select class="form-control" id="qui_fa_derivacio" name="derivacio" <%=inputRadios(7)%>>
                       <option value="">Seleccioneu</option>
                       <option value="tutor" <%=tutor()%>>Tutor</option>
                       <option value="familia" <%=fam()%>>Família</option>
@@ -376,7 +376,7 @@
                 <div class="form-group col-md-3 alturaBox">
                   <label for="motiu_derivacio">Motiu</label>
                   <input type="text" class="form-control" id="motiu_derivacio"  name="motiuDer"
-                    val="<%=alumne.motiuDer||''%>" placeholder="Motiu"  <%=inputRadios(7)%>>
+                    value="<%=alumne.motiuDer||''%>" placeholder="Motiu" <%=inputRadios(7)%>>
                 </div>
               </div>
             </div>
@@ -443,8 +443,8 @@
   <script src="http://code.jquery.com/jquery.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  
 
-<!-- Todos los plugins JavaScript de Bootstrap (también puedes-->
+<!-- Todos los plugins JavaScript de Bootstrap (también puedes
          incluir archivos JavaScript individuales de los únicos
-         plugins que utilices) 
+         plugins que utilices) -->
   <script src="/stylesheets/js/bootstrap.min.js"></script>
 
