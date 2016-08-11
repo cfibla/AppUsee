@@ -1,11 +1,11 @@
 $(document).ready(function (){
 
 
-$(":radio").change(function () {
-   if($("input:radio[name = radios.2]").val('false')){
+//$(":radio").change(function () {
+   if($("input:radio[name = radios.2]").val('true')){
 
    	
-   	$("input:text[name = percentDim]").prop('disabled', true);
+   	$("input:text[name = percentDim]").prop('disabled', false);
    	$("input:text[name = percentDim]").val('');
 
    } 
@@ -20,7 +20,7 @@ $(":radio").change(function () {
 
 
    // alert('I have been checked');
- });
+ //});
 
 
 
