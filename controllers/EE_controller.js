@@ -76,7 +76,9 @@ exports.update = function (req, res){
 										radios:[],
 										percentDim:'',
 										motiuDic:'',
-										anyVal:''
+										anyVal:'',
+										derivacio:'',
+										motiuDer:''
 									}
 									}, function(error, alumne){
 										if (error){
