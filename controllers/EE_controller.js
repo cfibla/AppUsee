@@ -70,11 +70,15 @@ exports.update = function (req, res){
 	
 
 	
-	models.Alumne.findByIdAndUpdate({_id: alumneId}, {$set:{ checks:[], radios:[], percentDim:''}}, function(error, alumne){
-		if (error){
-			return res.json(error);
-		} 
-		});
+	models.Alumne.findByIdAndUpdate({_id: alumneId},
+									{$set:{ checks:[],
+										radios:[],
+										percentDim:''}
+									}, function(error, alumne){
+										if (error){
+											return res.json(error);
+										} 
+										});
 
 	delete alum.id;
 	delete alum._id;
