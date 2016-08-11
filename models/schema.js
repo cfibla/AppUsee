@@ -45,7 +45,11 @@ module.exports = new mongoose.Schema ({
 	},
 	motiuDer:{
 		type: String
-	}
+	},
+	actuacions: [{ body: String, date: Date }],
+	informacioCAD:  [{ body: String, date: Date }],
+	altresCoord:  [{ body: String, date: Date }],
+  	date: { type: Date, default: Date.now }
 
 
 })
