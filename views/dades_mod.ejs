@@ -354,7 +354,10 @@
                     <label for="full_derivacio">Full de derivació</label><br>
                       <label class="radio-inline">
                       <input type="radio" name="radios.7" value="false" <%=radioFalse(7)%>
-                      onclick="derivacio.disabled = true; motiuDer.disabled = true">No
+                      onclick="derivacio.disabled = true;
+                      motiuDer.disabled = true;
+                      derivacio.value = '';
+                      motiuDer.value = ''">No
                       </label>
                       <label class="radio-inline">
                       <input type="radio" name="radios.7" value="true" <%=radioTrue(7)%>
@@ -384,6 +387,7 @@
         </div>
       </div>
     </div>
+
 <!-- SEGUIMENT ALUMNE -->
     <div class="container">
       <div class="row">
