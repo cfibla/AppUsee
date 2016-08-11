@@ -1,7 +1,7 @@
 $(document).ready(function (){
 
 
-//$(":radio").change(function () {
+$(":radio").change(function () {
    if($("input:radio[name = radios.2]").val('true')){
 
    	
@@ -20,7 +20,7 @@ $(document).ready(function (){
 
 
    // alert('I have been checked');
- //});
+ });
 
 
 

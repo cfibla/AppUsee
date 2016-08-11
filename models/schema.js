@@ -42,6 +42,9 @@ module.exports = new mongoose.Schema ({
 	},
 	derivacio:{
 		type: String
+	},
+	motiuDer:{
+		type: String
 	}
 
 

@@ -106,6 +106,16 @@
                   }
                   return rf;
                   }
+
+                  function inputRadios(id){
+                  var ir='';
+                  if (alumne.radios[id] === true) {
+                  ir ='';
+                  } else {
+                  var ir='disabled';
+                  }
+                  return ir;
+                  }
                   %>
 <!--FUNCION OPTION-->
                 <%function tutor(){
@@ -185,14 +195,14 @@
                 <div class="form-group col-md-3 alturaBox">
                     <label for="altres_especialitats">Altres especialitats</label>
                     <input type="text" class="form-control" id="altres_especialitats" name="altresEsp" 
-                    value = "<%=alumne.altresEsp%>"
+                    value = "<%=alumne.altresEsp||''%>"
                     placeholder= "Altres especialitats">
                 </div>
           
                 <div class="form-group col-md-6 alturaBox">
                     <label for="serveis_privats">Atenció serveis privats</label>
                     <input type="text" class="form-control" id="serveis_privats" name="atServPrivats"
-                    value = "<%=alumne.atServPrivats%>"
+                    value = "<%=alumne.atServPrivats||''%>"
                     placeholder= "Atenció serveis privats">
                 </div>
 
@@ -229,34 +239,38 @@
                         </label>
 
                         <input type="text" class="form-control" id="percent_dim" name="percentDim"
-                    value = "" placeholder= "Indicar %" disabled>
+                    value = "<%=alumne.percentDim||''%>" placeholder= "Indicar %" <%=inputRadios(2)%>>
                 </div>
 
                 <div class="form-group col-md-3 alturaBox">
                       <label for="dictamen">Dictamen</label><br>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="false" <%=radioFalse(3)%>>No
+                        <input type="radio" name="radios.3" value="false" <%=radioFalse(3)%>
+                        onclick="motiuDic.disabled = true">No
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="true" <%=radioTrue(3)%>>Si
+                        <input type="radio" name="radios.3" value="true" <%=radioTrue(3)%>
+                        onclick="motiuDic.disabled = false">Si
                         </label>
 
                         <input type="text" class="form-control" id="motiu_dic" name="motiuDic"
-                    value = "" placeholder= "Indicar motiu">
+                    value = "<%=alumne.motiuDic||''%>" placeholder= "Indicar motiu" <%=inputRadios(3)%>>
                     
                 </div>
 
                 <div class="form-group col-md-2 alturaBox">
                       <label for="valoracio_eap">Valoració EAP</label><br>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="false" <%=radioFalse(4)%>>No
+                        <input type="radio" name="radios.4" value="false" <%=radioFalse(4)%>
+                        onclick="anyVal.disabled = true">No
                         </label>
                         <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="true" <%=radioTrue(4)%>>Si
+                        <input type="radio" name="radios.4" value="true" <%=radioTrue(4)%>
+                        onclick="anyVal.disabled = false">Si
                         </label>
 
                         <input type="text" class="form-control" id="any_val" name="anyVal"
-                    value = "" placeholder= "Any">
+                    value = "<%=alumne.anyVal||''%>" placeholder= "Any"  <%=inputRadios(4)%>>
                     
                 </div>
 
@@ -339,17 +353,19 @@
                  <div class="form-group col-md-2 alturaBox">
                     <label for="full_derivacio">Full de derivació</label><br>
                       <label class="radio-inline">
-                      <input type="radio" name="radios.7" value="false" <%=radioFalse(7)%>>No
+                      <input type="radio" name="radios.7" value="false" <%=radioFalse(7)%>
+                      onclick="derivacio.disabled = true; motiuDer.disabled = true">No
                       </label>
                       <label class="radio-inline">
-                      <input type="radio" name="radios.7" value="true" <%=radioTrue(7)%>>Si
+                      <input type="radio" name="radios.7" value="true" <%=radioTrue(7)%>
+                      onclick="derivacio.disabled = false; motiuDer.disabled = false">Si
                       </label>
                     
                 </div>
 
                 <div class="form-group col-md-2 alturaBox" id="derivacio">
                     <label for="qui_fa_derivacio">Qui el fa?</label>
-                    <select class="form-control" id="qui_fa_derivacio" name="derivacio">
+                    <select class="form-control" id="qui_fa_derivacio" name="derivacio"  <%=inputRadios(7)%>>
                       <option value="">Seleccioneu</option>
                       <option value="tutor" <%=tutor()%>>Tutor</option>
                       <option value="familia" <%=fam()%>>Família</option>
@@ -359,8 +375,8 @@
 
                 <div class="form-group col-md-3 alturaBox">
                   <label for="motiu_derivacio">Motiu</label>
-                  <input type="text" class="form-control" id="motiu_derivacio" 
-                         placeholder="Motiu">
+                  <input type="text" class="form-control" id="motiu_derivacio"  name="motiuDer"
+                    val="<%=alumne.motiuDer||''%>" placeholder="Motiu"  <%=inputRadios(7)%>>
                 </div>
               </div>
             </div>
@@ -418,7 +434,7 @@
    
     
 <!-- Fichero externo con JS y jQuery -->
-<script src="/javascripts/global.js"></script>
+<!--<script src="/javascripts/global.js"></script>-->
 
 
 
