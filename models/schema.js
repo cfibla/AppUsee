@@ -48,10 +48,11 @@ module.exports = new mongoose.Schema ({
 	},
 
 	//SEGUIMENT
-	actuacions: [{ body: String, date: Date }],
-	informacioCAD:  [{ body: String, date: Date }],
-	altresCoord:  [{ body: String, date: Date }],
-  	date: { type: Date, default: Date.now }
+	date: { type: Date, default: Date.now }
 
+	segActuacions: [{ date: Date, body: String }],
+	segInformacioCAD: [{ date: Date, body: String }],
+	segAltresCoord: [{ date: Date, body: String }],
+  	
 
 })
