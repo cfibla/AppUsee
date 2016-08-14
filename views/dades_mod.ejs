@@ -409,9 +409,16 @@
                              placeholder="2015/16">
                   </div>
 
-                  <div class="form-group col-md-12">
-                      <label for="actuacions">Actuacions</label>
-                      <textarea class="form-control" rows="3" id="actuacions"></textarea>
+                  <div class="row">
+                      <div class="form-group col-md-12">
+                      <label for="actuacions">Actuacions</label><br>
+                      </div>
+                      <div class="form-group col-md-3">
+                      <input type="text" class="form-control" id="actuacions" value="<%=alumne.segActuacions[0].date%>">
+                      </div>
+                      <div class="form-group col-md-12">
+                      <textarea class="form-control" rows="3" id="actuacions" name="segActuacions[0].body"></textarea>
+                      </div>
                   </div>
 
                   <div class="form-group col-md-12">
