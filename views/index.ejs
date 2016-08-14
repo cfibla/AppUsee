@@ -18,16 +18,31 @@
       </tr>
     </thead>
     <tbody>
-      <% var i; for (i=0; i < Alumnes.length; i++) { %>
+      <% var i; for (i=0; i < Alumnes.length; i++) {
+      //Format data naixement
+      var dataNa = Alumnes[i].dataNaixement;
+                var dd = dataNa.getDate();
+                var mm = dataNa.getMonth()+1; //January is 0!
+                var yyyy = dataNa.getFullYear();
+                if(dd<10) {
+                    dd='0'+dd
+                    } 
+                if(mm<10) {
+                    mm='0'+mm
+                    } 
+                dataNa = dd+'/'+mm+'/'+yyyy;
+      %>
       <tr>
       <td><%=Alumnes[i].nomAlumne%></td>
       <td><%=Alumnes[i].cognomAlumne1%></td>
       <td><%=Alumnes[i].cognomAlumne2%></td>
-      <td><%=Alumnes[i].dataNaixement%></td>
+      <td><%=dataNa%></td>
       <td><%=Alumnes[i].seguretatSoc%></td>
       <td>
+      
       <a href="/dades_mod/<%=Alumnes[i].id%>" class="btn btn-primary btn-sm" role="button">Modifica</a>
-      <a href="/dades_supr/<%=Alumnes[i].id%>" class="btn btn-danger btn-sm" role="button">Esborra</a>
+      <a href="/dades_supr/<%=Alumnes[i].id%>" class="btn btn-danger btn-sm" role="button"
+      onclick="">Esborra</a>
       </td>
 
      <% }; %><% } %>
