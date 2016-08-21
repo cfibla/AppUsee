@@ -431,16 +431,17 @@
               </div>
               <div id="collapse1" class="panel-collapse collapse">
                 <div class="panel-body">
-                  <div class="form-group col-md-10"></div>
+<!--              <div class="form-group col-md-10"></div>
                   <div class="form-group col-md-2">
                       <label for="any_curs">Curs</label>
                       <input type="text" class="form-control" id="any_curs" 
                              placeholder="2015/16">
-                  </div>
+                  </div>-->
 
                   <div class="row">
 
-                  <!--Quantes actuacions hi ha ara?-->
+
+                  <!--var Quantes actuacions hi ha ara?-->
                   <%var actuArray = alumne.segActuacions.length;%>
 
                       <div class="form-group col-md-12">
@@ -448,26 +449,20 @@
                       </div>
 
 
-                    <div class="form-group col-md-12 actuPast" id="actuacions">
+                  <!--Actuacions anteriors-->
+                  <div class="form-group col-md-12 actuPast" id="actuacions">
 
+                    <%for (i = 0; i < alumne.segActuacions.length; i++) { %>
 
-                  <%
-                  for (i = 0; i < alumne.segActuacions.length; i++) { %>
-
-                    <!--  <div class="form-group col-md-2 dataSeguiment">
-                      <input type="text" class="form-control" id="actuacions" value="<%=alumne.segActuacions[i].date%>" disabled>
-                      </div>-->
-                    <!--  <div class="form-group col-md-12">-->
-                    
                       <%=alumne.segActuacions[i].date%><br />
                       <%=alumne.segActuacions[i].body%><br /><br />
-                    
-                    <!--  </div>-->
+ 
+                    <% } %>
 
-                  <% } %>
+                  </div>
 
-                    </div>
 
+                  <!--Nova actuació-->
                       <div class="form-group col-md-2 dataSeguiment">
                       <input type="text" class="form-control" id="actuacions" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
                       </div>
