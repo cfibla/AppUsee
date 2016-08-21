@@ -45,6 +45,7 @@ a:hover{
 .alturaBox{
      height: 5em;
 }
-.dataSeguiment {
-    text-align: center;
+.actuPast {
+    max-height: 15em;
+    overflow: auto;
 }

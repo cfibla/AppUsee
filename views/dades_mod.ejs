@@ -447,19 +447,26 @@
                       <label for="actuacions">Actuacions</label><br>
                       </div>
 
-                      <%
-                      for (i = 0; i < alumne.segActuacions.length; i++) { %>
-    
-                      
 
-                      <div class="form-group col-md-2 dataSeguiment">
+                    <div class="form-group col-md-12 actuPast" id="actuacions">
+
+
+                  <%
+                  for (i = 0; i < alumne.segActuacions.length; i++) { %>
+
+                    <!--  <div class="form-group col-md-2 dataSeguiment">
                       <input type="text" class="form-control" id="actuacions" value="<%=alumne.segActuacions[i].date%>" disabled>
-                      </div>
-                      <div class="form-group col-md-12">
-                      <textarea class="form-control" rows="6" id="actuacions"  form="alumne_dades" disabled><%=alumne.segActuacions[i].body%></textarea>
-                      </div>
+                      </div>-->
+                    <!--  <div class="form-group col-md-12">-->
+                    
+                      <%=alumne.segActuacions[i].date%><br />
+                      <%=alumne.segActuacions[i].body%><br /><br />
+                    
+                    <!--  </div>-->
 
-                      <% } %>
+                  <% } %>
+
+                    </div>
 
                       <div class="form-group col-md-2 dataSeguiment">
                       <input type="text" class="form-control" id="actuacions" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
