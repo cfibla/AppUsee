@@ -79,13 +79,13 @@ exports.update = function (req, res){
 									{
 										checks:[],
 										radios:[],
-										altresEsp:'',
-										atServPrivats:'',
-										percentDim:'',
-										motiuDic:'',
-										anyVal:'',
-										derivacio:'',
-										motiuDer:'',
+									//	altresEsp:'',
+									//	atServPrivats:'',
+									//	percentDim:'',
+									//	motiuDic:'',
+									//	anyVal:'',
+									//	derivacio:'',
+									//	motiuDer:'',
 										
 									
 									}, function(error, alumne){
