@@ -77,15 +77,15 @@ exports.update = function (req, res){
 	
 	models.Alumne.findByIdAndUpdate({_id: alumneId},
 									{
-										checks:[],
-										radios:[],
-									//	altresEsp:'',
-									//	atServPrivats:'',
-									//	percentDim:'',
-									//	motiuDic:'',
-									//	anyVal:'',
-									//	derivacio:'',
-									//	motiuDer:'',
+										checks:[''],
+										radios:[''],
+										altresEsp:'',
+										atServPrivats:'',
+										percentDim:'',
+										motiuDic:'',
+										anyVal:'',
+										derivacio:'',
+										motiuDer:'',
 										
 									
 									}, function(error, alumne){
