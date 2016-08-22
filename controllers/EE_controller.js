@@ -81,15 +81,6 @@ exports.update = function (req, res){
 										anyVal:'',
 										derivacio:'',
 										motiuDer:'',
-										{$set:{
-												segActuacions.body:[],
-												segActuacions.date:[],
-												segInformacioCAD.body:[],
-												segInformacioCAD.date:[],
-												segAltresCoord.body:[],
-												segAltresCoord.date:[]
-										}
-									}
 										
 									
 									}, function(error, alumne){
@@ -100,6 +91,13 @@ exports.update = function (req, res){
 
 	delete alum.id;
 	delete alum._id;
+	alum.segActuacions.body = [];
+	alum.segActuacions.date = [];
+	alum.segInformacioCAD.body = [];
+	alum.segInformacioCAD.date = [];
+	alum.segAltresCoord.body = [];
+	alum.segAltresCoord.date = [];
+										
 
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
