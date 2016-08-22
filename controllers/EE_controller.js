@@ -74,6 +74,8 @@ exports.update = function (req, res){
 									{$set:{
 										checks:[],
 										radios:[],
+										altresEsp:'',
+										atServPrivats:'',
 										percentDim:'',
 										motiuDic:'',
 										anyVal:'',
@@ -94,6 +96,8 @@ exports.update = function (req, res){
 							{$set:{
 										checks: [alum.checks],
 										radios: [alum.radios],
+										altresEsp: alum.altresEsp,
+										atServPrivats: alum.atServPrivats,
 										percentDim: alum.percentDim,
 										motiuDic: alum.motiuDic,
 										anyVal: alum.anyVal,
