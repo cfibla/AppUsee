@@ -97,7 +97,7 @@ exports.update = function (req, res){
 	delete alum._id;
 	
 
-	models.Alumne.findByIdAndUpdate(alumneId, {$pushAll: {checks:[alum.checks]}},
+	models.Alumne.findByIdAndUpdate(alumneId,
 									{
 										
 										altresEsp: alum.altresEsp,
@@ -107,6 +107,7 @@ exports.update = function (req, res){
 										anyVal: alum.anyVal,
 										derivacio: alum.derivacio,
 										motiuDer: alum.motiuDer,
+										{$pushAll: {checks:[alum.checks]}}
 										
 									
 									}, {new: true, safe: true, upsert: true},
