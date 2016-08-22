@@ -99,7 +99,7 @@ exports.update = function (req, res){
 
 	models.Alumne.findByIdAndUpdate(alumneId,
 									{
-										$push: {"checks":alum},
+										$push: {"checks":[alum]},
 										altresEsp: alum.altresEsp,
 										atServPrivats: alum.atServPrivats,
 										percentDim: alum.percentDim,
@@ -110,7 +110,7 @@ exports.update = function (req, res){
 
 										
 									
-									}, {new: true, safe: true, upsert: true},
+									}, {multi:true, new: true, safe: true, upsert: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
