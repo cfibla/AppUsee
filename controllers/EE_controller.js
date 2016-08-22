@@ -67,7 +67,7 @@ exports.update = function (req, res){
 	
 	var alumneId = req.params.id;
 	var alum = req.body;
-	console.log(alum);
+	//console.log(alum);
 
 	//alum.segActuacions = [];
 	//alum.segInformacioCAD = [];
