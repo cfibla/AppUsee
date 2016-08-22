@@ -80,7 +80,14 @@ exports.update = function (req, res){
 										motiuDic:'',
 										anyVal:'',
 										derivacio:'',
-										motiuDer:''
+										motiuDer:'',
+										segActuacions.body:[],
+										segActuacions.date:[],
+										segInformacioCAD.body:[],
+										segInformacioCAD.date:[],
+										segAltresCoord.body:[],
+										segAltresCoord.date:[]
+										
 									
 									}, function(error, alumne){
 										if (error){
@@ -90,9 +97,6 @@ exports.update = function (req, res){
 
 	delete alum.id;
 	delete alum._id;
-	delete alum.segActuacions;
-	delete alum.segInformacioCAD;
-	delete alum.segAltresCoord;
 
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
