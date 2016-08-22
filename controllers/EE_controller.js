@@ -99,7 +99,8 @@ exports.update = function (req, res){
 										anyVal: alum.anyVal,
 										derivacio: alum.derivacio,
 										motiuDer: alum.motiuDer
-									}, {new: true, safe: true, upsert: true},
+									}
+							}, {new: true, safe: true, upsert: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
