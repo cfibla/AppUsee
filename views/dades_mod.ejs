@@ -431,6 +431,7 @@
               </div>
               <div id="collapse1" class="panel-collapse collapse">
                 <div class="panel-body">
+
 <!--              <div class="form-group col-md-10"></div>
                   <div class="form-group col-md-2">
                       <label for="any_curs">Curs</label>
@@ -438,14 +439,15 @@
                              placeholder="2015/16">
                   </div>-->
 
-                  <div class="row">
+                  <!--ACTUACIONS-->
 
+                  <div class="row">
 
                   <!--var Quantes actuacions hi ha ara?-->
                   <%var actuArray = alumne.segActuacions.length;%>
 
                       <div class="form-group col-md-12">
-                      <label for="actuacions">Actuacions</label><br>
+                      <label for="actuacions">ACTUACIONS</label><br>
                       </div>
 
 
@@ -471,14 +473,72 @@
                       </div>
                   </div>
 
-                  <div class="form-group col-md-12">
-                      <label for="informacio_cad">Informació CAD seguiment</label>
-                      <textarea class="form-control" rows="3" id="informacio_cad"></textarea>
+
+                  <!--INFORMACIÓ CAD-->
+                  <div class="row">
+
+                  <!--var Quantes actuacions hi ha ara?-->
+                  <%var cadArray = alumne.segInformacioCAD.length;%>
+
+                      <div class="form-group col-md-12">
+                      <label for="infoCAD">INFORMACIÓ CAD</label><br>
+                      </div>
+
+
+                  <!--infoCAD anteriors-->
+                  <div class="form-group col-md-12 actuPast" id="infoCAD">
+
+                    <%for (i = 0; i < alumne.segInformacioCAD.length; i++) { %>
+
+                      <%=alumne.segInformacioCAD[i].date%><br />
+                      <%=alumne.segInformacioCAD[i].body%><br /><br />
+ 
+                    <% } %>
+
                   </div>
 
-                  <div class="form-group col-md-12">
-                      <label for="altres_coord">Altres coordinacions / Coordinacions amb tutors</label>
-                      <textarea class="form-control" rows="3" id="altres_coord"></textarea>
+
+                  <!--Nova actuació-->
+                      <div class="form-group col-md-2 dataSeguiment">
+                      <input type="text" class="form-control" id="infoCAD" value="<%=today%>" name="segInformacioCAD.<%=cadArray%>.date">
+                      </div>
+                      <div class="form-group col-md-12">
+                      <textarea class="form-control" rows="6" id="infoCAD" name="segInformacioCAD.<%=cadArray%>.body" form="alumne_dades"></textarea>
+                      </div>
+                  </div>
+
+
+                  <!--ALTRES COORD - AMB TUTORS-->
+                  <div class="row">
+
+                  <!--var Quantes actuacions hi ha ara?-->
+                  <%var altresArray = alumne.segAltresCoord.length;%>
+
+                      <div class="form-group col-md-12">
+                      <label for="altresCoord">ALTRES COORDINACIONS - COORDINACIONS AMB TUTORS</label><br>
+                      </div>
+
+
+                  <!--altresCoord anteriors-->
+                  <div class="form-group col-md-12 actuPast" id="altresCoord">
+
+                    <%for (i = 0; i < alumne.segAltresCoord.length; i++) { %>
+
+                      <%=alumne.segAltresCoord[i].date%><br />
+                      <%=alumne.segAltresCoord[i].body%><br /><br />
+ 
+                    <% } %>
+
+                  </div>
+
+
+                  <!--Nova actuació-->
+                      <div class="form-group col-md-2 dataSeguiment">
+                      <input type="text" class="form-control" id="altresCoord" value="<%=today%>" name="segAltresCoord.<%=altresArray%>.date">
+                      </div>
+                      <div class="form-group col-md-12">
+                      <textarea class="form-control" rows="6" id="altresCoord" name="segAltresCoord.<%=altresArray%>.body" form="alumne_dades"></textarea>
+                      </div>
                   </div>
                 </div>
               </div>
