@@ -101,7 +101,7 @@ exports.update = function (req, res){
 	models.Alumne.findByIdAndUpdate(alumneId,
 									{
 										$set: {
-											"checks":['alum.checks'] },
+											"checks":['alum.checks[0]'] },
 										altresEsp: alum.altresEsp,
 										atServPrivats: alum.atServPrivats,
 										percentDim: alum.percentDim,
