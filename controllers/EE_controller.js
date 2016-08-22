@@ -68,6 +68,10 @@ exports.update = function (req, res){
 	var alumneId = req.params.id;
 	var alum = req.body;
 	
+	alum.segActuacions = [];
+	alum.segInformacioCAD = [];
+	alum.segAltresCoord = [];
+	
 
 	
 	models.Alumne.findByIdAndUpdate({_id: alumneId},
@@ -91,9 +95,7 @@ exports.update = function (req, res){
 
 	delete alum.id;
 	delete alum._id;
-	alum.segActuacions = [];
-	alum.segInformacioCAD = [];
-	alum.segAltresCoord = [];
+	
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 
