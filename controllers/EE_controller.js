@@ -81,12 +81,15 @@ exports.update = function (req, res){
 										anyVal:'',
 										derivacio:'',
 										motiuDer:'',
-										segActuacions.body:[],
-										segActuacions.date:[],
-										segInformacioCAD.body:[],
-										segInformacioCAD.date:[],
-										segAltresCoord.body:[],
-										segAltresCoord.date:[]
+										{$set:{
+												segActuacions.body:[],
+												segActuacions.date:[],
+												segInformacioCAD.body:[],
+												segInformacioCAD.date:[],
+												segAltresCoord.body:[],
+												segAltresCoord.date:[]
+										}
+									}
 										
 									
 									}, function(error, alumne){
