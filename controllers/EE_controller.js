@@ -107,7 +107,7 @@ exports.update = function (req, res){
 										anyVal: alum.anyVal,
 										derivacio: alum.derivacio,
 										motiuDer: alum.motiuDer,
-										{$pushAll: {checks:[alum.checks]}}
+										$pushAll: {checks:[alum.checks]}
 										
 									
 									}, {new: true, safe: true, upsert: true},
