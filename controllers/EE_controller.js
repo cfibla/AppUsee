@@ -76,7 +76,7 @@ exports.update = function (req, res){
 
 	
 	models.Alumne.findByIdAndUpdate({_id: alumneId},
-									{$set:{
+									{'$set':{
 										'checks':[],
 										'radios':[]},
 										altresEsp:'',
