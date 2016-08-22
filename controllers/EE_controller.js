@@ -87,18 +87,13 @@ exports.update = function (req, res){
 										if (error){
 											return res.json(error);
 										} 
-										});
+									});
 
 	delete alum.id;
 	delete alum._id;
-	alum.segActuacions.body = [];
-	alum.segActuacions.date = [];
-	alum.segInformacioCAD.body = [];
-	alum.segInformacioCAD.date = [];
-	alum.segAltresCoord.body = [];
-	alum.segAltresCoord.date = [];
-										
-
+	alum.segActuacions = [];
+	alum.segInformacioCAD = [];
+	alum.segAltresCoord = [];
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 
