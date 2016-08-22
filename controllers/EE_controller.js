@@ -101,13 +101,13 @@ exports.update = function (req, res){
 									{
 										checks:[alum.checks],
 										radios:[alum.radios],
-										altresEsp:alum.altresEsp,
-										atServPrivats:'alum.atServPrivats',
-										percentDim:'alum.percentDim',
-										motiuDic:'alum.motiuDic',
-										anyVal:'alum.anyVal',
-										derivacio:'alum.derivacio',
-										motiuDer:'alum.motiuDer',
+										altresEsp: alum.altresEsp,
+										atServPrivats: alum.atServPrivats,
+										percentDim: alum.percentDim,
+										motiuDic: alum.motiuDic,
+										anyVal: alum.anyVal,
+										derivacio: alum.derivacio,
+										motiuDer: alum.motiuDer,
 										
 									
 									}, {new: true, safe: true, upsert: true},
