@@ -69,11 +69,6 @@ exports.update = function (req, res){
 	var alum = req.body;
 	console.log(alum);
 
-	//alum.segActuacions = [];
-	//alum.segInformacioCAD = [];
-	//alum.segAltresCoord = [];
-	
-
 	
 	models.Alumne.findByIdAndUpdate(alumneId,
 									{$set:{
@@ -96,61 +91,12 @@ exports.update = function (req, res){
 
 	delete alum.id;
 	delete alum._id;
+	//alum.segActuacions = [];
+	//alum.segInformacioCAD = [];
+	//alum.segAltresCoord = [];
 	
 
-	models.Alumne.findByIdAndUpdate(alumneId,
-									{
-										$set: {
-										"checks":[
-										'alum.checks[0]',
-										'alum.checks[1]',
-										'alum.checks[2]',
-										'alum.checks[3]',
-										'alum.checks[4]',
-										'alum.checks[5]',
-										'alum.checks[6]',
-										'alum.checks[7]',
-										'alum.checks[8]',
-										'alum.checks[9]',
-										'alum.checks[10]',
-										'alum.checks[11]',
-										'alum.checks[12]',
-										'alum.checks[13]',
-										'alum.checks[14]',
-										'alum.checks[15]',
-										'alum.checks[16]',
-										'alum.checks[17]',
-										'alum.checks[18]',
-										'alum.checks[19]',
-										'alum.checks[20]',
-										'alum.checks[21]',
-										'alum.checks[22]',
-										'alum.checks[23]',
-										'alum.checks[24]',
-										'alum.checks[25]',
-										],
-										"radios":[
-										'alum.radios[0]',
-										'alum.radios[1]',
-										'alum.radios[2]',
-										'alum.radios[3]',
-										'alum.radios[4]',
-										'alum.radios[5]',
-										'alum.radios[6]',
-										'alum.radios[7]',
-
-										] },
-										altresEsp: alum.altresEsp,
-										atServPrivats: alum.atServPrivats,
-										percentDim: alum.percentDim,
-										motiuDic: alum.motiuDic,
-										anyVal: alum.anyVal,
-										derivacio: alum.derivacio,
-										motiuDer: alum.motiuDer,
-
-										
-									
-									}, {multi:true, new: true, safe: true, upsert: true},
+	models.Alumne.findByIdAndUpdate(alumneId, alum, {multi:true, new: true, safe: true, upsert: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
