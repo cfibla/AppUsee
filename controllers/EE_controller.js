@@ -72,7 +72,7 @@ exports.update = function (req, res){
 	delete alum.segInformacioCAD;
 	delete alum.segAltresCoord;
 
-	console.log(alumeId);
+	console.log(alumneId);
 	console.log(alum);
 
 	
