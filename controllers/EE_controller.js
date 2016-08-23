@@ -96,7 +96,7 @@ exports.update = function (req, res){
 	//delete alum.segAltresCoord[];
 
 	models.Alumne.findByIdAndUpdate(alumneId, {alum,
-												$set:{'segActuacions':[],
+												$addToSet:{'segActuacions':[],
 														'segInformacioCAD':[],
 														'segAltresCoord':[]
 
