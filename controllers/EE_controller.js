@@ -91,9 +91,9 @@ exports.update = function (req, res){
 
 	delete alum.id;
 	delete alum._id;
-	delete alum.segActuacions[];
-	delete alum.segInformacioCAD[];
-	delete alum.segAltresCoord[];
+	delete alum.segActuacions.date;
+	delete alum.segInformacioCAD.date;
+	delete alum.segAltresCoord.date;
 	
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {multi:true, new: true, safe: true, upsert: true},
