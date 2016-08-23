@@ -417,12 +417,6 @@
       </div>
     </div>
 
-    <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-            <a href="/" class="btn btn-default" role="button">Cancel·la</a>
-            <button type="submit" class="btn btn-primary">Desa</button>
-            </div>
-          </form>
-
 <!-- SEGUIMENT ALUMNE -->
     <div class="container">
       <div class="row">
@@ -462,7 +456,9 @@
                   <!--Actuacions anteriors-->
                   <div class="form-group col-md-12 actuPast" id="actuacions">
 
-                    <%for (i = 0; i < alumne.segActuacions.length; i++) { %>
+                    <%for (i = 0; i < alumne.segActuacions.length; i++) { 
+                      if (alumne.segActuacions[i].body!=="")
+                    %>
 
                       <%=alumne.segActuacions[i].date%><br />
                       <%=alumne.segActuacions[i].body%><br /><br />
@@ -554,7 +550,11 @@
         </div>
 
 
-            
+            <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+            <a href="/" class="btn btn-default" role="button">Cancel·la</a>
+            <button type="submit" class="btn btn-primary">Desa</button>
+            </div>
+          </form>
         </div>
     </div>
 
