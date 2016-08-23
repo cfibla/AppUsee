@@ -102,7 +102,19 @@ exports.update = function (req, res){
 	
 
 
-	models.Alumne.findByIdAndUpdate(alumneId, {alum, $unset:{segActuacions:1}}, {multi:true, new: true, safe: true, upsert: true},
+	models.Alumne.findByIdAndUpdate(alumneId, {$set:{
+										'checks':alum[checks],
+										'radios':alum[radios]},
+										altresEsp:'',
+										atServPrivats:'',
+										percentDim:'',
+										motiuDic:'',
+										anyVal:'',
+										derivacio:'',
+										motiuDer:'',
+										
+									
+									}, {new: true, safe: true, upsert: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
