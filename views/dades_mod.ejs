@@ -457,7 +457,9 @@
                   <div class="form-group col-md-12 actuPast" id="actuacions">
 
                     <%for (i = 0; i < alumne.segActuacions.length; i++) { 
-                      if (alumne.segActuacions[i].body!=="")
+                      if (alumne.segActuacions[i].body!==""||
+                          alumne.segActuacions[i].body!=="undefined"||
+                          alumne.segActuacions[i].body!=="null")
                     %>
 
                       <%=alumne.segActuacions[i].date%><br />
