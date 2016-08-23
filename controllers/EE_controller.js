@@ -95,11 +95,11 @@ exports.update = function (req, res){
 	//delete alum.segInformacioCAD[];
 	//delete alum.segAltresCoord[];
 
-	models.Alumne.findByIdAndUpdate(alumneId, alum,$set:{'segActuacions':[],
-														'segInformacioCAD':[],
-														'segAltresCoord':[]
-
-														}, {multi:true, new: true, safe: true, upsert: true},
+	models.Alumne.findByIdAndUpdate(alumneId, alum,{$set:{'segActuacions':[],
+															'segInformacioCAD':[],
+															'segAltresCoord':[]
+	
+															}}, {multi:true, new: true, safe: true, upsert: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
