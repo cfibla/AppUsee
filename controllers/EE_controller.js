@@ -68,9 +68,9 @@ exports.update = function (req, res){
 	var alumneId = req.params.id;
 	var alum = req.body;
 
-	alum.segActuacions.length = 0;
-	alum.segInformacioCAD.length = 0;
-	alum.segAltresCoord.length = 0;
+	delete alum.segActuacions;
+	delete alum.segInformacioCAD;
+	delete alum.segAltresCoord;
 
 	
 
