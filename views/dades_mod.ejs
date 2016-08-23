@@ -444,7 +444,15 @@
                   <div class="row">
 
                   <!--var Quantes actuacions hi ha ara?-->
-                  <%var actuArray = alumne.segActuacions.length;%>
+                  <%
+                  var actuArray = alumne.segActuacions.length;
+                  function manolito(){
+                  if (alumne.segActuacions.actuArray.body = [''])
+                  alumne.segActuacions.actuArray.date = [''];
+
+                  }
+
+                  %>
 
                       <div class="form-group col-md-12">
                       <label for="actuacions">ACTUACIONS</label><br>
@@ -469,7 +477,7 @@
                       <input type="text" class="form-control" id="actuacions" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
                       </div>
                       <div class="form-group col-md-12">
-                      <textarea class="form-control" rows="6" id="actuacions" name="segActuacions.<%=actuArray%>.body" form="alumne_dades"></textarea><br /><br />
+                      <textarea class="form-control" rows="6" id="actuacions" name="segActuacions.<%=actuArray%>.body" form="alumne_dades" <%=manolito()%>></textarea><br /><br />
                       </div>
                   </div>
 
