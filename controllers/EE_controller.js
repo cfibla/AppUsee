@@ -68,9 +68,9 @@ exports.update = function (req, res){
 	var alumneId = req.params.id;
 	var alum = req.body;
 
-	delete alum['segActuacions'];
-	delete alum['segInformacioCAD'];
-	delete alum['segAltresCoord'];
+	delete alum.segActuacions[];
+	delete alum.segInformacioCAD[];
+	delete alum.segAltresCoord[];
 
 	
 
