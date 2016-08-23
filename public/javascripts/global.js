@@ -2,10 +2,10 @@ $(document).ready(function (){
 
 
 $(":submit").click(function () {
-   if($("actuacionsBody").val('')){
+   if($("#actuacionsBody").val('')){
 
    	
-   	$("actuacionsDate").val('');
+   	$("#actuacionsDate").val('');
 
 
    } 
