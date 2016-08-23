@@ -93,9 +93,9 @@ exports.update = function (req, res){
 
 	delete alum.id;
 	delete alum._id;
-	alum.segActuacions.length = 0;
-	alum.segInformacioCAD.length = 0;
-	alum.segAltresCoord.length = 0;
+	segActuacions.length = 0;
+	segInformacioCAD.length = 0;
+	segAltresCoord.length = 0;
 
 	console.log(alum);
 
