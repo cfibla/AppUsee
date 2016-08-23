@@ -1,23 +1,16 @@
 $(document).ready(function (){
 
 
-$(":radio").change(function () {
-   if($("input:radio[name = radios.2]").val('true')){
+$(":submit").click(function () {
+   if($("actuacionsBody").val('')){
 
    	
-   	$("input:text[name = percentDim]").prop('disabled', false);
-   	$("input:text[name = percentDim]").val('');
+   	$("actuacionsDate").val('');
+
 
    } 
 
-	if($("input:radio[name = radios.3]").val('false')){
-
-   	
-   	$("input:text[name = motiuDic]").prop('disabled', true);
-   	$("input:text[name = motiuDic]").val('');
-
-   } 
-
+	
 
    // alert('I have been checked');
  });

@@ -446,12 +446,6 @@
                   <!--var Quantes actuacions hi ha ara?-->
                   <%
                   var actuArray = alumne.segActuacions.length;
-                  function manolito(){
-                  if (alumne.segActuacions[actuArray].body = [''])
-                  alumne.segActuacions[actuArray].date = [''];
-
-                  }
-
                   %>
 
                       <div class="form-group col-md-12">
@@ -474,10 +468,10 @@
 
                   <!--Nova actuació-->
                       <div class="form-group col-md-2 dataSeguiment">
-                      <input type="text" class="form-control" id="actuacions" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
+                      <input type="text" class="form-control" id="actuacionsDate" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
                       </div>
                       <div class="form-group col-md-12">
-                      <textarea class="form-control" rows="6" id="actuacions" name="segActuacions.<%=actuArray%>.body" form="alumne_dades" <%=manolito()%>></textarea><br /><br />
+                      <textarea class="form-control" rows="6" id="actuacionsBody" name="segActuacions.<%=actuArray%>.body" form="alumne_dades"></textarea><br /><br />
                       </div>
                   </div>
 
@@ -565,7 +559,7 @@
    
     
 <!-- Fichero externo con JS y jQuery -->
-<!--<script src="/javascripts/global.js"></script>-->
+<script src="/javascripts/global.js"></script>
 
 
 
