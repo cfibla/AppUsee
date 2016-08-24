@@ -99,12 +99,9 @@ exports.update = function (req, res){
 	delete alum._id;
 
 
-	
-
-
 	models.Alumne.findByIdAndUpdate(alumneId, {$set:{
-										'checks.$':alum.checks,
-										'radios.$':alum.radios
+										'checks.$':alum.checks[],
+										'radios.$':alum.radios[]
 										},
 										altresEsp:'',
 										atServPrivats:'',
