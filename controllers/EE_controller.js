@@ -98,7 +98,7 @@ exports.update = function (req, res){
 	delete alum.id;
 	delete alum._id;
 
-	if (alum.segActuacions.$.body ==="") delete alum.segActuacions;
+	if (alum.segActuacions[].body ==="") delete alum.segActuacions;
 
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
