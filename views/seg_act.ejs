@@ -52,9 +52,9 @@
                             var actuArray = alumne.segActuacions.length;
                             %>
 
-                          <div class="form-group col-md-12">
+<!--                          <div class="form-group col-md-12">
                           <label for="actuacions"></label><br>
-                          </div>
+                          </div> -->
 
 
                       <!--Actuacions anteriors-->
@@ -72,7 +72,7 @@
 
                       <!--Nova actuació-->
                           <div class="form-group col-md-2 dataSeguiment">
-                          <input type="text" class="form-control" id="actuacionsDate" value="<%=today%>" name="segActuacions.<%=actuArray%>.date" disabled>
+                          <input type="text" class="form-control" id="actuacionsDate" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
                           </div>
                           <div class="form-group col-md-12">
                           <textarea class="form-control" rows="6" id="actuacionsBody" name="segActuacions.<%=actuArray%>.body" form="seg_actuacions"></textarea><br /><br />
@@ -113,9 +113,9 @@
                     <!--var Quantes actuacions hi ha ara?-->
                     <%var cadArray = alumne.segInformacioCAD.length;%>
 
-                        <div class="form-group col-md-12">
+<!--                        <div class="form-group col-md-12">
                         <label for="infoCAD"></label><br>
-                        </div>
+                        </div> -->
 
 
                     <!--infoCAD anteriors-->
@@ -133,7 +133,7 @@
 
                     <!--Nova informació CAD-->
                         <div class="form-group col-md-2 dataSeguiment">
-                        <input type="text" class="form-control" id="infoCADDate" value="<%=today%>" name="segInformacioCAD.<%=cadArray%>.date" disabled>
+                        <input type="text" class="form-control" id="infoCADDate" value="<%=today%>" name="segInformacioCAD.<%=cadArray%>.date">
                         </div>
                         <div class="form-group col-md-12">
                         <textarea class="form-control" rows="6" id="infoCADBody" name="segInformacioCAD.<%=cadArray%>.body" form="seg_CAD"></textarea><br /><br />
@@ -175,9 +175,9 @@
                     <!--var Quantes actuacions hi ha ara?-->
                     <%var altresArray = alumne.segAltresCoord.length;%>
 
-                        <div class="form-group col-md-12">
+<!--                        <div class="form-group col-md-12">
                         <label for="altresCoord"></label><br>
-                        </div>
+                        </div> -->
 
 
                     <!--altresCoord anteriors-->
@@ -195,7 +195,7 @@
 
                     <!--Nova coordinació-->
                         <div class="form-group col-md-2 dataSeguiment">
-                        <input type="text" class="form-control" id="altresCoordDate" value="<%=today%>" name="segAltresCoord.<%=altresArray%>.date" disabled>
+                        <input type="text" class="form-control" id="altresCoordDate" value="<%=today%>" name="segAltresCoord.<%=altresArray%>.date">
                         </div>
                         <div class="form-group col-md-12">
                         <textarea class="form-control" rows="6" id="altresCoordBody" name="segAltresCoord.<%=altresArray%>.body" form="altres_coord"></textarea><br /><br />
