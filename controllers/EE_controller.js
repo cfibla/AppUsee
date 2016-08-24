@@ -103,8 +103,8 @@ exports.update = function (req, res){
 
 
 	models.Alumne.findByIdAndUpdate(alumneId, {$set:{
-										'checks.$':['alum.checks.$'],
-										'radios.$':['alum.radios.$']
+										'checks.$':{'alum.checks'},
+										'radios.$':{'alum.radios'}
 										},
 										altresEsp:'',
 										atServPrivats:'',
