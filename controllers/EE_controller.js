@@ -68,11 +68,6 @@ exports.update = function (req, res){
 	var alumneId = req.params.id;
 	var alum = req.body;
 
-	
-	console.log(alumneId);
-	console.log(alum);
-
-	
 	models.Alumne.findByIdAndUpdate(alumneId,
 									{$set:{
 										'checks':[],
@@ -121,7 +116,6 @@ exports.actuaGet = function (req, res) {
 
 
 //SEGUIMENT POST
-
 exports.actuaPost = function (req, res) {
 
 		var alumneId = req.params.id;
