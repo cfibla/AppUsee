@@ -106,6 +106,35 @@ exports.update = function (req, res){
 
 	};
 
+//SEGUIMENT GET
+exports.actuaGet = function (req, res) {
+	var alumneId = req.params.id;
+	models.Alumne.findById(alumneId, function(error, alumne){
+		if (error) {
+			return res.json(error);
+		} else {
+			res.render('seg_act', {alumne: alumne});
+			
+		}
+	});
+};
+
+
+//SEGUIMENT POST
+
+exports.actuaPost = function (req, res) {
+
+		var alumneId = req.params.id;
+		var alum = req.body;
+
+		models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
+
+		function (error, alumne){
+		if (error) res.json(error);
+		res.redirect('/');
+	});
+
+}
 
 //Suprimir alumne - DELETE
 exports.supr = function (req, res) {
