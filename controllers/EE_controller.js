@@ -131,7 +131,7 @@ exports.actuaPost = function (req, res) {
 }
 
 //Suprimir alumne - VIEW
-exports.suprD = function (req, res) {
+exports.suprV = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
