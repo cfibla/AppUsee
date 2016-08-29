@@ -130,8 +130,21 @@ exports.actuaPost = function (req, res) {
 
 }
 
+//Suprimir alumne - VIEW
+exports.suprD = function (req, res) {
+	var alumneId = req.params.id;
+	models.Alumne.findById(alumneId, function(error, alumne){
+		if (error) {
+			return res.json(error);
+		} else {
+			res.render('delete_view', {alumne: alumne});
+			
+		}
+	});
+};
+
 //Suprimir alumne - DELETE
-exports.supr = function (req, res) {
+exports.suprD = function (req, res) {
 	
 	var alumneId = req.params.id;
 	models.Alumne.findByIdAndRemove(alumneId, function(error, alumne){
