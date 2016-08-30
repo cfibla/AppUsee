@@ -8,7 +8,8 @@ var eeController = require('../controllers/EE_controller');
 //  res.render('index', { title: 'AppEscola' });
 //});
 
-router.get('/',						eeController.list);
+router.get('/',						eeController.login);
+router.get('/list',					eeController.list);
 router.get('/dades_alta', 			eeController.alta);
 router.post('/dades_crear', 		eeController.create);
 router.get('/dades_mod/:id', 		eeController.mod);

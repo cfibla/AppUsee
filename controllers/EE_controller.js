@@ -1,5 +1,10 @@
 var models = require('../models/index');
 
+/* GET home page. */
+exports.login = function(req, res) {
+	res.render('login', { title: 'AppEscola' });
+});
+
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
@@ -45,7 +50,7 @@ exports.create = function (req, res){
 	nouAlumne.save(function(error, alumne){
 		if (error) res.json(error)
 	});
-		res.redirect('/');
+		res.redirect('/list');
 	};
 };
 
@@ -96,7 +101,7 @@ exports.update = function (req, res){
 
 		function (error, alumne){
 		if (error) res.json(error);
-		res.redirect('/');
+		res.redirect('/list');
 	});
 
 	};
@@ -125,7 +130,7 @@ exports.actuaPost = function (req, res) {
 
 		function (error, alumne){
 		if (error) res.json(error);
-		res.redirect('/');
+		res.redirect('/list');
 	});
 
 }
@@ -151,7 +156,7 @@ exports.suprD = function (req, res) {
 		if (error){
 			return res.json(error);
 		} else {
-			res.redirect('/');
+			res.redirect('/list');
 			}
 	});
 };
