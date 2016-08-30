@@ -3,7 +3,7 @@ var models = require('../models/index');
 /* GET home page. */
 exports.login = function(req, res) {
 	res.render('login', { title: 'AppEscola' });
-});
+};
 
 
 //Llstat d'alumnes - GET
