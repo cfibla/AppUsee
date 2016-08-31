@@ -142,40 +142,9 @@ exports.print = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-				//require dependencies
-				var PDFDocument = require ('pdfkit');
-				var blobStream  = require ('blob-stream');
-				var fs = require('fs');
-				var doc = new PDFDocument();
-				var stream = doc.pipe(blobStream());  
-				
-					
-					var text = alumne.nomAlumne;
-					console.log(text);
-
-                      //creating a new PDF object
-					doc.pipe(fs.createWriteStream(text + '.pdf'));  //creating a write stream 
-					            //to write the content on the file system
-					doc.text(text, 100, 100);             //adding the text to be written, 
-					            // more things can be added here including new pages
 
 
-					doc.end(); //we end the document writing.
-					var file = fs.createReadStream(alumne.nomAlumne + '.pdf');
-					var stat = fs.statSync(alumne.nomAlumne + '.pdf');
-					res.setHeader('Content-Length', stat.size);
-					res.setHeader('Content-Type', 'application/pdf');
-					res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
-					file.pipe(res);
-
-					//stream.on('finish',function(){
-					//var url =stream.toBlobURL();
-					//window.open(res);
-
-					//var iframe = "<iframe src="+ stream.toBlobURL('application/pdf') +">";
-					//});
-
-					res.redirect('/list');
+					res.render('pdf.html');
 		}
 	});
 };
