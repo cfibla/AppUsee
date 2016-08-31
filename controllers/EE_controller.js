@@ -146,16 +146,22 @@ exports.print = function (req, res) {
 				var PDFDocument = require ('pdfkit');
 				var blobStream  = require ('blob-stream');
 				var fs = require('fs');
+				var stream = doc.pipe(blobStream());
 					
 					var text = alumne.nomAlumne;
 					console.log(text);
 
 					doc = new PDFDocument();                        //creating a new PDF object
-					doc.pipe(fs.createWriteStream('Doc.pdf'));  //creating a write stream 
+					doc.pipe(fs.createWriteStream(alumne.nomAlumne + '.pdf'));  //creating a write stream 
 					            //to write the content on the file system
 					doc.text(text, 100, 100);             //adding the text to be written, 
 					            // more things can be added here including new pages
 					doc.end(); //we end the document writing.
+
+					stream.on('finish',function(){
+					var url = stream.toBlobURL('application/pdf');
+					iframe.src = url
+
 					res.redirect('/list');
 		}
 	});
