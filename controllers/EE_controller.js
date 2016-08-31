@@ -135,6 +135,59 @@ exports.actuaPost = function (req, res) {
 
 }
 
+//IMPRIMIR
+exports.print = function (req, res) {
+	var alumneId = req.params.id;
+	models.Alumne.findById(alumneId, function(error, alumne){
+		if (error) {
+			return res.json(error);
+		} else {
+				//require dependencies
+				PDFDocument = require 'pdfkit'
+				blobStream  = require 'blob-stream'
+
+				//create a document the same way as above
+				doc = new PDFDocument
+
+				//pipe the document to a blob
+				stream = doc.pipe(blobStream())
+
+				//add your content to the document here, as usual
+				var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in suscipit purus.  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec hendrerit felis. Morbi aliquam facilisis risus eu lacinia. Sed eu leo in turpis fringilla hendrerit. Ut nec accumsan nisl.'
+
+				doc.fontSize 8
+				doc.text 'This text is left aligned. ' + lorem,
+				  width: 410
+				  align: 'left'
+
+				doc.moveDown()
+				doc.text 'This text is centered. ' + lorem,
+				  width: 410
+				  align: 'center'
+
+				doc.moveDown()
+				doc.text 'This text is right aligned. ' + lorem, 
+				  width: 410
+				  align: 'right'
+
+				doc.moveDown()
+				doc.text 'This text is justified. ' + lorem, 
+				  width: 410
+				  align: 'justify'
+
+				//get a blob when you're done
+				doc.end()
+				stream.on 'finish', ->
+				  //get a blob you can do whatever you like with
+				  blob = stream.toBlob('application/pdf')
+
+				  //or get a blob URL for display in the browser
+				  url = stream.toBlobURL('application/pdf')
+				  iframe.src = url
+		}
+	});
+};
+
 //Suprimir alumne - VIEW
 exports.suprV = function (req, res) {
 	var alumneId = req.params.id;
