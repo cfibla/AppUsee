@@ -163,8 +163,8 @@ exports.print = function (req, res) {
 					var stream = doc.pipe(blobStream());
 
 					stream.on('finish',function(){
-					var blob = stream.toBlob('application/pdf');
-					iframe.src = blob;
+					var blb = stream.toBlob('application/pdf');
+					iframe.src = blb;
 					});
 
 					res.redirect('/list');
