@@ -148,6 +148,7 @@ exports.print = function (req, res) {
 				var fs = require('fs');
 					
 					var text = alumne.nomAlumne;
+					console.log(text);
 
 					doc = new PDFDocument();                        //creating a new PDF object
 					doc.pipe(fs.createWriteStream('Doc.pdf'));  //creating a write stream 

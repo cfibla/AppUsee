@@ -15,7 +15,7 @@ router.post('/dades_crear', 		eeController.create);
 router.get('/dades_mod/:id', 		eeController.mod);
 router.put('/dades_update/:id',		eeController.update);
 router.get('/seg_act/:id',			eeController.actuaGet);
-router.get('/print/:id',			eeController.print);
+router.post('/print/:id',			eeController.print);
 router.put('/seg_act_upd/:id',		eeController.actuaPost);
 router.get('/dades_suprV/:id', 		eeController.suprV);
 router.get('/dades_suprD/:id', 		eeController.suprD);
