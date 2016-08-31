@@ -166,7 +166,7 @@ exports.print = function (req, res) {
 					res.setHeader('Content-Length', stat.size);
 					res.setHeader('Content-Type', 'application/pdf');
 					res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
-					file.pipe(text);
+					file.pipe(res);
 
 					//stream.on('finish',function(){
 					//var url =stream.toBlobURL();
