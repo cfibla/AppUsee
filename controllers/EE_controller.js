@@ -154,19 +154,19 @@ exports.print = function (req, res) {
 					console.log(text);
 
                       //creating a new PDF object
-					doc.pipe(fs.createWriteStream(alumne.nomAlumne + '.pdf'));  //creating a write stream 
+					doc.pipe(fs.createWriteStream(text + '.pdf'));  //creating a write stream 
 					            //to write the content on the file system
 					doc.text(text, 100, 100);             //adding the text to be written, 
 					            // more things can be added here including new pages
 
 
 					doc.end(); //we end the document writing.
-					var file = fs.createReadStream(alumne.nomAlumne + '.pdf');
-					var stat = fs.statSync(alumne.nomAlumne + '.pdf');
+					var file = fs.createReadStream(text + '.pdf');
+					var stat = fs.statSync(text + '.pdf');
 					res.setHeader('Content-Length', stat.size);
 					res.setHeader('Content-Type', 'application/pdf');
 					res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
-					file.pipe(res);
+					file.pipe(text);
 
 					//stream.on('finish',function(){
 					//var url =stream.toBlobURL();
