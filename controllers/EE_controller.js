@@ -146,35 +146,15 @@ exports.print = function (req, res) {
 				var PDFDocument = require ('pdfkit');
 				var blobStream  = require ('blob-stream');
 				var fs = require('fs');
+					
+					var text = 'ANY_TEXT_YOU_WANT_TO_WRITE_IN_PDF_DOC';
 
-				//create a document the same way as above
-				var doc = new PDFDocument();
-
-				//pipe the document to a blob
-				var stream = doc.pipe(blobStream());
-
-				//add your content to the document here, as usual
-				var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in suscipit purus.  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec hendrerit felis. Morbi aliquam facilisis risus eu lacinia. Sed eu leo in turpis fringilla hendrerit. Ut nec accumsan nisl.'
-
-				doc.fontSize = 8;
-				doc.text ('This text is left aligned. ' + lorem,{
-												  width: 410,
-												  align: 'left'});
-
-				doc.moveDown();
-				doc.text ('This text is centered. ' + lorem,{
-												  width: 410,
-												  align: 'center'});
-
-				//get a blob when you're done
-				doc.end()
-				stream.on ('finish'), ->
-				  //get a blob you can do whatever you like with
-				  var blob = stream.toBlob('application/pdf')
-
-				  //or get a blob URL for display in the browser
-				  var url = stream.toBlobURL('application/pdf')
-				  iframe.src = url
+					doc = new PDF();                        //creating a new PDF object
+					doc.pipe(fs.createWriteStream('PATH_TO_PDF_FILE'));  //creating a write stream 
+					            //to write the content on the file system
+					doc.text(text, 100, 100);             //adding the text to be written, 
+					            // more things can be added here including new pages
+					doc.end(); //we end the document writing.
 		}
 	});
 };
