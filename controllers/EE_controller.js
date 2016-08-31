@@ -161,7 +161,7 @@ exports.print = function (req, res) {
 
 
 					doc.end(); //we end the document writing.
-					var file = fs.createReadStream(alumne.nomAlumne + '.pdf'));
+					var file = fs.createReadStream(alumne.nomAlumne + '.pdf');
 					var stat = fs.statSync(alumne.nomAlumne + '.pdf');
 					res.setHeader('Content-Length', stat.size);
 					res.setHeader('Content-Type', 'application/pdf');
