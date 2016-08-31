@@ -146,7 +146,8 @@ exports.print = function (req, res) {
 				var PDFDocument = require ('pdfkit');
 				var blobStream  = require ('blob-stream');
 				var fs = require('fs');
-				var doc = new PDFDocument();  
+				var doc = new PDFDocument();
+				var stream = doc.pipe(blobStream());  
 				
 					
 					var text = alumne.nomAlumne;
@@ -160,11 +161,11 @@ exports.print = function (req, res) {
 
 
 					doc.end(); //we end the document writing.
-					var stream = doc.pipe(blobStream());
+					
 
 					stream.on('finish',function(){
-					iframe.src = stream.toBlobURL('application/pdf');
-					//iframe.src = url;
+					var url = stream.toBlobURL('application/pdf');
+					iframe.src = url;
 					});
 
 					res.redirect('/list');
