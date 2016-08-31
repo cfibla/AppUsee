@@ -162,9 +162,12 @@ exports.print = function (req, res) {
 
 					doc.end(); //we end the document writing.
 					
-					doc.output( function(PDFDocument) {
-        			res.type('application/pdf');
-        			res.end(pdf, 'binary');
+					var filePath = alumne.nomAlumne + '.pdf';
+
+    fs.readFile(__dirname + filePath , function (err,data){
+        res.contentType("application/pdf");
+        res.send(data);
+    });
 
 					//stream.on('finish',function(){
 					//var url =stream.toBlobURL();
