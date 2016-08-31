@@ -144,7 +144,7 @@ exports.print = function (req, res) {
 		} else {
 
 
-					res.render('pdf.html');
+					res.render('pdf');
 		}
 	});
 };
