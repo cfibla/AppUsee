@@ -164,7 +164,7 @@ exports.print = function (req, res) {
 					
 
 					stream.on('finish',function(){
-					var url =this.toBlobURL();
+					var url =stream.toBlobURL();
 					window.open(url);
 
 					//var iframe = "<iframe src="+ stream.toBlobURL('application/pdf') +">";
