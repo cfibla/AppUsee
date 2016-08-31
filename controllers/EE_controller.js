@@ -147,7 +147,7 @@ exports.print = function (req, res) {
 				var blobStream  = require ('blob-stream');
 				var fs = require('fs');
 				var doc = new PDFDocument();
-				 
+				var stream = doc.pipe(blobStream());  
 				
 					
 					var text = alumne.nomAlumne;
@@ -159,15 +159,16 @@ exports.print = function (req, res) {
 					doc.text(text, 100, 100);             //adding the text to be written, 
 					            // more things can be added here including new pages
 
-					var stream = doc.pipe(blobStream()); 
-
 
 					doc.end(); //we end the document writing.
 					
+					doc.output( function(PDFDocument) {
+        			res.type('application/pdf');
+        			res.end(pdf, 'binary');
 
-					stream.on('finish',function(){
-					var url =stream.toBlobURL();
-					window.open(url);
+					//stream.on('finish',function(){
+					//var url =stream.toBlobURL();
+					//window.open(url);
 
 					//var iframe = "<iframe src="+ stream.toBlobURL('application/pdf') +">";
 					});
