@@ -168,7 +168,7 @@ exports.print = function (req, res) {
 
 				//get a blob when you're done
 				doc.end()
-				stream.on 'finish', ->
+				stream.on ('finish'), ->
 				  //get a blob you can do whatever you like with
 				  var blob = stream.toBlob('application/pdf')
 
