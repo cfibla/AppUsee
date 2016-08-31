@@ -143,8 +143,9 @@ exports.print = function (req, res) {
 			return res.json(error);
 		} else {
 				//require dependencies
-				PDFDocument = require 'pdfkit'
-				blobStream  = require 'blob-stream'
+				var PDFDocument = require ('pdfkit');
+				var blobStream  = require ('blob-stream');
+				var fs = require('fs');
 
 				//create a document the same way as above
 				doc = new PDFDocument
@@ -179,10 +180,10 @@ exports.print = function (req, res) {
 				doc.end()
 				stream.on 'finish', ->
 				  //get a blob you can do whatever you like with
-				  blob = stream.toBlob('application/pdf')
+				  var blob = stream.toBlob('application/pdf')
 
 				  //or get a blob URL for display in the browser
-				  url = stream.toBlobURL('application/pdf')
+				  var url = stream.toBlobURL('application/pdf')
 				  iframe.src = url
 		}
 	});
