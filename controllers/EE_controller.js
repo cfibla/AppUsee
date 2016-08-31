@@ -157,10 +157,13 @@ exports.print = function (req, res) {
 					            //to write the content on the file system
 					doc.text(text, 100, 100);             //adding the text to be written, 
 					            // more things can be added here including new pages
-					doc.end(); //we end the document writing.
 
 					res.contentType ("application/pdf");
 					doc.pipe(res);
+
+					            
+					doc.end(); //we end the document writing.
+
 
 					//stream.on('finish',function(){
 					//var url = stream.toBlobURL('application/pdf');
