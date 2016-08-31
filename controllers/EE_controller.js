@@ -164,7 +164,7 @@ exports.print = function (req, res) {
 
 					stream.on('finish',function(){
 					var blb = stream.toBlob('application/pdf');
-					iframe.src = blb;
+					//iframe.src = blb;
 					});
 
 					res.redirect('/list');
