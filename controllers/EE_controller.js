@@ -147,12 +147,12 @@ exports.print = function (req, res) {
 				var blobStream  = require ('blob-stream');
 				var fs = require('fs');
 					
-					var text = 'ANY_TEXT_YOU_WANT_TO_WRITE_IN_PDF_DOC';
+					var text = alumne.nomAlumne;
 
 					doc = new PDFDocument();                        //creating a new PDF object
-				//	doc.pipe(fs.createWriteStream('Doc.pdf'));  //creating a write stream 
+					doc.pipe(fs.createWriteStream('Doc.pdf'));  //creating a write stream 
 					            //to write the content on the file system
-				//	doc.text(text, 100, 100);             //adding the text to be written, 
+					doc.text(text, 100, 100);             //adding the text to be written, 
 					            // more things can be added here including new pages
 					doc.end(); //we end the document writing.
 		}
