@@ -147,7 +147,7 @@ exports.print = function (req, res) {
 				var blobStream  = require ('blob-stream');
 				var fs = require('fs');
 				var doc = new PDFDocument();  
-				var stream = doc.pipe(blobStream());
+				
 					
 					var text = alumne.nomAlumne;
 					console.log(text);
@@ -160,7 +160,7 @@ exports.print = function (req, res) {
 
 
 					doc.end(); //we end the document writing.
-
+					var stream = doc.pipe(blobStream());
 
 					stream.on('finish',function(){
 					var url = stream.toBlobURL('application/pdf');
