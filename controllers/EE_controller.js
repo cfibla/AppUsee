@@ -170,7 +170,7 @@ exports.print = function (req, res) {
 
 					//stream.on('finish',function(){
 					//var url =stream.toBlobURL();
-					//window.open(url);
+					window.open(res);
 
 					//var iframe = "<iframe src="+ stream.toBlobURL('application/pdf') +">";
 					//});
