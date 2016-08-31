@@ -34,7 +34,7 @@ exports.create = function (req, res){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('dades_alta', {errorAlta:'Tots els camps són obligatoris'});
+			res.render('dades_alta', {errorAlta:"Heu d'emplenar tots els apartats"});
 			};
 		});
 	} else {
