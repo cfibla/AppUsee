@@ -159,10 +159,13 @@ exports.print = function (req, res) {
 					            // more things can be added here including new pages
 					doc.end(); //we end the document writing.
 
-					stream.on('finish',function(){
-					var url = stream.toBlobURL('application/pdf');
-					iframe.src = url;
-					});
+					res.contentType ("application/pdf");
+					doc.pipe(res);
+
+					//stream.on('finish',function(){
+					//var url = stream.toBlobURL('application/pdf');
+					//iframe.src = url;
+					//});
 
 					res.redirect('/list');
 		}
