@@ -158,17 +158,14 @@ exports.print = function (req, res) {
 					doc.text(text, 100, 100);             //adding the text to be written, 
 					            // more things can be added here including new pages
 
-					res.contentType ("application/pdf");
-					doc.pipe(res);
 
-					            
 					doc.end(); //we end the document writing.
 
 
-					//stream.on('finish',function(){
-					//var url = stream.toBlobURL('application/pdf');
-					//iframe.src = url;
-					//});
+					stream.on('finish',function(){
+					var url = stream.toBlobURL('application/pdf');
+					iframe.src = url;
+					});
 
 					res.redirect('/list');
 		}
