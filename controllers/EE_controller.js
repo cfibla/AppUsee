@@ -174,7 +174,7 @@ exports.print = function (req, res) {
 					//window.open(url);
 
 					//var iframe = "<iframe src="+ stream.toBlobURL('application/pdf') +">";
-					});
+					//});
 
 					res.redirect('/list');
 		}
