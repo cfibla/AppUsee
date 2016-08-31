@@ -9,12 +9,9 @@
 					var text = 'PEPE';
 					console.log(text);
 
-                      //creating a new PDF object
-					doc.pipe(fs.createWriteStream(text + '.pdf'));  //creating a write stream 
-					            //to write the content on the file system
-					doc.text(text, 100, 100);             //adding the text to be written, 
-					            // more things can be added here including new pages
 
+					doc.pipe(fs.createWriteStream(text + '.pdf')); 
+					doc.text(text, 100, 100);            
 
 					doc.end(); //we end the document writing.
 
