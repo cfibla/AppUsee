@@ -161,13 +161,12 @@ exports.print = function (req, res) {
 
 
 					doc.end(); //we end the document writing.
-					
-					var filePath = alumne.nomAlumne + '.pdf';
-
-    fs.readFile(__dirname + filePath , function (err,data){
-        res.contentType("application/pdf");
-        res.send(data);
-    });
+					var file = fs.createReadStream(alumne.nomAlumne + '.pdf'));
+					var stat = fs.statSync(alumne.nomAlumne + '.pdf');
+					res.setHeader('Content-Length', stat.size);
+					res.setHeader('Content-Type', 'application/pdf');
+					res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+					file.pipe(res);
 
 					//stream.on('finish',function(){
 					//var url =stream.toBlobURL();
