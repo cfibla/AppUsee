@@ -148,33 +148,23 @@ exports.print = function (req, res) {
 				var fs = require('fs');
 
 				//create a document the same way as above
-				doc = new PDFDocument
+				var doc = new PDFDocument();
 
 				//pipe the document to a blob
-				stream = doc.pipe(blobStream())
+				var stream = doc.pipe(blobStream());
 
 				//add your content to the document here, as usual
 				var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in suscipit purus.  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec hendrerit felis. Morbi aliquam facilisis risus eu lacinia. Sed eu leo in turpis fringilla hendrerit. Ut nec accumsan nisl.'
 
-				doc.fontSize 8
-				doc.text 'This text is left aligned. ' + lorem,
-				  width: 410
-				  align: 'left'
+				doc.fontSize = 8;
+				doc.text ('This text is left aligned. ' + lorem,
+								  width: 410,
+								  align: 'left');
 
-				doc.moveDown()
-				doc.text 'This text is centered. ' + lorem,
-				  width: 410
-				  align: 'center'
-
-				doc.moveDown()
-				doc.text 'This text is right aligned. ' + lorem, 
-				  width: 410
-				  align: 'right'
-
-				doc.moveDown()
-				doc.text 'This text is justified. ' + lorem, 
-				  width: 410
-				  align: 'justify'
+				doc.moveDown();
+				doc.text ('This text is centered. ' + lorem,
+								  width: 410,
+								  align: 'center');
 
 				//get a blob when you're done
 				doc.end()
