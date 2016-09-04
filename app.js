@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require ('method-override');
+var session = require ('express-session');
 
 var routes = require('./routes/index');
 
@@ -24,8 +25,17 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(session({secret:'AppEscola2016', resave: false, saveUninitialize: true}))
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Helpers Dinámicos:
+
+    //hace visible req.session en las vistas
+    app.use (function(req, res, next){
+        res.locals.session = req.session;
+        next();
+    });
 
 app.use('/', routes);
 

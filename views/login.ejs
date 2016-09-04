@@ -3,21 +3,21 @@
     <div class="container col-sm-4 col-sm-offset-4" >
       <div class="escola">
         <span class="glyphicon glyphicon-user"></span>
-        <span> Accedeix o <a href="#">crea usuari</a></span>
-        <form role="form">
+        <span> Accedeix o <a href="/usuari_nou">crea usuari</a></span>
+        <form role="form" method="post" action="/login">
           <div class="form-group">
 
-            <label for="email_escola"></label>
-            <input type="email" class="form-control" id="email_escola"
-               placeholder="Email escola">
+            <label for="email_user"></label>
+            <input type="email" class="form-control" id="email_user" name="email"
+               placeholder="Email usuari">
    
-            <label for="password_escola"></label>
-            <input type="password" class="form-control" id="password_escola" 
-               placeholder="Paraula de pas">
+            <label for="password_user"></label>
+            <input type="password" class="form-control" id="password_user" name="password"
+               placeholder="Contrasenya">
 
-               <span><br/><small><a href="#">Heu oblidat la paraula de pas?</a></small></span>
+               <span><br/><small><a href="#">Heu oblidat la vostra contrasenya?</a></small></span>
 
-            <a class="btn btn-primary pull-right boton-index" href="/list">Enviar</a>
+            <button type="submit" class="btn btn-primary pull-right boton-index">Enviar</button>
           </div>
         </form>
       </div>

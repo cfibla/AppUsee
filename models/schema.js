@@ -51,6 +51,12 @@ module.exports = new mongoose.Schema ({
 	segActuacions: [{ date: String, body: String }],
 	segInformacioCAD: [{ date: String, body: String }],
 	segAltresCoord: [{ date: String, body: String }],
+
+	//PROPIETARIS
+	userEscola: String,
+	userTutor: String,
+	userEspecialista: String,
+	userEeUsee: String
   	
 
 })
