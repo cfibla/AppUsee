@@ -12,7 +12,7 @@ var sessionController = require('../controllers/SESSION_controller');
 
 //rutas session
 router.get('/',						sessionController.new);
-router.get('/login',				sessionController.login);
+router.post('/login',				sessionController.login);
 
 //rutas user
 router.get('/usuari_nou',			userController.nouUser);

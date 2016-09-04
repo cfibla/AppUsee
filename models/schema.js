@@ -1,4 +1,5 @@
 var mongoose = require ('mongoose');
+var schema_users = require ('./schema_users');
 
 module.exports = new mongoose.Schema ({
 	nomAlumne: {
@@ -56,7 +57,5 @@ module.exports = new mongoose.Schema ({
 	userEscola: String,
 	userTutor: String,
 	userEspecialista: String,
-	userEeUsee: String
-  	
-
+	userEeUsee: String	
 })

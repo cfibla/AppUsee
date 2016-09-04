@@ -40,7 +40,12 @@ exports.create = function (req, res){
 		cognomAlumne1: alum.cognom1,
 		cognomAlumne2: alum.cognom2,
 		dataNaixement: alum.naixement,
-		seguretatSoc: alum.sSocial
+		seguretatSoc: alum.sSocial,
+
+		userEscola: models.User.idEscola,
+		userTutor: models.User.idTutor,
+		userEspecialista: models.User.idEspecialista,
+		userEeUsee: models.User.idEeUsee
 	});
 	nouAlumne.save(function(error, alumne){
 		if (error) res.json(error)

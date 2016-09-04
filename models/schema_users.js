@@ -3,7 +3,9 @@ var mongoose = require ('mongoose');
 module.exports = new mongoose.Schema({
 	email:{
 		type: String,
-		unique: true
+		unique: true,
+		lowercase: true,
+		trim: true
 	},
 	password:{
 		type: String
@@ -14,6 +16,11 @@ module.exports = new mongoose.Schema({
 	escola: Boolean,
 	tutor: Boolean,
 	especialista: Boolean,
-	eeUsee: Boolean
+	eeUsee: Boolean,
+
+	idEscola: String,
+	idTutor: String,
+	idEspecialista: String,
+	idEeUsee: String
 
 });
