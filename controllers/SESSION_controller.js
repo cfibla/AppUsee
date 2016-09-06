@@ -20,19 +20,35 @@ exports.login = function (req, res){
 		} else {
 		
 				req.session.user = user;
+
+				models.Alumne.find(function(error, docs){
+				if (error){
+					console.log(error);
+				} else {
+					res.redirect('/list');
+
+					//res.render('index',{Alumnes: docs});
+					}
+			});}
+
+	})
+};
+
+exports.loginRequired = function(req, res, next){
+	if(req.session.user){
+		next();
+	} else{
+		res.redirect('/');
+	}
+};
+
+exports.destroy = function(req, res){
+	delete req.session.user;
+	res.redirect('/');
+}
 		
 		//temporal para generar el listado
 		//		if(!req.session.user) {
 		//			console.log('No heu iniciat sessió');
 		//			res.redirect('/');
 		//		}
-				models.Alumne.find(function(error, docs){
-				if (error){
-					console.log(error);
-				} else {
-					res.render('index',{Alumnes: docs});
-					}
-			});}
-
-	})
-}

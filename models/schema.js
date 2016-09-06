@@ -1,5 +1,15 @@
 var mongoose = require ('mongoose');
+
+var schema = require ('./schema');
 var schema_users = require ('./schema_users');
+var schemaescoles = require('./schema_escoles');
+var schemaesp = require('./schema_usersEsp');
+var schemaee = require('./schema_usersEe');
+
+var User = mongoose.model('User', schema_users, 'Users');
+var Escola = mongoose.model('Escola', schemaescoles, 'Escoles');
+var UserEsp = mongoose.model('UserEsp', schemaesp,'UserEsps');
+var UserEe = mongoose.model('UserEe', schemaee, 'UserEes');
 
 module.exports = new mongoose.Schema ({
 	nomAlumne: {
@@ -21,7 +31,73 @@ module.exports = new mongoose.Schema ({
 		uppercase: true
 	},
 
+	codiEscola: Number,
 
+	eeUsee: Boolean,
+
+	curs: {
+		type: Number,
+		min: 1,
+		max: 6
+	},
+
+	classe: String,
+
+
+
+	//NOTES
+	primer:{
+		mates:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number
+		},
+
+		cat:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number			
+		},
+
+		cast:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number					
+		},
+
+		medi:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		}
+	},
+
+
+	//ASSISTÈNCIA
+	assist: [{
+		date: String,
+		falta: Boolean,
+		retard: Boolean
+	}],
+
+
+	//CHECKS & RADIOS
 	checks:[Boolean],
 	radios:[Boolean],
 
@@ -53,9 +129,23 @@ module.exports = new mongoose.Schema ({
 	segInformacioCAD: [{ date: String, body: String }],
 	segAltresCoord: [{ date: String, body: String }],
 
+	
+
 	//PROPIETARIS
-	userEscola: String,
-	userTutor: String,
-	userEspecialista: String,
-	userEeUsee: String	
+	escola: {
+		type: Number,
+		ref: 'Escola'
+	},
+	tutor: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'User'
+	},
+	esp: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'UserEsp'
+	},
+	ee: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'UserEe'
+	}
 })

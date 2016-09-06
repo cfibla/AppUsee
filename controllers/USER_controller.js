@@ -25,26 +25,10 @@ exports.createUser = function (req, res){
 		nom: user.nom,
 		cognom: user.cognom,
 		password: user.password,
-		escola: user.escola,
-		tutor:user.tutor,
-		especialista: user.especialista,
-		eeUsee: user.eeUsee
+
+		escola: user.escola
 	});
-		if (nouUser.escola === true) {
-			nouUser.idEscola = nouUser.email 
-		};
 
-		if (nouUser.tutor === true) {
-			nouUser.idTutor = nouUser.email 
-		};
-
-		if (nouUser.especialista === true) {
-			nouUser.idEspecialista = nouUser.email 
-		};
-
-		if (nouUser.eeUsee === true) {
-			nouUser.idEeUsee = nouUser.email 
-		};
 
 	nouUser.save(function(error, user){
 		if (error) res.json(error)

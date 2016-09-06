@@ -25,7 +25,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser('appE'));
-app.use(session({secret:'AppEscola2016', resave: false, saveUninitialize: true}))
+app.use(session({secret:'AppEscola2016', resave: false, saveUninitialize: false}))
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -3,7 +3,9 @@ var models = require('../models/index');
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
-	models.Alumne.find(function(error, docs){
+	models.Alumne.find({tutor: req.session.user})
+	.populate('escola tutor')
+	.exec(function(error, docs){
 		if (error){
 			console.log(error);
 		} else {
@@ -21,19 +23,23 @@ exports.alta = function (req, res) {
 
 
 exports.create = function (req, res){
+
 	var alum = req.body;
 	
 
-	if (!alum.nom||!alum.cognom1||!alum.cognom2||!alum.naixement||!alum.sSocial){
+	if (!alum.nom||!alum.cognom1||!alum.naixement||!alum.sSocial){
 		models.Alumne.find(function(error, docs){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('dades_alta', {errorAlta:"Heu d'emplenar tots els apartats"});
+			res.render('dades_alta', {errorAlta:"Heu d'emplenar apartats"});
 			};
 		});
 	} else {
-
+		models.Escola.find({"_id": 17008237}, function(error, esc){
+		if (error){
+			console.log(error);
+		} else {
 
 	var nouAlumne = new models.Alumne({
 		nomAlumne: alum.nom,
@@ -42,16 +48,27 @@ exports.create = function (req, res){
 		dataNaixement: alum.naixement,
 		seguretatSoc: alum.sSocial,
 
-		userEscola: models.User.idEscola,
-		userTutor: models.User.idTutor,
-		userEspecialista: models.User.idEspecialista,
-		userEeUsee: models.User.idEeUsee
+		codiEscola: alum.codiEscola,
+
+		eeUsee: true,
+
+		escola: alum.codiEscola,
+		tutor: req.session.user
+
 	});
 	nouAlumne.save(function(error, alumne){
-		if (error) res.json(error)
+		if (error) res.json(error);
+		//res.status(200).send(alumne)
+
 	});
-		res.redirect('/list');
+	//console.log(esc);
+	//console.log(nouAlumne);
+	res.redirect('/list');
+
+
 	};
+});
+}
 };
 
 //Modificar dades - GET
@@ -142,7 +159,6 @@ exports.print = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-
 				//require dependencies
 				var PDFDocument = require ('pdfkit');
 				var fs = require('fs');
