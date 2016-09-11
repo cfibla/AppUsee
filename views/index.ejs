@@ -18,12 +18,8 @@
     <thead>
       <tr>
         <th>Nom</th>
-        <th>Primer cognom</th>
-        <th>Segon cognom</th>
-        <th>Data naixement</th>
-        <th>Escola</th>
-        <th>Tutor</th>
-        <th>Núm. afiliació SS</th>
+        <th>Curs</th>
+
       </tr>
     </thead>
     <tbody>
@@ -42,20 +38,17 @@
                 dataNa = dd+'/'+mm+'/'+yyyy;
       %>
       <tr>
-      <td><%=Alumnes[i].nomAlumne%></td>
-      <td><%=Alumnes[i].cognomAlumne1%></td>
-      <td><%=Alumnes[i].cognomAlumne2%></td>
-      <td><%=dataNa%></td>
-      <td><%=Alumnes[i].escola.nom%></td>
-      <td><%=Alumnes[i].tutor.nom%></td>
-      <td><%=Alumnes[i].seguretatSoc%></td>
+      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%></td>
+      <!--<td><%=dataNa%></td>-->
+
+      <td><%=Alumnes[i].curs%></td>
+  
       <td>
       
-      <a href="/dades_mod/<%=Alumnes[i].id%>" class="btn btn-info btn-xs" role="button">Atenció i adaptacions</a>
+      <a href="/dades_mod/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Atenció i adaptacions</a>
       <a href="/seg_act/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Seguiment</a>
-      <a href="/print/<%=Alumnes[i].id%>" class="btn btn-success btn-xs" role="button" target="_blank">Imprimir</a>
-      <a href="/dades_suprV/<%=Alumnes[i].id%>" class="btn btn-danger btn-xs" role="button"
-      onclick="">Esborra</a>
+      <a href="/print/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button" target="_blank">Imprimir</a>
+      <a href="/dades_suprV/<%=Alumnes[i].id%>" class="btn btn-danger btn-xs" role="button">Esborra</a>
       </td>
 
      <% }; %><% } %>

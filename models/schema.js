@@ -35,13 +35,7 @@ module.exports = new mongoose.Schema ({
 
 	eeUsee: Boolean,
 
-	curs: {
-		type: Number,
-		min: 1,
-		max: 6
-	},
-
-	classe: String,
+	curs: String,
 
 
 

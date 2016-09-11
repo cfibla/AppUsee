@@ -8,7 +8,7 @@ exports.nouUser = function(req, res) {
 // Nou user POST
 exports.createUser = function (req, res){
 
-	var user = req.body;
+	var user_ESP = req.body;
 	
 	if (!user.email||!user.nom||!user.cognom||!user.password){
 		models.User.find(function(error, docs){
@@ -20,19 +20,19 @@ exports.createUser = function (req, res){
 		});
 	} else {
 
-	var nouUser = new models.User({
-		email: user.email,
-		nom: user.nom,
-		cognom: user.cognom,
-		password: user.password,
-		
-		mestre: 'tutor',
+	var nouUser_ESP = new models.UserEsp({
+		email: user_ESP.email,
+		nom: user_ESP.nom,
+		cognom: user_ESP.cognom,
+		password: user_ESP.password,
 
-		escola: user.escola
+		mestre: 'esp',
+
+		escola: user_ESP.escola
 	});
 
 
-	nouUser.save(function(error, user){
+	nouUser_ESP.save(function(error, user){
 		if (error) res.json(error)
 	});
 		res.redirect('/list');

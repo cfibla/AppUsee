@@ -2,18 +2,16 @@ var express = require('express');
 var router = express.Router();
 
 var alumController = require('../controllers/ALUMNES_controller');
+var alumEeController = require('../controllers/ALUMNES_EE_controller');
 var escolaController = require('../controllers/ESCOLA_controller');
 var userController = require('../controllers/USER_controller');
+var userEeController = require('../controllers/USER_ee_controller');
 var sessionController = require('../controllers/SESSION_controller');
-
-/* GET home page. */
-//router.get('/', function(req, res) {
-//  res.render('index', { title: 'AppEscola' });
-//});
 
 //rutas SESSION
 router.get('/',						sessionController.new);
-router.post('/login',				sessionController.login);
+router.get('/try_nou',				sessionController.try);
+router.post('/login',				sessionController.login, sessionController.login_EE);
 router.get('/logout',				sessionController.loginRequired, sessionController.destroy);
 
 //rutas ESCOLA
@@ -24,6 +22,9 @@ router.post('/escola_crear',		escolaController.createEscola);
 router.get('/usuari_nou',			userController.nouUser);
 router.post('/usuari_crear',		userController.createUser);
 
+//rutas USER_EE
+router.get('/usuari_ee_nou',		userEeController.nouUser);
+router.post('/usuari_ee_crear',		userEeController.createUser);
 
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);
@@ -36,6 +37,9 @@ router.get('/print/:id',			sessionController.loginRequired, alumController.print
 router.put('/seg_act_upd/:id',		sessionController.loginRequired, alumController.actuaPost);
 router.get('/dades_suprV/:id', 		sessionController.loginRequired, alumController.suprV);
 router.get('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
+
+//rutas ALUMNE EE
+router.get('/list_EE',				sessionController.loginRequired, alumEeController.list);
 
 
 

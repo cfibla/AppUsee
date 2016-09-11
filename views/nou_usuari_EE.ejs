@@ -1,0 +1,66 @@
+
+  <div class="fons">
+    <div class="container col-sm-4 col-sm-offset-4" >
+      <div class="escola">
+        <span class="glyphicon glyphicon-user"></span>
+        <span> Nou usuari </span>
+         <form role="form" method="post" action="/usuari_ee_crear">
+          <div class="form-group">
+
+            <br>
+            <label for="email_user">Empleneu els següents apartats</label><br>
+            <div class="" id="newEE_error"><%=errorAlta%></div><br>
+            <input type="email" class="form-control" id="email_user" name="email"
+               placeholder="Email">
+
+            <label for="nom_user"></label>
+            <input type="text" class="form-control" id="nom_user" name="nom"
+               placeholder="Nom">
+
+            <label for="cognom_user"></label>
+            <input type="text" class="form-control" id="cognom_user" name="cognom"
+               placeholder="Cognom">
+
+            <label for="codi_escola"></label><br>
+            <input type="text" class="form-control" id="codi_escola" name="escola"
+               placeholder="Codi escola">
+   
+            <label for="password_user"></label>
+            <input type="password" class="form-control" id="password_user" name="password"
+               placeholder="Contrasenya">
+   
+        <!--    <label for="password_user"></label>
+            <input type="password" class="form-control" id="password_user" 
+               placeholder="Torneu a escriure la contrasenya"><br> -->
+
+            <br>
+<!--            <label for="userTipus">Indiqueu si sou</label><br>
+
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="tutor">Tutor</label><br>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="especialista">Especialista</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="eeUsee">EE-USEE</label>
+-->
+            </div>
+
+
+
+
+         <!--   <a class="btn btn-primary pull-right boton-index" type = "submit">Enviar</a> -->
+             <button type="submit" class="btn btn-primary pull-right boton-index">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Librería jQuery requerida por los plugins de JavaScript -->
+      <script src="http://code.jquery.com/jquery.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+    <!-- Todos los plugins JavaScript de Bootstrap (también puedes
+         incluir archivos JavaScript individuales de los únicos
+         plugins que utilices) -->
+<!--    <script src="js/bootstrap.min.js"></script>-->

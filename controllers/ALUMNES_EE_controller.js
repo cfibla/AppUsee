@@ -1,10 +1,10 @@
 var models = require('../models/index');
 
 
-//Llstat d'alumnes - GET
+//Llstat d'alumnes EE- GET
 exports.list = function (req, res) {
-	models.Alumne.find({tutor: req.session.user})
-	.populate('escola tutor')
+	models.Alumne.find({'eeUsee': true})
+	.populate('escola ee')
 	.exec(function(error, docs){
 		if (error){
 			console.log(error);
@@ -15,7 +15,7 @@ exports.list = function (req, res) {
 	
 };
 
-//Altes d'alumnes - POST
+//Altes d'alumnes EE- POST
 exports.alta = function (req, res) {
 	
 	res.render('dades_alta', {errorAlta:''});
@@ -32,7 +32,7 @@ exports.create = function (req, res){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('dades_alta', {errorAlta:"Heu d'emplenar apartats"});
+			res.render('dades_alta', {errorAlta:"Heu d'emplenar tots els apartats obligatoris"});
 			};
 		});
 	} else {
@@ -53,7 +53,7 @@ exports.create = function (req, res){
 		eeUsee: alum.eeUsee,
 
 		escola: alum.codiEscola,
-		tutor: req.session.user
+		ee: req.session.user
 
 	});
 	nouAlumne.save(function(error, alumne){
@@ -63,7 +63,7 @@ exports.create = function (req, res){
 	});
 	//console.log(esc);
 	//console.log(nouAlumne);
-	res.redirect('/list');
+	res.redirect('/list_EE');
 
 
 	};
@@ -152,7 +152,7 @@ exports.actuaPost = function (req, res) {
 
 }
 
-//IMPRIMIR PDF
+//IMPRIMIR PDF_ EE
 exports.print = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
@@ -370,7 +370,7 @@ exports.suprV = function (req, res) {
 exports.suprD = function (req, res) {
 	
 	var alumneId = req.params.id;
-	models.Alumne.findByIdAndRemove(alumneId, function(error, alumne){
+	models.Alumne.findByIdAndUpdate(alumneId, {'eeUsee': false}, {new: true}, function(error, alumne){
 		if (error){
 			return res.json(error);
 		} else {
