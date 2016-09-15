@@ -48,39 +48,15 @@
                         <h4>Seguiment alumne</h4>
                       </div>
 
-                      <div class="col-md-10">
+                      <div class="col-md-10 alturaBox">
                         <hr>
                       </div>
 
-                      <div class="form-group col-md-2">
+                        <div class="form-group col-md-4  alturaBox">
                         <label for="nom_alumne">Nom</label>
                         <input type="text" class="form-control" id="nom_alumne"
-                               placeholder="<%=alumne.nomAlumne%>" disabled>
-                      </div>
-
-                      <div class="form-group col-md-2">
-                        <label for="cognom1_alumne">Primer cognom</label>
-                        <input type="text" class="form-control" id="cognom1_alumne"
-                               placeholder="<%=alumne.cognomAlumne1%>" disabled>
-                      </div>
-
-                      <div class="form-group col-md-2">
-                        <label for="cognom2_alumne">Segon cognom</label>
-                        <input type="text" class="form-control" id="cognom2_alumne"
-                               placeholder="<%=alumne.cognomAlumne2%>" disabled>
-                      </div>
-
-                      <div class="form-group col-md-3">
-                        <label for="data_naixement">Data naixement</label>
-                        <input type="text" class="form-control" id="data_naixement"
-                               placeholder="<%=dataNa%>" disabled>
-                      </div>
-
-                      <div class="form-group col-md-3">
-                        <label for="targeta_SS">Targeta SS</label>
-                        <input type="text" class="form-control" id="targeta_SS"
-                               placeholder="<%=alumne.seguretatSoc%>" disabled>
-                      </div>
+                               placeholder="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" disabled>
+                        </div>
 
                     </div>
                   </form>
@@ -106,7 +82,7 @@
 
                       <div class="row">
 
-                        <form role="form" method="post" action="/seg_act_upd/<%=alumne._id%>?_method=put" id="seg_actuacions">
+                        <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_actuacions">
 
                             <!--var Quantes actuacions hi ha ara?-->
                             <%
@@ -137,7 +113,7 @@
                       <!-- Botons -->
 
                           <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                          <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
+                          <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
                           <button type="submit" class="btn btn-primary">Desa</button>
                           </div>
 
@@ -164,7 +140,7 @@
 
                     <div class="row">
 
-                        <form role="form" method="post" action="/seg_act_upd/<%=alumne._id%>?_method=put" id="seg_CAD">
+                        <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_CAD">
 
                     <!--var Quantes actuacions hi ha ara?-->
                     <%var cadArray = alumne.segInformacioCAD.length;%>
@@ -198,7 +174,7 @@
                       <!-- Botons -->
 
                         <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                        <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
+                        <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
                         <button type="submit" class="btn btn-primary">Desa</button>
                         </div>
 
@@ -226,7 +202,7 @@
 
                     <div class="row">
 
-                        <form role="form" method="post" action="/seg_act_upd/<%=alumne._id%>?_method=put" id="altres_coord">                   
+                        <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="altres_coord">                   
 
                     <!--var Quantes actuacions hi ha ara?-->
                     <%var altresArray = alumne.segAltresCoord.length;%>
@@ -261,7 +237,7 @@
                     <!-- Botons -->
 
                         <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                        <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
+                        <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
                         <button type="submit" class="btn btn-primary">Desa</button>
                         </div>
 

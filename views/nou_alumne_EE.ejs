@@ -1,0 +1,108 @@
+
+<!-- <div class="container">
+      <div class="row">
+        <form role="form">
+          <div class="form-group">
+            <div class="col-md-2">
+              <label for="ejemplo_archivo_1">Foto alumne</label>
+              <div class="thumbnail">
+                <img src="http://placehold.it/300x300">
+              </div>
+              <input type="file" id="ejemplo_archivo_1">
+            </div>
+    <p class="help-block">Ejemplo de texto de ayuda.</p>
+          </div>
+        </form>
+      </div>
+    </div>-->
+
+<!--DADES ALUMNE-->
+    <div class="container">
+      <div class="row">
+        <form role="form" method="post" action="/alumne_nou_EE">
+          <div class="form-group">
+            <div class="col-md-3">
+              <h4>Nova entrada EE-USEE</h4>
+            </div>
+
+            <div class="col-md-9">
+              <hr>
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="nom_alumne">Nom</label>
+              <input type="text" class="form-control" id="nom_alumne" name="nom"
+                     placeholder="Nom">
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="cognom1_alumne">Primer cognom</label>
+              <input type="text" class="form-control" id="cognom1_alumne" name="cognom1"
+                     placeholder="Cognom">
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="cognom2_alumne">Segon cognom</label>
+              <input type="text" class="form-control" id="cognom2_alumne" name="cognom2"
+                     placeholder="Cognom">
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="targeta_SS">Targeta SS</label>
+              <input type="text" class="form-control" id="targeta_SS" name="sSocial"
+                     placeholder="Seguretat Social">
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="data_naixement">Data naixement</label>
+              <input type="date" class="form-control" id="data_naixement" name="naixement"
+                     placeholder="">
+            </div>
+
+<!--            <div class="form-group col-md-2">
+              <label for="targeta_SS">Codi escola</label>
+              <input type="text" class="form-control" id="codi_escola" name="codiEscola"
+                     placeholder ="<%=session.user.escola%>" value ="<%=session.user.escola%>">
+            </div>
+-->
+            <div class="form-group col-md-2" id="curs">
+              <label for="curs_act">Curs actual</label>
+                <select class="form-control" id="curs_act" name="curs">
+                  <option value="">Seleccioneu</option>
+                  <option value="1r A">1r A</option>
+                  <option value="1r B">1r B</option>
+                  <option value="2n A">2n A</option>
+                  <option value="2n B">2n B</option>
+                  <option value="3r A">3r A</option>
+                  <option value="3r B">3r B</option>
+                  <option value="4t A">4t A</option>
+                  <option value="4t B">4t B</option>
+                  <option value="5è A">5è A</option>
+                  <option value="5è B">5è B</option>
+                  <option value="6è A">6è A</option>
+                  <option value="6è B">6è B</option>
+                </select>
+            </div>
+
+
+
+            <div class="col-md-12" id="newEE_error"><%=errorAlta%></div>
+            <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+            <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
+            <button type="submit" class="btn btn-primary">Desa</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  <!-- Librería jQuery requerida por los plugins de JavaScript -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- Todos los plugins JavaScript de Bootstrap (también puedes
+         incluir archivos JavaScript individuales de los únicos
+         plugins que utilices) -->
+    <!--<script src="/stylesheets/js/bootstrap.min.js"></script>-->

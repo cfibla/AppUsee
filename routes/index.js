@@ -28,18 +28,25 @@ router.post('/usuari_ee_crear',		userEeController.createUser);
 
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);
-router.get('/dades_alta', 			sessionController.loginRequired, alumController.alta);
-router.post('/dades_crear', 		sessionController.loginRequired, alumController.create);
-router.get('/dades_mod/:id', 		sessionController.loginRequired, alumController.mod);
-router.put('/dades_update/:id',		sessionController.loginRequired, alumController.update);
-router.get('/seg_act/:id',			sessionController.loginRequired, alumController.actuaGet);
-router.get('/print/:id',			sessionController.loginRequired, alumController.print);
-router.put('/seg_act_upd/:id',		sessionController.loginRequired, alumController.actuaPost);
+router.get('/nou_alumne', 			sessionController.loginRequired, alumController.alta);
+router.post('/alumne_nou', 		sessionController.loginRequired, alumController.create);
+//router.get('/dades_mod/:id', 		sessionController.loginRequired, alumController.mod);
+//router.put('/dades_update/:id',		sessionController.loginRequired, alumController.update);
+//router.get('/seg_act/:id',			sessionController.loginRequired, alumController.actuaGet);
+//router.get('/print/:id',			sessionController.loginRequired, alumController.print);
+//router.put('/seg_act_upd/:id',		sessionController.loginRequired, alumController.actuaPost);
 router.get('/dades_suprV/:id', 		sessionController.loginRequired, alumController.suprV);
 router.get('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
 
 //rutas ALUMNE EE
 router.get('/list_EE',				sessionController.loginRequired, alumEeController.list);
+router.get('/nou_alumne_EE', 		sessionController.loginRequired, alumEeController.alta);
+router.post('/alumne_nou_EE', 		sessionController.loginRequired, alumEeController.create);
+router.get('/dades_mod_EE/:id', 	sessionController.loginRequired, alumEeController.mod);
+router.put('/dades_update_EE/:id',	sessionController.loginRequired, alumEeController.update);
+router.get('/seg_act_EE/:id',		sessionController.loginRequired, alumEeController.actuaGet);
+router.put('/seg_act_upd_EE/:id',	sessionController.loginRequired, alumEeController.actuaPost);
+router.get('/print_EE/:id',			sessionController.loginRequired, alumEeController.print);
 
 
 

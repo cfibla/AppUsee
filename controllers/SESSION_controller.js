@@ -31,7 +31,6 @@ exports.login = function (req, res, next){
 					
 					res.redirect('/list');
 					
-					//res.render('index',{Alumnes: docs});
 					}
 			});}
 
@@ -60,8 +59,7 @@ exports.login_EE = function (req, res){
 				} else {
 					
 					res.redirect('/list_EE');
-					
-					//res.render('index',{Alumnes: docs});
+
 					}
 			});}
 
@@ -80,9 +78,3 @@ exports.destroy = function(req, res){
 	delete req.session.user;
 	res.redirect('/');
 }
-		
-		//temporal para generar el listado
-		//		if(!req.session.user) {
-		//			console.log('No heu iniciat sessió');
-		//			res.redirect('/');
-		//		}

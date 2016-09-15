@@ -12,63 +12,62 @@ exports.list = function (req, res) {
 			res.render('index',{Alumnes: docs});
 			}
 	});
-	
+
+};
+
+//Altes d'alumnes EE- GET
+exports.alta = function (req, res) {
+
+	res.render('nou_alumne_EE', {errorAlta:''});
 };
 
 //Altes d'alumnes EE- POST
-exports.alta = function (req, res) {
-	
-	res.render('dades_alta', {errorAlta:''});
-};
-
-
 exports.create = function (req, res){
 
 	var alum = req.body;
-	
+
 
 	if (!alum.nom||!alum.cognom1||!alum.naixement||!alum.sSocial){
 		models.Alumne.find(function(error, docs){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('dades_alta', {errorAlta:"Heu d'emplenar tots els apartats obligatoris"});
+			res.render('nou_alumne_EE', {errorAlta:"Heu d'emplenar tots els apartats obligatoris"});
 			};
 		});
 	} else {
 		models.Escola.find({"_id": 17008237}, function(error, esc){
 		if (error){
 			console.log(error);
+			console.log(esc);
 		} else {
 
-	var nouAlumne = new models.Alumne({
-		nomAlumne: alum.nom,
-		cognomAlumne1: alum.cognom1,
-		cognomAlumne2: alum.cognom2,
-		dataNaixement: alum.naixement,
-		seguretatSoc: alum.sSocial,
 
-		codiEscola: alum.codiEscola,
-		curs: alum.curs,
-		eeUsee: alum.eeUsee,
+				//console.log(nouAlumne);
 
-		escola: alum.codiEscola,
-		ee: req.session.user
+			var nouAlumne = new models.Alumne({
+				nomAlumne: alum.nom,
+				cognomAlumne1: alum.cognom1,
+				cognomAlumne2: alum.cognom2,
+				dataNaixement: alum.naixement,
+				seguretatSoc: alum.sSocial,
 
-	});
-	nouAlumne.save(function(error, alumne){
-		if (error) res.json(error);
-		//res.status(200).send(alumne)
+				codiEscola: esc._id,
+				curs: alum.curs,
+				eeUsee: true,
 
-	});
-	//console.log(esc);
-	//console.log(nouAlumne);
-	res.redirect('/list_EE');
+				escola: esc._id,
+				ee: req.session.user
 
+			});
 
-	};
-});
-}
+			nouAlumne.save(function(error, alumne){
+				if (error) res.json(error);
+			});
+			res.redirect('/list_EE');
+			};
+		});
+	}
 };
 
 //Modificar dades - GET
@@ -78,15 +77,15 @@ exports.mod = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('dades_mod', {alumne: alumne});
-			
+			res.render('dades_mod_EE', {alumne: alumne});
+
 		}
 	});
 };
 
 //Modificar dades - PUT
 exports.update = function (req, res){
-	
+
 	var alumneId = req.params.id;
 	var alum = req.body;
 
@@ -101,12 +100,12 @@ exports.update = function (req, res){
 										anyVal:'',
 										derivacio:'',
 										motiuDer:'',
-										
-									
+
+
 									}, function(error, alumne){
 										if (error){
 											return res.json(error);
-										} 
+										}
 									});
 
 	delete alum.id;
@@ -118,7 +117,7 @@ exports.update = function (req, res){
 
 		function (error, alumne){
 		if (error) res.json(error);
-		res.redirect('/list');
+		res.redirect('/list_EE');
 	});
 
 	};
@@ -130,8 +129,8 @@ exports.actuaGet = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('seg_act', {alumne: alumne});
-			
+			res.render('seg_act_EE', {alumne: alumne});
+
 		}
 	});
 };
@@ -147,7 +146,7 @@ exports.actuaPost = function (req, res) {
 
 		function (error, alumne){
 		if (error) res.json(error);
-		res.redirect('/list');
+		res.redirect('/list_EE');
 	});
 
 }
@@ -163,7 +162,7 @@ exports.print = function (req, res) {
 				var PDFDocument = require ('pdfkit');
 				var fs = require('fs');
 				var doc = new PDFDocument();
-				var tempFile = ('temp/PDFtemp.pdf');
+				var tempFile = ('temp/PDF_EE_temp.pdf');
 
 				//FORMAT DATA NAIXEMENT
 				var dataNa = alumne.dataNaixement;
@@ -172,10 +171,10 @@ exports.print = function (req, res) {
                 var yyyy = dataNa.getFullYear();
                 if(dd<10) {
                     dd='0'+dd
-                    } 
+                    }
                 if(mm<10) {
                     mm='0'+mm
-                    } 
+                    }
                 dataNa = dd+'/'+mm+'/'+yyyy;
 
 
@@ -205,7 +204,8 @@ exports.print = function (req, res) {
 
 					//PDFkit
                     //creating a new PDF object
-					doc.pipe(fs.createWriteStream(tempFile));  //creating a write stream 
+                    writeStream = fs.createWriteStream(tempFile);
+					doc.pipe(writeStream);  //creating a write stream
 					            //to write the content on the file system
 
 					//PAG. 1
@@ -213,10 +213,10 @@ exports.print = function (req, res) {
 					doc.text('FITXA SEGUIMENT ALUMNES EE-USEE',{
 						align: 'center',
 						underline: 1
-					}); 
+					});
 					doc.text('Escola Montserrat Vayreda',{
 						align: 'center'
-					}); 
+					});
 					doc.moveDown(2.5);
 
 					//DADES ALUMNE
@@ -232,46 +232,46 @@ exports.print = function (req, res) {
 					doc.moveDown(0.5);
 
 					doc.text('Seguiment atenció a la diversitat', {underline: 1});
-					doc.text('   Directe   '+ checksArr[0]);
-					doc.text('   Indirecte  '+ checksArr[1]);
+					doc.text('Directe   '+ checksArr[0]);
+					doc.text('Indirecte  '+ checksArr[1]);
 					doc.moveDown(0.5);
 
 					doc.text('Atenció', {underline: 1});
-					doc.text('   AiLL  '+ checksArr[2]);
-					doc.text('   EE    '+ checksArr[3]);
-					doc.text('   USEE  '+ checksArr[4]);
+					doc.text('AiLL '+ checksArr[2]);
+					doc.text('EE '+ checksArr[3]);
+					doc.text('USEE '+ checksArr[4]);
 					doc.moveDown(0.5);
 
 					doc.text('Seguiment serveis externs', {underline: 1});
-					doc.text('   EAP     '+ checksArr[5]);
-					doc.text('   TS EAP  '+ checksArr[6]);
-					doc.text('   CREDAG  '+ checksArr[7]);
-					doc.text('   CREDV   '+ checksArr[8]);
-					doc.text('   CSMIJ   '+ checksArr[9]);
-					doc.text('   SDTIC   '+ checksArr[10]);
-					doc.text('   CDIAP   '+ checksArr[11]);
+					doc.text('EAP '+ checksArr[5]);
+					doc.text('TS EAP '+ checksArr[6]);
+					doc.text('CREDAG '+ checksArr[7]);
+					doc.text('CREDV '+ checksArr[8]);
+					doc.text('CSMIJ '+ checksArr[9]);
+					doc.text('SDTIC '+ checksArr[10]);
+					doc.text('CDIAP '+ checksArr[11]);
 					doc.moveDown(0.5);
 
 					doc.text('Seguiment mèdic', {underline: 1});
-					doc.text('   Pediatria       '+ checksArr[12]);
-					doc.text('   Neuropediatria  '+ checksArr[13]);
+					doc.text('Pediatria '+ checksArr[12]);
+					doc.text('Neuropediatria '+ checksArr[13]);
 					if (alumne.checks[14] === true){
-						doc.text('   Altres especialitats: ' + alumne.altresEsp);
+						doc.text('Altres especialitats: ' + alumne.altresEsp);
 					};
-					doc.text('   Atenció serveis privats:  '+ alumne.atServPrivats);
+					doc.text('Atenció serveis privats: '+ alumne.atServPrivats);
 					doc.moveDown(0.5);
 
-					doc.text('   Repetició  '+ radiosArr[0]);
-					doc.text('   Beca       '+ radiosArr[1]);
+					doc.text('Repetició '+ radiosArr[0]);
+					doc.text('Beca '+ radiosArr[1]);
 					if (alumne.radios[2] === true){
-						doc.text('   Certificat disminució: ' + alumne.percentDim);
-					};
+						doc.text('Certificat disminució: ' + alumne.percentDim);
+					}
 					if (alumne.radios[3] === true){
-						doc.text('   Dictamen: ' + alumne.motiuDic);
-					};
+						doc.text('Dictamen: ' + alumne.motiuDic);
+					}
 					if (alumne.radios[4] === true){
-						doc.text('   Any valoració EAP: ' + alumne.anyVal);
-					};
+						doc.text('Any valoració EAP: ' + alumne.anyVal);
+					}
 					doc.addPage();
 
 					//PAG. 2
@@ -281,38 +281,38 @@ exports.print = function (req, res) {
 
 					doc.text('Programació individualitzada (P.I.)', {underline: 1});
 					if (alumne.checks[15] !== true){
-						doc.text('   Curricular:   ' + checksArr[16]);
-						doc.text('   Metodològica: ' + checksArr[17]);
-						doc.text('   Conductual:   ' + checksArr[18]);
+						doc.text('Curricular: ' + checksArr[16]);
+						doc.text('Metodològica: ' + checksArr[17]);
+						doc.text('Conductual: ' + checksArr[18]);
 					} else {
-						doc.text('   No');
+						doc.text('No');
 					};
 					doc.moveDown(0.5);
 
 					doc.text('Àrees Adaptades', {underline: 1});
-					doc.text('   Català           '+ checksArr[19]);
-					doc.text('   Castellà         '+ checksArr[20]);
-					doc.text('   Matemàtiques     '+ checksArr[21]);
-					doc.text('   Medi Natural     '+ checksArr[22]);
-					doc.text('   Medi Social      '+ checksArr[23]);
-					doc.text('   Educació Física  '+ checksArr[24]);
-					doc.text('   Àrea Artística   '+ checksArr[25]);
+					doc.text('Català '+ checksArr[19]);
+					doc.text('Castellà '+ checksArr[20]);
+					doc.text('Matemàtiques '+ checksArr[21]);
+					doc.text('Medi Natural '+ checksArr[22]);
+					doc.text('Medi Social '+ checksArr[23]);
+					doc.text('Educació Física '+ checksArr[24]);
+					doc.text('Àrea Artística '+ checksArr[25]);
 					doc.moveDown(0.5);
 
-					doc.text('Material diferenciat a les àrees adaptades  '+ radiosArr[5]);
-					doc.text('Adequació de continguts                     ' + radiosArr[6]);
+					doc.text('Material diferenciat a les àrees adaptades '+ radiosArr[5]);
+					doc.text('Adequació de continguts ' + radiosArr[6]);
 					doc.moveDown(0.5);
 					if (alumne.radios[7] === true){
-						doc.text('Full de derivació:  ' + radiosArr[7]);
-						doc.text('  Demanat per ' + alumne.derivacio);
-						doc.text('  Motiu: ' + alumne.motiuDer);
+						doc.text('Full de derivació: ' + radiosArr[7]);
+						doc.text('Demanat per ' + alumne.derivacio);
+						doc.text('Motiu: ' + alumne.motiuDer);
 					} else {
-						doc.text('   Full de derivació:  ' + 'no');
+						doc.text('Full de derivació: ' + 'no');
 					};
 					//doc.addPage();
 					doc.moveDown(2);
 
-					//SEGUIMENT ALUMNE	
+					//SEGUIMENT ALUMNE
 					doc.text('SEGUIMENT ALUMNE');
 					doc.moveDown(0.5);
 
@@ -344,14 +344,19 @@ exports.print = function (req, res) {
 					doc.end(); //we end the document writing.
 
 		}
-	});
+		writeStream.on('finish', function(){				
+
 					var fs = require('fs');
-					var tempFile = ('temp/PDFtemp.pdf'); 
-					fs.readFile(tempFile, function (err,data){
+					var tempFile = ('temp/PDF_EE_temp.pdf');
+					fs.readFile(tempFile, function (error,data){
 								    res.contentType("application/pdf");
 								    res.send(data);
 								    });
-};
+				});
+	});
+
+
+}
 
 //Suprimir alumne - VIEW
 exports.suprV = function (req, res) {
@@ -361,14 +366,14 @@ exports.suprV = function (req, res) {
 			return res.json(error);
 		} else {
 			res.render('delete_view', {alumne: alumne});
-			
+
 		}
 	});
 };
 
 //Suprimir alumne - DELETE
 exports.suprD = function (req, res) {
-	
+
 	var alumneId = req.params.id;
 	models.Alumne.findByIdAndUpdate(alumneId, {'eeUsee': false}, {new: true}, function(error, alumne){
 		if (error){

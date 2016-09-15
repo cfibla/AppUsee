@@ -14,14 +14,17 @@ var UserEe = mongoose.model('UserEe', schemaee, 'UserEes');
 module.exports = new mongoose.Schema ({
 	nomAlumne: {
 		type: String,
-		required: true
+		required: true,
+		uppercase: true
 	},
 	cognomAlumne1: {
 		type: String,
-		required: true
+		required: true,
+		uppercase: true
 	},
 	cognomAlumne2: {
-		type: String
+		type: String,
+		uppercase: true
 	},
 	dataNaixement: {
 		type: Date
@@ -79,6 +82,636 @@ module.exports = new mongoose.Schema ({
 			notes_3t:[Number],
 			mitja_3t: Number,
 			mitjaCurs: Number		
+		},
+
+		musica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		plastica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		frances:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		angles:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eValors:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eFisica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		proj:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		}
+	},
+
+	segon:{
+		mates:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number
+		},
+
+		cat:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number			
+		},
+
+		cast:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number					
+		},
+
+		medi:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		musica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		plastica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		frances:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		angles:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eValors:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eFisica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		proj:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		}
+	},
+
+	tercer:{
+		mates:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number
+		},
+
+		cat:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number			
+		},
+
+		cast:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number					
+		},
+
+		medi:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		musica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		plastica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		frances:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		angles:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eValors:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eFisica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		proj:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		}
+	},
+
+	quart:{
+		mates:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number
+		},
+
+		cat:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number			
+		},
+
+		cast:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number					
+		},
+
+		medi:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		musica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		plastica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		frances:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		angles:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eValors:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eFisica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		proj:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		}
+	},
+
+	cinque:{
+		mates:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number
+		},
+
+		cat:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number			
+		},
+
+		cast:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number					
+		},
+
+		medi:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		musica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		plastica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		frances:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		angles:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eValors:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eFisica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		proj:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		}
+	},
+
+	sise:{
+		mates:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number
+		},
+
+		cat:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number			
+		},
+
+		cast:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number					
+		},
+
+		medi:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		musica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		plastica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		frances:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		angles:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eValors:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		eFisica:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
+		},
+
+		proj:{
+			notes_1t:[Number],
+			mitja_1t: Number,
+			notes_2t:[Number],
+			mitja_2t: Number,
+			notes_3t:[Number],
+			mitja_3t: Number,
+			mitjaCurs: Number		
 		}
 	},
 
@@ -86,8 +719,13 @@ module.exports = new mongoose.Schema ({
 	//ASSISTÈNCIA
 	assist: [{
 		date: String,
-		falta: Boolean,
-		retard: Boolean
+		mati:{
+				falta: Boolean,
+				retard: Boolean},
+		tarda:{
+				falta: Boolean,
+				retard: Boolean},
+
 	}],
 
 

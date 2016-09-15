@@ -12,27 +12,27 @@ exports.list = function (req, res) {
 			res.render('index',{Alumnes: docs});
 			}
 	});
-	
+
+};
+
+//Altes d'alumnes - GET
+exports.alta = function (req, res) {
+
+	res.render('nou_alumne', {errorAlta:''});
 };
 
 //Altes d'alumnes - POST
-exports.alta = function (req, res) {
-	
-	res.render('dades_alta', {errorAlta:''});
-};
-
-
 exports.create = function (req, res){
 
 	var alum = req.body;
-	
+
 
 	if (!alum.nom||!alum.cognom1||!alum.naixement||!alum.sSocial){
 		models.Alumne.find(function(error, docs){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('dades_alta', {errorAlta:"Heu d'emplenar apartats"});
+			res.render('nou_alumne', {errorAlta:"Heu d'emplenar apartats"});
 			};
 		});
 	} else {
@@ -79,14 +79,14 @@ exports.mod = function (req, res) {
 			return res.json(error);
 		} else {
 			res.render('dades_mod', {alumne: alumne});
-			
+
 		}
 	});
 };
 
 //Modificar dades - PUT
 exports.update = function (req, res){
-	
+
 	var alumneId = req.params.id;
 	var alum = req.body;
 
@@ -101,12 +101,12 @@ exports.update = function (req, res){
 										anyVal:'',
 										derivacio:'',
 										motiuDer:'',
-										
-									
+
+
 									}, function(error, alumne){
 										if (error){
 											return res.json(error);
-										} 
+										}
 									});
 
 	delete alum.id;
@@ -131,7 +131,7 @@ exports.actuaGet = function (req, res) {
 			return res.json(error);
 		} else {
 			res.render('seg_act', {alumne: alumne});
-			
+
 		}
 	});
 };
@@ -172,10 +172,10 @@ exports.print = function (req, res) {
                 var yyyy = dataNa.getFullYear();
                 if(dd<10) {
                     dd='0'+dd
-                    } 
+                    }
                 if(mm<10) {
                     mm='0'+mm
-                    } 
+                    }
                 dataNa = dd+'/'+mm+'/'+yyyy;
 
 
@@ -205,7 +205,7 @@ exports.print = function (req, res) {
 
 					//PDFkit
                     //creating a new PDF object
-					doc.pipe(fs.createWriteStream(tempFile));  //creating a write stream 
+					doc.pipe(fs.createWriteStream(tempFile));  //creating a write stream
 					            //to write the content on the file system
 
 					//PAG. 1
@@ -213,10 +213,10 @@ exports.print = function (req, res) {
 					doc.text('FITXA SEGUIMENT ALUMNES EE-USEE',{
 						align: 'center',
 						underline: 1
-					}); 
+					});
 					doc.text('Escola Montserrat Vayreda',{
 						align: 'center'
-					}); 
+					});
 					doc.moveDown(2.5);
 
 					//DADES ALUMNE
@@ -312,7 +312,7 @@ exports.print = function (req, res) {
 					//doc.addPage();
 					doc.moveDown(2);
 
-					//SEGUIMENT ALUMNE	
+					//SEGUIMENT ALUMNE
 					doc.text('SEGUIMENT ALUMNE');
 					doc.moveDown(0.5);
 
@@ -346,7 +346,7 @@ exports.print = function (req, res) {
 		}
 	});
 					var fs = require('fs');
-					var tempFile = ('temp/PDFtemp.pdf'); 
+					var tempFile = ('temp/PDFtemp.pdf');
 					fs.readFile(tempFile, function (err,data){
 								    res.contentType("application/pdf");
 								    res.send(data);
@@ -361,14 +361,14 @@ exports.suprV = function (req, res) {
 			return res.json(error);
 		} else {
 			res.render('delete_view', {alumne: alumne});
-			
+
 		}
 	});
 };
 
 //Suprimir alumne - DELETE
 exports.suprD = function (req, res) {
-	
+
 	var alumneId = req.params.id;
 	models.Alumne.findByIdAndRemove(alumneId, function(error, alumne){
 		if (error){

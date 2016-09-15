@@ -19,7 +19,7 @@
 <!--DADES ALUMNE-->
     <div class="container">
       <div class="row">
-        <form role="form" method="post" action="/dades_crear">
+        <form role="form" method="post" action="/alumne_nou">
           <div class="form-group">
             <div class="col-md-2">
               <h4>Nova entrada</h4>
@@ -48,23 +48,24 @@
             </div>
 
             <div class="form-group col-md-2">
-              <label for="data_naixement">Data naixement</label>
-              <input type="date" class="form-control" id="data_naixement" name="naixement"
-                     placeholder="">
-            </div>
-
-            <div class="form-group col-md-2">
               <label for="targeta_SS">Targeta SS</label>
               <input type="text" class="form-control" id="targeta_SS" name="sSocial"
                      placeholder="Seguretat Social">
             </div>
 
             <div class="form-group col-md-2">
+              <label for="data_naixement">Data naixement</label>
+              <input type="date" class="form-control" id="data_naixement" name="naixement"
+                     placeholder="">
+            </div>
+
+
+<!--            <div class="form-group col-md-2">
               <label for="targeta_SS">Codi escola</label>
               <input type="text" class="form-control" id="codi_escola" name="codiEscola"
                      placeholder ="<%=session.user.escola%>" value ="<%=session.user.escola%>">
             </div>
-
+-->
             <div class="form-group col-md-2" id="curs">
               <label for="curs_act">Curs actual</label>
                 <select class="form-control" id="curs_act" name="curs">
