@@ -48,11 +48,11 @@ exports.create = function (req, res){
 		dataNaixement: alum.naixement,
 		seguretatSoc: alum.sSocial,
 
-		codiEscola: esc._id,
+		codiEscola: req.session.user.escola,
 		curs: alum.curs,
 		eeUsee: alum.eeUsee,
 
-		escola: esc._id,
+		escola: req.session.user.escola,
 		tutor: req.session.user
 
 	});
