@@ -39,10 +39,9 @@ exports.create = function (req, res){
 		models.Escola.find({"_id": 17008237}, function(error, esc){
 		if (error){
 			console.log(error);
-			console.log(esc);
 		} else {
 
-
+				console.log(esc);
 				//console.log(nouAlumne);
 
 			var nouAlumne = new models.Alumne({
@@ -52,11 +51,11 @@ exports.create = function (req, res){
 				dataNaixement: alum.naixement,
 				seguretatSoc: alum.sSocial,
 
-				codiEscola: esc._id,
+				codiEscola: req.session.user.escola,
 				curs: alum.curs,
 				eeUsee: true,
 
-				escola: esc._id,
+				escola: req.session.user.escola,
 				ee: req.session.user
 
 			});
