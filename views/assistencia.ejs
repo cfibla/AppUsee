@@ -32,11 +32,12 @@
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%></td>
 
       <td><%=Alumnes[i].curs%></td>
-      <td><input type="radio" name=""></td>
-      <td><input type="radio" name=""></td>
-      <td><input type="radio" name=""></td>
-      <td><input type="radio" name=""></td>
-  
+      <form role="form" method="post" action="/alumne_ass?_method=put"  id="alumne_ass">
+      <td><input type="radio" name="<%=Alumnes[i].assist[mati.falta]%>"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist[mati.retard]%>"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist[tarda.falta]%>"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist[tarda.retard]%>"></td>
+      </form>
       <td>
             <!--/print_EE/<%=Alumnes[i].id%>-->
             <a href="" class="btn btn-primary btn-xs" role="button" target="_blank">Imprimir</a>
@@ -47,6 +48,10 @@
 
     </tbody>
   </table>
+          <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+          <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
+            <button type="submit" class="btn btn-primary">Desa</button>
+        </div>
 </div>
 </div>
 </div>

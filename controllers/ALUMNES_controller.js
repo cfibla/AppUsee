@@ -115,8 +115,8 @@ exports.update = function (req, res){
 
 	};
 
-//Assistència d'alumnes
-exports.assis = function (req, res) {
+//Assistència d'alumnes - GET
+exports.assisGet = function (req, res) {
 	models.Alumne.find({tutor: req.session.user})
 	.populate('escola tutor')
 	.exec(function(error, docs){
@@ -126,6 +126,20 @@ exports.assis = function (req, res) {
 			res.render('assistencia',{Alumnes: docs});
 			}
 	});
+
+};
+
+//Assistència d'alumnes - POST
+exports.assisPost = function (req, res) {
+//	models.Alumne.find({tutor: req.session.user})
+//	.populate('escola tutor')
+//	.exec(function(error, docs){
+//		if (error){
+//			console.log(error);
+//		} else {
+			res.redirect('/list');
+//			}
+//	});
 
 };
 

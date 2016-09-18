@@ -40,6 +40,71 @@ module.exports = new mongoose.Schema ({
 
 	curs: String,
 
+		//ASSISTÈNCIA
+	assist: [{
+		date: String,
+		mati:{
+				falta: Boolean,
+				retard: Boolean},
+		tarda:{
+				falta: Boolean,
+				retard: Boolean},
+
+	}],
+
+
+	//CHECKS & RADIOS
+	checks:[Boolean],
+	radios:[Boolean],
+
+
+	altresEsp:{
+		type: String
+	},
+	atServPrivats:{
+		type: String
+	},
+	percentDim:{
+		type: String
+	},
+	motiuDic:{
+		type: String
+	},
+	anyVal:{
+		type: String
+	},
+	derivacio:{
+		type: String
+	},
+	motiuDer:{
+		type: String
+	},
+
+	//SEGUIMENT
+	segActuacions: [{ date: String, body: String }],
+	segInformacioCAD: [{ date: String, body: String }],
+	segAltresCoord: [{ date: String, body: String }],
+
+	
+
+	//PROPIETARIS
+	escola: {
+		type: Number,
+		ref: 'Escola'
+	},
+	tutor: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'User'
+	},
+	esp: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'UserEsp'
+	},
+	ee: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'UserEe'
+	},
+
 
 
 	//NOTES
@@ -713,71 +778,8 @@ module.exports = new mongoose.Schema ({
 			mitja_3t: Number,
 			mitjaCurs: Number		
 		}
-	},
-
-
-	//ASSISTÈNCIA
-	assist: [{
-		date: String,
-		mati:{
-				falta: Boolean,
-				retard: Boolean},
-		tarda:{
-				falta: Boolean,
-				retard: Boolean},
-
-	}],
-
-
-	//CHECKS & RADIOS
-	checks:[Boolean],
-	radios:[Boolean],
-
-
-	altresEsp:{
-		type: String
-	},
-	atServPrivats:{
-		type: String
-	},
-	percentDim:{
-		type: String
-	},
-	motiuDic:{
-		type: String
-	},
-	anyVal:{
-		type: String
-	},
-	derivacio:{
-		type: String
-	},
-	motiuDer:{
-		type: String
-	},
-
-	//SEGUIMENT
-	segActuacions: [{ date: String, body: String }],
-	segInformacioCAD: [{ date: String, body: String }],
-	segAltresCoord: [{ date: String, body: String }],
-
-	
-
-	//PROPIETARIS
-	escola: {
-		type: Number,
-		ref: 'Escola'
-	},
-	tutor: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'User'
-	},
-	esp: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'UserEsp'
-	},
-	ee: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'UserEe'
 	}
+
+
+
 })
