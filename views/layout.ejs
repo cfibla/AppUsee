@@ -33,7 +33,6 @@
   <%  if (session.user){
       var ruta;
       var nouAl;
-      var assistencia;
  
       if(session.user.mestre === "ee"){
       ruta = "/list_EE";
@@ -76,12 +75,10 @@
         <li><a href="<%=nouAl%>">Nova entrada</a></li>
 
         <%  if (session.user){
-            if(session.user.mestre === "ee"){
+            if(session.user.mestre === "tutor"){%>
             <li><a href="/assistencia">Assistència</a></li>
 
-            }}
-         
-            %>
+        <%  }}%>
         
         
     <!--     <li><a href="#">Altes</a></li>-->

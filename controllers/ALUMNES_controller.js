@@ -26,7 +26,6 @@ exports.create = function (req, res){
 
 	var alum = req.body;
 
-
 	if (!alum.nom||!alum.cognom1||!alum.naixement||!alum.sSocial){
 		models.Alumne.find(function(error, docs){
 		if (error){
@@ -58,14 +57,8 @@ exports.create = function (req, res){
 	});
 	nouAlumne.save(function(error, alumne){
 		if (error) res.json(error);
-		//res.status(200).send(alumne)
-
 	});
-	//console.log(esc);
-	//console.log(nouAlumne);
 	res.redirect('/list');
-
-
 	};
 });
 }
@@ -79,7 +72,6 @@ exports.mod = function (req, res) {
 			return res.json(error);
 		} else {
 			res.render('dades_mod', {alumne: alumne});
-
 		}
 	});
 };
@@ -123,34 +115,20 @@ exports.update = function (req, res){
 
 	};
 
-//SEGUIMENT GET
-exports.actuaGet = function (req, res) {
-	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
-		if (error) {
-			return res.json(error);
+//Assistència d'alumnes
+exports.assis = function (req, res) {
+	models.Alumne.find({tutor: req.session.user})
+	.populate('escola tutor')
+	.exec(function(error, docs){
+		if (error){
+			console.log(error);
 		} else {
-			res.render('seg_act', {alumne: alumne});
-
-		}
+			res.render('assistencia',{Alumnes: docs});
+			}
 	});
+
 };
 
-
-//SEGUIMENT POST
-exports.actuaPost = function (req, res) {
-
-		var alumneId = req.params.id;
-		var alum = req.body;
-
-		models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
-
-		function (error, alumne){
-		if (error) res.json(error);
-		res.redirect('/list');
-	});
-
-}
 
 //IMPRIMIR PDF
 exports.print = function (req, res) {

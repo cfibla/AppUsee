@@ -1,0 +1,52 @@
+<div class="container">
+<div class="row">
+            <div class="col-md-2">
+              <h4>Llista assistencia</h4>
+            </div>
+
+            <div class="col-md-10">
+              <hr>
+            </div>
+            <div class="col-md-12">
+
+  <% if (Alumnes.length === 0) { %>
+      <p><br />
+      No hi ha alumnes registrats
+      </p>
+      <%} else { %>           
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Curs</th>
+        <th>Falta matí</th>
+        <th>Retard matí</th>
+        <th>Falta tarda</th>
+        <th>Retard tarda</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% var i; for (i=0; i < Alumnes.length; i++) {%>
+      <tr>
+      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%></td>
+
+      <td><%=Alumnes[i].curs%></td>
+      <td><input type="radio" name=""></td>
+      <td><input type="radio" name=""></td>
+      <td><input type="radio" name=""></td>
+      <td><input type="radio" name=""></td>
+  
+      <td>
+            <!--/print_EE/<%=Alumnes[i].id%>-->
+            <a href="" class="btn btn-primary btn-xs" role="button" target="_blank">Imprimir</a>
+      </td>
+
+     <% }; %><% } %>
+     </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
