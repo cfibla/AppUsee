@@ -27,12 +27,12 @@ exports.create = function (req, res){
 	var alum = req.body;
 
 
-	if (!alum.nom||!alum.cognom1||!alum.naixement||!alum.sSocial){
+	if (!alum.nom||!alum.cognom1){
 		models.Alumne.find(function(error, docs){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('nou_alumne_EE', {errorAlta:"Heu d'emplenar tots els apartats obligatoris"});
+			res.render('nou_alumne_EE', {errorAlta:"Heu d'introduir nom i cognom com a mínim"});
 			};
 		});
 	} else {
@@ -87,6 +87,8 @@ exports.update = function (req, res){
 
 	var alumneId = req.params.id;
 	var alum = req.body;
+	var upp = alum.cognomAlumne2.toUpperCase();
+
 
 	models.Alumne.findByIdAndUpdate(alumneId,
 									{$set:{
@@ -110,6 +112,7 @@ exports.update = function (req, res){
 	delete alum.id;
 	delete alum._id;
 
+	alum.cognomAlumne2 = upp;
 
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
