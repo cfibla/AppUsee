@@ -33,10 +33,10 @@
 
       <td><%=Alumnes[i].curs%></td>
       <form role="form" method="post" action="/alumne_ass?_method=put"  id="alumne_ass">
-      <td><input type="radio" name="<%=Alumnes[i].assist[mati.falta]%>"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist[mati.retard]%>"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist[tarda.falta]%>"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist[tarda.retard]%>"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist.mati.falta%>"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist.mati.retard%>"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist.tarda.falta%>"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist.tarda.retard%>"></td>
       </form>
       <td>
             <!--/print_EE/<%=Alumnes[i].id%>-->
