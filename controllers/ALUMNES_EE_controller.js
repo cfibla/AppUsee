@@ -3,7 +3,7 @@ var models = require('../models/index');
 
 //Llstat d'alumnes EE- GET
 exports.list = function (req, res) {
-	models.Alumne.find({'eeUsee': true})
+	models.Alumne.find({'eeUsee': true, 'escola': req.session.user.escola})
 	.populate('escola ee')
 	.exec(function(error, docs){
 		if (error){
@@ -145,6 +145,28 @@ exports.actuaPost = function (req, res) {
 		var alum = req.body;
 
 		models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
+
+		function (error, alumne){
+		if (error) res.json(error);
+		res.redirect('/list_EE');
+	});
+
+}
+
+//SEGUIMENT UPDATE
+exports.actuaUpdate = function (req, res) {
+
+		var alumneId = req.params.id;
+		var alumneI = req.params.i;
+		var alum = req.body;
+
+		console.log('alumneId: '+ alumneId);
+		console.log('alumneI: '+ alumneI);
+		console.log(JSON.stringify(alum));
+
+
+
+		models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
 
 		function (error, alumne){
 		if (error) res.json(error);

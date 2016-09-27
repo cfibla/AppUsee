@@ -81,6 +81,42 @@
 
 
                       <div class="row">
+                      <!--Actuacions anteriors-->
+                          
+
+                            <%for (i = 0; i < alumne.segActuacions.length; i++) { %>
+                            <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>/act/<%=i%>?_method=put" id="past_actuacions">
+
+                            <div class="form-group col-md-2 actuPast" id="actuacions">
+
+                              <input type="text" class="form-control" form="past_actuacions" id="actuacionsDate" value="<%=alumne.segActuacions[i].date%>" name="segActuacions.<%=i%>.date">
+
+                            </div>
+
+                            <div class="form-group col-md-12">
+                              <textarea class="form-control" rows="6" id="actuacionsBody" name="segActuacions.<%=i%>.body" form="past_actuacions"><%=alumne.segActuacions[i].body%>
+                             </textarea>
+
+                              <br />
+                              <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+
+                              <button type="submit" form="past_actuacions" class="btn btn-primary btn-xs">Modifica</button>
+                              </div>
+
+                            
+                              <br />
+                             </div>
+
+                             </form>
+         
+                            <% } %>
+
+
+
+                         
+
+
+                      <!--Nova actuació-->
 
                         <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_actuacions">
 
@@ -89,20 +125,7 @@
                             var actuArray = alumne.segActuacions.length;
                             %>
 
-                      <!--Actuacions anteriors-->
-                          <div class="form-group col-md-12 actuPast" id="actuacions">
-
-                            <%for (i = 0; i < alumne.segActuacions.length; i++) { %>
-
-                              <%=alumne.segActuacions[i].date%><br />
-                              <%=alumne.segActuacions[i].body%><br /><br />
-         
-                            <% } %>
-
-                          </div>
-
-
-                      <!--Nova actuació-->
+                      
                           <div class="form-group col-md-2 dataSeguiment">
                           <input type="text" class="form-control" id="actuacionsDate" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
                           </div>

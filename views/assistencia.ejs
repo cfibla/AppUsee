@@ -1,7 +1,34 @@
+<%
+function radioTrue(id){
+    var rt='';
+    if (alumne.radios[id] === true) {
+    rt ="checked";
+    }
+    return rt;
+    };
+
+//DATA D'AVUI
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = dd+'/'+mm+'/'+yyyy;
+%>
+
 <div class="container">
 <div class="row">
             <div class="col-md-2">
               <h4>Llista assistencia</h4>
+               DATA: <%=today%>
             </div>
 
             <div class="col-md-10">
@@ -26,17 +53,30 @@
 
       </tr>
     </thead>
+
     <tbody>
-      <% var i; for (i=0; i < Alumnes.length; i++) {%>
+      <% var i; for (i=0; i < Alumnes.length; i++) {
+      //ARRAY ASSIST
+      var arraylng = Alumnes[i].assist.lenght;
+      Alumnes[i].assist.date = today;
+      Alumnes[i].assist.mati = 'retard';
+      Alumnes[i].assist.tarda = 'falta';
+
+      console.log(Alumnes[i].assist.date);
+      console.log(Alumnes[i].assist.mati);
+      console.log(Alumnes[i].assist.tarda);
+      console.log(Alumnes[i].assist);
+      %>
+
       <tr>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%></td>
 
       <td><%=Alumnes[i].curs%></td>
-      <form role="form" method="post" action="/alumne_ass?_method=put"  id="alumne_ass">
-      <td><input type="radio" name="<%=Alumnes[i].assist.mati.falta%>"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist.mati.retard%>"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist.tarda.falta%>"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist.tarda.retard%>"></td>
+      <form role="form" method="post" action="/alumne_ass?_method=put" id="alumne_ass">
+      <td><input type="radio" name="<%=Alumnes[i].assist.mati%>" value ="falta"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist.mati%>" value = "retard"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist.tarda%>" value ="falta"></td>
+      <td><input type="radio" name="<%=Alumnes[i].assist.tarda%>" value = "retard"></td>
       </form>
       <td>
             <!--/print_EE/<%=Alumnes[i].id%>-->

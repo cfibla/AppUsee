@@ -46,6 +46,7 @@ router.get('/dades_mod_EE/:id', 	sessionController.loginRequired, alumEeControll
 router.put('/dades_update_EE/:id',	sessionController.loginRequired, alumEeController.update);
 router.get('/seg_act_EE/:id',		sessionController.loginRequired, alumEeController.actuaGet);
 router.put('/seg_act_upd_EE/:id',	sessionController.loginRequired, alumEeController.actuaPost);
+router.put('/seg_act_upd_EE/:id/act/:i',	sessionController.loginRequired, alumEeController.actuaUpdate)
 router.get('/print_EE/:id',			sessionController.loginRequired, alumEeController.print);
 
 

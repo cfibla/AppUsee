@@ -40,15 +40,11 @@ module.exports = new mongoose.Schema ({
 
 	curs: String,
 
-		//ASSISTÈNCIA
+	//ASSISTÈNCIA
 	assist: [{
 		date: String,
-		mati:{
-				falta: Boolean,
-				retard: Boolean},
-		tarda:{
-				falta: Boolean,
-				retard: Boolean},
+		mati: String,
+		tarda:String,
 
 	}],
 
