@@ -25,6 +25,13 @@
                 dataNa = dd+'/'+mm+'/'+yyyy;
                   %>
 
+<!--DISABLEACT-->
+                <%function disableAct(){
+                document.getElementById('pActuacionsDate').disabled = true;
+                document.getElementById('pActuacionsBody').disabled = true;
+                }
+                %>
+
 <!--  INPUT CURS (ANUL·LAT) -->
 <!--            <div class="form-group col-md-10"></div>
                 <div class="form-group col-md-2">
@@ -96,31 +103,28 @@
 
                             <div class="form-group col-md-2 actuPast" id="actuacions">
 
-                              <input type="text" class="form-control" form="past_actuacions" id="actuacionsDate" value="<%=alumne.segActuacions[i].date%>" name="segActuacions.<%=i%>.date">
+                              <input type="text" class="form-control" form="past_actuacions" id="pActuacionsDate" value="<%=alumne.segActuacions[i].date%>" name="segActuacions.<%=i%>.date">
 
                             </div>
 
                             <div class="form-group col-md-12">
-                              <textarea class="form-control" rows="6" id="actuacionsBody" name="segActuacions.<%=i%>.body" form="past_actuacions"><%=alumne.segActuacions[i].body%></textarea>
+                              <textarea class="form-control" rows="6" id="pActuacionsBody" name="segActuacions.<%=i%>.body" form="past_actuacions"><%=alumne.segActuacions[i].body%></textarea>
 
                               <br />
+
+                            </div>
 
                               <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                              <button type="button" class="btn btn-default btn-xs" onclick="segActuacions.<%=i%>.body.disabled = true; segActuacions.<%=i%>.date.disabled = true">Modifica</button>                              
+                              <button type="button" class="btn btn-default btn-xs" onclick="disableAct()">Modifica</button>                              
 
                               </div>
-
-
-                            
-                              <br />
-                             </div>
 
                              </form>
          
                             <% } %>
                               <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                              <button type="button" class="btn btn-default btn-xs" onclick="segActuacions.<%=i%>.body.disabled = true; segActuacions.<%=i%>.date.disabled = true">Modifica</button>                              
-                              <button type="submit" form="past_actuacions" class="btn btn-primary btn-xs">Envia</button>
+                                                           
+                              <button type="submit" form="past_actuacions" class="btn btn-primary btn-md">Actualitza</button>
 
                               </div>
                           </div>
