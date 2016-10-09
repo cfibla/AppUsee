@@ -175,6 +175,29 @@ exports.actuaUpdate = function (req, res) {
 
 }
 
+//SEGUIMENT DELETE
+exports.actuaDelete = function (req, res) {
+
+		var alumneId = req.params.id;
+		var alumneI = req.params.i;
+		var alum = req.body;
+		var actDel = alum[alumneI]
+
+		console.log('alumneId: '+ alumneId);
+		console.log('alumneI: '+ alumneI);
+		console.log(JSON.stringify(alum));
+
+
+
+		models.Alumne.findByIdAndUpdate(alumneId,{$unset: actDel}, {multi: true, safe: true, upsert: true},
+
+		function (error, alumne){
+		if (error) res.json(error);
+		res.redirect('/list_EE');
+	});
+
+}
+
 //IMPRIMIR PDF_ EE
 exports.print = function (req, res) {
 	var alumneId = req.params.id;
