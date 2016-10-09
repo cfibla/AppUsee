@@ -181,7 +181,9 @@ exports.actuaDelete = function (req, res) {
 		var alumneId = req.params.id;
 		var alumneI = req.params.i;
 		var alum = req.body;
-		var actDel = alum[alumneI]
+
+		delete alum.segActuacions[alumneI].date;
+		delete alum.segActuacions[alumneI].body;
 
 		console.log('alumneId: '+ alumneId);
 		console.log('alumneI: '+ alumneI);
@@ -189,7 +191,7 @@ exports.actuaDelete = function (req, res) {
 
 
 
-		models.Alumne.findByIdAndUpdate(alumneId,{$unset: actDel}, {multi: true, safe: true, upsert: true},
+		models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
 
 		function (error, alumne){
 		if (error) res.json(error);
