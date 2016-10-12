@@ -182,12 +182,12 @@ exports.actuaDelete = function (req, res) {
 		var alumneI = req.params.i;
 		var alum = req.body;
 
-		delete alum.segActuacions[alumneI].date;
-		delete alum.segActuacions[alumneI].body;
+		//delete alum.segActuacions[alumneI].date;
+		//delete alum.segActuacions[alumneI].body;
 
 		console.log('alumneId: '+ alumneId);
 		console.log('alumneI: '+ alumneI);
-		console.log(JSON.stringify(alum));
+		console.log(JSON.stringify(alum.segActuacions[alumneI].date));
 
 
 
