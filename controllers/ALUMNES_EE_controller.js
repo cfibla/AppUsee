@@ -153,18 +153,12 @@ exports.actuaPost = function (req, res) {
 
 }
 
-//SEGUIMENT UPDATE
+//SEG_ACTUACIONS UPDATE
 exports.actuaUpdate = function (req, res) {
 
 		var alumneId = req.params.id;
 		var alumneI = req.params.i;
 		var alum = req.body;
-
-		console.log('alumneId: '+ alumneId);
-		console.log('alumneI: '+ alumneI);
-		console.log(JSON.stringify(alum));
-
-
 
 		models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
 
@@ -175,19 +169,21 @@ exports.actuaUpdate = function (req, res) {
 
 }
 
-//SEGUIMENT DELETE
+//SEG_ACTUACIONS DELETE
 exports.actuaDelete = function (req, res) {
 
 		var alumneId = req.params.id;
 		var alumneI = req.params.i;
 		var alum = req.body;
+		//var sa = alum.segActuacions
 
-		//delete alum.segActuacions[alumneI].date;
-		//delete alum.segActuacions[alumneI].body;
+		delete alum.segActuacions['alumneI'].date;
+		delete alum.segActuacions['alumneI'].body;
+
 
 		console.log('alumneId: '+ alumneId);
 		console.log('alumneI: '+ alumneI);
-		console.log(JSON.stringify(alum.segActuacions[alumneI].date));
+		console.log(JSON.stringify(alum));
 
 
 
