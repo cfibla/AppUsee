@@ -175,15 +175,16 @@ exports.actuaDelete = function (req, res) {
 		var alumneId = req.params.id;
 		var alumneI = req.params.i;
 		var alum = req.body;
-		//var sa = alum.segActuacions
+		var alumIxDos = alumneI*2;
 
-		delete alum.segActuacions['alumneI'].date;
-		delete alum.segActuacions['alumneI'].body;
+
+		delete alum.alumIxDos;
+		delete alum.alumIxDos+1;
 
 
 		console.log('alumneId: '+ alumneId);
 		console.log('alumneI: '+ alumneI);
-		console.log(JSON.stringify(alum));
+		console.log(JSON.stringify(alum.segActuacions));
 
 
 
