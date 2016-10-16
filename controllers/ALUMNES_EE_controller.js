@@ -177,23 +177,38 @@ exports.actuaDelete = function (req, res) {
 		var alum = req.body;
 		var alumIxDos = alumneI*2;
 
-
-		delete alum.alumIxDos;
-		delete alum.alumIxDos+1;
-
+		var updateObj = {};
+		updateObj['segActuacions'] = {};
+		updateObj['segActuacions'][alumneI] = {};
+		updateObj['segActuacions'][alumneI]['body'] = '';
+		updateObj['segActuacions'][alumneI]['date'] = '';
 
 		console.log('alumneId: '+ alumneId);
 		console.log('alumneI: '+ alumneI);
-		console.log(JSON.stringify(alum.segActuacions));
+		console.log(JSON.stringify(alum));
+
+		var update = { $unset:  updateObj };
+
+		models.User.findByIdAndUpdate(alumneId, update, function (error, alumne){
+		    if (error) res.json(error);
+		    res.redirect('/list_EE');
+		});
+
+
+		//delete alum['segActuacions.alumneI.date'];
+		//delete alum['segActuacions.alumneI.body'];
+
+
+		
 
 
 
-		models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
+		//models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
 
-		function (error, alumne){
-		if (error) res.json(error);
-		res.redirect('/list_EE');
-	});
+		//function (error, alumne){
+		//if (error) res.json(error);
+		//res.redirect('/list_EE');
+	//});
 
 }
 
