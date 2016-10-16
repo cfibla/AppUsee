@@ -212,47 +212,47 @@ exports.print = function (req, res) {
 
 				//FORMAT DATA NAIXEMENT
 				var dataNa = alumne.dataNaixement;
-                var dd = dataNa.getDate();
-                var mm = dataNa.getMonth()+1; //January is 0!
-                var yyyy = dataNa.getFullYear();
-                if(dd<10) {
-                    dd='0'+dd
-                    }
-                if(mm<10) {
-                    mm='0'+mm
-                    }
-                dataNa = dd+'/'+mm+'/'+yyyy;
+				var dd = dataNa.getDate();
+				var mm = dataNa.getMonth()+1; //January is 0!
+				var yyyy = dataNa.getFullYear();
+				if(dd<10) {
+					dd='0'+dd
+					}
+				if(mm<10) {
+					mm='0'+mm
+					}
+				dataNa = dd+'/'+mm+'/'+yyyy;
 
 
-                //FORMAT CHECKS
-                var checksArr = [];
-                for (var i = 0; i <= 25; i++) {
-                	if (alumne.checks[i] === true){
-                		checksArr[i] = 'SI';
-                	} else {
-                		checksArr[i] = 'no';
+				//FORMAT CHECKS
+				var checksArr = [];
+				for (var i = 0; i <= 25; i++) {
+					if (alumne.checks[i] === true){
+						checksArr[i] = 'SI';
+					} else {
+						checksArr[i] = 'no';
 
-                	}
-                };
+					}
+				};
 
-                //FORMAT RADIOS
-                var radiosArr = [];
-                for (var i = 0; i < alumne.radios.length; i++) {
-                	if (alumne.radios[i] === true){
-                		radiosArr[i] = 'SI';
-                	} else {
-                		radiosArr[i] = 'no';
+				//FORMAT RADIOS
+				var radiosArr = [];
+				for (var i = 0; i < alumne.radios.length; i++) {
+					if (alumne.radios[i] === true){
+						radiosArr[i] = 'SI';
+					} else {
+						radiosArr[i] = 'no';
 
-                	}
-                };
+					}
+				};
 
 					var nom = alumne.nomAlumne + ' ' + alumne.cognomAlumne1 + ' ' + alumne.cognomAlumne2;
 
 					//PDFkit
-                    //creating a new PDF object
-                    writeStream = fs.createWriteStream(tempFile);
+					//creating a new PDF object
+					writeStream = fs.createWriteStream(tempFile);
 					doc.pipe(writeStream);  //creating a write stream
-					            //to write the content on the file system
+								//to write the content on the file system
 
 					//PAG. 1
 					//TITOL
@@ -368,7 +368,7 @@ exports.print = function (req, res) {
 						doc.text(alumne.segActuacions[i].date);
 						doc.text(alumne.segActuacions[i].body);
 						doc.moveDown();
-                        };
+						};
 
 					doc.text('Informació CAD', {underline: 1});
 					doc.moveDown(0.5);
@@ -376,28 +376,28 @@ exports.print = function (req, res) {
 						doc.text(alumne.segInformacioCAD[i].date);
 						doc.text(alumne.segInformacioCAD[i].body);
 						doc.moveDown();
-                        };
+						};
 
-                    doc.text('Altres coordinacions - Coordinacions amb tutors', {underline: 1});
+					doc.text('Altres coordinacions - Coordinacions amb tutors', {underline: 1});
 					doc.moveDown(0.5);
 					for (i = 0; i < alumne.segAltresCoord.length; i++) {
 						doc.text(alumne.segAltresCoord[i].date);
 						doc.text(alumne.segAltresCoord[i].body);
 						doc.moveDown();
-                        };
+						};
 
 
 					doc.end(); //we end the document writing.
 
 		}
-		writeStream.on('finish', function(){				
+		writeStream.on('finish', function(){                
 
 					var fs = require('fs');
 					var tempFile = ('temp/PDF_EE_temp.pdf');
 					fs.readFile(tempFile, function (error,data){
-								    res.contentType("application/pdf");
-								    res.send(data);
-								    });
+									res.contentType("application/pdf");
+									res.send(data);
+									});
 				});
 	});
 
