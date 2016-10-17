@@ -170,47 +170,26 @@ exports.actuaUpdate = function (req, res) {
 }
 
 //SEG_ACTUACIONS DELETE
-exports.actuaDelete = function (req, res) {
-
+	exports.actuaDelete = function (req, res) {
 		var alumneId = req.params.id;
 		var alumneI = req.params.i;
-		var alum = req.body;
-		var alumIxDos = alumneI*2;
+		var alum = {};
 
-		var updateObj = {};
-		updateObj['segActuacions'] = {};
-		updateObj['segActuacions'][alumneI] = {};
-		updateObj['segActuacions'][alumneI]['body'] = '';
-		updateObj['segActuacions'][alumneI]['date'] = '';
+		models.Alumne.findOne({_id: alumneId}, function (error, alumne){
+			if (error) res.json(error);
+			alumne.segActuacions.splice(alumneI,1);
+			alumne.save(function(error){
+				if (error) {res.json(error);
+			} else{
+				res.render('seg_act_EE', {alumne: alumne});
+			};
+			});
 
-		console.log('alumneId: '+ alumneId);
-		console.log('alumneI: '+ alumneI);
-		console.log(JSON.stringify(alum));
-
-		var update = { $unset:  updateObj };
-
-		models.User.findByIdAndUpdate(alumneId, update, function (error, alumne){
-		    if (error) res.json(error);
-		    res.redirect('/list_EE');
 		});
-
-
-		//delete alum['segActuacions.alumneI.date'];
-		//delete alum['segActuacions.alumneI.body'];
-
-
-		
+	};
 
 
 
-		//models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
-
-		//function (error, alumne){
-		//if (error) res.json(error);
-		//res.redirect('/list_EE');
-	//});
-
-}
 
 //IMPRIMIR PDF_ EE
 exports.print = function (req, res) {

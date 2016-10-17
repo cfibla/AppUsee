@@ -58,39 +58,37 @@ today = dd+'/'+mm+'/'+yyyy;
       <% var i; for (i=0; i < Alumnes.length; i++) {
       //ARRAY ASSIST
       var arraylng = Alumnes[i].assist.lenght;
+      console.log(arraylng);
       Alumnes[i].assist.date = today;
-      Alumnes[i].assist.mati = 'retard';
-      Alumnes[i].assist.tarda = 'falta';
-
-      console.log(Alumnes[i].assist.date);
-      console.log(Alumnes[i].assist.mati);
-      console.log(Alumnes[i].assist.tarda);
-      console.log(Alumnes[i].assist);
       %>
 
+      <form role="form" method="post" action="/alumne_ass?_method=put" id="alumne_ass">
       <tr>
-      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%></td>
+      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
 
       <td><%=Alumnes[i].curs%></td>
-      <form role="form" method="post" action="/alumne_ass?_method=put" id="alumne_ass">
-      <td><input type="radio" name="<%=Alumnes[i].assist.mati%>" value ="falta"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist.mati%>" value = "retard"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist.tarda%>" value ="falta"></td>
-      <td><input type="radio" name="<%=Alumnes[i].assist.tarda%>" value = "retard"></td>
-      </form>
+      <input type="hidden" name="alumneId" value ="<%=Alumnes[i]._id%>">
+      <input type="hidden" name="assist.arraylng.date" value ="<%=today%>">
+
+      <td><input type="radio" name="assist.<%=arraylng%>.mati" value ="falta"></td>
+      <td><input type="radio" name="assist.<%=arraylng%>.mati" value = "retard"></td>
+      <td><input type="radio" name="assist.<%=arraylng%>.tarda" value ="falta"></td>
+      <td><input type="radio" name="assist.<%=arraylng%>.tarda" value = "retard"></td>
+      
       <td>
             <!--/print_EE/<%=Alumnes[i].id%>-->
-            <a href="" class="btn btn-primary btn-xs" role="button" target="_blank">Imprimir</a>
+            <a href="" class="btn btn-primary btn-xs" role="button" target="_blank">Veure total</a>
       </td>
+     </tr>
+     </form>
 
      <% }; %><% } %>
-     </tr>
 
     </tbody>
   </table>
           <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
           <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
-            <button type="submit" class="btn btn-primary">Desa</button>
+            <button type="submit" form="alumne_ass" class="btn btn-primary">Desa</button>
         </div>
 </div>
 </div>

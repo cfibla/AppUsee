@@ -31,7 +31,7 @@ router.get('/list',					sessionController.loginRequired, alumController.list);
 router.get('/nou_alumne', 			sessionController.loginRequired, alumController.alta);
 router.post('/alumne_nou', 			sessionController.loginRequired, alumController.create);
 router.get('/assistencia',			sessionController.loginRequired, alumController.assisGet);
-router.post('/alumne_ass',			sessionController.loginRequired, alumController.assisPost);
+router.put('/alumne_ass',			sessionController.loginRequired, alumController.assisPost);
 //router.get('/dades_mod/:id', 		sessionController.loginRequired, alumController.mod);
 //router.put('/dades_update/:id',	sessionController.loginRequired, alumController.update);
 //router.get('/print/:id',			sessionController.loginRequired, alumController.print);
