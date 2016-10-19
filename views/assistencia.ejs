@@ -55,27 +55,28 @@ today = dd+'/'+mm+'/'+yyyy;
     </thead>
 
     <tbody>
-      <% var i; for (i=0; i < Alumnes.length; i++) {
+      <% for (var i=0; i < Alumnes.length; i++) {
       //ARRAY ASSIST
-      var arraylng = Alumnes[i].assist.lenght;
-      console.log(arraylng);
+      //var arraylng = Alumnes[i].assist.length;
+      //console.log(arraylng);
       Alumnes[i].assist.date = today;
       %>
 
-      <form role="form" method="post" action="/alumne_ass?_method=put" id="alumne_ass">
+      <form role="form" method="post" action="/alumne_ass?_method=put" id="assistencia">
       <tr>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
 
       <td><%=Alumnes[i].curs%></td>
-      <input type="hidden" name="alumneId" value ="<%=Alumnes[i]._id%>">
-      <input type="hidden" name="assist.arraylng.date" value ="<%=today%>">
+      <input type="hidden" form="assistencia" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
+      <input type="hidden" form="assistencia" name="assist.date.<%=i%>" value ="<%=today%>">
 
-      <td><input type="radio" name="assist.<%=arraylng%>.mati" value ="falta"></td>
-      <td><input type="radio" name="assist.<%=arraylng%>.mati" value = "retard"></td>
-      <td><input type="radio" name="assist.<%=arraylng%>.tarda" value ="falta"></td>
-      <td><input type="radio" name="assist.<%=arraylng%>.tarda" value = "retard"></td>
+      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value ="falta"></td>
+      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value = "retard"></td>
+      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value ="falta"></td>
+      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value = "retard"></td>
       
       <td>
+
             <!--/print_EE/<%=Alumnes[i].id%>-->
             <a href="" class="btn btn-primary btn-xs" role="button" target="_blank">Veure total</a>
       </td>
@@ -87,9 +88,10 @@ today = dd+'/'+mm+'/'+yyyy;
     </tbody>
   </table>
           <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-          <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
-            <button type="submit" form="alumne_ass" class="btn btn-primary">Desa</button>
-        </div>
+            <input type="hidden" form="assistencia" name="i" value ="<%=i%>">
+            <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
+            <button type="submit" form="assistencia" class="btn btn-primary">Desa</button>
+          </div>
 </div>
 </div>
 </div>

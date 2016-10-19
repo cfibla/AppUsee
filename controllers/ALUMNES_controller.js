@@ -119,11 +119,11 @@ exports.update = function (req, res){
 exports.assisGet = function (req, res) {
 	models.Alumne.find({tutor: req.session.user})
 	.populate('escola tutor')
-	.exec(function(error, docs){
+	.exec(function(error, alumnes){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('assistencia',{Alumnes: docs});
+			res.render('assistencia',{Alumnes: alumnes});
 			}
 	});
 
@@ -131,16 +131,41 @@ exports.assisGet = function (req, res) {
 
 //Assistència d'alumnes - POST
 exports.assisPost = function (req, res) {
-	console.log(req.body)
-//	models.Alumne.find({tutor: req.session.user})
-//	.populate('escola tutor')
-//	.exec(function(error, docs){
-//		if (error){
-//			console.log(error);
-//		} else {
-			res.redirect('/list');
-//			}
-//	});
+	var alum = req.body;
+	var alumI = alum.i;
+
+	console.log(alum);
+	console.log(alumI);
+
+	for (var i =0; i < alumI; i ++) {
+		var alumneId = alum['alumneId.'+i];
+		console.log(alumneId);
+
+		var alumDate = alum['assist.date.'+i];
+		var alumMati = alum['assist.mati.'+i];
+		var alumTarda = alum['assist.tarda.'+i];
+
+		var alumAssist = {date: alumDate, mati: alumMati, tarda: alumTarda};
+
+		
+		console.log(alumAssist);
+
+
+
+		models.Alumne.findByIdAndUpdate(alumneId, {$set:
+											{assist: alumAssist}
+										}, {new: true, safe: true, upsert: true},
+
+		function (error, alumne){
+		if (error) res.json(error);
+		res.redirect('/assistencia');
+	});
+
+	};
+	
+
+		//	res.redirect('/list');
+
 
 };
 
