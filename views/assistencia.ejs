@@ -57,8 +57,8 @@ today = dd+'/'+mm+'/'+yyyy;
     <tbody>
       <% for (var i=0; i < Alumnes.length; i++) {
       //ARRAY ASSIST
-      //var arraylng = Alumnes[i].assist.length;
-      //console.log(arraylng);
+      var arraylng = Alumnes[i].assist.length;
+      console.log('arraylng en vistas: '+arraylng);
       Alumnes[i].assist.date = today;
       %>
 
@@ -69,6 +69,7 @@ today = dd+'/'+mm+'/'+yyyy;
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="assistencia" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
       <input type="hidden" form="assistencia" name="assist.date.<%=i%>" value ="<%=today%>">
+      <input type="hidden" form="assistencia" name="arraylng.<%=i%>" value ="<%=arraylng%>">
 
       <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value ="falta"></td>
       <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value = "retard"></td>

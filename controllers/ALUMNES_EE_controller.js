@@ -173,7 +173,6 @@ exports.actuaUpdate = function (req, res) {
 	exports.actuaDelete = function (req, res) {
 		var alumneId = req.params.id;
 		var alumneI = req.params.i;
-		var alum = {};
 
 		models.Alumne.findOne({_id: alumneId}, function (error, alumne){
 			if (error) res.json(error);

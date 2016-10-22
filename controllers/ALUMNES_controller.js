@@ -134,37 +134,51 @@ exports.assisPost = function (req, res) {
 	var alum = req.body;
 	var alumI = alum.i;
 
-	console.log(alum);
-	console.log(alumI);
+		console.log(alum);
+		console.log(alumI)
+
+
+
 
 	for (var i =0; i < alumI; i ++) {
 		var alumneId = alum['alumneId.'+i];
-		console.log(alumneId);
+		var alumArray = alum['arraylng.'+i];
 
 		var alumDate = alum['assist.date.'+i];
 		var alumMati = alum['assist.mati.'+i];
 		var alumTarda = alum['assist.tarda.'+i];
 
-		var alumAssist = {date: alumDate, mati: alumMati, tarda: alumTarda};
+//		var alumAssist = {date: alumDate, mati: alumMati, tarda: alumTarda};
+		var alumAssist = {};
 
-		
+		alumAssist['assist.'+alumArray+'.date']= alumDate;
+		alumAssist['assist.'+alumArray+'.mati']= alumMati;
+		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
+
+		console.log(alumneId);
+		console.log('arraylng en controller: '+alumArray);
 		console.log(alumAssist);
 
-
-
-		models.Alumne.findByIdAndUpdate(alumneId, {$set:
-											{assist: alumAssist}
-										}, {new: true, safe: true, upsert: true},
+		models.Alumne.findByIdAndUpdate(alumneId, 
+			{'$set': alumAssist
+/*											{
+											'assist[$.date]': alumDate,
+											'assist[$.mati]': alumMati,
+											'assist[$.tarda]': alumTarda
+												
+											}*/
+										},
 
 		function (error, alumne){
 		if (error) res.json(error);
-		res.redirect('/assistencia');
+		console.log(alumne);
+
 	});
 
 	};
 	
 
-		//	res.redirect('/list');
+		res.redirect('/list');
 
 
 };
