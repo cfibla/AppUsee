@@ -134,8 +134,7 @@ exports.assisPost = function (req, res) {
 	var alum = req.body;
 	var alumI = alum.i;
 
-		console.log(alum);
-		console.log(alumI)
+		console.log('La i del controller: ' + alumI)
 
 
 
@@ -155,23 +154,15 @@ exports.assisPost = function (req, res) {
 		alumAssist['assist.'+alumArray+'.mati']= alumMati;
 		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
 
-		console.log(alumneId);
-		console.log('arraylng en controller: '+alumArray);
-		console.log(alumAssist);
+		console.log('alumneID en controller: ' + alumneId);
+		console.log('arraylng en controller: ' + alumArray);
+		console.log('date/mati/tarda en controller: ' + alumAssist);
 
-		models.Alumne.findByIdAndUpdate(alumneId, 
-			{'$set': alumAssist
-/*											{
-											'assist[$.date]': alumDate,
-											'assist[$.mati]': alumMati,
-											'assist[$.tarda]': alumTarda
-												
-											}*/
-										},
+		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
 
 		function (error, alumne){
 		if (error) res.json(error);
-		console.log(alumne);
+		console.log('final alumne');
 
 	});
 
@@ -183,6 +174,49 @@ exports.assisPost = function (req, res) {
 
 };
 
+exports.assisMateixDia = function (req, res) {
+	var alum = req.body;
+	var alumI = alum.i;
+
+		console.log('La i del controller: ' + alumI)
+
+
+
+
+	for (var i =0; i < alumI; i ++) {
+		var alumneId = alum['alumneId.'+i];
+		var alumArray = alum['arraylng.'+i]-1;
+
+		var alumDate = alum['assist.date.'+i];
+		var alumMati = alum['assist.mati.'+i];
+		var alumTarda = alum['assist.tarda.'+i];
+
+//		var alumAssist = {date: alumDate, mati: alumMati, tarda: alumTarda};
+		var alumAssist = {};
+
+		alumAssist['assist.'+alumArray+'.date']= alumDate;
+		alumAssist['assist.'+alumArray+'.mati']= alumMati;
+		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
+
+		console.log('alumneID en controller: ' + alumneId);
+		console.log('arraylng en controller: ' + alumArray);
+		console.log('date/mati/tarda en controller: ' + alumAssist);
+
+		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
+
+		function (error, alumne){
+		if (error) res.json(error);
+		console.log('final alumne');
+
+	});
+
+	};
+	
+
+		res.redirect('/list');
+
+
+};
 
 //IMPRIMIR PDF
 exports.print = function (req, res) {

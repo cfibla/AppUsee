@@ -1,11 +1,5 @@
 <%
-function radioTrue(id){
-    var rt='';
-    if (alumne.radios[id] === true) {
-    rt ="checked";
-    }
-    return rt;
-    };
+
 
 //DATA D'AVUI
 var today = new Date();
@@ -22,6 +16,50 @@ if(mm<10) {
 } 
 
 today = dd+'/'+mm+'/'+yyyy;
+
+
+      
+
+      //RADIOTRUE-FALTA MATI
+      function radioTrueFM(){
+      var rt='';
+      if (Alumnes[i].assist[arraymn].mati === 'falta') {
+      console.log('rt FALTA M');
+      rt ="checked";
+      }
+      return rt;
+      };
+
+      //RADIOTRUE-RETARD MATI
+      function radioTrueRM(){
+      var rt='';
+      if (Alumnes[i].assist[arraymn].mati === 'retard') {
+      console.log('rt RETARD M');
+      rt ="checked";
+      }
+      return rt;
+      };
+
+      //RADIOTRUE-FALTA TARDA
+      function radioTrueFT(){
+      var rt='';
+      if (Alumnes[i].assist[arraymn].tarda === 'falta') {
+      console.log('rt FALTA M');
+      rt ="checked";
+      }
+      return rt;
+      };
+
+      //RADIOTRUE-RETARD TARDA
+      function radioTrueRT(){
+      var rt='';
+      if (Alumnes[i].assist[arraymn].tarda === 'retard') {
+      console.log('rt RETARD M');
+      rt ="checked";
+      }
+      return rt;
+      };
+
 %>
 
 <div class="container">
@@ -40,7 +78,7 @@ today = dd+'/'+mm+'/'+yyyy;
       <p><br />
       No hi ha alumnes registrats
       </p>
-      <%} else { %>           
+      <%} else {%>           
   <table class="table table-striped">
     <thead>
       <tr>
@@ -55,14 +93,61 @@ today = dd+'/'+mm+'/'+yyyy;
     </thead>
 
     <tbody>
-      <% for (var i=0; i < Alumnes.length; i++) {
+
+      <%
+
+      for (var i=0; i < Alumnes.length; i++) {
+
       //ARRAY ASSIST
       var arraylng = Alumnes[i].assist.length;
-      console.log('arraylng en vistas: '+arraylng);
-      Alumnes[i].assist.date = today;
+      var arraymn = arraylng - 1;
+      var  ii = i-1;
+      console.log('arraylng en vistas: ' + arraylng);
+      console.log('arraymn en vistas: ' + arraymn);
+      console.log('Data OK: ' + Alumnes[i].assist[arraymn].date);
+      //console.log(Alumnes[i]);
+      console.log('MATI: ' + Alumnes[i].assist[arraymn].mati);
+      console.log('TARDA: ' + Alumnes[i].assist[arraymn].tarda);
+
+
+      if (Alumnes[i].assist[arraymn].date == today){
+
+         console.log('AIXO ES IF');
+      
       %>
 
-      <form role="form" method="post" action="/alumne_ass?_method=put" id="assistencia">
+      <form role="form" method="post" action="/assistenciaMD?_method=put" id="assistencia">
+      <tr>
+      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
+
+      <td><%=Alumnes[i].curs%></td>
+      <input type="hidden" form="assistencia" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
+      <input type="hidden" form="assistencia" name="assist.date.<%=i%>" value ="<%=Alumnes[i].assist[arraymn].date%>">
+      <input type="hidden" form="assistencia" name="arraylng.<%=i%>" value ="<%=arraylng%>">
+
+      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
+      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
+      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
+      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
+      
+      <td>
+
+            <!--/print_EE/<%=Alumnes[i].id%>-->
+            <a href="" class="btn btn-primary btn-xs" role="button" target="_blank">Veure total</a>
+      </td>
+     </tr>
+     </form>
+    
+
+     <%} else {
+
+       console.log('AIXO ES ELSE');
+
+
+      %>
+    
+
+     <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
       <tr>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
 
@@ -83,8 +168,7 @@ today = dd+'/'+mm+'/'+yyyy;
       </td>
      </tr>
      </form>
-
-     <% }; %><% } %>
+     <%}}%>
 
     </tbody>
   </table>
@@ -93,6 +177,24 @@ today = dd+'/'+mm+'/'+yyyy;
             <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
             <button type="submit" form="assistencia" class="btn btn-primary">Desa</button>
           </div>
+          <%}%>
 </div>
 </div>
 </div>
+
+
+
+
+
+<!-- Librería jQuery requerida por los plugins de JavaScript -->
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <!-- Fichero externo con JS y jQuery -->
+<script src="/javascripts/global.js"></script> 
+
+<!-- Todos los plugins JavaScript de Bootstrap (también puedes
+         incluir archivos JavaScript individuales de los únicos
+         plugins que utilices) -->
+  <script src="/stylesheets/js/bootstrap.min.js"></script>
