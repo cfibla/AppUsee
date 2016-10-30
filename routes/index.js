@@ -7,6 +7,7 @@ var escolaController = require('../controllers/ESCOLA_controller');
 var userController = require('../controllers/USER_controller');
 var userEeController = require('../controllers/USER_ee_controller');
 var sessionController = require('../controllers/SESSION_controller');
+var assistPDF = require('../public/javascripts/PDFs/assistencia')
 
 //rutas SESSION
 router.get('/',						sessionController.new);
@@ -50,6 +51,9 @@ router.put('/seg_act_upd_EE/:id',	sessionController.loginRequired, alumEeControl
 router.put('/seg_act_upd_EE/:id/act/:i',	sessionController.loginRequired, alumEeController.actuaUpdate);
 router.delete('/seg_act_upd_EE/:id/actDel/:i',	sessionController.loginRequired, alumEeController.actuaDelete);
 router.get('/print_EE/:id',			sessionController.loginRequired, alumEeController.print);
+
+//rutas PDF
+router.get('/assistenciaA/:id',		sessionController.loginRequired, assistPDF.PDF);
 
 
 
