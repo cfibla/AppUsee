@@ -7,7 +7,8 @@ var escolaController = require('../controllers/ESCOLA_controller');
 var userController = require('../controllers/USER_controller');
 var userEeController = require('../controllers/USER_ee_controller');
 var sessionController = require('../controllers/SESSION_controller');
-var assistPDF = require('../public/javascripts/PDFs/assistencia')
+var assistPDF = require('../public/javascripts/PDFs/assistencia');
+var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
 
 //rutas SESSION
 router.get('/',						sessionController.new);
@@ -36,7 +37,6 @@ router.put('/assistenciaN',			sessionController.loginRequired, alumController.as
 router.put('/assistenciaMD',		sessionController.loginRequired, alumController.assisMateixDia);
 //router.get('/dades_mod/:id', 		sessionController.loginRequired, alumController.mod);
 //router.put('/dades_update/:id',	sessionController.loginRequired, alumController.update);
-//router.get('/print/:id',			sessionController.loginRequired, alumController.print);
 router.get('/dades_suprV/:id', 		sessionController.loginRequired, alumController.suprV);
 router.get('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
 
@@ -50,10 +50,11 @@ router.get('/seg_act_EE/:id',		sessionController.loginRequired, alumEeController
 router.put('/seg_act_upd_EE/:id',	sessionController.loginRequired, alumEeController.actuaPost);
 router.put('/seg_act_upd_EE/:id/act/:i',	sessionController.loginRequired, alumEeController.actuaUpdate);
 router.delete('/seg_act_upd_EE/:id/actDel/:i',	sessionController.loginRequired, alumEeController.actuaDelete);
-router.get('/print_EE/:id',			sessionController.loginRequired, alumEeController.print);
+
 
 //rutas PDF
 router.get('/assistenciaA/:id',		sessionController.loginRequired, assistPDF.PDF);
+router.get('/print_EE/:id',			sessionController.loginRequired, segUseePDF.PDF);
 
 
 

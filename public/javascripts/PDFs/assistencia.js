@@ -26,12 +26,8 @@ exports.PDF = function (req, res) {
                     }
                 dataNa = dd+'/'+mm+'/'+yyyy;
 
-
-                
-
- 
-
-					var nom = alumne.nomAlumne + ' ' + alumne.cognomAlumne1 + ' ' + alumne.cognomAlumne2;
+                //NOM ALUMNE
+				var nom = alumne.nomAlumne + ' ' + alumne.cognomAlumne1 + ' ' + alumne.cognomAlumne2;
 
 					///PDFkit
 					//creating a new PDF object
@@ -66,15 +62,18 @@ exports.PDF = function (req, res) {
 	                	if (alumne.assist[i].mati == 'falta' && alumne.assist[i].tarda == 'falta'){
 	                		faltes += 1;
 	                		doc.text(alumne.assist[i].date + ': falta tot el dia');
+
 	                	} else{
-	                		                	if (alumne.assist[i].mati == 'falta'){
-	                		                		faltes += 0.5;
-	                		                		doc.text(alumne.assist[i].date + ': falta matí');
-	                		                	}
-	                		                	if (alumne.assist[i].tarda == 'falta') {
-	                		                		faltes += 0.5;
-	                		                		doc.text(alumne.assist[i].date + ': falta tarda');
-	                		                	}}
+
+	                		if (alumne.assist[i].mati == 'falta'){
+	                			faltes += 0.5;
+	                		    doc.text(alumne.assist[i].date + ': falta matí');
+	                		}
+	                		if (alumne.assist[i].tarda == 'falta') {
+	                		    faltes += 0.5;
+	                		    doc.text(alumne.assist[i].date + ': falta tarda');
+	                		}
+	                	}
 	                };
 					
 					doc.moveDown(0.5);
@@ -92,23 +91,22 @@ exports.PDF = function (req, res) {
 	                	if (alumne.assist[i].mati == 'retard' && alumne.assist[i].tarda == 'retard'){
 	                		retards += 1;
 	                		doc.text(alumne.assist[i].date + ': retard matí i tarda');
+
 	                	} else{
 	                	
-	                	if (alumne.assist[i].mati == 'retard'){
-	                		retards += 0.5;
-	                		doc.text(alumne.assist[i].date + ': retard matí');
-	                	}
-	               		if (alumne.assist[i].tarda == 'retard') {
-	                		retards += 0.5;
-	                		doc.text(alumne.assist[i].date + ': retard tarda');
-	                	}}
+		                	if (alumne.assist[i].mati == 'retard'){
+		                		retards += 0.5;
+		                		doc.text(alumne.assist[i].date + ': retard matí');
+		                	}
+		               		if (alumne.assist[i].tarda == 'retard') {
+		                		retards += 0.5;
+		                		doc.text(alumne.assist[i].date + ': retard tarda');
+		                	}
+		                }
 	                };
 					
 					doc.moveDown(0.5);
 	                doc.text('Total retards: ' + retards);
-
-
-					
 
 					doc.end(); //we end the document writing.
 		}
