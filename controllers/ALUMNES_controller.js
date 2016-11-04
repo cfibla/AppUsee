@@ -26,7 +26,7 @@ exports.create = function (req, res){
 
 	var alum = req.body;
 
-	if (!alum.nom||!alum.cognom1||!alum.naixement||!alum.sSocial){
+	if (!alum.nom||!alum.cognom1||!alum.naixement){
 		models.Alumne.find(function(error, docs){
 		if (error){
 			console.log(error);
@@ -52,7 +52,14 @@ exports.create = function (req, res){
 		eeUsee: alum.eeUsee,
 
 		escola: req.session.user.escola,
-		tutor: req.session.user
+		tutor: req.session.user,
+
+		assist: [{
+		date: "",
+		mati: "",
+		tarda: ""
+
+	}],
 
 	});
 	nouAlumne.save(function(error, alumne){

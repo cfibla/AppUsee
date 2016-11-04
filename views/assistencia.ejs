@@ -82,7 +82,9 @@ function radioTrueRT(){
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Nom</th>
+
+        <th>Núm.</th>
+        <th>Nom i cognoms</th>
         <th>Curs</th>
         <th>Falta matí</th>
         <th>Retard matí</th>
@@ -118,6 +120,7 @@ function radioTrueRT(){
 
       <form role="form" method="post" action="/assistenciaMD?_method=put" id="assistencia">
       <tr>
+      <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
 
       <td><%=Alumnes[i].curs%></td>

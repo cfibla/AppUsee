@@ -56,7 +56,14 @@ exports.create = function (req, res){
 				eeUsee: true,
 
 				escola: req.session.user.escola,
-				ee: req.session.user
+				ee: req.session.user,
+
+				assist: [{
+				date: "",
+				mati: "",
+				tarda: ""
+
+				}],
 
 			});
 
