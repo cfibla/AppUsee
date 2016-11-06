@@ -18,7 +18,7 @@ exports.list = function (req, res) {
 //Altes d'alumnes - GET
 exports.alta = function (req, res) {
 
-	res.render('nou_alumne', {errorAlta:''});
+	res.render('nou_alumne', {errorAlta:'', alumne.nom:'', alumne.cognom1:''});
 };
 
 //Altes d'alumnes - POST
@@ -26,12 +26,12 @@ exports.create = function (req, res){
 
 	var alum = req.body;
 
-	if (!alum.nom||!alum.cognom1||!alum.naixement){
+	if (!alum.nom||!alum.cognom1){
 		models.Alumne.find(function(error, docs){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('nou_alumne', {errorAlta:"Heu d'emplenar apartats"});
+			res.render('nou_alumne', {errorAlta:"Heu d'emplenar apartats", alumne: alum});
 			};
 		});
 	} else {
@@ -57,7 +57,8 @@ exports.create = function (req, res){
 		assist: [{
 		date: "",
 		mati: "",
-		tarda: ""
+		tarda: "",
+		dataIso: new Date()
 
 	}],
 

@@ -32,13 +32,13 @@
             <div class="form-group col-md-2">
               <label for="nom_alumne">Nom</label>
               <input type="text" class="form-control" id="nom_alumne" name="nom"
-                     placeholder="Nom">
+                     placeholder="Nom" value="<%=alumne.nom||''%>">
             </div>
 
             <div class="form-group col-md-2">
               <label for="cognom1_alumne">Primer cognom</label>
               <input type="text" class="form-control" id="cognom1_alumne" name="cognom1"
-                     placeholder="Cognom">
+                     placeholder="Cognom" value="<%=alumne.cognom1||''%>">
             </div>
 
             <div class="form-group col-md-2">
@@ -88,7 +88,7 @@
             <div class="form-group col-md-2 alturaBox">
                 <label for="EE-USEE"></label><br>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="eeUsee">Seguiment EE-USEE</label>
+                  <input type="checkbox" value="true" name="eeUsee">Alumne USEE</label>
             </div>
 
             <div class="col-md-12" id="newEE_error"><%=errorAlta%></div>
