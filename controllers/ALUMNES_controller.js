@@ -31,7 +31,7 @@ exports.create = function (req, res){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('nou_alumne', {errorAlta:"Heu d'emplenar apartats", alumne: alum});
+			res.render('nou_alumne', {errorAlta:"El nom i el primer cognom de l'alumne són obligatoris", alumne: alum});
 			};
 		});
 	} else {
