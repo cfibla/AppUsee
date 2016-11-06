@@ -18,7 +18,7 @@ exports.list = function (req, res) {
 //Altes d'alumnes - GET
 exports.alta = function (req, res) {
 
-	res.render('nou_alumne', {errorAlta:'', alumne.nom:'', alumne.cognom1:''});
+	res.render('nou_alumne', {errorAlta:'', alumne:{nom:'',cognom1:''}});
 };
 
 //Altes d'alumnes - POST
