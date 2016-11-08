@@ -45,6 +45,7 @@ module.exports = new mongoose.Schema ({
 		date: String,
 		mati: String,
 		tarda:String,
+		dataIso: Date
 
 	}],
 

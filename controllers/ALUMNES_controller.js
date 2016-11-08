@@ -79,7 +79,7 @@ exports.mod = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('dades_mod', {alumne: alumne});
+			res.render('modDades', {alumne: alumne});
 		}
 	});
 };
@@ -142,7 +142,7 @@ exports.assisPost = function (req, res) {
 	var alum = req.body;
 	var alumI = alum.i;
 
-		console.log('La i del controller: ' + alumI)
+//		console.log('La i del controller: ' + alumI)
 
 
 
@@ -161,16 +161,17 @@ exports.assisPost = function (req, res) {
 		alumAssist['assist.'+alumArray+'.date']= alumDate;
 		alumAssist['assist.'+alumArray+'.mati']= alumMati;
 		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
+		alumAssist['assist.'+alumArray+'.dataIso'] = new Date;
 
-		console.log('alumneID en controller: ' + alumneId);
-		console.log('arraylng en controller: ' + alumArray);
-		console.log('date/mati/tarda en controller: ' + alumAssist);
+//		console.log('alumneID en controller: ' + alumneId);
+//		console.log('arraylng en controller: ' + alumArray);
+//		console.log('date/mati/tarda en controller: ' + alumAssist);
 
 		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
 
 		function (error, alumne){
 		if (error) res.json(error);
-		console.log('final alumne');
+//		console.log('final alumne');
 
 	});
 
@@ -186,7 +187,7 @@ exports.assisMateixDia = function (req, res) {
 	var alum = req.body;
 	var alumI = alum.i;
 
-		console.log('La i del controller: ' + alumI)
+//		console.log('La i del controller: ' + alumI)
 
 
 
@@ -205,16 +206,17 @@ exports.assisMateixDia = function (req, res) {
 		alumAssist['assist.'+alumArray+'.date']= alumDate;
 		alumAssist['assist.'+alumArray+'.mati']= alumMati;
 		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
+		alumAssist['assist.'+alumArray+'.dataIso'] = new Date;
 
-		console.log('alumneID en controller: ' + alumneId);
-		console.log('arraylng en controller: ' + alumArray);
-		console.log('date/mati/tarda en controller: ' + alumAssist);
+//		console.log('alumneID en controller: ' + alumneId);
+//		console.log('arraylng en controller: ' + alumArray);
+//		console.log('date/mati/tarda en controller: ' + alumAssist);
 
 		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
 
 		function (error, alumne){
 		if (error) res.json(error);
-		console.log('final alumne');
+		//console.log('final alumne');
 
 	});
 
@@ -226,6 +228,7 @@ exports.assisMateixDia = function (req, res) {
 
 };
 
+//IMPRIMIR ASSISTÈNCIA ENTRE 2 DATES
 /*exports.assisAlumne = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){

@@ -71,11 +71,11 @@
 
 
 <!-- Para activar cambio  de color en el menú = CLASS="active" -->
-        <li><a href="<%=ruta%>">Llista alumnat<span class="sr-only">(current)</span></a></li>
-        <li><a href="<%=nouAl%>">Nova entrada</a></li>
-
-        <%  if (session.user){
-            if(session.user.mestre === "tutor"){%>
+     
+        <%  if (session.user){%>
+          <li><a href="<%=ruta%>">Llista alumnat<span class="sr-only">(current)</span></a></li>
+          <li><a href="<%=nouAl%>">Nova entrada</a></li>
+        <%  if(session.user.mestre === "tutor"){%>
             <li><a href="/assistencia">Assistència</a></li>
 
         <%  }}%>

@@ -46,12 +46,17 @@
       <td><%=Alumnes[i].curs%></td>
   
       <td>
+
+      <% if(session.user.mestre === "tutor"){ %>
+            <a href="/dadesAlumne/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Canviar dades</a>
+            <% } %>
+
       <% if(session.user.mestre === "ee"){ %>
             <a href="/dades_mod_EE/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Atenció i adaptacions</a>
             <a href="/seg_act_EE/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Seguiment</a>
             <a href="/print_EE/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button" target="_blank">Imprimir</a>
             <% } %>
-      <a href="/dades_suprV/<%=Alumnes[i].id%>" class="btn btn-danger btn-xs" role="button">Esborra</a>
+      <a href="/dades_suprV/<%=Alumnes[i].id%>" class="btn btn-danger btn-xs" role="button">Elimina</a>
       </td>
 
      <% }; %><% } %>
