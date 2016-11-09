@@ -19,6 +19,7 @@ module.exports = new mongoose.Schema({
 
 	codiEscola: Number,
 	mestre: String,
+	curs: String,
 
 	escola: {
 		type: Number,

@@ -27,6 +27,7 @@ exports.createUser = function (req, res){
 		password: user.password,
 		
 		mestre: 'tutor',
+		curs: user.curs,
 
 		escola: user.escola
 	});
