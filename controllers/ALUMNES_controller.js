@@ -161,7 +161,7 @@ exports.assisPost = function (req, res) {
 		alumAssist['assist.'+alumArray+'.date']= alumDate;
 		alumAssist['assist.'+alumArray+'.mati']= alumMati;
 		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
-		alumAssist['assist.'+alumArray+'.dataIso'] = new Date;
+		alumAssist['assist.'+alumArray+'.dataIso'] = new Date();
 
 //		console.log('alumneID en controller: ' + alumneId);
 //		console.log('arraylng en controller: ' + alumArray);
@@ -229,7 +229,7 @@ exports.assisMateixDia = function (req, res) {
 };
 
 //IMPRIMIR ASSISTÈNCIA ENTRE 2 DATES
-/*exports.assisAlumne = function (req, res) {
+exports.assisAlumne = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
@@ -238,12 +238,12 @@ exports.assisMateixDia = function (req, res) {
 			res.render('alumne_assist', {alumne: alumne});
 		}
 	});
-};*/
+};
 
 
 
 //ASSISTENCIA PDF
-exports.assisAlumne = function (req, res) {
+/*exports.assisAlumne = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
@@ -254,7 +254,7 @@ exports.assisAlumne = function (req, res) {
 
 
 	});
-};
+};*/
 					
 
 //Suprimir alumne - VIEW

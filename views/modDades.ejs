@@ -88,6 +88,7 @@
                     } 
                 dataNa = dd+'/'+mm+'/'+yyyy;
                   %>
+                  <% dataISO = alumne.dataNaixement.toISOString() %>
 
 
 <!--<div class="container">
@@ -113,7 +114,7 @@
         <form role="form" method="post" action="/dades_update_EE/<%=alumne._id%>?_method=put" id="alumne_dades">
           <div class="form-group">
             <div class="col-md-3">
-              <h4>Atenció i adaptacions EE-USEE</h4>
+              <h4>Dades alumne</h4>
             </div>
 
             <div class="col-md-9">
@@ -142,13 +143,13 @@
             <div class="form-group col-md-3">
               <label for="data_naixement">Data naixement</label>
               <input type="text" class="form-control" id="data_naixement" name="dataNaixement"
-                     placeholder="<%=dataNa%>" disabled>
+                     value="<%=dataNa%>" disabled>
             </div>
 
             <div class="form-group col-md-3">
               <label for="targeta_SS">Targeta SS</label>
               <input type="text" class="form-control" id="targeta_SS" name="seguretatSoc"
-                     value="<%=alumne.seguretatSoc%>" >
+                     value="<%=alumne.seguretatSoc%>">
             </div>
 
             <div class="form-group col-md-2" id="curs">
