@@ -23,24 +23,24 @@
                 <div class="row">
                   <form role="form">
                     <div class="form-group">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <h4>Control d'assistència: <%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%></h4>
                       </div>
 
-                      <div class="col-md-8">
+                      <div class="col-md-6">
                         <hr>
                       </div>
 
                       <form role="form" method="post" action="/assistenciaAlumne?_method=put" id="assistencia">
 
 
-                      <div class="form-group col-md-2">
+                      <div class="form-group col-md-3">
                         <label for="assist1">Veure assistència des del dia </label>
                         <input type="date" class="form-control" id="assist1" name="assist1"
                                placeholder="">
                       </div>
 
-                      <div class="form-group col-md-2">
+                      <div class="form-group col-md-3">
                         <label for="assist2">fins  </label>
                         <input type="date" class="form-control" id="assist2" name="assist2"
                                placeholder="">
