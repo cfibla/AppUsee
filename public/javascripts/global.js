@@ -18,20 +18,52 @@ $(document).ready(function (){
         }
     });
 
+});
 
 
-    $('#data .input-group.date').datepicker({
+//DATEPICKER
+  $('#data .input-group.date').datepicker({
     format: "dd/mm/yy",
     maxViewMode: 2,
     todayBtn: "linked",
-    language: "ca",
     daysOfWeekDisabled: "0,6",
     autoclose: true,
-    todayHighlight: true
+    todayHighlight: true,
+    language: "ca"
+    
+
+
+    /*
+
+$('.datepicker').datepicker({
+    format: {
+      
+//         * Say our UI should display a week ahead,
+//         * but textbox should store the actual date.
+//         * This is useful if we need UI to select local dates,
+//         * but store in UTC
+       
+        toDisplay: function (date, format, language) {
+            var d = new Date(date);
+            d.setDate(d.getDate() - 7);
+            return d.toISOString();
+        },
+        toValue: function (date, format, language) {
+            var d = new Date(date);
+            d.setDate(d.getDate() + 7);
+            return new Date(d);
+        }
+    },
+    autoclose: true
+});
+   */
 
 });
 
-});
+
+
+
+
 /*
 $(":radio").click(function () {
    if($(this).is(':checked')){

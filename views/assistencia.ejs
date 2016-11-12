@@ -60,9 +60,15 @@ function radioTrueRT(){
       <hr>
     </div>
 
-    <div class="col-md-2" id="data">
-      <div class="input-group date">
-        <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+
+<!--DATEPICKER-->
+
+    <div class="col-md-3" id="data">
+      <div class="input-group date" data-provide="datepicker">
+        <input type="text" class="form-control">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
       </div>
     </div>
 
@@ -167,6 +173,7 @@ function radioTrueRT(){
 
      <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
       <tr>
+      <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
 
       <td><%=Alumnes[i].curs%></td>
@@ -216,21 +223,8 @@ function radioTrueRT(){
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>
   <script type="text/css" src="/stylesheets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css"></script>
+  <script type="text/css" src="/stylesheets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"></script>
 
-  <script>
-
-   $('#data .input-group.date').datepicker({
-    format: "dd/mm/yy",
-    maxViewMode: 2,
-    todayBtn: "linked",
-    language: "ca",
-    daysOfWeekDisabled: "0,6",
-    autoclose: true,
-    todayHighlight: true
-
-});
-
-  </script>
 
   <!-- Fichero externo con JS y jQuery -->
 <script src="/javascripts/global.js"></script> 
