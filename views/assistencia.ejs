@@ -214,20 +214,23 @@ function radioTrueRT(){
          plugins que utilices) -->
   <script src="/stylesheets/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>
+  <script type="text/css" src="/stylesheets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css"></script>
 
   <script>
 
-$('#data .input-group.date').datepicker({
+   $('#data .input-group.date').datepicker({
+    format: "dd/mm/yy",
     maxViewMode: 2,
     todayBtn: "linked",
     language: "ca",
     daysOfWeekDisabled: "0,6",
+    autoclose: true,
     todayHighlight: true
+
 });
 
-</script> 
-
-
+  </script>
 
   <!-- Fichero externo con JS y jQuery -->
 <script src="/javascripts/global.js"></script> 

@@ -21,17 +21,17 @@ $(document).ready(function (){
 
 
     $('#data .input-group.date').datepicker({
-        format: "dd/mm/yy",
-        maxViewMode: 2,
-        todayBtn: "linked",
-        language: "ca",
-        daysOfWeekDisabled: "0,6",
-        todayHighlight: true
-    });
-
+    format: "dd/mm/yy",
+    maxViewMode: 2,
+    todayBtn: "linked",
+    language: "ca",
+    daysOfWeekDisabled: "0,6",
+    autoclose: true,
+    todayHighlight: true
 
 });
 
+});
 /*
 $(":radio").click(function () {
    if($(this).is(':checked')){
