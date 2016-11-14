@@ -63,30 +63,16 @@ function radioTrueRT(){
 
 <!--DATEPICKER-->
 
-    <div class="col-md-3" id="data">
-      <div class="input-group date" data-provide="datepicker">
-        <input type="text" class="form-control">
+    <div class="col-md-3 alturabox" id="data" style="clear:both;">
+      <div class="input-group date  alturabox" data-provide="datepicker">
+        <input type="text" class="form-control" value ="<%=today%>">
         <div class="input-group-addon">
           <span class="glyphicon glyphicon-th"></span>
         </div>
       </div>
     </div>
 
-
-
-
-
-
-<!--    <div class="form-group col-md-2 alturabox" id="data">
     
-      <select class="form-control" id="dataOp" name="dataOp">
-        <option value="<%=today%>"><%=today%></option>
-        <option value="<%=today%>"><%=today%></option>
-        <option value="<%=today%>"><%=today%></option>
-        <option value="<%=today%>"><%=today%></option>
-        <option value="<%=today%>"><%=today%></option> 
-      </select>
-    </div> -->
   </div>
 
 
@@ -156,7 +142,7 @@ function radioTrueRT(){
       
       <td>
 
-        <a href="/assistenciaA/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button" target="_blank">Imprimir</a>
+        <a href="/assistenciaA/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Imprimir</a>
 
       </td>
      </tr>

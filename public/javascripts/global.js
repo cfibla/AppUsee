@@ -23,7 +23,7 @@ $(document).ready(function (){
 
 //DATEPICKER
   $('#data .input-group.date').datepicker({
-    format: "dd/mm/yy",
+    format: "dd/mm/yyyy",
     maxViewMode: 2,
     todayBtn: "linked",
     daysOfWeekDisabled: "0,6",
