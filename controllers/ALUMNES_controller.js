@@ -121,10 +121,24 @@ exports.update = function (req, res){
 		res.redirect('/list');
 	});
 
-	};
+};
 
 //Assistència d'alumnes - GET
 exports.assisGet = function (req, res) {
+	models.Alumne.find({tutor: req.session.user})
+	.populate('escola tutor')
+	.exec(function(error, alumnes){
+		if (error){
+			console.log(error);
+		} else {
+			res.render('assistencia',{Alumnes: alumnes});
+			}
+	});
+
+};
+
+//Assistència DATA - GET
+exports.assisData = function (req, res) {
 	models.Alumne.find({tutor: req.session.user})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
@@ -206,7 +220,7 @@ exports.assisMateixDia = function (req, res) {
 		alumAssist['assist.'+alumArray+'.date']= alumDate;
 		alumAssist['assist.'+alumArray+'.mati']= alumMati;
 		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
-		alumAssist['assist.'+alumArray+'.dataIso'] = new Date;
+		alumAssist['assist.'+alumArray+'.dataIso'] = new Date();
 
 //		console.log('alumneID en controller: ' + alumneId);
 //		console.log('arraylng en controller: ' + alumArray);

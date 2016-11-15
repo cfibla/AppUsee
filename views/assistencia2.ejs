@@ -62,18 +62,15 @@ function radioTrueRT(){
 
 
 <!--DATEPICKER-->
-    <form role="form" method="get" action="/assisData" id="assisData">
 
     <div class="col-md-3 alturabox" id="data" style="clear:both;">
       <div class="input-group date  alturabox" data-provide="datepicker">
-        <input type="text" class="form-control" name= "dataAssist" value ="<%=today%>">
+        <input type="text" class="form-control" value ="<%=today%>">
         <div class="input-group-addon">
           <span class="glyphicon glyphicon-th"></span>
         </div>
       </div>
     </div>
-
-    </form>
 
     
   </div>
@@ -114,17 +111,17 @@ function radioTrueRT(){
       var  ii = i-1;
 
 
-          //console.log('arraylng en vistas: ' + arraylng);
-          //console.log('arraymn en vistas: ' + arraymn);
-          //console.log('Data OK: ' + Alumnes[i].assist[arraymn].date);
-          //console.log(Alumnes[i]);
-          //console.log('MATI: ' + Alumnes[i].assist[arraymn].mati);
-          //console.log('TARDA: ' + Alumnes[i].assist[arraymn].tarda);
+      //console.log('arraylng en vistas: ' + arraylng);
+      //console.log('arraymn en vistas: ' + arraymn);
+      //console.log('Data OK: ' + Alumnes[i].assist[arraymn].date);
+      //console.log(Alumnes[i]);
+      //console.log('MATI: ' + Alumnes[i].assist[arraymn].mati);
+      //console.log('TARDA: ' + Alumnes[i].assist[arraymn].tarda);
 
 
       if (Alumnes[i].assist[arraymn].date == today){
 
-          //console.log('AIXO ES IF');
+         //console.log('AIXO ES IF');
       
       %>
 
