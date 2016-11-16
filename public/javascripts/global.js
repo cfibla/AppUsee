@@ -35,11 +35,7 @@ $(document).ready(function (){
     
   });
 
-  $('#dataAssist')
-    .datepicker()   
-    .on('changeDate', function(){
-        $('#assisData').submit();
-});
+  
 
     /*
 
