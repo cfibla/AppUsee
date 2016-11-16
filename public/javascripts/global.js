@@ -23,7 +23,7 @@ $(document).ready(function (){
 
 
 //DATEPICKER
-$(document).ready(function (){
+//$(document).ready(function (){
   $('#data .input-group.date').datepicker({
     format: "dd/mm/yyyy",
     maxViewMode: 2,
@@ -34,6 +34,12 @@ $(document).ready(function (){
     language: "ca"
     
   });
+
+  $('#dataAssist')
+    .datepicker()   
+    .on('changeDate', function(){
+        $('#assisData').submit();
+});
 
     /*
 
@@ -60,7 +66,7 @@ $('.datepicker').datepicker({
 });
    */
 
-});
+//});
 
 
 

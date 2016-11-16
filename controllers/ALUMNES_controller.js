@@ -139,6 +139,7 @@ exports.assisGet = function (req, res) {
 
 //Assistència DATA - GET
 exports.assisData = function (req, res) {
+	console.log(req.body)
 	models.Alumne.find({tutor: req.session.user})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
