@@ -1,3 +1,4 @@
+//RADIOS ASSISTENCIA
 $(document).ready(function (){
    // bind to retrieve old status
 
@@ -22,6 +23,7 @@ $(document).ready(function (){
 
 
 //DATEPICKER
+$(document).ready(function (){
   $('#data .input-group.date').datepicker({
     format: "dd/mm/yyyy",
     maxViewMode: 2,
@@ -31,7 +33,7 @@ $(document).ready(function (){
     todayHighlight: true,
     language: "ca"
     
-
+  });
 
     /*
 
