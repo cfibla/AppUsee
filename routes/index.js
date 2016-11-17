@@ -33,7 +33,7 @@ router.get('/list',					sessionController.loginRequired, alumController.list);
 router.get('/nou_alumne', 			sessionController.loginRequired, alumController.alta);
 router.post('/alumne_nou', 			sessionController.loginRequired, alumController.create);
 router.get('/assistencia',			sessionController.loginRequired, alumController.assisGet);
-router.get('/assisData',			sessionController.loginRequired, alumController.assisData);
+router.post('/assisData',			sessionController.loginRequired, alumController.assisData);
 router.put('/assistenciaN',			sessionController.loginRequired, alumController.assisPost);
 router.put('/assistenciaMD',		sessionController.loginRequired, alumController.assisMateixDia);
 router.get('/assistenciaA/:id',		sessionController.loginRequired, alumController.assisAlumne);

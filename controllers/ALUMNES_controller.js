@@ -125,28 +125,47 @@ exports.update = function (req, res){
 
 //Assistència d'alumnes - GET
 exports.assisGet = function (req, res) {
+
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd='0'+dd
+    } 
+    if(mm<10) {
+        mm='0'+mm
+    } 
+    today = dd+'/'+mm+'/'+yyyy;
+
 	models.Alumne.find({tutor: req.session.user})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('assistencia',{Alumnes: alumnes});
+			res.render('assistencia',{Alumnes: alumnes, DataV: today});
 			}
 	});
 
 };
 
-//Assistència DATA - GET
+//Assistència DATA
 exports.assisData = function (req, res) {
-	console.log(req.body)
+
+	var dataA = req.body.dataAssis
+
+	console.log('DATAa: ' + JSON.stringify(dataA))
+
 	models.Alumne.find({tutor: req.session.user})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('assistencia',{Alumnes: alumnes});
+			res.render('assistencia',{Alumnes: alumnes, DataV: dataA});
+			console.log('DATAv: ' + JSON.stringify(dataA))
 			}
 	});
 
@@ -157,11 +176,6 @@ exports.assisPost = function (req, res) {
 	var alum = req.body;
 	var alumI = alum.i;
 
-//		console.log('La i del controller: ' + alumI)
-
-
-
-
 	for (var i =0; i < alumI; i ++) {
 		var alumneId = alum['alumneId.'+i];
 		var alumArray = alum['arraylng.'+i];
@@ -170,29 +184,23 @@ exports.assisPost = function (req, res) {
 		var alumMati = alum['assist.mati.'+i];
 		var alumTarda = alum['assist.tarda.'+i];
 
-//		var alumAssist = {date: alumDate, mati: alumMati, tarda: alumTarda};
 		var alumAssist = {};
 
 		alumAssist['assist.'+alumArray+'.date']= alumDate;
 		alumAssist['assist.'+alumArray+'.mati']= alumMati;
 		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
-		alumAssist['assist.'+alumArray+'.dataIso'] = new Date();
-
-//		console.log('alumneID en controller: ' + alumneId);
-//		console.log('arraylng en controller: ' + alumArray);
-//		console.log('date/mati/tarda en controller: ' + alumAssist);
+		if (!alumAssist['assist.'+alumArray+'.dataIso'])
+		{alumAssist['assist.'+alumArray+'.dataIso'] = new Date();}
 
 		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
 
 		function (error, alumne){
 		if (error) res.json(error);
-//		console.log('final alumne');
 
 	});
 
 	};
 	
-
 		res.redirect('/list');
 
 
@@ -202,11 +210,6 @@ exports.assisMateixDia = function (req, res) {
 	var alum = req.body;
 	var alumI = alum.i;
 
-//		console.log('La i del controller: ' + alumI)
-
-
-
-
 	for (var i =0; i < alumI; i ++) {
 		var alumneId = alum['alumneId.'+i];
 		var alumArray = alum['arraylng.'+i]-1;
@@ -215,7 +218,6 @@ exports.assisMateixDia = function (req, res) {
 		var alumMati = alum['assist.mati.'+i];
 		var alumTarda = alum['assist.tarda.'+i];
 
-//		var alumAssist = {date: alumDate, mati: alumMati, tarda: alumTarda};
 		var alumAssist = {};
 
 		alumAssist['assist.'+alumArray+'.date']= alumDate;
@@ -223,15 +225,10 @@ exports.assisMateixDia = function (req, res) {
 		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
 		alumAssist['assist.'+alumArray+'.dataIso'] = new Date();
 
-//		console.log('alumneID en controller: ' + alumneId);
-//		console.log('arraylng en controller: ' + alumArray);
-//		console.log('date/mati/tarda en controller: ' + alumAssist);
-
 		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
 
 		function (error, alumne){
 		if (error) res.json(error);
-		//console.log('final alumne');
 
 	});
 
@@ -255,21 +252,6 @@ exports.assisAlumne = function (req, res) {
 	});
 };
 
-
-
-//ASSISTENCIA PDF
-/*exports.assisAlumne = function (req, res) {
-	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
-		if (error) {
-			return res.json(error);
-		} else {
-			res.render('assistPDF', {alumne: alumne});
-		}
-
-
-	});
-};*/
 					
 
 //Suprimir alumne - VIEW

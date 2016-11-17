@@ -1,53 +1,53 @@
 <%
 //DATA D'AVUI
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
 
-if(dd<10) {
-    dd='0'+dd
-} 
-if(mm<10) {
-    mm='0'+mm
-} 
-today = dd+'/'+mm+'/'+yyyy;
+    if(dd<10) {
+        dd='0'+dd
+    } 
+    if(mm<10) {
+        mm='0'+mm
+    } 
+    today = dd+'/'+mm+'/'+yyyy;
 
 //RADIOTRUE-FALTA MATI
-function radioTrueFM(){
-  var rt='';
-  if (Alumnes[i].assist[arraymn].mati === 'falta') {
-    rt ="checked";
-  }
-  return rt;
-};
+    function radioTrueFM(){
+      var rt='';
+      if (Alumnes[i].assist[arraymn].mati === 'falta') {
+        rt ="checked";
+      }
+      return rt;
+    };
 
 //RADIOTRUE-RETARD MATI
-function radioTrueRM(){
-  var rt='';
-  if (Alumnes[i].assist[arraymn].mati === 'retard') {
-    rt ="checked";
-  }
-  return rt;
+    function radioTrueRM(){
+      var rt='';
+      if (Alumnes[i].assist[arraymn].mati === 'retard') {
+        rt ="checked";
+      }
+      return rt;
 };
 
 //RADIOTRUE-FALTA TARDA
-function radioTrueFT(){
-  var rt='';
-  if (Alumnes[i].assist[arraymn].tarda === 'falta') {
-    rt ="checked";
-  }
-  return rt;
-};
+    function radioTrueFT(){
+      var rt='';
+      if (Alumnes[i].assist[arraymn].tarda === 'falta') {
+        rt ="checked";
+      }
+      return rt;
+    };
 
 //RADIOTRUE-RETARD TARDA
-function radioTrueRT(){
-  var rt='';
-  if (Alumnes[i].assist[arraymn].tarda === 'retard') {
-    rt ="checked";
-  }
-  return rt;
-};
+    function radioTrueRT(){
+      var rt='';
+      if (Alumnes[i].assist[arraymn].tarda === 'retard') {
+        rt ="checked";
+      }
+      return rt;
+    };
 %>
 
 <div class="container">
@@ -62,11 +62,11 @@ function radioTrueRT(){
 
 
 <!--DATEPICKER-->
-    <form role="form" method="get" action="/assisData" id="assisData">
+    <form role="form" method="post" action="/assisData" id="assisData">
 
     <div class="col-md-3 alturabox" id="data" style="clear:both;">
-      <div class="input-group date  alturabox" data-provide="datepicker">
-        <input type="text" class="form-control" form="assisData" id= "dataAssist" value ="<%=today%>">
+      <div class="input-group date alturabox" data-provide="datepicker">
+        <input type="text" class="form-control" form="assisData" name= "dataAssis" value ="<%=DataV%>">
         <div class="input-group-addon">
           <span class="glyphicon glyphicon-th"></span>
         </div>
@@ -77,7 +77,6 @@ function radioTrueRT(){
 
     
   </div>
-
 
 
   <div class="col-md-12">
@@ -113,29 +112,17 @@ function radioTrueRT(){
       var arraymn = arraylng - 1;
       var  ii = i-1;
 
-
-          //console.log('arraylng en vistas: ' + arraylng);
-          //console.log('arraymn en vistas: ' + arraymn);
-          //console.log('Data OK: ' + Alumnes[i].assist[arraymn].date);
-          //console.log(Alumnes[i]);
-          //console.log('MATI: ' + Alumnes[i].assist[arraymn].mati);
-          //console.log('TARDA: ' + Alumnes[i].assist[arraymn].tarda);
-
-
-      if (Alumnes[i].assist[arraymn].date == today){
-
-          //console.log('AIXO ES IF');
       
       %>
 
-      <form role="form" method="post" action="/assistenciaMD?_method=put" id="assistencia">
+      <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
       <tr>
       <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
 
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="assistencia" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
-      <input type="hidden" form="assistencia" name="assist.date.<%=i%>" value ="<%=Alumnes[i].assist[arraymn].date%>">
+      <input type="hidden" form="assistencia" name="assist.date.<%=i%>" value ="<%=DataV%>">
       <input type="hidden" form="assistencia" name="arraylng.<%=i%>" value ="<%=arraylng%>">
 
       <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
@@ -145,44 +132,13 @@ function radioTrueRT(){
       
       <td>
 
-        <a href="/assistenciaA/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Imprimir</a>
+        <a href="/assistenciaA/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button" target="_blank">Imprimir</a>
 
       </td>
      </tr>
      </form>
-    
 
-     <%} else {
-
-       //console.log('AIXO ES ELSE');
-
-
-      %>
-    
-
-     <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
-      <tr>
-      <td><%=i+1%></td>
-      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
-
-      <td><%=Alumnes[i].curs%></td>
-      <input type="hidden" form="assistencia" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
-      <input type="hidden" form="assistencia" name="assist.date.<%=i%>" value ="<%=today%>">
-      <input type="hidden" form="assistencia" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-
-      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value ="falta"></td>
-      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value = "retard"></td>
-      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value ="falta"></td>
-      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value = "retard"></td>
-      
-      <td>
-
-       <a href="/assistenciaA/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button" target="_blank">Imprimir</a>
-       
-      </td>
-     </tr>
-     </form>
-     <%}}%>
+     <%}%>
 
     </tbody>
   </table>
@@ -201,16 +157,10 @@ function radioTrueRT(){
 
 
 <!-- Librería jQuery requerida por los plugins de JavaScript -->
-
   <script src="http://code.jquery.com/jquery.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-  <!-- Todos los plugins JavaScript de Bootstrap (también puedes
-         incluir archivos JavaScript individuales de los únicos
-         plugins que utilices) -->
-
-  
-
+  <!-- Plugins JavaScript de Bootstrap -->
   <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
   <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.css" rel="stylesheet"/>
 
@@ -220,16 +170,5 @@ function radioTrueRT(){
 
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>
 
-
   <!-- Fichero externo con JS y jQuery -->
 <script src="/javascripts/global.js"></script> 
-
-<script>
-$('#dataAssist')
-    .datepicker()   
-    .on('changeDate', function(){
-        $('#assisData').submit();
-});
-
-</script>
-

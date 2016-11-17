@@ -35,6 +35,12 @@ $(document).ready(function (){
     
   });
 
+  $('#data .input-group.date')
+    .datepicker()   
+    .on('changeDate', function(){
+        $('#assisData').submit();
+});
+
   
 
     /*
