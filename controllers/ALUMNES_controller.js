@@ -158,14 +158,14 @@ exports.assisData = function (req, res) {
 
 	console.log('DATAa: ' + JSON.stringify(dataA))
 
-	models.Alumne.find({tutor: req.session.user})
+	models.Alumne.find({tutor: req.session.user, assist.date: dataA})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
 		if (error){
 			console.log(error);
 		} else {
 			res.render('assistencia',{Alumnes: alumnes, DataV: dataA});
-			console.log('DATAv: ' + JSON.stringify(dataA))
+			console.log('DATAv: ' + JSON.stringify(assist.date))
 			}
 	});
 
