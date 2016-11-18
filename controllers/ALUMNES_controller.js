@@ -165,7 +165,7 @@ exports.assisData = function (req, res) {
 			console.log(error);
 		} else {
 			res.render('assistencia',{Alumnes: alumnes, DataV: dataA});
-			console.log('DATAv: ' + JSON.stringify(alumnes))
+			console.log('DATAv: ' + alumnes)
 			}
 	});
 
