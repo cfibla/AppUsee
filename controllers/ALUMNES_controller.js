@@ -178,6 +178,8 @@ exports.assisData = function (req, res) {
 
 }
 };
+};
+
 
 //Assistència d'alumnes - POST
 exports.assisPost = function (req, res) {
