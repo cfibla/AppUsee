@@ -165,19 +165,19 @@ exports.assisData = function (req, res) {
 			console.log(error);
 		} else {
 			models.Alumne.find({tutor: req.session.user}, {assist: {$elemMatch: {date: dataA}}})
-	.populate('escola tutor')
-	.exec(function(error, datadia){
-		if (error){
-			console.log(error);
-		} else {
-			res.render('assistencia',{Alumnes: alumnes, DataV: datadia});
-			console.log('DATAv: ' + datadia);
-			
-			}
-	});
+			.populate('escola tutor')
+			.exec(function(error, datadia){
+				if (error){
+					console.log(error);
+				} else {
+					res.render('assistencia',{Alumnes: alumnes, DataV: datadia.assist[date]});
+					console.log('DATAv: ' + datadia);
+					
+					}
+			});
 
-}
-});
+		}
+	});
 };
 
 
