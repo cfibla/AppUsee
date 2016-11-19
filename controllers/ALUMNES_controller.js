@@ -145,7 +145,7 @@ exports.assisGet = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('assistencia',{Alumnes: alumnes, DataV: today});
+			res.render('assistencia',{Alumnes: alumnes, DataA: today});
 			}
 	});
 
