@@ -177,7 +177,7 @@ exports.assisData = function (req, res) {
 	});
 
 }
-};
+});
 };
 
 
