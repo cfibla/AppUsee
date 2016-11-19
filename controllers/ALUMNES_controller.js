@@ -176,6 +176,7 @@ exports.assisData = function (req, res) {
 			}
 	});
 
+}
 };
 
 //Assistència d'alumnes - POST
