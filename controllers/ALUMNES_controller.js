@@ -170,7 +170,7 @@ exports.assisData = function (req, res) {
 				if (error){
 					console.log(error);
 				} else {
-					res.render('assistencia',{Alumnes: alumnes, DataV: datadia['assist.date']});
+					res.render('assistencia',{Alumnes: alumnes, DataA:dataA, DataV: datadia});
 					console.log('DATAv: ' + datadia);
 					
 					}
