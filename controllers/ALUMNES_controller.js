@@ -171,7 +171,7 @@ exports.assisData = function (req, res) {
 			console.log(error);
 		} else {
 			res.render('assistencia',{Alumnes: alumnes, DataV: datadia.assist});
-			console.log('DATAv: ' + alumnes)
+			console.log('DATAv: ' + datadia.assist)
 			
 			}
 	});
