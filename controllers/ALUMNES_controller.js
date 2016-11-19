@@ -171,7 +171,7 @@ exports.assisData = function (req, res) {
 				if (error){
 					console.log(error);
 				} else {
-					res.render('assistencia',{Alumnes: alumnes, DataV: dataJSON, DataArray: datadia});
+					res.render('assistencia',{Alumnes: alumnes, DataV: dataA, DataArray: datadia});
 					console.log('DATAA: ' + dataA);
 					
 					}
