@@ -145,7 +145,7 @@ exports.assisGet = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('assistencia',{Alumnes: alumnes, DataA: today});
+			res.render('assistencia',{Alumnes: alumnes, DataV: today});
 			}
 	});
 
@@ -171,7 +171,7 @@ exports.assisData = function (req, res) {
 				if (error){
 					console.log(error);
 				} else {
-					res.render('assistencia',{Alumnes: alumnes, DataA: dataJSON, DataV: datadia});
+					res.render('assistencia',{Alumnes: alumnes, DataV: dataJSON, DataArray: datadia});
 					console.log('DATAA: ' + dataA);
 					
 					}
