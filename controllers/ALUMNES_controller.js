@@ -165,7 +165,7 @@ exports.assisData = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			models.Alumne.find({tutor: req.session.user, assist: {$elemMatch: {date: dataA}}})
+			models.Alumne.find({tutor: req.session.user}, {assist: {$elemMatch: {date: dataA}}})
 			.populate('escola tutor')
 			.exec(function(error, datadia){
 				if (error){
