@@ -111,9 +111,13 @@
       var arraylng = Alumnes[i].assist.length;
       var arraymn = arraylng - 1;
 
-      var dataSelec = Alumnes[i].assist.filter(function(obj){
-      return obj.date == DataV
-      });
+      function filtreData(obj){
+      if (obj.date = DataV){
+      return obj.date
+      };
+      };
+
+      var dataSelec = Alumnes[i].assist.filter(filtreData);
 
       console.log(dataSelec);
       %>
