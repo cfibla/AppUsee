@@ -155,9 +155,6 @@ exports.assisGet = function (req, res) {
 exports.assisData = function (req, res) {
 
 	var dataA = req.body.dataAssis;
-	var dataJSON = JSON.stringify(dataA);
-
-	console.log('DATAa: ' + dataJSON)
 
 	models.Alumne.find({tutor: req.session.user})
 	.populate('escola tutor')
@@ -165,18 +162,8 @@ exports.assisData = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			models.Alumne.find({tutor: req.session.user}, {assist: {$elemMatch: {date: dataA}}})
-			.populate('escola tutor')
-			.exec(function(error, datadia){
-				if (error){
-					console.log(error);
-				} else {
-					res.render('assistencia',{Alumnes: alumnes, DataV: dataA, DataArray: datadia});
-					console.log('DATAA: ' + datadia);
-					
-					}
-			});
-
+			res.render('assistencia',{Alumnes: alumnes, DataV: dataA});
+			console.log('DATAA: ' + dataA);
 		}
 	});
 };

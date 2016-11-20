@@ -111,7 +111,11 @@
       var arraylng = Alumnes[i].assist.length;
       var arraymn = arraylng - 1;
 
-      
+      var dataSelec = Alumnes[i].assist.filter(function(obj){
+      return obj.date == DataV
+      });
+
+      console.log(dataSelec);
       %>
 
       <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
