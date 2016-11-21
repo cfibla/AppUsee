@@ -70,7 +70,7 @@
       //RADIOTRUE-FALTA MATI
           function radioTrueFM(){
             var rt='';
-            if (Alumnes[i].assist[arraymn].mati === 'falta') {
+            if (dataObj[0].mati === 'falta') {
               rt ="checked";
             }
             return rt;
@@ -79,7 +79,7 @@
       //RADIOTRUE-RETARD MATI
           function radioTrueRM(){
             var rt='';
-            if (Alumnes[i].assist[arraymn].mati === 'retard') {
+            if (dataObj[0].mati === 'retard') {
               rt ="checked";
             }
             return rt;
@@ -88,7 +88,7 @@
       //RADIOTRUE-FALTA TARDA
           function radioTrueFT(){
             var rt='';
-            if (Alumnes[i].assist[arraymn].tarda === 'falta') {
+            if (dataObj[0].tarda === 'falta') {
               rt ="checked";
             }
             return rt;
@@ -97,7 +97,7 @@
       //RADIOTRUE-RETARD TARDA
           function radioTrueRT(){
             var rt='';
-            if (Alumnes[i].assist[arraymn].tarda === 'retard') {
+            if (dataObj[0].tarda === 'retard') {
               rt ="checked";
             }
             return rt;
@@ -116,9 +116,13 @@
               };
           };
 
-          var dataSelec = Alumnes[i].assist.filter(filtreData);
+          var dataSelec ={};
 
-          console.log(dataSelec);
+          dataSelec = Alumnes[i].assist.filter(filtreData);
+
+          var dataObj = JSON.parse(JSON.stringify(dataSelec));
+
+          console.log(dataObj[0].mati);
       %>
 
       <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
