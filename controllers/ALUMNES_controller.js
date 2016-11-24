@@ -10,6 +10,7 @@ exports.list = function (req, res) {
 			console.log(error);
 		} else {
 			res.render('index',{Alumnes: docs});
+			console.log(docs);
 			}
 	});
 
