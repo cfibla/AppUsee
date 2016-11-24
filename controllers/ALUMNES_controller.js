@@ -56,9 +56,9 @@ exports.create = function (req, res){
 		tutor: req.session.user,
 
 		assist: [{
-		date: "",
-		mati: "",
-		tarda: "",
+		date: null,
+		mati: null,
+		tarda: null,
 		dataIso: new Date()
 
 	}],
@@ -164,7 +164,7 @@ exports.assisData = function (req, res) {
 			console.log(error);
 		} else {
 			res.render('assistencia',{Alumnes: alumnes, DataV: dataA});
-			console.log('DATAA: ' + dataA);
+
 		}
 	});
 };
