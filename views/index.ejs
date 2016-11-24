@@ -27,6 +27,7 @@
     <tbody>
       <% var i; for (i=0; i < Alumnes.length; i++) {
       //Format data naixement
+
       var dataNa = Alumnes[i].dataNaixement;
                 var dd = dataNa.getDate();
                 var mm = dataNa.getMonth()+1; //January is 0!
@@ -38,6 +39,7 @@
                     mm='0'+mm
                     } 
                 dataNa = dd+'/'+mm+'/'+yyyy;
+      
       %>
       <tr>
       <td><%=i+1%></td>
