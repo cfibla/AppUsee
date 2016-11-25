@@ -39,6 +39,19 @@ exports.create = function (req, res){
 		if (error){
 			console.log(error);
 		} else {
+		//TODAY
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1; //January is 0!
+          var yyyy = today.getFullYear();
+
+          if(dd<10) {
+              dd='0'+dd
+          } 
+          if(mm<10) {
+              mm='0'+mm
+          } 
+          today = dd+'/'+mm+'/'+yyyy;
 
 	var nouAlumne = new models.Alumne({
 		nomAlumne: alum.nom,
@@ -55,7 +68,7 @@ exports.create = function (req, res){
 		tutor: req.session.user,
 
 		assist: [{
-		date: null,
+		date: today,
 		mati: null,
 		tarda: null,
 		dataIso: new Date()
