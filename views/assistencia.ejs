@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
+    <% if (Alumnes.length > 0){ %>
       <h4>Control d'assistencia <%=Alumnes[0].curs%></h4>
       <h5>Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%></h5>
+    <%}%>
     </div>
     <div class="col-md-9">
       <hr>
@@ -111,21 +113,20 @@
             }
           };
 
+
+
       for (var i=0; i < Alumnes.length; i++) {
 
       //ARRAY ASSIST
           var arraylng = Alumnes[i].assist.length;
 
-          if (arraylng <= 1){
-
 
           console.log('ARRAYLNG: ' + arraylng);
           var arraymn = arraylng - 1;
 
-          } else {
           
           
-          //FILTRE DATA
+      //FILTRE DATA
           function filtreData(obj){
             if (obj.date === DataV){
               return obj.date
@@ -138,7 +139,7 @@
           
           var dataObj = JSON.parse(JSON.stringify(dataSelec));
           
-          console.log('DATAOBJECT: ' + dataObj);}
+          console.log('DATAOBJECT: ' + dataObj);
       %>
 
       <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
@@ -173,9 +174,13 @@
             <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
             <button type="submit" form="assistencia" class="btn btn-primary">Desa</button>
           </div>
-          <%}%>
+    <%}%>
   </div>
+
+
+
 </div>
+
 
 
 
