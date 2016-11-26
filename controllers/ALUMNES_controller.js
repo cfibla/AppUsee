@@ -209,7 +209,7 @@ exports.assisPost = function (req, res) {
 		models.Alumne.find({_id:alumneId}, {assist:{$elemMatch:{date: alumDate}}},
 
 		function (error, alumne){
-			console.log(alumne)
+			console.log(JSON.stringify(alumne))
 		if (error) res.json(error);
 
 		});
