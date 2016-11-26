@@ -35,7 +35,7 @@ router.post('/alumne_nou', 			sessionController.loginRequired, alumController.cr
 router.get('/assistencia',			sessionController.loginRequired, alumController.assisGet);
 router.post('/assisData',			sessionController.loginRequired, alumController.assisData);
 router.put('/assistenciaN',			sessionController.loginRequired, alumController.assisPost);
-router.put('/assistenciaMD',		sessionController.loginRequired, alumController.assisMateixDia);
+//router.put('/assistenciaMD',		sessionController.loginRequired, alumController.assisMateixDia);
 router.get('/assistenciaA/:id',		sessionController.loginRequired, alumController.assisAlumne);
 router.get('/dadesAlumne/:id', 		sessionController.loginRequired, alumController.mod);
 //router.put('/dades_update/:id',	sessionController.loginRequired, alumController.update);

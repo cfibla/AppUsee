@@ -187,6 +187,8 @@ exports.assisPost = function (req, res) {
 	var alum = req.body;
 	var alumI = alum.i;
 
+
+
 	for (var i =0; i < alumI; i ++) {
 		var alumneId = alum['alumneId.'+i];
 		var alumArray = alum['arraylng.'+i];
@@ -203,12 +205,22 @@ exports.assisPost = function (req, res) {
 		if (!alumAssist['assist.'+alumArray+'.dataIso'])
 		{alumAssist['assist.'+alumArray+'.dataIso'] = new Date();}
 
+		//ELIMINA ASSIST amb mateixa data
+		models.Alumne.find(_id:alumneId, {assist:{$elemMatch:{date: alumDate}}},
+
+		function (error, alumne){
+			console.log(alumne)
+		if (error) res.json(error);
+
+		});
+
+		//UPDATE ASSIST
 		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
 
 		function (error, alumne){
 		if (error) res.json(error);
 
-	});
+		});
 
 	};
 	
