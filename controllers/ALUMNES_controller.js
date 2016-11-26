@@ -205,14 +205,14 @@ exports.assisPost = function (req, res) {
 		if (!alumAssist['assist.'+alumArray+'.dataIso'])
 		{alumAssist['assist.'+alumArray+'.dataIso'] = new Date();}
 
-		//ELIMINA ASSIST amb mateixa data
-		models.Alumne.find({_id:alumneId}, {assist:{$elemMatch:{date: alumDate}}},
+			//ELIMINA ASSIST amb mateixa data
+			models.Alumne.findByIdAndUpdate(alumneId, {'$unset': {assist:{$elemMatch:{date: alumDate}}}},
 
-		function (error, alumne){
-			console.log(JSON.stringify(alumne.assist))
-		if (error) res.json(error);
+			function (error, alumne){
+				console.log(JSON.stringify(alumne.assist))
+			if (error) res.json(error);
 
-		});
+			});
 
 		//UPDATE ASSIST
 		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
