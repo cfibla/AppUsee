@@ -206,7 +206,7 @@ exports.assisPost = function (req, res) {
 		{alumAssist['assist.'+alumArray+'.dataIso'] = new Date();}
 
 		//ELIMINA ASSIST amb mateixa data
-		models.Alumne.find(_id:alumneId, {assist:{$elemMatch:{date: alumDate}}},
+		models.Alumne.find({_id:alumneId}, {assist:{$elemMatch:{date: alumDate}}},
 
 		function (error, alumne){
 			console.log(alumne)
