@@ -208,13 +208,13 @@ exports.assisPost = function (req, res) {
 		console.log(JSON.stringify('ALUMASSIST: ' + alumAssist))
 
 			//ELIMINA ASSIST amb mateixa data
-			models.Alumne.findByIdAndUpdate(alumneId, {'$unset': {assist:{$elemMatch:{date: alumDate}}}},
+/*			models.Alumne.findByIdAndUpdate(alumneId, {'$unset': {assist:{$elemMatch:{date: alumDate}}}},
 
 			function (error, alumne){
 				console.log(JSON.stringify('ALUMNE.ASSIST: ' + alumne.assist))
 			if (error) res.json(error);
 
-			});
+			});*/
 
 		//UPDATE ASSIST
 		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
