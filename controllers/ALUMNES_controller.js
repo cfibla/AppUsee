@@ -212,7 +212,7 @@ exports.assisPost = function (req, res) {
 				if (error){
 					res.send(error)
 				} else {
-					console.log (assDa);
+					console.log (JSON.stringify(assDa));
 				}
 			})
 
