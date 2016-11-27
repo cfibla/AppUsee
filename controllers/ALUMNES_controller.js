@@ -215,8 +215,7 @@ exports.assisPost = function (req, res) {
 
 		});
 
-		//UPDATE ASSIST - el fallo está aquí
-		//alumAssist['assist.'+alumArray+'.date']= alumDate; alumArray debe desaparecer
+		//UPDATE ASSIST
 		models.Alumne.findByIdAndUpdate(alumneId, {$push: {assist: alumAssist}},
 
 		function (error, alumne){
