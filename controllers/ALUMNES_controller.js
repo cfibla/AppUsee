@@ -208,13 +208,22 @@ exports.assisPost = function (req, res) {
 		console.log(JSON.stringify('ALUMASSIST: ' + alumAssist))
 
 			//ELIMINA ASSIST amb mateixa data
-			models.Alumne.findByIdAndUpdate(alumneId, {'$pullAll': {'assist':{'date': alumDate}}},
+			models.Alumne.find({id:alumneId},'assist', function(error, assDa){
+				if (error){
+					res.send(error)
+				} else {
+					console.log (assDa);
+				}
+			})
+
+
+		/*	models.Alumne.findByIdAndUpdate(alumneId, {'$pull': {'assist':{'date': alumDate}}},
 
 			function (error, alumne){
 				console.log(JSON.stringify('ALUMNE.ASSIST: ' + alumne.assist))
 			if (error) res.json(error);
 
-			});
+			});*/
 
 		//UPDATE ASSIST
 		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
