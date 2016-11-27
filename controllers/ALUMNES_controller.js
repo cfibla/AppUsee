@@ -199,36 +199,28 @@ exports.assisPost = function (req, res) {
 
 		var alumAssist = {};
 
-		alumAssist['assist.'+alumArray+'.date']= alumDate;
-		alumAssist['assist.'+alumArray+'.mati']= alumMati;
-		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
-		if (!alumAssist['assist.'+alumArray+'.dataIso'])
-		{alumAssist['assist.'+alumArray+'.dataIso'] = new Date();}
+		alumAssist['date']= alumDate;
+		alumAssist['mati']= alumMati;
+		alumAssist['tarda'] = alumTarda;
+		if (!alumAssist['dataIso'])
+		{alumAssist['dataIso'] = new Date();}
 
-		console.log(JSON.stringify('ALUMASSIST: ' + alumAssist))
+		console.log('ALUMASSIST: ' + alumAssist)
 
-			//ELIMINA ASSIST amb mateixa data
-			models.Alumne.find({id:alumneId}, function(error, assDa){
-				if (error){
-					res.send(error)
-				} else {
-					console.log ('ASSDA: ' + assDa);
-				}
-			})
-
-
-		/*	models.Alumne.findByIdAndUpdate(alumneId, {'$pull': {'assist':{'date': alumDate}}},
-
-			function (error, alumne){
-				console.log(JSON.stringify('ALUMNE.ASSIST: ' + alumne.assist))
-			if (error) res.json(error);
-
-			});*/
-
-		//UPDATE ASSIST
-		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
+		//ELIMINA ASSIST amb mateixa data
+		models.Alumne.findByIdAndUpdate(alumneId, {$pull: {assist:{date: alumDate}}},{multi: true},
 
 		function (error, alumne){
+		if (error) res.json(error);
+
+		});
+
+		//UPDATE ASSIST - el fallo está aquí
+		//alumAssist['assist.'+alumArray+'.date']= alumDate; alumArray debe desaparecer
+		models.Alumne.findByIdAndUpdate(alumneId, {$push: {assist: alumAssist}},
+
+		function (error, alumne){
+			console.log('alumAssist: ' + alumAssist);
 		if (error) res.json(error);
 
 		});
