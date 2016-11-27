@@ -205,11 +205,13 @@ exports.assisPost = function (req, res) {
 		if (!alumAssist['assist.'+alumArray+'.dataIso'])
 		{alumAssist['assist.'+alumArray+'.dataIso'] = new Date();}
 
+		console.log(JSON.stringify('ALUMASSIST: ' + alumAssist))
+
 			//ELIMINA ASSIST amb mateixa data
 			models.Alumne.findByIdAndUpdate(alumneId, {'$unset': {assist:{$elemMatch:{date: alumDate}}}},
 
 			function (error, alumne){
-				console.log(JSON.stringify(alumne.assist))
+				console.log(JSON.stringify('ALUMNE.ASSIST: ' + alumne.assist))
 			if (error) res.json(error);
 
 			});
