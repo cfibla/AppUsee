@@ -208,7 +208,7 @@ exports.assisPost = function (req, res) {
 		console.log(JSON.stringify('ALUMASSIST: ' + alumAssist))
 
 			//ELIMINA ASSIST amb mateixa data
-			models.Alumne.findByIdAndUpdate(alumneId, {'$pull': {'assist'{'date': alumDate}}},
+			models.Alumne.findByIdAndUpdate(alumneId, {'$pull': {'assist':{'date': alumDate}}},
 
 			function (error, alumne){
 				console.log(JSON.stringify('ALUMNE.ASSIST: ' + alumne.assist))
