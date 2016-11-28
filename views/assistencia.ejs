@@ -138,8 +138,19 @@
           dataSelec = Alumnes[i].assist.filter(filtreData);
           
           var dataObj = JSON.parse(JSON.stringify(dataSelec));
+
+          if (dataObj[0] === undefined){
+
+            ddoo ={
+                        date: today,
+                        mati: null,
+                        tarda: null,
+                        dataIso: new Date()}
+          dataObj = JSON.stringify(ddoo)
+
+          }
           
-          console.log('DATAOBJECT: ' + dataSelec);
+          console.log('DATAOBJECT: ' + dataObj);
       %>
 
       <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
