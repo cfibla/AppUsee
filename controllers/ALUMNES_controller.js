@@ -205,8 +205,6 @@ exports.assisPost = function (req, res) {
 		if (!alumAssist['dataIso'])
 		{alumAssist['dataIso'] = new Date();}
 
-		console.log('ALUMASSIST: ' + alumAssist)
-
 		//ELIMINA ASSIST amb mateixa data
 		models.Alumne.findByIdAndUpdate(alumneId, {$pull: {assist:{date: alumDate}}},{multi: true},
 
@@ -219,8 +217,7 @@ exports.assisPost = function (req, res) {
 		models.Alumne.findByIdAndUpdate(alumneId, {$push: {assist: alumAssist}},
 
 		function (error, alumne){
-			console.log('alumAssist: ' + alumAssist);
-		if (error) res.json(error);
+			if (error) res.json(error);
 
 		});
 
