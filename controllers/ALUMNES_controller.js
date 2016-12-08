@@ -269,7 +269,7 @@ exports.assisAlumne = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('alumne_assist', {alumne: alumne});
+			res.render('alumneAssist', {alumne: alumne});
 		}
 	});
 };
