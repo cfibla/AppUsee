@@ -30,15 +30,14 @@ router.post('/usuari_ee_crear',		userEeController.createUser);
 
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);
-router.get('/nou_alumne', 			sessionController.loginRequired, alumController.alta);
-router.post('/alumne_nou', 			sessionController.loginRequired, alumController.create);
+router.get('/nouAlumne', 			sessionController.loginRequired, alumController.alta);
+router.post('/alumneNou', 			sessionController.loginRequired, alumController.create);
+router.get('/dadesAlumne/:id', 		sessionController.loginRequired, alumController.mod);
+router.put('/dadesUpdate/:id', 		sessionController.loginRequired, alumController.update);
 router.get('/assistencia',			sessionController.loginRequired, alumController.assisGet);
 router.post('/assisData',			sessionController.loginRequired, alumController.assisData);
 router.put('/assistenciaN',			sessionController.loginRequired, alumController.assisPost);
-//router.put('/assistenciaMD',		sessionController.loginRequired, alumController.assisMateixDia);
 router.get('/assistenciaA/:id',		sessionController.loginRequired, alumController.assisAlumne);
-router.get('/dadesAlumne/:id', 		sessionController.loginRequired, alumController.mod);
-//router.put('/dades_update/:id',	sessionController.loginRequired, alumController.update);
 router.get('/dades_suprV/:id', 		sessionController.loginRequired, alumController.suprV);
 router.get('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
 

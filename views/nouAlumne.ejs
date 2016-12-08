@@ -19,7 +19,7 @@
 <!--DADES ALUMNE-->
     <div class="container">
       <div class="row">
-        <form role="form" method="post" action="/alumne_nou">
+        <form role="form" method="post" action="/alumneNou" id="dadesAlumne">
           <div class="form-group">
             <div class="col-md-2">
               <h4>Nova entrada</h4>
@@ -29,22 +29,32 @@
               <hr>
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
               <label for="nom_alumne">Nom</label>
               <input type="text" class="form-control" id="nom_alumne" name="nom"
                      placeholder="Nom" value="<%=alumne.nom||''%>">
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
               <label for="cognom1_alumne">Primer cognom</label>
               <input type="text" class="form-control" id="cognom1_alumne" name="cognom1"
                      placeholder="Cognom" value="<%=alumne.cognom1||''%>">
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
               <label for="cognom2_alumne">Segon cognom</label>
               <input type="text" class="form-control" id="cognom2_alumne" name="cognom2"
                      placeholder="Cognom">
+            </div>
+
+            <div class="form-group col-md-3" style="clear:both;" id="data">
+              <label for="data_naixement">Data naixement</label>
+              <div class="input-group date alturabox" data-provide="datepicker">
+                <input type="text" class="form-control" form="dadesAlumne" id="data_naixement" name="naixement">
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
             </div>
 
             <div class="form-group col-md-2">
@@ -53,23 +63,17 @@
                      placeholder="Seguretat Social">
             </div>
 
-            <div class="form-group col-md-2">
-              <label for="data_naixement">Data naixement</label>
-              <input type="date" class="form-control" id="data_naixement" name="naixement"
-                     placeholder="">
-            </div>
 
-
-<!--            <div class="form-group col-md-2">
-              <label for="targeta_SS">Codi escola</label>
+           <div class="form-group col-md-2">
+              <label for="codi_escola">Codi escola</label>
               <input type="text" class="form-control" id="codi_escola" name="codiEscola"
                      placeholder ="<%=session.user.escola%>" value ="<%=session.user.escola%>">
             </div>
--->
+
             <div class="form-group col-md-2" id="curs">
               <label for="curs_act">Curs actual</label>
                 <select class="form-control" id="curs_act" name="curs">
-                  <option value="">Seleccioneu</option>
+                  <option value="<%=session.user.curs%>"><%=session.user.curs%></option>
                   <option value="1r A">1r A</option>
                   <option value="1r B">1r B</option>
                   <option value="2n A">2n A</option>
@@ -85,7 +89,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-2 alturaBox">
+            <div class="form-group col-md-2 alturaBox" style="clear:both;">
                 <label for="EE-USEE"></label><br>
                   <label class="checkbox-inline">
                   <input type="checkbox" value="true" name="eeUsee">Alumne USEE</label>
@@ -101,14 +105,3 @@
         </form>
       </div>
     </div>
-
-
-  <!-- Librería jQuery requerida por los plugins de JavaScript -->
-    <script src="http://code.jquery.com/jquery.js"></script>
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  
-
-    <!-- Todos los plugins JavaScript de Bootstrap (también puedes
-         incluir archivos JavaScript individuales de los únicos
-         plugins que utilices) -->
-    <script src="/stylesheets/js/bootstrap.min.js"></script>
-

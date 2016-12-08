@@ -71,9 +71,6 @@ $('.datepicker').datepicker({
 //});
 
 
-
-
-
 /*
 $(":radio").click(function () {
    if($(this).is(':checked')){

@@ -3,7 +3,7 @@ var models = require('../models/index');
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
-	models.Alumne.find({tutor: req.session.user})
+	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs})
 	.populate('escola tutor')
 	.exec(function(error, docs){
 		if (error){
@@ -18,7 +18,7 @@ exports.list = function (req, res) {
 //Altes d'alumnes - GET
 exports.alta = function (req, res) {
 
-	res.render('nou_alumne', {errorAlta:'', alumne:{nom:'',cognom1:''}});
+	res.render('nouAlumne', {errorAlta:'', alumne:{nom:'',cognom1:''}});
 };
 
 //Altes d'alumnes - POST
@@ -26,12 +26,12 @@ exports.create = function (req, res){
 
 	var alum = req.body;
 
-	if (!alum.nom||!alum.cognom1){
+	if (!alum.nom||!alum.cognom1||!alum.curs){
 		models.Alumne.find(function(error, docs){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('nou_alumne', {errorAlta:"El nom i el primer cognom de l'alumne són obligatoris", alumne: alum});
+			res.render('nouAlumne', {errorAlta:"ATENCIÓ: Nom, primer cognom i curs són obligatoris", alumne: alum});
 			};
 		});
 	} else {
@@ -40,49 +40,48 @@ exports.create = function (req, res){
 			console.log(error);
 		} else {
 		//TODAY
-          var today = new Date();
-          var dd = today.getDate();
-          var mm = today.getMonth()+1; //January is 0!
-          var yyyy = today.getFullYear();
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0!
+			var yyyy = today.getFullYear();
 
-          if(dd<10) {
-              dd='0'+dd
-          } 
-          if(mm<10) {
-              mm='0'+mm
-          } 
-          today = dd+'/'+mm+'/'+yyyy;
+			if(dd<10) {
+				dd='0'+dd
+			} 
+			if(mm<10) {
+				mm='0'+mm
+			} 
+			today = dd+'/'+mm+'/'+yyyy;
 
-	var nouAlumne = new models.Alumne({
-		nomAlumne: alum.nom,
-		cognomAlumne1: alum.cognom1,
-		cognomAlumne2: alum.cognom2,
-		dataNaixement: alum.naixement,
-		seguretatSoc: alum.sSocial,
+			var nouAlumne = new models.Alumne({
+				nomAlumne: alum.nom,
+				cognomAlumne1: alum.cognom1,
+				cognomAlumne2: alum.cognom2,
+				dataNaixement: alum.naixement,
+				seguretatSoc: alum.sSocial,
 
-		codiEscola: req.session.user.escola,
-		curs: alum.curs,
-		eeUsee: alum.eeUsee,
+				codiEscola: req.session.user.escola,
+				curs: alum.curs,
+				eeUsee: alum.eeUsee,
 
-		escola: req.session.user.escola,
-		tutor: req.session.user,
+				escola: req.session.user.escola,
+				tutor: req.session.user,
 
-		assist: [{
-		date: today,
-		mati: null,
-		tarda: null,
-		dataIso: new Date()
+				assist: [{
+					date: today,
+					mati: null,
+					tarda: null,
+					dataIso: new Date()
+				}],
 
-	}],
-
-	});
-	nouAlumne.save(function(error, alumne){
-		if (error) res.json(error);
-	});
-	res.redirect('/list');
-	};
-});
-}
+			});
+			nouAlumne.save(function(error, alumne){
+				if (error) res.json(error);
+			});
+			res.redirect('/list');
+			};
+		});
+	}
 };
 
 //Modificar dades - GET
@@ -223,41 +222,7 @@ exports.assisPost = function (req, res) {
 
 	};
 	
-		res.redirect('/list');
-
-
-};
-
-exports.assisMateixDia = function (req, res) {
-	var alum = req.body;
-	var alumI = alum.i;
-
-	for (var i =0; i < alumI; i ++) {
-		var alumneId = alum['alumneId.'+i];
-		var alumArray = alum['arraylng.'+i]-1;
-
-		var alumDate = alum['assist.date.'+i];
-		var alumMati = alum['assist.mati.'+i];
-		var alumTarda = alum['assist.tarda.'+i];
-
-		var alumAssist = {};
-
-		alumAssist['assist.'+alumArray+'.date']= alumDate;
-		alumAssist['assist.'+alumArray+'.mati']= alumMati;
-		alumAssist['assist.'+alumArray+'.tarda'] = alumTarda;
-		alumAssist['assist.'+alumArray+'.dataIso'] = new Date();
-
-		models.Alumne.findByIdAndUpdate(alumneId, {'$set': alumAssist},
-
-		function (error, alumne){
-		if (error) res.json(error);
-
-	});
-
-	};
-	
-
-		res.redirect('/list');
+		res.redirect('/assistencia');
 
 
 };
@@ -269,7 +234,7 @@ exports.assisAlumne = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('alumneAssist', {alumne: alumne});
+			res.render('assistAlumne', {alumne: alumne});
 		}
 	});
 };
