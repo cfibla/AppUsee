@@ -13,19 +13,6 @@ exports.PDF = function (req, res) {
 				var doc = new PDFDocument();
 				var tempFile = ('temp/PDFassist.pdf');
 
-				//FORMAT DATA NAIXEMENT
-				var dataNa = alumne.dataNaixement;
-                var dd = dataNa.getDate();
-                var mm = dataNa.getMonth()+1; //January is 0!
-                var yyyy = dataNa.getFullYear();
-                if(dd<10) {
-                    dd='0'+dd
-                    }
-                if(mm<10) {
-                    mm='0'+mm
-                    }
-                dataNa = dd+'/'+mm+'/'+yyyy;
-
                 //NOM ALUMNE
 				var nom = alumne.nomAlumne + ' ' + alumne.cognomAlumne1 + ' ' + alumne.cognomAlumne2;
 
