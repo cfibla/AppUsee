@@ -89,17 +89,17 @@ exports.PDF = function (req, res) {
 	                var retards = 0;
 	                for (var i = 0; i < alumne.assist.length; i++) {
 	                	if (alumne.assist[i].mati == 'retard' && alumne.assist[i].tarda == 'retard'){
-	                		retards += 1;
+	                		retards += 2;
 	                		doc.text(alumne.assist[i].date + ': retard matí i tarda');
 
 	                	} else{
 	                	
 		                	if (alumne.assist[i].mati == 'retard'){
-		                		retards += 0.5;
+		                		retards += 1;
 		                		doc.text(alumne.assist[i].date + ': retard matí');
 		                	}
 		               		if (alumne.assist[i].tarda == 'retard') {
-		                		retards += 0.5;
+		                		retards += 1;
 		                		doc.text(alumne.assist[i].date + ': retard tarda');
 		                	}
 		                }
