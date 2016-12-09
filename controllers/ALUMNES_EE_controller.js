@@ -125,7 +125,8 @@ exports.update = function (req, res){
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 
 		function (error, alumne){
-		if (error) res.json(error);
+		if (error) 
+			return res.json(error);
 		res.redirect('/list_EE');
 	});
 
