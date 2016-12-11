@@ -87,8 +87,8 @@
                     mm='0'+mm
                     } 
                 dataNa = dd+'/'+mm+'/'+yyyy;
-                  %>
-                  <% dataISO = alumne.dataNaixement.toISOString() %>
+
+                dataISO = alumne.dataNaixement.toISOString() %>
 
 
 <!--<div class="container">
@@ -142,16 +142,12 @@
 
             <div class="form-group col-md-3" style="clear:both;" id="data">
               <label for="data_naixement">Data naixement</label>
-
- 
                 <div class="input-group date alturabox" data-provide="datepicker">
-                  <input type="text" class="form-control" id="data_naixement" name="dataNaixement"
-                     value="<%=dataNa%>">
+                  <input type="text" class="form-control" id="data_naixement" name="dataNaixement" value="<%=dataNa%>">
                   <div class="input-group-addon">
                     <span class="glyphicon glyphicon-th"></span>
                   </div>
                 </div>
-
             </div>
 
             <div class="form-group col-md-3">
