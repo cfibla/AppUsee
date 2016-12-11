@@ -14,6 +14,11 @@
           } 
           today = dd+'/'+mm+'/'+yyyy;
 
+//DATA YESTERDAY
+//          var ydd = dd-1;
+
+//          var yesterday = ydd+'/'+mm+'/'+yyyy;
+
 %>
 
 
@@ -25,7 +30,7 @@
             <!--DADES ALUMNE-->
               <div class="container">
                 <div class="row">
-                  <form role="form">
+
                     <div class="form-group">
                       <div class="col-md-6">
                         <h4>Control d'assistència: <%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%></h4>
@@ -35,39 +40,49 @@
                         <hr>
                       </div>
 
-                      <!--<form role="form" method="get" action="/assistenciaAlumne?_method=put" id="assistencia">-->
+                        <form role="form" method="post" action="/assistPDF" id="assisDataD">
+
+                        <input type="hidden" form="assisDataD" name="alumneId" value ="<%=alumne._id%>">
 
 
-                      <!--DATEPICKER-->
+                        <!--DATEPICKER-->
 
-                        <div class="col-md-3 alturabox" id="data" style="clear:both;">
-                         <label for="alumneAssist1">Veure assistència des del dia </label>
-                          <div class="input-group date alturabox" data-provide="datepicker">
-                            <input type="text" class="form-control" form="assisData" name= "alumneAssist1" value ="<%=today%>">
-                            <div class="input-group-addon">
-                              <span class="glyphicon glyphicon-th"></span>
+                          <div class="col-md-3 alturabox" id="data" style="clear:both;">
+                           <label for="alumneAssist1">Veure assistència des del dia </label>
+                            <div class="input-group date alturabox" data-provide="datepicker">
+                              <input type="text" class="form-control" form="assisDataD" name= "alumneAssistU" value ="<%=today%>">
+                              <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
 
-                        <div class="col-md-3 alturabox" id="data">
-                         <label for="alumneAssist2"> fins el dia  </label>
-                          <div class="input-group date alturabox" data-provide="datepicker">
-                            <input type="text" class="form-control" form="assisData" name= "alumneAssist2" value ="<%=today%>">
-                            <div class="input-group-addon">
-                              <span class="glyphicon glyphicon-th"></span>
+                          <div class="col-md-3 alturabox" id="data2">
+                           <label for="alumneAssist2"> fins el dia  </label>
+                            <div class="input-group date alturabox" data-provide="datepicker">
+                              <input type="text" class="form-control" form="assisDataD" name= "alumneAssistD" value ="<%=today%>">
+                              <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
+                          <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+                              <a href="/assistencia" class="btn btn-default btn-sm" role="button">Cancel·la</a>
+                              <button type="submit" class="btn btn-primary btn-sm">Imprimir</button>
+
+                             
+                          </div>
+                        </form>
                     </div>
-                  </form>
+
                 </div>
             </div>
-            <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                <a href="/assistencia" class="btn btn-default btn-sm" role="button">Cancel·la</a>
-                <a href="/assistPDF/<%=alumne.id%>" class="btn btn-primary btn-sm" role="button" target="_blank">Imprimir</a>
-                </div>
+
+
+
           </div>
         </div>
+
+         <!--<a href="/assistPDF/<%=alumne.id%>" class="btn btn-primary btn-sm" role="button" target="_blank">Imprimir</a>-->

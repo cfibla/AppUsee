@@ -31,7 +31,7 @@ exports.create = function (req, res){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('nouAlumne', {errorAlta:"ATENCIÓ: Nom, primer cognom i curs són obligatoris", alumne: alum});
+			res.render('nouAlumne', {errorAlta:"ATENCIÓ: Heu d'emplenar els camps obligatoris (*)", alumne: alum});
 			};
 		});
 	} else {
@@ -52,6 +52,10 @@ exports.create = function (req, res){
 				mm='0'+mm
 			} 
 			today = dd+'/'+mm+'/'+yyyy;
+
+			if(!alum.naixement){
+				alum.naixement = new Date();
+			};
 
 			var nouAlumne = new models.Alumne({
 				nomAlumne: alum.nom,
@@ -123,7 +127,6 @@ exports.update = function (req, res){
 										}
 									});
 
-	console.log(alum);
 
 	delete alum.id;
 	delete alum._id;
@@ -156,7 +159,7 @@ exports.assisGet = function (req, res) {
     } 
     today = dd+'/'+mm+'/'+yyyy;
 
-	models.Alumne.find({tutor: req.session.user})
+	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
 		if (error){
@@ -168,30 +171,13 @@ exports.assisGet = function (req, res) {
 
 };
 
-//Assistència DATA
-exports.assisData = function (req, res) {
-
-	var dataA = req.body.dataAssis;
-
-	models.Alumne.find({tutor: req.session.user})
-	.populate('escola tutor')
-	.exec(function(error, alumnes){
-		if (error){
-			console.log(error);
-		} else {
-			res.render('assistencia',{Alumnes: alumnes, DataV: dataA});
-
-		}
-	});
-};
 
 
 //Assistència d'alumnes - POST
 exports.assisPost = function (req, res) {
+
 	var alum = req.body;
 	var alumI = alum.i;
-
-
 
 	for (var i =0; i < alumI; i ++) {
 		var alumneId = alum['alumneId.'+i];
@@ -232,7 +218,26 @@ exports.assisPost = function (req, res) {
 
 };
 
-//IMPRIMIR ASSISTÈNCIA ENTRE 2 DATES
+
+//Assistència DATA
+exports.assisData = function (req, res) {
+
+	var dataA = req.body.dataAssis;
+
+	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs})
+	.populate('escola tutor')
+	.exec(function(error, alumnes){
+		if (error){
+			console.log(error);
+		} else {
+			res.render('assistencia',{Alumnes: alumnes, DataV: dataA});
+
+		}
+	});
+};
+
+
+//IMPRIMIR ASSISTÈNCIA ENTRE 2 DATES - GET
 exports.assisAlumne = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
@@ -242,9 +247,7 @@ exports.assisAlumne = function (req, res) {
 			res.render('assistAlumne', {alumne: alumne});
 		}
 	});
-};
-
-					
+};				
 
 //Suprimir alumne - VIEW
 exports.suprV = function (req, res) {

@@ -30,13 +30,13 @@
             </div>
 
             <div class="form-group col-md-3">
-              <label for="nom_alumne">Nom</label>
+              <label for="nom_alumne">Nom *</label>
               <input type="text" class="form-control" id="nom_alumne" name="nom"
                      placeholder="Nom" value="<%=alumne.nom||''%>">
             </div>
 
             <div class="form-group col-md-3">
-              <label for="cognom1_alumne">Primer cognom</label>
+              <label for="cognom1_alumne">Primer cognom *</label>
               <input type="text" class="form-control" id="cognom1_alumne" name="cognom1"
                      placeholder="Cognom" value="<%=alumne.cognom1||''%>">
             </div>
@@ -65,13 +65,13 @@
 
 
            <div class="form-group col-md-2">
-              <label for="codi_escola">Codi escola</label>
+              <label for="codi_escola">Codi escola *</label>
               <input type="text" class="form-control" id="codi_escola" name="codiEscola"
                      placeholder ="<%=session.user.escola%>" value ="<%=session.user.escola%>">
             </div>
 
             <div class="form-group col-md-2" id="curs">
-              <label for="curs_act">Curs actual</label>
+              <label for="curs_act">Curs actual *</label>
                 <select class="form-control" id="curs_act" name="curs">
                   <option value="<%=session.user.curs%>"><%=session.user.curs%></option>
                   <option value="1r A">1r A</option>
@@ -93,6 +93,10 @@
                 <label for="EE-USEE"></label><br>
                   <label class="checkbox-inline">
                   <input type="checkbox" value="true" name="eeUsee">Alumne USEE</label>
+            </div>
+
+            <div class="form-group col-md-12 alturaBox" style="clear:both;">
+            <small>Els camps marcats amb l'asterisc (*) són obligatoris</small>
             </div>
 
             <div class="col-md-12" id="newEE_error"><%=errorAlta%></div>

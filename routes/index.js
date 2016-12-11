@@ -54,7 +54,7 @@ router.delete('/seg_act_upd_EE/:id/actDel/:i',	sessionController.loginRequired, 
 
 
 //rutas PDF
-router.get('/assistPDF/:id',		sessionController.loginRequired, assistPDF.PDF);
+router.post('/assistPDF',			sessionController.loginRequired, assistPDF.PDF);
 router.get('/print_EE/:id',			sessionController.loginRequired, segUseePDF.PDF);
 
 

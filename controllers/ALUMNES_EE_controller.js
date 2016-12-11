@@ -41,9 +41,6 @@ exports.create = function (req, res){
 			console.log(error);
 		} else {
 
-				console.log(esc);
-				//console.log(nouAlumne);
-
 			var nouAlumne = new models.Alumne({
 				nomAlumne: alum.nom,
 				cognomAlumne1: alum.cognom1,
