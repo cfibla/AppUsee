@@ -8,6 +8,15 @@ exports.PDF = function (req, res) {
 	var data1 = alum.alumneAssistU;
 	var data2 = alum.alumneAssistD;
 
+	//TO ISO DATE
+/*
+	var str = "29-1-2016";
+	darr = str.split("-");    // ["29", "1", "2016"]
+	var dobj = new Date(parseInt(darr[2]),parseInt(darr[1])-1,parseInt(darr[0]));
+	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
+	console.log(dobj.toISOString());
+	                         //2016-01-28T18:30:00.000Z
+*/
 	console.log(data1);
 	console.log(data2);
 
@@ -15,7 +24,14 @@ exports.PDF = function (req, res) {
 	console.log(alumneId);
 	console.log(alum);
 
-	models.Alumne.findById(alumneId, function(error, alumne){
+	models.Alumne.findById(alumneId,
+		{
+			'assist.date':{
+				$gte: data1,
+				$lt: data2
+			}
+		},
+		function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {
@@ -36,11 +52,11 @@ exports.PDF = function (req, res) {
 										//to write the content on the file system
 				//PAG. 1
 				//TITOL
-				doc.text("CONTROL D'ASSISTÈNCIA",{
+				doc.text("ESCOLA MONTSERRAT VAYREDA",{
 					align: 'center',
 					underline: 1
 				});
-				doc.text('Escola Montserrat Vayreda',{
+				doc.text("Control d'assistència",{
 					align: 'center'
 				});
 				doc.moveDown(2.5);
@@ -50,7 +66,7 @@ exports.PDF = function (req, res) {
 				doc.moveDown(0.5);
 				doc.text('Nom: '+ nom);
 				doc.text('Curs: '+ alumne.curs);
-				doc.text('Tutor: '+ alumne.tutor.nom);
+				//doc.text('Tutor: '+ alumne.tutor.nom);
 				doc.moveDown(1.5);
 
 				//TOTAL FALTES
