@@ -5,36 +5,36 @@ exports.PDF = function (req, res) {
 	var alum = req.body;
 	var alumneId = alum.alumneId;
 
-	var data1 = alum.alumneAssistU;
-	var data2 = alum.alumneAssistD;
+	var da1 = alum.alumneAssistU;
+	var da2 = alum.alumneAssistD;
 
-	//TO ISO DATE
-/*
-	var str = "29-1-2016";
-	darr = str.split("-");    // ["29", "1", "2016"]
-	var dobj = new Date(parseInt(darr[2]),parseInt(darr[1])-1,parseInt(darr[0]));
+
+	//TO ISO DATE 1
+
+	darr1 = da1.split("/");    // ["29", "1", "2016"]
+	var data1 = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
 	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
-	console.log(dobj.toISOString());
+	var data1Iso = data1.toISOString();
+	console.log(data1Iso);
 	                         //2016-01-28T18:30:00.000Z
-*/
-	console.log(data1);
-	console.log(data2);
+
+	//TO ISO DATE 2
+
+	darr2 = da2.split("/");    // ["29", "1", "2016"]
+	var data2 = new Date(parseInt(darr2[2]),parseInt(darr2[1])-1,parseInt(darr2[0]));
+	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
+	var data2Iso = data1.toISOString();
+	console.log(data2Iso);
+	                         //2016-01-28T18:30:00.000Z
 
 
-	console.log(alumneId);
-	console.log(alum);
-
-	models.Alumne.findById(alumneId,
-		{
-			'assist.date':{
-				$gte: data1,
-				$lt: data2
-			}
-		},
-		function(error, alumne){
+	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {
+
+			//BORRAR FECHAS ANTERIORES Y POSTERIORES
+			console.log(alumne.assist);
 			
 			//require dependencies
 			var PDFDocument = require ('pdfkit');
