@@ -1,0 +1,75 @@
+
+  <div class="fons">
+    <div class="container col-sm-4 col-sm-offset-4" >
+      <div class="escola">
+        <span class="glyphicon glyphicon-user"></span>
+        <span> Nova escola</span>
+         <form role="form" method="post" action="/escola_crear">
+          <div class="form-group">
+
+            <br>
+            <label for="codi_escola">Empleneu els següents apartats</label><br>
+            <div class="" id="newEE_error"><%=errorAlta%></div><br>
+            <input type="text" class="form-control" id="codi_escola" name="_id"
+               placeholder="Codi escola">
+
+            <label for="password_escola"></label>
+            <input type="password" class="form-control" id="password_escola" name="password"
+               placeholder="Contrasenya">
+
+            <label for="nom_escola"></label>
+            <input type="text" class="form-control" id="nom_escola" name="nom"
+               placeholder="Nom escola">
+
+            <label for="tel_escola"></label>
+            <input type="text" class="form-control" id="tel_escola" name="telefon"
+               placeholder="Telefon">
+
+            <label for="email_escola"></label>
+            <input type="email" class="form-control" id="email_escola" name="email"
+               placeholder="email">
+
+            <label for="adreca_escola"></label>
+            <input type="text" class="form-control" id="adreca_escola" name="adreca"
+               placeholder="Adreça">
+
+            <label for="cp_escola"></label>
+            <input type="text" class="form-control" id="cp_escola" name="codiPostal"
+               placeholder="Codi Postal">
+
+            <label for="pob_escola"></label>
+            <input type="text" class="form-control" id="pob_escola" name="poblacio"
+               placeholder="Poblacio">
+
+            <label for="prov_escola"></label>
+            <input type="text" class="form-control" id="prov_escola" name="provincia"
+               placeholder="Provincia"> 
+   
+        <!--    <label for="password_user"></label>
+            <input type="password" class="form-control" id="password_user" 
+               placeholder="Torneu a escriure la contrasenya"><br> -->
+
+            
+
+            <br>
+<!--            <label for="userTipus">Indiqueu si sou</label><br>
+
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="tutor">Tutor</label><br>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="especialista">Especialista</label>
+                    <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="eeUsee">EE-USEE</label>
+-->
+            </div>
+
+
+
+
+         <!--   <a class="btn btn-primary pull-right boton-index" type = "submit">Enviar</a> -->
+             <button type="submit" class="btn btn-primary pull-right boton-index">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,190 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    <% if (Alumnes.length > 0){ %>
+      <h4>Control d'assistencia <%=Alumnes[0].curs%></h4>
+      <h5>Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%></h5>
+    <%}%>
+    </div>
+    <div class="col-md-9">
+      <hr>
+    </div>
+
+
+<!--DATEPICKER-->
+    <form role="form" method="post" action="/assisData" id="assisData">
+
+    <div class="col-md-3 alturabox" id="data" style="clear:both;">
+      <div class="input-group date alturabox" data-provide="datepicker">
+        <input type="text" class="form-control" form="assisData" name= "dataAssis" value ="<%=DataV%>">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
+      </div>
+    </div>
+
+    </form>
+
+    
+  </div>
+
+
+  <div class="col-md-12">
+
+  <% if (Alumnes.length === 0) { %>
+      <p><br />
+      No hi ha alumnes registrats
+      </p>
+      <%} else {%>           
+  <table class="table table-striped">
+    <thead>
+      <tr>
+
+        <th>Núm.</th>
+        <th>Nom i cognoms</th>
+        <th>Curs</th>
+        <th>Falta matí</th>
+        <th>Retard matí</th>
+        <th>Falta tarda</th>
+        <th>Retard tarda</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <%
+
+      //DATA D'AVUI
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1; //January is 0!
+          var yyyy = today.getFullYear();
+
+          if(dd<10) {
+              dd='0'+dd
+          } 
+          if(mm<10) {
+              mm='0'+mm
+          } 
+          today = dd+'/'+mm+'/'+yyyy;
+
+      //RADIOTRUE-FALTA MATI
+          function radioTrueFM(){
+            var rt='';
+            if (dataObj[0].mati === 'falta') {
+              rt ="checked";
+              return rt;
+            } else {
+            return rt;
+            }
+          };
+
+      //RADIOTRUE-RETARD MATI
+          function radioTrueRM(){
+            var rt='';
+            if (dataObj[0].mati === 'retard') {
+              rt ="checked";
+              return rt;
+            } else {
+            return rt;
+            }
+      };
+
+      //RADIOTRUE-FALTA TARDA
+          function radioTrueFT(){
+            var rt='';
+            if (dataObj[0].tarda === 'falta') {
+              rt ="checked";
+              return rt;
+            } else {
+            return rt;
+            }
+          };
+
+      //RADIOTRUE-RETARD TARDA
+          function radioTrueRT(){
+            var rt='';
+            if (dataObj[0].tarda === 'retard') {
+              rt ="checked";
+              return rt;
+            } else {
+            return rt;
+            }
+          };
+
+
+
+      for (var i=0; i < Alumnes.length; i++) {
+
+      //ARRAY ASSIST
+          var arraylng = Alumnes[i].assist.length;
+
+
+          var arraymn = arraylng - 1;
+
+          
+          
+      //FILTRE DATA
+          function filtreData(obj){
+            if (obj.date === DataV){
+              return obj.date
+            };
+          };
+          
+          var dataSelec ={};
+          
+          dataSelec = Alumnes[i].assist.filter(filtreData);
+          
+          var dataObj = JSON.parse(JSON.stringify(dataSelec));
+
+          if (dataObj[0] === undefined){
+
+            ddoo ={
+                        date: today,
+                        mati: null,
+                        tarda: null,
+                        dataIso: new Date()}
+          dataObj = JSON.stringify(ddoo)
+
+          }
+      %>
+
+      <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
+      <tr>
+      <td><%=i+1%></td>
+      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
+
+      <td><%=Alumnes[i].curs%></td>
+      <input type="hidden" form="assistencia" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
+      <input type="hidden" form="assistencia" name="assist.date.<%=i%>" value ="<%=DataV%>">
+      <input type="hidden" form="assistencia" name="arraylng.<%=i%>" value ="<%=arraylng%>">
+
+      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
+      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
+      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
+      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
+      
+      <td>
+
+      <a href="/assistenciaA/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Imprimir</a>
+
+      </td>
+     </tr>
+     </form>
+
+     <%}%>
+
+    </tbody>
+  </table>
+          <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+            <input type="hidden" form="assistencia" name="i" value ="<%=i%>">
+            <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
+            <button type="submit" form="assistencia" class="btn btn-primary">Desa</button>
+          </div>
+    <%}%>
+  </div>
+
+
+
+</div>

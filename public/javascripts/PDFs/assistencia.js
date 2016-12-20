@@ -5,37 +5,60 @@ exports.PDF = function (req, res) {
 	var alum = req.body;
 	var alumneId = alum.alumneId;
 
-	var da1 = alum.alumneAssistU;
-	var da2 = alum.alumneAssistD;
+	var dt1 = alum.alumneAssistU;
+	var dt2 = alum.alumneAssistD;
+
+		console.log(alumneId);
 
 
-	//TO ISO DATE 1
+//TO ISO DATE 1
 
-	darr1 = da1.split("/");    // ["29", "1", "2016"]
+	darr1 = dt1.split("/");    // ["29", "1", "2016"]
 	var data1 = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
 	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
 	var data1Iso = data1.toISOString();
-	console.log(data1Iso);
+	var data1IsoFull = 'ISODate("'+ data1Iso +'")';
+	console.log(data1IsoFull);
 	                         //2016-01-28T18:30:00.000Z
 
-	//TO ISO DATE 2
 
-	darr2 = da2.split("/");    // ["29", "1", "2016"]
+//TO ISO DATE 2
+
+	darr2 = dt2.split("/");    // ["29", "1", "2016"]
 	var data2 = new Date(parseInt(darr2[2]),parseInt(darr2[1])-1,parseInt(darr2[0]));
 	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
-	var data2Iso = data1.toISOString();
-	console.log(data2Iso);
+	var data2Iso = data2.toISOString();
+	var data2String 
+	var data2IsoFull = 'ISODate("'+ data2Iso +'")';
+	console.log(data2IsoFull);
 	                         //2016-01-28T18:30:00.000Z
 
-
-	models.Alumne.findById(alumneId, function(error, alumne){
+//BUSCA EL ALUMNO FILTRANDO FECHAS
+	models.Alumne.find({_id:alumneId
+//		, assist:{dataIso:{
+//		$gte: data1IsoFull,
+//		$lt: data2IsoFull
+//			}}
+		},
+			function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {
 
-			//BORRAR FECHAS ANTERIORES Y POSTERIORES
-			console.log(alumne.assist);
-			
+			console.log(alumne);
+
+
+
+			//BORRAR FECHAS ANTERIORES Y POSTERIORES  ????
+
+		/*	for (var i =0; i<alumne.assist.length; i ++) {
+				if (alumne.assist[i].dataIso == data1IsoFull){
+					console.log('index:'+i)
+				}
+			};
+		*/	
+
+
 			//require dependencies
 			var PDFDocument = require ('pdfkit');
 			var fs = require('fs');
