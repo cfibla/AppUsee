@@ -18,7 +18,7 @@ exports.PDF = function (req, res) {
 	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
 	var data1Iso = data1.toISOString();
 	var data1IsoFull = 'ISODate("'+ data1Iso +'")';
-	console.log(data1IsoFull);
+	console.log(data1);
 	                         //2016-01-28T18:30:00.000Z
 
 
@@ -30,11 +30,11 @@ exports.PDF = function (req, res) {
 	var data2Iso = data2.toISOString();
 	var data2String 
 	var data2IsoFull = 'ISODate("'+ data2Iso +'")';
-	console.log(data2IsoFull);
+	console.log(data2);
 	                         //2016-01-28T18:30:00.000Z
 
 //BUSCA EL ALUMNO FILTRANDO FECHAS
-	models.Alumne.find({_id:alumneId
+	models.Alumne.findOne({_id:alumneId
 //		, assist:{dataIso:{
 //		$gte: data1IsoFull,
 //		$lt: data2IsoFull
@@ -45,7 +45,7 @@ exports.PDF = function (req, res) {
 			return res.json(error);
 		} else {
 
-			console.log(alumne);
+			console.log(alumne.assist);
 
 
 
