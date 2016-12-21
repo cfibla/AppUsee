@@ -1,4 +1,7 @@
 var models = require('../../../models/index');
+var moment = require('moment');
+
+moment.locale('ca');
 
 exports.PDF = function (req, res) {
 
@@ -18,7 +21,7 @@ exports.PDF = function (req, res) {
 	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
 	var data1Iso = data1.toISOString();
 	var data1IsoFull = 'ISODate("'+ data1Iso +'")';
-	console.log(data1);
+	console.log(data1Iso);
 	                         //2016-01-28T18:30:00.000Z
 
 
@@ -28,35 +31,29 @@ exports.PDF = function (req, res) {
 	var data2 = new Date(parseInt(darr2[2]),parseInt(darr2[1])-1,parseInt(darr2[0]));
 	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
 	var data2Iso = data2.toISOString();
-	var data2String 
 	var data2IsoFull = 'ISODate("'+ data2Iso +'")';
-	console.log(data2);
+	console.log(data2Iso);
 	                         //2016-01-28T18:30:00.000Z
 
 //BUSCA EL ALUMNO FILTRANDO FECHAS
-	models.Alumne.findOne({_id:alumneId
-//		, assist:{dataIso:{
-//		$gte: data1IsoFull,
-//		$lt: data2IsoFull
-//			}}
-		},
+	models.Alumne.findOne({_id:alumneId},
 			function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {
 
 			console.log(alumne.assist);
+			console.log(moment());
 
+//BORRAR FECHAS ANTERIORES Y POSTERIORES
 
+			//		moment(alumne.assist[i].dataIso).isBetween(data1Iso, data2Iso);
 
-			//BORRAR FECHAS ANTERIORES Y POSTERIORES  ????
-
-		/*	for (var i =0; i<alumne.assist.length; i ++) {
-				if (alumne.assist[i].dataIso == data1IsoFull){
-					console.log('index:'+i)
+		for (var i =0; i<alumne.assist.length; i ++) {
+				if (!moment(alumne.assist[i].dataIso).isBetween(data1Iso, data2Iso)){
+					alumne.assist.splice(i,1);
 				}
-			};
-		*/	
+			};	
 
 
 			//require dependencies
