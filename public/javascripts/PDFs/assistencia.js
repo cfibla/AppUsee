@@ -50,10 +50,18 @@ exports.PDF = function (req, res) {
 			//		moment(alumne.assist[i].dataIso).isBetween(data1Iso, data2Iso);
 
 		for (var i =0; i<alumne.assist.length; i ++) {
-				if (!moment(alumne.assist[i].dataIso).isBetween(data1Iso, data2Iso)){
-					alumne.assist.splice(i,1);
-				}
-			};	
+			var dataAlumne = moment(alumne.assist[i].dataIso).format('l');
+			var data1IsoL = moment(data1Iso).format('l');
+			var data2IsoL = moment(data2Iso).format('l');
+
+				if (moment(alumne.assist[i].dataIso).isBetween(data1Iso, data2Iso)){
+
+					console.log('SI: ' + alumne.assist[i]);
+					console.log(dataAlumne);		
+				} else {alumne.assist.splice(i,1);}
+			};
+				console.log('NO: ' + alumne.assist);
+			
 
 
 			//require dependencies

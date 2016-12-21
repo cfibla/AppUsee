@@ -192,8 +192,20 @@ exports.assisPost = function (req, res) {
 		alumAssist['date']= alumDate;
 		alumAssist['mati']= alumMati;
 		alumAssist['tarda'] = alumTarda;
-		if (!alumAssist['dataIso'])
-		{alumAssist['dataIso'] = new Date();}
+		if (!alumAssist['dataIso']){
+
+//TO ISODATE
+
+			darr1 = alumDate.split("/");    // ["29", "1", "2016"]
+			var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
+			                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
+			//var data1Iso = data1.toISOString();
+			//var data1IsoFull = 'ISODate("'+ data1Iso +'")';
+
+			                         //2016-01-28T18:30:00.000Z
+
+			alumAssist['dataIso'] = dataI;
+		}
 
 		//ELIMINA ASSIST amb mateixa data
 		models.Alumne.findByIdAndUpdate(alumneId, {$pull: {assist:{date: alumDate}}},{multi: true},
