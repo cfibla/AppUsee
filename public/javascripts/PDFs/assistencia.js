@@ -49,20 +49,30 @@ exports.PDF = function (req, res) {
 
 			//		moment(alumne.assist[i].dataIso).isBetween(data1Iso, data2Iso);
 
+
+		var data1IsoL = moment(dt1, 'DD/MM/YYYY').format();
+		var data2IsoL = moment(dt2, 'DD/MM/YYYY').format();
+
 		for (var i =0; i<alumne.assist.length; i ++) {
-			var dataAlumne = moment(alumne.assist[i].dataIso).format('l');
-			var data1IsoL = moment(data1Iso).format('l');
-			var data2IsoL = moment(data2Iso).format('l');
 
-				if (moment(alumne.assist[i].dataIso).isBetween(data1Iso, data2Iso)){
+			var dataAlumne = moment(alumne.assist[i].date,'DD/MM/YYYY').format();
+			if (moment(dataAlumne).isBetween(data1IsoL, data2IsoL)){
 
-					console.log('SI: ' + alumne.assist[i]);
-					console.log(dataAlumne);		
-				} else {alumne.assist.splice(i,1);}
+					console.log('SI: ' + dataAlumne);
+		
+				} else {
+					console.log('NO: ' + dataAlumne);
+
+					alumne.assist.splice(i,1);
+					i = i-1;
+
+				}
 			};
-				console.log('NO: ' + alumne.assist);
-			
 
+			console.log('FINAL: ' + alumne.assist);
+			console.log(dataAlumne);
+			console.log(data1IsoL);
+			console.log(data2IsoL);
 
 			//require dependencies
 			var PDFDocument = require ('pdfkit');
