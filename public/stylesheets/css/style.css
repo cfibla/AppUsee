@@ -49,3 +49,12 @@ a:hover{
     max-height: 15em;
     overflow: auto;
 }
+.divintro{
+    margin: 0;
+    padding-top: 1em;
+    text-align: center;
+}
+.botonintro{
+ /*   padding: 1em;*/
+    vertical-align: middle;
+}

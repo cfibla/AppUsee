@@ -107,8 +107,6 @@ exports.update = function (req, res){
 	var alumneId = req.params.id;
 	var alum = req.body;
 
-
-
 	models.Alumne.findByIdAndUpdate(alumneId,
 									{$set:{
 										'checks':[],
@@ -128,11 +126,8 @@ exports.update = function (req, res){
 										}
 									});
 
-
 	delete alum.id;
 	delete alum._id;
-
-
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 
@@ -214,7 +209,6 @@ exports.assisPost = function (req, res) {
 
 		function (error, alumne){
 		if (error) res.json(error);
-
 		});
 
 		//UPDATE ASSIST
@@ -222,13 +216,10 @@ exports.assisPost = function (req, res) {
 
 		function (error, alumne){
 			if (error) res.json(error);
-
 		});
-
 	};
 	
 		res.redirect('/assistencia');
-
 
 };
 
@@ -238,7 +229,8 @@ exports.assisData = function (req, res) {
 
 	var dataA = req.body.dataAssis;
 
-	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs})
+	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
 		if (error){
