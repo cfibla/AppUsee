@@ -3,7 +3,8 @@ var models = require('../models/index');
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
-	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs})
+	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('escola tutor')
 	.exec(function(error, docs){
 		if (error){
@@ -159,7 +160,8 @@ exports.assisGet = function (req, res) {
     } 
     today = dd+'/'+mm+'/'+yyyy;
 
-	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs})
+	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
 		if (error){
