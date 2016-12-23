@@ -14,44 +14,19 @@ exports.PDF = function (req, res) {
 		console.log(alumneId);
 
 
-//TO ISO DATE 1
 
-	darr1 = dt1.split("/");    // ["29", "1", "2016"]
-	var data1 = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
-	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
-	var data1Iso = data1.toISOString();
-	var data1IsoFull = 'ISODate("'+ data1Iso +'")';
-	console.log(data1Iso);
-	                         //2016-01-28T18:30:00.000Z
-
-
-//TO ISO DATE 2
-
-	darr2 = dt2.split("/");    // ["29", "1", "2016"]
-	var data2 = new Date(parseInt(darr2[2]),parseInt(darr2[1])-1,parseInt(darr2[0]));
-	                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
-	var data2Iso = data2.toISOString();
-	var data2IsoFull = 'ISODate("'+ data2Iso +'")';
-	console.log(data2Iso);
-	                         //2016-01-28T18:30:00.000Z
-
-//BUSCA EL ALUMNO FILTRANDO FECHAS
+//BUSCA EL ALUMNO
 	models.Alumne.findOne({_id:alumneId},
 			function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {
 
-			console.log(alumne.assist);
-			console.log(moment());
-
 //BORRAR FECHAS ANTERIORES Y POSTERIORES
-
-			//		moment(alumne.assist[i].dataIso).isBetween(data1Iso, data2Iso);
-
-
-		var data1IsoL = moment(dt1, 'DD/MM/YYYY').format();
-		var data2IsoL = moment(dt2, 'DD/MM/YYYY').format();
+		var d1Iso = moment(dt1, 'DD/MM/YYYY').format();
+		var d2Iso = moment(dt2, 'DD/MM/YYYY').format();
+		var data1IsoL = moment(d1Iso).subtract(1, 'days');
+		var data2IsoL = moment(d2Iso).add(1, 'days');
 
 		for (var i =0; i<alumne.assist.length; i ++) {
 
@@ -68,11 +43,6 @@ exports.PDF = function (req, res) {
 
 				}
 			};
-
-			console.log('FINAL: ' + alumne.assist);
-			console.log(dataAlumne);
-			console.log(data1IsoL);
-			console.log(data2IsoL);
 
 			//require dependencies
 			var PDFDocument = require ('pdfkit');
