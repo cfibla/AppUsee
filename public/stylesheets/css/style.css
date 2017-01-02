@@ -55,6 +55,19 @@ a:hover{
     text-align: center;
 }
 .botonintro{
- /*   padding: 1em;*/
     vertical-align: middle;
+}
+
+.verticaltext {    
+    -webkit-transform: rotate(-80deg);
+    -moz-transform: rotate(-80deg);
+    -ms-transform: rotate(-80deg);
+    -o-transform: rotate(-80deg);
+    position: relative; 
+
+    left: -30px;
+    top: -20px;
+
+
+    text-align: center;
 }
