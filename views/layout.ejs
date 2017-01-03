@@ -47,7 +47,7 @@
       nouAl = "";
       }
       %>
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -106,6 +106,12 @@
       <%if (session.user){%>
       <div class="navbar-text navbar-right" style="margin-right: 5px;">Usuari/a: 
         <%=session.user.nom +" "+ session.user.cognom%> <a href="/logout">Sortir</a>
+
+      </div>
+      <%}%>
+
+      <%if (!session.user){%>
+      <div class="navbar-text navbar-right" style="margin-right: 5px;"><a href="/logout">Accedeix </a>o <a href="/try_nou">Crea Usuari</a>
 
       </div>
       <%}%>

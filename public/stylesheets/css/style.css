@@ -1,5 +1,5 @@
 * {
-  background: #f8f7f7;
+  /*background: #f8f7f7;*/
 
 }
 
@@ -7,7 +7,7 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     margin: 2em; 
-    background: #f8f7f7;
+    /*background: #f8f7f7;*/
 }
 
 label { 
@@ -56,18 +56,4 @@ a:hover{
 }
 .botonintro{
     vertical-align: middle;
-}
-
-.verticaltext {    
-    -webkit-transform: rotate(-80deg);
-    -moz-transform: rotate(-80deg);
-    -ms-transform: rotate(-80deg);
-    -o-transform: rotate(-80deg);
-    position: relative; 
-
-    left: -30px;
-    top: -20px;
-
-
-    text-align: center;
 }
