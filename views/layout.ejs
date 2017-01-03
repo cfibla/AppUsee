@@ -111,12 +111,16 @@
       <%}%>
 
       <%if (!session.user){%>
-      <div class="navbar-text navbar-right" style="margin-right: 5px;"><a href="/logout">Accedeix </a>o <a href="/try_nou">Crea Usuari</a>
+      <div class="navbar-text navbar-right" style="margin-right: 5px;">
+
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Accedir </button>o 
+
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#userModal"><span class="glyphicon glyphicon-user"></span> Crea Usuari</button> 
+
 
       </div>
       <%}%>
 
-     
 
 <!--<ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
@@ -142,7 +146,73 @@
 
   <%- body %>
 
-</section> 
+</section>
+
+<!-- MODAL LOGIN-->
+
+  <div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Inicieu sessió</h4>
+        </div>
+        <div class="modal-body">
+        <form role="form" method="post" action="/login" id="login-form">
+          <div class="form-group">
+            <label for="mail-user" class="control-label">Email</label>
+            <input type="email" class="form-control" id="mail-user" name="email">
+          </div>
+          <div class="password-user">
+            <label for="message-text" class="control-label">Contrasenya</label>
+            <input type="password" class="form-control" id="password-user" name="password">
+          </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <span><small><a href="#">Heu oblidat la vostra contrasenya?</a></small></span>
+
+          <button type="submit" class="btn btn-primary pull-right boton-index" form="login-form">Enviar</button>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<!-- MODAL CREAR USER-->
+
+  <div class="modal fade" id="userModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Escolliu tipus d'usuari</h4>
+        </div>
+        <div class="modal-body">
+         <a href="/escola_nou" class="btn btn-link" role="button">Escola</a>
+
+         <a href="/usuari_nou" class="btn btn-link" role="button">Tutor</a>
+
+         <a href="/usuari_ee_nou" class="btn btn-link" role="button">EE-USEE</a>
+
+
+        
+        </div>
+        <div class="modal-footer">
+
+          <button type="submit" class="btn btn-primary pull-right boton-index" form="login-form">Enviar</button>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 <!-- Librería jQuery requerida por los plugins de JavaScript -->
   <script src="http://code.jquery.com/jquery.js"></script>
