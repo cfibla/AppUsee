@@ -39,7 +39,7 @@ $(document).ready(function (){
     .datepicker()   
     .on('changeDate', function(){
         $('#assisData').submit();
-});
+  });
 
 
 
@@ -75,9 +75,9 @@ $(document).ready(function (){
 
 //VALIDATE ESCOLA
  $('#formEscola').on('submit', function(e) {
-    var nom = $('#nom');
+    var nom = $('#nom_escola');
     var codi = $('#codi_escola');
-    var psw = $('#password');
+    var pass = $('#password_escola');
 
     // NOM Check if there is an entered value
     if(!nom.val()) {
@@ -102,19 +102,149 @@ $(document).ready(function (){
       // Remove the errors highlight
       codi.closest('.form-group').removeClass('has-error').addClass('has-success');
     }
-  });
 
-     // PŜW Check if there is an entered value
-    if(!psw.val()) {
+    // PŜW Check if there is an entered value
+    if(!pass.val()) {
       // Add errors highlight
-      psw.closest('.form-group').removeClass('has-success').addClass('has-error');
-      document.getElementById('p-warning').style.display = 'inline';
+      console.log('NO pass');
+      pass.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('p-war').style.display = 'inline';
       // Stop submission of the form
       e.preventDefault();
     } else {
       // Remove the errors highlight
-      psw.closest('.form-group').removeClass('has-error').addClass('has-success');
+      pass.closest('.form-group').removeClass('has-error').addClass('has-success');
     }
+
+  });
+
+
+//VALIDATE TUTOR
+ $('#formUser').on('submit', function(e) {
+    var email = $('#email_user');
+    var nom = $('#nom_user');
+    var codi = $('#codi_esc_tutor');
+    var pass = $('#password_user');
+    var scurs = $('#curs_act');
+
+    // EMAIL Check if there is an entered value
+    if(!email.val()) {
+      // Add errors highlight
+      email.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('e-wartutor').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      email.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // NOM Check if there is an entered value
+    if(!nom.val()) {
+      // Add errors highlight
+      nom.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('n-wartutor').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      nom.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // CODI Check if there is an entered value
+    if(!codi.val()) {
+      // Add errors highlight
+      codi.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('c-wartutor').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      codi.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // PŜW Check if there is an entered value
+    if(!pass.val()) {
+      // Add errors highlight
+      pass.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('p-wartutor').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      pass.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // CURS Check if there is an entered value
+    if(!scurs.val()) {
+      // Add errors highlight
+      scurs.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('s_curs').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      scurs.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+  });
+
+
+//VALIDATE TUTOR USEE
+ $('#formUser').on('submit', function(e) {
+    var email = $('#email_user_usee');
+    var nom = $('#nom_user_usee');
+    var codi = $('#codi_esc_usee');
+    var pass = $('#password_user_usee');
+
+    // EMAIL Check if there is an entered value
+    if(!email.val()) {
+      // Add errors highlight
+      email.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('e-warusee').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      email.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // NOM Check if there is an entered value
+    if(!nom.val()) {
+      // Add errors highlight
+      nom.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('n-warusee').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      nom.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // CODI Check if there is an entered value
+    if(!codi.val()) {
+      // Add errors highlight
+      codi.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('c-warusee').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      codi.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // PŜW Check if there is an entered value
+    if(!pass.val()) {
+      // Add errors highlight
+      pass.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('p-warusee').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      pass.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
   });
 
 

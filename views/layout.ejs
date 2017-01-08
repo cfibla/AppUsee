@@ -183,8 +183,8 @@
           <form id="formEscola" role="form" method="post" action="/escola_crear">
 
             <div class="form-group">
-              <label for="codi_escola">Si us plau, empleneu els següents apartats</label>
-              <input type="text" class="form-control" id="nom_escola" name="nom" placeholder="Nom escola">
+              <label for="nom_escola">Si us plau, empleneu els següents apartats</label>
+              <input type="text" class="form-control required" id="nom_escola" name="nom" placeholder="Nom escola">
               <small class="text-warning" id="n-warning" style="display:none";>Entrada obligatòria</small>
             </div>
 
@@ -195,9 +195,9 @@
 
             <div class="form-group">
               <input type="password" class="form-control required" id="password_escola" name="password" placeholder="Contrasenya">
-              <small class="text-warning" id="p-warning" style="display:none";>Entrada obligatòria</small>
+              <small class="text-warning" id="p-war" style="display:none";>Entrada obligatòria</small>
             </div>
-
+              
             <div class="form-group">
               <input type="text" class="form-control" id="tel_escola" name="telefon" placeholder="Telèfon">
             </div>
@@ -251,10 +251,12 @@
               <label for="email_user">Empleneu els següents apartats</label><br>
 <!--              <div class="" id="newEE_error">errorAlta%></div><br>-->
               <input type="email" class="form-control" id="email_user" name="email" placeholder="Email">
+              <small class="text-warning" id="e-wartutor" style="display:none";>Entrada obligatòria</small>
             </div>
 
             <div class="form-group">
               <input type="text" class="form-control" id="nom_user" name="nom" placeholder="Nom">
+              <small class="text-warning" id="n-wartutor" style="display:none";>Entrada obligatòria</small>
             </div>
 
             <div class="form-group">
@@ -262,11 +264,13 @@
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" id="codi_escola" name="escola" placeholder="Codi escola">
+              <input type="text" class="form-control" id="codi_esc_tutor" name="escola" placeholder="Codi escola">
+              <small class="text-warning" id="c-wartutor" style="display:none";>Entrada obligatòria</small>
             </div>
 
             <div class="form-group">
               <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya">
+              <small class="text-warning" id="p-wartutor" style="display:none";>Entrada obligatòria</small>
             </div>
 
             <div class="form-group">
@@ -286,6 +290,7 @@
                   <option value="6è A">6è A</option>
                   <option value="6è B">6è B</option>
                 </select>
+                <small class="text-warning" id="s_curs" style="display:none";>Cal seleccionar un curs</small>
             </div>
             
           </form>
@@ -316,23 +321,27 @@
             <div class="form-group">
               <label for="email_user">Empleneu els següents apartats</label><br>
 <!--              <div class="" id="newEE_error">errorAlta%></div><br>-->
-              <input type="email" class="form-control" id="email_user" name="email" placeholder="Correu electrònic">
+              <input type="email" class="form-control" id="email_user_usee" name="email" placeholder="Correu electrònic">
+              <small class="text-warning" id="e-warusee" style="display:none";>Entrada obligatòria</small>
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" id="nom_user" name="nom" placeholder="Nom">
+              <input type="text" class="form-control" id="nom_user_usee" name="nom" placeholder="Nom">
+              <small class="text-warning" id="n-warusee" style="display:none";>Entrada obligatòria</small>
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" id="cognom_user" name="cognom" placeholder="Cognom">
+              <input type="text" class="form-control" id="cognom_user_usee" name="cognom" placeholder="Cognom">
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" id="codi_escola" name="escola" placeholder="Codi escola">
+              <input type="text" class="form-control" id="codi_esc_usee" name="escola" placeholder="Codi escola">
+              <small class="text-warning" id="c-warusee" style="display:none";>Entrada obligatòria</small>
             </div>
 
             <div class="form-group">
-              <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya">
+              <input type="password" class="form-control" id="password_user_usee" name="password" placeholder="Contrasenya">
+              <small class="text-warning" id="p-warusee" style="display:none";>Entrada obligatòria</small>
             </div>
             
           </form>
@@ -346,6 +355,7 @@
   </div>
 
 <!-- Librería jQuery requerida por los plugins de JavaScript -->
+
   <!-- <script src="http://code.jquery.com/jquery.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
 
@@ -358,6 +368,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
 
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>
+
 
   <!-- Fichero externo con JS y jQuery -->
 <script src="/javascripts/global.js"></script> 
