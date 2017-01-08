@@ -139,22 +139,27 @@
           <form role="form" method="post" action="/login" id="login-form">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Usuari</label>
-              <input type="text" class="form-control" id="usrname"  name="email" placeholder="Introduiu el vostre correu electrònic">
+              <input type="email" class="form-control required" id="usrname"  name="email" placeholder="Introduiu el vostre correu electrònic">
+              <small class="text-warning" id="e-warning" style="display:none";>Entrada obligatòria</small>
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contrasenya</label>
-              <input type="password" class="form-control" id="psw"  name="password" placeholder="Introduiu la vostra contrasenya">
+              <input type="password" class="form-control required" id="psw"  name="password" placeholder="Introduiu la vostra contrasenya">
+              <small class="text-warning" id="p-warning" style="display:none";>Entrada obligatòria</small>
             </div>
+            <p><a href="#">Heu oblidat la vostra contrasenya?</a></p>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Recorda'm</label>
             </div>
-              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Entra</button>
           </form>
+
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel·la</button>
-          <!--<p>Not a member? <a href="#">Sign Up</a></p>-->
-          <p><a href="#">Heu oblidat la vostra contrasenya?</a></p>
+          <!--<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel·la</button>
+          <p>Not a member? <a href="#">Sign Up</a></p>-->
+          <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block" form="login-form"><span class="glyphicon glyphicon-off"></span> Entra</button>
+          </div>
         </div>
       </div>
       
@@ -179,16 +184,18 @@
 
             <div class="form-group">
               <label for="codi_escola">Si us plau, empleneu els següents apartats</label>
-<!--              <div class="" id="newEE_error">errorAlta%></div><br>-->
-              <input type="text" class="form-control" id="codi_escola" name="_id" placeholder="Codi escola">
-            </div>
-
-            <div class="form-group">
-              <input type="password" class="form-control" id="password_escola" name="password" placeholder="Contrasenya">
-            </div>
-
-            <div class="form-group">
               <input type="text" class="form-control" id="nom_escola" name="nom" placeholder="Nom escola">
+              <small class="text-warning" id="n-warning" style="display:none";>Entrada obligatòria</small>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control required" id="codi_escola" name="_id" placeholder="Codi escola">
+              <small class="text-warning" id="c-warning" style="display:none";>Entrada obligatòria</small>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control required" id="password_escola" name="password" placeholder="Contrasenya">
+              <small class="text-warning" id="p-warning" style="display:none";>Entrada obligatòria</small>
             </div>
 
             <div class="form-group">

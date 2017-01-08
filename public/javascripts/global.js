@@ -41,6 +41,85 @@ $(document).ready(function (){
         $('#assisData').submit();
 });
 
+
+
+//VALIDATE LOGIN
+ $('#login-form').on('submit', function(e) {
+    var usrname = $('#usrname');
+    var psw = $('#psw');
+
+    // USRNAME Check if there is an entered value
+    if(!usrname.val()) {
+      // Add errors highlight
+      usrname.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('e-warning').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      usrname.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // PŜW Check if there is an entered value
+    if(!psw.val()) {
+      // Add errors highlight
+      psw.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('p-warning').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      psw.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+  });
+
+//VALIDATE ESCOLA
+ $('#formEscola').on('submit', function(e) {
+    var nom = $('#nom');
+    var codi = $('#codi_escola');
+    var psw = $('#password');
+
+    // NOM Check if there is an entered value
+    if(!nom.val()) {
+      // Add errors highlight
+      nom.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('n-warning').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      nom.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+
+    // CODI Check if there is an entered value
+    if(!codi.val()) {
+      // Add errors highlight
+      codi.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('c-warning').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      codi.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+  });
+
+     // PŜW Check if there is an entered value
+    if(!psw.val()) {
+      // Add errors highlight
+      psw.closest('.form-group').removeClass('has-success').addClass('has-error');
+      document.getElementById('p-warning').style.display = 'inline';
+      // Stop submission of the form
+      e.preventDefault();
+    } else {
+      // Remove the errors highlight
+      psw.closest('.form-group').removeClass('has-error').addClass('has-success');
+    }
+  });
+
+
+
+
   
 
     /*
