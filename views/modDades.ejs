@@ -174,12 +174,122 @@
                   <option value="6è B">6è B</option>
                 </select>
             </div>
-
+            <div class="form-group col-md-2">
+              <label for="eeUsee">Alumne derivat a USEE</label>
+              <select class="form-control" id="eeUsee" name="curs">
+                <option value="">No</option>
+                <option value="true">Si</option>
+              </select>
+            </div>
           </div>
    
       </div>
     </div>
 
+<!--ADAPTACIONS ALUMNE -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                Adaptacions</a>
+              </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+
+                <div class="form-group col-md-4 alturaBox">
+                <label for="programació_individualitzada">Programació individualitzada (P.I.)</label><br>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.15" <%=checkCond(15)%>>No</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.16" <%=checkCond(16)%>>Curricular</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.17" <%=checkCond(17)%>>Metodològica</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.18" <%=checkCond(18)%>>Conductual</label>
+                </div>
+
+                <div class="form-group col-md-5 alturaBox">
+                <label for="arees_adaptades">Àrees adaptades P.I.</label><br>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.19" <%=checkCond(19)%>>Català</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.20" <%=checkCond(20)%>>Castellà</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.21" <%=checkCond(21)%>>Matemàtiques</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.22" <%=checkCond(22)%>>Medi natural</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.23" <%=checkCond(23)%>>Medi social</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.24" <%=checkCond(24)%>>Educació Física</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.25" <%=checkCond(25)%>>Àrea artística</label>
+                </div>
+                <div class="form-group col-md-3 alturaBox">
+                    <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
+                      <label class="radio-inline">
+                      <input type="radio" name="radios.5" value="false" <%=radioFalse(5)%>>No
+                      </label>
+                      <label class="radio-inline">
+                      <input type="radio" name="radios.5" value="true" <%=radioTrue(5)%>>Si
+                      </label>
+                </div>
+
+                <div class="form-group col-md-4 alturaBox">
+                    <label for="adequacio_continguts">Adequació de continguts</label>
+                      <label class="radio-inline">
+                      <input type="radio" name="radios.6" value="false" <%=radioFalse(6)%>>No
+                      </label>
+                      <label class="radio-inline">
+                      <input type="radio" name="radios.6" value="true" <%=radioTrue(6)%>>Si
+                      </label>
+                      <label class="checkbox-inline">
+                      <input type="checkbox" value="true" name="checks.26" <%=checkCond(26)%>>Matemàtiques</label>
+                      <label class="checkbox-inline">
+                      <input type="checkbox" value="true" name="checks.27" <%=checkCond(27)%>>Català</label>
+                      <label class="checkbox-inline">
+                      <input type="checkbox" value="true" name="checks.28" <%=checkCond(28)%>>Medi</label>
+                </div>
+
+                 <div class="form-group col-md-2 alturaBox">
+                    <label for="full_derivacio">Full de derivació</label><br>
+                      <label class="radio-inline">
+                      <input type="radio" name="radios.7" value="false" <%=radioFalse(7)%>
+                      onclick="derivacio.disabled = true;
+                      motiuDer.disabled = true;
+                      derivacio.value = '';
+                      motiuDer.value = ''">No
+                      </label>
+                      <label class="radio-inline">
+                      <input type="radio" name="radios.7" value="true" <%=radioTrue(7)%>
+                      onclick="derivacio.disabled = false; motiuDer.disabled = false">Si
+                      </label>
+                    
+                </div>
+
+                <div class="form-group col-md-3 alturaBox" id="derivacio">
+                    <label for="qui_fa_derivacio">Qui el fa?</label>
+                    <select class="form-control" id="qui_fa_derivacio" name="derivacio" <%=inputRadios(7)%>>
+                      <option value="">Seleccioneu</option>
+                      <option value="tutor" <%=tutor()%>>Tutor</option>
+                      <option value="familia" <%=fam()%>>Família</option>
+                      <option value="atDiv" <%=aD()%>>Atenció a la diversitat</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-3 alturaBox">
+                  <label for="motiu_derivacio">Motiu</label>
+                  <input type="text" class="form-control" id="motiu_derivacio"  name="motiuDer"
+                    value="<%=alumne.motiuDer||''%>" placeholder="Motiu" <%=inputRadios(7)%>>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 <!--ATENCIÓ ALUMNE-->
     
@@ -341,110 +451,6 @@
 
 
 
-<!--ADAPTACIONS ALUMNE -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                Adaptacions</a>
-              </h4>
-            </div>
-            <div id="collapse2" class="panel-collapse collapse">
-              <div class="panel-body">
-
-                <div class="form-group col-md-4 alturaBox">
-                <label for="programació_individualitzada">Programació individualitzada (P.I.)</label><br>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.15" <%=checkCond(15)%>>No</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.16" <%=checkCond(16)%>>Curricular</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.17" <%=checkCond(17)%>>Metodològica</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.18" <%=checkCond(18)%>>Conductual</label>
-                </div>
-
-                <div class="form-group col-md-5 alturaBox">
-                <label for="arees_adaptades">Àrees adaptades P.I.</label><br>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.19" <%=checkCond(19)%>>Català</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.20" <%=checkCond(20)%>>Castellà</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.21" <%=checkCond(21)%>>Matemàtiques</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.22" <%=checkCond(22)%>>Medi natural</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.23" <%=checkCond(23)%>>Medi social</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.24" <%=checkCond(24)%>>Educació Física</label>
-                  <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.25" <%=checkCond(25)%>>Àrea artística</label>
-                </div>
-                <div class="form-group col-md-3 alturaBox">
-                    <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
-                      <label class="radio-inline">
-                      <input type="radio" name="radios.5" value="false" <%=radioFalse(5)%>>No
-                      </label>
-                      <label class="radio-inline">
-                      <input type="radio" name="radios.5" value="true" <%=radioTrue(5)%>>Si
-                      </label>
-                </div>
-
-                <div class="form-group col-md-4 alturaBox">
-                    <label for="adequacio_continguts">Adequació de continguts</label>
-                      <label class="radio-inline">
-                      <input type="radio" name="radios.6" value="false" <%=radioFalse(6)%>>No
-                      </label>
-                      <label class="radio-inline">
-                      <input type="radio" name="radios.6" value="true" <%=radioTrue(6)%>>Si
-                      </label>
-                      <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.26" <%=checkCond(26)%>>Matemàtiques</label>
-                      <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.27" <%=checkCond(27)%>>Català</label>
-                      <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.28" <%=checkCond(28)%>>Medi</label>
-                </div>
-
-                 <div class="form-group col-md-2 alturaBox">
-                    <label for="full_derivacio">Full de derivació</label><br>
-                      <label class="radio-inline">
-                      <input type="radio" name="radios.7" value="false" <%=radioFalse(7)%>
-                      onclick="derivacio.disabled = true;
-                      motiuDer.disabled = true;
-                      derivacio.value = '';
-                      motiuDer.value = ''">No
-                      </label>
-                      <label class="radio-inline">
-                      <input type="radio" name="radios.7" value="true" <%=radioTrue(7)%>
-                      onclick="derivacio.disabled = false; motiuDer.disabled = false">Si
-                      </label>
-                    
-                </div>
-
-                <div class="form-group col-md-3 alturaBox" id="derivacio">
-                    <label for="qui_fa_derivacio">Qui el fa?</label>
-                    <select class="form-control" id="qui_fa_derivacio" name="derivacio" <%=inputRadios(7)%>>
-                      <option value="">Seleccioneu</option>
-                      <option value="tutor" <%=tutor()%>>Tutor</option>
-                      <option value="familia" <%=fam()%>>Família</option>
-                      <option value="atDiv" <%=aD()%>>Atenció a la diversitat</option>
-                    </select>
-                </div>
-
-                <div class="form-group col-md-3 alturaBox">
-                  <label for="motiu_derivacio">Motiu</label>
-                  <input type="text" class="form-control" id="motiu_derivacio"  name="motiuDer"
-                    value="<%=alumne.motiuDer||''%>" placeholder="Motiu" <%=inputRadios(7)%>>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
           <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#elimModal">Elimina</button>
