@@ -57,6 +57,10 @@ a:hover{
 .botonintro{
     vertical-align: middle;
 }
+.page-t{
+      text-align: left;
+      margin-bottom: 10em;  
+}
 .modal-header, h4, .close {
       background-color: #5cb85c;
       color:white !important;

@@ -22,10 +22,10 @@
         <form role="form" method="post" action="/alumneNou" id="dadesAlumne">
           <div class="form-group">
             <div class="col-md-2">
-              <h4>Nova entrada</h4>
+              <h4 class="page-t">Nova entrada</h4>
             </div>
 
-            <div class="col-md-10">
+            <div class="col-md-10 page-t">
               <hr>
             </div>
 
@@ -89,10 +89,12 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-2 alturaBox" style="clear:both;">
-                <label for="EE-USEE"></label><br>
-                  <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="eeUsee">Alumne derivat a USEE</label>
+            <div class="form-group col-md-2">
+              <label for="eeUsee">Alumne derivat a USEE</label>
+              <select class="form-control" id="eeUsee" name="eeUsee">
+                <option value="">No</option>
+                <option value="true">Si</option>
+              </select>
             </div>
 
             <div class="form-group col-md-12 alturaBox" style="clear:both;">

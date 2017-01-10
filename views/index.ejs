@@ -13,7 +13,7 @@
           %> 
 
             <div class="col-md-2">
-              <h4>Llista alumnat <%=Alumnes[0].curs%></h4>
+              <h4 class="page-t">Llista alumnat <%=Alumnes[0].curs%></h4>
                     <h5>Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%></h5>
             </div>
 
@@ -28,7 +28,7 @@
           <% if(session.user.mestre === "ee"){ %>
 
             <div class="col-md-3">
-              <h4>Llista alumnat EE-USEE</h4>
+              <h4 class="page-t">Llista alumnat EE-USEE</h4>
             </div>
 
             <div class="col-md-9">
@@ -66,7 +66,23 @@
             <td>
 
           <% if(session.user.mestre === "tutor"){ %>
-                <a href="/dadesAlumne/<%=Alumnes[i].id%>" class="btn btn-default" role="button">Dades</a>
+
+                <!-- Split button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Accions <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Modificar dades</a></li>
+    <li><a href="#">Entrevistes pares</a></li>
+    <li><a href="#">Anotacions</a></li>
+    <li><a href="#">Assistència</a></li>
+    <!--
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+    -->
+  </ul>
+</div>
 
 
             <td><input type="radio" form="documentacio" name="doc1" value ="doc1"></td>

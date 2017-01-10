@@ -191,7 +191,7 @@ $(document).ready(function (){
 
 
 //VALIDATE TUTOR USEE
- $('#formUser').on('submit', function(e) {
+ $('#formUsee').on('submit', function(e) {
     var email = $('#email_user_usee');
     var nom = $('#nom_user_usee');
     var codi = $('#codi_esc_usee');
