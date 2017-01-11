@@ -58,8 +58,18 @@ a:hover{
     vertical-align: middle;
 }
 .page-t{
-      text-align: left;
-      margin-bottom: 10em;  
+    text-align: left;
+    background-color: #5cb85c;
+    border-radius: .1em;
+    min-height: 4em;
+    color: white !important;
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    padding: .3em;  
+}
+.sub-t{
+    font-size: 1.2em;
+    padding-bottom: 5em;
 }
 .modal-header, h4, .close {
       background-color: #5cb85c;

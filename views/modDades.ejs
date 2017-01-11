@@ -119,16 +119,15 @@
 <!--DADES ALUMNE-->
     <div class="container">
       <div class="row">
+        <div class="col-md-2">
+          <div class="page-t">Dades alumne</div>
+        </div>
+        <div class="col-md-9">
+          <hr>
+        </div>
+        
         <form role="form" method="post" action="/dadesUpdate/<%=alumne._id%>?_method=put" id="alumne_dades">
           <div class="form-group">
-            <div class="col-md-3">
-              <h4>Dades alumne</h4>
-            </div>
-
-            <div class="col-md-9">
-              <hr>
-            </div>
-
             <div class="form-group col-md-3">
               <label for="nom_alumne">Nom</label>
               <input type="text" class="form-control" id="nom_alumne"
