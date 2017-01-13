@@ -42,6 +42,7 @@
 
         <th>Núm.</th>
         <th>Nom i cognoms</th>
+        <th> </th>
         <th>Curs</th>
         <th>Falta matí</th>
         <th>Retard matí</th>
@@ -150,26 +151,26 @@
           }
       %>
 
-      <form role="form" method="post" action="/assistenciaN?_method=put" id="assistencia">
-      <tr>
+      <form role="form" method="post" action="/assistenciaN?_method=put" id="assisForm" name="assis">
+      <tr id="tradios">
       <td><%=i+1%></td>
-      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%></td>
-
-      <td><%=Alumnes[i].curs%></td>
-      <input type="hidden" form="assistencia" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
-      <input type="hidden" form="assistencia" name="assist.date.<%=i%>" value ="<%=DataV%>">
-      <input type="hidden" form="assistencia" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-
-      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
-      <td><input type="radio" form="assistencia" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
-      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
-      <td><input type="radio" form="assistencia" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
-      
-      <td>
-
-      <a href="/assistenciaA/<%=Alumnes[i].id%>" class="btn btn-primary btn-xs" role="button">Imprimir</a>
-
+      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>
       </td>
+      <td>
+      <a href="/assistenciaA/<%=Alumnes[i].id%>" class="btn btn-default btn-md" role="button">Imprimir</a>
+      </td>
+      <td><%=Alumnes[i].curs%></td>
+      <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
+      <input type="hidden" form="assisForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
+      <input type="hidden" form="assisForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
+
+
+
+      <td><input id="aMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
+      <td><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
+      <td><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
+      <td><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
+
      </tr>
      </form>
 
@@ -178,9 +179,9 @@
     </tbody>
   </table>
           <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-            <input type="hidden" form="assistencia" name="i" value ="<%=i%>">
+            <input type="hidden" form="assisForm" name="i" value ="<%=i%>">
             <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
-            <button type="submit" form="assistencia" class="btn btn-primary">Desa</button>
+            <button type="submit" form="assisForm" class="btn btn-primary">Desa</button>
           </div>
     <%}%>
   </div>

@@ -2,7 +2,7 @@
 $(document).ready(function (){
    // bind to retrieve old status
 
-    $('input[type="radio"]').mousedown(function() { 
+    $('#tradios input[type="radio"]').mousedown(function() { 
         // if it was checked before
         if(this.checked) {
             // bind event to reset state after click is completed
