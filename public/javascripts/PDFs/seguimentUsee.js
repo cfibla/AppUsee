@@ -8,6 +8,7 @@ exports.PDF = function (req, res) {
 		} else {
 				//require dependencies
 				var PDFDocument = require ('pdfkit');
+
 				var fs = require('fs');
 				var doc = new PDFDocument();
 				var tempFile = ('temp/PDF_EE_temp.pdf');
@@ -167,8 +168,11 @@ exports.PDF = function (req, res) {
 					doc.text('Actuacions', {underline: 1});
 					doc.moveDown(0.5);
 					for (i = 0; i < alumne.segActuacions.length; i++) {
-						doc.text(alumne.segActuacions[i].date);
-						doc.text(alumne.segActuacions[i].body);
+						var dataAct = alumne.segActuacions[i].date;
+						var bodyAct = alumne.segActuacions[i].body;
+						doc.text(dataAct);
+						doc.text(bodyAct);
+						console.log(bodyAct);
 						doc.moveDown();
 						};
 

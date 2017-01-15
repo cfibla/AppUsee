@@ -1,20 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2" style="text-align:left;">
+    <div class="col-md-2">
     <% if (Alumnes.length > 0){ %>
-      <div class="page-t">Control d'assistencia <%=Alumnes[0].curs%></div>
-      <h5>Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%></h5>
+      <div class="page-t">Assistència<div class="curs-t"><%=Alumnes[0].curs%></div>
+      </div>
     <%}%>
     </div>
     <div class="col-md-9">
       <hr>
+    </div>
+    <div class="col-md-3 sub-t">Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%>
     </div>
 
 
 <!--DATEPICKER-->
     <form role="form" method="post" action="/assisData" id="assisData">
 
-    <div class="col-md-3 alturabox" id="data" style="clear:both;">
+    <div class="col-md-3 col-md-offset-6 datep-t" id="data">
       <div class="input-group date alturabox" data-provide="datepicker">
         <input type="text" class="form-control" form="assisData" name= "dataAssis" value ="<%=DataV%>">
         <div class="input-group-addon">

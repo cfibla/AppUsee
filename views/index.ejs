@@ -13,26 +13,26 @@
           %> 
 
             <div class="col-md-2">
-              <div class="page-t">Llista alumnat <%=Alumnes[0].curs%>
+              <div class="page-t">Llista alumnat
+              <div class="curs-t"><%=Alumnes[0].curs%></div>
               </div>
-              <span class="sub-t">Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%>
-              </span>
             </div>
 
             <div class="col-md-10">
                 <hr>
             </div>
-
+            <div class="col-md-3 sub-t">Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%>
+            </div>
 
           <% } %>
 
           <% if(session.user.mestre === "ee"){ %>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="page-t">Llista alumnat EE-USEE</div>
             </div>
 
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <hr>
             </div>
 

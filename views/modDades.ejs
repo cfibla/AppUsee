@@ -143,7 +143,7 @@
         </div>
         
         <form role="form" method="post" action="/dadesUpdate/<%=alumne._id%>?_method=put" id="alumne_dades">
-          <div class="form-group">
+          <div class="form-group" style="clear: both;">
             <div class="form-group col-md-3">
               <label for="nom_alumne">Nom</label>
               <input type="text" class="form-control" id="nom_alumne"
@@ -178,34 +178,6 @@
               <input type="text" class="form-control" id="targeta_SS" name="seguretatSoc"
                      value="<%=alumne.seguretatSoc%>">
             </div>
-            <div class="form-group col-md-1">
-              <label for="eeUsee">USEE</label>
-              <select class="form-control" id="eeUsee" name="eeUsee">
-                <option value="">No</option>
-                <option value="true" <%=sUse()%>>Si</option>
-              </select>
-            </div>
-            <div class="form-group col-md-1">
-              <label for="selecEE">EE</label>
-              <select class="form-control" id="selecEE" name="checks.3">
-                <option value="">No</option>
-                <option value="true" <%=sEe()%>>Si</option>
-              </select>
-            </div>
-            <div class="form-group col-md-1">
-              <label for="selecEap">EAP</label>
-              <select class="form-control" id="selecEap" name="checks.5">
-                <option value="">No</option>
-                <option value="true" <%=sEap()%>>Si</option>
-              </select>
-            </div>
-            <div class="form-group col-md-1">
-              <label for="selecSs">S. socials</label>
-              <select class="form-control" id="selecSs" name="">
-                <option value="">No</option>
-                <option value="true" <%=sUse()%>>Si</option>
-              </select>
-            </div>
             <div class="form-group col-md-2" id="curs">
               <label for="curs_act">Curs actual</label>
                 <select class="form-control" id="curs_act" name="curs">
@@ -224,6 +196,35 @@
                   <option value="6è B">6è B</option>
                 </select>
             </div>
+            <div class="form-group col-md-2" style="clear:both;">
+              <label for="selecEE">Atès a EE</label>
+              <select class="form-control" id="selecEE" name="checks.3">
+                <option value="">No</option>
+                <option value="true" <%=sEe()%>>Si</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="eeUsee">Atès a USEE</label>
+              <select class="form-control" id="eeUsee" name="eeUsee">
+                <option value="">No</option>
+                <option value="true" <%=sUse()%>>Si</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="selecEap">Seguiment de l'EAP</label>
+              <select class="form-control" id="selecEap" name="checks.5">
+                <option value="">No</option>
+                <option value="true" <%=sEap()%>>Si</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="selecSs">Serveis socials</label>
+              <select class="form-control" id="selecSs" name="">
+                <option value="">No</option>
+                <option value="true" <%=sUse()%>>Si</option>
+              </select>
+            </div>
+
           </div>
    
       </div>

@@ -15,68 +15,93 @@ label {
     display: block; 
     width: 11em; */
 }
+
 .fons{
     padding-top:5em;
 }
+
 .escola {
    /* margin-top: 50%;*/
     padding: 1em 2em 5em 2em;
     border:1px #e4e4e4 solid;
     border-radius: 1em;
 }
+
 span.glyphicon-user {
     font-size: 1.2em;
 }
+
 .boton-index{
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
 .panel-title a{
     text-decoration: none;
 }
+
 a:hover{
     font-weight: bold;
     text-decoration: none;
 }
-#newEE_error{
-    text-align: center;
-    color: red;
-}
+
 .alturaBox{
      height: 5em;
 }
+
 .actuPast {
     max-height: 15em;
     overflow: auto;
 }
+
 .divintro{
     margin: 0;
     padding-top: 1em;
     text-align: center;
 }
+
 .botonintro{
     vertical-align: middle;
 }
+
 .page-t{
     text-align: left;
     background-color: #5cb85c;
-    border-radius: .1em;
-    min-height: 4em;
+    min-height: 5em;
     color: white !important;
     font-size: 1.5em;
     margin-bottom: .5em;
     padding: .3em;  
 }
+
 .sub-t{
+    clear:both;
     font-size: 1.2em;
-    padding-bottom: 5em;
+    padding-bottom: 2em;
 }
+
+.curs-t{
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.datep-t{
+    vertical-align: middle;
+}
+
 .modal-header, h4, .close {
       background-color: #5cb85c;
       color:white !important;
       text-align: center;
       font-size: 30px;
 }
+
 .modal-footer {
       background-color: #f9f9f9;
+}
+
+#newEE_error{
+    text-align: center;
+    color: red;
 }
