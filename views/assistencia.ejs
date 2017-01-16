@@ -1,12 +1,11 @@
 <div class="container">
   <div class="row">
+
     <div class="col-md-2">
-    <% if (Alumnes.length > 0){ %>
       <div class="page-t">Assistència<div class="curs-t"><%=Alumnes[0].curs%></div>
       </div>
-    <%}%>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-10">
       <hr>
     </div>
     <div class="col-md-3 sub-t">Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%>
@@ -17,7 +16,7 @@
     <form role="form" method="post" action="/assisData" id="assisData">
 
     <div class="col-md-3 col-md-offset-6 datep-t" id="data">
-      <div class="input-group date alturabox" data-provide="datepicker">
+      <div class="input-group date" data-provide="datepicker">
         <input type="text" class="form-control" form="assisData" name= "dataAssis" value ="<%=DataV%>">
         <div class="input-group-addon">
           <span class="glyphicon glyphicon-th"></span>
@@ -38,10 +37,9 @@
       No hi ha alumnes registrats
       </p>
       <%} else {%>           
-  <table class="table table-striped">
+  <table class="table table-hover">
     <thead>
       <tr>
-
         <th>Núm.</th>
         <th>Nom i cognoms</th>
         <th> </th>
