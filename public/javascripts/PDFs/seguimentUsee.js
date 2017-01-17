@@ -172,7 +172,9 @@ exports.PDF = function (req, res) {
 						var bodyAct = alumne.segActuacions[i].body;
 						doc.text(dataAct);
 						doc.text(bodyAct);
-						console.log(bodyAct);
+						//for (i = 0; i < bodyAct.length; i++) {
+  						//console.log(bodyAct.charCodeAt(i));
+						//}
 						doc.moveDown();
 						};
 

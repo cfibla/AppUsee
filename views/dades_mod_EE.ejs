@@ -110,15 +110,16 @@
 <!--DADES ALUMNE-->
     <div class="container">
       <div class="row">
-        <form role="form" method="post" action="/dades_update_EE/<%=alumne._id%>?_method=put" id="alumne_dades">
-          <div class="form-group">
-            <div class="col-md-3">
-              <h4>Atenció i adaptacions EE-USEE</h4>
-            </div>
+            <div class="col-md-2">
+              <div class="page-t">Atenció i adaptacions<div class="curs-t">USEE</div></div>
+        </div>
 
             <div class="col-md-9">
               <hr>
             </div>
+
+            <form role="form" method="post" action="/dades_update_EE/<%=alumne._id%>?_method=put" id="alumne_dades">
+          <div class="form-group" style="clear: both;">
 
             <div class="form-group col-md-3">
               <label for="nom_alumne">Nom</label>
@@ -183,7 +184,7 @@
       
         <div class="col-md-12">
          <div class="panel-group" id="accordion">
-          <div class="panel panel-default">
+          <div class="panel panel-success">
             <div class="panel-heading">
               <h3 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
@@ -340,12 +341,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="panel panel-default">
+          <div class="panel panel-success">
             <div class="panel-heading">
-              <h4 class="panel-title">
+              <h3 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
                 Adaptacions</a>
-              </h4>
+              </h3>
             </div>
             <div id="collapse2" class="panel-collapse collapse">
               <div class="panel-body">
