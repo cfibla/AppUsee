@@ -247,7 +247,19 @@ $(document).ready(function (){
 
   });
 
+  $(document).on("click", ".open-AddBookDialog", function () {
+     var alumneNom = $(this).data('nom');
+     var alumneId = $(this).data('id');
+     $(".form-group #nomAl").val(alumneNom);
+     $(".form-group #idAl").val(alumneId);
+     // As pointed out in comments, 
+     // it is superfluous to have to manually call the modal.
+     // $('#addBookDialog').modal('show');
+  });
 
+  $('button#assistBtn').click(function(){
+    $('assistModal').modal('hide')
+  });
     /*
 
 $('.datepicker').datepicker({
@@ -272,35 +284,3 @@ $('.datepicker').datepicker({
     autoclose: true
 });
    */
-
-//});
-
-
-/*
-$(":radio").click(function () {
-   if($(this).is(':checked')){
-
-      $(this).prop('checked', true);
-
-
-   } else {
-
-      
-      $(this).val('null');
-      $(this).prop('checked', false);  
-
-   }
-
- });
- */
-
-
-/*$(":submit").click(function () {
-   if($("#actuacionsBody").val('')){
-      
-      $("#actuacionsDate").val('');
-   } 
-   // alert('I have been checked');
- });
-
-*/
