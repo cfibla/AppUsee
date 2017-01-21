@@ -170,8 +170,9 @@ exports.PDF = function (req, res) {
 					for (i = 0; i < alumne.segActuacions.length; i++) {
 						var dataAct = alumne.segActuacions[i].date;
 						var bodyAct = alumne.segActuacions[i].body;
+						var bodyActC = bodyAct.replace(/\r\n|\r/g, '\n');
 						doc.text(dataAct);
-						doc.text(bodyAct);
+						doc.text(bodyActC);
 						//for (i = 0; i < bodyAct.length; i++) {
   						//console.log(bodyAct.charCodeAt(i));
 						//}
@@ -181,16 +182,22 @@ exports.PDF = function (req, res) {
 					doc.text('Informació CAD', {underline: 1});
 					doc.moveDown(0.5);
 					for (i = 0; i < alumne.segInformacioCAD.length; i++) {
-						doc.text(alumne.segInformacioCAD[i].date);
-						doc.text(alumne.segInformacioCAD[i].body);
+						var dataCAD = alumne.segInformacioCAD[i].date;
+						var bodyCAD = alumne.segInformacioCAD[i].body;
+						var bodyCADC = bodyCAD.replace(/\r\n|\r/g, '\n');
+						doc.text(dataCAD);
+						doc.text(bodyCADC);
 						doc.moveDown();
 						};
 
 					doc.text('Altres coordinacions - Coordinacions amb tutors', {underline: 1});
 					doc.moveDown(0.5);
 					for (i = 0; i < alumne.segAltresCoord.length; i++) {
-						doc.text(alumne.segAltresCoord[i].date);
-						doc.text(alumne.segAltresCoord[i].body);
+						var dataCoor = alumne.segAltresCoord[i].date;
+						var bodyCoor = alumne.segAltresCoord[i].body;
+						var bodyCoorC = bodyCAD.replace(/\r\n|\r/g, '\n');
+						doc.text(dataCoor);
+						doc.text(bodyCoorC);
 						doc.moveDown();
 						};
 
