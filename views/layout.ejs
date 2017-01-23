@@ -86,9 +86,11 @@
       </form>-->
 
       <%if (session.user){%>
-      <div class="navbar-text navbar-right" style="margin-right: 5px;">Usuari/a: 
-        <%=session.user.nom +" "+ session.user.cognom%> <a href="/logout">Sortir</a>
-
+      <div class="navbar-text navbar-right" style="margin-right: 5px;">
+      <button type="button" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span><%=session.user.nom +" "+ session.user.cognom%><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="/usuari/<%=session.user._id%>">Veure perfil</a></li>
+            <li><a href="/logout">Sortir</a></li>
       </div>
       <%}%>
 

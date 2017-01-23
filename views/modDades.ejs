@@ -144,7 +144,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2">
-          <div class="page-t">Dades alumne<div class="curs-t">USEE</div></div>
+          <div class="page-t">Dades alumne
+              <% if(session.user.mestre === "ee"){ %> 
+          <div class="curs-t">USEE</div><%}%></div>
         </div>
         <div class="col-md-9">
           <hr>

@@ -39,12 +39,12 @@ span.glyphicon-user {
 .panel-title a{
     text-decoration: none;
 }
-
+/*
 a:hover{
     font-weight: bold;
     text-decoration: none;
 }
-
+*/
 .alturaBox{
      height: 5em;
 }

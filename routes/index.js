@@ -12,7 +12,6 @@ var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
 
 //rutas SESSION
 router.get('/',						sessionController.new);
-router.get('/try_nou',				sessionController.try);
 router.post('/login',				sessionController.login, sessionController.login_EE);
 router.get('/logout',				sessionController.loginRequired, sessionController.destroy);
 
@@ -23,6 +22,7 @@ router.post('/escola_crear',		escolaController.createEscola);
 //rutas USER
 router.get('/usuari_nou',			userController.nouUser);
 router.post('/usuari_crear',		userController.createUser);
+router.get('/usuari/:id',			userController.profile);
 
 //rutas USER_EE
 router.get('/usuari_ee_nou',		userEeController.nouUser);

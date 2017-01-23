@@ -2,12 +2,9 @@ var models = require('../models/index');
 
 /* GET home page. */
 exports.new = function(req, res) {
-	res.render('login', { title: 'AppEscola' });
+	res.render('home', { title: 'AppEscola' });
 };
 
-exports.try = function(req, res) {
-	res.render('try_usuari', { title: 'AppEscola' });
-};
 
 exports.login = function (req, res, next){
 	var email = req.body.email;

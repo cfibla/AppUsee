@@ -39,3 +39,14 @@ exports.createUser = function (req, res){
 		res.redirect('/list');
 	};
 };
+
+exports.profile = function (req, res){
+	var userId = req.params.id;
+	models.User.findById(userId, function(error, usuari){
+		if (error) {
+			return res.json(error);
+		} else {
+			res.render('usuari', {usuari: usuari});
+		}
+	});
+};
