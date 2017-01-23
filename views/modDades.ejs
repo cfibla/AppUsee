@@ -85,6 +85,14 @@
                   }
                   return eap;
                   }
+
+                  function sAill(){
+                  var ail='';
+                  if (alumne.checks[2] === true) {
+                  ail ="selected";
+                  }
+                  return ail;
+                  }
                   %>
 <!--FUNCION TODAY-->
                 <%var today = new Date();
@@ -182,6 +190,7 @@
              <div class="form-group col-md-2">
               <label for="codi_escola">Codi escola *</label>
               <input type="text" class="form-control" id="codi_escola" name="codiEscola" placeholder = "<%=alumne.escola%>" value = "<%=alumne.escola%>">
+            </div>
 
             <div class="form-group col-md-2" id="curs">
               <label for="curs_act">Curs actual</label>
@@ -213,6 +222,13 @@
               <select class="form-control" id="eeUsee" name="eeUsee">
                 <option value="">No</option>
                 <option value="true" <%=sUse()%>>Si</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="aill">Atès a AiLL</label>
+              <select class="form-control" id="aill" name="checks.2">
+                <option value="">No</option>
+                <option value="true" <%=sAill()%>>Si</option>
               </select>
             </div>
             <div class="form-group col-md-2">
