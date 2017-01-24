@@ -257,9 +257,9 @@ $(document).ready(function (){
      // $('#addBookDialog').modal('show');
   });
 
-  $('button#assistBtn').click(function(){
+/*  $('button#assistBtn').click(function(){
     $('assistModal').modal('hide')
-  });
+  });*/
     /*
 
 $('.datepicker').datepicker({
