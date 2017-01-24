@@ -1,3 +1,5 @@
+<script src="/javascripts/global.js"></script>
+
 <div class="container">
   <div class="row">
 
@@ -163,7 +165,7 @@
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
 
-      <a type="button" class="btn btn-default open-AddBookDialog" data-toggle="modal" data-nom="<%=nomAlumne%>" data-id="<%=idAlumne%>" href="#assistModal">Imprimir assistència</a>
+      <a type="button" class="btn btn-default open-AddBookDialog" data-toggle="modal" data-nom="<%=nomAlumne%>" data-id="<%=idAlumne%>" href="#assistModal">Imprimir</a>
       </td>
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
@@ -221,7 +223,7 @@
 
   <!--DATEPICKER-->
 
-                <div class="col-md-6" id="data" style="clear:both;">
+                <div class="col-md-6" id="dataP" style="clear:both;">
                   <label for="alumneAssistU">Des del dia</label>
                   <div class="input-group date alturabox" data-provide="datepicker">
                   <input type="text" class="form-control" form="assisDataD" name= "alumneAssistU" value ="<%=today%>">
@@ -232,7 +234,7 @@
                 </div>
 
 
-                <div class="col-md-6" id="data">
+                <div class="col-md-6" id="dataP">
                   <label for="alumneAssistD">Fins el dia</label>
                   <div class="input-group date alturabox" data-provide="datepicker">
                     <input type="text" class="form-control" form="assisDataD" name= "alumneAssistD" value ="<%=today%>">

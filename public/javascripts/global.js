@@ -35,6 +35,17 @@ $(document).ready(function (){
     
   });
 
+    $('#dataP .input-group.date').datepicker({
+    format: "dd/mm/yyyy",
+    maxViewMode: 2,
+    todayBtn: "linked",
+    daysOfWeekDisabled: "0,6",
+    autoclose: true,
+    todayHighlight: true,
+    language: "ca"
+    
+  });
+
   $('#data .input-group.date')
     .datepicker()   
     .on('changeDate', function(){
