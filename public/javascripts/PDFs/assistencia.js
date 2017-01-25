@@ -31,18 +31,11 @@ exports.PDF = function (req, res) {
 		for (var i =0; i<alumne.assist.length; i ++) {
 
 			var dataAlumne = moment(alumne.assist[i].date,'DD/MM/YYYY').format();
-			if (moment(dataAlumne).isBetween(data1IsoL, data2IsoL)){
-
-					console.log('SI: ' + dataAlumne);
-		
-				} else {
-					console.log('NO: ' + dataAlumne);
-
+			if (!moment(dataAlumne).isBetween(data1IsoL, data2IsoL)){
 					alumne.assist.splice(i,1);
 					i = i-1;
-
 				}
-			};
+		};
 
 			//require dependencies
 			var PDFDocument = require ('pdfkit');
