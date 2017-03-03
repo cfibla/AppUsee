@@ -1,7 +1,7 @@
 //RADIOS ASSISTENCIA
 $(document).ready(function (){
-   // bind to retrieve old status
 
+   // bind to retrieve old status
     $('#tradios input[type="radio"]').mousedown(function() { 
         // if it was checked before
         if(this.checked) {
@@ -18,13 +18,34 @@ $(document).ready(function (){
             });
         }
     });
-
 });
 
 
-//DATEPICKER
-//$(document).ready(function (){
-  $('#data .input-group.date').datepicker({
+
+//////////////// DATEPICKER ////////////////////
+
+$('#data .input-group.date').datepicker({
+    format: "dd/mm/yyyy",
+    maxViewMode: 2,
+    todayBtn: "linked",
+    daysOfWeekDisabled: "0,6",
+    autoclose: true,
+    todayHighlight: true,
+    language: "ca"  
+});
+
+$('#naixement .form-control').datepicker({
+    format: "dd/mm/yyyy",
+    maxViewMode: 2,
+    todayBtn: "linked",
+    daysOfWeekDisabled: "0,6",
+    autoclose: true,
+    todayHighlight: true,
+    container: '#afegirModal modal-body',
+    language: "ca"  
+});
+
+$('#dataP .input-group.date').datepicker({
     format: "dd/mm/yyyy",
     maxViewMode: 2,
     todayBtn: "linked",
@@ -32,28 +53,57 @@ $(document).ready(function (){
     autoclose: true,
     todayHighlight: true,
     language: "ca"
-    
+});    
+
+
+$('#data .input-group.date')
+  .datepicker()   
+  .on('changeDate', function(){
+      $('#assisData').submit();
+});
+
+
+
+//////////////////// M O D A L S ////////////////////
+
+//CARREGA MODALS-REMOTE
+//$('body').on('click','[data-toggle="modal"]', function(){
+//jQuery($(this).data("target")+' .modal-body').load($(this).data("remote"));
+//});
+
+
+//MODAL ASSISTENCIA
+  $(document).on("click", "#btnAssist", function () {
+    var alumneNom = $(this).data('nom');
+    var alumneId = $(this).data('id');
+    var today = $(this).data('today');
+    console.log(today);
+//    $(document).ready(function (){
+    $(".form-group #nomAl").val(alumneNom);
+    $(".form-group #idAl").val(alumneId);
+    $(".form-group #today1").val(today);
+    $(".form-group #today2").val(today);
+     // As pointed out in comments, 
+     // it is superfluous to have to manually call the modal.
+     // $('#addBookDialog').modal('show');
+     })
+//  });
+
+
+//MODAL AFEGIR
+  $(document).on("click", "#btnAfegir", function () {
+    var escola = $(this).data('escola');
+    var curs = $(this).data('curs');
+     console.log (escola);
+     console.log (curs);
+     $(document).ready(function (){
+     $(".form-group #codiEscola").val(escola);
+     $(".form-group #curs").val(curs);
+     })
   });
 
-    $('#dataP .input-group.date').datepicker({
-    format: "dd/mm/yyyy",
-    maxViewMode: 2,
-    todayBtn: "linked",
-    daysOfWeekDisabled: "0,6",
-    autoclose: true,
-    todayHighlight: true,
-    language: "ca"
-    
-  });
 
-  $('#data .input-group.date')
-    .datepicker()   
-    .on('changeDate', function(){
-        $('#assisData').submit();
-  });
-
-
-
+///////////// V A L I D A T E /////////////////
 //VALIDATE LOGIN
  $('#login-form').on('submit', function(e) {
     var usrname = $('#usrname');
@@ -258,21 +308,10 @@ $(document).ready(function (){
 
   });
 
-  $(document).on("click", ".open-AddBookDialog", function () {
-     var alumneNom = $(this).data('nom');
-     var alumneId = $(this).data('id');
-     $(".form-group #nomAl").val(alumneNom);
-     $(".form-group #idAl").val(alumneId);
-     // As pointed out in comments, 
-     // it is superfluous to have to manually call the modal.
-     // $('#addBookDialog').modal('show');
-  });
-
 /*  $('button#assistBtn').click(function(){
     $('assistModal').modal('hide')
   });*/
     /*
-
 $('.datepicker').datepicker({
     format: {
       

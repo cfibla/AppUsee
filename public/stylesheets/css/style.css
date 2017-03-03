@@ -1,20 +1,58 @@
-* {
-  /*background: #f8f7f7;*/
-
+html {
+    position: relative; 
+    min-height: 100%;
 }
 
 body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    margin: 2em; 
+    margin: 0 0 65px;
+/*    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+/*    font-size: 14px;*/
     /*background: #f8f7f7;*/
 }
 
-label { 
- /*   float: left; 
-    display: block; 
-    width: 11em; */
+.navbar-brand{
+    margin-left: 1em;
 }
+
+.marge-r{
+    margin-right: 1em;
+}
+
+.bd-pageheader {
+    padding: 1em;
+    background: #5cb85c;
+    color:#bae8ba;
+
+}
+
+.bd-pageheader strong {
+
+    color: black;
+
+}
+
+.master {
+    min-height: 100%;
+}
+
+.mainsection {
+    padding-top: 4.5em;
+    padding-bottom: 0px;
+}
+
+.footer {
+    position: absolute;
+    margin-top:100px;
+    bottom: 0em;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 65px;
+    line-height: 65px; /* Vertically center the text there */
+    padding: 1em;
+    background: #cccccc;
+ 
+}
+
 
 .fons{
     padding-top:5em;
@@ -77,7 +115,7 @@ a:hover{
 .sub-t{
     clear:both;
     font-size: 1.2em;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
 }
 
 .curs-t{
