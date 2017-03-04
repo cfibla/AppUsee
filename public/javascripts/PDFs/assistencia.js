@@ -53,11 +53,11 @@ exports.PDF = function (req, res) {
 										//to write the content on the file system
 				//PAG. 1
 				//TITOL
-				doc.text("ESCOLA MONTSERRAT VAYREDA",{
+				doc.text("CONTROL D'ASSISTÈNCIA",{
 					align: 'center',
 					underline: 1
 				});
-				doc.text("Control d'assistència",{
+				doc.text("Escola Montserrat Vayreda",{
 					align: 'center'
 				});
 				doc.moveDown(2.5);
@@ -68,6 +68,9 @@ exports.PDF = function (req, res) {
 				doc.text('Nom: '+ nom);
 				doc.text('Curs: '+ alumne.curs);
 				//doc.text('Tutor: '+ alumne.tutor.nom);
+				doc.moveDown(1.5);
+
+				doc.text('Des del ' + dt1 + ' fins el ' + dt2);
 				doc.moveDown(1.5);
 
 				//TOTAL FALTES
