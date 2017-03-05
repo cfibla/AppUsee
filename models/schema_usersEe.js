@@ -1,7 +1,5 @@
 var mongoose = require ('mongoose');
-
 var schemaescoles = require('./schema_escoles');
-
 var Escola = mongoose.model('Escola', schemaescoles, 'Escoles');
 
 module.exports = new mongoose.Schema({
@@ -24,6 +22,4 @@ module.exports = new mongoose.Schema({
 		type: Number,
 		ref: 'Escola'
 	}
-
-
 });

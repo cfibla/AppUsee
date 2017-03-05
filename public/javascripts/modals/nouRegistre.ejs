@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Afegir alumnes</title>
+
+  </head>
+
+  <body>
+
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Nou registre</h4>
+        </div>
+
+        <div class="modal-body" style="padding:40px 50px;">
+          <form id="formUser" data-toggle="validator" role="form" method="post" action="/usuari_crear">
+            <div class="form-group">
+              <label for="email_user">Si us plau, empleneu els següents apartats</label><br>
+              <input type="email" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="email_user" name="email" placeholder="Email" required="true">
+              <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_user" name="nom" placeholder="Nom"  required="true">
+              <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="cognom_user" name="cognom" placeholder="Cognom">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="codi_esc_tutor" name="escola" placeholder="Codi escola" required="true">
+              <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="password_user" name="password" placeholder="Contrasenya" required="true">
+              <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="curs_act">Curs: </label>
+                <select class="form-control" id="curs_act" name="curs" required="true" data-error="Si us plau, empleneu aquest apartat">
+                  <option value="">Seleccioneu</option>
+                  <option value="1r A">1r A</option>
+                  <option value="1r B">1r B</option>
+                  <option value="2n A">2n A</option>
+                  <option value="2n B">2n B</option>
+                  <option value="3r A">3r A</option>
+                  <option value="3r B">3r B</option>
+                  <option value="4t A">4t A</option>
+                  <option value="4t B">4t B</option>
+                  <option value="5è A">5è A</option>
+                  <option value="5è B">5è B</option>
+                  <option value="6è A">6è A</option>
+                  <option value="6è B">6è B</option>
+                </select>
+            </div>
+            <div class="help-block with-errors"></div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" form="formUser" class="btn btn-success btn-block">Envia la informació</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  </body>
+</html>

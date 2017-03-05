@@ -14,17 +14,19 @@
     </div>
     <div class="modal-body" id="modalAfegir"style="padding:40px 50px;">
       <div class="container-fluid">
-        <form role="form" method="post" action="/alumneNou" id="dadesAlumne">
+        <form role="form" data-toggle="validator" method="post" action="/alumneNou" id="dadesAlumne">
           <div class="form-group">
           <div class="row">
             <div class="form-group col-md-4" style="clear:both;">
               <label for="nom_alumne">Nom *</label>
-              <input type="text" class="form-control" id="nom_alumne" name="nom" placeholder="Nom">
+              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_alumne" name="nom" placeholder="Nom" required="true">
+               <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group col-md-4">
               <label for="cognom1_alumne">Primer cognom *</label>
-              <input type="text" class="form-control" id="cognom1_alumne" name="cognom1" placeholder = "Primer cognom">
+              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="cognom1_alumne" name="cognom1" placeholder = "Primer cognom" required="true">
+              <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group col-md-4">
@@ -37,11 +39,12 @@
             <div class="form-group col-md-3">
               <label for="data_naixement">Data naixement</label>
               <div class="input-group date" data-provide="datepicker" id="naixement">
-                <input type="text" class="form-control" form="dadesAlumne" id="data_naixement" name="naixement">
+                <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" form="dadesAlumne" id="data_naixement" name="naixement" required="true">
                 <div class="input-group-addon">
                   <span class="glyphicon glyphicon-th"></span>
                 </div>
               </div>
+              <div class="help-block with-errors"></div>
             </div>
 
             <div class="form-group col-md-3">
@@ -54,12 +57,12 @@
             
              <div class="form-group col-md-3">
                 <label for="codi_escola">Codi escola *</label>
-                <input type="text" class="form-control" id="codiEscola" name="codiEscola" value ="">
+                <input type="text" class="form-control" id="codiEscola" name="codiEscola" value ="" disabled="true">
               </div>
 
               <div class="form-group col-md-3" id="curs">
                 <label for="curs_act">Curs actual *</label>
-                  <select class="form-control" id="curs" name="curs">
+                  <select class="form-control" id="curs" name="curs" disabled="true">
                     <option id="opcio" value=""></option>
                     <option value="1r A">1r A</option>
                     <option value="1r B">1r B</option>
@@ -90,9 +93,6 @@
               <div class="form-group col-md-3">
                 <label for="eeUsee">Atès a USEE</label>
                 <select class="form-control" id="eeUsee" name="eeUsee">
-                <%if (session.user.mestre === "ee") {%>
-                    <option value="true">Si</option>
-                    <%}%>
                   <option value="">No</option>
                   <option value="true">Si</option>
                 </select>
@@ -134,14 +134,15 @@
 </html>
 
 <script>
+$(document).ready(function (){
   $('#naixement').datepicker({
       format: "dd/mm/yyyy",
       maxViewMode: 2,
       todayBtn: "linked",
-      //daysOfWeekDisabled: "0,6",
       autoclose: true,
       todayHighlight: true,
       language: "ca"  
   });
+});
 </script>
 

@@ -75,12 +75,12 @@
 
       <%if (!session.user){%>
       <div class="navbar-text navbar-right" style="margin-right: 5px;">
-        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Entra </button>
-        <button type="button" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span>Crea Usuari <span class="caret"></span></button>
+        <button type="button" class="btn btn-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal" role="button"><span class="glyphicon glyphicon-log-in"></span> Entra </button>
+        <button type="button" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span>Crear Usuaris <span class="caret"></span></button>
         <ul class="dropdown-menu">
-            <li><a data-toggle="modal" href="#escolaModal">Nova escola</a></li>
-            <li><a data-toggle="modal" href="#userModal">Nou tutor</a></li>
-            <li><a data-toggle="modal" href="#useeModal">Nou tutor USEE</a></li>
+            <li><a data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a></li>
+            <li><a data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Tutor/a</a></li>
+            <li><a data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Tutor/a USEE</a></li>
         </ul>
       </div>
       <%} else {%>
@@ -96,245 +96,47 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
-
-
 <section class ="mainsection">
-
   <%- body %>
-
 </section>
+
 <footer class="footer">
    <div>Això és el footer</div>
 </footer>
 
-<!-- MODAL LOGIN-->
+ <!-- MODAL NOU TUTOR -->
+<div class="modal fade" id="userModal" role="dialog">
+<div class="modal-dialog">
+  <!-- Modal content-->
+  <div class="modal-content">
+  </div>
+</div>
+</div>
 
+<!-- MODAL LOGIN-->
   <div class="modal fade" id="loginModal" role="dialog">
     <div class="modal-dialog">
-    
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4>Inici de sessió</h4>
-        </div>
-        <div class="modal-body" style="padding:40px 50px;">
-          <form role="form" method="post" action="/login" id="login-form">
-            <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Usuari</label>
-              <input type="email" class="form-control required" id="usrname"  name="email" placeholder="Introduiu el vostre correu electrònic">
-              <small class="text-warning" id="e-warning" style="display:none";>Entrada obligatòria</small>
-            </div>
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contrasenya</label>
-              <input type="password" class="form-control required" id="psw"  name="password" placeholder="Introduiu la vostra contrasenya">
-              <small class="text-warning" id="p-warning" style="display:none";>Entrada obligatòria</small>
-            </div>
-            <p><a href="#">Heu oblidat la vostra contrasenya?</a></p>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Recorda'm</label>
-            </div>
-          </form>
-
-        </div>
-        <div class="modal-footer">
-          <!--<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel·la</button>
-          <p>Not a member? <a href="#">Sign Up</a></p>-->
-          <div class="form-group">
-          <button type="submit" class="btn btn-success btn-block" form="login-form"><span class="glyphicon glyphicon-off"></span> Entra</button>
-          </div>
-        </div>
       </div>
-      
     </div>
   </div> 
 
 <!-- MODAL NOVA ESCOLA -->
-
   <div class="modal fade" id="escolaModal" role="dialog">
     <div class="modal-dialog">
-    
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4>Nova escola</h4>
-        </div>
-
-
-        <div class="modal-body" style="padding:40px 50px;">
-          <form id="formEscola" role="form" method="post" action="/escola_crear">
-
-            <div class="form-group">
-              <label for="nom_escola">Si us plau, empleneu els següents apartats</label>
-              <input type="text" class="form-control required" id="nom_escola" name="nom" placeholder="Nom escola">
-              <small class="text-warning" id="n-warning" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control required" id="codi_escola" name="_id" placeholder="Codi escola">
-              <small class="text-warning" id="c-warning" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <input type="password" class="form-control required" id="password_escola" name="password" placeholder="Contrasenya">
-              <small class="text-warning" id="p-war" style="display:none";>Entrada obligatòria</small>
-            </div>
-              
-            <div class="form-group">
-              <input type="text" class="form-control" id="tel_escola" name="telefon" placeholder="Telèfon">
-            </div>
-
-            <div class="form-group">
-              <input type="email" class="form-control" id="email_escola" name="email" placeholder="Correu electrònic">
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="adreca_escola" name="adreca" placeholder="Adreça">
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="cp_escola" name="codiPostal" placeholder="Codi postal">
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="pob_escola" name="poblacio" placeholder="Població">
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="prov_escola" name="provincia" placeholder="Província">
-            </div>
-
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" form="formEscola" class="btn btn-success btn-block">Envia la informació</button>
-        </div>
       </div>
-      
     </div>
   </div> 
 
-
-  <!-- MODAL NOU TUTOR -->
-
-  <div class="modal fade" id="userModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4>Nou tutor</h4>
-        </div>
-
-        <div class="modal-body" style="padding:40px 50px;">
-          <form id="formUser" role="form" method="post" action="/usuari_crear">
-            <div class="form-group">
-              <label for="email_user">Empleneu els següents apartats</label><br>
-<!--              <div class="" id="newEE_error">errorAlta%></div><br>-->
-              <input type="email" class="form-control" id="email_user" name="email" placeholder="Email">
-              <small class="text-warning" id="e-wartutor" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="nom_user" name="nom" placeholder="Nom">
-              <small class="text-warning" id="n-wartutor" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="cognom_user" name="cognom" placeholder="Cognom">
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="codi_esc_tutor" name="escola" placeholder="Codi escola">
-              <small class="text-warning" id="c-wartutor" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya">
-              <small class="text-warning" id="p-wartutor" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <label for="curs_act">Curs: </label>
-                <select class="form-control" id="curs_act" name="curs">
-                  <option value="">Seleccioneu</option>
-                  <option value="1r A">1r A</option>
-                  <option value="1r B">1r B</option>
-                  <option value="2n A">2n A</option>
-                  <option value="2n B">2n B</option>
-                  <option value="3r A">3r A</option>
-                  <option value="3r B">3r B</option>
-                  <option value="4t A">4t A</option>
-                  <option value="4t B">4t B</option>
-                  <option value="5è A">5è A</option>
-                  <option value="5è B">5è B</option>
-                  <option value="6è A">6è A</option>
-                  <option value="6è B">6è B</option>
-                </select>
-                <small class="text-warning" id="s_curs" style="display:none";>Cal seleccionar un curs</small>
-            </div>
-            
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" form="formUser" class="btn btn-success btn-block">Envia la informació</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
-
-  <!-- MODAL NOU MESTRE USEE-->
-
+<!-- MODAL NOU MESTRE USEE-->
   <div class="modal fade" id="useeModal" role="dialog">
     <div class="modal-dialog">
-    
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4>Nou tutor USEE</h4>
-        </div>
-
-        <div class="modal-body" style="padding:40px 50px;">
-          <form id="formUsee" role="form" method="post" action="/usuari_ee_crear">
-            <div class="form-group">
-              <label for="email_user_usee">Empleneu els següents apartats</label><br>
-<!--              <div class="" id="newEE_error">errorAlta%></div><br>-->
-              <input type="email" class="form-control" id="email_user_usee" name="email" placeholder="Correu electrònic">
-              <small class="text-warning" id="e-warusee" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="nom_user_usee" name="nom" placeholder="Nom">
-              <small class="text-warning" id="n-warusee" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="cognom_user_usee" name="cognom" placeholder="Cognom">
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control" id="codi_esc_usee" name="escola" placeholder="Codi escola">
-              <small class="text-warning" id="c-warusee" style="display:none";>Entrada obligatòria</small>
-            </div>
-
-            <div class="form-group">
-              <input type="password" class="form-control" id="password_user_usee" name="password" placeholder="Contrasenya">
-              <small class="text-warning" id="p-warusee" style="display:none";>Entrada obligatòria</small>
-            </div>
-            
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" form="formUsee" class="btn btn-success btn-block">Envia la informació</button>
-        </div>
       </div>
-      
     </div>
   </div>
 
@@ -343,12 +145,14 @@
   src="https://code.jquery.com/jquery-3.1.1.js"
   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
   crossorigin="anonymous"></script>
+<!-- Bootstrap.js -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
+<!-- Datepicker -->  
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>
-  <!-- Fichero externo con JS y jQuery -->
-<script src="/javascripts/global.js"></script> 
-
+<!-- Validator -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
+<!-- Fichero externo con JS y jQuery -->
+  <script src="/javascripts/global.js"></script>
 </body>
 </html>
