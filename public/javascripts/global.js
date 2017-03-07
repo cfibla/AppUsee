@@ -82,10 +82,19 @@ $('.datepicker').datepicker({
      });
   });
 
+//MODAL DELETE
+$(document).on("click", "#btnDelete", function () {
+  var alumneId = $(this).data('id');
+  var alumneNom = $(this).data('nom');
+   $(document).ready(function (){
+    $("a").attr("href", "/dades_suprD/" + alumneId)
+    $("#nom").val(alumneNom);
+   });
+});
+
 /*  $('button#assistBtn').click(function(){
     $('assistModal').modal('hide')
   });*/
-
 
 ///////////// V A L I D A T E /////////////////
 

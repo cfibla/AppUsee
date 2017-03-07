@@ -102,17 +102,16 @@
                 Accions <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades alumne</a></li>
+                <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
                 <li><a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=nomAlumne%>" data-id="<%=idAlumne%>" data-today="<%=today%>" data-target="#assistModal">Assistència</a></li>
+                <li><a data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=idAlumne%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
 
 
-<!--                <li><a href="#">Entrevistes pares</a></li>
-                <li><a href="#">Anotacions</a></li>-->
-
-                <!--
+<!--            <li><a href="#">Entrevistes pares</a></li>
+                <li><a href="#">Anotacions</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Separated link</a></li>
-                -->
+-->
               </ul>
             </div>
 
@@ -182,6 +181,16 @@
 
 <div class="modal fade" id="afegirModal" role="dialog">
     <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+
+<!-- MODAL DELETE-->
+
+<div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
       </div>
