@@ -58,6 +58,10 @@ body {
     padding-top:5em;
 }
 
+.centered {
+    text-align: center;
+}
+
 .escola {
    /* margin-top: 50%;*/
     padding: 1em 2em 5em 2em;
