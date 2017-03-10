@@ -58,41 +58,60 @@ $('.datepicker').datepicker({
 
 //////////////////// M O D A L S ////////////////////
 
+$(document).ready(function (){
+$('document').on('hidden.bs.modal', function () {
+    $('.modal-body .modal-footer').html("");
+
+});
+});
+
 //MODAL ASSISTENCIA
-    $(document).ready(function (){
+
   $(document).on("click", "#btnAssist", function () {
     var alumneNom = $(this).data('nom');
     var alumneId = $(this).data('id');
     var today = $(this).data('today');
 
-    $(".form-group #nomAl").val(alumneNom);
-    $(".form-group #idAl").val(alumneId);
-    $("#today1").val(today);
-    $("#today2").val(today);
+    $(document).ready(function (){
+      $(".form-group #nomAl").val(alumneNom);
+      $(".form-group #idAl").val(alumneId);
+      $("#today1").val(today);
+      $("#today2").val(today);
     });
   });
 
 
 //MODAL AFEGIR
-     $(document).ready(function (){
+
   $(document).on("click", "#btnAfegir", function () {
     var escola = $(this).data('escola');
     var curs = $(this).data('curs');
 
+    $(document).ready(function (){
      $(".form-group #codiEscola").val(escola);
      $(".form-group #curs").val(curs);
-     });
+    });
   });
 
 //MODAL DELETE
-   $(document).ready(function (){
+
 $(document).on("click", "#btnDelete", function () {
   var alumneId = $(this).data('id');
   var alumneNom = $(this).data('nom');
-
+   $(document).ready(function (){
     $("a").attr("href", "/dades_suprD/" + alumneId)
     $("#nom").text(alumneNom);
    });
+});
+
+    $('#deleteModal').on('hidden.bs.modal', function () {
+      $('a').attr("href","");
+      $.ajax({
+        type: "GET",
+        url:"/list"
+      })
+
+
 });
 
 /*  $('button#assistBtn').click(function(){
