@@ -22,13 +22,10 @@ body {
     padding: 1em;
     background: #5cb85c;
     color:#bae8ba;
-
 }
 
 .bd-pageheader strong {
-
     color: black;
-
 }
 
 .master {
@@ -50,7 +47,6 @@ body {
     line-height: 65px; /* Vertically center the text there */
     padding: 1em;
     background: #cccccc;
- 
 }
 
 
@@ -60,6 +56,10 @@ body {
 
 .centered {
     text-align: center;
+}
+
+.clear {
+    clear: both;
 }
 
 .escola {
@@ -88,7 +88,7 @@ a:hover{
 }
 */
 .alturaBox{
-     height: 5em;
+     min-height: 3em;
 }
 
 .actuPast {

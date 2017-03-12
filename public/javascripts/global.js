@@ -20,7 +20,29 @@ $(document).ready(function (){
     });
 });
 
+$(document).ready(function (){
+    $('#programació_individualitzada').change(function(){
+      if ($('#programació_individualitzada').val()==='true'){
+        $("#divPi").fadeIn();
+      } else {
+        $("#divPi").hide();
+      }
+    })
+});
 
+$(document).ready(function (){
+    $('#full_derivacio').change(function(){
+      if ($('#full_derivacio').val()==='true'){
+        $("#qui_fa_derivacio").removeAttr("disabled");
+        $("#motiu_derivacio").removeAttr("disabled");
+      } else {
+        $("#qui_fa_derivacio").prop('disabled', 'disabled');
+        $("#motiu_derivacio").prop('disabled', 'disabled');
+        $("#qui_fa_derivacio").val('');
+        $("#motiu_derivacio").val('');
+      }
+    })
+});
 
 //////////////// DATEPICKER ////////////////////
 
@@ -92,6 +114,7 @@ $('document').on('hidden.bs.modal', function () {
      $(".form-group #curs").val(curs);
     });
   });
+
 
 //MODAL DELETE
 
