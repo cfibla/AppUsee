@@ -99,13 +99,13 @@ $(document).on("click", "#btnDelete", function () {
   var alumneId = $(this).data('id');
   var alumneNom = $(this).data('nom');
    $(document).ready(function (){
-    $("a").attr("href", "/dades_suprD/" + alumneId)
+    $("#del").attr("href", "/dades_suprD/" + alumneId)
     $("#nom").text(alumneNom);
    });
 });
 
     $('#deleteModal').on('hidden.bs.modal', function () {
-      $('a').attr("href","");
+    /*  $('a').attr("href","");*/
       $.ajax({
         type: "GET",
         url:"/list"
