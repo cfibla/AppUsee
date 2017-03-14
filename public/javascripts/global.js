@@ -20,24 +20,45 @@ $(document).ready(function (){
     });
 });
 
+
+////////////////// A D A P T A C I O N S ////////////////// 
 $(document).ready(function (){
-    $('#programació_individualitzada').change(function(){
       if ($('#programació_individualitzada').val()==='true'){
-        $("#divPi").fadeIn();
+        $("#divPi").show();
       } else {
         $("#divPi").hide();
       }
+    $('#programació_individualitzada').change(function(){
+      if ($('#programació_individualitzada').val()==='true'){
+        $("#divPi").fadeIn(500);
+      } else {
+        $("#divPi").hide(500);
+      }
     })
-});
 
-$(document).ready(function (){
+    if ($('#adequacio_continguts').val()==='true'){
+        $("#divAde").show();
+      } else {
+        $("#divAde").hide();
+      }
+    $('#adequacio_continguts').change(function(){
+      if ($('#adequacio_continguts').val()==='true'){
+        $("#divAde").fadeIn(500);
+      } else {
+        $("#divAde").hide(500);
+      }
+    })
+
+    if ($('#full_derivacio').val()==='true'){
+        $("#divDer").show();
+      } else {
+        $("#divDer").hide();
+      }
     $('#full_derivacio').change(function(){
       if ($('#full_derivacio').val()==='true'){
-        $("#qui_fa_derivacio").removeAttr("disabled");
-        $("#motiu_derivacio").removeAttr("disabled");
+        $("#divDer").fadeIn(500);
       } else {
-        $("#qui_fa_derivacio").prop('disabled', 'disabled');
-        $("#motiu_derivacio").prop('disabled', 'disabled');
+        $("#divDer").hide(500);
         $("#qui_fa_derivacio").val('');
         $("#motiu_derivacio").val('');
       }
