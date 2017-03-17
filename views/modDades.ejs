@@ -46,6 +46,15 @@
                   return raOp;
                   }
 
+                  function checkOption(id){
+                  var cOp='';
+                  if (alumne.checks[id] === true) {
+                  cOp ="selected";
+                  } else {
+                  cOp = '';
+                  }
+                  return cOp;
+                  }
 
                 function tutor(){
                   var tut='';
@@ -150,406 +159,388 @@
     </div> -->
 
 <!--DADES ALUMNE-->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2">
-          <div class="page-t">Dades personals
-              <% if(session.user.mestre === "ee"){ %> 
-          <div class="curs-t">USEE</div><%}%></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="page-t">Dades personals
+          <% if(session.user.mestre === "ee"){ %> 
+      <div class="curs-t">USEE</div><%}%></div>
+    </div>
+    <div class="col-md-9">
+      <hr>
+    </div>
+    
+    <form role="form" method="post" action="/dadesUpdate/<%=alumne._id%>?_method=put" id="alumne_dades">
+      <div class="form-group col-md-8" style="clear: both;">
+        <div class="form-group col-md-3">
+          <label for="nom_alumne">Nom</label>
+          <input type="text" class="form-control" id="nom_alumne" name="nomAlumne"
+                 value="<%=alumne.nomAlumne%>">
         </div>
-        <div class="col-md-9">
-          <hr>
+
+        <div class="form-group col-md-3">
+          <label for="nom_alumne">Primer Cognom</label>
+          <input type="text" class="form-control" id="nom_alumne" name="cognomAlumne1"
+                 value="<%=alumne.cognomAlumne1%>">
         </div>
-        
-        <form role="form" method="post" action="/dadesUpdate/<%=alumne._id%>?_method=put" id="alumne_dades">
-          <div class="form-group col-md-8" style="clear: both;">
-            <div class="form-group col-md-3">
-              <label for="nom_alumne">Nom</label>
-              <input type="text" class="form-control" id="nom_alumne" name="nomAlumne"
-                     value="<%=alumne.nomAlumne%>">
-            </div>
 
-            <div class="form-group col-md-3">
-              <label for="nom_alumne">Primer Cognom</label>
-              <input type="text" class="form-control" id="nom_alumne" name="cognomAlumne1"
-                     value="<%=alumne.cognomAlumne1%>">
-            </div>
+        <div class="form-group col-md-3">
+          <label for="nom_alumne">Segon Cognom</label>
+          <input type="text" class="form-control" id="nom_alumne" style="text-transform:uppercase" name="cognomAlumne2"
+                 value="<%=alumne.cognomAlumne2%>">
+        </div>
 
-            <div class="form-group col-md-3">
-              <label for="nom_alumne">Segon Cognom</label>
-              <input type="text" class="form-control" id="nom_alumne" style="text-transform:uppercase" name="cognomAlumne2"
-                     value="<%=alumne.cognomAlumne2%>">
+        <div class="form-group col-md-3" id="data">
+          <label for="data_naixement">Data naixement</label>
+            <div class="input-group date alturabox" data-provide="datepicker">
+              <input type="text" class="form-control" id="data_naixement" name="naixement" value="<%=dataNa%>">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+              </div>
             </div>
+        </div>
 
-            <div class="form-group col-md-3" id="data">
-              <label for="data_naixement">Data naixement</label>
-                <div class="input-group date alturabox" data-provide="datepicker">
-                  <input type="text" class="form-control" id="data_naixement" name="naixement" value="<%=dataNa%>">
-                  <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
-                  </div>
-                </div>
-            </div>
+        <div class="form-group col-md-3">
+          <label for="targeta_SS">Targeta SS</label>
+          <input type="text" class="form-control" id="targeta_SS" name="seguretatSoc"
+                 value="<%=alumne.seguretatSoc%>">
+        </div>
 
-            <div class="form-group col-md-3">
-              <label for="targeta_SS">Targeta SS</label>
-              <input type="text" class="form-control" id="targeta_SS" name="seguretatSoc"
-                     value="<%=alumne.seguretatSoc%>">
-            </div>
+        <div class="form-group col-md-3">
+          <label for="targeta_SS">Correu electrònic</label>
+          <input type="email" class="form-control" id="emal_alumne" name=""
+                 value="">
+        </div>
 
-            <div class="form-group col-md-3">
-              <label for="targeta_SS">Correu electrònic</label>
-              <input type="email" class="form-control" id="emal_alumne" name=""
-                     value="">
-            </div>
+         <div class="form-group col-md-3">
+          <label for="codi_escola">Codi escola *</label>
+          <input type="text" class="form-control" id="codi_escola" name="codiEscola" placeholder = "<%=alumne.escola%>" value = "<%=alumne.escola%>">
+        </div>
 
-             <div class="form-group col-md-3">
-              <label for="codi_escola">Codi escola *</label>
-              <input type="text" class="form-control" id="codi_escola" name="codiEscola" placeholder = "<%=alumne.escola%>" value = "<%=alumne.escola%>">
-            </div>
-
-            <div class="form-group col-md-3" id="curs">
-              <label for="curs_act">Curs actual</label>
-                <select class="form-control" id="curs_act" name="curs">
-                  <option value="<%=alumne.curs%>" selected><%=alumne.curs%></option>
-                  <option value="1r A">1r A</option>
-                  <option value="1r B">1r B</option>
-                  <option value="2n A">2n A</option>
-                  <option value="2n B">2n B</option>
-                  <option value="3r A">3r A</option>
-                  <option value="3r B">3r B</option>
-                  <option value="4t A">4t A</option>
-                  <option value="4t B">4t B</option>
-                  <option value="5è A">5è A</option>
-                  <option value="5è B">5è B</option>
-                  <option value="6è A">6è A</option>
-                  <option value="6è B">6è B</option>
-                </select>
-            </div>
-            <div class="form-group col-md-2 clear">
-              <label for="selecEE">Atès a EE</label>
-              <select class="form-control" id="selecEE" name="checks.3">
-                <option value="">No</option>
-                <option value="true" <%=sEe()%>>Si</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="eeUsee">Atès a USEE</label>
-              <select class="form-control" id="eeUsee" name="eeUsee">
-                <option value="">No</option>
-                <option value="true" <%=sUse()%>>Si</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="aill">Atès a AiLL</label>
-              <select class="form-control" id="aill" name="checks.2">
-                <option value="">No</option>
-                <option value="true" <%=sAill()%>>Si</option>
-              </select>
-            </div>
-            <div class="form-group col-md-3">
-              <label for="selecEap">Seguiment EAP</label>
-              <select class="form-control" id="selecEap" name="checks.5">
-                <option value="">No</option>
-                <option value="true" <%=sEap()%>>Si</option>
-              </select>
-            </div>
-            <div class="form-group col-md-3">
-              <label for="selecSs">Serveis socials</label>
-              <select class="form-control" id="selecSs" name="">
-                <option value="">No</option>
-                <option value="true" <%=sUse()%>>Si</option>
-              </select>
-            </div>
-          </div>
+        <div class="form-group col-md-3" id="curs">
+          <label for="curs_act">Curs actual</label>
+            <select class="form-control" id="curs_act" name="curs">
+              <option value="<%=alumne.curs%>" selected><%=alumne.curs%></option>
+              <option value="1r A">1r A</option>
+              <option value="1r B">1r B</option>
+              <option value="2n A">2n A</option>
+              <option value="2n B">2n B</option>
+              <option value="3r A">3r A</option>
+              <option value="3r B">3r B</option>
+              <option value="4t A">4t A</option>
+              <option value="4t B">4t B</option>
+              <option value="5è A">5è A</option>
+              <option value="5è B">5è B</option>
+              <option value="6è A">6è A</option>
+              <option value="6è B">6è B</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2 clear">
+          <label for="selecEE">Atès a EE</label>
+          <select class="form-control" id="selecEE" name="checks.3">
+            <option value="">No</option>
+            <option value="true" <%=sEe()%>>Si</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="eeUsee">Atès a USEE</label>
+          <select class="form-control" id="eeUsee" name="eeUsee">
+            <option value="">No</option>
+            <option value="true" <%=sUse()%>>Si</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="aill">Atès a AiLL</label>
+          <select class="form-control" id="aill" name="checks.2">
+            <option value="">No</option>
+            <option value="true" <%=sAill()%>>Si</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="selecEap">Seguiment EAP</label>
+          <select class="form-control" id="selecEap" name="checks.5">
+            <option value="">No</option>
+            <option value="true" <%=sEap()%>>Si</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="selecSs">Serveis socials</label>
+          <select class="form-control" id="selecSs" name="">
+            <option value="">No</option>
+            <option value="true" <%=sUse()%>>Si</option>
+          </select>
+        </div>
+      </div>
 
 
 <!--OBSERVACIONS ALUMNE -->
-    <div class="col-md-4" style="height:182px;">
-      <div class="form-group col-md-12" style="height:100%;" >
-        <label for="selecSs">Observacions generals</label>
-          <textarea class="form-control" style="height:100%;" id="Obs_alumne" name="" form=""></textarea>
+      <div class="col-md-4" style="height:182px;">
+        <div class="form-group col-md-12" style="height:100%;">
+          <label for="selecSs">Observacions generals</label>
+            <textarea class="form-control" style="height:100%;" id="Obs_alumne" name="" form=""></textarea>
+        </div>
       </div>
-    </div>
 
 
 <!--ADAPTACIONS ALUMNE -->
-        <div class="form-group col-md-12">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                Adaptacions</a>
-              </h3>
-            </div>
-            <div id="collapse2" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <div class="form-group col-md-4">
+      <div class="form-group col-md-12">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+              Adaptacions</a>
+            </h3>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div class="form-group col-md-4">
+                <div class="form-group">
+                  <label for="programació_individualitzada">Pla individualitzat (PI)</label>
+                    <select class="form-control" id="programació_individualitzada" name="radios.15">
+                      <option value="false">No</option>
+                      <option value="true" <%=radioOption(15)%>>Si</option>
+                    </select>
+                </div>
+                <div id="divPi">
                   <div class="form-group">
-                    <label for="programació_individualitzada">Pla individualitzat (PI)</label>
-                      <select class="form-control" id="programació_individualitzada" name="radios.15">
-                        <option value="false">No</option>
-                        <option value="true" <%=radioOption(15)%>>Si</option>
-                      </select>
-                  </div>
-                  <div id="divPi">
-                    <div class="form-group">
-                      <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.16" <%=checkCond(16)%>> Curricular </label>
-                      <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.17" <%=checkCond(17)%>> Metodològic </label>
-                      <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.18" <%=checkCond(18)%>> Conductual </label>
-                    </div>
-
-                    
-                  <div class="form-group alturaBox">
-                    <label for="arees_adaptades">Àrees adaptades PI</label><br>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.19" <%=checkCond(19)%>>Català</label>
+                    <input type="checkbox" value="true" name="checks.16" <%=checkCond(16)%>> Curricular </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.20" <%=checkCond(20)%>>Castellà</label>
+                    <input type="checkbox" value="true" name="checks.17" <%=checkCond(17)%>> Metodològic </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.21" <%=checkCond(21)%>>Matemàtiques</label>
-                    <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.22" <%=checkCond(22)%>>Medi natural</label>
-                    <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.23" <%=checkCond(23)%>>Medi social</label>
-                    <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.24" <%=checkCond(24)%>>Educació Física</label>
-                    <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.25" <%=checkCond(25)%>>Àrea artística</label>
+                    <input type="checkbox" value="true" name="checks.18" <%=checkCond(18)%>> Conductual </label>
                   </div>
 
-                  <div class="form-group alturaBox">
-                    <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
-                      <select class="form-control" id="material_dif" name="radios.5">
-                        <option value="false">No</option>
-                        <option value="true" <%=radioOption(5)%>>Si</option>
-                      </select>
-                  </div>
+                  
+                <div class="form-group alturaBox">
+                  <label for="arees_adaptades">Àrees adaptades PI</label><br>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.19" <%=checkCond(19)%>>Català</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.20" <%=checkCond(20)%>>Castellà</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.21" <%=checkCond(21)%>>Matemàtiques</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.22" <%=checkCond(22)%>>Medi natural</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.23" <%=checkCond(23)%>>Medi social</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.24" <%=checkCond(24)%>>Educació Física</label>
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="true" name="checks.25" <%=checkCond(25)%>>Àrea artística</label>
+                </div>
+
+                <div class="form-group alturaBox">
+                  <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
+                    <select class="form-control" id="material_diferenciat" name="radios.5">
+                      <option value="false">No</option>
+                      <option value="true" <%=radioOption(5)%>>Si</option>
+                    </select>
                 </div>
               </div>
+            </div>
 
-                <div class="form-group col-md-4">
-                  <div class="form-group">
-                    <label for="adequacio_continguts">Adequació de continguts</label>
-                    <select class="form-control" id="adequacio_continguts" name="radios.6">
-                      <option value="false">No</option>
-                      <option value="true" <%=radioOption(6)%>>Si</option>
-                    </select>
-                  </div>
-                  <div class="form-group" id="divAde">
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.26" <%=checkCond(26)%>>Matemàtiques</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.27" <%=checkCond(27)%>>Català</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.28" <%=checkCond(28)%>>Medi</label>
-                  </div>
+              <div class="form-group col-md-4">
+                <div class="form-group">
+                  <label for="adequacio_continguts">Adequació de continguts</label>
+                  <select class="form-control" id="adequacio_continguts" name="radios.6">
+                    <option value="false">No</option>
+                    <option value="true" <%=radioOption(6)%>>Si</option>
+                  </select>
                 </div>
-                
+                <div class="form-group" id="divAde">
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.26" <%=checkCond(26)%>>Matemàtiques</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.27" <%=checkCond(27)%>>Català</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.28" <%=checkCond(28)%>>Medi</label>
+                </div>
+              </div>
+              
 
-                 <div class="form-group col-md-4">
-                   <div class="form-group">
-                    <label for="full_derivacio">Full de derivació</label><br>
-                        <select class="form-control" id="full_derivacio" name="radios.7">
-                        <option value="false">No</option>
-                        <option value="true">Si</option>
+               <div class="form-group col-md-4">
+                 <div class="form-group">
+                  <label for="full_derivacio">Full de derivació</label><br>
+                      <select class="form-control" id="full_derivacio" name="radios.7">
+                      <option value="false">No</option>
+                      <option value="true" <%=radioOption(7)%>>Si</option>
+                    </select>
+                </div>
+                <div class="form-group" id="divDer">
+                  <div class="form-group">
+                      <label for="qui_fa_derivacio">Qui el fa?</label>
+                      <select class="form-control" id="qui_fa_derivacio" name="derivacio">
+                        <option value="">Seleccioneu</option>
+                        <option value="tutor" <%=tutor()%>>Tutor</option>
+                        <option value="familia" <%=fam()%>>Família</option>
+                        <option value="atDiv" <%=aD()%>>Atenció a la diversitat</option>
                       </select>
                   </div>
-                  <div class="form-group" id="divDer">
-                    <div class="form-group">
-                        <label for="qui_fa_derivacio">Qui el fa?</label>
-                        <select class="form-control" id="qui_fa_derivacio" name="derivacio">
-                          <option value="">Seleccioneu</option>
-                          <option value="tutor" <%=tutor()%>>Tutor</option>
-                          <option value="familia" <%=fam()%>>Família</option>
-                          <option value="atDiv" <%=aD()%>>Atenció a la diversitat</option>
-                        </select>
-                    </div>
-                  <div class="form-group">
-                    <label for="motiu_derivacio">Motiu</label>
-                    <input type="text" class="form-control" id="motiu_derivacio"  name="motiuDer"
-                      value="<%=alumne.motiuDer||''%>" placeholder="Motiu">
-                  </div>
-                  </div>
+                <div class="form-group">
+                  <label for="motiu_derivacio">Motiu</label>
+                  <input type="text" class="form-control" id="motiu_derivacio"  name="motiuDer"
+                    value="<%=alumne.motiuDer||''%>" placeholder="Motiu">
+                </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
 <%if (alumne.eeUsee === true) {%>
 
 <!--ATENCIÓ ALUMNE-->
-    
-    <div class="container">
-      <div class="row">
-      
-        <div class="col-md-12">
-         <div class="panel-group" id="accordion">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                  Atenció EE-USEE</a>
-              </h3>
+      <div class="col-md-12">
+       <div class="panel-group" id="accordion">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                Atenció EE-USEE</a>
+            </h3>
+          </div>
+
+          <div id="collapse3" class="panel-collapse collapse in">
+            <div class="panel-body">
+           <div class="form-group col-md-3 alturaBox">
+              <div class="form-group">
+                <label for="seg_ad">Seguiment atenció a la diversitat</label>
+                <select class="form-control" id="seg_ad" name="checks.0">
+                  <option value="false">Indirecte</option>
+                  <option value="true" <%=checkOption(0)%>>Directe</option>
+                </select>
+              </div>
+              <!--  checks.1 libre-->
+              <div class="form-group ">
+                <label for="atencio">Atenció </label><br>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.2" <%=checkCond(2)%>>AiLL</label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.3" <%=checkCond(3)%>>EE</label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.4" <%=checkCond(4)%>>USEE</label>
+              </div>
             </div>
 
+            
 
-            <div id="collapse3" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <div class="form-group col-md-3 alturaBox">
-                  <label for="seguiment_atenció_a_la_diversitat">Seguiment atenció a la diversitat </label><br>
+
+              <div class="form-group col-md-6 alturaBox">
+              <label for="seguiment_serveis_externs">Seguiment serveis externs </label><br>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="checks.0" id="0" <%=checkCond(0)%>>Directe</label>
+                  <input type="checkbox" value="true" name="checks.5" <%=checkCond(5)%>>EAP</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="checks.1" id="1" <%=checkCond(1)%>>Indirecte</label>
+                  <input type="checkbox" value="true" name="checks.6" <%=checkCond(6)%>>TS EAP</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.7" <%=checkCond(7)%>>CREDAG</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.8" <%=checkCond(8)%>>CREDV</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.9" <%=checkCond(9)%>>CSMIJ</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.10" <%=checkCond(10)%>>SEETDIC</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.11" <%=checkCond(11)%>>CDIAP</label>
+              </div>
 
-                </div>
+              <div class="form-group col-md-3 alturaBox">
+                  <label for="seguiment_medic">Seguiment mèdic </label><br>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.12" <%=checkCond(12)%>>Pediatria</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.13" <%=checkCond(13)%>>Neuropediatria</label>
+                  <label class="checkbox-inline">
+                  <input type="checkbox" value="true" name="checks.14" <%=checkCond(14)%>>Altres especialitats</label>
+              </div>
 
-                <div class="form-group col-md-3 alturaBox">
-                <label for="atencio">Atenció </label><br>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.2" <%=checkCond(2)%>>AiLL</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.3" <%=checkCond(3)%>>EE</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.4" <%=checkCond(4)%>>USEE</label>
-                </div>
+              <div class="form-group col-md-3 alturaBox">
+                  <label for="altres_especialitats">Altres especialitats</label>
+                  <input type="text" class="form-control" id="altres_especialitats" name="altresEsp" 
+                  value = "<%=alumne.altresEsp||''%>"
+                  placeholder= "Altres especialitats">
+              </div>
+        
+              <div class="form-group col-md-6 alturaBox">
+                  <label for="serveis_privats">Atenció serveis privats</label>
+                  <input type="text" class="form-control" id="serveis_privats" name="atServPrivats"
+                  value = "<%=alumne.atServPrivats||''%>"
+                  placeholder= "Atenció serveis privats">
+              </div>
 
-                <div class="form-group col-md-6 alturaBox">
-                <label for="seguiment_serveis_externs">Seguiment serveis externs </label><br>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.5" <%=checkCond(5)%>>EAP</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.6" <%=checkCond(6)%>>TS EAP</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.7" <%=checkCond(7)%>>CREDAG</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.8" <%=checkCond(8)%>>CREDV</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.9" <%=checkCond(9)%>>CSMIJ</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.10" <%=checkCond(10)%>>SEETDIC</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.11" <%=checkCond(11)%>>CDIAP</label>
-                </div>
+              <div class="form-group col-md-2 alturaBox">
+              <label for="repeticio">Repetició</label><br>
+                <label class="radio-inline">
+                <input type="radio" name="radios.0" value="false" <%=radioFalse(0)%>>No
+                </label>
+                <label class="radio-inline">
+                <input type="radio" name="radios.0" value="true" <%=radioTrue(0)%>>Si
+                </label>            
+              </div>
 
-                <div class="form-group col-md-3 alturaBox">
-                    <label for="seguiment_medic">Seguiment mèdic </label><br>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.12" <%=checkCond(12)%>>Pediatria</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.13" <%=checkCond(13)%>>Neuropediatria</label>
-                    <label class="checkbox-inline">
-                    <input type="checkbox" value="true" name="checks.14" <%=checkCond(14)%>>Altres especialitats</label>
-                </div>
+              <div class="form-group col-md-2 alturaBox">
+                <label for="beca">Beca</label><br>
+                  <label class="radio-inline">
+                  <input type="radio" name="radios.1" value="false" <%=radioFalse(1)%>>No
+                </label>
+                  <label class="radio-inline">
+                  <input type="radio" name="radios.1" value="true" <%=radioTrue(1)%>>Si
+                </label>
+              </div>
 
-                <div class="form-group col-md-3 alturaBox">
-                    <label for="altres_especialitats">Altres especialitats</label>
-                    <input type="text" class="form-control" id="altres_especialitats" name="altresEsp" 
-                    value = "<%=alumne.altresEsp||''%>"
-                    placeholder= "Altres especialitats">
-                </div>
-          
-                <div class="form-group col-md-6 alturaBox">
-                    <label for="serveis_privats">Atenció serveis privats</label>
-                    <input type="text" class="form-control" id="serveis_privats" name="atServPrivats"
-                    value = "<%=alumne.atServPrivats||''%>"
-                    placeholder= "Atenció serveis privats">
-                </div>
+              <div class="form-group col-md-3 alturaBox">
+                <label for="disminucio">Certificat disminució</label><br>
+                  <label class="radio-inline">
+                  <input type="radio" name="radios.2" value="false" <%=radioFalse(2)%>
+                  onclick="percentDim.disabled = true; percentDim.value = ''">No
+                </label>
+                  <label class="radio-inline">
+                  <input type="radio" name="radios.2" value="true" <%=radioTrue(2)%>
+                  onclick="percentDim.disabled = false">Si
+                </label>
+                  <input type="text" class="form-control" id="percent_dim" name="percentDim"
+              value = "<%=alumne.percentDim||''%>" placeholder= "Indiqueu %" <%=inputRadios(2)%>>
+              </div>
 
-                <div class="form-group col-md-2 alturaBox">
-                      <label for="repeticio">Repetició</label><br>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.0" value="false" <%=radioFalse(0)%>>No
-                        </label>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.0" value="true" <%=radioTrue(0)%>>Si
-                        </label>
-                
-                </div>
+              <div class="form-group col-md-3 alturaBox">
+                <label for="dictamen">Dictamen</label><br>
+                  <label class="radio-inline">
+                  <input type="radio" name="radios.3" value="false" <%=radioFalse(3)%>
+                  onclick="motiuDic.disabled = true; motiuDic.value =''">No
+                  </label>
+                  <label class="radio-inline">
+                  <input type="radio" name="radios.3" value="true" <%=radioTrue(3)%>
+                  onclick="motiuDic.disabled = false">Si
+                  </label>
+                  <input type="text" class="form-control" id="motiu_dic" name="motiuDic"
+              value = "<%=alumne.motiuDic||''%>" placeholder= "Indiqueu motiu" <%=inputRadios(3)%>>
+              </div>
 
-                <div class="form-group col-md-2 alturaBox">
-                      <label for="beca">Beca</label><br>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.1" value="false" <%=radioFalse(1)%>>No
-                      </label>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.1" value="true" <%=radioTrue(1)%>>Si
-                      </label>
-                </div>
-
-                <div class="form-group col-md-3 alturaBox">
-                      <label for="disminucio">Certificat disminució</label><br>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.2" value="false" <%=radioFalse(2)%>
-                        onclick="percentDim.disabled = true; percentDim.value = ''">No
-                      </label>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.2" value="true" <%=radioTrue(2)%>
-                        onclick="percentDim.disabled = false">Si
-                      </label>
-
-                        <input type="text" class="form-control" id="percent_dim" name="percentDim"
-                    value = "<%=alumne.percentDim||''%>" placeholder= "Indiqueu %" <%=inputRadios(2)%>>
-                </div>
-
-                <div class="form-group col-md-3 alturaBox">
-                      <label for="dictamen">Dictamen</label><br>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="false" <%=radioFalse(3)%>
-                        onclick="motiuDic.disabled = true; motiuDic.value =''">No
-                        </label>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.3" value="true" <%=radioTrue(3)%>
-                        onclick="motiuDic.disabled = false">Si
-                        </label>
-
-                        <input type="text" class="form-control" id="motiu_dic" name="motiuDic"
-                    value = "<%=alumne.motiuDic||''%>" placeholder= "Indiqueu motiu" <%=inputRadios(3)%>>
-                    
-                </div>
-
-                <div class="form-group col-md-2 alturaBox">
-                      <label for="valoracio_eap">Valoració EAP</label><br>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="false" <%=radioFalse(4)%>
-                        onclick="anyVal.disabled = true; anyVal.value =''">No
-                        </label>
-                        <label class="radio-inline">
-                        <input type="radio" name="radios.4" value="true" <%=radioTrue(4)%>
-                        onclick="anyVal.disabled = false">Si
-                        </label>
-
-                        <input type="text" class="form-control" id="any_val" name="anyVal"
-                    value = "<%=alumne.anyVal||''%>" placeholder= "Any valoració"  <%=inputRadios(4)%>>
-                    
-                </div>
-
-
+              <div class="form-group col-md-2 alturaBox">
+                <label for="valoracio_eap">Valoració EAP</label><br>
+                  <label class="radio-inline">
+                  <input type="radio" name="radios.4" value="false" <%=radioFalse(4)%>
+                  onclick="anyVal.disabled = true; anyVal.value =''">No
+                  </label>
+                  <label class="radio-inline">
+                  <input type="radio" name="radios.4" value="true" <%=radioTrue(4)%>
+                  onclick="anyVal.disabled = false">Si
+                  </label>
+                  <input type="text" class="form-control" id="any_val" name="anyVal"
+              value = "<%=alumne.anyVal||''%>" placeholder= "Any valoració"  <%=inputRadios(4)%>>   
               </div>
             </div>
           </div>
-         </div>
         </div>
+       </div>
       </div>
-    </div>
+  <%}%>
 
-<%}%>
-
-
-
-        <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-          <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
-          <button type="submit" class="btn btn-primary">Desa</button>
-        </div>
+      <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+        <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
+        <button type="submit" class="btn btn-primary">Desa</button>
       </div>
-    </div>
-
-
-          </form>
-        </div>
-    </div>
+    </form>
+  </div>
+</div>
