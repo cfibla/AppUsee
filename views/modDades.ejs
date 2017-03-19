@@ -88,6 +88,14 @@
                   return use;
                   }
 
+                  function cUse(){
+                  var use='';
+                  if (alumne.eeUsee === true) {
+                  use ="checked";
+                  }
+                  return use;
+                  }
+
                   function sEe(){
                   var ee='';
                   if (alumne.checks[3] === true) {
@@ -420,7 +428,7 @@
                 <label class="checkbox-inline">
                   <input type="checkbox" value="true" name="checks.3" <%=checkCond(3)%>>EE</label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="checks.4" <%=checkCond(4)%>>USEE</label>
+                  <input type="checkbox" value="true" name="checks.4" <%=cUse()%>>USEE</label>
               </div>
             </div>
 
