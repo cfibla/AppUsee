@@ -275,11 +275,21 @@
           <label for="selecSs">Serveis socials</label>
           <select class="form-control" id="selecSs" name="">
             <option value="">No</option>
-            <option value="true" <%=sUse()%>>Si</option>
+            <option value="true" <%=%>>Si</option>
           </select>
         </div>
+
+        <div class="form-group col-md-2 alturaBox">
+        <label for="repeticio">Repetició</label><br>
+        <label class="radio-inline">
+          <input type="radio" name="radios.0" value="false" <%=radioFalse(0)%>>No
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="radios.0" value="true" <%=radioTrue(0)%>>Si
+        </label>            
       </div>
 
+      </div>
 
 <!--OBSERVACIONS ALUMNE -->
       <div class="col-md-4" style="height:182px;">
@@ -421,7 +431,7 @@
                 </select>
               </div>
               <!--  checks.1 libre-->
-              <div class="form-group ">
+<!--              <div class="form-group ">
                 <label for="atencio">Atenció </label><br>
                 <label class="checkbox-inline">
                   <input type="checkbox" value="true" name="checks.2" <%=checkCond(2)%>>AiLL</label>
@@ -429,7 +439,7 @@
                   <input type="checkbox" value="true" name="checks.3" <%=checkCond(3)%>>EE</label>
                 <label class="checkbox-inline">
                   <input type="checkbox" value="true" name="checks.4" <%=cUse()%>>USEE</label>
-              </div>
+              </div>-->
             </div>
 
             
@@ -477,15 +487,6 @@
                   placeholder= "Atenció serveis privats">
               </div>
 
-              <div class="form-group col-md-2 alturaBox">
-              <label for="repeticio">Repetició</label><br>
-                <label class="radio-inline">
-                <input type="radio" name="radios.0" value="false" <%=radioFalse(0)%>>No
-                </label>
-                <label class="radio-inline">
-                <input type="radio" name="radios.0" value="true" <%=radioTrue(0)%>>Si
-                </label>            
-              </div>
 
               <div class="form-group col-md-2 alturaBox">
                 <label for="beca">Beca</label><br>
