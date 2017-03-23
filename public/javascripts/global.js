@@ -63,6 +63,49 @@ $(document).ready(function (){
         $("#motiu_derivacio").val('');
       }
     })
+
+
+    if ($('#disminucio').val()==='true'){
+        $("#divDim").show();
+      } else {
+        $("#divDim").hide();
+      }
+    $('#disminucio').change(function(){
+      if ($('#disminucio').val()==='true'){
+        $("#divDim").fadeIn(500);
+      } else {
+        $("#divDim").hide(500);
+        $("#percent_dim").val('');
+      }
+    })
+
+    if ($('#valoracio_eap').val()==='true'){
+        $("#divVal").show();
+      } else {
+        $("#divVal").hide();
+      }
+    $('#valoracio_eap').change(function(){
+      if ($('#valoracio_eap').val()==='true'){
+        $("#divVal").fadeIn(500);
+      } else {
+        $("#divVal").hide(500);
+        $("#any_val").val('');
+      }
+    })
+
+    if ($('#dictamen').val()==='true'){
+        $("#divDic").show();
+      } else {
+        $("#divDic").hide();
+      }
+    $('#dictamen').change(function(){
+      if ($('#dictamen').val()==='true'){
+        $("#divDic").fadeIn(500);
+      } else {
+        $("#divDic").hide(500);
+        $("#any_val").val('');
+      }
+    })
 });
 
 //////////////// DATEPICKER ////////////////////
