@@ -421,6 +421,12 @@
                       </div>
                     </div>
 
+                    <%if (session.user.mestre === "ee") {%>
+
+                    <input type="hidden" id="usrId" name="usrId" value ="ee" >
+
+                    <%}%>
+
                     <div class="form-group col-md-4">
                       <div class="form-group">
                         <label for="beca">Beca</label>
