@@ -38,34 +38,73 @@
                     
 
 <!-- --------------------------------------- SEGUIMENT ALUMNE ------------------------------------ -->
+<div class="container">
+  <div class="row">
+        <!--DADES ALUMNE-->
     <div class="container">
       <div class="row">
-
-            <!--DADES ALUMNE-->
-              <div class="container">
-                <div class="row">
-                  <form role="form">
-                    <div class="form-group">
-                      <div class="col-md-2">
-                        <h4>Seguiment alumne</h4>
-                      </div>
-
-                      <div class="col-md-10 alturaBox">
-                        <hr>
-                      </div>
-
-                        <div class="form-group col-md-4  alturaBox">
-                        <label for="nom_alumne">Nom</label>
-                        <input type="text" class="form-control" id="nom_alumne"
-                               placeholder="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" disabled>
-                        </div>
-
-                    </div>
-                  </form>
-                </div>
-
-
-
+        <form role="form">
+          <div class="form-group">
+            <div class="col-md-2">
+              <h4>Seguiment alumne</h4>
+            </div>
+            <div class="col-md-10">
+              <hr>
+            </div>
+            <div class="col-md-3 clear">
+            <strong>Nom: </strong><span><%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%></span>
+            </div>
+            <div class="form-group col-md-3">
+            <strong>Curs: </strong><span><%=alumne.curs%></span>
+            </div>
+          </div>
+        </form>
+      </div>
+<!-- Nav tabs -->
+      <div>
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="active"><a href="#actuacions" aria-controls="actuacions" role="tab" data-toggle="tab">Actuacions</a></li>
+          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Informació CAD</a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Altres coordinacions - Coordinacions amb tutors</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="actuacions">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="col-md-3">Data</th>
+                  <th class="col-md-7">Text</th>
+                  <th class="col-md-2"> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <%for (i = 0; i < alumne.segActuacions.length; i++) { %>
+                <tr>
+                  <td>
+                    <%=alumne.segActuacions[i].date%>
+                  </td>
+                  <td>
+                    <%=alumne.segActuacions[i].body.substring(0,80) + "..."%>
+                  </td>
+                  <td>
+                    <a type="button" class="btn btn-default btn-block" id = "btnActu" data-toggle="modal" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>"  data-today="<%=today%>" data-target="#actuModal">Veure</a>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+            <div class = "row">
+            <%var actuArray = alumne.segActuacions.length;%>
+              <div class = "col-md-2 clear">
+                <a data-toggle="modal" class = "btn btn-default" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>"  data-today="<%=today%>" data-target="#actuModal">><strong>+ </strong>Nova actuació</a>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="profile">...</div>
+          <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
+        </div>
+      </div>
 
 <!--ACTUACIONS-->
             <div class="panel-group" id="accordionBig">
@@ -80,8 +119,6 @@
                     <div class="panel-body">
 
                       <div class="row">
-
-
           <!--Actuacions anteriors-->
                         <div class="panel-group" id="accordion">
                           <div class="col-md-12">
@@ -95,9 +132,6 @@
                             </div>
 
                             <br />
-
-
-
             <!--Actuacions VEURE-->
                               <div id="veureAct" class="panel-collapse collapse">
                                 <div class="panel-body">
@@ -130,9 +164,6 @@
                                     </div>
                                 </div>
                               </div>
-
-
-
             <!--Actuacions MODIFICA-->
                             <div id="modAct" class="panel-collapse collapse">
                               <div class="panel-body">
@@ -190,21 +221,13 @@
                             </div>
                           </div>
                         </div>
-
-
-                         
-
-
                       <!--Nova actuació-->
-
                         <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_actuacions">
 
                             <!--var Quantes actuacions hi ha ara?-->
                             <%
                             var actuArray = alumne.segActuacions.length;
                             %>
-
-                      
                           <div class="form-group col-md-2 dataSeguiment">
                             <input type="text" class="form-control" id="actuacionsDate" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
                           </div>
@@ -352,3 +375,12 @@
             </div>
           </div>
         </div>
+<!-- MODAL ACTUACIONS -->
+
+<div class="modal fade" id="actuModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
