@@ -163,7 +163,7 @@
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
 <!-- Button -->
-      <a type="button" class="btn btn-default" id = "btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="#assistModal">Imprimir</a>
+      <a type="button" class="btn btn-default" id = "btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today%>" data-target="#assistModal">Imprimir</a>
       </td>
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
@@ -196,60 +196,10 @@
 
 <!-- MODAL ASSISTÈNCIA -->
 
-  <div class="modal fade" id="assistModal" role="dialog">
+<div class="modal fade" id="assistModal" role="dialog">
     <div class="modal-dialog">
-    
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4>Control d'assistència</h4>
-        </div>
-
-
-        <div class="modal-body" style="padding:40px 50px;">
-          <div class="container-fluid">
-            <div class="row">
-        
-              <form role="form" method="post" action="/assistPDF" target="_blank" id="assisDataD">
-
-                <div class="form-group col-md-12">
-                  <p>Alumne/a:</p>
-                  <input type="text" class="form-control" name="nomAl" id="nomAl" value="" disabled="true">
-                  <input type="hidden" id="idAl" form="assisDataD" name="alumneId" value ="" >
-                </div>
-
-  <!--DATEPICKER-->
-
-                <div class="col-md-6" id="dataP" style="clear:both;">
-                  <label for="alumneAssistU">Des del dia</label>
-                  <div class="input-group date alturabox" data-provide="datepicker">
-                  <input type="text" class="form-control" form="assisDataD" name= "alumneAssistU" value ="<%=today%>">
-                    <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="col-md-6" id="dataP">
-                  <label for="alumneAssistD">Fins el dia</label>
-                  <div class="input-group date alturabox" data-provide="datepicker">
-                    <input type="text" class="form-control" form="assisDataD" name= "alumneAssistD" value ="<%=today%>">
-                    <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
-                    </div>
-                  </div>
-                </div>
-
-              </form>
-            </div>
-          </div>
-        </div>    
-        <div class="modal-footer">
-            <button type="submit" form="assisDataD" class="btn btn-success btn-block" id="assistBtn">Veure assistència</button>
-        </div>
       </div>
-      
-  </div>
+    </div>
 </div>
