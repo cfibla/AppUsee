@@ -62,7 +62,7 @@
                 <li><a href="#">Documentació alumnes</a></li>
                 <li><a href="#">Entrevistes pares</a></li>
                 <li><a href="#">Anotacions</a></li>
-                <li><a data-toggle="modal" data-nom="<%=nomAlumne%>" data-id="<%=idAlumne%>"class="open-AddBookDialog" href="#assistModal">Assistència</a></li>
+                <li><a data-toggle="modal" data-nom="<%=%>" data-id="<%=%>"class="open-AddBookDialog" href="#assistModal">Assistència</a></li>
               </ul>
             </div>-->
 
@@ -91,10 +91,7 @@
         <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>
         </td>
         <td>
-        <% if(session.user.mestre === "tutor"){ 
-            var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
-
-            var idAlumne = Alumnes[i]._id;%>
+        <% if(session.user.mestre === "tutor"){ %>
 
 <!-- Split button -->
             <div class="btn-group">
@@ -103,8 +100,8 @@
               </button>
               <ul class="dropdown-menu">
                 <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
-                <li><a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=nomAlumne%>" data-id="<%=idAlumne%>" data-today="<%=today%>" data-target="#assistModal">Assistència</a></li>
-                <li><a data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=idAlumne%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
+                <li><a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today%>" data-target="#assistModal">Assistència</a></li>
+                <li><a data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
 
 
 <!--            <li><a href="#">Entrevistes pares</a></li>

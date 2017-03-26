@@ -1,5 +1,3 @@
-<script src="/javascripts/global.js"></script>
-
 <div class="container">
   <div class="row">
 
@@ -164,8 +162,8 @@
 
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
-
-      <a type="button" class="btn btn-default open-AddBookDialog" data-toggle="modal" data-nom="<%=nomAlumne%>" data-id="<%=idAlumne%>" href="#assistModal">Imprimir</a>
+<!-- Button -->
+      <a type="button" class="btn btn-default" id = "btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="#assistModal">Imprimir</a>
       </td>
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
