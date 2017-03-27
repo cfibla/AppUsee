@@ -14,8 +14,8 @@
 
 <!--DATEPICKER-->
     <form role="form" method="post" action="/assisData" id="assisData">
-
-    <div class="col-md-3 col-md-offset-6 datep-t" id="data">
+    <div  id="aData" class="col-md-3 col-md-offset-6 datep-t" >
+    <label for="dataAssis">Data </label>
       <div class="input-group date" data-provide="datepicker">
         <input type="text" class="form-control" form="assisData" name= "dataAssis" value ="<%=DataV%>">
         <div class="input-group-addon">
@@ -48,20 +48,15 @@
         <th>Retard matí</th>
         <th>Falta tarda</th>
         <th>Retard tarda</th>
-
       </tr>
     </thead>
-
     <tbody>
-
       <%
-
       //DATA D'AVUI
           var today = new Date();
           var dd = today.getDate();
           var mm = today.getMonth()+1; //January is 0!
           var yyyy = today.getFullYear();
-
           if(dd<10) {
               dd='0'+dd
           } 
@@ -69,7 +64,6 @@
               mm='0'+mm
           } 
           today = dd+'/'+mm+'/'+yyyy;
-
       //RADIOTRUE-FALTA MATI
           function radioTrueFM(){
             var rt='';
@@ -80,7 +74,6 @@
             return rt;
             }
           };
-
       //RADIOTRUE-RETARD MATI
           function radioTrueRM(){
             var rt='';
@@ -91,7 +84,6 @@
             return rt;
             }
       };
-
       //RADIOTRUE-FALTA TARDA
           function radioTrueFT(){
             var rt='';
@@ -102,7 +94,6 @@
             return rt;
             }
           };
-
       //RADIOTRUE-RETARD TARDA
           function radioTrueRT(){
             var rt='';
@@ -113,17 +104,10 @@
             return rt;
             }
           };
-
-
-
       for (var i=0; i < Alumnes.length; i++) {
-
       //ARRAY ASSIST
           var arraylng = Alumnes[i].assist.length;
-
-
           var arraymn = arraylng - 1;
-
           
           
       //FILTRE DATA
@@ -138,28 +122,21 @@
           dataSelec = Alumnes[i].assist.filter(filtreData);
           
           var dataObj = JSON.parse(JSON.stringify(dataSelec));
-
           if (dataObj[0] === undefined){
-
             ddoo ={
                         date: today,
                         mati: null,
                         tarda: null,
                         dataIso: new Date()}
           dataObj = JSON.stringify(ddoo)
-
           }
       %>
-
-
-
       <form role="form" method="post" action="/assistenciaN?_method=put" id="assisForm" name="assis">
       <tr id="tradios">
       <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>
       </td>
       <td>
-
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
 <!-- Button -->
@@ -169,19 +146,13 @@
       <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
       <input type="hidden" form="assisForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
       <input type="hidden" form="assisForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-
-
-
       <td><input id="aMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
       <td><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
       <td><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
       <td><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
-
      </tr>
      </form>
-
      <%}%>
-
     </tbody>
   </table>
           <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
