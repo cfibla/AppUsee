@@ -109,13 +109,45 @@ $(document).ready(function (){
 });
 
 //////////////// DATEPICKER ////////////////////
-
-$('#data .input-group.date')
-  .datepicker()   
+$(document).ready(function (){
+  $('#aData .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+  })
   .on('changeDate', function(){
       $('#assisData').submit();
+  })
 });
 
+$(document).ready(function (){
+  $('#data .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+  });
+
+  $('#dataP .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"
+  });
+});
 /*
 $('.datepicker').datepicker({
     format: {
