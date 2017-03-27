@@ -125,29 +125,6 @@ $(document).ready(function (){
   })
 });
 
-$(document).ready(function (){
-  $('#data .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
-
-  $('#dataP .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"
-  });
-});
 /*
 $('.datepicker').datepicker({
     format: {
