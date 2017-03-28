@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,24 +13,33 @@
     <div class="modal-body" style="padding:40px 50px;">
       <div class="container-fluid">
         <div class="row">
+
+          <div class="col-md-5 clear">
+            <strong>Alumne/a: </strong><span id="nomAl"></span>
+          </div>
+          <div class="form-group col-md-3">
+            <strong>Curs: </strong><span id="cursAl"></span><br><br>
+          </div>
     
           <form role="form" method="post" action="/assistPDF" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_actuacions">
 
-            <div class="form-group col-md-12">
-              <p>Alumne/a:</p>
-              <input type="text" class="form-control" name="nomAl" id="nomAl" value="" disabled="true">
-              <input type="hidden" id="idAl" form="assisDataD" name="alumneId" value ="" >
+            <!--DATEPICKER-->
+            <div class="col-md-3 clear" id="acData">
+              <label for="actuData">Data</label>
+              <div class="input-group date" data-provide="datepicker">
+                <input type="text" id="actuData" class="form-control" form="assisDataD" name= "segActuacions.<%=actuArray%>.date" value ="">
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                  </div>
+              </div><br><br>
             </div>
 
-  <!--DATEPICKER-->
-            <div class="col-md-6 clear" id="data">
-              <div class="input-group date" data-provide="datepicker">
-              <input type="text" id="today1" class="form-control" form="assisDataD" name= "segActuacions.<%=actuArray%>.date" value ="">
-                <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
-                </div>
-              </div>
+            <div class="form-group col-md-12">
+              <label for="actuacionsBody">Actuació</label>
+              <textarea class="form-control" rows="10" id="actuacionsBody" name="segActuacions.<%=actuArray%>.body" form="seg_actuacions"></textarea>
             </div>
+
+
 
 
           </form>
@@ -39,33 +47,8 @@
       </div>
     </div>    
     <div class="modal-footer">
-        <button type="submit" form="seg_actuacions" class="btn btn-success btn-block" id="actuBtn">Dasa</button>
+        <button type="submit" form="seg_actuacions" class="btn btn-success btn-block" id="actuBtn">Desa</button>
     </div>
   </body>
 </html>
-
-<script>
-$(document).ready(function (){
-  $('#data .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
-
-  $('#dataP .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"
-  });
-});
-</script>
+<script src="/javascripts/global.js"></script>

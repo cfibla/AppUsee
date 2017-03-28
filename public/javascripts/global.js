@@ -109,6 +109,8 @@ $(document).ready(function (){
 });
 
 //////////////// DATEPICKER ////////////////////
+
+//assistencia.ejs
 $(document).ready(function (){
   $('#aData .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -125,6 +127,44 @@ $(document).ready(function (){
   })
 });
 
+//assistenciaMODAL
+$(document).ready(function (){
+  $('#data .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+  });
+
+  $('#dataP .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"
+  });
+});
+
+//actuacions MODAL
+$(document).ready(function (){
+  $('#acData .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+  });
+});
 /*
 $('.datepicker').datepicker({
     format: {
@@ -154,39 +194,55 @@ $('.datepicker').datepicker({
 //////////////////// M O D A L S ////////////////////
 
 $(document).ready(function (){
-$('document').on('hidden.bs.modal', function () {
+  $('document').on('hidden.bs.modal', function () {
     $('.modal-body .modal-footer').html("");
 
+  });
 });
+
+//MODAL ACTUACIONS
+$(document).on("click", "#btnActuAfegir", function () {
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var alumneId = $(this).data('id');
+  var today = $(this).data('today');
+
+  $(document).ready(function (){
+    $("#nomAl").text(alumneNom);
+    $("#cursAl").text(alumneCurs);
+    $(".form-group #idAl").val(alumneId);
+    $("#actuData").val(today);
+  });
 });
+
 
 //MODAL ASSISTENCIA
 
-  $(document).on("click", "#btnAssist", function () {
-    var alumneNom = $(this).data('nom');
-    var alumneId = $(this).data('id');
-    var today = $(this).data('today');
+$(document).on("click", "#btnAssist", function () {
+  var alumneNom = $(this).data('nom');
+  var alumneId = $(this).data('id');
+  var today = $(this).data('today');
 
-    $(document).ready(function (){
-      $(".form-group #nomAl").val(alumneNom);
-      $(".form-group #idAl").val(alumneId);
-      $("#today1").val(today);
-      $("#today2").val(today);
-    });
+  $(document).ready(function (){
+    $(".form-group #nomAl").val(alumneNom);
+    $(".form-group #idAl").val(alumneId);
+    $("#today1").val(today);
+    $("#today2").val(today);
   });
+});
 
 
 //MODAL AFEGIR
 
-  $(document).on("click", "#btnAfegir", function () {
-    var escola = $(this).data('escola');
-    var curs = $(this).data('curs');
+$(document).on("click", "#btnAfegir", function () {
+  var escola = $(this).data('escola');
+  var curs = $(this).data('curs');
 
-    $(document).ready(function (){
-     $(".form-group #codiEscola").val(escola);
-     $(".form-group #curs").val(curs);
-    });
+  $(document).ready(function (){
+   $(".form-group #codiEscola").val(escola);
+   $(".form-group #curs").val(curs);
   });
+});
 
 
 //MODAL DELETE
