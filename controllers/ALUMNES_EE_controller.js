@@ -145,15 +145,14 @@ exports.actuaGet = function (req, res) {
 
 //SEGUIMENT POST
 exports.actuaPost = function (req, res) {
+	var alumneId = req.params.id;
+	var alum = req.body;
 
-		var alumneId = req.params.id;
-		var alum = req.body;
+	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 
-		models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
-
-		function (error, alumne){
+	function (error, alumne){
 		if (error) res.json(error);
-		res.redirect('/list_EE');
+		res.render('seg_act_EE', {alumne: alumne});
 	});
 
 }

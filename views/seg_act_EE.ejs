@@ -88,7 +88,16 @@
                     <%=alumne.segActuacions[i].body.substring(0,80) + "..."%>
                   </td>
                   <td>
-                    <a type="button" class="btn btn-default btn-block" id = "btnActuMod" data-toggle="modal" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>"  data-today="<%=today%>" data-target="#actuModal">Veure</a>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Veure <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a id = "btnActuMod" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>"  data-today="<%=today%>" data-target="#actuEditModal">Modificar</a></li>
+                      <li><a href="#">Imprimir</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">Eliminar</a></li>
+                    </ul>
+                    </div>
                   </td>
                 </tr>
                 <% } %>
@@ -97,7 +106,7 @@
             <div class = "row">
             <%var actuArray = alumne.segActuacions.length;%>
               <div class = "col-md-2 clear">
-                <a data-toggle="modal" class = "btn btn-default" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-target="#actuModal"><strong>+ </strong>Nova actuació</a>
+                <a data-toggle="modal" class = "btn btn-default" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><strong>+ </strong>Nova actuació</a>
               </div>
             </div>
           </div>
@@ -117,7 +126,6 @@
                 </div>
                   <div id="collapse1" class="panel-collapse collapse">
                     <div class="panel-body">
-
                       <div class="row">
           <!--Actuacions anteriors-->
                         <div class="panel-group" id="accordion">
@@ -197,22 +205,13 @@
                                   </div>
 
                                   
-
-
                                   <div class="form-group col-md-1" style="text-align:right;">
-
                                   <!--  <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>/actDel/<%=i%>?_method=put" id="past_actuacions">   -->                
                                     <button type="submit" form="past_actuacions" formaction="/seg_act_upd_EE/<%=alumne._id%>/actDel/<%=i%>?_method=delete" class="btn btn-danger btn-xs">Esborra</button>
 
                                     
                                     </div>
                                     </form>
-
-                                  
-
-
-
-                                 
              
                                 <% } %>
                                   
@@ -221,19 +220,7 @@
                             </div>
                           </div>
                         </div>
-                      <!--Nova actuació-->
-                        <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_actuacions">
 
-                            <!--var Quantes actuacions hi ha ara?-->
-                            <%
-                            var actuArray = alumne.segActuacions.length;
-                            %>
-                          <div class="form-group col-md-2 dataSeguiment">
-                            <input type="text" class="form-control" id="actuacionsDate" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
-                          </div>
-                          <div class="form-group col-md-12">
-                            <textarea class="form-control" rows="6" id="actuacionsBody" name="segActuacions.<%=actuArray%>.body" form="seg_actuacions"></textarea><br /><br />
-                          </div>
 
                       <!-- Botons -->
 
@@ -384,4 +371,3 @@
       </div>
     </div>
 </div>
-<% console.log (alumne.segActuacions)%>

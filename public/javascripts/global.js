@@ -205,12 +205,15 @@ $(document).on("click", "#btnActuAfegir", function () {
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
+  var actuNum = $(this).data('actunum')
   var today = $(this).data('today');
 
   $(document).ready(function (){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
-    $(".form-group #idAl").val(alumneId);
+    $("#seg_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "?_method=put");
+    $("#actuData").attr("name", "segActuacions." + actuNum + ".date");
+    $("#actuBody").attr("name", "segActuacions." + actuNum + ".body");
     $("#actuData").val(today);
   });
 });
