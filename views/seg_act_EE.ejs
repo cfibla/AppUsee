@@ -89,13 +89,16 @@
                   </td>
                   <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Veure <span class="caret"></span>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a id = "btnActuMod" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>"  data-today="<%=today%>" data-target="#actuEditModal">Modificar</a></li>
+                      <li><a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd">Modificar</a></li>
+
                       <li><a href="#">Imprimir</a></li>
+
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Eliminar</a></li>
+
+                      <li><a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel">Eliminar</a></li>
                     </ul>
                     </div>
                   </td>
@@ -128,7 +131,7 @@
                     <div class="panel-body">
                       <div class="row">
           <!--Actuacions anteriors-->
-                        <div class="panel-group" id="accordion">
+<!--                        <div class="panel-group" id="accordion">
                           <div class="col-md-12">
                             <div class="panel panel-default">
                               <div class="panel-heading">
@@ -141,7 +144,7 @@
 
                             <br />
             <!--Actuacions VEURE-->
-                              <div id="veureAct" class="panel-collapse collapse">
+<!--                              <div id="veureAct" class="panel-collapse collapse">
                                 <div class="panel-body">
 
                                 
@@ -173,7 +176,7 @@
                                 </div>
                               </div>
             <!--Actuacions MODIFICA-->
-                            <div id="modAct" class="panel-collapse collapse">
+<!--                            <div id="modAct" class="panel-collapse collapse">
                               <div class="panel-body">
                                 <div class="row"> 
                               
@@ -207,7 +210,7 @@
                                   
                                   <div class="form-group col-md-1" style="text-align:right;">
                                   <!--  <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>/actDel/<%=i%>?_method=put" id="past_actuacions">   -->                
-                                    <button type="submit" form="past_actuacions" formaction="/seg_act_upd_EE/<%=alumne._id%>/actDel/<%=i%>?_method=delete" class="btn btn-danger btn-xs">Esborra</button>
+<!--                                    <button type="submit" form="past_actuacions" formaction="/seg_act_upd_EE/<%=alumne._id%>/actDel/<%=i%>?_method=delete" class="btn btn-danger btn-xs">Esborra</button>
 
                                     
                                     </div>
@@ -362,9 +365,25 @@
             </div>
           </div>
         </div>
-<!-- MODAL ACTUACIONS -->
-
+<!-- MODALS ACTUACIONS -->
+<!--CREATE-->
 <div class="modal fade" id="actuModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--UPDATE-->
+<div class="modal fade" id="actuModalUpd" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--DELETE-->
+<div class="modal fade" id="actuModalDel" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content">

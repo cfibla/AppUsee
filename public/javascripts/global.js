@@ -199,8 +199,8 @@ $(document).ready(function (){
 
   });
 });
-
-//MODAL ACTUACIONS
+//MODALS ACTUACIONS
+//MODAL ACTUACIO NEW
 $(document).on("click", "#btnActuAfegir", function () {
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
@@ -216,6 +216,50 @@ $(document).on("click", "#btnActuAfegir", function () {
     $("#actuBody").attr("name", "segActuacions." + actuNum + ".body");
     $("#actuData").val(today);
   });
+});
+
+//MODAL ACTUACIO UPD
+$(document).on("click", "#btnActuUpd", function () {
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var alumneId = $(this).data('id');
+  var i = $(this).data('i')
+  var dta = $(this).data('dta');
+  var body = $(this).data('body');
+
+  $(document).ready(function (){
+    $("#nomAlUpd").text(alumneNom);
+    $("#cursAlUpd").text(alumneCurs);
+    $("#upd_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put");
+    $("#actuDataUpd").attr("name", "segActuacions." + i + ".date");
+    $("#actuBodyUpd").attr("name", "segActuacions." + i + ".body");
+    $("#actuDataUpd").val(dta);
+    $("#actuBodyUpd").val(body);
+  });
+});
+
+//MODAL ACTUACIO DELETE
+$(document).on("click", "#btnActuDel", function () {
+  var alumneId = $(this).data('id');
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var i = $(this).data('i');
+  var dta = $(this).data('dta');
+  var body = $(this).data('body');
+
+  $(document).ready(function (){
+    $("#nomAlDel").text(alumneNom);
+    $("#cursAlDel").text(alumneCurs);
+    $("#actuDataDel").text(dta);
+    $("#actuBodyDel").text(body); 
+    $("#actuDel").attr("href", "/seg_act_upd_EE/" + alumneId + "/actDel/" + i + "?_method=delete"); 
+  });
+});
+    $('#actuModalDel').on('hidden.bs.modal', function () {
+    $.ajax({
+      type: "GET",
+      url:"/seg_act_upd_EE/" + alumneId
+});
 });
 
 

@@ -159,42 +159,36 @@ exports.actuaPost = function (req, res) {
 
 //SEG_ACTUACIONS UPDATE
 exports.actuaUpdate = function (req, res) {
+	var alumneId = req.params.id;
+	var alumneI = req.params.i;
+	var alum = req.body;
 
-		var alumneId = req.params.id;
-		var alumneI = req.params.i;
-		var alum = req.body;
+	models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
 
-		models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
-
-		function (error, alumne){
+	function (error, alumne){
 		if (error) res.json(error);
-		res.redirect('/list_EE');
+		res.render('seg_act_EE', {alumne: alumne});
 	});
 
 }
 
 //SEG_ACTUACIONS DELETE
-	exports.actuaDelete = function (req, res) {
-		var alumneId = req.params.id;
-		var alumneI = req.params.i;
+exports.actuaDelete = function (req, res) {
+	var alumneId = req.params.id;
+	var alumneI = req.params.i;
 
-		models.Alumne.findOne({_id: alumneId}, function (error, alumne){
-			if (error) res.json(error);
-			alumne.segActuacions.splice(alumneI,1);
-			alumne.save(function(error){
-				if (error) {res.json(error);
-			} else{
-				res.render('seg_act_EE', {alumne: alumne});
-			};
-			});
-
+	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
+		if (error) res.json(error);
+		alumne.segActuacions.splice(alumneI,1);
+		alumne.save(function(error){
+			if (error) {res.json(error);
+		} else{
+			res.redirect('seg_act_EE', {alumne: alumne});
+		};
 		});
-	};
 
-
-
-
-
+	});
+};
 
 //Suprimir alumne - VIEW
 exports.suprV = function (req, res) {
