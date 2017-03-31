@@ -243,16 +243,16 @@ $(document).on("click", "#btnActuDel", function () {
   var alumneId = $(this).data('id');
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
-  var i = $(this).data('i');
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
+  var alumneI = $(this).data('i');
+  var alumneDta = $(this).data('dta');
+  var alumneBody = $(this).data('body');
 
   $(document).ready(function (){
     $("#nomAlDel").text(alumneNom);
     $("#cursAlDel").text(alumneCurs);
-    $("#actuDataDel").text(dta);
-    $("#actuBodyDel").text(body); 
-    $("#actuDel").attr("href", "/seg_act_upd_EE/" + alumneId + "/actDel/" + i + "?_method=delete"); 
+    $("#actuDataDel").text(alumneDta);
+    $("#actuBodyDel").text(alumneBody); 
+    $("#del_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/actDel/" + alumneI + "?_method=put"); 
   });
 });
     $('#actuModalDel').on('hidden.bs.modal', function () {

@@ -50,7 +50,7 @@ router.put('/dades_update_EE/:id',	sessionController.loginRequired, alumEeContro
 router.get('/seg_act_EE/:id',		sessionController.loginRequired, alumEeController.actuaGet);
 router.put('/seg_act_upd_EE/:id',	sessionController.loginRequired, alumEeController.actuaPost);
 router.put('/seg_act_upd_EE/:id/act/:i',	sessionController.loginRequired, alumEeController.actuaUpdate);
-router.delete('/seg_act_upd_EE/:id/actDel/:i',	sessionController.loginRequired, alumEeController.actuaDelete);
+router.put('/seg_act_upd_EE/:id/actDel/:i',	sessionController.loginRequired, alumEeController.actuaDelete);
 
 
 //rutas PDF

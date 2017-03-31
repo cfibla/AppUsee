@@ -183,7 +183,7 @@ exports.actuaDelete = function (req, res) {
 		alumne.save(function(error){
 			if (error) {res.json(error);
 		} else{
-			res.redirect('seg_act_EE', {alumne: alumne});
+			res.render('seg_act_EE', {alumne: alumne});
 		};
 		});
 

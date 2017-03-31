@@ -4,6 +4,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Eliminar Actuacions</title>
+    <script src="/javascripts/global.js"></script>
   </head>
 
   <body>
@@ -20,13 +21,19 @@
           <div class="form-group col-md-3">
             <strong>Curs: </strong><span id="cursAlDel"></span><br><br>
           </div>
-      <p>Voleu esborrar aquesta actuació?</p>
-      <p id="actuDataDel"></p>
-      <p id="actuBodyDel"></p>
+          <form role="form" method="post" action="" id="del_actuacions">
+            <div>
+              <p>Voleu esborrar aquesta actuació?</p>
+              <p id="actuDataDel"></p>
+              <p id="actuBodyDel"></p>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
       <a class="btn btn-default btn-sm" role="button" data-dismiss="modal">Cancel·la</a>
-      <a id="actuDel" class="btn btn-danger btn-sm" role="button">Elimina</a>
+      <button type="submit" form="del_actuacions" id="actuDel" class="btn btn-danger btn-sm">Elimina actuació</button>
     </div>
   </body>
 </html>
