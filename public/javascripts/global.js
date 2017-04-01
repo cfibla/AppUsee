@@ -230,11 +230,11 @@ $(document).on("click", "#btnActuUpd", function () {
   $(document).ready(function (){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
-    $("#upd_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put");
     $("#actuDataUpd").attr("name", "segActuacions." + i + ".date");
     $("#actuBodyUpd").attr("name", "segActuacions." + i + ".body");
     $("#actuDataUpd").val(dta);
     $("#actuBodyUpd").val(body);
+    $("#upd_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put");
   });
 });
 /*
@@ -260,7 +260,7 @@ $(document).on("click", "#btnActuDel", function () {
     $("#cursAlDel").text(alumneCurs);
     $("#actuDataDel").text(alumneDta);
     $("#actuBodyDel").text(alumneBody); 
-    $("#del_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/actDel/" + alumneI + "?_method=put");
+    $("#del_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/actDel/" + alumneI + "?_method=delete");
   });
 });
 
