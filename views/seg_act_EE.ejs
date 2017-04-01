@@ -75,13 +75,19 @@
           </tr>
         </thead>
         <tbody>
-          <%for (i = 0; i < alumne.segActuacions.length; i++) { %>
+          <%for (i = 0; i < alumne.segActuacions.length; i++) { 
+            var punts = "";
+            if (alumne.segActuacions[i].body.length > 80)
+            {punts="..."};
+              %>
+            
           <tr>
             <td>
               <%=alumne.segActuacions[i].date%>
             </td>
             <td>
-              <%=alumne.segActuacions[i].body.substring(0,80) + "..."%>
+              <a href="#" title="<%=alumne.segActuacions[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segActuacions[i].body.substring(0,80) + punts%></a>
+              
             </td>
             <td>
             <div class="btn-group">

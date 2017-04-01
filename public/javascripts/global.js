@@ -199,7 +199,7 @@ $(document).ready(function (){
 
   });
 });
-//MODALS ACTUACIONS
+///////// MODALS ACTUACIONS ////////////////
 //MODAL ACTUACIO NEW
 $(document).on("click", "#btnActuAfegir", function () {
   var alumneNom = $(this).data('nom');
@@ -237,6 +237,14 @@ $(document).on("click", "#btnActuUpd", function () {
     $("#actuBodyUpd").val(body);
   });
 });
+/*
+  $('#actuModalUpd').on('hidden.bs.modal', function () {
+    $.ajax({
+        type: "GET",
+        url:"/seg_act_EE/" + alumneId;
+    });
+  });*/
+
 
 //MODAL ACTUACIO DELETE
 $(document).on("click", "#btnActuDel", function () {
@@ -252,15 +260,19 @@ $(document).on("click", "#btnActuDel", function () {
     $("#cursAlDel").text(alumneCurs);
     $("#actuDataDel").text(alumneDta);
     $("#actuBodyDel").text(alumneBody); 
-    $("#del_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/actDel/" + alumneI + "?_method=put"); 
+    $("#del_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/actDel/" + alumneI + "?_method=put");
   });
 });
-    $('#actuModalDel').on('hidden.bs.modal', function () {
-    $.ajax({
-      type: "GET",
-      url:"/seg_act_upd_EE/" + alumneId
-});
-});
+
+/*
+$('#actuModalDel').on('hidden.bs.modal', function () {
+  $("#del_actuacions").attr("action", ""); 
+  $.ajax({
+    type: "GET",
+    url:"/seg_act_EE/" + alumneId;
+  });
+});*/
+
 
 
 //MODAL ASSISTENCIA
