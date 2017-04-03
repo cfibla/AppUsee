@@ -234,9 +234,25 @@ $(document).on("click", "#btnActuUpd", function () {
     $("#actuBodyUpd").attr("name", "segActuacions." + i + ".body");
     $("#actuDataUpd").val(dta);
     $("#actuBodyUpd").val(body);
-    $("#upd_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put");
+//    $("#upd_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put");
   });
+  $(function(){
+    $('#seg_actuacions').on('submit', function(e){
+        e.preventDefault();
+        var url = "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put";
+        $.ajax({
+            url: url, //this is the submit URL
+            type: 'POST',
+            data: $('#seg_actuacions').serialize(),
+            success: function(data){
+                 alert('successfully submitted')
+            }
+        });
+    });
 });
+});
+
+
 /*
   $('#actuModalUpd').on('hidden.bs.modal', function () {
     $.ajax({
