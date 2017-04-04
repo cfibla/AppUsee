@@ -32,86 +32,89 @@
       nouAl = "";
       }
       %>
-
-  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<%=ruta%>">AppEscola</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-
-
-<!-- Para activar cambio  de color en el menú = CLASS="active" -->
-     
-        <%  if (session.user){%>
-          <li><a href="<%=ruta%>">Tutoria<span class="sr-only">(current)</span></a></li>
-          <!-- <li><a href="/nouAlumne">Nova entrada</a></li> -->
-        <%  if(session.user.mestre === "tutor"){%>
-            <li><a href="/assistencia">Assistència</a></li>
-
-        <%  }}%>
-        
-      </ul>
-
-<!--      <form class="navbar-form" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Cerca alumnes">
+    <div class="row">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<%=ruta%>">AppEscola</a>
         </div>
-        <button type="submit" class="btn btn-default">Envia</button>
-      </form>-->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
 
-      <%if (session.user){%>
 
-      <%}%>
+    <!-- Para activar cambio  de color en el menú = CLASS="active" -->
+         
+            <%  if (session.user){%>
+              <li><a href="<%=ruta%>">Tutoria<span class="sr-only">(current)</span></a></li>
+              <!-- <li><a href="/nouAlumne">Nova entrada</a></li> -->
+            <%  if(session.user.mestre === "tutor"){%>
+                <li><a href="/assistencia">Assistència</a></li>
 
-      <%if (!session.user){%>
-      <div class="navbar-text navbar-right" style="margin-right: 5px;">
-        <button type="button" class="btn btn-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal" role="button"><span class="glyphicon glyphicon-log-in"></span> Entra </button>
-        <button type="button" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span>Crear un compte nou <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <li><a data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a></li>
-            <li><a data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Tutor/a</a></li>
-            <li><a data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Tutor/a USEE</a></li>
-        </ul>
-      </div>
-      <%} else {%>
-      <div class="navbar-text navbar-right" style="margin-right: 5px;">
-        <button type="button" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span><%=session.user.nom +" "+ session.user.cognom%><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a href="/usuari/<%=session.user._id%>">Veure perfil</a></li>
-            <li><a href="/logout">Sortir</a></li>
+            <%  }}%>
+            
           </ul>
-      </div>
-      <%}%>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 
-<section class ="mainsection">
-  <%- body %>
-</section>
+    <!--      <form class="navbar-form" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Cerca alumnes">
+            </div>
+            <button type="submit" class="btn btn-default">Envia</button>
+          </form>-->
 
-<footer class="footer">
-   <div>Això és el footer</div>
-</footer>
+          <%if (session.user){%>
+
+          <%}%>
+
+          <%if (!session.user){%>
+          <div class="navbar-text navbar-right" style="margin-right: 5px;">
+            <button type="button" class="btn btn-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal" role="button"><span class="glyphicon glyphicon-log-in"></span> Entra </button>
+            <button type="button" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span>Crear un compte nou <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a></li>
+                <li><a data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Tutor/a</a></li>
+                <li><a data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Tutor/a USEE</a></li>
+            </ul>
+          </div>
+          <%} else {%>
+          <div class="navbar-text navbar-right" style="margin-right: 5px;">
+            <button type="button" class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span><%=session.user.nom +" "+ session.user.cognom%><span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="/usuari/<%=session.user._id%>">Veure perfil</a></li>
+                <li><a href="/logout">Sortir</a></li>
+              </ul>
+          </div>
+          <%}%>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <section class ="mainsection">
+      <%- body %>
+    </section>
+
+    <footer class="footer">
+       <div>Això és el footer</div>
+    </footer>
+    </div>
+  </div>
 
  <!-- MODAL NOU TUTOR -->
-<div class="modal fade" id="userModal" role="dialog">
-<div class="modal-dialog">
-  <!-- Modal content-->
-  <div class="modal-content">
+  <div class="modal fade" id="userModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
   </div>
-</div>
-</div>
 
 <!-- MODAL LOGIN-->
   <div class="modal fade" id="loginModal" role="dialog">
@@ -152,6 +155,8 @@
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>
 <!-- Validator -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
 <!-- Fichero externo con JS y jQuery -->
   <script src="/javascripts/global.js"></script>
 </body>

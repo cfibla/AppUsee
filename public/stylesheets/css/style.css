@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    margin: 0 0 65px;
+   margin: 0 0 0px;
 /*    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 /*    font-size: 14px;*/
     /*background: #f8f7f7;*/
@@ -40,7 +40,7 @@ body {
 .footer {
     position: absolute;
     margin-top:100px;
-    bottom: 0em;
+    bottom: 0px;
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 65px;

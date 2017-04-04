@@ -234,33 +234,22 @@ $(document).on("click", "#btnActuUpd", function () {
     $("#actuBodyUpd").attr("name", "segActuacions." + i + ".body");
     $("#actuDataUpd").val(dta);
     $("#actuBodyUpd").val(body);
-//    $("#upd_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put");
-  });
-  $(function(){
-    $('#seg_actuacions').on('submit', function(e){
+
+    $(function(){
+      $('#upd_actuacions').on('submit', function(e){
         e.preventDefault();
-        var url = "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put";
+        var urlPost = "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put";
+        $('#actuModalUpd').modal('toggle');
         $.ajax({
-            url: url, //this is the submit URL
+            url: urlPost, //this is the submit URL
             type: 'POST',
-            data: $('#seg_actuacions').serialize(),
-            success: function(data){
-                 alert('successfully submitted')
-            }
+            data: $('#upd_actuacions').serialize()
         });
+        location.reload();
+      });
     });
+  });
 });
-});
-
-
-/*
-  $('#actuModalUpd').on('hidden.bs.modal', function () {
-    $.ajax({
-        type: "GET",
-        url:"/seg_act_EE/" + alumneId;
-    });
-  });*/
-
 
 //MODAL ACTUACIO DELETE
 $(document).on("click", "#btnActuDel", function () {
@@ -276,23 +265,25 @@ $(document).on("click", "#btnActuDel", function () {
     $("#cursAlDel").text(alumneCurs);
     $("#actuDataDel").text(alumneDta);
     $("#actuBodyDel").text(alumneBody); 
-    $("#del_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "/actDel/" + alumneI + "?_method=delete");
+
+    $(function(){
+      $('#del_actuacions').on('submit', function(e){
+        e.preventDefault();
+        var urlPost = "/seg_act_upd_EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
+        $('#actuModalDel').modal('toggle');
+        $.ajax({
+            url: urlPost, //this is the submit URL
+            type: 'POST',
+            data: $('#del_actuacions').serialize()
+        });
+        location.reload();
+      });
+    });
+
   });
 });
 
-/*
-$('#actuModalDel').on('hidden.bs.modal', function () {
-  $("#del_actuacions").attr("action", ""); 
-  $.ajax({
-    type: "GET",
-    url:"/seg_act_EE/" + alumneId;
-  });
-});*/
-
-
-
 //MODAL ASSISTENCIA
-
 $(document).on("click", "#btnAssist", function () {
   var alumneNom = $(this).data('nom');
   var alumneId = $(this).data('id');
