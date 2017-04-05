@@ -47,10 +47,10 @@ router.get('/nou_alumne_EE', 		sessionController.loginRequired, alumEeController
 router.post('/alumne_nou_EE', 		sessionController.loginRequired, alumEeController.create);
 router.get('/dades_mod_EE/:id', 	sessionController.loginRequired, alumEeController.mod);
 router.put('/dades_update_EE/:id',	sessionController.loginRequired, alumEeController.update);
-router.get('/seg_act_EE/:id',		sessionController.loginRequired, alumEeController.actuaGet);
-router.put('/seg_act_upd_EE/:id',	sessionController.loginRequired, alumEeController.actuaPost);
-router.put('/seg_act_upd_EE/:id/act/:i',	sessionController.loginRequired, alumEeController.actuaUpdate);
-router.put('/seg_act_upd_EE/:id/actDel/:i',	sessionController.loginRequired, alumEeController.actuaDelete);
+router.get('/seguiment-EE/:id',		sessionController.loginRequired, alumEeController.actuaGet);
+router.put('/seguiment-EE/post/:id',	sessionController.loginRequired, alumEeController.actuaPost);
+router.put('/seguiment-EE/:id/act/:i',	sessionController.loginRequired, alumEeController.actuaUpdate);
+router.put('/seguiment-EE/:id/actDel/:i',	sessionController.loginRequired, alumEeController.actuaDelete);
 
 
 //rutas PDF

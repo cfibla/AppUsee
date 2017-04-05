@@ -165,6 +165,20 @@ $(document).ready(function (){
       language: "ca"  
   });
 });
+
+//actuacions MODAL UPD
+$(document).ready(function (){
+  $('#acDataUpd .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+  });
+});
 /*
 $('.datepicker').datepicker({
     format: {
@@ -201,7 +215,7 @@ $(document).ready(function (){
 });
 ///////// MODALS ACTUACIONS ////////////////
 //MODAL ACTUACIO NEW
-$(document).on("click", "#btnActuAfegir", function () {
+jQuery(document).on("click", "#btnActuAfegir", function () {
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
@@ -211,15 +225,28 @@ $(document).on("click", "#btnActuAfegir", function () {
   $(document).ready(function (){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
-    $("#seg_actuacions").attr("action", "/seg_act_upd_EE/" + alumneId + "?_method=put");
     $("#actuData").attr("name", "segActuacions." + actuNum + ".date");
     $("#actuBody").attr("name", "segActuacions." + actuNum + ".body");
     $("#actuData").val(today);
+
+    $(function(){
+      $('#seg_actuacions').on('submit', function(e){
+        e.preventDefault();
+        var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
+        $('#actuModal').modal('toggle');
+        $.ajax({
+            url: urlPost, //this is the submit URL
+            type: 'POST',
+            data: $('#seg_actuacions').serialize()
+        });
+        location.reload();
+      });
+    });
   });
 });
 
 //MODAL ACTUACIO UPD
-$(document).on("click", "#btnActuUpd", function () {
+jQuery(document).on("click", "#btnActuUpd", function () {
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
@@ -238,7 +265,7 @@ $(document).on("click", "#btnActuUpd", function () {
     $(function(){
       $('#upd_actuacions').on('submit', function(e){
         e.preventDefault();
-        var urlPost = "/seg_act_upd_EE/" + alumneId + "/act/" + i + "?_method=put";
+        var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
         $('#actuModalUpd').modal('toggle');
         $.ajax({
             url: urlPost, //this is the submit URL
@@ -252,7 +279,7 @@ $(document).on("click", "#btnActuUpd", function () {
 });
 
 //MODAL ACTUACIO DELETE
-$(document).on("click", "#btnActuDel", function () {
+jQuery(document).on("click", "#btnActuDel", function () {
   var alumneId = $(this).data('id');
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
@@ -269,7 +296,7 @@ $(document).on("click", "#btnActuDel", function () {
     $(function(){
       $('#del_actuacions').on('submit', function(e){
         e.preventDefault();
-        var urlPost = "/seg_act_upd_EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
+        var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
         $('#actuModalDel').modal('toggle');
         $.ajax({
             url: urlPost, //this is the submit URL

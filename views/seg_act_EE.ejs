@@ -60,58 +60,62 @@
           </div>
         </form>
       </div>
+    </div>
 
 
 <!-- ACTUACIONS -->
-      <div class="page-header">
-        <h2>Actuacions</h2>      
-      </div>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th class="col-md-3">Data</th>
-            <th class="col-md-7">Text</th>
-            <th class="col-md-2"> </th>
-          </tr>
-        </thead>
-        <tbody>
-          <%for (i = 0; i < alumne.segActuacions.length; i++) { 
-            var punts = "";
-            if (alumne.segActuacions[i].body.length > 80)
-            {punts="..."};
-              %>
-            
-          <tr>
-            <td>
-              <%=alumne.segActuacions[i].date%>
-            </td>
-            <td>
-              <a href="#" title="<%=alumne.segActuacions[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segActuacions[i].body.substring(0,80) + punts%></a>
+    <div class="container seguiment">
+      <div class="row">
+        <div class="page-header">
+          <h2>Actuacions</h2>      
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="col-md-3">Data</th>
+              <th class="col-md-7">Text</th>
+              <th class="col-md-2"> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <%for (i = 0; i < alumne.segActuacions.length; i++) { 
+              var punts = "";
+              if (alumne.segActuacions[i].body.length > 80)
+              {punts="..."};
+                %>
               
-            </td>
-            <td>
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd">Modificar</a></li>
+            <tr>
+              <td>
+                <%=alumne.segActuacions[i].date%>
+              </td>
+              <td>
+                <a href="#" title="<%=alumne.segActuacions[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segActuacions[i].body.substring(0,80) + punts%></a>
+                
+              </td>
+              <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd">Modificar</a></li>
 
-                <li><a href="#">Imprimir</a></li>
+                  <li><a href="#">Imprimir</a></li>
 
-                <li role="separator" class="divider"></li>
+                  <li role="separator" class="divider"></li>
 
-                <li><a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel">Eliminar</a></li>
-              </ul>
-              </div>
-            </td>
-          </tr>
-          <% } %>
-        </tbody>
-      </table>
-      <div class = "row">
-      <%var actuArray = alumne.segActuacions.length;%>
-        <div class = "col-md-2 clear">
-          <a data-toggle="modal" class = "btn btn-default" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><strong>+ </strong>Nova actuació</a>
+                  <li><a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel">Eliminar</a></li>
+                </ul>
+                </div>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <div class = "row">
+        <%var actuArray = alumne.segActuacions.length;%>
+          <div class = "col-md-2 clear">
+            <a data-toggle="modal" class = "btn btn-default" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><strong>+ </strong>Nova actuació</a>
+          </div>
         </div>
       </div>
     </div>
