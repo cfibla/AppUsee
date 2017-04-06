@@ -23,19 +23,7 @@
                     mm='0'+mm
                     } 
                 dataNa = dd+'/'+mm+'/'+yyyy;
-                  %>
-
-
-
-<!--  INPUT CURS (ANUL·LAT) -->
-<!--            <div class="form-group col-md-10"></div>
-                <div class="form-group col-md-2">
-                  <label for="any_curs">Curs</label>
-                   <input type="text" class="form-control" id="any_curs" placeholder="2015/16">
-                </div>-->
-
-
-                    
+                  %>                   
 
 <!-- --------------------------------------- SEGUIMENT ALUMNE ------------------------------------ -->
 <div class="container">
@@ -119,6 +107,65 @@
         </div>
       </div>
     </div>
+
+
+<!--INFORMACIÓ CAD-->
+    <div class="container seguiment">
+      <div class="row">
+        <div class="page-header">
+          <h2>Informacions CAD</h2>      
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th class="col-md-3">Data</th>
+              <th class="col-md-7">Text</th>
+              <th class="col-md-2"> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <%for (i = 0; i < alumne.segInformacioCAD.length; i++) { 
+              var punts = "";
+              if (alumne.segInformacioCAD[i].body.length > 80)
+              {punts="..."};
+                %>
+              
+            <tr>
+              <td>
+                <%=alumne.segInformacioCAD[i].date%>
+              </td>
+              <td>
+                <a href="#" title="<%=alumne.segInformacioCAD[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segInformacioCAD[i].body.substring(0,80) + punts%></a>
+                
+              </td>
+              <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a id = "btnCadUpd" data-toggle="modal" href="/javascripts/modals/cadEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segInformacioCAD[i].date%>" data-body="<%=alumne.segInformacioCAD[i].body%>" data-target="#cadModalUpd">Modificar</a></li>
+
+                  <li><a href="#">Imprimir</a></li>
+
+                  <li role="separator" class="divider"></li>
+
+                  <li><a id = "btnCadDel" data-toggle="modal" href="/javascripts/modals/cadEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segInformacioCAD[i].date%>" data-body = "<%=alumne.segInformacioCAD[i].body%>" data-target="#cadModalDel">Eliminar</a></li>
+                </ul>
+                </div>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <div class = "row">
+          <div class = "col-md-2 clear">
+            <a data-toggle="modal" class = "btn btn-default" id="btnCadAfegir" role = "button" href="/javascripts/modals/cadEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-actunum = "<%=alumne.segInformacioCAD.length%>" data-target="#cadModal"><strong>+ </strong>Nova informació CAD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
 
@@ -139,7 +186,7 @@
 
                         <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_CAD">
 
-                    <!--var Quantes actuacions hi ha ara?-->
+                    <!--var Quantes cad hi ha ara?-->
                     <%var cadArray = alumne.segInformacioCAD.length;%>
 
 <!--                        <div class="form-group col-md-12">
@@ -265,6 +312,32 @@
 </div>
 <!--DELETE-->
 <div class="modal fade" id="actuModalDel" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+
+<!-- MODALS CAD -->
+<!--CREATE-->
+<div class="modal fade" id="cadModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--UPDATE-->
+<div class="modal fade" id="cadModalUpd" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--DELETE-->
+<div class="modal fade" id="cadModalDel" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content">
