@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Altres coordinacions</title>
+    <script src="/javascripts/global.js"></script>
+  </head>
+  <body>
+    <div class="modal-header" style="padding:35px 50px;">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4>Altres coordinacions</h4>
+    </div>
+    <div class="modal-body" style="padding:40px 50px;">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-md-5 clear">
+            <strong>Alumne/a: </strong><span id="nomAl"></span>
+          </div>
+          <div class="form-group col-md-3">
+            <strong>Curs: </strong><span id="cursAl"></span><br><br>
+          </div>
+    
+          <form role="form" method="post" id="altres_coord">
+
+            <!--DATEPICKER-->
+            <div class="col-md-3 clear" id="altresCoordData">
+              <label for="actuData">Data</label>
+              <div class="input-group date" data-provide="datepicker">
+                <input type="text" id="actuData" class="form-control" form="altres_coord">
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                  </div>
+              </div>
+              <br><br>
+            </div>
+
+            <div class="form-group col-md-12">
+              <label for="actuBody">Actuació</label>
+              <textarea class="form-control" rows="10" id="actuBody" form="altres_coord"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>    
+    <div class="modal-footer">
+        <button type="submit" form="altres_coord" class="btn btn-success btn-block" id="actuBtn">Desa</button>
+    </div>
+  </body>
+</html>

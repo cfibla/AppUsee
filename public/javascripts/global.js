@@ -209,6 +209,35 @@ $(document).ready(function (){
       language: "ca"  
   });
 });
+
+//ALTRES ACTUACIONS MODAL
+$(document).ready(function (){
+  $('#altresCoordData .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+  });
+});
+
+
+//ALTRES ACTUACIONS MODAL UPD
+$(document).ready(function (){
+  $('#altresCoordDataDataUpd .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+  });
+});
 /*
 $('.datepicker').datepicker({
     format: {
@@ -382,7 +411,7 @@ $(document).on("click", "#btnCadUpd", function (e) {
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
-  var i = $(this).data('i')
+  var i = $(this).data('i');
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
@@ -391,7 +420,7 @@ $(document).on("click", "#btnCadUpd", function (e) {
     $("#cursAlUpd").text(alumneCurs);
     $("#cadDataUpd").attr("name", "segInformacioCAD." + i + ".date");
     $("#cadBodyUpd").attr("name", "segInformacioCAD." + i + ".body");
-    $("#cadDataUpd").val(dta);
+    $("#cDataUpd").val(dta);
     $("#cadBodyUpd").val(body);
 
     $(function(){
@@ -411,7 +440,7 @@ $(document).on("click", "#btnCadUpd", function (e) {
 });
 
 //MODAL CAD DELETE
-$(document).on("click", "#btnActuDel", function (e) {
+$(document).on("click", "#btnCadDel", function (e) {
   e.preventDefault()
   var alumneId = $(this).data('id');
   var alumneNom = $(this).data('nom');
@@ -423,18 +452,18 @@ $(document).on("click", "#btnActuDel", function (e) {
   $(document).ready(function (){
     $("#nomAlDel").text(alumneNom);
     $("#cursAlDel").text(alumneCurs);
-    $("#actuDataDel").text(alumneDta);
-    $("#actuBodyDel").text(alumneBody); 
+    $("#cadDataDel").text(alumneDta);
+    $("#cadBodyDel").text(alumneBody); 
 
     $(function(){
-      $('#del_actuacions').on('submit', function(e){
+      $('#del_CAD').on('submit', function(e){
         e.preventDefault();
-        var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
-        $('#actuModalDel').modal('toggle');
+        var urlPost = "/seguiment-EE/" + alumneId + "/cadDel/" + alumneI + "?_method=put";
+        $('#cadModalDel').modal('toggle');
         $.ajax({
             url: urlPost, //this is the submit URL
             type: 'POST',
-            data: $('#del_actuacions').serialize()
+            data: $('#del_CAD').serialize()
         });
         location.reload();
       });
@@ -442,6 +471,107 @@ $(document).on("click", "#btnActuDel", function (e) {
 
   });
 });
+
+///////// MODALS ALTRES COORD ////////////////
+//MODAL ALTRES COORD NEW
+$("#btnaltresCoordAfegir").on("click", function (e) {
+  e.preventDefault()
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var alumneId = $(this).data('id');
+  var actuNum = $(this).data('actunum')
+  var today = $(this).data('today');
+
+  $(document).ready(function (){
+    $("#nomAl").text(alumneNom);
+    $("#cursAl").text(alumneCurs);
+    $("#actuData").attr("name", "segAltresCoord[i]." + actuNum + ".date");
+    $("#actuBody").attr("name", "segAltresCoord[i]." + actuNum + ".body");
+    $("#actuData").val(today);
+
+    $(function(){
+      $('#altres_coord').on('submit', function(e){
+        e.preventDefault();
+        var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
+        $('#altresCoordModal').modal('toggle');
+        $.ajax({
+            url: urlPost, //this is the submit URL
+            type: 'POST',
+            data: $('#altres_coord').serialize()
+        });
+        location.reload();
+      });
+    });
+  });
+});
+
+//MODAL ALTRES COORD UPD
+$(document).on("click", "#btnCadUpd", function (e) {
+  e.preventDefault()
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var alumneId = $(this).data('id');
+  var i = $(this).data('i');
+  var dta = $(this).data('dta');
+  var body = $(this).data('body');
+
+  $(document).ready(function (){
+    $("#nomAlUpd").text(alumneNom);
+    $("#cursAlUpd").text(alumneCurs);
+    $("#cadDataUpd").attr("name", "segAltresCoord[i]." + i + ".date");
+    $("#cadBodyUpd").attr("name", "segAltresCoord[i]." + i + ".body");
+    $("#cDataUpd").val(dta);
+    $("#cadBodyUpd").val(body);
+
+    $(function(){
+      $('#upd_CAD').on('submit', function(e){
+        e.preventDefault();
+        var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
+        $('#cadModalUpd').modal('toggle');
+        $.ajax({
+            url: urlPost, //this is the submit URL
+            type: 'POST',
+            data: $('#upd_CAD').serialize()
+        });
+        location.reload();
+      });
+    });
+  });
+});
+
+//MODAL ALTRES COORD DELETE
+$(document).on("click", "#btnCadDel", function (e) {
+  e.preventDefault()
+  var alumneId = $(this).data('id');
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var alumneI = $(this).data('i');
+  var alumneDta = $(this).data('dta');
+  var alumneBody = $(this).data('body');
+
+  $(document).ready(function (){
+    $("#nomAlDel").text(alumneNom);
+    $("#cursAlDel").text(alumneCurs);
+    $("#cadDataDel").text(alumneDta);
+    $("#cadBodyDel").text(alumneBody); 
+
+    $(function(){
+      $('#del_CAD').on('submit', function(e){
+        e.preventDefault();
+        var urlPost = "/seguiment-EE/" + alumneId + "/cadDel/" + alumneI + "?_method=put";
+        $('#cadModalDel').modal('toggle');
+        $.ajax({
+            url: urlPost, //this is the submit URL
+            type: 'POST',
+            data: $('#del_CAD').serialize()
+        });
+        location.reload();
+      });
+    });
+
+  });
+});
+
 
 //MODAL ASSISTENCIA
 $(document).on("click", "#btnAssist", function () {

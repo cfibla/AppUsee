@@ -190,6 +190,24 @@ exports.actuaDelete = function (req, res) {
 	});
 };
 
+//CAD DELETE
+exports.cadDelete = function (req, res) {
+	var alumneId = req.params.id;
+	var alumneI = req.params.i;
+
+	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
+		if (error) res.json(error);
+		alumne.segInformacioCAD.splice(alumneI,1);
+		alumne.save(function(error){
+			if (error) {res.json(error);
+		} else{
+			res.render('seg_act_EE', {alumne: alumne});
+		};
+		});
+
+	});
+};
+
 //Suprimir alumne - VIEW
 exports.suprV = function (req, res) {
 	var alumneId = req.params.id;
