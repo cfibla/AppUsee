@@ -153,6 +153,11 @@ a:hover{
       background-color: #f9f9f9;
 }
 
+.seguiment {
+    margin-bottom: 50px;
+
+}
+
 .seguiment a{
     color: #333;
     text-decoration: none;

@@ -147,9 +147,7 @@ exports.actuaGet = function (req, res) {
 exports.actuaPost = function (req, res) {
 	var alumneId = req.params.id;
 	var alum = req.body;
-
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
-
 	function (error, alumne){
 		if (error) res.json(error);
 		res.render('seg_act_EE', {alumne: alumne});
@@ -198,6 +196,24 @@ exports.cadDelete = function (req, res) {
 	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
 		if (error) res.json(error);
 		alumne.segInformacioCAD.splice(alumneI,1);
+		alumne.save(function(error){
+			if (error) {res.json(error);
+		} else{
+			res.render('seg_act_EE', {alumne: alumne});
+		};
+		});
+
+	});
+};
+
+//ALTRES COORDINACIONS DELETE
+exports.altresDelete = function (req, res) {
+	var alumneId = req.params.id;
+	var alumneI = req.params.i;
+
+	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
+		if (error) res.json(error);
+		alumne.segAltresCoord.splice(alumneI,1);
 		alumne.save(function(error){
 			if (error) {res.json(error);
 		} else{

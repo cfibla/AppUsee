@@ -52,6 +52,7 @@ router.put('/seguiment-EE/post/:id',	sessionController.loginRequired, alumEeCont
 router.put('/seguiment-EE/:id/act/:i',	sessionController.loginRequired, alumEeController.actuaUpdate);
 router.put('/seguiment-EE/:id/actDel/:i',	sessionController.loginRequired, alumEeController.actuaDelete);
 router.put('/seguiment-EE/:id/cadDel/:i',	sessionController.loginRequired, alumEeController.cadDelete);
+router.put('/seguiment-EE/:id/altresDel/:i',	sessionController.loginRequired, alumEeController.altresDelete);
 
 
 //rutas PDF

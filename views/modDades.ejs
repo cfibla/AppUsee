@@ -533,8 +533,15 @@
       </div>
   <%}%>
 
+   <% 
+   var list = "/list";
+
+   if(session.user.mestre === "ee"){
+    list = "/list_EE"}
+    %> 
+
       <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-        <a href="/list" class="btn btn-default" role="button">Cancel·la</a>
+        <a href="<%=list %>" class="btn btn-default" role="button">Cancel·la</a>
         <button type="submit" class="btn btn-primary">Desa</button>
       </div>
     </form>
