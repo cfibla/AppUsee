@@ -305,6 +305,22 @@ $("#btnActuAfegir").on("click", function (e) {
   });
 });
 
+//MODAL ACTUACIO GET
+$(document).on("click", "#btnActuGet", function (e) {
+  e.preventDefault()
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var dta = $(this).data('dta');
+  var body = $(this).data('body');
+
+  $(document).ready(function (){
+    $("#nomAl").text(alumneNom);
+    $("#cursAl").text(alumneCurs);
+    $("#actuDataGet").text(dta);
+    $("#actuBodyGet").text(body);
+  });
+});
+
 //MODAL ACTUACIO UPD
 $(document).on("click", "#btnActuUpd", function (e) {
   e.preventDefault()
@@ -571,7 +587,24 @@ $(document).on("click", "#btnaltresCoordDel", function (e) {
 
   });
 });
+//////////////////////////////////////////////////
+/// reload al mateix TAB /////////////////////////
+$('#segTabs a').click(function(e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
 
+// store the currently selected tab in the hash value
+$("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+  var id = $(e.target).attr("href").substr(1);
+  window.location.hash = id;
+});
+
+// on load of the page: switch to the currently selected tab
+var hash = window.location.hash;
+$('#segTabs a[href="' + hash + '"]').tab('show');
+
+//////////////////////////////////////////////////
 
 //MODAL ASSISTENCIA
 $(document).on("click", "#btnAssist", function () {
