@@ -275,7 +275,7 @@ $(document).ready(function (){
 ///////// MODALS ACTUACIONS ////////////////
 //MODAL ACTUACIO NEW
 $("#btnActuAfegir").on("click", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
@@ -307,7 +307,7 @@ $("#btnActuAfegir").on("click", function (e) {
 
 //MODAL ACTUACIO GET
 $(document).on("click", "#btnActuGet", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var dta = $(this).data('dta');
@@ -323,7 +323,7 @@ $(document).on("click", "#btnActuGet", function (e) {
 
 //MODAL ACTUACIO UPD
 $(document).on("click", "#btnActuUpd", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
@@ -357,7 +357,7 @@ $(document).on("click", "#btnActuUpd", function (e) {
 
 //MODAL ACTUACIO DELETE
 $(document).on("click", "#btnActuDel", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneId = $(this).data('id');
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
@@ -389,9 +389,24 @@ $(document).on("click", "#btnActuDel", function (e) {
 });
 
 ///////// MODALS CAD ////////////////
+//MODAL CAD GET
+$(document).on("click", "#btnCadGet", function (e) {
+  e.preventDefault();
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var dta = $(this).data('dta');
+  var body = $(this).data('body');
+  $(document).ready(function (){
+    $("#nomAl").text(alumneNom);
+    $("#cursAl").text(alumneCurs);
+    $("#cadDataGet").text(dta);
+    $("#cadBodyGet").text(body);
+  });
+});
+
 //MODAL CAD NEW
 $("#btnCadAfegir").on("click", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
@@ -423,7 +438,7 @@ $("#btnCadAfegir").on("click", function (e) {
 
 //MODAL CAD UPD
 $(document).on("click", "#btnCadUpd", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
@@ -457,7 +472,7 @@ $(document).on("click", "#btnCadUpd", function (e) {
 
 //MODAL CAD DELETE
 $(document).on("click", "#btnCadDel", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneId = $(this).data('id');
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
@@ -489,9 +504,24 @@ $(document).on("click", "#btnCadDel", function (e) {
 });
 
 ///////// MODALS ALTRES COORD ////////////////
+//MODAL ALTRES COORD GET
+$(document).on("click", "#btnAltresCoordGet", function (e) {
+  e.preventDefault();
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var dta = $(this).data('dta');
+  var body = $(this).data('body');
+  $(document).ready(function (){
+    $("#nomAl").text(alumneNom);
+    $("#cursAl").text(alumneCurs);
+    $("#altresDataGet").text(dta);
+    $("#altresBodyGet").text(body);
+  });
+});
+
 //MODAL ALTRES COORD NEW
 $("#btnaltresCoordAfegir").on("click", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
@@ -523,7 +553,7 @@ $("#btnaltresCoordAfegir").on("click", function (e) {
 
 //MODAL ALTRES COORD UPD
 $(document).on("click", "#btnAltresUpd", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
   var alumneId = $(this).data('id');
@@ -557,7 +587,7 @@ $(document).on("click", "#btnAltresUpd", function (e) {
 
 //MODAL ALTRES COORD DELETE
 $(document).on("click", "#btnaltresCoordDel", function (e) {
-  e.preventDefault()
+  e.preventDefault();
   var alumneId = $(this).data('id');
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
