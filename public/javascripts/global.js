@@ -212,7 +212,7 @@ $(document).ready(function (){
 
 //ALTRES ACTUACIONS MODAL
 $(document).ready(function (){
-  $('#altresCoordData .input-group.date').datepicker({
+  $('#altresData .input-group.date').datepicker({
       format: "dd/mm/yyyy",
       setDate: new Date(),
       maxViewMode: 2,
@@ -227,7 +227,7 @@ $(document).ready(function (){
 
 //ALTRES ACTUACIONS MODAL UPD
 $(document).ready(function (){
-  $('#altresCoordDataDataUpd .input-group.date').datepicker({
+  $('#alDataUpd .input-group.date').datepicker({
       format: "dd/mm/yyyy",
       setDate: new Date(),
       maxViewMode: 2,
@@ -449,7 +449,7 @@ $(document).on("click", "#btnCadUpd", function (e) {
   $(document).ready(function (){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
-    $("#cadDataUpd").attr("name", "segInformacioCAD." + i + ".date");
+    $("#cDataUpd").attr("name", "segInformacioCAD." + i + ".date");
     $("#cadBodyUpd").attr("name", "segInformacioCAD." + i + ".body");
     $("#cDataUpd").val(dta);
     $("#cadBodyUpd").val(body);
@@ -564,7 +564,7 @@ $(document).on("click", "#btnAltresUpd", function (e) {
   $(document).ready(function (){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
-    $("#alDataUpd").attr("name", "segAltresCoord." + i + ".date");
+    $("#altresDataUpd").attr("name", "segAltresCoord." + i + ".date");
     $("#altresBodyUpd").attr("name", "segAltresCoord." + i + ".body");
     $("#altresDataUpd").val(dta);
     $("#altresBodyUpd").val(body);

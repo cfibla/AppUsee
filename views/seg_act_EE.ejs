@@ -87,7 +87,7 @@ today = dd+'/'+mm+'/'+yyyy;
                           <ul class="dropdown-menu">
                             <li><a id = "btnActuGet" data-toggle="modal" href="/javascripts/modals/actuacionsEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalGet">Veure</a></li>
 
-                            <li><a href="#">Imprimir</a></li>
+                            <li class="disabled"><a href="#">Imprimir</a></li>
 
                             <% if(session.user.mestre === "ee"){ %>
                             <li><a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd">Modificar</a></li>
@@ -159,7 +159,7 @@ today = dd+'/'+mm+'/'+yyyy;
                           <ul class="dropdown-menu">
                             <li><a id = "btnCadGet" data-toggle="modal" href="/javascripts/modals/cadEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segInformacioCAD[i].date%>" data-body = "<%=alumne.segInformacioCAD[i].body%>" data-target="#cadModalGet">Veure</a></li>
 
-                            <li><a href="#">Imprimir</a></li>
+                            <li class="disabled"><a href="#">Imprimir</a></li>
 
                             <% if(session.user.mestre === "ee"){ %>
                             <li><a id = "btnCadUpd" data-toggle="modal" href="/javascripts/modals/cadEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segInformacioCAD[i].date%>" data-body="<%=alumne.segInformacioCAD[i].body%>" data-target="#cadModalUpd">Modificar</a></li>
@@ -229,7 +229,7 @@ today = dd+'/'+mm+'/'+yyyy;
                           <ul class="dropdown-menu">
                           <li><a id = "btnAltresCoordGet" data-toggle="modal" href="/javascripts/modals/altresCoordEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresModalGet">Veure</a></li>
 
-                            <li><a href="#">Imprimir</a></li>
+                            <li class="disabled"><a href="#">Imprimir</a></li>
 
                             <% if(session.user.mestre === "ee"){ %>
                             <li><a id = "btnAltresUpd" data-toggle="modal" href="/javascripts/modals/altresCoordEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segAltresCoord[i].date%>" data-body="<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalUpd">Modificar</a></li>
