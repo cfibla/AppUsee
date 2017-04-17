@@ -109,7 +109,6 @@ $(document).ready(function (){
 });
 
 //////////////// DATEPICKER ////////////////////
-
 //assistencia.ejs
 $(document).ready(function (){
   $('#aData .input-group.date').datepicker({
@@ -265,7 +264,6 @@ $('.datepicker').datepicker({
 
 
 //////////////////// M O D A L S ////////////////////
-
 $(document).ready(function (){
   $('document').on('hidden.bs.modal', function () {
     $('.modal-body .modal-footer').html("");
@@ -281,6 +279,7 @@ $("#btnActuAfegir").on("click", function (e) {
   var alumneId = $(this).data('id');
   var actuNum = $(this).data('actunum')
   var today = $(this).data('today');
+  var kk = false;
 
   $(document).ready(function (){
     $("#nomAl").text(alumneNom);
