@@ -110,8 +110,11 @@ $(document).ready(function (){
 
 //////////////// DATEPICKER ////////////////////
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
+=======
+>>>>>>> seguiment
 //assistencia.ejs
 >>>>>>> seguiment
 $(document).ready(function (){
@@ -271,7 +274,6 @@ $('.datepicker').datepicker({
 
 
 //////////////////// M O D A L S ////////////////////
-
 $(document).ready(function (){
   $('document').on('hidden.bs.modal', function () {
     $('.modal-body .modal-footer').html("");
@@ -287,6 +289,7 @@ $("#btnActuAfegir").on("click", function (e) {
   var alumneId = $(this).data('id');
   var actuNum = $(this).data('actunum')
   var today = $(this).data('today');
+  var kk = false;
 
   $(document).ready(function (){
     $("#nomAl").text(alumneNom);
