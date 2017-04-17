@@ -109,14 +109,7 @@ $(document).ready(function (){
 });
 
 //////////////// DATEPICKER ////////////////////
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-=======
->>>>>>> seguiment
 //assistencia.ejs
->>>>>>> seguiment
 $(document).ready(function (){
   $('#aData .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -131,8 +124,6 @@ $(document).ready(function (){
   .on('changeDate', function(){
       $('#assisData').submit();
   })
-<<<<<<< HEAD
-=======
 });
 
 //assistenciaMODAL
@@ -230,7 +221,6 @@ $(document).ready(function (){
       todayHighlight: true,
       language: "ca"  
   });
->>>>>>> seguiment
 });
 
 
