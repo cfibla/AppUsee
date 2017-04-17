@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Modificar informació CAD</title>
+    <script src="/javascripts/global.js"></script>
+  </head>
+  <body>
+    <div class="modal-header" style="padding:35px 50px;">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      Modificar informació CAD
+    </div>
+    <div class="modal-body" style="padding:40px 50px;">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-md-5 clear">
+            <strong>Alumne/a: </strong><span id="nomAlUpd"></span>
+          </div>
+          <div class="form-group col-md-3">
+            <strong>Curs: </strong><span id="cursAlUpd"></span><br><br>
+          </div>
+          
+          <form role="form" method="post" id="upd_CAD">
+
+            <!--DATEPICKER-->
+            <div class="col-md-3 clear" id="cadDataUpd">
+              <label for="cDataUpd">Data</label>
+              <div class="input-group date" data-provide="datepicker">
+                <input type="text" id="cDataUpd" class="form-control" form="upd_CAD">
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                  </div>
+              </div>
+              <br><br>
+            </div>
+
+            <!-- BODY -->
+            <div class="form-group col-md-12">
+              <label for="cadBodyUpd">Informació CAD</label>
+              <textarea class="form-control" rows="10" id="cadBodyUpd" form="upd_CAD"></textarea>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>    
+    <div class="modal-footer">
+        <button type="submit" form="upd_CAD" class="btn btn-success btn-block" id="cadBtn">Actualitza</button>
+    </div>
+  </body>
+</html>

@@ -1,354 +1,368 @@
 <!--FUNCION TODAY-->
-                <%var today = new Date();
-                  var dd = today.getDate();
-                  var mm = today.getMonth()+1; //January is 0!
-                  var yyyy = today.getFullYear();
-                  if(dd<10) {
-                    dd='0'+dd
-                    } 
-                  if(mm<10) {
-                    mm='0'+mm
-                    } 
-                  today = dd+'/'+mm+'/'+yyyy;
-                  %>
-<!--DATA NAIXEMENT-->
-                <%var dataNa = alumne.dataNaixement;
-                var dd = dataNa.getDate();
-                var mm = dataNa.getMonth()+1; //January is 0!
-                var yyyy = dataNa.getFullYear();
-                if(dd<10) {
-                    dd='0'+dd
-                    } 
-                if(mm<10) {
-                    mm='0'+mm
-                    } 
-                dataNa = dd+'/'+mm+'/'+yyyy;
-                  %>
-
-
-
-<!--  INPUT CURS (ANUL·LAT) -->
-<!--            <div class="form-group col-md-10"></div>
-                <div class="form-group col-md-2">
-                  <label for="any_curs">Curs</label>
-                   <input type="text" class="form-control" id="any_curs" placeholder="2015/16">
-                </div>-->
-
-
-                    
-
+<%var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+if(dd<10) {
+  dd='0'+dd
+  } 
+if(mm<10) {
+  mm='0'+mm
+  } 
+today = dd+'/'+mm+'/'+yyyy;
+%>
 <!-- --------------------------------------- SEGUIMENT ALUMNE ------------------------------------ -->
+<div class="container">
+  <div class="row">
+
+<!--DADES ALUMNE-->
+    <div class="col-md-2">
+      <div class="page-t">SEGUIMENT
+        <div class="curs-t">ALUMNES
+        </div>
+      </div>
+    </div>
     <div class="container">
-      <div class="row">
+      <div class="row seg-title">
+        <div class="col-md-4 text-muted clear">
+          <h4><strong>Nom: </strong><%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%></h4>
+        </div>
+        <div class="col-md-2 text-muted">
+          <h4><strong>Curs: </strong><%=alumne.curs%></h4>
+        </div>
+        <div class="col-md-5 text-muted">
+          <h4><strong>Escola: </strong><%=alumne.codiEscola%></h4>
+        </div>
+      </div>
+    </div>
 
-            <!--DADES ALUMNE-->
-              <div class="container">
-                <div class="row">
-                  <form role="form">
-                    <div class="form-group">
-                      <div class="col-md-2">
-                        <h4>Seguiment alumne</h4>
-                      </div>
+<!-- TABS --> 
+    <div class="container">   
+      <ul class="nav nav-tabs nav-justified seguiment" id="segTabs">
+        <li id="actuTab" class="active"><a data-toggle="tab" href="#actuacions">ACTUACIONS</a></li>
+        <li id="cadTab"><a data-toggle="tab" href="#informacions">INFORMACIONS CAD</a></li>
+        <li id="altresTab"><a data-toggle="tab" href="#coordinacions">ALTRES COORDINACIONS</a></li>
+      </ul>
+    </div>
 
-                      <div class="col-md-10 alturaBox">
-                        <hr>
-                      </div>
+    <div class="container"> 
+      <div class="tab-content">
 
-                        <div class="form-group col-md-4  alturaBox">
-                        <label for="nom_alumne">Nom</label>
-                        <input type="text" class="form-control" id="nom_alumne"
-                               placeholder="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" disabled>
+<!-- ACTUACIONS -->
+        <div class="container seguiment tab-pane fade in active" id="actuacions">
+          <div class="row">
+            <div class="container tbl">
+              <div class="row">
+              <%  if (alumne.segActuacions.length === 0) { %>
+                <p><br />
+                  Encara heu registrat cap actuació
+                </p>
+              <% } else {%> 
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th class="col-md-3">Data</th>
+                      <th class="col-md-7">Text</th>
+                      <th class="col-md-2"> </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%for (i = 0; i < alumne.segActuacions.length; i++) { 
+                      var punts = "";
+                      if (alumne.segActuacions[i].body.length > 80)
+                      {punts="..."};
+                    %>  
+                    <tr>
+                      <td>
+                        <%=alumne.segActuacions[i].date%>
+                      </td>
+                      <td>
+                        <a href="#" title="<%=alumne.segActuacions[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segActuacions[i].body.substring(0,80) + punts%></a>
+                        
+                      </td>
+                      <td>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a id = "btnActuGet" data-toggle="modal" href="/javascripts/modals/actuacionsEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalGet">Veure</a></li>
+
+                            <li class="disabled"><a href="#">Imprimir</a></li>
+
+                            <% if(session.user.mestre === "ee"){ %>
+                            <li><a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd">Modificar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel">Eliminar</a></li>
+                            <% } %>
+                          </ul>
                         </div>
-
-                    </div>
-                  </form>
-                </div>
-
-
-
-
-<!--ACTUACIONS-->
-            <div class="panel-group" id="accordionBig">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordionBig" href="#collapse1">
-                    ACTUACIONS</a>
-                  </h4>
-                </div>
-                  <div id="collapse1" class="panel-collapse collapse">
-                    <div class="panel-body">
-
-                      <div class="row">
-
-
-          <!--Actuacions anteriors-->
-                        <div class="panel-group" id="accordion">
-                          <div class="col-md-12">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                <h4 class="panel-title">
-                                  <a data-toggle="collapse" data-parent="#accordion" href="#veureAct">Actuacions anteriors</a>
-                                </h4>
-
-                              </div>
-                            </div>
-
-                            <br />
-
-
-
-            <!--Actuacions VEURE-->
-                              <div id="veureAct" class="panel-collapse collapse">
-                                <div class="panel-body">
-
-                                
-                                  <div class="row">                              
-                                
-
-                                    <%for (i = 0; i < alumne.segActuacions.length; i++) { %>
-                                  
-                                      <div class="form-group col-md-2 actuPast" id="actuacions">
-
-                                        <input type="text" class="form-control" form="past_actuacions" id="pActuacionsDate" value="<%=alumne.segActuacions[i].date%>" name="segActuacions.<%=i%>.date" disabled>
-
-                                      </div>
-
-                                      <div class="form-group col-md-12">
-                                        <textarea class="form-control" rows="6" id="pActuacionsBody" name="segActuacions.<%=i%>.body" form="past_actuacions" disabled><%=alumne.segActuacions[i].body%></textarea>
-
-                                        <br />
-
-                                      </div>
-
-               
-                                    <% } %>
-
-                                  </div>
-                                    <div class="pull-right">
-                                      <a data-toggle="collapse" data-parent="#accordion" href="#modAct" class="btn btn-default btn-sm">Modifica</a>
-                                    </div>
-                                </div>
-                              </div>
-
-
-
-            <!--Actuacions MODIFICA-->
-                            <div id="modAct" class="panel-collapse collapse">
-                              <div class="panel-body">
-                                <div class="row"> 
-                              
-
-                                  <%for (i = 0; i < alumne.segActuacions.length; i++) { %>
-                                  
-
-                                  <div class="form-group col-md-2 actuPast" id="actuacions">
-                                  
-
-                                    <input type="text" class="form-control" form="past_actuacions" id="pActuacionsDate" value="<%=alumne.segActuacions[i].date%>" name="segActuacions.<%=i%>.date">
-
-                                  </div>
-
-                                  <div class="form-group col-md-12">
-                                    <textarea class="form-control" rows="6" id="pActuacionsBody" name="segActuacions.<%=i%>.body" form="past_actuacions"><%=alumne.segActuacions[i].body%></textarea>
-
-                                    <br />
-
-                                  </div>
-
-                                  <div class="form-group col-md-1 col-md-offset-10 style="text-align:right;">
-
-                                    <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>/act/<%=i%>?_method=put" id="past_actuacions">
-
-                                    <button type="submit" form="past_actuacions" class="btn btn-primary btn-xs">Actualitza</button>
-                                  <!--  </form>-->
-
-                                  </div>
-
-                                  
-
-
-                                  <div class="form-group col-md-1" style="text-align:right;">
-
-                                  <!--  <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>/actDel/<%=i%>?_method=put" id="past_actuacions">   -->                
-                                    <button type="submit" form="past_actuacions" formaction="/seg_act_upd_EE/<%=alumne._id%>/actDel/<%=i%>?_method=delete" class="btn btn-danger btn-xs">Esborra</button>
-
-                                    
-                                    </div>
-                                    </form>
-
-                                  
-
-
-
-                                 
-             
-                                <% } %>
-                                  
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-
-                         
-
-
-                      <!--Nova actuació-->
-
-                        <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_actuacions">
-
-                            <!--var Quantes actuacions hi ha ara?-->
-                            <%
-                            var actuArray = alumne.segActuacions.length;
-                            %>
-
-                      
-                          <div class="form-group col-md-2 dataSeguiment">
-                            <input type="text" class="form-control" id="actuacionsDate" value="<%=today%>" name="segActuacions.<%=actuArray%>.date">
-                          </div>
-                          <div class="form-group col-md-12">
-                            <textarea class="form-control" rows="6" id="actuacionsBody" name="segActuacions.<%=actuArray%>.body" form="seg_actuacions"></textarea><br /><br />
-                          </div>
-
-                      <!-- Botons -->
-
-                          <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                            <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
-                            <button type="submit" class="btn btn-primary">Desa</button>
-                          </div>
-
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-               </div>
-            </div>
-
-
-
-
-<!--INFORMACIÓ CAD-->
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordionBig" href="#collapse2">
-                    INFORMACIÓ CAD</a>
-                  </h4>
-                </div>
-                  <div id="collapse2" class="panel-collapse collapse">
-                    <div class="panel-body">
-
-
-                    <div class="row">
-
-                        <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="seg_CAD">
-
-                    <!--var Quantes actuacions hi ha ara?-->
-                    <%var cadArray = alumne.segInformacioCAD.length;%>
-
-<!--                        <div class="form-group col-md-12">
-                        <label for="infoCAD"></label><br>
-                        </div> -->
-
-
-                    <!--infoCAD anteriors-->
-                    <div class="form-group col-md-12 actuPast" id="infoCAD">
-
-                      <%for (i = 0; i < alumne.segInformacioCAD.length; i++) { %>
-
-                        <%=alumne.segInformacioCAD[i].date%><br />
-                        <%=alumne.segInformacioCAD[i].body%><br /><br />
-   
-                      <% } %>
-
-                    </div>
-
-
-                    <!--Nova informació CAD-->
-                        <div class="form-group col-md-2 dataSeguiment">
-                        <input type="text" class="form-control" id="infoCADDate" value="<%=today%>" name="segInformacioCAD.<%=cadArray%>.date">
-                        </div>
-                        <div class="form-group col-md-12">
-                        <textarea class="form-control" rows="6" id="infoCADBody" name="segInformacioCAD.<%=cadArray%>.body" form="seg_CAD"></textarea><br /><br />
-                        </div>
-
-                      <!-- Botons -->
-
-                        <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                        <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
-                        <button type="submit" class="btn btn-primary">Desa</button>
-                        </div>
-
-                      </form>
-                    </div>
-                  </div>
-                </div>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
               </div>
-
-
-
-
-<!--ALTRES COORD - AMB TUTORS-->
-
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordionBig" href="#collapse3">
-                    ALTRES COORDINACIONS - COORDINACIONS AMB TUTORS</a>
-                  </h4>
-                </div>
-                  <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body">
-
-
-                    <div class="row">
-
-                        <form role="form" method="post" action="/seg_act_upd_EE/<%=alumne._id%>?_method=put" id="altres_coord">                   
-
-                    <!--var Quantes actuacions hi ha ara?-->
-                    <%var altresArray = alumne.segAltresCoord.length;%>
-
-<!--                        <div class="form-group col-md-12">
-                        <label for="altresCoord"></label><br>
-                        </div> -->
-
-
-                    <!--altresCoord anteriors-->
-                    <div class="form-group col-md-12 actuPast" id="altresCoord">
-
-                      <%for (i = 0; i < alumne.segAltresCoord.length; i++) { %>
-
-                        <%=alumne.segAltresCoord[i].date%><br />
-                        <%=alumne.segAltresCoord[i].body%><br /><br />
-   
-                      <% } %>
-
-                    </div>
-
-
-                    <!--Nova coordinació-->
-                        <div class="form-group col-md-2 dataSeguiment">
-                        <input type="text" class="form-control" id="altresCoordDate" value="<%=today%>" name="segAltresCoord.<%=altresArray%>.date">
-                        </div>
-                        <div class="form-group col-md-12">
-                        <textarea class="form-control" rows="6" id="altresCoordBody" name="segAltresCoord.<%=altresArray%>.body" form="altres_coord"></textarea><br /><br />
-                        </div>
-
-
-                    <!-- Botons -->
-
-                        <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-                        <a href="/list_EE" class="btn btn-default" role="button">Cancel·la</a>
-                        <button type="submit" class="btn btn-primary">Desa</button>
-                        </div>
-
-                      </form>
-                    </div>
-                  </div>
-                </div>
+              <% } %>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+                <% 
+                var li = "/list";
+                if(session.user.mestre === "ee"){
+                  li = "/list_EE"}
+                %> 
+                <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
+                <span class="white"><a data-toggle="modal" class = "btn btn-success white" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><span class="glyphicon glyphicon-plus"></span> Nova actuació</a>
+                </span>
               </div>
             </div>
           </div>
         </div>
+
+<!--INFORMACIÓ CAD-->
+        <div class="container seguiment tab-pane fade" id="informacions">
+          <div class="row">
+            <div class="container tbl">
+              <div class="row">
+              <%  if (alumne.segInformacioCAD.length === 0) { %>
+                <p><br />
+                  Encara heu registrat cap informació CAD
+                </p>
+              <% } else {%> 
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th class="col-md-3">Data</th>
+                      <th class="col-md-7">Text</th>
+                      <th class="col-md-2"> </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%for (i = 0; i < alumne.segInformacioCAD.length; i++) { 
+                      var punts = "";
+                      if (alumne.segInformacioCAD[i].body.length > 80)
+                      {punts="..."};
+                        %>
+                      
+                    <tr>
+                      <td>
+                        <%=alumne.segInformacioCAD[i].date%>
+                      </td>
+                      <td>
+                        <a href="#" title="<%=alumne.segInformacioCAD[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segInformacioCAD[i].body.substring(0,80) + punts%></a>
+                        
+                      </td>
+                      <td>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a id = "btnCadGet" data-toggle="modal" href="/javascripts/modals/cadEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segInformacioCAD[i].date%>" data-body = "<%=alumne.segInformacioCAD[i].body%>" data-target="#cadModalGet">Veure</a></li>
+
+                            <li class="disabled"><a href="#">Imprimir</a></li>
+
+                            <% if(session.user.mestre === "ee"){ %>
+                            <li><a id = "btnCadUpd" data-toggle="modal" href="/javascripts/modals/cadEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segInformacioCAD[i].date%>" data-body="<%=alumne.segInformacioCAD[i].body%>" data-target="#cadModalUpd">Modificar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id = "btnCadDel" data-toggle="modal" href="/javascripts/modals/cadEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segInformacioCAD[i].date%>" data-body = "<%=alumne.segInformacioCAD[i].body%>" data-target="#cadModalDel">Eliminar</a></li>
+                            <% } %>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+                <% } %>
+              </div>
+            </div>
+          <div class="row">
+            <div class="form-group col-md-4 col-md-offset-8" style="text-align:right;">
+              <% 
+              var li = "/list";
+              if(session.user.mestre === "ee"){
+                li = "/list_EE"}
+              %> 
+              <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
+              <span class="white"><a data-toggle="modal" class = "btn btn-success" id="btnCadAfegir" role = "button" href="/javascripts/modals/cadEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-actunum = "<%=alumne.segInformacioCAD.length%>" data-target="#cadModal"><span class="glyphicon glyphicon-plus"></span> Nova informació CAD</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--ALTRES COORDINACIONS-->
+        <div class="container seguiment tab-pane fade" id="coordinacions">
+          <div class="row">
+            <div class="container tbl">
+              <div class="row">
+              <%  if (alumne.segAltresCoord.length === 0) { %>
+                <p><br />
+                  Encara heu registrat cap coordinació
+                </p>
+              <% } else {%> 
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th class="col-md-3">Data</th>
+                      <th class="col-md-7">Text</th>
+                      <th class="col-md-2"> </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%for (i = 0; i < alumne.segAltresCoord.length; i++) { 
+                      var punts = "";
+                      if (alumne.segAltresCoord[i].body.length > 80)
+                      {punts="..."};
+                    %>  
+                    <tr>
+                      <td>
+                        <%=alumne.segAltresCoord[i].date%>
+                      </td>
+                      <td>
+                        <a href="#" title="<%=alumne.segAltresCoord[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segAltresCoord[i].body.substring(0,80) + punts%></a>
+                        
+                      </td>
+                      <td>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                          <li><a id = "btnAltresCoordGet" data-toggle="modal" href="/javascripts/modals/altresCoordEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresModalGet">Veure</a></li>
+
+                            <li class="disabled"><a href="#">Imprimir</a></li>
+
+                            <% if(session.user.mestre === "ee"){ %>
+                            <li><a id = "btnAltresUpd" data-toggle="modal" href="/javascripts/modals/altresCoordEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segAltresCoord[i].date%>" data-body="<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalUpd">Modificar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id = "btnaltresCoordDel" data-toggle="modal" href="/javascripts/modals/altresCoordEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalDel">Eliminar</a></li>
+                            <% } %>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+                <% } %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4 col-md-offset-8" style="text-align:right;">
+                <% 
+                var li = "/list";
+                if(session.user.mestre === "ee"){
+                  li = "/list_EE"}
+                %> 
+                <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
+                <span class="white"><a data-toggle="modal" class = "btn btn-success" id="btnaltresCoordAfegir" role = "button" href="/javascripts/modals/altresCoordEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-altresnum = "<%=alumne.segAltresCoord.length%>" data-target="#altresCoordModal"><span class="glyphicon glyphicon-plus"></span> Nova coordinació</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS ACTUACIONS -->
+<!--CREATE-->
+<div class="modal fade" id="actuModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--READ-->
+<div class="modal fade" id="actuModalGet" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--UPDATE-->
+<div class="modal fade" id="actuModalUpd" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--DELETE-->
+<div class="modal fade" id="actuModalDel" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+
+<!-- MODALS CAD -->
+<!--CREATE-->
+<div class="modal fade" id="cadModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--READ-->
+<div class="modal fade" id="cadModalGet" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--UPDATE-->
+<div class="modal fade" id="cadModalUpd" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--DELETE-->
+<div class="modal fade" id="cadModalDel" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+
+
+<!-- MODALS ALTRES COORD -->
+<!--CREATE-->
+<div class="modal fade" id="altresCoordModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--READ-->
+<div class="modal fade" id="altresModalGet" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--UPDATE-->
+<div class="modal fade" id="altresCoordModalUpd" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--DELETE-->
+<div class="modal fade" id="altresCoordModalDel" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
