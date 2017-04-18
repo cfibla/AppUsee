@@ -14,7 +14,6 @@ today = dd+'/'+mm+'/'+yyyy;
 <!-- /////////////////////////// SEGUIMENT ALUMNE /////////////////////////////////// -->
 <div class="container">
   <div class="row">
-
 <!--DADES ALUMNE-->
     <div class="col-md-2">
       <div class="page-t">SEGUIMENT
@@ -47,7 +46,6 @@ today = dd+'/'+mm+'/'+yyyy;
 
     <div class="container"> 
       <div class="tab-content">
-
 <!-- ACTUACIONS -->
         <div class="container seguiment tab-pane fade in active" id="actuacions">
           <div class="row">
@@ -57,7 +55,7 @@ today = dd+'/'+mm+'/'+yyyy;
                 <p><br />
                   Encara no heu registrat cap actuació
                 </p>
-              <% } else {%> 
+              <% } else { %> 
                 <table class="table table-hover">
                   <thead>
                     <tr>
@@ -117,7 +115,7 @@ today = dd+'/'+mm+'/'+yyyy;
               </div>
             </div>
           </div>
-        </div>
+        </div></div>
 
 <!--INFORMACIÓ CAD-->
         <div class="container seguiment tab-pane fade" id="informacions">
@@ -142,15 +140,13 @@ today = dd+'/'+mm+'/'+yyyy;
                       var punts = "";
                       if (alumne.segInformacioCAD[i].body.length > 80)
                       {punts="..."};
-                        %>
-                      
+                    %>
                     <tr>
                       <td>
                         <%=alumne.segInformacioCAD[i].date%>
                       </td>
                       <td>
                         <a href="#" title="<%=alumne.segInformacioCAD[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segInformacioCAD[i].body.substring(0,80) + punts%></a>
-                        
                       </td>
                       <td>
                         <div class="btn-group">
