@@ -279,7 +279,6 @@ $("#btnActuAfegir").on("click", function (e) {
   var alumneId = $(this).data('id');
   var actuNum = $(this).data('actunum')
   var today = $(this).data('today');
-  var kk = false;
 
   $(document).ready(function (){
     $("#nomAl").text(alumneNom);
