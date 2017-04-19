@@ -137,6 +137,11 @@ a:hover{
     font-size: 1.5em;
     font-weight: bold;
 }
+.curs-t2{
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
 .datep-t{
     vertical-align: middle;

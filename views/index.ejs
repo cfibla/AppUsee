@@ -33,8 +33,8 @@
 
 <% if(session.user.mestre === "ee"){ %>
   <div class="col-md-2">
-    <div class="page-t">Llista alumnat
-      <div class="curs-t">USEE
+    <div class="page-t">Atenció a la
+      <div class="curs-t2">DIVERSITAT
       </div>
     </div>
   </div>
@@ -100,8 +100,10 @@
               <ul class="dropdown-menu">
                 <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
                 <li><a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today%>" data-target="#assistModal">Assistència</a></li>
-                <li><a href="/seguiment-EE/<%=Alumnes[i].id%>">Seguiment</a></li>
-                
+                <% if(Alumnes[i].eeUsee === true) {%>
+                <li><a href="/seguiment-EE/<%=Alumnes[i].id%>">At. diversitat</a></li>
+                <%}%>
+                <li role="separator" class="divider"></li>
                 <li><a data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
 
 

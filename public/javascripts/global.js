@@ -280,25 +280,23 @@ $("#btnActuAfegir").on("click", function (e) {
   var actuNum = $(this).data('actunum')
   var today = $(this).data('today');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#actuData").attr("name", "segActuacions." + actuNum + ".date");
     $("#actuBody").attr("name", "segActuacions." + actuNum + ".body");
     $("#actuData").val(today);
 
-    $(function(){
-      $('#seg_actuacions').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-        $('#actuModal').modal('toggle');
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#seg_actuacions').serialize()
-        });
-        location.reload();
+    $('#seg_actuacions').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
+      $('#actuModal').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#seg_actuacions').serialize()
       });
+      location.reload();
     });
   });
 });
@@ -311,7 +309,7 @@ $(document).on("click", "#btnActuGet", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#actuDataGet").text(dta);
@@ -329,7 +327,7 @@ $(document).on("click", "#btnActuUpd", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
     $("#actuDataUpd").attr("name", "segActuacions." + i + ".date");
@@ -337,18 +335,16 @@ $(document).on("click", "#btnActuUpd", function (e) {
     $("#actuDataUpd").val(dta);
     $("#actuBodyUpd").val(body);
 
-    $(function(){
-      $('#upd_actuacions').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-        $('#actuModalUpd').modal('toggle');
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#upd_actuacions').serialize()
-        });
-        location.reload();
+    $('#upd_actuacions').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
+      $('#actuModalUpd').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#upd_actuacions').serialize()
       });
+      location.reload();
     });
   });
 });
@@ -363,45 +359,27 @@ $(document).on("click", "#btnActuDel", function (e) {
   var alumneDta = $(this).data('dta');
   var alumneBody = $(this).data('body');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAlDel").text(alumneNom);
     $("#cursAlDel").text(alumneCurs);
     $("#actuDataDel").text(alumneDta);
-    $("#actuBodyDel").text(alumneBody); 
+    $("#actuBodyDel").text(alumneBody);
 
-    $(function(){
-      $('#del_actuacions').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
-        $('#actuModalDel').modal('toggle');
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#del_actuacions').serialize()
-        });
-        location.reload();
+    $('#del_actuacions').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
+      $('#actuModalDel').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#del_actuacions').serialize()
       });
+      location.reload();
     });
-
   });
 });
 
 ///////// MODALS CAD ////////////////
-//MODAL CAD GET
-$(document).on("click", "#btnCadGet", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
-  $(document).ready(function (){
-    $("#nomAl").text(alumneNom);
-    $("#cursAl").text(alumneCurs);
-    $("#cadDataGet").text(dta);
-    $("#cadBodyGet").text(body);
-  });
-});
-
 //MODAL CAD NEW
 $("#btnCadAfegir").on("click", function (e) {
   e.preventDefault();
@@ -411,28 +389,43 @@ $("#btnCadAfegir").on("click", function (e) {
   var actuNum = $(this).data('actunum')
   var today = $(this).data('today');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#actuData").attr("name", "segInformacioCAD." + actuNum + ".date");
     $("#actuBody").attr("name", "segInformacioCAD." + actuNum + ".body");
     $("#actuData").val(today);
 
-    $(function(){
-      $('#info_CAD').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-        $('#cadModal').modal('toggle');
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#info_CAD').serialize()
-        });
-        location.reload();
+    $('#info_CAD').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
+      $('#cadModal').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#info_CAD').serialize()
       });
+      location.reload();
     });
   });
 });
+
+//MODAL CAD GET
+$(document).on("click", "#btnCadGet", function (e) {
+  e.preventDefault();
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var dta = $(this).data('dta');
+  var body = $(this).data('body');
+
+  $(function(){
+    $("#nomAl").text(alumneNom);
+    $("#cursAl").text(alumneCurs);
+    $("#cadDataGet").text(dta);
+    $("#cadBodyGet").text(body);
+  });
+});
+
 
 //MODAL CAD UPD
 $(document).on("click", "#btnCadUpd", function (e) {
@@ -444,7 +437,7 @@ $(document).on("click", "#btnCadUpd", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
     $("#cDataUpd").attr("name", "segInformacioCAD." + i + ".date");
@@ -452,18 +445,16 @@ $(document).on("click", "#btnCadUpd", function (e) {
     $("#cDataUpd").val(dta);
     $("#cadBodyUpd").val(body);
 
-    $(function(){
-      $('#upd_CAD').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-        $('#cadModalUpd').modal('toggle');
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#upd_CAD').serialize()
-        });
-        location.reload();
+    $('#upd_CAD').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
+      $('#cadModalUpd').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#upd_CAD').serialize()
       });
+      location.reload();
     });
   });
 });
@@ -478,45 +469,27 @@ $(document).on("click", "#btnCadDel", function (e) {
   var alumneDta = $(this).data('dta');
   var alumneBody = $(this).data('body');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAlDel").text(alumneNom);
     $("#cursAlDel").text(alumneCurs);
     $("#cadDataDel").text(alumneDta);
-    $("#cadBodyDel").text(alumneBody); 
+    $("#cadBodyDel").text(alumneBody);
 
-    $(function(){
-      $('#del_CAD').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/seguiment-EE/" + alumneId + "/cadDel/" + alumneI + "?_method=put";
-        $('#cadModalDel').modal('toggle');
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#del_CAD').serialize()
-        });
-        location.reload();
+    $('#del_CAD').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/" + alumneId + "/cadDel/" + alumneI + "?_method=put";
+      $('#cadModalDel').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#del_CAD').serialize()
       });
+      location.reload();
     });
-
   });
 });
 
 ///////// MODALS ALTRES COORD ////////////////
-//MODAL ALTRES COORD GET
-$(document).on("click", "#btnAltresCoordGet", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
-  $(document).ready(function (){
-    $("#nomAl").text(alumneNom);
-    $("#cursAl").text(alumneCurs);
-    $("#altresDataGet").text(dta);
-    $("#altresBodyGet").text(body);
-  });
-});
-
 //MODAL ALTRES COORD NEW
 $("#btnaltresCoordAfegir").on("click", function (e) {
   e.preventDefault();
@@ -526,15 +499,14 @@ $("#btnaltresCoordAfegir").on("click", function (e) {
   var altresNum = $(this).data('altresnum')
   var today = $(this).data('today');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#altresData").attr("name", "segAltresCoord." + altresNum + ".date");
     $("#altresBody").attr("name", "segAltresCoord." + altresNum + ".body");
     $("#altresData").val(today);
 
-    $(function(){
-      $('#altres_coord').on('submit', function(e){
+    $('#altres_coord').on('submit', function(e){
         e.preventDefault();
         var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
         $('#altresCoordModal').modal('toggle');
@@ -547,7 +519,22 @@ $("#btnaltresCoordAfegir").on("click", function (e) {
       });
     });
   });
+//MODAL ALTRES COORD GET
+$(document).on("click", "#btnAltresCoordGet", function (e) {
+  e.preventDefault();
+  var alumneNom = $(this).data('nom');
+  var alumneCurs = $(this).data('curs');
+  var dta = $(this).data('dta');
+  var body = $(this).data('body');
+  $(function(){
+    $("#nomAl").text(alumneNom);
+    $("#cursAl").text(alumneCurs);
+    $("#altresDataGet").text(dta);
+    $("#altresBodyGet").text(body);
+  });
 });
+
+
 
 //MODAL ALTRES COORD UPD
 $(document).on("click", "#btnAltresUpd", function (e) {
@@ -559,7 +546,7 @@ $(document).on("click", "#btnAltresUpd", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
     $("#altresDataUpd").attr("name", "segAltresCoord." + i + ".date");
@@ -567,18 +554,16 @@ $(document).on("click", "#btnAltresUpd", function (e) {
     $("#altresDataUpd").val(dta);
     $("#altresBodyUpd").val(body);
 
-    $(function(){
-      $('#upd_altres').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-        $('#altresCoordModalUpd').modal('toggle');
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#upd_altres').serialize()
-        });
-        location.reload();
+    $('#upd_altres').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
+      $('#altresCoordModalUpd').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#upd_altres').serialize()
       });
+      location.reload();
     });
   });
 });
@@ -593,26 +578,23 @@ $(document).on("click", "#btnaltresCoordDel", function (e) {
   var alumneDta = $(this).data('dta');
   var alumneBody = $(this).data('body');
 
-  $(document).ready(function (){
+  $(function(){
     $("#nomAlDel").text(alumneNom);
     $("#cursAlDel").text(alumneCurs);
     $("#altresDataDel").text(alumneDta);
-    $("#altresBodyDel").text(alumneBody); 
+    $("#altresBodyDel").text(alumneBody);
 
-    $(function(){
-      $('#del_altres').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/seguiment-EE/" + alumneId + "/altresDel/" + alumneI + "?_method=put";
-        $('#altresCoordModalDel').modal('toggle');
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#del_altres').serialize()
-        });
-        location.reload();
+    $('#del_altres').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/" + alumneId + "/altresDel/" + alumneI + "?_method=put";
+      $('#altresCoordModalDel').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#del_altres').serialize()
       });
+      location.reload();
     });
-
   });
 });
 //////////////////////////////////////////////////
