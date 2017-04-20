@@ -68,17 +68,24 @@
 
   <table class="table table-hover">
     <thead>
-      <tr>
-        <th>Núm.</th>
-        <th>Nom i cognoms</th>
-        <%if(session.user.mestre === "tutor"){ %> 
+      <tr id="tutoriaRow">
+        <th class="col-md-1">Núm.</th>
+        <th class="col-md-3">Nom i cognoms</th>
+        <th class="col-md-2">Accions</th>
+        <%if(session.user.mestre === "tutor"){ %>
+<!--        <th class="col-md-2">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default btn-sm" aria-haspopup="true" aria-expanded="false" onclick="afegirCol()"><span class="glyphicon glyphicon-plus"></span>
+              Afegir
+            </button>
+          </div>
+        </th>
 <!--    <th>Pagament material</th>
         <th>Pagament sortides</th>
         <th>Drets d'imatge</th>
         <th>Piscina</th>
         <th>Al·lèrgies</th>-->
         <% } %>
-
       </tr>
     </thead>
     <tbody>
@@ -86,10 +93,10 @@
     for (i=0; i < Alumnes.length; i++) {
     %>
       <tr>
-        <td><%=i+1%></td>
-        <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>
+        <td class="col-md-1"><%=i+1%></td>
+        <td class="col-md-3"><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>
         </td>
-        <td>
+        <td class="col-md-2">
         <% if(session.user.mestre === "tutor"){ %>
 
 <!-- Split button -->
@@ -105,27 +112,11 @@
                 <%}%>
                 <li role="separator" class="divider"></li>
                 <li><a data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
-
-
-<!--            <li><a href="#">Entrevistes pares</a></li>
-                <li><a href="#">Anotacions</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
--->
               </ul>
             </div>
-
-
-<!--            <td><input type="checkbox" form="documentacio" name="doc1" value ="doc1"></td>
-            <td><input type="checkbox" form="documentacio" name="doc2" value ="doc2"></td>
-            <td><input type="checkbox" form="documentacio" name="doc3" value ="doc3"></td>
-            <td><input type="checkbox" form="documentacio" name="doc4" value ="doc4"></td>
-            <td><input type="checkbox" form="documentacio" name="doc5" value ="doc5"></td>-->
                 <% } %>
 
           <% if(session.user.mestre === "ee"){ %>
-
-
  <!-- Split button -->
             <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -135,16 +126,12 @@
                 <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades alumne</a></li>
                 <li><a href="/seguiment-EE/<%=Alumnes[i].id%>">Seguiment</a></li>
                 <li><a href="/print_EE/<%=Alumnes[i].id%>" target="_blank">Imprimir dades</a></li>
-
-                <!--
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                -->
               </ul>
             </div>
-          </td>
 
         <% }; %>
+        </td>
+        <td class="col-md-2"></td>
       <% } %>
     <% } %>
          </tr> 
@@ -196,3 +183,11 @@
       </div>
     </div>
 </div>
+
+<script>
+function afegirCol() {
+    var row = document.getElementById("tutoriaRow");
+    var x = row.insertCell(0);
+    x.innerHTML = "New cell";
+}
+</script>
