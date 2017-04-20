@@ -272,7 +272,7 @@ $(document).ready(function (){
 });
 ///////// MODALS ACTUACIONS ////////////////
 //MODAL ACTUACIO NEW
-$("#btnActuAfegir").on("click", function (e) {
+$(document).on("click", "#btnActuAfegir", function (e) {
   e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
@@ -280,7 +280,7 @@ $("#btnActuAfegir").on("click", function (e) {
   var actuNum = $(this).data('actunum')
   var today = $(this).data('today');
 
-  $(function(){
+  $("#actuModal").ready(function (){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#actuData").attr("name", "segActuacions." + actuNum + ".date");
@@ -309,7 +309,7 @@ $(document).on("click", "#btnActuGet", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(function(){
+  $("#actuModalGet").ready(function (){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#actuDataGet").text(dta);
@@ -327,7 +327,7 @@ $(document).on("click", "#btnActuUpd", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(function(){
+  $("#actuModalUpd").ready(function (){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
     $("#actuDataUpd").attr("name", "segActuacions." + i + ".date");
@@ -359,7 +359,7 @@ $(document).on("click", "#btnActuDel", function (e) {
   var alumneDta = $(this).data('dta');
   var alumneBody = $(this).data('body');
 
-  $(function(){
+  $("#actuModalDel").ready(function (){
     $("#nomAlDel").text(alumneNom);
     $("#cursAlDel").text(alumneCurs);
     $("#actuDataDel").text(alumneDta);
@@ -381,7 +381,7 @@ $(document).on("click", "#btnActuDel", function (e) {
 
 ///////// MODALS CAD ////////////////
 //MODAL CAD NEW
-$("#btnCadAfegir").on("click", function (e) {
+$(document).on("click", "#btnCadAfegir", function (e) {
   e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
@@ -389,7 +389,7 @@ $("#btnCadAfegir").on("click", function (e) {
   var actuNum = $(this).data('actunum')
   var today = $(this).data('today');
 
-  $(function(){
+  $("#cadModal").ready(function (){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#actuData").attr("name", "segInformacioCAD." + actuNum + ".date");
@@ -418,7 +418,7 @@ $(document).on("click", "#btnCadGet", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(function(){
+  $("#cadModalGet").ready(function (){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#cadDataGet").text(dta);
@@ -437,7 +437,7 @@ $(document).on("click", "#btnCadUpd", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(function(){
+  $("#cadModalUpd").ready(function (){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
     $("#cDataUpd").attr("name", "segInformacioCAD." + i + ".date");
@@ -469,7 +469,7 @@ $(document).on("click", "#btnCadDel", function (e) {
   var alumneDta = $(this).data('dta');
   var alumneBody = $(this).data('body');
 
-  $(function(){
+  $("#cadModalDel").ready(function (){
     $("#nomAlDel").text(alumneNom);
     $("#cursAlDel").text(alumneCurs);
     $("#cadDataDel").text(alumneDta);
@@ -491,7 +491,7 @@ $(document).on("click", "#btnCadDel", function (e) {
 
 ///////// MODALS ALTRES COORD ////////////////
 //MODAL ALTRES COORD NEW
-$("#btnaltresCoordAfegir").on("click", function (e) {
+$(document).on("click", "#btnaltresCoordAfegir", function (e) {
   e.preventDefault();
   var alumneNom = $(this).data('nom');
   var alumneCurs = $(this).data('curs');
@@ -499,7 +499,7 @@ $("#btnaltresCoordAfegir").on("click", function (e) {
   var altresNum = $(this).data('altresnum')
   var today = $(this).data('today');
 
-  $(function(){
+  $("#altresCoordModal").ready(function (){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#altresData").attr("name", "segAltresCoord." + altresNum + ".date");
@@ -526,16 +526,14 @@ $(document).on("click", "#btnAltresCoordGet", function (e) {
   var alumneCurs = $(this).data('curs');
   var dta = $(this).data('dta');
   var body = $(this).data('body');
-  $(function(){
+
+  $("#altresModalGet").ready(function (){
     $("#nomAl").text(alumneNom);
     $("#cursAl").text(alumneCurs);
     $("#altresDataGet").text(dta);
     $("#altresBodyGet").text(body);
   });
 });
-
-
-
 //MODAL ALTRES COORD UPD
 $(document).on("click", "#btnAltresUpd", function (e) {
   e.preventDefault();
@@ -546,7 +544,7 @@ $(document).on("click", "#btnAltresUpd", function (e) {
   var dta = $(this).data('dta');
   var body = $(this).data('body');
 
-  $(function(){
+  $("#altresCoordModalUpd").ready(function (){
     $("#nomAlUpd").text(alumneNom);
     $("#cursAlUpd").text(alumneCurs);
     $("#altresDataUpd").attr("name", "segAltresCoord." + i + ".date");
@@ -578,7 +576,7 @@ $(document).on("click", "#btnaltresCoordDel", function (e) {
   var alumneDta = $(this).data('dta');
   var alumneBody = $(this).data('body');
 
-  $(function(){
+  $("#altresCoordModalDel").ready(function (){
     $("#nomAlDel").text(alumneNom);
     $("#cursAlDel").text(alumneCurs);
     $("#altresDataDel").text(alumneDta);
@@ -617,17 +615,18 @@ $('#segTabs a[href="' + hash + '"]').tab('show');
 //////////////////////////////////////////////////
 
 //MODAL ASSISTENCIA
+
 $(document).on("click", "#btnAssist", function () {
   var alumneNom = $(this).data('nom');
   var alumneId = $(this).data('id');
   var today = $(this).data('today');
 
-  $(document).ready(function (){
+$("#assistModal").ready(function (){
     $(".form-group #nomAl").val(alumneNom);
     $(".form-group #idAl").val(alumneId);
     $("#today1").val(today);
     $("#today2").val(today);
-  });
+});
 });
 
 
