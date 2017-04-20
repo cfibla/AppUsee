@@ -101,7 +101,7 @@
                 <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
                 <li><a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today%>" data-target="#assistModal">Assistència</a></li>
                 <% if(Alumnes[i].eeUsee === true) {%>
-                <li><a href="/seguiment-EE/<%=Alumnes[i].id%>">At. diversitat</a></li>
+                <li><a href="/seguiment-EE/<%=Alumnes[i].id%>">Atenció a la diversitat</a></li>
                 <%}%>
                 <li role="separator" class="divider"></li>
                 <li><a data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
