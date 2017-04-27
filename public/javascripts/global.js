@@ -271,6 +271,22 @@ $(document).ready(function (){
   });
 });
 ///////// MODALS ACTUACIONS ////////////////
+//MODAL ACTUACIO GET
+jQuery(document).ready(function (){
+  $("#btnActuGet").on("click", function (e) {
+    e.preventDefault();
+    var alumneNom = $(this).data('nom');
+    var alumneCurs = $(this).data('curs');
+    var dta = $(this).data('dta');
+    var body = $(this).data('body');
+$('#actuModalGet').on('show', function () {
+      $("#nomAeAl").text(alumneNom);
+      $("#cursAeAl").text(alumneCurs);
+      $("#actuDataGet").text(dta);
+      $("#actuBodyGet").text(body);
+  });
+});});
+/*
 //MODAL ACTUACIO NEW
 $(document).on("click", "#btnActuAfegir", function (e) {
   e.preventDefault();
@@ -298,22 +314,6 @@ $(document).on("click", "#btnActuAfegir", function (e) {
       });
       location.reload();
     });
-  });
-});
-
-//MODAL ACTUACIO GET
-$(document).on("click", "#btnActuGet", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
-
-  jQuery("#actuModalGet").ready(function (){
-    $("#nomAeAl").text(alumneNom);
-    $("#cursAeAl").text(alumneCurs);
-    $("#actuDataGet").text(dta);
-    $("#actuBodyGet").text(body);
   });
 });
 
@@ -594,7 +594,7 @@ $(document).on("click", "#btnaltresCoordDel", function (e) {
       location.reload();
     });
   });
-});
+});*/
 //////////////////////////////////////////////////
 /// reload al mateix TAB /////////////////////////
 $('#segTabs a').click(function(e) {
