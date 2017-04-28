@@ -263,7 +263,7 @@ $('.datepicker').datepicker({
 
 
 
-//////////////////// M O D A L S ////////////////////
+//////////////////// M O D A L S //////////////////// 
 $(document).ready(function (){
   $('document').on('hidden.bs.modal', function () {
     $('.modal-body .modal-footer').html("");
@@ -272,20 +272,18 @@ $(document).ready(function (){
 });
 ///////// MODALS ACTUACIONS ////////////////
 //MODAL ACTUACIO GET
-jQuery(document).ready(function (){
-  $("#btnActuGet").on("click", function (e) {
+  $(document).on("click", "#btnActuGet", function (e) {
     e.preventDefault();
     var alumneNom = $(this).data('nom');
     var alumneCurs = $(this).data('curs');
     var dta = $(this).data('dta');
     var body = $(this).data('body');
-$('#actuModalGet').on('show', function () {
       $("#nomAeAl").text(alumneNom);
       $("#cursAeAl").text(alumneCurs);
       $("#actuDataGet").text(dta);
       $("#actuBodyGet").text(body);
   });
-});});
+
 /*
 //MODAL ACTUACIO NEW
 $(document).on("click", "#btnActuAfegir", function (e) {
