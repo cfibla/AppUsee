@@ -272,8 +272,7 @@ $(document).ready(function (){
 });
 ///////// MODALS ACTUACIONS ////////////////
 //MODAL ACTUACIO GET
-  $(document).on("click", "#btnActuGet", function (e) {
-    e.preventDefault();
+  $(document).on("click", "#btnActuGet", function () {
     var alumneNom = $(this).data('nom');
     var alumneCurs = $(this).data('curs');
     var dta = $(this).data('dta');
@@ -282,6 +281,8 @@ $(document).ready(function (){
       $("#cursAeAl").text(alumneCurs);
       $("#actuDataGet").text(dta);
       $("#actuBodyGet").text(body);
+
+      console.log(body)
   });
 
 /*
