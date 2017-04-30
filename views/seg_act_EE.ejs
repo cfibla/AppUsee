@@ -83,7 +83,16 @@ today = dd+'/'+mm+'/'+yyyy;
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
-                            <li><a data-toggle="modal" id="btnActuGet" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalGet" href="/javascripts/modals/actuacionsEeGet.ejs" >Veure</a></li>
+                            <li><a
+                            id="btnActuGet"
+                            href="/javascripts/modals/actuacionsEeGet.ejs"
+                            data-target="#actuModalGet"
+                            data-toggle="modal"
+                            data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>"
+                            data-curs="<%=alumne.curs%>"
+                            data-dta = "<%=alumne.segActuacions[i].date%>"
+                            data-body = "<%=alumne.segActuacions[i].body%>"
+                             >Veure</a></li>
 
                             <li class="disabled"><a href="#">Imprimir</a></li>
 

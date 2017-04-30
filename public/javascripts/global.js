@@ -272,18 +272,27 @@ $(document).ready(function (){
 });
 ///////// MODALS ACTUACIONS ////////////////
 //MODAL ACTUACIO GET
-  $(document).on("click", "#btnActuGet", function () {
-    var alumneNom = $(this).data('nom');
-    var alumneCurs = $(this).data('curs');
-    var dta = $(this).data('dta');
-    var body = $(this).data('body');
-      $("#nomAeAl").text(alumneNom);
-      $("#cursAeAl").text(alumneCurs);
-      $("#actuDataGet").text(dta);
-      $("#actuBodyGet").text(body);
-
-      console.log(body)
+$(document).ready(function (){
+  $(document).on("click", "#btnActuGet", function (e) {
+    $("#actuModalGet").modal("show");
   });
+    $('#actuModalGet').on('show.bs.modal', function (e) {
+      var actg = $(e.relatedTarget);
+      var remote_h = e.currentTarget.href;
+      var alumneNom = actg.data('nom');
+      var alumneCurs = actg.data('curs');
+      var dta = actg.data('dta');
+      var body = actg.data('body');
+
+      var mdal = $(this);
+      mdal.find('.modal-body #nomAeAl').text(alumneNom);
+      mdal.find('.modal-body #cursAeAl').text(alumneCurs);
+      mdal.find('.modal-body #actuDataGet').text(dta);
+      mdal.find('.modal-body #actuBodyGet').text(body);
+      console.log(dta);
+      console.log(body);
+    });
+});
 
 /*
 //MODAL ACTUACIO NEW
