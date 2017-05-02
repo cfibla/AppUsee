@@ -128,27 +128,7 @@ $(document).ready(function (){
 
 //assistenciaMODAL
 $(document).ready(function (){
-  $('#data .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
 
-  $('#dataP .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"
-  });
 });
 
 /*
@@ -202,7 +182,7 @@ $(document).ready(function (){
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
     var alumneId = actg.data('id');
-    var actuNum = actg.data('actunum')
+    var actuNum = actg.data('actunum');
     var today = actg.data('today');
     var mdal = $(this);
     mdal.find('.modal-body #nomAl').text(alumneNom);
@@ -558,7 +538,68 @@ $(document).ready(function (){
       });
     });
   });
+
+//MODAL ASSISTENCIA
+  $('#assistModal').on('shown.bs.modal', function (e) {
+      $('#data .input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        setDate: new Date(),
+        maxViewMode: 2,
+        todayBtn: "linked",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true,
+        language: "ca"  
+    });
+
+    $('#dataP .input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        setDate: new Date(),
+        maxViewMode: 2,
+        todayBtn: "linked",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true,
+        language: "ca"
+    });
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneId = actg.data('id');
+    var today = actg.data('today');
+    var mdal =  $(this);
+      mdal.find(".form-group #nomAl").val(alumneNom);
+      mdal.find(".form-group #idAl").val(alumneId);
+      mdal.find("#today1").val(today);
+      mdal.find("#today2").val(today);
+  });
+
+//MODAL AFEGIR
+  $('#afegirModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var escola = actg.data('escola');
+    var curs = actg.data('curs');
+    var mdal = $(this);
+    mdal.find(".form-group #codiEscola").val(escola);
+    mdal.find(".form-group #curs").val(curs);
+  });
+
+//MODAL DELETE
+  $('#deleteModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneId = actg.data('id');
+    var alumneNom = actg.data('nom');
+    var mdal = $(this);
+    mdal.find("#del").attr("href", "/dades_suprD/" + alumneId)
+    mdal.find("#nom").text(alumneNom);
+    $('#deleteModal').on('hidden.bs.modal', function () {
+      $.ajax({
+        type: "GET",
+        url:"/list"
+      })
+    });
+  });
 });
+
 //////////////////////////////////////////////////
 /// reload al mateix TAB /////////////////////////
 $('#segTabs a').click(function(e) {
@@ -578,55 +619,14 @@ $('#segTabs a[href="' + hash + '"]').tab('show');
 
 //////////////////////////////////////////////////
 
-//MODAL ASSISTENCIA
-
-$(document).on("click", "#btnAssist", function () {
-  var alumneNom = $(this).data('nom');
-  var alumneId = $(this).data('id');
-  var today = $(this).data('today');
-
-$("#assistModal").ready(function (){
-    $(".form-group #nomAl").val(alumneNom);
-    $(".form-group #idAl").val(alumneId);
-    $("#today1").val(today);
-    $("#today2").val(today);
-});
-});
 
 
-//MODAL AFEGIR
-
-$(document).on("click", "#btnAfegir", function () {
-  var escola = $(this).data('escola');
-  var curs = $(this).data('curs');
-
-  $(document).ready(function (){
-   $(".form-group #codiEscola").val(escola);
-   $(".form-group #curs").val(curs);
-  });
-});
 
 
-//MODAL DELETE
-
-$(document).on("click", "#btnDelete", function () {
-  var alumneId = $(this).data('id');
-  var alumneNom = $(this).data('nom');
-   $(document).ready(function (){
-    $("#del").attr("href", "/dades_suprD/" + alumneId)
-    $("#nom").text(alumneNom);
-   });
-});
-
-    $('#deleteModal').on('hidden.bs.modal', function () {
-    /*  $('a').attr("href","");*/
-      $.ajax({
-        type: "GET",
-        url:"/list"
-      })
 
 
-});
+
+
 
 /*  $('button#assistBtn').click(function(){
     $('assistModal').modal('hide')
