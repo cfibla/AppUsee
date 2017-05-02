@@ -271,14 +271,42 @@ $(document).ready(function (){
   });
 });
 ///////// MODALS ACTUACIONS ////////////////
+//MODAL ACTUACIO NEW
+$(document).ready(function (){
+  $('#actuModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var actuNum = actg.data('actunum')
+    var today = actg.data('today');
+
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAl').text(alumneNom);
+    mdal.find('.modal-body #cursAl').text(alumneCurs);
+    mdal.find('.modal-body #actuData').attr("name", "segActuacions." + actuNum + ".date");
+    mdal.find('.modal-body #actuBody').attr("name", "segActuacions." + actuNum + ".body");
+    mdal.find('.modal-body #actuData').val(today);
+
+    $('#seg_actuacions').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
+      $('#actuModal').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#seg_actuacions').serialize(),
+          success: function(){
+            location.reload()}
+      });
+    });
+  });
+});
+
 //MODAL ACTUACIO GET
 $(document).ready(function (){
-  $(document).on("click", "#btnActuGet", function (e) {
-    $("#actuModalGet").modal("show");
-  });
-    $('#actuModalGet').on('show.bs.modal', function (e) {
+    $('#actuModalGet').on('shown.bs.modal', function (e) {
       var actg = $(e.relatedTarget);
-      var remote_h = e.currentTarget.href;
       var alumneNom = actg.data('nom');
       var alumneCurs = actg.data('curs');
       var dta = actg.data('dta');
@@ -289,59 +317,27 @@ $(document).ready(function (){
       mdal.find('.modal-body #cursAeAl').text(alumneCurs);
       mdal.find('.modal-body #actuDataGet').text(dta);
       mdal.find('.modal-body #actuBodyGet').text(body);
-      console.log(dta);
-      console.log(body);
     });
-});
-
-/*
-//MODAL ACTUACIO NEW
-$(document).on("click", "#btnActuAfegir", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneId = $(this).data('id');
-  var actuNum = $(this).data('actunum')
-  var today = $(this).data('today');
-
-  jQuery("#actuModal").ready(function (){
-    $("#nomAl").text(alumneNom);
-    $("#cursAl").text(alumneCurs);
-    $("#actuData").attr("name", "segActuacions." + actuNum + ".date");
-    $("#actuBody").attr("name", "segActuacions." + actuNum + ".body");
-    $("#actuData").val(today);
-
-    $('#seg_actuacions').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-      $('#actuModal').modal('toggle');
-      $.ajax({
-          url: urlPost, //this is the submit URL
-          type: 'POST',
-          data: $('#seg_actuacions').serialize()
-      });
-      location.reload();
-    });
-  });
 });
 
 //MODAL ACTUACIO UPD
-$(document).on("click", "#btnActuUpd", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneId = $(this).data('id');
-  var i = $(this).data('i')
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
+$(document).ready(function (){
+  $('#actuModalUpd').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var i = actg.data('i')
+    var dta = actg.data('dta');
+    var body = actg.data('body');
 
-  jQuery("#actuModalUpd").ready(function (){
-    $("#nomAlUpd").text(alumneNom);
-    $("#cursAlUpd").text(alumneCurs);
-    $("#actuDataUpd").attr("name", "segActuacions." + i + ".date");
-    $("#actuBodyUpd").attr("name", "segActuacions." + i + ".body");
-    $("#actuDataUpd").val(dta);
-    $("#actuBodyUpd").val(body);
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAlUpd').text(alumneNom);
+    mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
+    mdal.find('.modal-body #actuDataUpd').attr("name", "segActuacions." + i + ".date");
+    mdal.find('.modal-body #actuBodyUpd').attr("name", "segActuacions." + i + ".body");
+    mdal.find('.modal-body #actuDataUpd').val(dta);
+    mdal.find('.modal-body #actuBodyUpd').val(body);
 
     $('#upd_actuacions').on('submit', function(e){
       e.preventDefault();
@@ -350,28 +346,30 @@ $(document).on("click", "#btnActuUpd", function (e) {
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
-          data: $('#upd_actuacions').serialize()
+          data: $('#upd_actuacions').serialize(),
+          success:function(){
+            location.reload()}
       });
-      location.reload();
     });
   });
 });
 
 //MODAL ACTUACIO DELETE
-$(document).on("click", "#btnActuDel", function (e) {
-  e.preventDefault();
-  var alumneId = $(this).data('id');
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneI = $(this).data('i');
-  var alumneDta = $(this).data('dta');
-  var alumneBody = $(this).data('body');
+$(document).ready(function (){
+  $('#actuModalDel').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneId = actg.data('id');
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneI = actg.data('i');
+    var alumneDta = actg.data('dta');
+    var alumneBody = actg.data('body');
 
-  jQuery("#actuModalDel").ready(function (){
-    $("#nomAlDel").text(alumneNom);
-    $("#cursAlDel").text(alumneCurs);
-    $("#actuDataDel").text(alumneDta);
-    $("#actuBodyDel").text(alumneBody);
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAlDel').text(alumneNom);
+    mdal.find('.modal-body #cursAlDel').text(alumneCurs);
+    mdal.find('.modal-body #actuDataDel').text(alumneDta);
+    mdal.find('.modal-body #actuBodyDel').text(alumneBody);
 
     $('#del_actuacions').on('submit', function(e){
       e.preventDefault();
@@ -380,29 +378,31 @@ $(document).on("click", "#btnActuDel", function (e) {
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
-          data: $('#del_actuacions').serialize()
+          data: $('#del_actuacions').serialize(),
+          success: function(){
+            location.reload()}
       });
-      location.reload();
     });
   });
 });
 
 ///////// MODALS CAD ////////////////
 //MODAL CAD NEW
-$(document).on("click", "#btnCadAfegir", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneId = $(this).data('id');
-  var actuNum = $(this).data('actunum')
-  var today = $(this).data('today');
+$(document).ready(function (){
+  $('#cadModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var actuNum = actg.data('actunum')
+    var today = actg.data('today');
 
-  jQuery("#cadModal").ready(function (){
-    $("#nomCnAl").text(alumneNom);
-    $("#cursCnAl").text(alumneCurs);
-    $("#CnData").attr("name", "segInformacioCAD." + actuNum + ".date");
-    $("#CnBody").attr("name", "segInformacioCAD." + actuNum + ".body");
-    $("#CnData").val(today);
+    var mdal = $(this);
+    mdal.find('.modal-body #nomCnAl').text(alumneNom);
+    mdal.find('.modal-body #cursCnAl').text(alumneCurs);
+    mdal.find('.modal-body #cnData').attr("name", "segInformacioCAD." + actuNum + ".date");
+    mdal.find('.modal-body #cnBody').attr("name", "segInformacioCAD." + actuNum + ".body");
+    mdal.find('.modal-body #cnData').val(today);
 
     $('#info_CAD').on('submit', function(e){
       e.preventDefault();
@@ -411,47 +411,50 @@ $(document).on("click", "#btnCadAfegir", function (e) {
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
-          data: $('#info_CAD').serialize()
+          data: $('#info_CAD').serialize(),
+          success: function(){
+            location.reload()}
       });
-      location.reload();
     });
   });
 });
 
 //MODAL CAD GET
-$(document).on("click", "#btnCadGet", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
+$(document).ready(function (){
+  $('#cadModalGet').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var dta = actg.data('dta');
+    var body = actg.data('body');
 
-  jQuery("#cadModalGet").ready(function (){
-    $("#nomCgAl").text(alumneNom);
-    $("#cursCgAl").text(alumneCurs);
-    $("#cadDataGet").text(dta);
-    $("#cadBodyGet").text(body);
+    var mdal = $(this);
+    mdal.find('.modal-body #nomCgAl').text(alumneNom);
+    mdal.find('.modal-body #cursCgAl').text(alumneCurs);
+    mdal.find('.modal-body #cadDataGet').text(dta);
+    mdal.find('.modal-body #cadBodyGet').text(body);
   });
 });
 
 
 //MODAL CAD UPD
-$(document).on("click", "#btnCadUpd", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneId = $(this).data('id');
-  var i = $(this).data('i');
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
+$(document).ready(function (){
+  $('#cadModalUpd').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var i = actg.data('i');
+    var dta = actg.data('dta');
+    var body = actg.data('body');
 
-  jQuery("#cadModalUpd").ready(function (){
-    $("#nomCuAl").text(alumneNom);
-    $("#cursCuAl").text(alumneCurs);
-    $("#cDataUpd").attr("name", "segInformacioCAD." + i + ".date");
-    $("#cadBodyUpd").attr("name", "segInformacioCAD." + i + ".body");
-    $("#cDataUpd").val(dta);
-    $("#cadBodyUpd").val(body);
+    var mdal = $(this);
+    mdal.find('.modal-body #nomCuAl').text(alumneNom);
+    mdal.find('.modal-body #cursCuAl').text(alumneCurs);
+    mdal.find('.modal-body #cDataUpd').attr("name", "segInformacioCAD." + i + ".date");
+    mdal.find('.modal-body #cadBodyUpd').attr("name", "segInformacioCAD." + i + ".body");
+    mdal.find('.modal-body #cDataUpd').val(dta);
+    mdal.find('.modal-body #cadBodyUpd').val(body);
 
     $('#upd_CAD').on('submit', function(e){
       e.preventDefault();
@@ -460,28 +463,30 @@ $(document).on("click", "#btnCadUpd", function (e) {
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
-          data: $('#upd_CAD').serialize()
+          data: $('#upd_CAD').serialize(),
+          success: function(){
+            location.reload()}
       });
-      location.reload();
     });
   });
 });
 
 //MODAL CAD DELETE
-$(document).on("click", "#btnCadDel", function (e) {
-  e.preventDefault();
-  var alumneId = $(this).data('id');
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneI = $(this).data('i');
-  var alumneDta = $(this).data('dta');
-  var alumneBody = $(this).data('body');
+$(document).ready(function (){
+  $('#cadModalDel').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneId = actg.data('id');
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneI = actg.data('i');
+    var alumneDta = actg.data('dta');
+    var alumneBody = actg.data('body');
 
-  jQuery("#cadModalDel").ready(function (){
-    $("#nomCdAl").text(alumneNom);
-    $("#cursCdAl").text(alumneCurs);
-    $("#cadDataDel").text(alumneDta);
-    $("#cadBodyDel").text(alumneBody);
+    var mdal = $(this);
+    mdal.find('.modal-body #nomCdAl').text(alumneNom);
+    mdal.find('.modal-body #cursCdAl').text(alumneCurs);
+    mdal.find('.modal-body #cadDataDel').text(alumneDta);
+    mdal.find('.modal-body #cadBodyDel').text(alumneBody);
 
     $('#del_CAD').on('submit', function(e){
       e.preventDefault();
@@ -490,13 +495,14 @@ $(document).on("click", "#btnCadDel", function (e) {
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
-          data: $('#del_CAD').serialize()
+          data: $('#del_CAD').serialize(),
+          success: function(){
+            location.reload()}
       });
-      location.reload();
     });
   });
 });
-
+/*
 ///////// MODALS ALTRES COORD ////////////////
 //MODAL ALTRES COORD NEW
 $(document).on("click", "#btnaltresCoordAfegir", function (e) {
