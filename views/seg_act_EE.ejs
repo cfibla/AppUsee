@@ -234,7 +234,7 @@ today = dd+'/'+mm+'/'+yyyy;
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu">
-                          <li><a id = "btnAltresCoordGet" data-toggle="modal" href="/javascripts/modals/altresCoordEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresModalGet">Veure</a></li>
+                          <li><a id = "btnAltresCoordGet" data-toggle="modal" href="/javascripts/modals/altresCoordEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalGet">Veure</a></li>
 
                             <li class="disabled"><a href="#">Imprimir</a></li>
 
@@ -352,7 +352,7 @@ today = dd+'/'+mm+'/'+yyyy;
     </div>
 </div>
 <!--READ-->
-<div class="modal fade" id="altresModalGet" role="dialog">
+<div class="modal fade" id="altresCoordModalGet" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content">

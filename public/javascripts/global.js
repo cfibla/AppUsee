@@ -502,23 +502,24 @@ $(document).ready(function (){
     });
   });
 });
-/*
+
 ///////// MODALS ALTRES COORD ////////////////
 //MODAL ALTRES COORD NEW
-$(document).on("click", "#btnaltresCoordAfegir", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneId = $(this).data('id');
-  var altresNum = $(this).data('altresnum')
-  var today = $(this).data('today');
+$(document).ready(function (){
+  $('#altresCoordModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var altresNum = actg.data('altresnum');
+    var today = actg.data('today');
 
-  jQuery("#altresCoordModal").ready(function (){
-    $("#nomAlnAl").text(alumneNom);
-    $("#cursAlnAl").text(alumneCurs);
-    $("#altresData").attr("name", "segAltresCoord." + altresNum + ".date");
-    $("#altresBody").attr("name", "segAltresCoord." + altresNum + ".body");
-    $("#altresData").val(today);
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAlnAl').text(alumneNom);
+    mdal.find('.modal-body #cursAlnAl').text(alumneCurs);
+    mdal.find('.modal-body #altresData').attr("name", "segAltresCoord." + altresNum + ".date");
+    mdal.find('.modal-body #altresBody').attr("name", "segAltresCoord." + altresNum + ".body");
+    mdal.find('.modal-body #altresData').val(today);
 
     $('#altres_coord').on('submit', function(e){
         e.preventDefault();
@@ -527,44 +528,47 @@ $(document).on("click", "#btnaltresCoordAfegir", function (e) {
         $.ajax({
             url: urlPost, //this is the submit URL
             type: 'POST',
-            data: $('#altres_coord').serialize()
+            data: $('#altres_coord').serialize(),
+            success: function(){
+              location.reload()}
         });
-        location.reload();
       });
     });
   });
-//MODAL ALTRES COORD GET
-$(document).on("click", "#btnAltresCoordGet", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
 
-  jQuery("#altresModalGet").ready(function (){
-    $("#nomAlgAl").text(alumneNom);
-    $("#cursAlgAl").text(alumneCurs);
-    $("#altresDataGet").text(dta);
-    $("#altresBodyGet").text(body);
+//MODAL ALTRES COORD GET
+$(document).ready(function (){
+  $('#altresModalGet').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var dta = actg.data('dta');
+    var body = actg.data('body');
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAlgAl').text(alumneNom);
+    mdal.find('.modal-body #cursAlgAl').text(alumneCurs);
+    mdal.find('.modal-body #altresDataGet').text(dta);
+    mdal.find('.modal-body #altresBodyGet').text(body);
   });
 });
-//MODAL ALTRES COORD UPD
-$(document).on("click", "#btnAltresUpd", function (e) {
-  e.preventDefault();
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneId = $(this).data('id');
-  var i = $(this).data('i');
-  var dta = $(this).data('dta');
-  var body = $(this).data('body');
 
-  jQuery("#altresCoordModalUpd").ready(function (){
-    $("#nomAluAl").text(alumneNom);
-    $("#cursAluAl").text(alumneCurs);
-    $("#altresDataUpd").attr("name", "segAltresCoord." + i + ".date");
-    $("#altresBodyUpd").attr("name", "segAltresCoord." + i + ".body");
-    $("#altresDataUpd").val(dta);
-    $("#altresBodyUpd").val(body);
+//MODAL ALTRES COORD UPD
+$(document).ready(function (){
+  $('#altresCoordModalUpd').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var i = actg.data('i');
+    var dta = actg.data('dta');
+    var body = actg.data('body');
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAluAl').text(alumneNom);
+    mdal.find('.modal-body #cursAluAl').text(alumneCurs);
+    mdal.find('.modal-body #altresDataUpd').attr("name", "segAltresCoord." + i + ".date");
+    mdal.find('.modal-body #altresBodyUpd').attr("name", "segAltresCoord." + i + ".body");
+    mdal.find('.modal-body #altresDataUpd').val(dta);
+    mdal.find('.modal-body #altresBodyUpd').val(body);
 
     $('#upd_altres').on('submit', function(e){
       e.preventDefault();
@@ -573,28 +577,29 @@ $(document).on("click", "#btnAltresUpd", function (e) {
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
-          data: $('#upd_altres').serialize()
+          data: $('#upd_altres').serialize(),
+          success: function(){
+            location.reload()}
       });
-      location.reload();
     });
   });
 });
 
 //MODAL ALTRES COORD DELETE
-$(document).on("click", "#btnaltresCoordDel", function (e) {
-  e.preventDefault();
-  var alumneId = $(this).data('id');
-  var alumneNom = $(this).data('nom');
-  var alumneCurs = $(this).data('curs');
-  var alumneI = $(this).data('i');
-  var alumneDta = $(this).data('dta');
-  var alumneBody = $(this).data('body');
-
-  jQuery("#altresCoordModalDel").ready(function (){
-    $("#nomAldAl").text(alumneNom);
-    $("#cursAldAl").text(alumneCurs);
-    $("#altresDataDel").text(alumneDta);
-    $("#altresBodyDel").text(alumneBody);
+$(document).ready(function (){
+  $('#altresCoordModalDel').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneId = actg.data('id');
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneI = actg.data('i');
+    var alumneDta = actg.data('dta');
+    var alumneBody = actg.data('body');
+    var mdal =  $(this);
+    mdal.find('.modal-body #nomAldAl').text(alumneNom);
+    mdal.find('.modal-body #cursAldAl').text(alumneCurs);
+    mdal.find('.modal-body #altresDataDel').text(alumneDta);
+    mdal.find('.modal-body #altresBodyDel').text(alumneBody);
 
     $('#del_altres').on('submit', function(e){
       e.preventDefault();
@@ -603,12 +608,13 @@ $(document).on("click", "#btnaltresCoordDel", function (e) {
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
-          data: $('#del_altres').serialize()
+          data: $('#del_altres').serialize(),
+          success: function(){
+            location.reload()}
       });
-      location.reload();
     });
   });
-});*/
+});
 //////////////////////////////////////////////////
 /// reload al mateix TAB /////////////////////////
 $('#segTabs a').click(function(e) {
