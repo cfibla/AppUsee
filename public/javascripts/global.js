@@ -151,92 +151,6 @@ $(document).ready(function (){
   });
 });
 
-//actuacions MODAL
-$(document).ready(function (){
-  $('#acData .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
-});
-
-//actuacions MODAL UPD
-$(document).ready(function (){
-  $('#acDataUpd .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
-});
-
-
-//cad MODAL
-$(document).ready(function (){
-  $('#cadData .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
-});
-
-
-//cad MODAL UPD
-$(document).ready(function (){
-  $('#cadDataUpd .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
-});
-
-//ALTRES ACTUACIONS MODAL
-$(document).ready(function (){
-  $('#altresData .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
-});
-
-
-//ALTRES ACTUACIONS MODAL UPD
-$(document).ready(function (){
-  $('#alDataUpd .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  });
-});
 /*
 $('.datepicker').datepicker({
     format: {
@@ -263,31 +177,39 @@ $('.datepicker').datepicker({
 
 
 
-//////////////////// M O D A L S //////////////////// 
+//////////////////// M O D A L S  S E G U I M E N T //////////////////// 
 $(document).ready(function (){
   $('document').on('hidden.bs.modal', function () {
     $('.modal-body .modal-footer').html("");
 
   });
-});
-///////// MODALS ACTUACIONS ////////////////
+
+///////// ACTUACIONS ////////////////
 //MODAL ACTUACIO NEW
-$(document).ready(function (){
   $('#actuModal').on('shown.bs.modal', function (e) {
+    //datepicker//
+    $('#acData .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+    });
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
     var alumneId = actg.data('id');
     var actuNum = actg.data('actunum')
     var today = actg.data('today');
-
     var mdal = $(this);
     mdal.find('.modal-body #nomAl').text(alumneNom);
     mdal.find('.modal-body #cursAl').text(alumneCurs);
     mdal.find('.modal-body #actuData').attr("name", "segActuacions." + actuNum + ".date");
     mdal.find('.modal-body #actuBody').attr("name", "segActuacions." + actuNum + ".body");
     mdal.find('.modal-body #actuData').val(today);
-
     $('#seg_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
@@ -301,28 +223,35 @@ $(document).ready(function (){
       });
     });
   });
-});
 
 //MODAL ACTUACIO GET
-$(document).ready(function (){
     $('#actuModalGet').on('shown.bs.modal', function (e) {
       var actg = $(e.relatedTarget);
       var alumneNom = actg.data('nom');
       var alumneCurs = actg.data('curs');
       var dta = actg.data('dta');
       var body = actg.data('body');
-
       var mdal = $(this);
       mdal.find('.modal-body #nomAeAl').text(alumneNom);
       mdal.find('.modal-body #cursAeAl').text(alumneCurs);
       mdal.find('.modal-body #actuDataGet').text(dta);
       mdal.find('.modal-body #actuBodyGet').text(body);
     });
-});
+
 
 //MODAL ACTUACIO UPD
-$(document).ready(function (){
   $('#actuModalUpd').on('shown.bs.modal', function (e) {
+    //datepicker//
+    $('#acDataUpd .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+    });
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
@@ -330,7 +259,6 @@ $(document).ready(function (){
     var i = actg.data('i')
     var dta = actg.data('dta');
     var body = actg.data('body');
-
     var mdal = $(this);
     mdal.find('.modal-body #nomAlUpd').text(alumneNom);
     mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
@@ -338,7 +266,6 @@ $(document).ready(function (){
     mdal.find('.modal-body #actuBodyUpd').attr("name", "segActuacions." + i + ".body");
     mdal.find('.modal-body #actuDataUpd').val(dta);
     mdal.find('.modal-body #actuBodyUpd').val(body);
-
     $('#upd_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
@@ -352,10 +279,8 @@ $(document).ready(function (){
       });
     });
   });
-});
 
 //MODAL ACTUACIO DELETE
-$(document).ready(function (){
   $('#actuModalDel').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneId = actg.data('id');
@@ -364,13 +289,11 @@ $(document).ready(function (){
     var alumneI = actg.data('i');
     var alumneDta = actg.data('dta');
     var alumneBody = actg.data('body');
-
     var mdal = $(this);
     mdal.find('.modal-body #nomAlDel').text(alumneNom);
     mdal.find('.modal-body #cursAlDel').text(alumneCurs);
     mdal.find('.modal-body #actuDataDel').text(alumneDta);
     mdal.find('.modal-body #actuBodyDel').text(alumneBody);
-
     $('#del_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
@@ -384,26 +307,34 @@ $(document).ready(function (){
       });
     });
   });
-});
 
-///////// MODALS CAD ////////////////
+
+///////// CAD ////////////////
 //MODAL CAD NEW
-$(document).ready(function (){
   $('#cadModal').on('shown.bs.modal', function (e) {
+    // datepicker //
+    $('#cadData .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+    });
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
     var alumneId = actg.data('id');
     var actuNum = actg.data('actunum')
     var today = actg.data('today');
-
     var mdal = $(this);
     mdal.find('.modal-body #nomCnAl').text(alumneNom);
     mdal.find('.modal-body #cursCnAl').text(alumneCurs);
     mdal.find('.modal-body #cnData').attr("name", "segInformacioCAD." + actuNum + ".date");
     mdal.find('.modal-body #cnBody').attr("name", "segInformacioCAD." + actuNum + ".body");
     mdal.find('.modal-body #cnData').val(today);
-
     $('#info_CAD').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
@@ -417,29 +348,34 @@ $(document).ready(function (){
       });
     });
   });
-});
 
 //MODAL CAD GET
-$(document).ready(function (){
   $('#cadModalGet').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
     var dta = actg.data('dta');
     var body = actg.data('body');
-
     var mdal = $(this);
     mdal.find('.modal-body #nomCgAl').text(alumneNom);
     mdal.find('.modal-body #cursCgAl').text(alumneCurs);
     mdal.find('.modal-body #cadDataGet').text(dta);
     mdal.find('.modal-body #cadBodyGet').text(body);
   });
-});
-
 
 //MODAL CAD UPD
-$(document).ready(function (){
   $('#cadModalUpd').on('shown.bs.modal', function (e) {
+  // datepicker //
+    $('#cadDataUpd .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+    });
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
@@ -447,7 +383,6 @@ $(document).ready(function (){
     var i = actg.data('i');
     var dta = actg.data('dta');
     var body = actg.data('body');
-
     var mdal = $(this);
     mdal.find('.modal-body #nomCuAl').text(alumneNom);
     mdal.find('.modal-body #cursCuAl').text(alumneCurs);
@@ -455,7 +390,6 @@ $(document).ready(function (){
     mdal.find('.modal-body #cadBodyUpd').attr("name", "segInformacioCAD." + i + ".body");
     mdal.find('.modal-body #cDataUpd').val(dta);
     mdal.find('.modal-body #cadBodyUpd').val(body);
-
     $('#upd_CAD').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
@@ -469,10 +403,9 @@ $(document).ready(function (){
       });
     });
   });
-});
+
 
 //MODAL CAD DELETE
-$(document).ready(function (){
   $('#cadModalDel').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneId = actg.data('id');
@@ -481,13 +414,11 @@ $(document).ready(function (){
     var alumneI = actg.data('i');
     var alumneDta = actg.data('dta');
     var alumneBody = actg.data('body');
-
     var mdal = $(this);
     mdal.find('.modal-body #nomCdAl').text(alumneNom);
     mdal.find('.modal-body #cursCdAl').text(alumneCurs);
     mdal.find('.modal-body #cadDataDel').text(alumneDta);
     mdal.find('.modal-body #cadBodyDel').text(alumneBody);
-
     $('#del_CAD').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/cadDel/" + alumneI + "?_method=put";
@@ -501,26 +432,34 @@ $(document).ready(function (){
       });
     });
   });
-});
 
-///////// MODALS ALTRES COORD ////////////////
+
+///////// ALTRES COORD ////////////////
 //MODAL ALTRES COORD NEW
-$(document).ready(function (){
   $('#altresCoordModal').on('shown.bs.modal', function (e) {
+    // datepicker //
+    $('#altresData .input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        setDate: new Date(),
+        maxViewMode: 2,
+        todayBtn: "linked",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true,
+        language: "ca"  
+    });
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
     var alumneId = actg.data('id');
     var altresNum = actg.data('altresnum');
     var today = actg.data('today');
-
     var mdal = $(this);
     mdal.find('.modal-body #nomAlnAl').text(alumneNom);
     mdal.find('.modal-body #cursAlnAl').text(alumneCurs);
     mdal.find('.modal-body #altresData').attr("name", "segAltresCoord." + altresNum + ".date");
     mdal.find('.modal-body #altresBody').attr("name", "segAltresCoord." + altresNum + ".body");
     mdal.find('.modal-body #altresData').val(today);
-
     $('#altres_coord').on('submit', function(e){
         e.preventDefault();
         var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
@@ -534,10 +473,8 @@ $(document).ready(function (){
         });
       });
     });
-  });
 
 //MODAL ALTRES COORD GET
-$(document).ready(function (){
   $('#altresCoordModalGet').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
@@ -550,11 +487,21 @@ $(document).ready(function (){
     mdal.find('.modal-body #altresDataGet').text(dta);
     mdal.find('.modal-body #altresBodyGet').text(body);
   });
-});
+
 
 //MODAL ALTRES COORD UPD
-$(document).ready(function (){
   $('#altresCoordModalUpd').on('shown.bs.modal', function (e) {
+    // datepicker //
+    $('#alDataUpd .input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        setDate: new Date(),
+        maxViewMode: 2,
+        todayBtn: "linked",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true,
+        language: "ca"  
+    });
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
@@ -569,7 +516,6 @@ $(document).ready(function (){
     mdal.find('.modal-body #altresBodyUpd').attr("name", "segAltresCoord." + i + ".body");
     mdal.find('.modal-body #altresDataUpd').val(dta);
     mdal.find('.modal-body #altresBodyUpd').val(body);
-
     $('#upd_altres').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
@@ -583,10 +529,9 @@ $(document).ready(function (){
       });
     });
   });
-});
+
 
 //MODAL ALTRES COORD DELETE
-$(document).ready(function (){
   $('#altresCoordModalDel').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneId = actg.data('id');
@@ -600,7 +545,6 @@ $(document).ready(function (){
     mdal.find('.modal-body #cursAldAl').text(alumneCurs);
     mdal.find('.modal-body #altresDataDel').text(alumneDta);
     mdal.find('.modal-body #altresBodyDel').text(alumneBody);
-
     $('#del_altres').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/altresDel/" + alumneI + "?_method=put";
