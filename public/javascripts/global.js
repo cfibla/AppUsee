@@ -538,7 +538,7 @@ $(document).ready(function (){
 
 //MODAL ALTRES COORD GET
 $(document).ready(function (){
-  $('#altresModalGet').on('shown.bs.modal', function (e) {
+  $('#altresCoordModalGet').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
