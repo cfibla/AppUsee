@@ -39,7 +39,7 @@ router.post('/assisData',			sessionController.loginRequired, alumController.assi
 router.put('/assistenciaN',			sessionController.loginRequired, alumController.assisPost);
 router.get('/assistenciaA/:id',		sessionController.loginRequired, alumController.assisAlumne);
 router.get('/dades_suprV/:id', 		sessionController.loginRequired, alumController.suprV);
-router.get('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
+router.put('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
 
 //rutas ALUMNE EE
 router.get('/list_EE',				sessionController.loginRequired, alumEeController.list);

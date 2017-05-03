@@ -589,50 +589,48 @@ $(document).ready(function (){
     var alumneId = actg.data('id');
     var alumneNom = actg.data('nom');
     var mdal = $(this);
-    mdal.find("#del").attr("href", "/dades_suprD/" + alumneId)
-    mdal.find("#nom").text(alumneNom);
-    $('#deleteModal').on('hidden.bs.modal', function () {
+    mdal.find(".modal-body #nomAlDel").text(alumneNom);
+    $('#del_alum').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/dades_suprD/" + alumneId + "?_method=put";
+      $('#deleteModal').modal('toggle');
       $.ajax({
-        type: "GET",
-        url:"/list"
-      })
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#del_alum').serialize(),
+          success: function(){
+            location.reload()}
+      });
     });
   });
-});
+
 
 //////////////////////////////////////////////////
 /// reload al mateix TAB /////////////////////////
-$('#segTabs a').click(function(e) {
-  e.preventDefault();
-  $(this).tab('show');
-});
+  $('#segTabs a').click(function(e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });
 
-// store the currently selected tab in the hash value
-$("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
-  var id = $(e.target).attr("href").substr(1);
-  window.location.hash = id;
-});
+  // store the currently selected tab in the hash value
+  $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+    var id = $(e.target).attr("href").substr(1);
+    window.location.hash = id;
+  });
 
-// on load of the page: switch to the currently selected tab
-var hash = window.location.hash;
-$('#segTabs a[href="' + hash + '"]').tab('show');
+  // on load of the page: switch to the currently selected tab
+  var hash = window.location.hash;
+  $('#segTabs a[href="' + hash + '"]').tab('show');
 
 //////////////////////////////////////////////////
+///////////// V A L I D A T E /////////////////
 
+  $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy'); $(this).find('form[data-toggle=validator]').validator() });
+  $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator() });
 
-
-
-
-
-
-
-
+});
 
 /*  $('button#assistBtn').click(function(){
     $('assistModal').modal('hide')
   });*/
 
-///////////// V A L I D A T E /////////////////
-
-$('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy'); $(this).find('form[data-toggle=validator]').validator() });
-$('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator() });

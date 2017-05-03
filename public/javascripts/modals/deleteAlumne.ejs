@@ -9,16 +9,25 @@
   <body>
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Eliminar dades de l'alumne
+      Eliminar dades
     </div>
-    <div class="modal-body centered">
-      <p>Aquesta acció eliminarà totes les dades de l'alumne</p>
-      <p id="nom"></p>
-      <p> i l'esborrarà de la base de dades.</p>
+    <div class="modal-body" style="padding:40px 50px;">
+      <div class="container-fluid">
+        <div class="row">
+          <form role="form" method="post" id="del_alum">
+            <div>
+              <p class = "clear"><strong>Les següents dades seran eliminades</strong><br></p>
+              <div class="col-md-5 clear">
+              <strong>Alumne/a: </strong><div id="nomAlDel"></div><br><br>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
       <a class="btn btn-default btn-sm" role="button" data-dismiss="modal">Cancel·la</a>
-      <a id="del" class="btn btn-danger btn-sm" role="button">Elimina</a>
+      <button type="submit" form="del_alum" id="alumDel" class="btn btn-danger btn-sm">Elimina dades</button>
     </div>
   </body>
 </html>
