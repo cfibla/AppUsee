@@ -42,11 +42,17 @@ exports.createUser = function (req, res){
 
 exports.profile = function (req, res){
 	var userId = req.params.id;
+	console.log(userId);
 	models.User.findById(userId, function(error, usuari){
-		if (error) {
+		if (!usuari) {
+			models.UserEe.findById(userId, function(error, usuari){
+			if (error) {
 			return res.json(error);
 		} else {
+			console.log(usuari);
 			res.render('usuari', {usuari: usuari});
 		}
 	});
+};
+});
 };
