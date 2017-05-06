@@ -615,6 +615,3 @@ $('.datepicker').datepicker({
     autoclose: true
 });
 */
-
-
-
