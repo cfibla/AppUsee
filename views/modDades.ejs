@@ -549,7 +549,12 @@
     %> 
 
       <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-        <a href="<%=list%>" class="btn btn-default" role="button">Cancel·la</a>
+        <% 
+        var li = "/list";
+        if(session.user.mestre === "ee"){
+          li = "/list_EE"}
+        %> 
+        <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
         <button type="submit" class="btn btn-primary">Desa</button>
       </div>
     </form>
