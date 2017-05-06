@@ -126,36 +126,6 @@ $(document).ready(function (){
   })
 });
 
-//assistenciaMODAL
-$(document).ready(function (){
-
-});
-
-/*
-$('.datepicker').datepicker({
-    format: {
-      
-//         * Say our UI should display a week ahead,
-//         * but textbox should store the actual date.
-//         * This is useful if we need UI to select local dates,
-//         * but store in UTC
-       
-        toDisplay: function (date, format, language) {
-            var d = new Date(date);
-            d.setDate(d.getDate() - 7);
-            return d.toISOString();
-        },
-        toValue: function (date, format, language) {
-            var d = new Date(date);
-            d.setDate(d.getDate() + 7);
-            return new Date(d);
-        }
-    },
-    autoclose: true
-});
-*/
-
-
 
 //////////////////// M O D A L S  S E G U I M E N T //////////////////// 
 $(document).ready(function (){
@@ -573,7 +543,7 @@ $(document).ready(function (){
       mdal.find("#today2").val(today);
   });
 
-//MODAL AFEGIR
+//MODAL AFEGIR ALUMNES
   $('#afegirModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var escola = actg.data('escola');
@@ -583,7 +553,7 @@ $(document).ready(function (){
     mdal.find(".form-group #curs").val(curs);
   });
 
-//MODAL DELETE
+//MODAL DELETE ALUMNES
   $('#deleteModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneId = actg.data('id');
@@ -633,4 +603,31 @@ $(document).ready(function (){
 /*  $('button#assistBtn').click(function(){
     $('assistModal').modal('hide')
   });*/
+
+
+/*
+$('.datepicker').datepicker({
+    format: {
+      
+//         * Say our UI should display a week ahead,
+//         * but textbox should store the actual date.
+//         * This is useful if we need UI to select local dates,
+//         * but store in UTC
+       
+        toDisplay: function (date, format, language) {
+            var d = new Date(date);
+            d.setDate(d.getDate() - 7);
+            return d.toISOString();
+        },
+        toValue: function (date, format, language) {
+            var d = new Date(date);
+            d.setDate(d.getDate() + 7);
+            return new Date(d);
+        }
+    },
+    autoclose: true
+});
+*/
+
+
 
