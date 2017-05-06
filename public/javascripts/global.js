@@ -1,6 +1,6 @@
-//RADIOS ASSISTENCIA
 $(document).ready(function (){
 
+  //RADIOS ASSISTENCIA
    // bind to retrieve old status
     $('#tradios input[type="radio"]').mousedown(function() { 
         // if it was checked before
@@ -18,12 +18,9 @@ $(document).ready(function (){
             });
         }
     });
-});
-
 
 ////////////////// A D A P T A C I O N S ////////////////// 
-$(document).ready(function (){
-      if ($('#programació_individualitzada').val()==='true'){
+    if ($('#programació_individualitzada').val()==='true'){
         $("#divPi").show();
       } else {
         $("#divPi").hide();
@@ -105,36 +102,16 @@ $(document).ready(function (){
         $("#divDic").hide(500);
         $("#any_val").val('');
       }
-    })
-});
+    });
 
-//////////////// DATEPICKER ////////////////////
-//assistencia.ejs
-$(document).ready(function (){
-  $('#aData .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-  })
-  .on('changeDate', function(){
-      $('#assisData').submit();
-  })
-});
-
-
-//////////////////// M O D A L S  S E G U I M E N T //////////////////// 
-$(document).ready(function (){
+///////////////////// M O D A L S ///////////////////// 
   $('document').on('hidden.bs.modal', function () {
     $('.modal-body .modal-footer').html("");
 
   });
 
-///////// ACTUACIONS ////////////////
+//////////////// S E G U I M E N T //////////////// 
+// ACTUACIONS //
 //MODAL ACTUACIO NEW
   $('#actuModal').on('shown.bs.modal', function (e) {
     //datepicker//
@@ -187,7 +164,6 @@ $(document).ready(function (){
       mdal.find('.modal-body #actuDataGet').text(dta);
       mdal.find('.modal-body #actuBodyGet').text(body);
     });
-
 
 //MODAL ACTUACIO UPD
   $('#actuModalUpd').on('shown.bs.modal', function (e) {
@@ -257,7 +233,6 @@ $(document).ready(function (){
       });
     });
   });
-
 
 ///////// CAD ////////////////
 //MODAL CAD NEW
@@ -354,7 +329,6 @@ $(document).ready(function (){
     });
   });
 
-
 //MODAL CAD DELETE
   $('#cadModalDel').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
@@ -382,7 +356,6 @@ $(document).ready(function (){
       });
     });
   });
-
 
 ///////// ALTRES COORD ////////////////
 //MODAL ALTRES COORD NEW
@@ -437,7 +410,6 @@ $(document).ready(function (){
     mdal.find('.modal-body #altresDataGet').text(dta);
     mdal.find('.modal-body #altresBodyGet').text(body);
   });
-
 
 //MODAL ALTRES COORD UPD
   $('#altresCoordModalUpd').on('shown.bs.modal', function (e) {
@@ -509,6 +481,23 @@ $(document).ready(function (){
     });
   });
 
+  //////////////// DATEPICKER ASSISTENCIA.ejs //////////////// 
+  $(document).ready(function (){
+    $('#aData .input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        setDate: new Date(),
+        maxViewMode: 2,
+        todayBtn: "linked",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true,
+        language: "ca"  
+    })
+    .on('changeDate', function(){
+        $('#assisData').submit();
+    })
+  });
+
 //MODAL ASSISTENCIA
   $('#assistModal').on('shown.bs.modal', function (e) {
       $('#data .input-group.date').datepicker({
@@ -575,8 +564,7 @@ $(document).ready(function (){
   });
 
 
-//////////////////////////////////////////////////
-/// reload al mateix TAB /////////////////////////
+////// SEGUIMENT reload al mateix TAB /////////////////////////
   $('#segTabs a').click(function(e) {
     e.preventDefault();
     $(this).tab('show');
@@ -592,7 +580,6 @@ $(document).ready(function (){
   var hash = window.location.hash;
   $('#segTabs a[href="' + hash + '"]').tab('show');
 
-//////////////////////////////////////////////////
 ///////////// V A L I D A T E /////////////////
 
   $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy'); $(this).find('form[data-toggle=validator]').validator() });
