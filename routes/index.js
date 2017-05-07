@@ -30,7 +30,6 @@ router.post('/usuari_ee_crear',		userEeController.createUser);
 
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);
-router.get('/nouAlumne', 			sessionController.loginRequired, alumController.alta);
 router.post('/alumneNou', 			sessionController.loginRequired, alumController.create);
 router.get('/dadesAlumne/:id', 		sessionController.loginRequired, alumController.mod);
 router.put('/dadesUpdate/:id', 		sessionController.loginRequired, alumController.update);
@@ -43,10 +42,6 @@ router.put('/dades_suprD/:id', 		sessionController.loginRequired, alumController
 
 //rutas ALUMNE EE
 router.get('/list_EE',				sessionController.loginRequired, alumEeController.list);
-router.get('/nou_alumne_EE', 		sessionController.loginRequired, alumEeController.alta);
-router.post('/alumne_nou_EE', 		sessionController.loginRequired, alumEeController.create);
-router.get('/dades_mod_EE/:id', 	sessionController.loginRequired, alumEeController.mod);
-router.put('/dades_update_EE/:id',	sessionController.loginRequired, alumEeController.update);
 router.get('/seguiment-EE/:id',		sessionController.loginRequired, alumEeController.actuaGet);
 router.put('/seguiment-EE/post/:id',	sessionController.loginRequired, alumEeController.actuaPost);
 router.put('/seguiment-EE/:id/act/:i',	sessionController.loginRequired, alumEeController.actuaUpdate);
