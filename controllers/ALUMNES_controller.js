@@ -1,6 +1,5 @@
 var models = require('../models/index');
 
-
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
 	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
@@ -14,12 +13,6 @@ exports.list = function (req, res) {
 			}
 	});
 
-};
-
-//Altes d'alumnes - GET
-exports.alta = function (req, res) {
-
-	res.render('nouAlumne', {errorAlta:'', alumne:{nom:'',cognom1:''}});
 };
 
 //Altes d'alumnes - POST
@@ -80,10 +73,18 @@ exports.create = function (req, res){
 				}],
 
 			});
-			nouAlumne.save(function(error, alumne){
-				if (error) res.json(error);
+			nouAlumne.save(function(error){
+				if (error) {
+					return res.json(error);}
 			});
-			res.redirect('/list');
+			var list = "";
+			var usr = req.session.user.mestre;
+			if (usr === "tutor"){
+				list = "/list"
+			} else {
+				list = "/list_EE"
+			}
+			res.redirect(list);
 			};
 		});
 	}
@@ -134,11 +135,12 @@ exports.update = function (req, res){
 		function (error, alumne){
 		if (error) 
 			return res.json(error);
-		if (alum.usrId === "ee") {
+		res.redirect('/dadesAlumne/'+ alumneId);
+/*		if (alum.usrId === "ee") {
 			res.redirect('/list_EE');
 		} else {
 		res.redirect('/list');
-		}
+		}*/
 	});
 
 };

@@ -14,6 +14,12 @@
         </form>
       </div>
     </div> -->
+    <%
+      var usr = usuari.curs;
+      if (usuari.mestre==="ee"){
+        usr = "At. diversitat"
+      }
+    %>
 
 <!--DADES USUARI-->
     <div class="container">
@@ -53,7 +59,7 @@
             <div class="form-group col-md-2" id="curs">
               <label for="curs_act">Curs actual</label>
                 <select class="form-control" id="curs_act" name="curs">
-                  <option value="<%=usuari.curs%>" selected><%=usuari.curs%></option>
+                  <option value="<%=usr%>" selected><%=usr%></option>
                   <option value="1r A">1r A</option>
                   <option value="1r B">1r B</option>
                   <option value="2n A">2n A</option>
