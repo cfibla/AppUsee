@@ -135,11 +135,12 @@ exports.update = function (req, res){
 		function (error, alumne){
 		if (error) 
 			return res.json(error);
-		if (alum.usrId === "ee") {
+		res.redirect('/dadesAlumne/'+ alumneId);
+/*		if (alum.usrId === "ee") {
 			res.redirect('/list_EE');
 		} else {
 		res.redirect('/list');
-		}
+		}*/
 	});
 
 };
