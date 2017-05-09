@@ -34,6 +34,8 @@ module.exports = new mongoose.Schema ({
 		uppercase: true
 	},
 
+	observacions: String,
+
 	codiEscola: Number,
 
 	eeUsee: Boolean,
