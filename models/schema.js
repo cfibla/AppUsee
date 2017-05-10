@@ -35,58 +35,33 @@ module.exports = new mongoose.Schema ({
 	},
 
 	observacions: String,
-
+	mailAlum: String,
 	codiEscola: Number,
-
 	eeUsee: Boolean,
-
 	curs: String,
-
-	//ASSISTÈNCIA
+//ASSISTÈNCIA
 	assist: [{
 		date: String,
 		mati: String,
 		tarda:String,
 		dataIso: Date
-
 	}],
-
-
-	//CHECKS & RADIOS
+//CHECKS & RADIOS
 	checks:[Boolean],
 	radios:[Boolean],
-
-
-	altresEsp:{
-		type: String
-	},
-	atServPrivats:{
-		type: String
-	},
-	percentDim:{
-		type: String
-	},
-	motiuDic:{
-		type: String
-	},
-	anyVal:{
-		type: String
-	},
-	derivacio:{
-		type: String
-	},
-	motiuDer:{
-		type: String
-	},
-
-	//SEGUIMENT
+//ATENCIÓ DIVERSITAT
+	altresEsp: String,
+	atServPrivats: String,
+	percentDim: String,
+	motiuDic: String,
+	anyVal: String,
+	derivacio: String,
+	motiuDer: String,
+//SEGUIMENT
 	segActuacions: [{ date: String, body: String }],
 	segInformacioCAD: [{ date: String, body: String }],
 	segAltresCoord: [{ date: String, body: String }],
-
-	
-
-	//PROPIETARIS
+//PROPIETARIS
 	escola: {
 		type: Number,
 		ref: 'Escola'
@@ -103,10 +78,7 @@ module.exports = new mongoose.Schema ({
 		type: mongoose.Schema.ObjectId,
 		ref: 'UserEe'
 	},
-
-
-
-	//NOTES
+//NOTES
 	primer:{
 		mates:{
 			notes_1t:[Number],

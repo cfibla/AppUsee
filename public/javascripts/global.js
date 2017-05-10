@@ -580,9 +580,10 @@ $(document).ready(function (){
   var hash = window.location.hash;
   $('#segTabs a[href="' + hash + '"]').tab('show');
 
-///////////// V A L I D A T E /////////////////
+///////////// V A L I D A T O R /////////////////
 
-  $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy'); $(this).find('form[data-toggle=validator]').validator() });
+  $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy');
+  $(this).find('form[data-toggle=validator]').validator() });
   $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator() });
 
 });
