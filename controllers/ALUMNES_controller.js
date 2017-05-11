@@ -261,6 +261,34 @@ exports.assisAlumne = function (req, res) {
 	});
 };				
 
+//Assistència d'alumnes - GET
+exports.menjaGet = function (req, res) {
+
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd='0'+dd
+    } 
+    if(mm<10) {
+        mm='0'+mm
+    } 
+    today = dd+'/'+mm+'/'+yyyy;
+
+	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+	.populate('escola tutor')
+	.exec(function(error, alumnes){
+		if (error){
+			console.log(error);
+		} else {
+			res.render('menjador',{Alumnes: alumnes, DataV: today});
+			}
+	});
+
+};
 //Suprimir alumne - VIEW
 exports.suprV = function (req, res) {
 	var alumneId = req.params.id;

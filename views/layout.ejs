@@ -17,19 +17,15 @@
   <body>
   <%  if (session.user){
       var ruta;
-      var nouAl;
  
       if(session.user.mestre === "ee"){
       ruta = "/list_EE";
-      nouAl = "/nou_alumne_EE";
       } else {
       ruta = "/list";
-      nouAl = "/nouAlumne";
       }
  
       } else {
       ruta = "";
-      nouAl = "";
       }
       %>
   <div class="container-fluid">
@@ -55,10 +51,9 @@
          
             <%  if (session.user){%>
               <li><a href="<%=ruta%>">Tutoria<span class="sr-only">(current)</span></a></li>
-              <!-- <li><a href="/nouAlumne">Nova entrada</a></li> -->
             <%  if(session.user.mestre === "tutor"){%>
                 <li><a href="/assistencia">Assistència</a></li>
-
+                <li><a href="/menjador">Menjador</a></li>
             <%  }}%>
             
           </ul>

@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <div class="page-t">Assistència<div class="curs-t"><%=Alumnes[0].curs%></div>
+      <div class="page-t">Menjador<div class="curs-t"><%=Alumnes[0].curs%></div>
       </div>
     </div>
     <div class="col-md-3 sub-t">Tutor: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%>
     </div>
 
 <!--DATEPICKER-->
-    <form role="form" method="post" action="/assisData" id="assisData">
+    <form role="form" method="post" action="/menjaData" id="menjaData">
       <div  id="aData" class="col-md-2 col-md-offset-7 datep-t" >
       
         <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control" form="assisData" name= "dataAssis" value ="<%=DataV%>">
+          <input type="text" class="form-control" form="menjaData" name= "dataMenja" value ="<%=DataV%>">
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>
           </div>
@@ -34,11 +34,9 @@
         <th>Núm.</th>
         <th>Nom i cognoms</th>
         <th> </th>
-
-        <th>Falta matí</th>
-        <th>Retard matí</th>
-        <th>Falta tarda</th>
-        <th>Retard tarda</th>
+        <th>Curs</th>
+        <th>Menjador</th>
+        <th>Pagat</th>
       </tr>
     </thead>
     <tbody>
@@ -122,7 +120,7 @@
           dataObj = JSON.stringify(ddoo)
           }
       %>
-      <form role="form" method="post" action="/assistenciaN?_method=put" id="assisForm" name="assis">
+      <form role="form" method="post" action="/assistenciaN?_method=put" id="menjaForm" name="assis">
       <tr id="tradios">
       <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>
@@ -133,28 +131,26 @@
 <!-- Button -->
       <a type="button" class="btn btn-default" id = "btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today%>" data-target="#assistModal">Imprimir</a>
       </td>
-
-      <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
-      <input type="hidden" form="assisForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
-      <input type="hidden" form="assisForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-      <td><input id="aMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
-      <td><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
-      <td><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
-      <td><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
+      <td><%=Alumnes[i].curs%></td>
+      <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
+      <input type="hidden" form="menjaForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
+      <input type="hidden" form="menjaForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
+      <td><input id="aMat" type="radio" form="menjaForm" name="assist.mati.<%=i%>" value ="falta" <%=//radioTrueFM()%>></td>
+      <td><input id="aTar" type="radio" form="menjaForm" name="assist.tarda.<%=i%>" value ="falta" <%=//radioTrueFT()%>></td>
      </tr>
      </form>
      <%}%>
     </tbody>
   </table>
           <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-            <input type="hidden" form="assisForm" name="i" value ="<%=i%>">
+            <input type="hidden" form="menjaForm" name="i" value ="<%=i%>">
                 <% 
                 var li = "/list";
                 if(session.user.mestre === "ee"){
                   li = "/list_EE"}
                 %> 
 <!--                <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>-->
-            <button type="submit" form="assisForm" class="btn btn-primary">Desa</button>
+            <button type="submit" form="menjaForm" class="btn btn-primary">Desa</button>
           </div>
     <%}%>
   </div>
