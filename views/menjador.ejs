@@ -53,8 +53,8 @@
               mm='0'+mm
           } 
           today = dd+'/'+mm+'/'+yyyy;
-      //RADIOTRUE-FALTA MATI
-          function radioTrueFM(){
+      //MENJA MENJA
+          function menjaMenja(){
             var rt='';
             if (dataObj[0].mati === 'falta') {
               rt ="checked";
@@ -63,18 +63,8 @@
             return rt;
             }
           };
-      //RADIOTRUE-RETARD MATI
-          function radioTrueRM(){
-            var rt='';
-            if (dataObj[0].mati === 'retard') {
-              rt ="checked";
-              return rt;
-            } else {
-            return rt;
-            }
-      };
-      //RADIOTRUE-FALTA TARDA
-          function radioTrueFT(){
+      //MENJA PAGA
+          function menjaPaga(){
             var rt='';
             if (dataObj[0].tarda === 'falta') {
               rt ="checked";
@@ -83,22 +73,11 @@
             return rt;
             }
           };
-      //RADIOTRUE-RETARD TARDA
-          function radioTrueRT(){
-            var rt='';
-            if (dataObj[0].tarda === 'retard') {
-              rt ="checked";
-              return rt;
-            } else {
-            return rt;
-            }
-          };
+
       for (var i=0; i < Alumnes.length; i++) {
       //ARRAY ASSIST
           var arraylng = Alumnes[i].assist.length;
           var arraymn = arraylng - 1;
-          
-          
       //FILTRE DATA
           function filtreData(obj){
             if (obj.date === DataV){
@@ -120,7 +99,7 @@
           dataObj = JSON.stringify(ddoo)
           }
       %>
-      <form role="form" method="post" action="/assistenciaN?_method=put" id="menjaForm" name="assis">
+      <form role="form" method="post" action="/menjadorN?_method=put" id="menjaForm" name="assis">
       <tr id="tradios">
       <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>
@@ -129,14 +108,14 @@
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
 <!-- Button -->
-      <a type="button" class="btn btn-default" id = "btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today%>" data-target="#assistModal">Imprimir</a>
+      <a type="button" class="btn btn-default" id = "btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today%>" data-target="#menjaModal">Imprimir</a>
       </td>
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
       <input type="hidden" form="menjaForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
       <input type="hidden" form="menjaForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-      <td><input id="aMat" type="radio" form="menjaForm" name="assist.mati.<%=i%>" value ="falta" <%=//radioTrueFM()%>></td>
-      <td><input id="aTar" type="radio" form="menjaForm" name="assist.tarda.<%=i%>" value ="falta" <%=//radioTrueFT()%>></td>
+      <td><input id="aMat" type="radio" form="menjaForm" name="menjador.menja.<%=i%>" value = true <%=menjaMenja()%>></td>
+      <td><input id="aTar" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
      </tr>
      </form>
      <%}%>
@@ -158,9 +137,9 @@
 </div>
 
 
-<!-- MODAL ASSISTÈNCIA -->
+<!-- MODAL MENJADOR -->
 
-<div class="modal fade" id="assistModal" role="dialog">
+<div class="modal fade" id="menjaModal" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">

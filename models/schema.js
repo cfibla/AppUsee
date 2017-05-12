@@ -47,6 +47,12 @@ module.exports = new mongoose.Schema ({
 		tarda:String,
 		dataIso: Date
 	}],
+//MENJADOR
+	menjador: [{
+		menja: Boolean,
+		paga: Boolean,
+		dataMen: Date
+	}],
 //CHECKS & RADIOS
 	checks:[Boolean],
 	radios:[Boolean],

@@ -38,6 +38,9 @@ router.post('/assisData',			sessionController.loginRequired, alumController.assi
 router.put('/assistenciaN',			sessionController.loginRequired, alumController.assisPost);
 router.get('/assistenciaA/:id',		sessionController.loginRequired, alumController.assisAlumne);
 router.get('/menjador',				sessionController.loginRequired, alumController.menjaGet);
+router.post('/menjaData',			sessionController.loginRequired, alumController.menjaData);
+router.put('/menjadorN',			sessionController.loginRequired, alumController.menjaPost);
+router.get('/menjadorA/:id',		sessionController.loginRequired, alumController.menjaAlumne);
 router.get('/dades_suprV/:id', 		sessionController.loginRequired, alumController.suprV);
 router.put('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
 
