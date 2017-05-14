@@ -1,3 +1,4 @@
+<% include ../public/javascripts/functions.ejs %>
 <div class="container">
   <div class="row">
     <div class="col-md-2">
@@ -8,11 +9,10 @@
     </div>
 
 <!--DATEPICKER-->
-    <form role="form" method="post" action="/menjaData" id="menjaData">
-      <div  id="aData" class="col-md-2 col-md-offset-7 datep-t" >
-      
+    <form role="form" method="post" action="/menjaData" id="menjaD">
+      <div  id="mData" class="col-md-2 col-md-offset-7 datep-t" >   
         <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control" form="menjaData" name= "dataMenja" value ="<%=DataV%>">
+          <input type="text" class="form-control" form="menjaD" name= "dataMenja" value ="<%=DataVM%>">
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>
           </div>
@@ -41,6 +41,7 @@
     </thead>
     <tbody>
       <%
+
       //DATA D'AVUI
           var today = new Date();
           var dd = today.getDate();
@@ -53,53 +54,33 @@
               mm='0'+mm
           } 
           today = dd+'/'+mm+'/'+yyyy;
-      //MENJA MENJA
-          function menjaMenja(){
-            var rt='';
-            if (dataObj[0].mati === 'falta') {
-              rt ="checked";
-              return rt;
-            } else {
-            return rt;
-            }
-          };
-      //MENJA PAGA
-          function menjaPaga(){
-            var rt='';
-            if (dataObj[0].tarda === 'falta') {
-              rt ="checked";
-              return rt;
-            } else {
-            return rt;
-            }
-          };
 
       for (var i=0; i < Alumnes.length; i++) {
-      //ARRAY ASSIST
-          var arraylng = Alumnes[i].assist.length;
+      //ARRAY
+          var arraylng = Alumnes[i].menjador.length;
           var arraymn = arraylng - 1;
       //FILTRE DATA
           function filtreData(obj){
-            if (obj.date === DataV){
+            if (obj.date === DataVM){
               return obj.date
             };
           };
           
           var dataSelec ={};
           
-          dataSelec = Alumnes[i].assist.filter(filtreData);
+          dataSelec = Alumnes[i].menjador.filter(filtreData);
           
           var dataObj = JSON.parse(JSON.stringify(dataSelec));
           if (dataObj[0] === undefined){
             ddoo ={
                         date: today,
-                        mati: null,
-                        tarda: null,
+                        menja: null,
+                        paga: null,
                         dataIso: new Date()}
           dataObj = JSON.stringify(ddoo)
           }
       %>
-      <form role="form" method="post" action="/menjadorN?_method=put" id="menjaForm" name="assis">
+      <form role="form" method="post" action="/menjadorN?_method=put" id="menjaForm" name="menjadorForm">
       <tr id="tradios">
       <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>
@@ -108,14 +89,14 @@
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
 <!-- Button -->
-      <a type="button" class="btn btn-default" id = "btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today%>" data-target="#menjaModal">Imprimir</a>
+      <a type="button" class="btn btn-default" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today%>" data-target="#menjaModal">Imprimir</a>
       </td>
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
-      <input type="hidden" form="menjaForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
+      <input type="hidden" form="menjaForm" name="menjador.dataMen.<%=i%>" value ="<%=DataVM%>">
       <input type="hidden" form="menjaForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-      <td><input id="aMat" type="radio" form="menjaForm" name="menjador.menja.<%=i%>" value = true <%=menjaMenja()%>></td>
-      <td><input id="aTar" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
+      <td><input id="mMenj" type="radio" form="menjaForm" name="menjador.menja.<%=i%>" value = true <%=menjaMenja()%>></td>
+      <td><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
      </tr>
      </form>
      <%}%>
@@ -123,12 +104,6 @@
   </table>
           <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
             <input type="hidden" form="menjaForm" name="i" value ="<%=i%>">
-                <% 
-                var li = "/list";
-                if(session.user.mestre === "ee"){
-                  li = "/list_EE"}
-                %> 
-<!--                <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>-->
             <button type="submit" form="menjaForm" class="btn btn-primary">Desa</button>
           </div>
     <%}%>

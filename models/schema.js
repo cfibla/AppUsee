@@ -49,9 +49,10 @@ module.exports = new mongoose.Schema ({
 	}],
 //MENJADOR
 	menjador: [{
+		dataMen: String,
 		menja: Boolean,
 		paga: Boolean,
-		dataMen: Date
+		dataIsoMen: Date
 	}],
 //CHECKS & RADIOS
 	checks:[Boolean],

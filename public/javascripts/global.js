@@ -482,7 +482,6 @@ $(document).ready(function (){
   });
 
   //////////////// DATEPICKER ASSISTENCIA.ejs //////////////// 
-  $(document).ready(function (){
     $('#aData .input-group.date').datepicker({
         format: "dd/mm/yyyy",
         setDate: new Date(),
@@ -496,7 +495,7 @@ $(document).ready(function (){
     .on('changeDate', function(){
         $('#assisData').submit();
     })
-  });
+
 
 //MODAL ASSISTENCIA
   $('#assistModal').on('shown.bs.modal', function (e) {
@@ -562,7 +561,21 @@ $(document).ready(function (){
       });
     });
   });
-
+/////////// M E N J A D O R ////////////////
+//DATEPICKER
+    $('#mData .input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        setDate: new Date(),
+        maxViewMode: 2,
+        todayBtn: "linked",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true,
+        language: "ca"  
+    })
+    .on('changeDate', function(){
+        $('#menjaD').submit();
+    })
 
 ////// SEGUIMENT reload al mateix TAB /////////////////////////
   $('#segTabs a').click(function(e) {

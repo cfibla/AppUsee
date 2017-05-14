@@ -284,7 +284,8 @@ exports.menjaGet = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('menjador',{Alumnes: alumnes, DataV: today});
+			//console.log(JSON.stringify(alumnes));
+			res.render('menjador',{Alumnes: alumnes, DataVM: today});
 			}
 	});
 
@@ -299,54 +300,43 @@ exports.menjaPost = function (req, res) {
 		var alumneId = alum['alumneId.'+i];
 		var alumArray = alum['arraylng.'+i];
 
-		var alumDate = alum['assist.date.'+i];
-		var alumMati = alum['assist.mati.'+i];
-		var alumTarda = alum['assist.tarda.'+i];
+		var alumDateM = alum['menjador.dataMen.'+i];
+		var alumMenja = alum['menjador.menja.'+i];
+		var alumPaga = alum['menjador.paga.'+i];
 
-		var alumAssist = {};
+		var alumMenjador = {};
 
-		alumAssist['date']= alumDate;
-		alumAssist['mati']= alumMati;
-		alumAssist['tarda'] = alumTarda;
-		if (!alumAssist['dataIso']){
+		alumMenjador['dataMen']= alumDateM;
+		alumMenjador['menja']= alumMenja;
+		alumMenjador['paga'] = alumPaga;
+		if (!alumMenjador['dataIsoMen']){
 
 //TO ISODATE
 
-			darr1 = alumDate.split("/");    // ["29", "1", "2016"]
+			darr1 = alumDateM.split("/");    // ["29", "1", "2016"]
 			var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
-			                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
-			//var data1Iso = data1.toISOString();
-			//var data1IsoFull = 'ISODate("'+ data1Iso +'")';
-
-			                         //2016-01-28T18:30:00.000Z
-
-			alumAssist['dataIso'] = dataI;
+			alumMenjador['dataIsoMen'] = dataI;
 		}
-
-		//ELIMINA ASSIST amb mateixa data
-		models.Alumne.findByIdAndUpdate(alumneId, {$pull: {assist:{date: alumDate}}},{multi: true},
-
+		//ELIMINA menjador amb mateixa data
+		models.Alumne.findByIdAndUpdate(alumneId, {$pull: {menjador:{dataMen: alumDateM}}},{multi: true},
 		function (error, alumne){
 		if (error) res.json(error);
 		});
 
-		//UPDATE ASSIST
-		models.Alumne.findByIdAndUpdate(alumneId, {$push: {assist: alumAssist}},
-
+		//UPDATE menjador
+		models.Alumne.findByIdAndUpdate(alumneId, {$push: {menjador: alumMenjador}},
 		function (error, alumne){
 			if (error) res.json(error);
 		});
 	};
-	
 		res.redirect('/menjador');
-
 };
 
 
 //Menjador DATA
 exports.menjaData = function (req, res) {
 
-	var dataA = req.body.dataAssis;
+	var dataM = req.body.dataMenja;
 
 	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
@@ -355,7 +345,7 @@ exports.menjaData = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('menjador',{Alumnes: alumnes, DataV: dataA});
+			res.render('menjador',{Alumnes: alumnes, DataVM: dataM});
 
 		}
 	});

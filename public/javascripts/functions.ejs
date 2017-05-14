@@ -1,0 +1,179 @@
+<%
+/////////// M O D .   D A D E S  //////////////
+//CHECKCOND
+checkCond = function(id){
+  var cc='';
+  if (alumne.checks[id] === true) {
+  cc ="checked";
+  } else {
+  cc = '';
+  }
+  return cc;
+}
+//RADIOS
+radioTrue = function(id){
+  var rt='';
+  if (alumne.radios[id] === true) {
+  rt ="checked";
+  }
+  return rt;
+}
+radioFalse = function(id){
+  var rf='';
+  if (alumne.radios[id] === false) {
+  rf ="checked";
+  }
+  return rf;
+}
+inputRadios = function(id){
+  var ir='';
+  if (alumne.radios[id] === true) {
+  ir ='';
+  } else {
+  var ir='disabled';
+  }
+  return ir;
+}
+//OPTION
+radioOption = function(id){
+  var raOp='';
+  if (alumne.radios[id] === true) {
+  raOp ="selected";
+  }
+  return raOp;
+}
+checkOption = function(id){
+  var cOp='';
+  if (alumne.checks[id] === true) {
+  cOp ="selected";
+  } else {
+  cOp = '';
+  }
+  return cOp;
+}
+tutor = function(){
+  var tut='';
+  if (alumne.derivacio === "tutor") {
+  tut ="selected";
+  }
+  return tut;
+}
+fam = function(){
+  var fa='';
+  if (alumne.derivacio === "familia") {
+  fa ="selected";
+  }
+  return fa;
+}
+aD = function(){
+  var atd='';
+  if (alumne.derivacio === "atDiv") {
+  atd ="selected";
+  }
+  return atd;
+}
+sUse = function(){
+  var use='';
+  if (alumne.eeUsee === true) {
+  use ="selected";
+  }
+  return use;
+}
+cUse = function(){
+  var use='';
+  if (alumne.eeUsee === true) {
+  use ="checked";
+  }
+  return use;
+}
+sEe = function(){
+  var ee='';
+  if (alumne.checks[3] === true) {
+  ee ="selected";
+  }
+  return ee;
+}
+sRep = function(){
+  var rep='';
+  if (alumne.radios[0] === true) {
+  rep ="selected";
+  }
+  return rep;
+}
+sAill = function(){
+  var ail='';
+  if (alumne.checks[2] === true) {
+  ail ="selected";
+  }
+  return ail;
+}
+sSoc = function(){
+  var soc='';
+  if (alumne.checks[29] === true) {
+  soc ="selected";
+  }
+  return soc;
+}
+/////////// A S S I S T E N C I A //////////////
+//RADIOTRUE-FALTA MATI
+radioTrueFM = function(){
+  var rt='';
+  if (dataObj[0].mati === 'falta') {
+    rt ="checked";
+    return rt;
+  } else {
+  return rt;
+  }
+};
+//RADIOTRUE-RETARD MATI
+radioTrueRM = function(){
+  var rt='';
+  if (dataObj[0].mati === 'retard') {
+    rt ="checked";
+    return rt;
+  } else {
+  return rt;
+  }
+};
+//RADIOTRUE-FALTA TARDA
+radioTrueFT = function(){
+  var rt='';
+  if (dataObj[0].tarda === 'falta') {
+    rt ="checked";
+    return rt;
+  } else {
+  return rt;
+  }
+};
+//RADIOTRUE-RETARD TARDA
+radioTrueRT = function(){
+  var rt='';
+  if (dataObj[0].tarda === 'retard') {
+    rt ="checked";
+    return rt;
+  } else {
+  return rt;
+  }
+};
+/////////// M E N J A D O R //////////////
+//MENJA MENJA
+menjaMenja = function(){
+  var menj='';
+  if (dataObj[0].menja === true) {
+    menj ="checked";
+    return menj;
+  } else {
+  return menj;
+  }
+};
+//MENJA PAGA
+menjaPaga = function(){
+  var pag='';
+  if (dataObj[0].paga === true) {
+    pag ="checked";
+    return pag;
+  } else {
+  return pag;
+  }
+};
+%>
