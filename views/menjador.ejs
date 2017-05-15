@@ -61,8 +61,8 @@
           var arraymn = arraylng - 1;
       //FILTRE DATA
           function filtreData(obj){
-            if (obj.date === DataVM){
-              return obj.date
+            if (obj.dataMen === DataVM){
+              return obj.dataMen
             };
           };
           
@@ -73,10 +73,10 @@
           var dataObj = JSON.parse(JSON.stringify(dataSelec));
           if (dataObj[0] === undefined){
             ddoo ={
-                        date: today,
-                        menja: null,
-                        paga: null,
-                        dataIso: new Date()}
+                        dataMen: today,
+                        menja: false,
+                        paga: false,
+                        dataIsoMen: new Date()}
           dataObj = JSON.stringify(ddoo)
           }
       %>

@@ -288,7 +288,6 @@ exports.menjaGet = function (req, res) {
 			res.render('menjador',{Alumnes: alumnes, DataVM: today});
 			}
 	});
-
 };
 //Menjador - POST
 exports.menjaPost = function (req, res) {
