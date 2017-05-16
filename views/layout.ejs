@@ -44,16 +44,12 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-
-
-    <!-- Para activar cambio  de color en el menú = CLASS="active" -->
-         
+          <ul class="nav navbar-nav">       
             <%  if (session.user){%>
-              <li><a href="<%=ruta%>">Tutoria<span class="sr-only">(current)</span></a></li>
+                  <li <% if (page_name === 'tutoria') { %> class="active" <% } %> ><a href="<%=ruta%>">Tutoria<span class="sr-only">(current)</span></a></li>
             <%  if(session.user.mestre === "tutor"){%>
-                <li><a href="/assistencia">Assistència</a></li>
-                <li><a href="/menjador">Menjador</a></li>
+                <li <% if (page_name === 'assistencia') { %> class="active" <% } %> ><a href="/assistencia">Assistència<span class="sr-only">(current)</span></a></li>
+                <li <% if (page_name === 'menjador') { %> class="active" <% } %> ><a href="/menjador">Menjador<span class="sr-only">(current)</span></a></li>
             <%  }}%>
             
           </ul>
