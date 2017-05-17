@@ -97,7 +97,7 @@ exports.mod = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('modDades', {alumne: alumne});
+			res.render('modDades', {alumne: alumne, page_name:''});
 		}
 	});
 };
@@ -354,19 +354,6 @@ exports.menjaAlumne = function (req, res) {
 			return res.json(error);
 		} else {
 			res.render('assistAlumne', {alumne: alumne});
-		}
-	});
-};
-
-//Suprimir alumne - VIEW
-exports.suprV = function (req, res) {
-	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
-		if (error) {
-			return res.json(error);
-		} else {
-			res.render('delete_view', {alumne: alumne});
-
 		}
 	});
 };

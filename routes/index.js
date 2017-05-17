@@ -41,7 +41,6 @@ router.get('/menjador',				sessionController.loginRequired, alumController.menja
 router.post('/menjaData',			sessionController.loginRequired, alumController.menjaData);
 router.put('/menjadorN',			sessionController.loginRequired, alumController.menjaPost);
 router.get('/menjadorA/:id',		sessionController.loginRequired, alumController.menjaAlumne);
-router.get('/dades_suprV/:id', 		sessionController.loginRequired, alumController.suprV);
 router.put('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
 
 //rutas ALUMNE EE
