@@ -1,20 +1,6 @@
+<% include ../public/javascripts/functions.ejs %>
 <div class="container">
   <div class="row">
-<%
-//DATA D'AVUI
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth()+1; //January is 0!
-  var yyyy = today.getFullYear();
-
-  if(dd<10) {
-    dd='0'+dd
-  } 
-  if(mm<10) {
-    mm='0'+mm
-  } 
-  today = dd+'/'+mm+'/'+yyyy;
-%>
 
 <% if(session.user.mestre === "tutor"){ %> 
   <div class="col-md-2">
@@ -71,7 +57,7 @@
       <tr id="tutoriaRow">
         <th class="col-md-1">Núm.</th>
         <th class="col-md-3">Nom i cognoms</th>
-        <th class="col-md-2">Accions</th>
+        <th class="col-md-2"> </th>
         <%if(session.user.mestre === "tutor"){ %>
 <!--        <th class="col-md-2">
           <div class="btn-group">
@@ -97,7 +83,7 @@
         <td class="col-md-3"><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>
         </td>
         <td class="col-md-2">
-        <% if(session.user.mestre === "tutor"){ %>
+        <% if(session.user.mestre === "tutor"){%>
 
 <!-- Split button -->
             <div class="btn-group">
@@ -106,7 +92,7 @@
               </button>
               <ul class="dropdown-menu">
                 <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
-                <li><a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today%>" data-target="#assistModal">Assistència</a></li>
+                <li><a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal">Assistència</a></li>
                 <% if(Alumnes[i].eeUsee === true) {%>
                 <li><a href="/seguiment-EE/<%=Alumnes[i].id%>">Atenció a la diversitat</a></li>
                 <%}%>
@@ -187,7 +173,7 @@
 <script>
 function afegirCol() {
     var row = document.getElementById("tutoriaRow");
-    var x = row.insertCell(0);
+    var x = row.insertCell(3);
     x.innerHTML = "New cell";
 }
 </script>

@@ -1,5 +1,20 @@
 <%
 /////////// M O D .   D A D E S  //////////////
+today = function(){
+  var tday = new Date();
+  var dd = tday.getDate();
+  var mm = tday.getMonth()+1; //January is 0!
+  var yyyy = tday.getFullYear();
+  if(dd<10) {
+      dd='0'+dd
+  } 
+  if(mm<10) {
+      mm='0'+mm
+  } 
+  tday = dd+'/'+mm+'/'+yyyy;
+  return tday
+}
+/////////// M O D .   D A D E S  //////////////
 //CHECKCOND
 checkCond = function(id){
   var cc='';

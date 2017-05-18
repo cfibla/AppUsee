@@ -41,20 +41,6 @@
     </thead>
     <tbody>
       <%
-
-      //DATA D'AVUI
-          var today = new Date();
-          var dd = today.getDate();
-          var mm = today.getMonth()+1; //January is 0!
-          var yyyy = today.getFullYear();
-          if(dd<10) {
-              dd='0'+dd
-          } 
-          if(mm<10) {
-              mm='0'+mm
-          } 
-          today = dd+'/'+mm+'/'+yyyy;
-
       for (var i=0; i < Alumnes.length; i++) {
       //ARRAY
           var arraylng = Alumnes[i].menjador.length;
@@ -89,7 +75,7 @@
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
 <!-- Button -->
-      <a type="button" class="btn btn-default" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today%>" data-target="#menjaModal">Imprimir</a>
+      <a type="button" class="btn btn-default" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled>Imprimir</a>
       </td>
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">

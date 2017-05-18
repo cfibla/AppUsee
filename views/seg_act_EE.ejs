@@ -1,18 +1,4 @@
-<!--FUNCION TODAY-->
-<%var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-if(dd<10) {
-  dd='0'+dd
-  } 
-if(mm<10) {
-  mm='0'+mm
-  } 
-today = dd+'/'+mm+'/'+yyyy;
-%>
-
-<!-- /////////////////////////// SEGUIMENT ALUMNE /////////////////////////////////// -->
+<% include ../public/javascripts/functions.ejs %>
 <div class="container">
   <div class="row">
 <!--DADES ALUMNE-->
