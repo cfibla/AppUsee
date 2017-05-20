@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>AppEscola</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png">
+     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- CSS de Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" media="screen">
+    <!-- Material Design Bootstrap -->
+<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" rel="stylesheet">
     <!-- CSS de Bootstrap-DATEPICKER -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.css" rel="stylesheet"/>
     <!-- CSS -->
@@ -17,13 +21,11 @@
   <body>
   <%  if (session.user){
       var ruta;
- 
       if(session.user.mestre === "ee"){
       ruta = "/list_EE";
       } else {
       ruta = "/list";
       }
- 
       } else {
       ruta = "";
       }
@@ -42,7 +44,7 @@
           </button>
           <a class="navbar-brand" href="<%=ruta%>">AppEscola</a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
+<!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">       
             <%  if (session.user){%>
@@ -137,6 +139,8 @@
   crossorigin="anonymous"></script>
 <!-- Bootstrap.js -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- MDB core JavaScript -->
+<!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
 <!-- Datepicker -->  
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>

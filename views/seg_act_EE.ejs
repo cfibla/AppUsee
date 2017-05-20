@@ -30,7 +30,6 @@
         <li id="altresTab"><a data-toggle="tab" href="#coordinacions">ALTRES COORDINACIONS</a></li>
       </ul>
     </div>
-
     <div class="container"> 
       <div class="tab-content">
 <!-- ACTUACIONS -->
@@ -107,7 +106,7 @@
                 %> 
                 <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
                 <%if(session.user.mestre === "ee"){%>
-                <span class="white"><a data-toggle="modal" class = "btn btn-success white" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><span class="glyphicon glyphicon-plus"></span> Nova actuació</a>
+                <span class="white"><a data-toggle="modal" class = "btn btn-success white" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today()%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><span class="glyphicon glyphicon-plus"></span> Nova actuació</a>
                 </span><%}%>
               </div>
             </div>
@@ -178,7 +177,7 @@
               %> 
               <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
               <%if(session.user.mestre === "ee"){%>
-              <span class="white"><a data-toggle="modal" class = "btn btn-success" id="btnCadAfegir" role = "button" href="/javascripts/modals/cadEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-actunum = "<%=alumne.segInformacioCAD.length%>" data-target="#cadModal"><span class="glyphicon glyphicon-plus"></span> Nova informació CAD</a></span><%}%>
+              <span class="white"><a data-toggle="modal" class = "btn btn-success" id="btnCadAfegir" role = "button" href="/javascripts/modals/cadEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today()%>" data-actunum = "<%=alumne.segInformacioCAD.length%>" data-target="#cadModal"><span class="glyphicon glyphicon-plus"></span> Nova informació CAD</a></span><%}%>
               </div>
             </div>
           </div>
@@ -249,7 +248,7 @@
                 %> 
                 <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
                 <%if(session.user.mestre === "ee"){%>
-                <span class="white"><a data-toggle="modal" class = "btn btn-success" id="btnaltresCoordAfegir" role = "button" href="/javascripts/modals/altresCoordEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today%>" data-altresnum = "<%=alumne.segAltresCoord.length%>" data-target="#altresCoordModal"><span class="glyphicon glyphicon-plus"></span> Nova coordinació</a>
+                <span class="white"><a data-toggle="modal" class = "btn btn-success" id="btnaltresCoordAfegir" role = "button" href="/javascripts/modals/altresCoordEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today()%>" data-altresnum = "<%=alumne.segAltresCoord.length%>" data-target="#altresCoordModal"><span class="glyphicon glyphicon-plus"></span> Nova coordinació</a>
                 </span><%}%>
               </div>
             </div>

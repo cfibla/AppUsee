@@ -9,7 +9,7 @@ exports.list = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('index',{Alumnes: docs});
+			res.render('index',{Alumnes: docs, page_name:''});
 			}
 	});
 
@@ -22,7 +22,7 @@ exports.actuaGet = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('seg_act_EE', {alumne: alumne});
+			res.render('seg_act_EE', {alumne: alumne, page_name:''});
 
 		}
 	});
@@ -35,7 +35,7 @@ exports.actuaPost = function (req, res) {
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 	function (error, alumne){
 		if (error) res.json(error);
-		res.render('seg_act_EE', {alumne: alumne});
+		res.render('seg_act_EE', {alumne: alumne, page_name:''});
 	});
 
 }
@@ -50,7 +50,7 @@ exports.actuaUpdate = function (req, res) {
 
 	function (error, alumne){
 		if (error) res.json(error);
-		res.render('seg_act_EE', {alumne: alumne});
+		res.render('seg_act_EE', {alumne: alumne, page_name:''});
 	});
 
 }
@@ -66,7 +66,7 @@ exports.actuaDelete = function (req, res) {
 		alumne.save(function(error){
 			if (error) {res.json(error);
 		} else{
-			res.render('seg_act_EE', {alumne: alumne});
+			res.render('seg_act_EE', {alumne: alumne, page_name:''});
 		};
 		});
 
@@ -84,7 +84,7 @@ exports.cadDelete = function (req, res) {
 		alumne.save(function(error){
 			if (error) {res.json(error);
 		} else{
-			res.render('seg_act_EE', {alumne: alumne});
+			res.render('seg_act_EE', {alumne: alumne, page_name:''});
 		};
 		});
 
@@ -102,7 +102,7 @@ exports.altresDelete = function (req, res) {
 		alumne.save(function(error){
 			if (error) {res.json(error);
 		} else{
-			res.render('seg_act_EE', {alumne: alumne});
+			res.render('seg_act_EE', {alumne: alumne, page_name:''});
 		};
 		});
 
@@ -116,7 +116,7 @@ exports.suprV = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('delete_view', {alumne: alumne});
+			res.render('delete_view', {alumne: alumne, page_name:''});
 
 		}
 	});
