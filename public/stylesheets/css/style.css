@@ -22,11 +22,21 @@ body {
     /*background: #f8f7f7;*/
 }
 
+nav .container{
+    width: 100%;
+    margin: 0;
+    display: block;
+}
+nav .dropdown-item:hover {
+    color: #1d1e1f;
+    text-decoration: none;
+    background-color: #607d8b;
+}
 
 .marge-r{
     margin-right: 1em;
 }
-
+/*
 .bd-pageheader {
     padding: 1em;
     background: #5cb85c;
@@ -36,7 +46,7 @@ body {
 .bd-pageheader strong {
     color: black;
 }
-
+*/
 .master {
     min-height: 100%;
 }
@@ -44,16 +54,17 @@ body {
 .mainsection {
     padding-top: 4.5em;
     padding-bottom: 0px;
+    margin-bottom: 10em;
 }
 
 .footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: left;
 }
 
 
@@ -84,13 +95,8 @@ span.glyphicon-user {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-
-.panel-title a{
-    text-decoration: none;
-}
 /*
-a:hover{
-    font-weight: bold;
+.panel-title a{
     text-decoration: none;
 }
 */
@@ -112,7 +118,9 @@ a:hover{
 .botonintro{
     vertical-align: middle;
 }
-
+.taula {
+    margin-top: 3em;
+}
 .page-t{
     text-align: left;
     background-color: #5cb85c;
@@ -131,7 +139,7 @@ a:hover{
 
 .curs-t{
     text-align: left;
-    font-size: 1.5em;
+    font-size: 2.5em;
     font-weight: bold;
 }
 .curs-t2{
@@ -177,11 +185,11 @@ a:hover{
 .tbl{
     min-height: 250px;
 }
-
+/*
 span.white a{
     color: #fff;
 }
-
+*/
 #newEE_error{
     text-align: center;
     color: red;

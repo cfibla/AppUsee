@@ -3,36 +3,29 @@
   <div class="row">
 
 <% if(session.user.mestre === "tutor"){ %> 
-  <div class="col-md-2">
-    <div class="page-t">Llista alumnat
-      <div class="curs-t"><%=Alumnes[0].curs%>
-      </div>
+  <div class="col-md-3">
+      <div class="card default-color z-depth-2">
+        <div class="card-block">
+        <div class="curs-t white-text"><%=Alumnes[0].curs%></div>
+          <p class="card-text white-text"><strong>Tutoria: </strong><%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%></p>
+        </div>
     </div>
   </div>
 
-  <div class="col-md-10">
-    <hr>
-  </div>
-  <div class="col-md-3 sub-t">Tutor/a: <%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%>
-  </div>
 <% } %>
 
 <% if(session.user.mestre === "ee"){ %>
-  <div class="col-md-2">
-    <div class="page-t">Atenció a la
-      <div class="curs-t2">DIVERSITAT
-      </div>
+  <div class="col-md-3">
+      <div class="default-color z-depth-2">
+        <div class="card-block">
+        <div class="curs-t white-text">Atenció a la diversitat</div>
+          <p class="card-text white-text"><strong>Tutoria: </strong><%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%></p>
+        </div>
     </div>
-  </div>
-
-  <div class="col-md-10">
-    <hr>
-  </div>
-  <div class="col-md-3 sub-t">Tutor/a: <%=session.user.nom + " " + session.user.cognom%>
   </div>
 <% } %>
 
-  <div class="col-md-12">
+  <div class="container taula clear">
 <%  if (Alumnes.length === 0) { %>
   <p><br />
     Encara no hi ha alumnes registrats
@@ -55,9 +48,9 @@
   <table class="table table-hover">
     <thead>
       <tr id="tutoriaRow">
-        <th class="col-md-1">Núm.</th>
-        <th class="col-md-3">Nom i cognoms</th>
-        <th class="col-md-2"> </th>
+        <th>Núm.</th>
+        <th>Nom i cognoms</th>
+        <th> </th>
         <%if(session.user.mestre === "tutor"){ %>
 <!--        <th class="col-md-2">
           <div class="btn-group">
@@ -79,26 +72,24 @@
     for (i=0; i < Alumnes.length; i++) {
     %>
       <tr>
-        <td class="col-md-1"><%=i+1%></td>
-        <td class="col-md-3"><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>
+        <td><%=i+1%></td>
+        <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>
         </td>
-        <td class="col-md-2">
+        <td>
         <% if(session.user.mestre === "tutor"){%>
 
 <!-- Split button -->
             <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Accions <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
-                <li><a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal">Assistència</a></li>
+              <button type="button" class="btn btn-blue-grey waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions</button>
+              <div class="dropdown-menu">
+                <li><a class="dropdown-item" href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
+                <li><a class="dropdown-item" data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal">Assistència</a></li>
                 <% if(Alumnes[i].eeUsee === true) {%>
-                <li><a href="/seguiment-EE/<%=Alumnes[i].id%>">Atenció a la diversitat</a></li>
+                <li><a class="dropdown-item" href="/seguiment-EE/<%=Alumnes[i].id%>">Atenció a la diversitat</a></li>
                 <%}%>
-                <li role="separator" class="divider"></li>
-                <li><a data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
-              </ul>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
+              </div>
             </div>
                 <% } %>
 
@@ -117,7 +108,7 @@
 
         <% }; %>
         </td>
-        <td class="col-md-2"></td>
+        <td></td>
       <% } %>
     <% } %>
          </tr> 
@@ -131,8 +122,8 @@
         if (session.user.mestre === "ee") {
             var cursMestre ="Seleccioneu curs"};
         %>
-      <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-        <a data-toggle="modal" class = "btn btn-primary" id="btnAfegir" role = "button" href="/javascripts/modals/nouAlumne.ejs" data-escola="<%=session.user.escola%>" data-curs="<%=cursMestre%>" data-target="#afegirModal"><strong>+ </strong>Afegir-hi alumnes</a>
+      <div class="clearfix">
+        <a data-toggle="modal" class="btn btn-default float-right" id="btnAfegir" role="button" href="/javascripts/modals/nouAlumne.ejs" data-escola="<%=session.user.escola%>" data-curs="<%=cursMestre%>" data-target="#afegirModal"><i class="fa fa-plus"></i> Afegir-hi alumnes</a>
       </div>
 
     </div>

@@ -31,13 +31,14 @@
       }
       %>
 
-    <nav class="navbar navbar-toggleable-md navbar-dark black navbar-fixed-top">
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-dark black">
       <div class="container">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
-        <a class="navbar-brand" href="<%=ruta%>"><strong>AppEscola</strong></a>
-      <!-- Collect the nav links, forms, and other content for toggling -->
+      <a class="navbar-brand" href="<%=ruta%>">
+        <strong>AppEscola</strong>
+      </a>
       <div class="collapse navbar-collapse" id="#navbarNav1">
         <ul class="nav navbar-nav mr-auto">       
           <%  if (session.user){%>
@@ -50,18 +51,21 @@
         <%if (!session.user){%>
         <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown btn-group">
-          <a class="nav-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal""><span class="glyphicon glyphicon-log-in"></span> Entra </a>
-          <a class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span>Crear un compte nou <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <a class="dropdown-item"  data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
-              <a class="dropdown-item"  data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Tutor/a</a>
-              <a class="dropdown-item"  data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Tutor/a USEE</a>
-          </ul>
-        </div>
+          <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
+          <div class="dropdown-menu dropdown" aria-labelledby="nouUser">
+            <a class="dropdown-item"  data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
+            <a class="dropdown-item"  data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Tutor/a</a>
+            <a class="dropdown-item"  data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Tutor/a USEE</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal"><i class="fa fa-sign-in"></i> Entra</a>
+        </li>
+      </div>
         <%} else {%>
         <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown btn-group">
-          <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span>  </span><%=session.user.nom +" "+ session.user.cognom%><span class="caret"></span></a>
+          <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=" "+ "Hola, " + session.user.nom +" "+ session.user.cognom%></a>
             <div class="dropdown-menu dropdown" aria-labelledby="userDropdown">
               <a class="dropdown-item" href="/usuari/<%=session.user._id%>">Veure perfil</a>
               <a class="dropdown-item" href="/logout">Sortir</a>
@@ -80,7 +84,39 @@
     </section>
 
     <footer class="footer">
-       <div>Això és el footer</div>
+           <div class="container-fluid">
+        <div class="row">
+
+            <!--First column-->
+            <div class="col-md-6">
+                <h5 class="title">Footer Content</h5>
+                <p>Here you can use rows and columns here to organize your footer content.</p>
+            </div>
+            <!--/.First column-->
+
+            <!--Second column-->
+            <div class="col-md-6">
+                <h5 class="title">Links</h5>
+                <ul>
+                    <li><a href="#!">Link 1</a></li>
+                    <li><a href="#!">Link 2</a></li>
+                    <li><a href="#!">Link 3</a></li>
+                    <li><a href="#!">Link 4</a></li>
+                </ul>
+            </div>
+            <!--/.Second column-->
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © 2017 <a href="https://www.MDBootstrap.com"> Un mestre </a>
+
+        </div>
+    </div>
+    <!--/.Copyright-->
     </footer>
     </div>
   </div>
