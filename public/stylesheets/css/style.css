@@ -33,6 +33,17 @@ nav .dropdown-item:hover {
     background-color: #424242;
 }
 
+.col-aside {
+    padding: 7em 1em 1em 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    background-color: #2BBBAD;
+}
+
 .marge-r{
     margin-right: 1em;
 }
@@ -49,6 +60,7 @@ nav .dropdown-item:hover {
 
 .footer {
     position: absolute;
+    z-index: 1060;
     right: 0;
     bottom: 0;
     left: 0;

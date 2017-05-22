@@ -76,10 +76,15 @@
       </div>
     </div>
   </nav>
-
-
-
-    <section class ="mainsection">
+<%if (session.user) {%>
+  <aside class="col-aside md-col-3">
+  <div><strong>ESCOLA<br><%=session.user.escola.nom%></strong></div>
+        <div><%=session.user.nom%></div>
+          <p><strong>Tutoria: </strong><%=session.user.curs%></p>
+        </div>
+  </aside>
+<%}%>
+    <section class ="mainsection md-col-9">
       <%- body %>
     </section>
 
