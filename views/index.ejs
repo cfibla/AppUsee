@@ -4,8 +4,9 @@
 
 <% if(session.user.mestre === "tutor"){ %> 
   <div class="col-md-3">
-      <div class="card default-color z-depth-2">
+      <div class="card default-color">
         <div class="card-block">
+        <div class="card-text white-text"><strong>ESCOLA<br><%=Alumnes[0].escola.nom%></strong></div>
         <div class="curs-t white-text"><%=Alumnes[0].curs%></div>
           <p class="card-text white-text"><strong>Tutoria: </strong><%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%></p>
         </div>
@@ -16,7 +17,7 @@
 
 <% if(session.user.mestre === "ee"){ %>
   <div class="col-md-3">
-      <div class="default-color z-depth-2">
+      <div class="carddefault-color z-depth-2">
         <div class="card-block">
         <div class="curs-t white-text">Atenció a la diversitat</div>
           <p class="card-text white-text"><strong>Tutoria: </strong><%=Alumnes[0].tutor.nom + " " + Alumnes[0].tutor.cognom%></p>

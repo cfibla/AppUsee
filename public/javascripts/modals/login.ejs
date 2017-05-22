@@ -3,26 +3,28 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Afegir alumnes</title>
-
+    <title>Inici de sessió</title>
   </head>
 
   <body>
-
-  <div class="modal-header" style="padding:35px 50px;">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    Inici de sessió
+  <div class="modal-header">
+  <div class="modal-title">Inici de sessió</div>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
   </div>
-    <div class="modal-body" style="padding:40px 50px;">
+    <div class="modal-body">
       <form role="form" data-toggle ="validator" method="post" action="/login" id="login-form">
-        <div class="form-group">
-          <label for="usrname"><span class="glyphicon glyphicon-user"></span> Usuari</label>
-          <input type="email" data-error="Si us plau, empleneu aquest apartat" class="form-control" id="usrname"  name="email" placeholder="Introduiu el vostre correu electrònic" required="true">
+        <div class="md-form">
+          <i class="fa fa-envelope prefix"></i>
+          <input type="email" data-error="Si us plau, empleneu aquest apartat" class="form-control" id="usrname"  name="email" required="true">
+          <label for="usrname">Correu electrònic</label>
           <div class="help-block with-errors"></div>
         </div>
-        <div class="form-group">
-          <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contrasenya</label>
-          <input type="password" class="form-control" id="psw" data-error="Si us plau, empleneu aquest apartat" name="password" placeholder="Introduiu la vostra contrasenya" required="true">
+        <div class="md-form">
+        <i class="fa fa-lock prefix"></i>
+          <input type="password" class="form-control" id="psw" data-error="Si us plau, empleneu aquest apartat" name="password" required="true">
+          <label for="psw">Contrasenya</label>
           <div class="help-block with-errors"></div>
         </div>
         <p><a href="#">Heu oblidat la vostra contrasenya?</a></p>
@@ -33,9 +35,9 @@
 
     </div>
     <div class="modal-footer">
-      <div class="form-group">
-      <button type="submit" class="btn btn-success btn-block" form="login-form"><span class="glyphicon glyphicon-off"></span> Entra</button>
-      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg" form="login-form">Entra</button>
+
     </div>
   </body>
 </html>

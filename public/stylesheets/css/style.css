@@ -28,25 +28,15 @@ nav .container{
     display: block;
 }
 nav .dropdown-item:hover {
-    color: #1d1e1f;
+    color: #616161;
     text-decoration: none;
-    background-color: #607d8b;
+    background-color: #424242;
 }
 
 .marge-r{
     margin-right: 1em;
 }
-/*
-.bd-pageheader {
-    padding: 1em;
-    background: #5cb85c;
-    color:#bae8ba;
-}
 
-.bd-pageheader strong {
-    color: black;
-}
-*/
 .master {
     min-height: 100%;
 }
@@ -63,10 +53,14 @@ nav .dropdown-item:hover {
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: #efefef;
+    background-color: #607d8b;
+    color: white;
     text-align: left;
 }
 
+.md-form .prefix.active {
+     color: inherit; 
+}
 
 .fons{
     padding-top:5em;
@@ -121,6 +115,7 @@ span.glyphicon-user {
 .taula {
     margin-top: 3em;
 }
+
 .page-t{
     text-align: left;
     background-color: #5cb85c;
@@ -153,10 +148,14 @@ span.glyphicon-user {
 }
 
 .modal-header, .close {
-      background-color: #5cb85c;
-      color:white !important;
-      text-align: center;
-      font-size: 35px;
+    background-color: #607d8b;
+    color:white !important;
+    text-align: center;
+    font-size: 35px;
+}
+
+.modal-body {
+    padding:40px 50px;
 }
 
 .modal-footer {
