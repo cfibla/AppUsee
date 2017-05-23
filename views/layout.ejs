@@ -42,10 +42,10 @@
       <div class="collapse navbar-collapse" id="#navbarNav1">
         <ul class="nav navbar-nav mr-auto">       
           <%  if (session.user){%>
-                <li class="nav-item"><a class="nav-link" href="<%=ruta%>">Tutoria<span class="sr-only">(current)</span></a></li>
+                <li id="llista" class="nav-item"><a class="nav-link" href="<%=ruta%>">Llista<span class="sr-only">(current)</span></a></li>
           <%  if(session.user.mestre === "tutor"){%>
-              <li class="nav-item"><a class="nav-link" href="/assistencia">Assistència<span class="sr-only">(current)</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="/menjador">Menjador<span class="sr-only">(current)</span></a></li>
+              <li id="assistencia" class="nav-item"><a class="nav-link" href="/assistencia">Assistència<span class="sr-only">(current)</span></a></li>
+              <li id="menjador" class="nav-item"><a class="nav-link" href="/menjador">Menjador<span class="sr-only">(current)</span></a></li>
           <%  }}%>
         </ul>
         <%if (!session.user){%>
@@ -77,16 +77,16 @@
     </div>
   </nav>
 <%if (session.user) {%>
-  <aside class="col-aside md-col-3">
-  <div class="colback">
+  <div class="container-flex seconnav">
+  <div class="row">
+
     <%if (session.user.mestre==="tutor") {%>
-      <div class="curs-t white-text"><%=session.user.curs%></div><%}%>
+      <div class="col-md-1 curs-t"><%=session.user.curs%></div><%}%>
     <%if (session.user.mestre==="ee") {%>
       <div class="sub-t">Atenció a la<br><strong>DIVERSITAT</strong><br><br></div><%}%>
-    <div><strong>Tutoria</strong><br><%=session.user.nom + " " + session.user.cognom%></div>
-    <div><strong>Escola</strong><br><%=session.user.escola%></div>
-    </div>
-  </aside>
+    <div class="col-md-2"><br><strong>Tutoria </strong><%=session.user.nom + " " + session.user.cognom%></div>
+    <div class="col-md-2"><br><strong>Escola </strong><%=session.user.escola%></div>
+    </div></div>
 <%}%>
     <section class ="mainsection md-col-9">
       <%- body %>
@@ -185,5 +185,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
 <!-- Fichero externo con JS y jQuery -->
   <script src="/javascripts/global.js"></script>
+  <%  if (page_name === "llista"){%>
+  <script type="text/javascript">
+    $("#llista").addClass("navcolor");
+  </script>
+  <%}%>
+  <%  if (page_name === "assistencia"){%>
+  <script type="text/javascript">
+    $("#assistencia").addClass("navcolor");
+  </script>
+  <%}%>
+  <%  if (page_name === "menjador"){%>
+  <script type="text/javascript">
+    $("#menjador").addClass("navcolor");
+  </script>
+  <%}%>
 </body>
 </html>

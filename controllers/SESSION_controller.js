@@ -2,7 +2,7 @@ var models = require('../models/index');
 
 /* GET home page. */
 exports.new = function(req, res) {
-	res.render('home', { title: 'AppEscola' });
+	res.render('home', { title: 'AppEscola',  page_name:'home'});
 };
 
 

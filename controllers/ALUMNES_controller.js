@@ -9,7 +9,7 @@ exports.list = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('index',{Alumnes: docs, page_name:'tutoria'});
+			res.render('index',{Alumnes: docs, page_name:'llista'});
 			}
 	});
 

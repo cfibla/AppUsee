@@ -21,7 +21,9 @@ body {
 /*    font-size: 14px;*/
     /*background: #f8f7f7;*/
 }
-
+nav {
+    height: 40px;
+}
 nav .container{
     width: 100%;
     margin: 0;
@@ -33,20 +35,16 @@ nav .dropdown-item:hover {
     background-color: #424242;
 }
 
-.col-aside {
-    padding: 7em 1em 1em 1em;
+.seconnav {
+    width: 100%;
+    background-color: #2BBBAD;
+    padding: 4em 1em 0em 2em;
     position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1000;
-    display: block;
+        z-index: 1000;
 }
 
-.colback {
+.navcolor{
     background-color: #2BBBAD;
-    padding: 1em;
-    border-radius: 1px;
 }
 .marge-r{
     margin-right: 1em;
@@ -69,7 +67,7 @@ nav .dropdown-item:hover {
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: #eee;
+    background-color: #e0e0e0;
     color: black;
     text-align: left;
 }
