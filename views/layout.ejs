@@ -78,10 +78,14 @@
   </nav>
 <%if (session.user) {%>
   <aside class="col-aside md-col-3">
-  <div><strong>ESCOLA<br><%=session.user.escola.nom%></strong></div>
-        <div><%=session.user.nom%></div>
-          <p><strong>Tutoria: </strong><%=session.user.curs%></p>
-        </div>
+  <div class="colback">
+    <%if (session.user.mestre==="tutor") {%>
+      <div class="curs-t white-text"><%=session.user.curs%></div><%}%>
+    <%if (session.user.mestre==="ee") {%>
+      <div class="sub-t">Atenció a la<br><strong>DIVERSITAT</strong><br><br></div><%}%>
+    <div><strong>Tutoria</strong><br><%=session.user.nom + " " + session.user.cognom%></div>
+    <div><strong>Escola</strong><br><%=session.user.escola%></div>
+    </div>
   </aside>
 <%}%>
     <section class ="mainsection md-col-9">
