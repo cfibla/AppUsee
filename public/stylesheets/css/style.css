@@ -38,7 +38,7 @@ nav .dropdown-item:hover {
 .seconnav {
     width: 100%;
     background-color: #2BBBAD;
-    padding: 4em 1em 0em 2em;
+    padding: 3em 1em 0em 2em;
     position: fixed;
     z-index: 1000;
 }
@@ -55,8 +55,9 @@ nav .dropdown-item:hover {
     color:#4B515D !important;
     background-image:none;
     background-color:transparent;
-    border-color:#4B515D
+    border-color:#4B515D !important
 }
+
 .btn-outline-secondary:hover{
     color:#fff !important;
     background-color:#4B515D;
@@ -78,8 +79,8 @@ nav .dropdown-item:hover {
 .show>
 .btn-outline-secondary.dropdown-toggle{
     color:#fff;
-    background-color:#ccc;
-    border-color:#ccc}
+    background-color:#4B515D;
+    border-color:#4B515D}
 
 .marge-r{
     margin-right: 1em;
@@ -193,7 +194,15 @@ span.glyphicon-user {
 }
 
 .datep-t{
-    vertical-align: middle;
+    margin-top:5em;
+}
+
+.tablemarge{
+    margin-top:1em;
+}
+
+.textcenter{
+    text-align: center;
 }
 
 .modal-header, .close {

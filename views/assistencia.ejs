@@ -3,20 +3,20 @@
   <div class="row">
 
 <!--DATEPICKER-->
-    <form role="form" method="post" action="/assisData" id="assisData">
-      <div  id="aData" class="col-md-2 col-md-offset-7 datep-t" >
-      
+      <div id="aData" class="container datep-t">
+      <div class="row justify-content-end">
+      <form role="form" method="post" action="/assisData" id="assisData">
         <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control" form="assisData" name= "dataAssis" value ="<%=DataV%>">
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-th"></span>
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
           </div>
-        </div>
-      </div>
-    </form> 
+          <input type="text" class="form-control textcenter" form="assisData" name= "dataAssis" value ="<%=DataV%>" aria-describedby="basic-addon2">
+        </div></form>
+      </div></div>
+     
  
 
-  <div class="col-md-12">
+  <div class="col-md-12 tablemarge">
 
   <% if (Alumnes.length === 0) { %>
       <p><br />
@@ -72,7 +72,7 @@
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
 <!-- Button -->
-      <a type="button" class="btn btn-default" id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal">Imprimir</a>
+      <button type="button" class="btn btn-outline-secondary" id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal">Imprimir</button>
       </td>
 
       <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
@@ -87,7 +87,7 @@
      <%}%>
     </tbody>
   </table>
-          <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+          <div class="fclearfix" style="text-align:right;">
             <input type="hidden" form="assisForm" name="i" value ="<%=i%>">
                 <% 
                 var li = "/list";
@@ -95,7 +95,7 @@
                   li = "/list_EE"}
                 %> 
 <!--                <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>-->
-            <button type="submit" form="assisForm" class="btn btn-primary">Desa</button>
+            <button type="submit" form="assisForm" class="btn btn-default float-right">Desa</button>
           </div>
     <%}%>
   </div>
