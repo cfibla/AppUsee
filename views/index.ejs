@@ -57,7 +57,7 @@
 
 <!-- Split button -->
             <div class="btn-group">
-              <button type="button" class="btn btn-blue-grey waves-effect dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions</button>
+              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions</button>
               <div class="dropdown-menu">
                 <li><a class="dropdown-item" href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
                 <li><a class="dropdown-item" data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal">Assistència</a></li>

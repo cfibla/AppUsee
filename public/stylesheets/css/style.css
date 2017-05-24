@@ -40,12 +40,47 @@ nav .dropdown-item:hover {
     background-color: #2BBBAD;
     padding: 4em 1em 0em 2em;
     position: fixed;
-        z-index: 1000;
+    z-index: 1000;
 }
 
 .navcolor{
     background-color: #2BBBAD;
 }
+
+.navcolor a{
+    color: black !important
+}
+
+.btn-outline-secondary{
+    color:#4B515D !important;
+    background-image:none;
+    background-color:transparent;
+    border-color:#4B515D
+}
+.btn-outline-secondary:hover{
+    color:#fff !important;
+    background-color:#4B515D;
+    border-color:#4B515D
+}
+
+.btn-outline-secondary.focus,.btn-outline-secondary:focus{
+    -webkit-box-shadow:0 0 0 2px rgba(204,204,204,.5);
+    box-shadow:0 0 0 2px rgba(204,204,204,.5)
+}
+
+.btn-outline-secondary.disabled,.btn-outline-secondary:disabled{
+    color:#4B515D;
+    background-color:transparent
+}
+
+.btn-outline-secondary.active,
+.btn-outline-secondary:active,
+.show>
+.btn-outline-secondary.dropdown-toggle{
+    color:#fff;
+    background-color:#ccc;
+    border-color:#ccc}
+
 .marge-r{
     margin-right: 1em;
 }
