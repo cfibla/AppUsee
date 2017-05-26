@@ -20,61 +20,59 @@
 
   <body>
   <%  if (session.user){
-      var ruta;
-      if(session.user.mestre === "ee"){
-      ruta = "/list_EE";
-      } else {
-      ruta = "/list";
+        var ruta;
+        if(session.user.mestre === "ee"){
+        ruta = "/list_EE";
+        } else {
+          ruta = "/list";
       }
       } else {
-      ruta = "";
+        ruta = "";
       }
       %>
-
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-dark black z-depth-0">
+<!--Navbar-->
+    <nav class="navbar navbar-toggleable-md navbar-dark black fixed-top z-depth-0">
       <div class="container">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="<%=ruta%>">
-        <strong>AppEscola</strong>
-      </a>
-
-      <div class="collapse navbar-collapse" id="navbarNav1">
-        <ul class="nav navbar-nav mr-auto">       
-          <%  if (session.user){%>
-                <li id="llista" class="nav-item"><a class="nav-link" href="<%=ruta%>">Llista<span class="sr-only">(current)</span></a></li>
-          <%  if(session.user.mestre === "tutor"){%>
-              <li id="assistencia" class="nav-item"><a class="nav-link" href="/assistencia">Assistència<span class="sr-only">(current)</span></a></li>
-              <li id="menjador" class="nav-item"><a class="nav-link" href="/menjador">Menjador<span class="sr-only">(current)</span></a></li>
-          <%  }}%>
-        </ul>
-        <%if (!session.user){%>
-        <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item dropdown btn-group">
-          <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
-          <div class="dropdown-menu dropdown" aria-labelledby="nouUser">
-            <a class="dropdown-item"  data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
-            <a class="dropdown-item"  data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Tutor/a</a>
-            <a class="dropdown-item"  data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Tutor/a USEE</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal"><i class="fa fa-sign-in"></i> Entra</a>
-        </li>
-        </ul>
-        <%} else {%>
-        <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item dropdown btn-group">
-          <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=" "+ "Hola, " + session.user.nom +" "+ session.user.cognom%></a>
-            <div class="dropdown-menu dropdown" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="/usuari/<%=session.user._id%>">Veure perfil</a>
-              <a class="dropdown-item" href="/logout">Sortir</a>
-            </div>
-        </li>
-        </ul>
-        <%}%>
-      </div>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="<%=ruta%>">
+          <strong>AppEscola</strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav1">       
+          <%if (!session.user){%>
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item dropdown btn-group">
+                <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
+                <div class="dropdown-menu dropdown" aria-labelledby="nouUser">
+                  <a class="dropdown-item" data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
+                  <a class="dropdown-item" data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Tutor/a</a>
+                  <a class="dropdown-item" data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Tutor/a USEE</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal"><i class="fa fa-sign-in"></i> Entra</a>
+              </li>
+            </ul>
+            <%} else {%>
+              <ul class="nav navbar-nav mr-auto">
+                <li id="llista" class="nav-item active"><a class="nav-link" href="<%=ruta%>">Llista<span class="sr-only">(current)</span></a></li>
+                <%if(session.user.mestre === "tutor"){%>
+                  <li id="assistencia" class="nav-item"><a class="nav-link" href="/assistencia">Assistència</a></li>
+                  <li id="menjador" class="nav-item"><a class="nav-link" href="/menjador">Menjador</a></li>
+              </ul>
+            <%}%>
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item dropdown btn-group">
+                  <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=" "+ "Hola, " + session.user.nom +" "+ session.user.cognom%></a>
+                  <div class="dropdown-menu dropdown" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="/usuari/<%=session.user._id%>">Veure perfil</a>
+                    <a class="dropdown-item" href="/logout">Sortir</a>
+                  </div>
+                </li>
+              </ul>
+          <%}%>
+        </div>
     </div>
   </nav>
 <%if (session.user) {%>
@@ -89,7 +87,7 @@
     <div class="col-md-2"><br><strong>Escola </strong><%=session.user.escola%></div>
     </div></div>
 <%}%>
-    <section class ="mainsection md-col-9">
+    <section class ="mainsection">
       <%- body %>
     </section>
 
@@ -182,32 +180,8 @@
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>
 <!-- Validator -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
-<!-- Fichero externo con JS y jQuery -->
+  <!-- Fichero externo con JS y jQuery -->
   <script src="/javascripts/global.js"></script>
-  <%  if (page_name === "llista"){
-    console.log(page_name)%>
-  <script type="text/javascript">
-    $("#llista").addClass("navcolor");
-  </script>
-  <%}%>
-  <%  if (page_name === "assistencia"){
-    console.log(page_name)%>
-  <script type="text/javascript">
-    $("#assistencia").addClass("navcolor");
-  </script>
-  <%}%>
-  <%  if (page_name === "menjador"){
-    console.log(page_name)%>
-  <script type="text/javascript">
-    $("#menjador").addClass("navcolor");
-  </script>
-  <%}%>
-    <%  if (page_name === "home"){
-      console.log(page_name)%>
-  <script type="text/javascript">
-  </script>
-  <%}%>
 </body>
 </html>

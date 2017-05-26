@@ -9,7 +9,7 @@ exports.list = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('index',{Alumnes: docs, page_name:'llista'});
+			res.render('index',{Alumnes: docs});
 			}
 	});
 
@@ -97,7 +97,7 @@ exports.mod = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('modDades', {alumne: alumne, page_name:''});
+			res.render('modDades', {alumne: alumne});
 		}
 	});
 };
@@ -163,7 +163,7 @@ exports.assisGet = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('assistencia',{Alumnes: alumnes, DataV: today, page_name:'assistencia'});
+			res.render('assistencia',{Alumnes: alumnes, DataV: today});
 			}
 	});
 
@@ -237,7 +237,7 @@ exports.assisData = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('assistencia',{Alumnes: alumnes, DataV: dataA, page_name:'assistencia'});
+			res.render('assistencia',{Alumnes: alumnes, DataV: dataA});
 
 		}
 	});
@@ -280,7 +280,7 @@ exports.menjaGet = function (req, res) {
 			console.log(error);
 		} else {
 			//console.log(JSON.stringify(alumnes));
-			res.render('menjador',{Alumnes: alumnes, DataVM: today, page_name:'menjador'});
+			res.render('menjador',{Alumnes: alumnes, DataVM: today});
 			}
 	});
 };
@@ -339,7 +339,7 @@ exports.menjaData = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('menjador',{Alumnes: alumnes, DataVM: dataM, page_name:'menjador'});
+			res.render('menjador',{Alumnes: alumnes, DataVM: dataM});
 
 		}
 	});

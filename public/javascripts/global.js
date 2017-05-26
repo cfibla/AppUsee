@@ -1,5 +1,23 @@
 $(document).ready(function (){
 
+
+  //NAVBAR
+  var pth = window.location.pathname; // Returns path only
+
+  if(pth==="/list"){
+    $("#llista").removeClass("active").addClass("navcolor");
+  }
+  if(pth==="/assistencia"){
+    $("#llista").removeClass("active")
+    $("#assistencia").addClass("navcolor");
+  }
+  if(pth==="/menjador"){
+    $("#llista").removeClass("active")
+    $("#menjador").addClass("navcolor");
+  }
+
+
+
   //RADIOS ASSISTENCIA
    // bind to retrieve old status
     $('#tradios input[type="radio"]').mousedown(function() { 
