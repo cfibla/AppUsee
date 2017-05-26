@@ -64,10 +64,11 @@ nav .dropdown-item:hover {
 
 .navcolor{
     background-color: #2BBBAD;
+
 }
 
 .navcolor a{
-    color: black !important
+    color: #2BBBAD !important;
 }
 
 .btn-outline-secondary{
@@ -225,8 +226,8 @@ span.glyphicon-user {
 }
 
 .modal-header, .close {
-    background-color: #607d8b;
-    color:white !important;
+    background-color: #2BBBAD;
+    /*color:white !important;*/
     text-align: center;
     font-size: 35px;
 }

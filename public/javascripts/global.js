@@ -6,14 +6,17 @@ $(document).ready(function (){
 
   if(pth==="/list"){
     $("#llista").removeClass("active").addClass("navcolor");
+    $("#situ").html("Llista ");
   }
   if(pth==="/assistencia"){
     $("#llista").removeClass("active")
     $("#assistencia").addClass("navcolor");
+    $("#situ").html("Assistència ");
   }
   if(pth==="/menjador"){
     $("#llista").removeClass("active")
     $("#menjador").addClass("navcolor");
+    $("#situ").html("Menjador ");
   }
 
 
