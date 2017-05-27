@@ -3,19 +3,20 @@
   <div class="row">
 
 <!--DATEPICKER-->
-    <form role="form" method="post" action="/menjaData" id="menjaD">
-      <div  id="mData" class="col-md-2 col-md-offset-7 datep-t" >   
-        <div class="input-group date" data-provide="datepicker">
-          <input type="text" class="form-control" form="menjaD" name= "dataMenja" value ="<%=DataVM%>">
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-th"></span>
+    <div id="mData" class="container datep-t">
+      <div class="row justify-content-end">
+        <form role="form" method="post" action="/menjaData" id="menjaD">
+          <div class="input-group date" data-provide="datepicker">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <input type="text" class="form-control textcenter" form="menjaD" name= "dataMenja" value ="<%=DataVM%>">
           </div>
-        </div>
+        </form>
       </div>
-    </form> 
+    </div> 
  
-
-  <div class="col-md-12">
+  <div class="col-md-12 tablemarge">
 
   <% if (Alumnes.length === 0) { %>
       <p><br />
@@ -69,7 +70,7 @@
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
 <!-- Button -->
-      <a type="button" class="btn btn-default" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled>Imprimir</a>
+      <button type="button" class="btn btn-outline-secondary" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled>Imprimir</button>
       </td>
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
@@ -82,9 +83,9 @@
      <%}%>
     </tbody>
   </table>
-          <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+          <div class="fclearfix" style="text-align:right;">
             <input type="hidden" form="menjaForm" name="i" value ="<%=i%>">
-            <button type="submit" form="menjaForm" class="btn btn-primary">Desa</button>
+            <button type="submit" form="menjaForm" class="btn btn-default float-right">Desa</button>
           </div>
     <%}%>
   </div>

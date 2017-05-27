@@ -22,25 +22,24 @@ body {
     /*background: #f8f7f7;*/
 }
 @media (min-width: 768px) {
-  body {
 
-  }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    nav {
-        height: 40px;
-    }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    nav {
+  /*  nav {
         height: 40px;
-    }
+    }*/
 }
 
+nav{
+    z-index:1000;
+}
 
 nav .container{
     width: 100%;
@@ -54,21 +53,29 @@ nav .dropdown-item:hover {
     background-color: #424242;
 }
 
+nav a{
+    border-radius: 0;
+}
+
+.nav-link {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
 .seconnav {
     width: 100%;
     background-color: #2BBBAD;
-    padding: 3em 1em 0em 2em;
+    padding: 4em 1em 1em 2em;
     position: fixed;
     z-index: 1000;
 }
 
 .navcolor{
-    background-color: #2BBBAD;
-
+    background-color: #e0e0e0;
 }
 
 .navcolor a{
-    color: #2BBBAD !important;
+    color: black !important;
 }
 
 .btn-outline-secondary{
@@ -118,7 +125,7 @@ nav .dropdown-item:hover {
 
 .footer {
     position: absolute;
-    z-index: 1060;
+    z-index: 1000;
     right: 0;
     bottom: 0;
     left: 0;

@@ -6,17 +6,17 @@ $(document).ready(function (){
 
   if(pth==="/list"){
     $("#llista").removeClass("active").addClass("navcolor");
-    $("#situ").html("Llista ");
+    $("#situ").html("Llista d'alumnes ");
   }
   if(pth==="/assistencia"){
-    $("#llista").removeClass("active")
+    $("#llista").removeClass("active");
     $("#assistencia").addClass("navcolor");
-    $("#situ").html("Assistència ");
+    $("#situ").html("Llista d'assistència ");
   }
   if(pth==="/menjador"){
-    $("#llista").removeClass("active")
+    $("#llista").removeClass("active");
     $("#menjador").addClass("navcolor");
-    $("#situ").html("Menjador ");
+    $("#situ").html("Llista de menjador ");
   }
 
 
