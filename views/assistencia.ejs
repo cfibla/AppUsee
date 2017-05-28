@@ -3,19 +3,19 @@
   <div class="row">
 
 <!--DATEPICKER-->
-      <div id="aData" class="container datep-t">
+    <div id="aData" class="container datep-t">
       <div class="row justify-content-end">
-      <form role="form" method="post" action="/assisData" id="assisData">
-        <div class="input-group date" data-provide="datepicker">
-        <div class="input-group-addon">
-            <i class="fa fa-calendar"></i>
+        <form role="form" method="post" action="/assisData" id="assisData">
+          <div class="input-group date" data-provide="datepicker">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <input type="text" class="form-control textcenter" form="assisData" name= "dataAssis" value ="<%=DataV%>" aria-describedby="basic-addon2">
           </div>
-          <input type="text" class="form-control textcenter" form="assisData" name= "dataAssis" value ="<%=DataV%>" aria-describedby="basic-addon2">
-        </div></form>
-      </div></div>
+        </form>
+      </div>
+    </div>
      
- 
-
   <div class="col-md-12 tablemarge">
 
   <% if (Alumnes.length === 0) { %>
@@ -28,12 +28,12 @@
       <tr>
         <th>Núm.</th>
         <th>Nom i cognoms</th>
-        <th> </th>
 
         <th>Falta matí</th>
         <th>Retard matí</th>
         <th>Falta tarda</th>
         <th>Retard tarda</th>
+        <th>Accions</th>
       </tr>
     </thead>
     <tbody>
@@ -68,12 +68,6 @@
       <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>
       </td>
-      <td>
-      <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
-        var idAlumne = Alumnes[i]._id;%>
-<!-- Button -->
-      <button type="button" class="btn btn-outline-secondary" id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal">Imprimir</button>
-      </td>
 
       <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
       <input type="hidden" form="assisForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
@@ -82,6 +76,11 @@
       <td><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
       <td><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
       <td><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
+<!-- Button -->
+      <td><% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
+          var idAlumne = Alumnes[i]._id;%>
+        <a id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-print fa-lg"></i></a>
+      </td>
      </tr>
      </form>
      <%}%>

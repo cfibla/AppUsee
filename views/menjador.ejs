@@ -28,10 +28,10 @@
       <tr>
         <th>Núm.</th>
         <th>Nom i cognoms</th>
-        <th> </th>
         <th>Curs</th>
         <th>Menjador</th>
         <th>Pagat</th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>
@@ -66,18 +66,18 @@
       <td><%=i+1%></td>
       <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>
       </td>
-      <td>
-      <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
-        var idAlumne = Alumnes[i]._id;%>
-<!-- Button -->
-      <button type="button" class="btn btn-outline-secondary" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled>Imprimir</button>
-      </td>
       <td><%=Alumnes[i].curs%></td>
       <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
       <input type="hidden" form="menjaForm" name="menjador.dataMen.<%=i%>" value ="<%=DataVM%>">
       <input type="hidden" form="menjaForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
       <td><input id="mMenj" type="radio" form="menjaForm" name="menjador.menja.<%=i%>" value = true <%=menjaMenja()%>></td>
       <td><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
+      <!-- Button -->
+      <td>
+      <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
+        var idAlumne = Alumnes[i]._id;%>
+      <button type="button" class="btn btn-outline-secondary z-depth-0" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled>Imprimir</button>
+      </td>
      </tr>
      </form>
      <%}%>

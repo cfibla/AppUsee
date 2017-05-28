@@ -16,7 +16,7 @@ body {
    margin: 0;
    padding-bottom: 6rem;
    min-height: 100%;
-   font-family: "Helvetica Neue", Arial, sans-serif;
+/*   font-family: "Helvetica Neue", Arial, sans-serif;
 /*    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 /*    font-size: 14px;*/
     /*background: #f8f7f7;*/
@@ -32,9 +32,9 @@ body {
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  /*  nav {
+    nav {
         height: 40px;
-    }*/
+    }
 }
 
 nav{
@@ -54,7 +54,6 @@ nav .dropdown-item:hover {
 }
 
 nav a{
-    border-radius: 0;
 }
 
 .nav-link {
@@ -65,17 +64,21 @@ nav a{
 .seconnav {
     width: 100%;
     background-color: #2BBBAD;
-    padding: 4em 1em 1em 2em;
+    padding: 4em 1em .5em 2em;
     position: fixed;
     z-index: 1000;
 }
 
 .navcolor{
-    background-color: #e0e0e0;
+    background-color: #2BBBAD;
 }
 
 .navcolor a{
     color: black !important;
+}
+
+table a{
+    color: black;
 }
 
 .btn-outline-secondary{
@@ -211,7 +214,7 @@ span.glyphicon-user {
 
 .curs-t{
     text-align: left;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
 }
 .curs-t2{

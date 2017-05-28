@@ -76,58 +76,62 @@
     </div>
   </nav>
 <%if (session.user) {%>
-  <div class="container-flex seconnav">
-  <div class="row">
-    <%if (session.user.mestre==="tutor") {%>
-      <div class="col-md-1 curs-t"><%=session.user.curs%></div>
-      <div class="curs-t" id="situ"></div><%}%>
-    <%if (session.user.mestre==="ee") {%>
-      <div class="sub-t">Atenció a la<br><strong>DIVERSITAT</strong><br><br></div><%}%>
-    <div class="col-md-2"><br><strong>Tutoria </strong><%=session.user.nom + " " + session.user.cognom%></div>
-    <div class="col-md-2"><br><strong>Escola </strong><%=session.user.escola%></div>
-    </div></div>
+  <div class="container-flex seconnav animated fadeIn">
+    <div class="row align-items-center">
+      <%if (session.user.mestre==="tutor") {%>
+        <div class="col-md-1 curs-t"><%=session.user.curs%></div>
+        <div class="col-md-4 curs-t" id="situ"></div>
+      <%}%>
+      <%if (session.user.mestre==="ee") {%>
+        <div class="sub-t">Atenció a la<br><strong>DIVERSITAT</strong><br><br></div>
+      <%}%>
+      <div class="col-md-2 offset-md-3"><strong>Tutoria </strong><%=session.user.nom + " " + session.user.cognom%></div>
+        <div class="col-md-2"><strong>Escola </strong><%=session.user.escola%></div>
+      </div>
+    </div>
 <%}%>
-    <section class ="mainsection">
-      <%- body %>
-    </section>
 
-    <footer class="footer">
-           <div class="container-fluid">
-        <div class="row">
+  <section class ="mainsection">
+    <%- body %>
+  </section>
 
-            <!--First column-->
-            <div class="col-md-6">
-                <h5 class="title">Footer Content</h5>
-                <p>Here you can use rows and columns here to organize your footer content.</p>
-            </div>
-            <!--/.First column-->
+  <footer class="footer">
+         <div class="container-fluid">
+      <div class="row">
 
-            <!--Second column-->
-            <div class="col-md-6">
-                <h5 class="title">Links</h5>
-                <ul>
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
-                </ul>
-            </div>
-            <!--/.Second column-->
-        </div>
-    </div>
-    <!--/.Footer Links-->
+          <!--First column-->
+          <div class="col-md-6">
+              <h5 class="title">Footer Content</h5>
+              <p>Here you can use rows and columns here to organize your footer content.</p>
+          </div>
+          <!--/.First column-->
 
-    <!--Copyright-->
-    <div class="footer-copyright">
-        <div class="container-fluid">
-            © 2017 <a href="https://www.MDBootstrap.com"> Un mestre </a>
-
-        </div>
-    </div>
-    <!--/.Copyright-->
-    </footer>
-    </div>
+          <!--Second column-->
+          <div class="col-md-6">
+              <h5 class="title">Links</h5>
+              <ul>
+                  <li><a href="#!">Link 1</a></li>
+                  <li><a href="#!">Link 2</a></li>
+                  <li><a href="#!">Link 3</a></li>
+                  <li><a href="#!">Link 4</a></li>
+              </ul>
+          </div>
+          <!--/.Second column-->
+      </div>
   </div>
+  <!--/.Footer Links-->
+
+  <!--Copyright-->
+  <div class="footer-copyright">
+      <div class="container-fluid">
+          © 2017 <a href="https://www.MDBootstrap.com"> Un mestre </a>
+
+      </div>
+  </div>
+  <!--/.Copyright-->
+  </footer>
+  </div>
+</div>
 
  <!-- MODAL NOU TUTOR -->
   <div class="modal fade" id="userModal" role="dialog">

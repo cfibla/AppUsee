@@ -27,7 +27,7 @@
       <tr id="tutoriaRow">
         <th>Núm.</th>
         <th>Nom i cognoms</th>
-        <th> </th>
+        <th>Accions</th>
         <%if(session.user.mestre === "tutor"){ %>
 <!--        <th class="col-md-2">
           <div class="btn-group">
@@ -54,38 +54,32 @@
         </td>
         <td>
         <% if(session.user.mestre === "tutor"){%>
-
-<!-- Split button -->
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions</button>
-              <div class="dropdown-menu">
-                <li><a class="dropdown-item" href="/dadesAlumne/<%=Alumnes[i].id%>">Dades personals</a></li>
-                <li><a class="dropdown-item" data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal">Assistència</a></li>
-                <% if(Alumnes[i].eeUsee === true) {%>
-                <li><a class="dropdown-item" href="/seguiment-EE/<%=Alumnes[i].id%>">Atenció a la diversitat</a></li>
-                <%}%>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal">Esborrar dades</a></li>
-              </div>
-            </div>
-                <% } %>
-
-          <% if(session.user.mestre === "ee"){ %>
- <!-- Split button -->
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Accions <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="/dadesAlumne/<%=Alumnes[i].id%>">Dades alumne</a></li>
-                <li><a href="/seguiment-EE/<%=Alumnes[i].id%>">Seguiment</a></li>
-                <li><a href="/print_EE/<%=Alumnes[i].id%>" target="_blank">Imprimir dades</a></li>
-              </ul>
-            </div>
-
-        <% }; %>
+        <span class="col-md-1">
+          <a href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user" aria-hidden="true"></i></a>
+          </span>
+          <span class="col-md-1">
+          <a data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+          </span>
+          <% if(Alumnes[i].eeUsee === true) {%>
+          <span class="col-md-1">
+            <a href="/seguiment-EE/<%=Alumnes[i].id%>"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+          </span><%}%>
+          <span class="col-md-1">
+            <a data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal"><i class="fa fa-close" aria-hidden="true"></i></a>
+          </span>
+        <% } %>
+        <% if(session.user.mestre === "ee"){ %>
+          <span class="col-md-1">
+            <a href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user" aria-hidden="true"></i></a>
+          </span>
+          <span class="col-md-1">
+            <a href="/seguiment-EE/<%=Alumnes[i].id%>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+          </span>
+          <span class="col-md-1">
+            <a href="/print_EE/<%=Alumnes[i].id%>" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
+          </span>
+        <% } %>
         </td>
-        <td></td>
       <% } %>
     <% } %>
          </tr> 
