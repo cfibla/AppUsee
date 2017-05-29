@@ -76,11 +76,11 @@ nav a{
 .navcolor a{
     color: black !important;
 }
-
+/*
 table a{
     color: black;
 }
-
+*/
 .btn-outline-secondary{
     color:#4B515D !important;
     background-image:none;
@@ -110,7 +110,8 @@ table a{
 .btn-outline-secondary.dropdown-toggle{
     color:#fff;
     background-color:#4B515D;
-    border-color:#4B515D}
+    border-color:#4B515D
+}
 
 .marge-r{
     margin-right: 1em;
@@ -169,11 +170,7 @@ span.glyphicon-user {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-/*
-.panel-title a{
-    text-decoration: none;
-}
-*/
+
 .alturaBox{
      min-height: 3em;
 }
@@ -192,6 +189,7 @@ span.glyphicon-user {
 .botonintro{
     vertical-align: middle;
 }
+
 .taula {
     margin-top: 3em;
 }
@@ -272,12 +270,27 @@ span.glyphicon-user {
 .tbl{
     min-height: 250px;
 }
-/*
-span.white a{
-    color: #fff;
+
+/*COLORS*/
+.blau{
+    color:#4285F4;
 }
-*/
+
+.gris{
+    color:#4B515D;
+}
+
+.verm {
+    color:#c62828;
+
+}
+
+.verd{
+    color:#2BBBAD;
+}
+
 #newEE_error{
     text-align: center;
     color: red;
 }
+
