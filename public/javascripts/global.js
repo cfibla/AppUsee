@@ -11,15 +11,21 @@ $(document).ready(function (){
   if(pth==="/assistencia"){
     $("#llista").removeClass("active");
     $("#assistencia").addClass("navcolor");
-    $("#situ").html("Llista d'assistència ");
+    $("#situ").html("Control d'assistència ");
   }
   if(pth==="/menjador"){
     $("#llista").removeClass("active");
     $("#menjador").addClass("navcolor");
-    $("#situ").html("Llista de menjador ");
+    $("#situ").html("Control de menjador ");
   }
 
-
+//TOOLTIPS
+$(function () {
+  $('[data-tggle="tooltip"]').tooltip();
+})
+$('a').click(function(){
+    $(this).tooltip('dispose')
+})
 
   //RADIOS ASSISTENCIA
    // bind to retrieve old status

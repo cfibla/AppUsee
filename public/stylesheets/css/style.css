@@ -76,11 +76,11 @@ nav a{
 .navcolor a{
     color: black !important;
 }
-/*
-table a{
-    color: black;
+
+table a:hover{
+    opacity: .5;
 }
-*/
+
 .btn-outline-secondary{
     color:#4B515D !important;
     background-image:none;

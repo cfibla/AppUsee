@@ -79,7 +79,7 @@
 <!-- Button -->
       <td><% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
           var idAlumne = Alumnes[i]._id;%>
-        <a id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-print fa-lg"></i></a>
+        <a data-tggle="tooltip" data-placement="top" title="Imprimir assistència" id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-print fa-lg verd"></i></a>
       </td>
      </tr>
      </form>
