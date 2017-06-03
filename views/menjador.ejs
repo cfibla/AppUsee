@@ -3,17 +3,15 @@
   <div class="row">
 
 <!--DATEPICKER-->
-    <div id="mData" class="container datep-t">
-      <div class="row justify-content-end">
-        <form role="form" method="post" action="/menjaData" id="menjaD">
-          <div class="input-group date" data-provide="datepicker">
-            <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-            </div>
-            <input type="text" class="form-control textcenter" form="menjaD" name= "dataMenja" value ="<%=DataVM%>">
+    <div id="mData" class="col-md-2 datep-t">
+      <form role="form" method="post" action="/menjaData" id="menjaD">
+        <div class="input-group date" data-provide="datepicker">
+          <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
           </div>
-        </form>
-      </div>
+          <input type="text" class="form-control textcenter" form="menjaD" name= "dataMenja" value ="<%=DataVM%>" aria-describedby="basic-addon2">
+        </div>
+      </form>
     </div> 
  
   <div class="col-md-12 tablemarge">
@@ -26,17 +24,25 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Núm.</th>
-        <th>Nom i cognoms</th>
-        <th>Curs</th>
-        <th>Menjador</th>
-        <th>Pagat</th>
-        <th> </th>
+        <th class="d-inline-block col-1">Núm.</th>
+        <th class="d-inline-block col-4">Cognoms i nom</th>
+        <th class="d-inline-block col-1">Curs</th>
+        <th class="d-inline-block col-1">Normal</th>
+        <th class="d-inline-block col-1">Musulmà</th>
+        <th class="d-inline-block col-1">Celíac</th>
+        <th class="d-inline-block col-1">Dieta</th>
+        <th class="d-inline-block col-1">Imprimir</th>
       </tr>
     </thead>
     <tbody>
       <%
       for (var i=0; i < Alumnes.length; i++) {
+                var segonC;
+      if (Alumnes[i].cognomAlumne2===""){
+        segonC = "";
+      } else {
+        var segonC = " " +Alumnes[i].cognomAlumne2;
+      }
       //ARRAY
           var arraylng = Alumnes[i].menjador.length;
           var arraymn = arraylng - 1;
@@ -63,20 +69,22 @@
       %>
       <form role="form" method="post" action="/menjadorN?_method=put" id="menjaForm" name="menjadorForm">
       <tr id="tradios">
-      <td><%=i+1%></td>
-      <td><%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>
+      <td class="d-inline-block col-1"><%=i+1%></td>
+      <td class="d-inline-block col-4"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
       </td>
-      <td><%=Alumnes[i].curs%></td>
+      <td class="d-inline-block col-1"><%=Alumnes[i].curs%></td>
       <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
       <input type="hidden" form="menjaForm" name="menjador.dataMen.<%=i%>" value ="<%=DataVM%>">
       <input type="hidden" form="menjaForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-      <td><input id="mMenj" type="radio" form="menjaForm" name="menjador.menja.<%=i%>" value = true <%=menjaMenja()%>></td>
-      <td><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
-      <!-- Button -->
-      <td>
+      <td class="d-inline-block col-1"><input id="mMenj" type="radio" form="menjaForm" name="menjador.menja.<%=i%>" value = true <%=menjaMenja()%>></td>
+      <td class="d-inline-block col-1"><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
+      <td class="d-inline-block col-1"><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
+      <td class="d-inline-block col-1"><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
+      <!-- imprimir -->
+      <td class="d-inline-block col-1">
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
-      <button type="button" class="btn btn-outline-secondary z-depth-0" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled>Imprimir</button>
+      <a data-tggle="tooltip" data-placement="top" title="Imprimir assistència"  id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled><i class="fa fa-print fa-lg verd"></i></a>
       </td>
      </tr>
      </form>
