@@ -27,7 +27,7 @@
       <tr id="tutoriaRow" class="row m-0">
           <th class="d-inline-block col-1">Núm.</th>
           <th class="d-inline-block col-4">Cognoms i nom</th>
-          <th class="d-inline-block col-2"><span class="col-md-1">Accions</span></th>
+          <th class="d-inline-block col-3 fondogris centered"><span class="col-md-1">Accions</span></th>
 
         <%if(session.user.mestre === "tutor"){ %>
 <!--        <th class="col-md-2">
@@ -60,21 +60,21 @@
         <td class="d-inline-block col-1"><%=i+1%></td>
         <td class="d-inline-block col-4"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
         </td>
-        <td class="d-inline-block col-2">
+        <td class="d-inline-block col-3 fondogris">
         <% if(session.user.mestre === "tutor"){%>
         <span class="col-md-1">
-          <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user verd" aria-hidden="true"></i></a>
+          <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i></a>
           </span>
           <span class="col-md-1">
           <a data-tggle="tooltip" data-placement="top" title="Assistència" data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-calendar gris" aria-hidden="true"></i></a>
           </span>
           <span class="col-md-1">
+          <% if(Alumnes[i].eeUsee === true) {%>
+            <a data-tggle="tooltip" data-placement="top" title="Atenció a la diversitat" href="/seguiment-EE/<%=Alumnes[i].id%>"><i class="fa fa-user-plus gris" aria-hidden="true"></i></a>
+          <%} else{%><i class="fa fa-user-plus grisfluix" aria-hidden="true"></i><% } %></span>
+          <span class="col-md-1">
             <a data-tggle="tooltip" data-placement="top" title="Elimina dades" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal"><i class="fa fa-close verm" aria-hidden="true"></i></a><% } %>
           </span>
-          <span class="col-md-1">
-          <% if(Alumnes[i].eeUsee === true) {%>
-            <a data-tggle="tooltip" data-placement="top" title="Atenció a la diversitat" href="/seguiment-EE/<%=Alumnes[i].id%>"><i class="fa fa-user-plus blau" aria-hidden="true"></i></a>
-          </span><%}%>
         <% if(session.user.mestre === "ee"){ %>
           <span class="col-md-1">
             <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user" aria-hidden="true"></i></a>
