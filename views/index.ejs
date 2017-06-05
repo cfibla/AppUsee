@@ -67,13 +67,24 @@
         </span>
         <% if(session.user.mestre === "ee"){ %>
           <span class="col-md-1">
-            <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i>
+            </a>
           </span>
           <span class="col-md-1">
-            <a data-tggle="tooltip" data-placement="top" title="Reunions seguiment" href="/seguiment-EE/<%=Alumnes[i].id%>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <a data-tggle="tooltip" data-placement="top" title="Reunions seguiment" href="/seguiment-EE/<%=Alumnes[i].id%>"><i class="fa fa-pencil gris" aria-hidden="true"></i>
+            </a>
           </span>
           <span class="col-md-1">
-            <a data-tggle="tooltip" data-placement="top" title="Imprimir seguiment" href="/print_EE/<%=Alumnes[i].id%>" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
+            <a data-tggle="tooltip" data-placement="top" title="Reunions pares" href=""><i class="fa fa-file-text-o gris" aria-hidden="true"></i>
+            </a>
+          </span>
+          <span class="col-md-1">
+            <a data-tggle="tooltip" data-placement="top" title="Imprimir seguiment" href="/print_EE/<%=Alumnes[i].id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true"></i>
+            </a>
+          </span>
+          <span class="col-md-1">
+            <a data-tggle="tooltip" data-placement="top" title="Donar d'alta" data-toggle="modal" id="btnAlta" href="" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#altaModal"><i class="fa fa-close verm" aria-hidden="true"></i>
+            </a>
           </span>
         <% } %>
         </td>
