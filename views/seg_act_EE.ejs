@@ -2,13 +2,7 @@
 <div class="container">
   <div class="row">
 <!--DADES ALUMNE-->
-    <div class="col-md-2">
-      <div class="page-t">SEGUIMENT
-        <div class="curs-t">ALUMNES
-        </div>
-      </div>
-    </div>
-    <div class="container">
+    <div class="container margetop">
       <div class="row seg-title">
         <div class="col-md-4 text-muted clear">
           <h4><strong>Nom: </strong><%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%></h4>
@@ -24,16 +18,23 @@
 
 <!-- TABS --> 
     <div class="container">   
-      <ul class="nav nav-tabs nav-justified seguiment" id="segTabs">
-        <li id="actuTab" class="active"><a data-toggle="tab" href="#actuacions">ACTUACIONS</a></li>
-        <li id="cadTab"><a data-toggle="tab" href="#informacions">INFORMACIONS CAD</a></li>
-        <li id="altresTab"><a data-toggle="tab" href="#coordinacions">ALTRES COORDINACIONS</a></li>
+      <ul class="nav nav-tabs nav-justified seguiment" id="segTabs" role="tablist">
+        <li id="actuTab" class="nav-item active">
+          <a class="nav-link active" data-toggle="tab" role="tab" href="#actuacions">ACTUACIONS</a>
+        </li>
+        <li id="cadTab" class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#informacions">INFORMACIONS CAD</a>
+        </li>
+        <li id="altresTab" class="nav-item">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#coordinacions">ALTRES COORDINACIONS</a>
+        </li>
       </ul>
     </div>
     <div class="container"> 
       <div class="tab-content">
+
 <!-- ACTUACIONS -->
-        <div class="container seguiment tab-pane fade in active" id="actuacions">
+        <div class="container seguiment tab-pane fade in active" id="actuacions" role="tabpanel">
           <div class="row">
             <div class="container tbl">
               <div class="row">
@@ -114,7 +115,7 @@
         </div>
 
 <!--INFORMACIÓ CAD-->
-        <div class="container seguiment tab-pane fade" id="informacions">
+        <div class="container seguiment tab-pane fade" id="informacions" role="tabpanel">
           <div class="row">
             <div class="container tbl">
               <div class="row">
@@ -184,7 +185,7 @@
         </div>
 
 <!--ALTRES COORDINACIONS-->
-        <div class="container seguiment tab-pane fade" id="coordinacions">
+        <div class="container seguiment tab-pane fade" id="coordinacions" role="tabpanel">
           <div class="row">
             <div class="container tbl">
               <div class="row">
