@@ -11,10 +11,9 @@
   <table class="table table-hover">
     <thead>
       <tr id="tutoriaRow" class="row m-0">
-          <th class="d-inline-block col-1">Núm.</th>
-          <th class="d-inline-block col-4">Cognoms i nom</th>
-          <th class="d-inline-block col-3 centered"><span class="col-md-1">Accions</span></th>
-
+        <th class="d-inline-block col-1">Núm.</th>
+        <th class="d-inline-block col-8">Cognoms i nom</th>
+        <th class="d-inline-block col-3 centered"><span class="col-md-1"></span></th>
         <%if(session.user.mestre === "tutor"){ %>
 <!--        <th class="col-md-2">
           <div class="btn-group">
@@ -40,13 +39,11 @@
       } else {
         var segonC = " " +Alumnes[i].cognomAlumne2;
       }
-
     %>
-      <tr class="row m-0">
-        <td class="d-inline-block col-1"><%=i+1%></td>
-        <td class="d-inline-block col-4"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
-        </td>
-        <td class="d-inline-block col-3">
+    <tr class="row m-0">
+      <td class="d-inline-block col-1"><%=i+1%></td>
+      <td class="d-inline-block col-8"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
+      <td class="d-inline-block col-3">
         <% if(session.user.mestre === "tutor"){%>
         <span class="col-md-1">
           <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i></a>

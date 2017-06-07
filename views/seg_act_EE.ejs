@@ -15,7 +15,6 @@
         </div>
       </div>
     </div>
-
 <!-- TABS --> 
     <div class="container">   
       <ul class="nav nav-tabs nav-fill seguiment" id="segTabs" role="tablist">
@@ -34,7 +33,7 @@
     <div class="container"> 
       <div class="tab-content">
 <!-- ACTUACIONS -->
-        <div class="container seguiment tab-pane fade in active" id="actuacions" role="tabpanel">
+        <div class="container seguiment tab-pane fade in show active" id="actuacions" role="tabpanel">
           <div class="row">
             <div class="container tbl">
               <div class="row">
@@ -93,20 +92,19 @@
               </div>
             </div>
             <div class="container">
-            <div class="clearfix float-right">
+              <div class="clearfix float-right">
                 <% 
                 var li = "/list";
                 if(session.user.mestre === "ee"){
                   li = "/list_EE"}
                 %>
                 <span class="col-md-2">
-                <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna enrere</span></a>
+                  <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna enrere</span></a>
                 </span>
-
                 <%if(session.user.mestre === "ee"){%>
-                <span class="col-md-2">
-                <a data-toggle="modal" class = "btn btn-default float-right" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today()%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><i class="fa fa-plus"></i> Nova actuació</a>
-                </span>
+                  <span class="col-md-2">
+                    <a data-toggle="modal" class = "btn btn-default float-right" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today()%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><i class="fa fa-plus"></i> Nova actuació</a>
+                  </span>
                 <%}%>
               </div>
             </div>
@@ -273,7 +271,6 @@
     </div>
   </div>
 </div>
-
 <!-- MODALS ACTUACIONS -->
 <!--CREATE-->
 <div class="modal fade" id="actuModal" role="dialog">

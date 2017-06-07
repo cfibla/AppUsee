@@ -26,10 +26,10 @@
       <tr>
         <th class="d-inline-block col-1">Núm.</th>
         <th class="d-inline-block col-4">Cognoms i nom</th>
-        <th class="d-inline-block col-1">Falta matí</th>
-        <th class="d-inline-block col-1">Retard matí</th>
-        <th class="d-inline-block col-1">Falta tarda</th>
-        <th class="d-inline-block col-1">Retard tarda</th>
+        <th class="d-inline-block col-1">F matí</th>
+        <th class="d-inline-block col-1">R matí</th>
+        <th class="d-inline-block col-1">F tarda</th>
+        <th class="d-inline-block col-1">R tarda</th>
         <th class="d-inline-block col-1">Imprimir</th>
       </tr>
     </thead>
@@ -82,7 +82,7 @@
 <!-- Imprimir -->
       <td class="d-inline-block col-1"><% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
           var idAlumne = Alumnes[i]._id;%>
-        <a data-tggle="tooltip" data-placement="top" title="Imprimir assistència" id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-print fa-lg verd"></i></a>
+        <a data-tggle="tooltip" data-placement="top" title="Imprimir assistència" id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-print fa-lg gris"></i></a>
       </td>
      </tr>
      </form>
@@ -96,7 +96,6 @@
                 if(session.user.mestre === "ee"){
                   li = "/list_EE"}
                 %> 
-<!--                <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>-->
             <button type="submit" form="assisForm" class="btn btn-default float-right">Desa</button>
           </div>
     <%}%>
