@@ -606,7 +606,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     })
 
 ////// SEGUIMENT reload al mateix TAB /////////////////////////
-  $('#segTabs a').click(function(e) {
+/*  $('#segTabs a').click(function(e) {
     e.preventDefault();
     $(this).tab('show');
   });
@@ -620,7 +620,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
   // on load of the page: switch to the currently selected tab
   var hash = window.location.hash;
   $('#segTabs a[href="' + hash + '"]').tab('show');
-
+*/
 ///////////// V A L I D A T O R /////////////////
 
   $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy');
