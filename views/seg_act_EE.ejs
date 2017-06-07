@@ -18,8 +18,8 @@
 
 <!-- TABS --> 
     <div class="container">   
-      <ul class="nav nav-tabs nav-justified seguiment" id="segTabs" role="tablist">
-        <li id="actuTab" class="nav-item active">
+      <ul class="nav nav-tabs nav-fill seguiment" id="segTabs" role="tablist">
+        <li id="actuTab" class="nav-item">
           <a class="nav-link active" data-toggle="tab" role="tab" href="#actuacions">ACTUACIONS</a>
         </li>
         <li id="cadTab" class="nav-item">
@@ -30,9 +30,9 @@
         </li>
       </ul>
     </div>
+<!-- Tab panes -->
     <div class="container"> 
       <div class="tab-content">
-
 <!-- ACTUACIONS -->
         <div class="container seguiment tab-pane fade in active" id="actuacions" role="tabpanel">
           <div class="row">
@@ -45,10 +45,10 @@
               <% } else { %> 
                 <table class="table table-hover">
                   <thead>
-                    <tr>
-                      <th class="col-md-3">Data</th>
-                      <th class="col-md-7">Text</th>
-                      <th class="col-md-2"> </th>
+                    <tr class="row m-0">
+                      <th class="d-inline-block col-3">Data</th>
+                      <th class="d-inline-block col-6">Text</th>
+                      <th class="d-inline-block col-3"> </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -57,39 +57,34 @@
                       if (alumne.segActuacions[i].body.length > 80)
                       {punts="..."};
                     %>  
-                    <tr>
-                      <td>
+                    <tr class="row m-0">
+                      <td class="d-inline-block col-3">
                         <%=alumne.segActuacions[i].date%>
                       </td>
-                      <td>
+                      <td class="d-inline-block col-6">
                         <a href="#" title="<%=alumne.segActuacions[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segActuacions[i].body.substring(0,80) + punts%></a>
                         
                       </td>
-                      <td>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accions <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a
-                            id="btnActuGet"
-                            href="/javascripts/modals/actuacionsEeGet.ejs"
-                            data-target="#actuModalGet"
-                            data-toggle="modal"
-                            data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>"
-                            data-curs="<%=alumne.curs%>"
-                            data-dta = "<%=alumne.segActuacions[i].date%>"
-                            data-body = "<%=alumne.segActuacions[i].body%>"
-                             >Veure</a></li>
-
-                            <li class="disabled"><a href="#">Imprimir</a></li>
-
-                            <% if(session.user.mestre === "ee"){ %>
-                            <li><a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd">Modificar</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel">Eliminar</a></li>
+                      <td class="d-inline-block col-3">
+                        <span class="col-md-1">
+                          <a id="btnActuGet" href="/javascripts/modals/actuacionsEeGet.ejs" data-target="#actuModalGet" data-toggle="modal" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segActuacions[i].date%>"
+                            data-body = "<%=alumne.segActuacions[i].body%>" data-tggle="tooltip" data-placement="top" title="Veure"><i class="fa fa-eye gris" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                        <% if(session.user.mestre === "ee"){ %>
+                        <span class="col-md-1">
+                          <a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                          <span class="col-md-1">
+                          <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="" target="_blank"><i class="fa fa-print gris" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                        <span class="col-md-1">
+                          <a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                          </a>
+                        </span>
                             <% } %>
-                          </ul>
-                        </div>
                       </td>
                     </tr>
                     <% } %>
@@ -98,18 +93,16 @@
                 <% } %>
               </div>
             </div>
-            <div class="row">
-              <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
+            <div class="clearfix">
                 <% 
                 var li = "/list";
                 if(session.user.mestre === "ee"){
                   li = "/list_EE"}
                 %> 
-                <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
+                <a role="button" href="<%=li%>" class="btn btn-default float-right"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
                 <%if(session.user.mestre === "ee"){%>
                 <span class="white"><a data-toggle="modal" class = "btn btn-success white" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today()%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><span class="glyphicon glyphicon-plus"></span> Nova actuació</a>
                 </span><%}%>
-              </div>
             </div>
           </div>
         </div>
