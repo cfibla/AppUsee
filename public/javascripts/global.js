@@ -138,6 +138,45 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
 
   });
 
+////////////////  D A D E S   P E R S O N A L S ////////////////
+
+  $('#dadesModal').on('shown.bs.modal', function (e) {
+    //datepicker//
+    $('#dataNaix .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+    });
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneC1 = actg.data('cognom');
+    var alumneC2 = actg.data('scognom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var mdal = $(this);
+    mdal.find('.modal-body #nom_alumne').text(alumneNom);
+    mdal.find('.modal-body #cnom_alumne1').text(alumneC1);
+    mdal.find('.modal-body #cnom_alumne2').text(alumneC2);
+    mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
+
+    $('#alumne_dades').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
+      $('#dadesModal').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#alumne_dades').serialize(),
+          success:function(){
+            location.reload()}
+      });
+    });
+  });
 //////////////// S E G U I M E N T //////////////// 
 // ACTUACIONS //
 //MODAL ACTUACIO NEW

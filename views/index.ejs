@@ -38,16 +38,32 @@
         segonC = "";
       } else {
         var segonC = " " +Alumnes[i].cognomAlumne2;
-      }
-    %>
+      };
+      //DATA NAIXEMENT
+    var dataNa = Alumnes[i].dataNaixement;
+    var dd = dataNa.getDate();
+    var mm = dataNa.getMonth()+1; //January is 0!
+    var yyyy = dataNa.getFullYear();
+    if(dd<10) {
+        dd='0'+dd
+        } 
+    if(mm<10) {
+        mm='0'+mm
+        } 
+    dataNa = dd+'/'+mm+'/'+yyyy;
+
+    var dataISO = Alumnes[i].dataNaixement.toISOString() %>
+
     <tr class="row m-0">
       <td class="d-inline-block col-1"><%=i+1%></td>
       <td class="d-inline-block col-8"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
       <td class="d-inline-block col-3">
-        <% if(session.user.mestre === "tutor"){%>
         <span class="col-md-1">
-          <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i></a>
+         <a id="btnDades" data-toggle="modal" data-tggle="tooltip" data-placement="top" title="Dades personals" href="/javascripts/modals/dades.ejs" data-nom="<%=Alumnes[i].nomAlumne%>"  data-cognom="<%=Alumnes[i].cognomAlumne1%>" data-scognom="<%=Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-target="#dadesModal"><i class="fa fa-user gris" aria-hidden="true"></i></a>
+<!--          <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i></a>-->
         </span>
+
+        <% if(session.user.mestre === "tutor"){%>
         <span class="col-md-1">
           <a data-tggle="tooltip" data-placement="top" title="Assistència" data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-calendar gris" aria-hidden="true"></i></a>
         </span>
@@ -56,17 +72,14 @@
         </span>
         <span class="col-md-1">
           <% if(Alumnes[i].eeUsee === true) {%>
-            <a data-tggle="tooltip" data-placement="top" title="Atenció a la diversitat" href="/seguiment-EE/<%=Alumnes[i].id%>"><i class="fa fa-user-plus gris" aria-hidden="true"></i></a>
+           <a data-tggle="tooltip" data-placement="top" title="Atenció a la diversitat" href="/seguiment-EE/<%=Alumnes[i].id%>"><i class="fa fa-user-plus gris" aria-hidden="true"></i></a>
           <%} else{%><i class="fa fa-user-plus grisfluix" aria-hidden="true"></i><% } %>
         </span>
         <span class="col-md-1">
           <a data-tggle="tooltip" data-placement="top" title="Elimina dades" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal"><i class="fa fa-close verm" aria-hidden="true"></i></a><% } %>
         </span>
         <% if(session.user.mestre === "ee"){ %>
-          <span class="col-md-1">
-            <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i>
-            </a>
-          </span>
+<!--          <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i></a>-->
           <span class="col-md-1">
             <a data-tggle="tooltip" data-placement="top" title="Reunions pares" href=""><i class="fa fa-file-text-o gris" aria-hidden="true"></i>
             </a>
@@ -106,6 +119,16 @@
   </div>
 </div>
 
+
+<!-- MODAL DADES -->
+
+<div class="modal fade" id="dadesModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
 
 <!-- MODAL ASSISTÈNCIA -->
 
