@@ -159,10 +159,10 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var alumneCurs = actg.data('curs');
     var alumneId = actg.data('id');
     var mdal = $(this);
-    mdal.find('.modal-body #nom_alumne').text(alumneNom);
-    mdal.find('.modal-body #cnom_alumne1').text(alumneC1);
-    mdal.find('.modal-body #cnom_alumne2').text(alumneC2);
-    mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
+    mdal.find('.modal-body #nom_alumne').val(alumneNom);
+    mdal.find('.modal-body #cnom_alumne1').val(alumneC1);
+    mdal.find('.modal-body #cnom_alumne2').val(alumneC2);
+    mdal.find('.modal-body #cursAlUpd').val(alumneCurs);
 
     $('#alumne_dades').on('submit', function(e){
       e.preventDefault();

@@ -13,42 +13,39 @@
         </button>
     </div>
     <div class="modal-body">
-<!--<div class="container">
-      <div class="row">
-        <form role="form">
-          <div class="form-group">
-            <div class="col-md-2">
-              <label for="ejemplo_archivo_1">Foto alumne</label>
-              <div class="thumbnail">
-                <img src="http://placehold.it/300x300">
+      <div class="container">
+        <div class="row">
+          <form role="form">
+            <div class="form-group">
+              <div class="col-md-4">
+                <div class="thumbnail">
+                  <img src="http://placehold.it/300x300">
+                </div>
+                <input type="file" id="ejemplo_archivo_1">
               </div>
-              <input type="file" id="ejemplo_archivo_1">
+              <p class="help-block">Text d'ajuda.</p>
             </div>
- <p class="help-block">Ejemplo de texto de ayuda.</p>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div> -->
 
 <!--DADES ALUMNE-->
+<div class="container">
+  <div class="row">
     <form role="form" method="post" data-toggle="validator" id="alumne_dades">
-      <div class="form-group col-md-8" style="clear: both;">
-        <div class="row">
-          <div class="form-group col-md-3">
-            <label for="nom_alumne">Nom *</label>
-            <input type="text" class="form-control" id="nom_alumne" name="nomAlumne" required="true">
-          </div>
-
-          <div class="form-group col-md-3">
-            <label for="cnom_alumne1">Primer Cognom *</label>
-            <input type="text" class="form-control" id="cnom_alumne1" name="cognomAlumne1" required="true">
-          </div>
-
-          <div class="form-group col-md-3">
-            <label for="cnom_alumne2">Segon Cognom</label>
-            <input type="text" class="form-control" id="cnom_alumne2" style="text-transform:uppercase" name="cognomAlumne2">
-          </div>
-
+      <div class="form-group col-md-3">
+        <label for="nom_alumne">Nom *</label>
+        <input type="text" class="form-control" id="nom_alumne" name="nomAlumne" required="true">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="cnom_alumne1">Primer Cognom *</label>
+        <input type="text" class="form-control" id="cnom_alumne1" name="cognomAlumne1" required="true">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="cnom_alumne2">Segon Cognom</label>
+        <input type="text" class="form-control" id="cnom_alumne2" style="text-transform:uppercase" name="cognomAlumne2">
+      </div></div></div>
+<!--
           <div class="form-group col-md-3" id="dataNaix">
             <label for="data_naixement">Data naixement</label>
               <div class="input-group date alturabox" data-provide="datepicker">
@@ -58,7 +55,7 @@
                 </div>
               </div>
           </div>
-
+<!--
           <div class="form-group col-md-3">
             <label for="targeta_SS">Targeta SS</label>
             <input type="text" class="form-control" id="targeta_SS" name="seguretatSoc"
@@ -121,11 +118,11 @@
               <option value="true" <%=sSoc()%>>Si</option>
             </select>
           </div>
-        </div>
+
       </div>
 
 
-<!--OBSERVACIONS ALUMNE -->
+<!--OBSERVACIONS ALUMNE
       <div class="col-md-4">
         <div class="row"">
           <div class="form-group col-md-12" style="height:220px;">
@@ -136,7 +133,7 @@
       </div>
 
 
-<!--ADAPTACIONS ALUMNE -->
+<!--ADAPTACIONS ALUMNE 
       <div class="form-group col-md-12">
         <div class="panel panel-success">
           <div class="panel-heading">
@@ -245,7 +242,7 @@
 
 <%if (alumne.eeUsee === true) {%>
 
-<!--ATENCIÓ ALUMNE-->
+<!--ATENCIÓ ALUMNE
       <div class="col-md-12">
         <div class="panel-group" id="accordion">
           <div class="panel panel-success">
@@ -381,7 +378,7 @@
         </div>
       </div>
   <%}%>
-
+-->
     </form>
 </div>   
     <div class="modal-footer">
