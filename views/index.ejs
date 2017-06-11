@@ -59,13 +59,16 @@
       <td class="d-inline-block col-8"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
       <td class="d-inline-block col-3">
         <span class="col-md-1">
-         <a id="btnDades" data-toggle="modal" data-tggle="tooltip" data-placement="top" title="Dades personals" href="/javascripts/modals/dades.ejs" data-nom="<%=Alumnes[i].nomAlumne%>"
+         <a id="btnDades" data-toggle="modal" data-tggle="tooltip" data-placement="top" title="Dades personals" href="/javascripts/modals/dades.ejs"
+         data-nom="<%=Alumnes[i].nomAlumne%>"
          data-cognom="<%=Alumnes[i].cognomAlumne1%>"
          data-scognom="<%=Alumnes[i].cognomAlumne2%>"
          data-id="<%=Alumnes[i]._id%>"
          data-dtan="<%=dataNa%>"
          data-segsoc="<%=Alumnes[i].seguretatSoc%>"
          data-mail="<%=Alumnes[i].mailAlum%>"
+         data-escola="<%=Alumnes[i].escola._id%>"
+         data-curs="<%=Alumnes[i].curs%>"
          data-target="#dadesModal"><i class="fa fa-user gris" aria-hidden="true"></i></a>
 <!--          <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i></a>-->
         </span>

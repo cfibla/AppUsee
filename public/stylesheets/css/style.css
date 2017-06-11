@@ -194,6 +194,10 @@ span.glyphicon-user {
     margin-top: 4em;
 }
 
+.margetopmini {
+    margin-top: 1em;
+}
+
 .page-t{
     text-align: left;
     background-color: #5cb85c;
