@@ -20,10 +20,10 @@
               <div class="form-group col-6">
                 <div>
                   <div class="thumbnail">
-                    <img src="http://placehold.it/300x300">
+                    <img src="http://placehold.it/280x280">
                   </div>
-                  <input type="file" id="ejemplo_archivo_1">
-                  <!--<p class="help-block">Text d'ajuda.</p>-->
+                  <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                  <small id="fileHelp" class="form-text text-muted">This is some help text.</small>
                 </div>
               </div>
 <!--DADES ALUMNE-->
@@ -40,13 +40,9 @@
                 <input type="text" class="form-control" id="cnom_alumne2" style="text-transform:uppercase" name="cognomAlumne2">
                 <label class="active" for="cnom_alumne2">Segon Cognom</label>
               </div>
-              <div class="md-form col-md-12" id="dataNaix">
-                <label class="active" for="data_naixement">Data naixement</label>
-                <div class="input-group date alturabox" data-provide="datepicker">
-                  <div class="input-group-addon"><i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control textcenter" id="data_naixement" name="naixement">
-                </div>
+              <div class="md-form col-md-12">
+                <input type="text" class="form-control" id="nom_escola" name="nomEscola" required="true" disabled>
+                <label class="active" for="nom_escola">Escola</label>
               </div>
             </div>
           </div>
@@ -77,8 +73,16 @@
         <div class="container margetopmini">
           <div class="row">              
               <div class="md-form col-md-3">
-              <input type="text" class="form-control" id="codi_escola" name="codiEscola" required="true">
+                <input type="text" class="form-control" id="codi_escola" name="codiEscola" required="true">
                 <label class="active" for="codi_escola">Codi escola *</label>
+              </div>
+              <div class="md-form col-md-3" id="dataNaix">
+                <label class="active" for="data_naixement">Data naixement</label>
+                <div class="input-group date alturabox" data-provide="datepicker">
+                  <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control textcenter" id="data_naixement" name="naixement">
+                </div>
               </div>
               <div class="md-form col-md-3" id="curs">
                 <label class="active" for="curs_act">Curs actual</label>
@@ -98,31 +102,13 @@
                     <option value="6è B">6è B</option>
                   </select>
               </div>
-
           </div>
         </div>
       </form>
     </div>
 
 <!--
-          <div class="form-group col-md-3" id="curs">
-            <label for="curs_act">Curs actual</label>
-              <select class="form-control" id="curs_act" name="curs">
-                <option value="<%=alumne.curs%>" selected><%=alumne.curs%></option>
-                <option value="1r A">1r A</option>
-                <option value="1r B">1r B</option>
-                <option value="2n A">2n A</option>
-                <option value="2n B">2n B</option>
-                <option value="3r A">3r A</option>
-                <option value="3r B">3r B</option>
-                <option value="4t A">4t A</option>
-                <option value="4t B">4t B</option>
-                <option value="5è A">5è A</option>
-                <option value="5è B">5è B</option>
-                <option value="6è A">6è A</option>
-                <option value="6è B">6è B</option>
-              </select>
-          </div>
+
           <div class="form-group col-md-3 clear">
             <label for="selecRep">Repetidor</label>
             <select class="form-control" id="selecRep" name="radios.0">
