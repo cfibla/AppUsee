@@ -279,29 +279,22 @@ span.glyphicon-user {
 .blau{
     color:#4285F4;
 }
-
 .gris{
     color:#4B515D;
 }
-
 .grisfluix{
     color:#e0e0e0;
 }
-
 .fondogris {
     background-color: #f5f5f5;
     z-index: 1;
 }
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #eee;
 }
-
 .verm {
     color:#c62828;
-
 }
-
 .verd{
     color:#2BBBAD;
 }

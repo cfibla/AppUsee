@@ -162,6 +162,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var escola = actg.data('escola');
     var nomescola = actg.data('nomescola');
     var alumneCurs = actg.data('curs');
+    var obs = actg.data('obs');
     var alumneId = actg.data('id');
 
     var mdal = $(this);
@@ -174,6 +175,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #codi_escola').val(escola);
     mdal.find('.modal-body #nom_escola').val(nomescola);
     mdal.find('.modal-body #cursval').text(alumneCurs);
+    mdal.find('.modal-body #obs_alumne').text(obs);
 
     $('#alumne_dades').on('submit', function(e){
       e.preventDefault();
