@@ -9,7 +9,6 @@ html {
 *:after {
   box-sizing: inherit;
 }
-
 body {
    margin: 0;
    position: relative;
@@ -36,31 +35,25 @@ body {
         height: 40px;
     }
 }
-
-nav{
+nav {
     z-index:1000;
 }
-
 nav .container{
     width: 100%;
     margin: 0;
     display: block;
 }
-
 nav .dropdown-item:hover {
     color: #616161;
     text-decoration: none;
     background-color: #424242;
 }
-
 nav a{
 }
-
 .nav-link {
     margin-left: 3px;
     margin-right: 3px;
 }
-
 .seconnav {
     width: 100%;
     background-color: #2BBBAD;
@@ -68,42 +61,34 @@ nav a{
     position: fixed;
     z-index: 1000;
 }
-
 .navcolor{
     background-color: #2BBBAD;
 }
-
 .navcolor a{
     color: black !important;
 }
-
 table a:hover{
     opacity: .5;
 }
-
 .btn-outline-secondary{
     color:#4B515D !important;
     background-image:none;
     background-color:transparent;
     border-color:#4B515D !important
 }
-
 .btn-outline-secondary:hover{
     color:#fff !important;
     background-color:#4B515D;
     border-color:#4B515D
 }
-
 .btn-outline-secondary.focus,.btn-outline-secondary:focus{
     -webkit-box-shadow:0 0 0 2px rgba(204,204,204,.5);
     box-shadow:0 0 0 2px rgba(204,204,204,.5)
 }
-
 .btn-outline-secondary.disabled,.btn-outline-secondary:disabled{
     color:#4B515D;
     background-color:transparent
 }
-
 .btn-outline-secondary.active,
 .btn-outline-secondary:active,
 .show>
@@ -112,21 +97,17 @@ table a:hover{
     background-color:#4B515D;
     border-color:#4B515D
 }
-
 .marge-r{
     margin-right: 1em;
 }
-
 .master {
     min-height: 100%;
 }
-
 .mainsection {
     padding-top: 4.5em;
     padding-bottom: 0px;
     margin-bottom: 10em;
 }
-
 .footer {
     position: absolute;
     z-index: 1000;
@@ -138,66 +119,52 @@ table a:hover{
     color: black;
     text-align: left;
 }
-
 .md-form .prefix.active {
      color: inherit; 
 }
-
 .fons{
     padding-top:5em;
 }
-
 .centered {
     text-align: center;
 }
-
 .clear {
     clear: both;
 }
-
 .escola {
    /* margin-top: 50%;*/
     padding: 1em 2em 5em 2em;
     border:1px #e4e4e4 solid;
     border-radius: 1em;
 }
-
 span.glyphicon-user {
     font-size: 1.2em;
 }
-
 .boton-index{
     margin-top: 1em;
     margin-bottom: 1em;
 }
-
 .alturaBox{
      min-height: 3em;
 }
-
 .actuPast {
     max-height: 15em;
     overflow: auto;
 }
-
 .divintro{
     margin: 0;
     padding-top: 1em;
     text-align: center;
 }
-
 .botonintro{
     vertical-align: middle;
 }
-
 .margetop {
     margin-top: 4em;
 }
-
 .margetopmini {
     margin-top: 1em;
 }
-
 .page-t{
     text-align: left;
     background-color: #5cb85c;
