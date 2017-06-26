@@ -46,17 +46,102 @@ $('a').click(function(){
         }
     });
 
-////////////////// A D A P T A C I O N S ////////////////// 
+///////////////////// M O D A L S ///////////////////// 
+$('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(this).data("target")+' .modal-content').load($(this).attr('href')); }); 
+  $('document').on('hidden.bs.modal', function () {
+    $('.modal-body .modal-footer').html("");
+
+  });
+
+////////////////  D A D E S   P E R S O N A L S ////////////////
+
+  $('#dadesModal').on('shown.bs.modal', function (e) {
+    //datepicker//
+    $('#dataNaix .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+    });
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneC1 = actg.data('cognom');
+    var alumneC2 = actg.data('scognom');
+    var naix = actg.data('dtan');
+    var segsoc = actg.data('segsoc');
+    var mail = actg.data('mail');
+    var escola = actg.data('escola');
+    var nomescola = actg.data('nomescola');
+    var alumneCurs = actg.data('curs');
+    var obs = actg.data('obs');
+    var pi = actg.data('pi');
+    var alumneId = actg.data('id');
+
+    var piAl= funcSel(pi);
+
+
+    function funcSel (v){
+      var op1;
+      var val1;
+      var op2;
+      var val2;
+      if (v===true){
+        op1="Si";
+        val1=true;
+        op2="No";
+        val2=false;
+      } else {
+        op1="No";
+        val1=false;
+        op2="Si";
+        val2=true;        
+      }
+      return[op1,val1,op2,val2]
+    };
+
+    var mdal = $(this);
+    mdal.find('.modal-body #nom_alumne').val(alumneNom);
+    mdal.find('.modal-body #cnom_alumne1').val(alumneC1);
+    mdal.find('.modal-body #cnom_alumne2').val(alumneC2);
+    mdal.find('.modal-body #data_naixement').val(naix);
+    mdal.find('.modal-body #targeta_SS').val(segsoc);
+    mdal.find('.modal-body #email_alumne').val(mail);
+    mdal.find('.modal-body #codi_escola').val(escola);
+    mdal.find('.modal-body #nom_escola').val(nomescola);
+    mdal.find('.modal-body #cursval').text(alumneCurs);
+    mdal.find('.modal-body #obs_alumne').text(obs);
+    mdal.find('.modal-body #pi_alumne1').text(piAl[0]).val(piAl[1]);
+    mdal.find('.modal-body #pi_alumne2').text(piAl[2]).val(piAl[3]);
+
+    $('#alumne_dades').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
+      $('#dadesModal').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#alumne_dades').serialize(),
+          success:function(){
+            location.reload()}
+      });
+    });
+
+  ////////////////// A D A P T A C I O N S ////////////////// 
     if ($('#programació_individualitzada').val()==='true'){
         $("#divPi").show();
       } else {
         $("#divPi").hide();
       }
     $('#programació_individualitzada').change(function(){
+      console.log($('#programació_individualitzada').val());
       if ($('#programació_individualitzada').val()==='true'){
-        $("#divPi").fadeIn(500);
+        $("#divPi").fadeIn(700);
       } else {
-        $("#divPi").hide(500);
+        $("#divPi").hide(700);
       }
     })
 
@@ -129,65 +214,6 @@ $('a').click(function(){
         $("#divDic").hide(500);
         $("#any_val").val('');
       }
-    });
-
-///////////////////// M O D A L S ///////////////////// 
-$('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(this).data("target")+' .modal-content').load($(this).attr('href')); }); 
-  $('document').on('hidden.bs.modal', function () {
-    $('.modal-body .modal-footer').html("");
-
-  });
-
-////////////////  D A D E S   P E R S O N A L S ////////////////
-
-  $('#dadesModal').on('shown.bs.modal', function (e) {
-    //datepicker//
-    $('#dataNaix .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-    });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneC1 = actg.data('cognom');
-    var alumneC2 = actg.data('scognom');
-    var naix = actg.data('dtan');
-    var segsoc = actg.data('segsoc');
-    var mail = actg.data('mail');
-    var escola = actg.data('escola');
-    var nomescola = actg.data('nomescola');
-    var alumneCurs = actg.data('curs');
-    var obs = actg.data('obs');
-    var alumneId = actg.data('id');
-
-    var mdal = $(this);
-    mdal.find('.modal-body #nom_alumne').val(alumneNom);
-    mdal.find('.modal-body #cnom_alumne1').val(alumneC1);
-    mdal.find('.modal-body #cnom_alumne2').val(alumneC2);
-    mdal.find('.modal-body #data_naixement').val(naix);
-    mdal.find('.modal-body #targeta_SS').val(segsoc);
-    mdal.find('.modal-body #email_alumne').val(mail);
-    mdal.find('.modal-body #codi_escola').val(escola);
-    mdal.find('.modal-body #nom_escola').val(nomescola);
-    mdal.find('.modal-body #cursval').text(alumneCurs);
-    mdal.find('.modal-body #obs_alumne').text(obs);
-
-    $('#alumne_dades').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
-      $('#dadesModal').modal('toggle');
-      $.ajax({
-          url: urlPost, //this is the submit URL
-          type: 'POST',
-          data: $('#alumne_dades').serialize(),
-          success:function(){
-            location.reload()}
-      });
     });
   });
 //////////////// S E G U I M E N T //////////////// 
