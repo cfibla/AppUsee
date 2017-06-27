@@ -85,10 +85,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
 
 
     function funcSel (v){
-      var op1;
-      var val1;
-      var op2;
-      var val2;
+      var op1, val1, op2, val2;
       if (v===true){
         op1="Si";
         val1=true;
@@ -128,6 +125,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
           success:function(){
             location.reload()}
       });
+      //console.log($('#alumne_dades').serialize());
     });
 
   ////////////////// A D A P T A C I O N S ////////////////// 

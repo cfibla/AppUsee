@@ -135,6 +135,7 @@ exports.update = function (req, res){
 		function (error, alumne){
 		if (error) 
 			return res.json(error);
+		//console.log(alumne);
 		res.redirect('/dadesAlumne/'+ alumneId);
 	});
 
