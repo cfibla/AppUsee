@@ -136,7 +136,7 @@ exports.update = function (req, res){
 		if (error) 
 			return res.json(error);
 		console.log(alumne.radios[0]);
-		//res.redirect('/dadesAlumne/'+ alumneId);
+		res.redirect('/list');
 	});
 
 };

@@ -91,8 +91,6 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var aDiv = funcSel(atdiv);
     var repe = funcSel(rep);
 
-
-
     function funcSel (v){
       var op1, val1, op2, val2;
       if (v===true){
@@ -136,7 +134,8 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
           type: 'POST',
           data: $('#alumne_dades').serialize(),
           success:function(){
-            location.reload()}
+            location.reload()
+          }
       });
       //console.log($('#alumne_dades').serialize());
     });
@@ -226,6 +225,8 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       }
     });
   });
+
+
 //////////////// S E G U I M E N T //////////////// 
 // ACTUACIONS //
 //MODAL ACTUACIO NEW
