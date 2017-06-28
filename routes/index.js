@@ -31,7 +31,7 @@ router.post('/usuari_ee_crear',		userEeController.createUser);
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);
 router.post('/alumneNou', 			sessionController.loginRequired, alumController.create);
-router.get('/dadesAlumne/:id', 		sessionController.loginRequired, alumController.mod);
+//router.get('/dadesAlumne/:id', 		sessionController.loginRequired, alumController.mod);
 router.put('/dadesUpdate/:id', 		sessionController.loginRequired, alumController.update);
 router.get('/assistencia',			sessionController.loginRequired, alumController.assisGet);
 router.post('/assisData',			sessionController.loginRequired, alumController.assisData);

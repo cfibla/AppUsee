@@ -91,7 +91,7 @@ exports.create = function (req, res){
 };
 
 //Modificar dades - GET
-exports.mod = function (req, res) {
+/*exports.mod = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
@@ -100,7 +100,7 @@ exports.mod = function (req, res) {
 			res.render('modDades', {alumne: alumne});
 		}
 	});
-};
+};*/
 
 //Modificar dades - PUT
 exports.update = function (req, res){
@@ -135,8 +135,8 @@ exports.update = function (req, res){
 		function (error, alumne){
 		if (error) 
 			return res.json(error);
-		//console.log(alumne);
-		res.redirect('/dadesAlumne/'+ alumneId);
+		console.log(alumne.radios[0]);
+		//res.redirect('/dadesAlumne/'+ alumneId);
 	});
 
 };

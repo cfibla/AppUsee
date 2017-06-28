@@ -78,6 +78,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var nomescola = actg.data('nomescola');
     var alumneCurs = actg.data('curs');
     var atdiv = actg.data('atdiv');
+    var rep = actg.data('rep');
     var obs = actg.data('obs');
     var pi = actg.data('pi');
     var curri = actg.data('curri');
@@ -88,6 +89,8 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
 //SELECTS
     var piAl = funcSel(pi);
     var aDiv = funcSel(atdiv);
+    var repe = funcSel(rep);
+
 
 
     function funcSel (v){
@@ -115,6 +118,8 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #obs_alumne').text(obs);
     mdal.find('.modal-body #ad_alumne1').text(aDiv[0]).val(aDiv[1]);
     mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
+    mdal.find('.modal-body #rep_alumne1').text(repe[0]).val(repe[1]);
+    mdal.find('.modal-body #rep_alumne2').text(repe[2]).val(repe[3]);
     mdal.find('.modal-body #pi_alumne1').text(piAl[0]).val(piAl[1]);
     mdal.find('.modal-body #pi_alumne2').text(piAl[2]).val(piAl[3]);
     mdal.find('.modal-body #curr').prop('checked', curri);
@@ -143,11 +148,10 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
         $("#divPi").hide();
       }
     $('#programació_individualitzada').change(function(){
-      console.log($('#programació_individualitzada').val());
       if ($('#programació_individualitzada').val()==='true'){
         $("#divPi").fadeIn(700);
       } else {
-        $("#divPi").hide(700);
+        $("#divPi").fadeOut(700);
       }
     })
 
