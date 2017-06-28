@@ -77,25 +77,27 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var escola = actg.data('escola');
     var nomescola = actg.data('nomescola');
     var alumneCurs = actg.data('curs');
+    var atdiv = actg.data('atdiv');
     var obs = actg.data('obs');
     var pi = actg.data('pi');
+    var curri = actg.data('curri');
+    var met = actg.data('met');
+    var cond = actg.data('cond');
+    var cat = actg.data('cat');
     var alumneId = actg.data('id');
-
-    var piAl= funcSel(pi);
+//SELECTS
+    var piAl = funcSel(pi);
+    var aDiv = funcSel(atdiv);
 
 
     function funcSel (v){
       var op1, val1, op2, val2;
       if (v===true){
-        op1="Si";
-        val1=true;
-        op2="No";
-        val2=false;
+        op1="Si"; val1=true;
+        op2="No"; val2=false;
       } else {
-        op1="No";
-        val1=false;
-        op2="Si";
-        val2=true;        
+        op1="No"; val1=false;
+        op2="Si"; val2=true;        
       }
       return[op1,val1,op2,val2]
     };
@@ -111,8 +113,14 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #nom_escola').val(nomescola);
     mdal.find('.modal-body #cursval').text(alumneCurs);
     mdal.find('.modal-body #obs_alumne').text(obs);
+    mdal.find('.modal-body #ad_alumne1').text(aDiv[0]).val(aDiv[1]);
+    mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
     mdal.find('.modal-body #pi_alumne1').text(piAl[0]).val(piAl[1]);
     mdal.find('.modal-body #pi_alumne2').text(piAl[2]).val(piAl[3]);
+    mdal.find('.modal-body #curr').prop('checked', curri);
+    mdal.find('.modal-body #met').prop('checked', met);
+    mdal.find('.modal-body #cond').prop('checked', cond);
+    mdal.find('.modal-body #cat').prop('checked', cat);
 
     $('#alumne_dades').on('submit', function(e){
       e.preventDefault();

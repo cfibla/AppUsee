@@ -112,8 +112,8 @@
         <div class="md-form col-md-3">
           <label class="active" for="eeUsee">Atenció a la diversitat</label>
           <select class="form-control" id="eeUsee" name="eeUsee">
-            <option value="">No</option>
-            <option value="true" <%=sUse()%>>Si</option>
+            <option id="ad_alumne1"></option>
+            <option id="ad_alumne2"></option>
           </select>
         </div>
         <div class="md-form col-md-2">
@@ -153,16 +153,16 @@
                   <div id="divPi">
                     <div class="form-group">
                       <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.16" <%=checkCond(16)%>> Curricular </label>
+                      <input id="curr"type="checkbox" value="true" name="checks.16"> Curricular </label>
                       <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.17" <%=checkCond(17)%>> Metodològic </label>
+                      <input id="met"type="checkbox" value="true" name="checks.17"> Metodològic </label>
                       <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.18" <%=checkCond(18)%>> Conductual </label>
+                      <input id="cond"type="checkbox" value="true" name="checks.18"> Conductual </label>
                     </div>
                     <div class="form-group alturaBox">
                     <label for="arees_adaptades">Àrees adaptades PI</label><br>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.19" <%=checkCond(19)%>>Català</label>
+                      <input id="cat" type="checkbox" value="true" name="checks.19">Català</label>
                     <label class="checkbox-inline">
                       <input type="checkbox" value="true" name="checks.20" <%=checkCond(20)%>>Castellà</label>
                     <label class="checkbox-inline">
