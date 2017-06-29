@@ -128,6 +128,9 @@ table a:hover{
 .centered {
     text-align: center;
 }
+.left {
+    text-align: left;
+}
 .clear {
     clear: both;
 }

@@ -138,11 +138,11 @@
           </select>
         </div>
 <!--ADAPTACIONS ALUMNE -->
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-12 centered">
           <a data-toggle="collapse" aria-expanded="false" aria-controls="collapse1" href="#collapse1">Adaptacions <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <div id="collapse1" class="collapse">
               <div class="card card-block">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-12 left">
                   <div class="form-group">
                     <label for="programació_individualitzada">Pla individualitzat (PI)</label>
                       <select class="form-control" id="programació_individualitzada" name="radios.15">
@@ -226,36 +226,30 @@
           </div>
         </div>
       </div>
-<!--<%//if (alumne.eeUsee === true) {%>-->
+
 
 <!--ATENCIÓ DIVERSITAT ALUMNE-->
 
-      <div class="form-group col-md-12" id="divDiv">
+      <div class="form-group col-md-12 centered" id="divDiv">
         <a data-toggle="collapse" aria-expanded="false" aria-controls="collapse2" href="#collapse2">Atenció a la diversitat<i class="fa fa-angle-down" aria-hidden="true"></i></a>
           <div id="collapse2" class="collapse">
             <div class="card card-block">
-              <div class="form-group col-md-12">
+              <div class="form-group col-md-12 left">
                 <div class="form-group">
                   <label for="seg_ad">Seguiment atenció a la diversitat</label>
                   <select class="form-control" id="seg_ad" name="checks.0">
-                    <option value="false">Indirecte</option>
-                    <option value="true" <%=checkOption(0)%>>Directe</option>
+                    <option id="seg_alumne1"></option>
+                    <option  id="seg_alumne2"></option>
                   </select>
                 </div>
               </div>
-
-                  <%if (session.user.mestre === "ee") {%>
-
-              <input type="hidden" id="usrId" name="usrId" value ="ee" >
-
-              <%}%>
 
               <div class="form-group col-md-4">
                 <div class="form-group">
                   <label for="beca">Beca</label>
                   <select class="form-control" id="beca" name="radios.1">
-                    <option value="false">No</option>
-                    <option value="true" <%=radioOption(1)%>>Si</option>
+                    <option id="beca_alumne1"></option>
+                    <option id="beca_alumne2"></option>
                   </select>
                 </div>
               </div>
@@ -350,15 +344,10 @@
             </div>
           </div>
         </div>
-
-    <%}%>
-
-
-
+      </div>
     </div>
-    </div>
-    </form>
-    </div>
+  </form>
+</div>
 
 
 

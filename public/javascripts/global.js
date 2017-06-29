@@ -103,10 +103,12 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var der = actg.data('der');
     var motder = actg.data('motder');
     var eeusee = actg.data('eeusee');
+    var segdiv = actg.data('segdiv');
+    var becaa = actg.data('beca');
 
 
     if (der === ""){
-      der="Seleccioneu"
+      der = "Seleccioneu"
     };
 
 //SELECTS
@@ -118,6 +120,8 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var mtrl = funcSel(mtrl);
     var adeq = funcSel(adeq);
     var fderiv = funcSel(fder);
+    var seg = funcSeg(segdiv);
+    var beca = funcSel(becaa);
 
     function funcSel (v){
       var op1, val1, op2, val2;
@@ -127,6 +131,18 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       } else {
         op1="No"; val1=false;
         op2="Si"; val2=true;        
+      }
+      return[op1,val1,op2,val2]
+    };
+
+    function funcSeg (v){
+      var op1, val1, op2, val2;
+      if (v===true){
+        op1="Directe"; val1=true;
+        op2="Indirecte"; val2=false;
+      } else {
+        op1="Indirecte"; val1=false;
+        op2="Directe"; val2=true;        
       }
       return[op1,val1,op2,val2]
     };
@@ -174,6 +190,10 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #fder_alumne1').text(fderiv[0]).val(fderiv[1]);
     mdal.find('.modal-body #fder_alumne2').text(fderiv[2]).val(fderiv[3]);
     mdal.find('.modal-body #motiu_derivacio').text(motder);
+    mdal.find('.modal-body #seg_alumne1').text(seg[0]).val(seg[1]);
+    mdal.find('.modal-body #seg_alumne2').text(seg[2]).val(seg[3]);
+    mdal.find('.modal-body #beca_alumne1').text(beca[0]).val(beca[1]);
+    mdal.find('.modal-body #beca_alumne2').text(beca[2]).val(beca[3]);
 
 //ALTRES
     var derivArray =[der, "Tutor", "Família", "Atenció a la diversitat"];
