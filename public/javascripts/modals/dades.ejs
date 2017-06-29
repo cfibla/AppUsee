@@ -124,17 +124,17 @@
           </select>
         </div>
         <div class="md-form col-md-2">
-          <label class="active" for="aill">Atès a AiLL</label>
-          <select class="form-control" id="aill" name="checks.2">
-            <option value="">No</option>
-            <option value="true" <%=sAill()%>>Si</option>
+          <label class="active" for="sAill">Atès a AiLL</label>
+          <select class="form-control" id="sAill" name="checks.2">
+            <option id="aill_alumne1"></option>
+            <option id="aill_alumne2"></option>
           </select>
         </div>
         <div class="md-form col-md-2">
           <label class="active" for="serSoc">Serveis socials</label>
           <select class="form-control" id="serSoc" name="checks.29">
-            <option value="">No</option>
-            <option value="true" <%=sSoc()%>>Si</option>
+            <option id="ss_alumne1"></option>
+            <option id="ss_alumne2"></option>
           </select>
         </div>
 <!--ADAPTACIONS ALUMNE -->
@@ -164,23 +164,23 @@
                     <label class="checkbox-inline">
                       <input id="cat" type="checkbox" value="true" name="checks.19">Català</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.20" <%=checkCond(20)%>>Castellà</label>
+                      <input id="cast" type="checkbox" value="true" name="checks.20">Castellà</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.21" <%=checkCond(21)%>>Matemàtiques</label>
+                      <input id="mat" type="checkbox" value="true" name="checks.21">Matemàtiques</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.22" <%=checkCond(22)%>>Medi natural</label>
+                      <input id="mediN" type="checkbox" value="true" name="checks.22">Medi natural</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.23" <%=checkCond(23)%>>Medi social</label>
+                      <input id="mediS" type="checkbox" value="true" name="checks.23">Medi social</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.24" <%=checkCond(24)%>>Educació Física</label>
+                      <input id="efis" type="checkbox" value="true" name="checks.24">Educació Física</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.25" <%=checkCond(25)%>>Àrea artística</label>
+                      <input id="art" type="checkbox" value="true" name="checks.25">Àrea artística</label>
                   </div>
                   <div class="form-group alturaBox">
                     <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
                       <select class="form-control" id="material_diferenciat" name="radios.5">
-                        <option value="false">No</option>
-                        <option value="true" <%=radioOption(5)%>>Si</option>
+                        <option id="mtr_alumne1"></option>
+                        <option id="mtr_alumne2"></option>
                       </select>
                   </div>
                 </div>
@@ -190,25 +190,25 @@
                 <div class="form-group">
                   <label for="adequacio_continguts">Adequació de continguts</label>
                   <select class="form-control" id="adequacio_continguts" name="radios.6">
-                    <option value="false">No</option>
-                    <option value="true" <%=radioOption(6)%>>Si</option>
+                    <option id="adeq_alumne1"></option>
+                    <option id="adeq_alumne2"></option>
                   </select>
                 </div>
                 <div class="form-group" id="divAde">
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="checks.26" <%=checkCond(26)%>>Matemàtiques</label>
+                  <input id="mat2" type="checkbox" value="true" name="checks.26">Matemàtiques</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="checks.27" <%=checkCond(27)%>>Català</label>
+                  <input id="cat2" type="checkbox" value="true" name="checks.27">Català</label>
                   <label class="checkbox-inline">
-                  <input type="checkbox" value="true" name="checks.28" <%=checkCond(28)%>>Medi</label>
+                  <input id="med2" type="checkbox" value="true" name="checks.28">Medi</label>
                 </div>
               </div>
               <div class="form-group col-md-4">
                 <div class="form-group">
                   <label for="full_derivacio">Full de derivació</label><br>
                   <select class="form-control" id="full_derivacio" name="radios.7">
-                    <option value="false">No</option>
-                    <option value="true" <%=radioOption(7)%>>Si</option>
+                    <option id="fder_alumne1"></option>
+                    <option id="fder_alumne2"></option>
                   </select>
               </div>
               <div class="form-group" id="divDer">

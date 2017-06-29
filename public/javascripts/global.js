@@ -56,7 +56,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
 ////////////////  D A D E S   P E R S O N A L S ////////////////
 
   $('#dadesModal').on('shown.bs.modal', function (e) {
-    //datepicker//
+//datepicker//
     $('#dataNaix .input-group.date').datepicker({
       format: "dd/mm/yyyy",
       setDate: new Date(),
@@ -67,7 +67,9 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       todayHighlight: true,
       language: "ca"  
     });
+//CHECKS
     var actg = $(e.relatedTarget);
+    var alumneId = actg.data('id');
     var alumneNom = actg.data('nom');
     var alumneC1 = actg.data('cognom');
     var alumneC2 = actg.data('scognom');
@@ -79,17 +81,36 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var alumneCurs = actg.data('curs');
     var atdiv = actg.data('atdiv');
     var rep = actg.data('rep');
+    var ail = actg.data('ail');
+    var ss = actg.data('ss');
     var obs = actg.data('obs');
     var pi = actg.data('pi');
     var curri = actg.data('curri');
     var met = actg.data('met');
     var cond = actg.data('cond');
     var cat = actg.data('cat');
-    var alumneId = actg.data('id');
+    var cast = actg.data('cast');
+    var mat = actg.data('mat');
+    var medin = actg.data('medin');
+    var medis = actg.data('medis');
+    var efis = actg.data('efis');
+    var art = actg.data('art');
+    var mtrl = actg.data('mtrl');
+    var adeq = actg.data('adeq');
+    var mat2 = actg.data('mat2');
+    var cat2 = actg.data('cat2');
+    var med2 = actg.data('med2');
+    var fder = actg.data('fder');
+
 //SELECTS
     var piAl = funcSel(pi);
     var aDiv = funcSel(atdiv);
     var repe = funcSel(rep);
+    var aill = funcSel(ail);
+    var sersoc = funcSel(ss);
+    var mtrl = funcSel(mtrl);
+    var adeq = funcSel(adeq);
+    var fderiv = funcSel(fder);
 
     function funcSel (v){
       var op1, val1, op2, val2;
@@ -118,26 +139,46 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
     mdal.find('.modal-body #rep_alumne1').text(repe[0]).val(repe[1]);
     mdal.find('.modal-body #rep_alumne2').text(repe[2]).val(repe[3]);
+    mdal.find('.modal-body #aill_alumne1').text(aill[0]).val(aill[1]);
+    mdal.find('.modal-body #aill_alumne2').text(aill[2]).val(aill[3]);
+    mdal.find('.modal-body #ss_alumne1').text(sersoc[0]).val(sersoc[1]);
+    mdal.find('.modal-body #ss_alumne2').text(sersoc[2]).val(sersoc[3]);
     mdal.find('.modal-body #pi_alumne1').text(piAl[0]).val(piAl[1]);
     mdal.find('.modal-body #pi_alumne2').text(piAl[2]).val(piAl[3]);
     mdal.find('.modal-body #curr').prop('checked', curri);
     mdal.find('.modal-body #met').prop('checked', met);
     mdal.find('.modal-body #cond').prop('checked', cond);
     mdal.find('.modal-body #cat').prop('checked', cat);
+    mdal.find('.modal-body #cast').prop('checked', cast);
+    mdal.find('.modal-body #mat').prop('checked', mat);
+    mdal.find('.modal-body #mediN').prop('checked', medin);
+    mdal.find('.modal-body #mediS').prop('checked', medis);
+    mdal.find('.modal-body #efis').prop('checked', efis);
+    mdal.find('.modal-body #art').prop('checked', art);
+    mdal.find('.modal-body #mtr_alumne1').text(mtrl[0]).val(mtrl[1]);
+    mdal.find('.modal-body #mtr_alumne2').text(mtrl[2]).val(mtrl[3]);
+    mdal.find('.modal-body #adeq_alumne1').text(adeq[0]).val(adeq[1]);
+    mdal.find('.modal-body #adeq_alumne2').text(adeq[2]).val(adeq[3]);
+    mdal.find('.modal-body #mat2').prop('checked', mat2);
+    mdal.find('.modal-body #cat2').prop('checked', cat2);
+    mdal.find('.modal-body #med2').prop('checked', med2);
+    mdal.find('.modal-body #fder_alumne1').text(fderiv[0]).val(fderiv[1]);
+    mdal.find('.modal-body #fder_alumne2').text(fderiv[2]).val(fderiv[3]);
 
     $('#alumne_dades').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
       var data = $('#alumne_dades').serialize();
-      $('#dadesModal').modal('toggle');
       
       $.ajax({
           url: urlPost, //this is the submit URL
           method: 'POST',
           data: data,
           success:function(){
-            location.reload()
+            location.reload();
           }
+      }).then(function(){
+        $('#dadesModal').modal('toggle');
       });
       //console.log($('#alumne_dades').serialize());
     });
