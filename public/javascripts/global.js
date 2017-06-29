@@ -1,6 +1,5 @@
 $(document).ready(function (){
 
-
   //NAVBAR
   var pth = window.location.pathname; // Returns path only
 
@@ -101,6 +100,14 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var cat2 = actg.data('cat2');
     var med2 = actg.data('med2');
     var fder = actg.data('fder');
+    var der = actg.data('der');
+    var motder = actg.data('motder');
+    var eeusee = actg.data('eeusee');
+
+
+    if (der === ""){
+      der="Seleccioneu"
+    };
 
 //SELECTS
     var piAl = funcSel(pi);
@@ -123,6 +130,8 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       }
       return[op1,val1,op2,val2]
     };
+
+
 
     var mdal = $(this);
     mdal.find('.modal-body #nom_alumne').val(alumneNom);
@@ -164,6 +173,14 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #med2').prop('checked', med2);
     mdal.find('.modal-body #fder_alumne1').text(fderiv[0]).val(fderiv[1]);
     mdal.find('.modal-body #fder_alumne2').text(fderiv[2]).val(fderiv[3]);
+    mdal.find('.modal-body #motiu_derivacio').text(motder);
+
+//ALTRES
+    var derivArray =[der, "Tutor", "Família", "Atenció a la diversitat"];
+    var divder = $("#qui_fa_derivacio");
+    $.each(derivArray, function(){
+      divder.append($("<option />").val(this).text(this));
+    });
 
     $('#alumne_dades').on('submit', function(e){
       e.preventDefault();
@@ -223,8 +240,21 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
         $("#qui_fa_derivacio").val('');
         $("#motiu_derivacio").val('');
       }
-    })
+    });
 
+///////// A T .  D I V E R S I T A T ///////// 
+    if (eeusee===true){
+        $("#divDiv").show();
+      } else {
+        $("#divDiv").hide();
+      }
+    $('#eeUsee').change(function(){
+      if ($('#eeUsee').val()==='true'){
+        $("#divDiv").show();
+      } else {
+        $("#divDiv").hide();
+      }
+    });
 
     if ($('#disminucio').val()==='true'){
         $("#divDim").show();
@@ -267,8 +297,7 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
         $("#any_val").val('');
       }
     });
-  });
-
+});
 
 //////////////// S E G U I M E N T //////////////// 
 // ACTUACIONS //
