@@ -128,11 +128,13 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     $('#alumne_dades').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
+      var data = $('#alumne_dades').serialize();
       $('#dadesModal').modal('toggle');
+      
       $.ajax({
           url: urlPost, //this is the submit URL
-          type: 'POST',
-          data: $('#alumne_dades').serialize(),
+          method: 'POST',
+          data: data,
           success:function(){
             location.reload()
           }

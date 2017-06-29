@@ -131,14 +131,12 @@ exports.update = function (req, res){
 	delete alum._id;
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
-
-		function (error, alumne){
-		if (error) 
+	function (error, alumne){
+		if (error) {
 			return res.json(error);
-		console.log(alumne.radios[0]);
-		res.redirect('/list');
+		} else {
+			res.json(alumne)}
 	});
-
 };
 
 //Assistència d'alumnes - GET
