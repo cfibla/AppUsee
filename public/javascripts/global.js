@@ -105,6 +105,8 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var eeusee = actg.data('eeusee');
     var segdiv = actg.data('segdiv');
     var becaa = actg.data('beca');
+    var cdm = actg.data('cdim');
+    var pdm = actg.data('pdim');
 
 
     if (der === ""){
@@ -122,6 +124,8 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var fderiv = funcSel(fder);
     var seg = funcSeg(segdiv);
     var beca = funcSel(becaa);
+    var cdim = funcSel(cdm);
+
 
     function funcSel (v){
       var op1, val1, op2, val2;
@@ -146,8 +150,6 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       }
       return[op1,val1,op2,val2]
     };
-
-
 
     var mdal = $(this);
     mdal.find('.modal-body #nom_alumne').val(alumneNom);
@@ -194,6 +196,9 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #seg_alumne2').text(seg[2]).val(seg[3]);
     mdal.find('.modal-body #beca_alumne1').text(beca[0]).val(beca[1]);
     mdal.find('.modal-body #beca_alumne2').text(beca[2]).val(beca[3]);
+    mdal.find('.modal-body #cdim_alumne1').text(cdim[0]).val(cdim[1]);
+    mdal.find('.modal-body #cdim_alumne2').text(cdim[2]).val(cdim[3]);
+    mdal.find('.modal-body #percent_dim').val(pdm);
 
 //ALTRES
     var derivArray =[der, "Tutor", "Família", "Atenció a la diversitat"];

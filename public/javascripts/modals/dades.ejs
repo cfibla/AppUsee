@@ -258,13 +258,14 @@
                 <div class="form-group">
                   <label for="disminucio">Certificat disminució</label><br>
                   <select class="form-control" id="disminucio" name="radios.2">
-                    <option value="false">No</option>
-                    <option value="true" <%=radioOption(2)%>>Si</option>
+                    <option id="cdim_alumne1"></option>
+                    <option id="cdim_alumne2"></option>
                   </select>
                 </div>
-                <div class="form-group" id="divDim">
-                  <input type="text" class="form-control" id="percent_dim" name="percentDim"
-              value = "<%=alumne.percentDim||''%>" placeholder= "Indiqueu %">
+
+                <div class="md-form col-md-12" id="divDim">
+                  <input type="text" class="form-control" id="percent_dim" name="percentDim">
+                  <label class="active" for="percent_dim">Indiqueu %</label>
                 </div>
               </div>
 
