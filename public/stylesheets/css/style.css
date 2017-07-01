@@ -134,6 +134,10 @@ table a:hover{
 .clear {
     clear: both;
 }
+.modalink{
+    color:#424242;
+    hover:red;
+}
 .escola {
    /* margin-top: 50%;*/
     padding: 1em 2em 5em 2em;

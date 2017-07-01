@@ -17,31 +17,32 @@
   <form role="form" method="post" data-toggle="validator" id="alumne_dades">
     <div class="container">
       <div class="row">
+           <!--
         <div class="md-form col-3">
           <div class="row">
             <div class="thumbnail">
               <img src="http://placehold.it/150x150">
             </div>
-           <!--       <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+             <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                   <small id="fileHelp" class="form-text text-muted">This is some help text.</small>-->
           </div>
         </div>
 <!--DADES ALUMNE-->
-        <div class="md-form col-9">
+        <div class="md-form col-12">
           <div class="row">
-            <div class="md-form col-md-4">
+            <div class="md-form col-md-3">
               <input type="text" class="form-control" id="nom_alumne" name="nomAlumne" required="true">
               <label class="active" for="nom_alumne">Nom *</label>
             </div>
-            <div class="md-form col-md-4">
+            <div class="md-form col-md-3">
               <input type="text" class="form-control" id="cnom_alumne1" name="cognomAlumne1" required="true">
               <label class="active" for="cnom_alumne1">Primer Cognom *</label>
             </div>
-            <div class="md-form col-md-4">
+            <div class="md-form col-md-3">
               <input type="text" class="form-control" id="cnom_alumne2" style="text-transform:uppercase" name="cognomAlumne2">
               <label class="active" for="cnom_alumne2">Segon Cognom</label>
             </div>
-            <div class="md-form col-md-4" id="dataNaix">
+            <div class="md-form col-md-3" id="dataNaix">
               <label class="active" for="data_naixement">Data naixement</label>
               <div class="input-group date alturabox" data-provide="datepicker">
                 <div class="input-group-addon"><i class="fa fa-calendar"></i>
@@ -49,49 +50,25 @@
                 <input type="text" class="form-control textcenter" id="data_naixement" name="naixement">
               </div>
             </div>
-            <div class="md-form col-md-4">
+            <div class="md-form col-md-3">
               <input type="text" class="form-control" id="targeta_SS" name="seguretatSoc">
               <label class="active" for="targeta_SS">Targeta SS</label>
             </div>
-            <div class="md-form col-md-4">
+            <div class="md-form col-md-3">
               <input type="text" class="form-control" id="codi_escola" name="codiEscola" required="true">
               <label class="active" for="codi_escola">Codi escola *</label>
             </div>
-          </div>
-        </div>
-        <div class="md-form col-md-4">
-          <input type="email" class="form-control" id="email_alumne" name="mailAlum" data-error="Format incorrecte">
-          <label class="active" for="email_alumne">Correu electrònic</label>
-          <div class="help-block with-errors"></div>
-        </div>
-        <div class="md-form col-md-4">
-          <input type="tel" class="form-control" id="tel_alumne1" name="telAlum1" data-error="Format incorrecte">
-          <label class="active" for="tel_alumne1">Telèfon 1</label>
-          <div class="help-block with-errors"></div>
-        </div>
-        <div class="md-form col-md-4">
-          <input type="tel" class="form-control" id="tel_alumne2" name="telAlum2" data-error="Format incorrecte">
-          <label class="active" for="tel_alumne2">Telèfon 2</label>
-          <div class="help-block with-errors"></div>
-        </div>
-
-              <!--
-              <div class="md-form col-md-12">
-                <input type="text" class="form-control" id="nom_escola" name="nomEscola" required="true" disabled>
-                <label class="active" for="nom_escola">Escola</label>
-              </div>
-              -->
-
-        <div class="md-form col-12">
-          <div class="row">
-            <div class="md-form col-md-12" style="height:100px;">
-              <label class="active" for="Obs_alumne">Observacions generals</label>
-              <textarea class="form-control" style="height:100%;" id="obs_alumne" name="observacions"  placeholder="Observacions sobre l'alumne/a"></textarea>
+            <div class="md-form col-md-3">
+              <input type="email" class="form-control" id="email_alumne" name="mailAlum" data-error="Format incorrecte">
+              <label class="active" for="email_alumne">Correu electrònic</label>
+              <div class="help-block with-errors"></div>
             </div>
-          </div>
-        </div>
-
-        <div class="md-form col-md-3" id="curs">
+            <div class="md-form col-md-3">
+              <input type="tel" class="form-control" id="tel_alumne1" name="telAlum1" data-error="Format incorrecte">
+              <label class="active" for="tel_alumne1">Telèfon</label>
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="md-form col-md-3" id="curs">
           <label class="active" for="curs_act">Curs actual</label>
           <select class="form-control" id="curs_act" name="curs">
             <option id="cursval" class="margetopmini"></option>
@@ -110,17 +87,17 @@
           </select>
         </div>
         <div class="md-form col-md-3">
-          <label class="active" for="eeUsee">Atenció a la diversitat</label>
-          <select class="form-control" id="eeUsee" name="eeUsee">
-            <option id="ad_alumne1"></option>
-            <option id="ad_alumne2"></option>
-          </select>
-        </div>
-        <div class="md-form col-md-2">
           <label class="active" for="selecRep">Repetidor</label>
           <select class="form-control" id="selecRep" name="radios.0">
             <option id="rep_alumne1"></option>
             <option id="rep_alumne2"></option>
+          </select>
+        </div>
+        <div class="md-form col-md-2">
+          <label class="active" for="eeUsee">At. diversitat</label>
+          <select class="form-control" id="eeUsee" name="eeUsee">
+            <option id="ad_alumne1"></option>
+            <option id="ad_alumne2"></option>
           </select>
         </div>
         <div class="md-form col-md-2">
@@ -137,9 +114,38 @@
             <option id="ss_alumne2"></option>
           </select>
         </div>
+          </div>
+
+        </div>
+
+
+              <!--
+              <div class="md-form col-md-12">
+                <input type="text" class="form-control" id="nom_escola" name="nomEscola" required="true" disabled>
+                <label class="active" for="nom_escola">Escola</label>
+              </div>
+              -->
+
+        <div class="md-form col-12">
+          <div class="row">
+            <div class="md-form col-md-12" style="height:100px;">
+              <label class="active" for="Obs_alumne">Observacions generals</label>
+              <textarea class="form-control" style="height:100%;" id="obs_alumne" name="observacions"  placeholder="Observacions sobre l'alumne/a"></textarea>
+            </div>
+          </div>
+        </div>
+
+        
 <!--ADAPTACIONS ALUMNE -->
-        <div class="form-group col-md-12 centered">
-          <a data-toggle="collapse" aria-expanded="false" aria-controls="collapse1" href="#collapse1">Adaptacions <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+<div class="d-flex flex-row">
+        <div class="col-4"><hr class="modalink" /></div>
+        <span class="col-4 centered">
+          <a class="modalink" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1" href="#collapse1"> <i class="fa fa-angle-down" aria-hidden="true"></i> Adaptacions <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+        </span>
+        <div class="col-4"><hr class="modalink" /></div>
+        </div>
+        <div class="form-group col-md-12">
+          
             <div id="collapse1" class="collapse">
               <div class="card card-block">
                 <div class="form-group col-md-12 left">
