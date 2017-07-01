@@ -153,11 +153,11 @@
                   <div id="divPi">
                     <div class="form-group">
                       <label class="checkbox-inline">
-                      <input id="curr"type="checkbox" value="true" name="checks.16"> Curricular </label>
+                      <input id="curr" type="checkbox" value="true" name="checks.16"> Curricular </label>
                       <label class="checkbox-inline">
-                      <input id="met"type="checkbox" value="true" name="checks.17"> Metodològic </label>
+                      <input id="met" type="checkbox" value="true" name="checks.17"> Metodològic </label>
                       <label class="checkbox-inline">
-                      <input id="cond"type="checkbox" value="true" name="checks.18"> Conductual </label>
+                      <input id="cond" type="checkbox" value="true" name="checks.18"> Conductual </label>
                     </div>
                     <div class="form-group alturaBox">
                     <label for="arees_adaptades">Àrees adaptades PI</label><br>
@@ -232,9 +232,9 @@
 
       <div class="form-group col-md-12 centered" id="divDiv">
         <a data-toggle="collapse" aria-expanded="false" aria-controls="collapse2" href="#collapse2">Atenció a la diversitat<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-          <div id="collapse2" class="collapse">
+          <div id="collapse2" class="collapse left">
             <div class="card card-block">
-              <div class="form-group col-md-12 left">
+              <div class="form-group col-md-12">
                 <div class="form-group">
                   <label for="seg_ad">Seguiment atenció a la diversitat</label>
                   <select class="form-control" id="seg_ad" name="checks.0">
@@ -279,7 +279,8 @@
                 </div>
                 <div class="md-form col-md-12" id="divVal">
                   <input type="text" class="form-control" id="any_val" name="anyVal">
-                  <label class="active" for="any_val">Any Valoració</label></div>
+                  <label class="active" for="any_val">Any Valoració</label>
+                </div>
               </div>
 
               <div class="form-group col-md-12">
@@ -292,6 +293,7 @@
                 </div>
                 <div class="md-form col-md-12" id="divDic">
                   <input type="text" class="form-control" id="motiu_dic" name="motiuDic">
+                  <label class="active" for="any_val">Indiqueu el motiu</label>
                 </div>
               </div>
 
@@ -300,43 +302,39 @@
                   <div class="form-group col-md-12">
                     <label for="seguiment_serveis_externs">Seguiment serveis externs</label><br>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.5" <%=checkCond(5)%>>EAP</label>
+                      <input id="c_eap" type="checkbox" value="true" name="checks.5">EAP</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.6" <%=checkCond(6)%>>TS EAP</label>
+                      <input id="ts_eap" type="checkbox" value="true" name="checks.6">TS EAP</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.7" <%=checkCond(7)%>>CREDAG</label>
+                      <input id="credag" type="checkbox" value="true" name="checks.7">CREDAG</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.8" <%=checkCond(8)%>>CREDV</label>
+                      <input id="credv" type="checkbox" value="true" name="checks.8">CREDV</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.9" <%=checkCond(9)%>>CSMIJ</label>
+                      <input id="csmij" type="checkbox" value="true" name="checks.9">CSMIJ</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.10" <%=checkCond(10)%>>SEETDIC</label>
+                      <input id="seetdic" type="checkbox" value="true" name="checks.10">SEETDIC</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.11" <%=checkCond(11)%>>CDIAP</label>
+                      <input id="cdiap" type="checkbox" value="true" name="checks.11">CDIAP</label>
                   </div>
 
                   <div class="form-group col-md-12">
                     <label for="seguiment_medic">Seguiment mèdic</label><br>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.12" <%=checkCond(12)%>>Pediatria</label>
+                      <input id="ped" type="checkbox" value="true" name="checks.12">Pediatria</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.13" <%=checkCond(13)%>>Neuropediatria</label>
+                      <input id="nped" type="checkbox" value="true" name="checks.13">Neuropediatria</label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="true" name="checks.14" <%=checkCond(14)%>>Altres especialitats</label>
+                      <input id="altresesp"  type="checkbox" value="true" name="checks.14">Altres especialitats</label>
                   </div>
 
-                  <div class="form-group col-md-6">
-                      <label for="altres_especialitats">Altres especialitats</label>
-                      <input type="text" class="form-control" id="altres_especialitats" name="altresEsp" 
-                      value = "<%=alumne.altresEsp||''%>"
-                      placeholder= "Altres especialitats">
+                  <div class="md-form col-md-12" id="espDiv">
+                    <input id="esp" type="text" class="form-control" name="altresEsp">
+                    <label class="active" for="esp">Indiqueu altres especialitats</label>
                   </div>
       
-                  <div class="form-group col-md-6">
-                      <label for="serveis_privats">Atenció serveis privats</label>
-                      <input type="text" class="form-control" id="serveis_privats" name="atServPrivats"
-                      value = "<%=alumne.atServPrivats||''%>"
-                      placeholder= "Atenció serveis privats">
+                  <div class="md-form col-md-12">
+                    <input type="text" class="form-control" id="serpriv" name="atServPrivats">
+                    <label class="active" for="esp">Atenció serveis privats</label>
                   </div>
                 </div>
               </div>

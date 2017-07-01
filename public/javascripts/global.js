@@ -111,6 +111,18 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var aval = actg.data('anyval');
     var dict = actg.data('dic');
     var mdic = actg.data('mdic');
+    var ceap = actg.data('ceap');
+    var tseap = actg.data('tseap');
+    var credag = actg.data('credag');
+    var credv = actg.data('credv');
+    var csmij = actg.data('csmij');
+    var seetdic = actg.data('seetdic');
+    var cdiap = actg.data('cdiap');
+    var ped = actg.data('ped');
+    var nped = actg.data('nped');
+    var altresesp = actg.data('altresesp');
+    var esp = actg.data('esp');
+    var serpriv = actg.data('serpriv');
 
 
     if (der === ""){
@@ -212,6 +224,18 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #dic_alumne1').text(dic[0]).val(dic[1]);
     mdal.find('.modal-body #dic_alumne2').text(dic[2]).val(dic[3]);
     mdal.find('.modal-body #motiu_dic').val(mdic);
+    mdal.find('.modal-body #c_eap').prop('checked', ceap);
+    mdal.find('.modal-body #ts_eap').prop('checked', tseap);
+    mdal.find('.modal-body #credag').prop('checked', credag);
+    mdal.find('.modal-body #credv').prop('checked', credv);
+    mdal.find('.modal-body #csmij').prop('checked', csmij);
+    mdal.find('.modal-body #seetdic').prop('checked', seetdic);
+    mdal.find('.modal-body #cdiap').prop('checked', cdiap);
+    mdal.find('.modal-body #ped').prop('checked', ped);
+    mdal.find('.modal-body #nped').prop('checked', nped);
+    mdal.find('.modal-body #altresesp').prop('checked', altresesp);
+    mdal.find('.modal-body #esp').val(esp);
+    mdal.find('.modal-body #serpriv').val(serpriv);
 
 //ALTRES
     var derivArray =[der, "Tutor", "Família", "Atenció a la diversitat"];
