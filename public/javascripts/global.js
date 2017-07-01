@@ -107,6 +107,10 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var becaa = actg.data('beca');
     var cdm = actg.data('cdim');
     var pdm = actg.data('pdim');
+    var veap = actg.data('eap');
+    var aval = actg.data('anyval');
+    var dict = actg.data('dic');
+    var mdic = actg.data('mdic');
 
 
     if (der === ""){
@@ -125,6 +129,9 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     var seg = funcSeg(segdiv);
     var beca = funcSel(becaa);
     var cdim = funcSel(cdm);
+    var eap = funcSel(veap);
+    var dic = funcSel(dict);
+
 
 
     function funcSel (v){
@@ -199,6 +206,12 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
     mdal.find('.modal-body #cdim_alumne1').text(cdim[0]).val(cdim[1]);
     mdal.find('.modal-body #cdim_alumne2').text(cdim[2]).val(cdim[3]);
     mdal.find('.modal-body #percent_dim').val(pdm);
+    mdal.find('.modal-body #eap_alumne1').text(eap[0]).val(eap[1]);
+    mdal.find('.modal-body #eap_alumne2').text(eap[2]).val(eap[3]);
+    mdal.find('.modal-body #any_val').val(aval);
+    mdal.find('.modal-body #dic_alumne1').text(dic[0]).val(dic[1]);
+    mdal.find('.modal-body #dic_alumne2').text(dic[2]).val(dic[3]);
+    mdal.find('.modal-body #motiu_dic').val(mdic);
 
 //ALTRES
     var derivArray =[der, "Tutor", "Família", "Atenció a la diversitat"];
