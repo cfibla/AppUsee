@@ -261,6 +261,28 @@ $(document).ready(function (){
       });
       //console.log($('#alumne_dades').serialize());
     });
+///////// LABEL ACTIVE ///////////////
+    function checkForInput(element) {
+  // element is passed to the function ^
+  
+      const $label = $(element).siblings('label');
+
+      if ($(element).val().length > 0) {
+        $label.addClass('active');
+      } else {
+        $label.removeClass('active');
+      }
+    }
+
+    // The lines below are executed on page load
+    $('input').each(function() {
+      checkForInput(this);
+    });
+
+    // The lines below (inside) are executed on change & keyup
+    $('input').on('change keyup', function() {
+      checkForInput(this);  
+    });
 
   ////////////////// A D A P T A C I O N S ////////////////// 
     if ($('#programació_individualitzada').val()==='true'){
