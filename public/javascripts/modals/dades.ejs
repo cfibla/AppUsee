@@ -141,6 +141,7 @@
           <a class="btn btn-light-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1" href="#collapse1">Adaptacions <i class="fa fa-plus" aria-hidden="true"></i></a>
             <div id="collapse1" class="collapse">
               <div class="card card-block">
+              <div class="row">
                 <div class="form-group col-md-12 left">
                   <div class="form-group">
                     <label for="programació_individualitzada">Pla individualitzat (PI)</label>
@@ -183,33 +184,35 @@
                       </select>
                   </div>
                 </div>
-              </div>
+              </div></div>
 
-              <div class="form-group col-md-4">
+              <div class="row">
+              <div class="form-group col-md-6">
+                <label for="adequacio_continguts">Adequació de continguts</label>
+                <select class="form-control" id="adequacio_continguts" name="radios.6">
+                  <option id="adeq_alumne1"></option>
+                  <option id="adeq_alumne2"></option>
+                </select>
+              
+              <div id="divAde">
                 <div class="form-group">
-                  <label for="adequacio_continguts">Adequació de continguts</label>
-                  <select class="form-control" id="adequacio_continguts" name="radios.6">
-                    <option id="adeq_alumne1"></option>
-                    <option id="adeq_alumne2"></option>
-                  </select>
-                </div>
-                <div class="form-group" id="divAde">
-                  <label class="checkbox-inline">
+                  <label class="checkbox-inline" for="mat2">
                   <input id="mat2" type="checkbox" value="true" name="checks.26">Matemàtiques</label>
-                  <label class="checkbox-inline">
+                  <label class="checkbox-inline" for="mat2">
                   <input id="cat2" type="checkbox" value="true" name="checks.27">Català</label>
-                  <label class="checkbox-inline">
+                  <label class="checkbox-inline" for="mat2">
                   <input id="med2" type="checkbox" value="true" name="checks.28">Medi</label>
                 </div>
               </div>
-              <div class="form-group col-md-12">
-                <div class="form-group">
-                  <label for="full_derivacio">Full de derivació</label><br>
-                  <select class="form-control" id="full_derivacio" name="radios.7">
-                    <option id="fder_alumne1"></option>
-                    <option id="fder_alumne2"></option>
-                  </select>
               </div>
+
+              <div class="form-group col-md-6">
+                <label for="full_derivacio">Full de derivació</label>
+                <select class="form-control" id="full_derivacio" name="radios.7">
+                  <option id="fder_alumne1"></option>
+                  <option id="fder_alumne2"></option>
+                </select>
+              
               <div class="form-group" id="divDer">
                 <div class="form-group">
                   <label for="qui_fa_derivacio">Qui el fa?</label>
@@ -219,12 +222,11 @@
                 <div class="form-group" style="height:100px;">
                   <label class="active" for="motiu_derivacio">Motiu</label>
                   <textarea class="form-control" style="height:100%;" id="motiu_derivacio" name="motiuDer"></textarea>
-                </div>
-              </div>
+                </div></div>
+              </div></div>
             </div>
           </div>
         </div>
-      </div>
 
 
 <!--ATENCIÓ DIVERSITAT ALUMNE-->
@@ -233,6 +235,7 @@
         <a class="btn btn-dark-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2" href="#collapse2">Atenció a la diversitat  <i class="fa fa-plus" aria-hidden="true"></i></a>
           <div id="collapse2" class="collapse left">
             <div class="card card-block">
+            <div class="row">
               <div class="form-group col-md-12">
                 <div class="form-group">
                   <label for="seg_ad">Seguiment atenció a la diversitat</label>
@@ -336,7 +339,7 @@
                     <label class="active" for="esp">Atenció serveis privats</label>
                   </div>
                 </div>
-              </div>
+              </div></div>
             </div>
           </div>
         </div>
