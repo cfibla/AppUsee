@@ -19,38 +19,38 @@ $(document).ready(function (){
   }
 
 //TOOLTIPS
-$(function () {
-  $('[data-tggle="tooltip"]').tooltip();
-})
-$('a').click(function(){
-    $(this).tooltip('dispose')
-})
+  $(function () {
+    $('[data-tggle="tooltip"]').tooltip();
+  })
+  $('a').click(function(){
+      $(this).tooltip('dispose')
+  })
 
   //RADIOS ASSISTENCIA
-   // bind to retrieve old status
-    $('#tradios input[type="radio"]').mousedown(function() { 
-        // if it was checked before
-        if(this.checked) {
-            // bind event to reset state after click is completed
-            $(this).mouseup(function() {  
-                // bind param, because "this" will point somewhere else in setTimeout
-                var radio = this;
-                // apparently if you do it immediatelly, it will be overriden, hence wait a tiny bit
-                setTimeout(function() { 
-                    radio.checked = false; 
-                }, 5); 
-                // don't handle mouseup anymore unless bound again
-                $(this).unbind('mouseup');
-            });
-        }
-    });
+ // bind to retrieve old status
+  $('#tradios input[type="radio"]').mousedown(function() { 
+      // if it was checked before
+      if(this.checked) {
+          // bind event to reset state after click is completed
+          $(this).mouseup(function() {  
+              // bind param, because "this" will point somewhere else in setTimeout
+              var radio = this;
+              // apparently if you do it immediatelly, it will be overriden, hence wait a tiny bit
+              setTimeout(function() { 
+                  radio.checked = false; 
+              }, 5); 
+              // don't handle mouseup anymore unless bound again
+              $(this).unbind('mouseup');
+          });
+      }
+  });
 
 ///////////////////// M O D A L S ///////////////////// 
-$('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(this).data("target")+' .modal-content').load($(this).attr('href')); }); 
-  $('document').on('hidden.bs.modal', function () {
-    $('.modal-body .modal-footer').html("");
+  $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(this).data("target")+' .modal-content').load($(this).attr('href')); }); 
+    $('document').on('hidden.bs.modal', function () {
+      $('.modal-body .modal-footer').html("");
 
-  });
+    });
 
 ////////////////  D A D E S   P E R S O N A L S ////////////////
 
@@ -283,9 +283,9 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       }
     $('#adequacio_continguts').change(function(){
       if ($('#adequacio_continguts').val()==='true'){
-        $("#divAde").fadeIn(500);
+        $("#divAde").fadeIn('slow');
       } else {
-        $("#divAde").hide(500);
+        $("#divAde").hide('slow');
       }
     })
 
@@ -296,9 +296,9 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       }
     $('#full_derivacio').change(function(){
       if ($('#full_derivacio').val()==='true'){
-        $("#divDer").fadeIn(500);
+        $("#divDer").fadeIn('slow');
       } else {
-        $("#divDer").hide(500);
+        $("#divDer").hide('slow');
         $("#qui_fa_derivacio").val('');
         $("#motiu_derivacio").val('');
       }
@@ -325,9 +325,9 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       }
     $('#disminucio').change(function(){
       if ($('#disminucio').val()==='true'){
-        $("#divDim").fadeIn(500);
+        $("#divDim").fadeIn('slow');
       } else {
-        $("#divDim").hide(500);
+        $("#divDim").hide('slow');
         $("#percent_dim").val('');
       }
     })
@@ -339,9 +339,9 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       }
     $('#valoracio_eap').change(function(){
       if ($('#valoracio_eap').val()==='true'){
-        $("#divVal").fadeIn(500);
+        $("#divVal").fadeIn('slow');
       } else {
-        $("#divVal").hide(500);
+        $("#divVal").hide('slow');
         $("#any_val").val('');
       }
     })
@@ -353,13 +353,27 @@ $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(th
       }
     $('#dictamen').change(function(){
       if ($('#dictamen').val()==='true'){
-        $("#divDic").fadeIn(500);
+        $("#divDic").fadeIn('slow');
       } else {
-        $("#divDic").hide(500);
+        $("#divDic").hide('slow');
         $("#any_val").val('');
       }
     });
-});
+
+    if ($('#altresesp').is(':checked')){
+      $("#espDiv").show();
+    } else {
+      $("#espDiv").hide();
+    }
+    $('#altresesp').change(function(){
+      if (this.checked){
+        $("#espDiv").fadeIn('slow');}
+      else {
+        $("#espDiv").fadeOut('slow');
+      //  $("#esp").val('');
+      }
+    });
+  });
 
 //////////////// S E G U I M E N T //////////////// 
 // ACTUACIONS //
