@@ -6,23 +6,25 @@
 
   </head>
   <body>
-    <div class="modal-header" style="padding:35px 50px;">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Altres coordinacions
+    <div class="modal-header">
+      <div class="modal-title">Altres coordinacions</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="modal-body" style="padding:40px 50px;">
-      <div class="container-fluid">
+    <div class="modal-body">
+      <div class="container">
         <div class="row">
-          <div class="col-md-5 clear">
+          <div class="col-md-6 clear">
             <strong>Alumne/a: </strong><span id="nomAlgAl"></span>
           </div>
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-2">
             <strong>Curs: </strong><span id="cursAlgAl"></span><br><br>
           </div>
 <!--DATEPICKER-->
-          <div class="col-md-3 clear" id="acDataGet">
-            <label for="altresDataGet">Data</label>
-              <div id="altresDataGet"></div>
+          <div class="col-md-4" id="acDataGet">
+            <strong>Data</strong>
+              <span id="altresDataGet"></span>
             <br><br>
           </div>
 <!-- BODY -->

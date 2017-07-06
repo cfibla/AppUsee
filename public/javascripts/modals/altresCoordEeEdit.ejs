@@ -6,48 +6,48 @@
 
   </head>
   <body>
-    <div class="modal-header" style="padding:35px 50px;">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Modificar Coordinació
+    <div class="modal-header">
+      <div class="modal-title">Modificar coordinació</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="modal-body" style="padding:40px 50px;">
-      <div class="container-fluid">
+    <div class="modal-body">
+      <div class="container">
         <div class="row">
 
-          <div class="col-md-5 clear">
+          <div class="col-md-6 clear">
             <strong>Alumne/a: </strong><span id="nomAluAl"></span>
           </div>
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-2">
             <strong>Curs: </strong><span id="cursAluAl"></span><br><br>
           </div>
-          
-          <form role="form" method="post" id="upd_altres">
+          <div class="md-form col-12"><br>
+            <form role="form" method="post" id="upd_altres">
 
-            <!--DATEPICKER-->
-            <div class="col-md-3 clear" id="alDataUpd">
-              <label for="altresDataUpd">Data</label>
-              <div class="input-group date" data-provide="datepicker">
-                <input type="text" id="altresDataUpd" class="form-control" form="upd_altres">
-                  <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
+              <!--DATEPICKER-->
+              <div class="md-form col-md-3 alturabox" id="alDataUpd">
+                <label class="active" for="altresDataUpd">Data</label>
+                <div class="input-group date" data-provide="datepicker">
+
+                <div class="input-group-addon"><i class="fa fa-calendar"></i>
                   </div>
+                  <input type="text" id="altresDataUpd" class="form-control" form="upd_altres">
+                </div><br><br>
               </div>
-              <br><br>
-            </div>
 
-            <!-- BODY -->
-            <div class="form-group col-md-12">
-              <label for="altresBodyUpd">Coordinació</label>
-              <textarea class="form-control" rows="10" id="altresBodyUpd" form="upd_altres"></textarea>
-            </div>
-
-          </form>
-
+              <!-- BODY -->
+              <div class="md-form col-12 alturabox" style="height:100px;">
+                <label class="active" for="altresBodyUpd">Coordinació</label><br>
+                <textarea class="form-control" style="height:100%;" id="altresBodyUpd" form="upd_altres"></textarea>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>    
     <div class="modal-footer">
-        <button type="submit" form="upd_altres" class="btn btn-success btn-block" id="altresBtn">Actualitza</button>
+      <button type="submit" form="upd_altres" class="btn btn-success btn-block" id="altresBtn">Actualitza</button>
     </div>
   </body>
 </html>

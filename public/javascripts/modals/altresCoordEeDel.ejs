@@ -9,20 +9,22 @@
 
   <body>
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Eliminar coordinació
+      <div class="modal-title">Eliminar coordinació</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="modal-body" style="padding:40px 50px;">
-      <div class="container-fluid">
+    <div class="modal-body">
+      <div class="container">
         <div class="row">
-          <div class="col-md-5 clear">
+          <div class="md-form col-md-5 clear">
             <strong>Alumne/a: </strong><span id="nomAldAl"></span>
           </div>
-          <div class="form-group col-md-3">
+          <div class="md-form col-md-3">
             <strong>Curs: </strong><span id="cursAldAl"></span><br><br>
           </div>
           <form role="form" method="post" action="" id="del_altres">
-            <div>
+            <div class="md-form col-md-12 clear>
               <p class = "clear"><strong>Voleu esborrar aquesta coordinació?</strong></p>
               <p class = "clear"><strong>Data </strong><p id="altresDataDel"></p></p>
               <p class = "clear"><strong>Coordinació </strong><p id="altresBodyDel"></p></p>
@@ -32,8 +34,8 @@
       </div>
     </div>
     <div class="modal-footer">
-      <a class="btn btn-default btn-sm" role="button" data-dismiss="modal">Cancel·la</a>
-      <button type="submit" form="del_altres" id="altresDel" class="btn btn-danger btn-sm">Elimina coordinació</button>
+      <a class="btn btn-default" role="button" data-dismiss="modal">Cancel·la</a>
+      <button type="submit" form="del_altres" id="altresDel" class="btn btn-danger">Elimina coordinació</button>
     </div>
   </body>
 </html>
