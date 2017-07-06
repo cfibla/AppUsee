@@ -149,7 +149,7 @@
                         </span>
                         <% if(session.user.mestre === "ee"){ %>
                         <span class="col-md-1">
-                          <a id = "btnCadUpd" data-toggle="modal" href="/javascripts/modals/cadEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segInformacioCAD[i].date%>" data-body="<%=alumne.segInformacioCAD[i].body%>"  data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                          <a id = "btnCadUpd" data-toggle="modal" href="/javascripts/modals/cadEeEdit.ejs" data-nom = "<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segInformacioCAD[i].date%>" data-body="<%=alumne.segInformacioCAD[i].body%>"  data-target="#cadModalUpd" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
                           </a>
                         </span>
                         <span class="col-md-1">
