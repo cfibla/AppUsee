@@ -9,20 +9,22 @@
 
   <body>
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Eliminar informació CAD
+      <div class="modal-title">Eliminar informació CAD</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="modal-body" style="padding:40px 50px;">
-      <div class="container-fluid">
+    <div class="modal-body">
+      <div class="container">
         <div class="row">
-          <div class="col-md-5 clear">
+          <div class="md-form col-md-5 clear">
             <strong>Alumne/a: </strong><span id="nomCdAl"></span>
           </div>
-          <div class="form-group col-md-3">
+          <div class="md-form col-md-3">
             <strong>Curs: </strong><span id="cursCdAl"></span><br><br>
           </div>
           <form role="form" method="post" action="" id="del_CAD">
-            <div>
+            <div class="md-form col-md-12 clear>
               <p class = "clear"><strong>Voleu esborrar aquesta informació CAD?</strong></p>
               <p class = "clear"><strong>Data </strong><p id="cadDataDel"></p></p>
               <p class = "clear"><strong>Informació CAD </strong><p id="cadBodyDel"></p></p>
@@ -32,8 +34,8 @@
       </div>
     </div>
     <div class="modal-footer">
-      <a class="btn btn-default btn-sm" role="button" data-dismiss="modal">Cancel·la</a>
-      <button type="submit" form="del_CAD" id="cadDel" class="btn btn-danger btn-sm">Elimina informació CAD</button>
+      <a class="btn btn-default" role="button" data-dismiss="modal">Cancel·la</a>
+      <button type="submit" form="del_CAD" id="cadDel" class="btn btn-danger">Elimina informació CAD</button>
     </div>
   </body>
 </html>

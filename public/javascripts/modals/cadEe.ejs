@@ -6,45 +6,46 @@
 
   </head>
   <body>
-    <div class="modal-header" style="padding:35px 50px;">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Informacions CAD
+    <div class="modal-header">
+      <div class="modal-title">Informacions CAD</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="modal-body" style="padding:40px 50px;">
+    <div class="modal-body">
       <div class="container-fluid">
         <div class="row">
-
-          <div class="col-md-5 clear">
+          <div class="md-form col-md-5 clear">
             <strong>Alumne/a: </strong><span id="nomCnAl"></span>
           </div>
-          <div class="form-group col-md-3">
+          <div class="md-form col-md-3">
             <strong>Curs: </strong><span id="cursCnAl"></span><br><br>
           </div>
-    
-          <form role="form" method="post" id="info_CAD">
+          <div class="md-form col-12"><br>
+            <form role="form" method="post" id="info_CAD">
 
-            <!--DATEPICKER-->
-            <div class="col-md-3 clear" id="cadData">
-              <label for="cnData">Data</label>
-              <div class="input-group date" data-provide="datepicker">
-                <input type="text" id="cnData" class="form-control" form="info_CAD">
-                  <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
+              <!--DATEPICKER-->
+              <div class="md-form col-md-3 alturabox" id="cadData">
+                <label class="active" for="cnData">Data</label><br>
+                <div class="input-group date" data-provide="datepicker">
+
+                  <div class="input-group-addon"><i class="fa fa-calendar"></i>
                   </div>
+                  <input type="text" class="form-control textcenter" id="cnData" form="info_CAD">
+                </div><br><br>
               </div>
-              <br><br>
-            </div>
 
-            <div class="form-group col-md-12">
-              <label for="cnBody">Actuació</label>
-              <textarea class="form-control" rows="10" id="cnBody" form="info_CAD"></textarea>
-            </div>
-          </form>
+              <div class="md-form col-12 alturabox" style="height:100px;">
+                <label class="active" for="cnBody">Informació CAD</label><br>
+                <textarea class="form-control" style="height:100%;" id="cnBody" form="info_CAD"></textarea>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>    
     <div class="modal-footer">
-        <button type="submit" form="info_CAD" class="btn btn-success btn-block" id="actuBtn">Desa</button>
+      <button type="submit" form="info_CAD" class="btn btn-success btn-block" id="actuBtn">Desa</button>
     </div>
   </body>
 </html>

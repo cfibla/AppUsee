@@ -21,34 +21,30 @@
           <div class="md-form col-md-3">
             <strong>Curs: </strong><span id="cursAl"></span>
           </div>
-        <div class="md-form col-12"><br>
-        <form role="form" method="post" id="seg_actuacions">
+          <div class="md-form col-12"><br>
+            <form role="form" method="post" id="seg_actuacions">
+              <!--DATEPICKER-->
+              <div class="md-form col-md-3 alturabox" id="acData">
+                <label class="active" for="actuData">Data</label><br>
+                <div class="input-group date" data-provide="datepicker">
 
-        
+                <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control textcenter" id="actuData"  form="seg_actuacions">
+                </div><br><br>
+              </div>
 
-            <!--DATEPICKER-->
-            <div class="md-form col-md-3 alturabox" id="acData">
-              <label class="active" for="actuData">Data actuació</label><br>
-              <div class="input-group date" data-provide="datepicker">
-
-              <div class="input-group-addon"><i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control textcenter" id="actuData"  form="seg_actuacions">
-              </div><br><br>
-            </div>
-
-            <div class="md-form col-12 alturabox" style="height:100px;">
-              <label class="active" for="actuBody">Actuació</label><br>
-              <textarea class="form-control" style="height:100%;" id="actuBody" form="seg_actuacions"></textarea>
-            </div>
-
-          </form>
+              <div class="md-form col-12 alturabox" style="height:100px;">
+                <label class="active" for="actuBody">Actuació</label><br>
+                <textarea class="form-control" style="height:100%;" id="actuBody" form="seg_actuacions"></textarea>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>    
     <div class="modal-footer">
-        <button type="submit" form="seg_actuacions" class="btn btn-success btn-block" id="actuBtn">Desa</button>
+      <button type="submit" form="seg_actuacions" class="btn btn-success btn-block" id="actuBtn">Desa</button>
     </div>
   </body>
 </html>
