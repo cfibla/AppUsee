@@ -75,6 +75,7 @@ $(document).ready(function (){
     var naix = actg.data('dtan');
     var segsoc = actg.data('segsoc');
     var mail = actg.data('mail');
+    var tel = actg.data('tel');
     var escola = actg.data('escola');
     var nomescola = actg.data('nomescola');
     var alumneCurs = actg.data('curs');
@@ -177,6 +178,7 @@ $(document).ready(function (){
     mdal.find('.modal-body #data_naixement').val(naix);
     mdal.find('.modal-body #targeta_SS').val(segsoc);
     mdal.find('.modal-body #email_alumne').val(mail);
+    mdal.find('.modal-body #tel_alumne').val(tel);
     mdal.find('.modal-body #codi_escola').val(escola);
     mdal.find('.modal-body #nom_escola').val(nomescola);
     mdal.find('.modal-body #cursval').text(alumneCurs);

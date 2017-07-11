@@ -37,6 +37,7 @@ module.exports = new mongoose.Schema ({
 	observacions: String,
 	mailAlum: String,
 	passwordAl: String,
+	telefon: String,
 	codiEscola: Number,
 	eeUsee: Boolean,
 	curs: String,
