@@ -18,6 +18,12 @@ $(document).ready(function (){
     $("#situ").html("Control de menjador ");
   }
 
+    if(pth=="/usuari"){
+    $("#llista").removeClass("active");
+    $("#menjador").removeClass("active");
+    $("#situ").html("Perfil d'usuari");
+  }
+
 //TOOLTIPS
   $(function () {
     $('[data-tggle="tooltip"]').tooltip();
@@ -814,8 +820,8 @@ $(document).ready(function (){
     var alumneId = actg.data('id');
     var today = actg.data('today');
     var mdal =  $(this);
-      mdal.find(".form-group #nomAl").val(alumneNom);
-      mdal.find(".form-group #idAl").val(alumneId);
+      mdal.find("#nomAl").text(alumneNom);
+      mdal.find("#idAl").val(alumneId);
       mdal.find("#today1").val(today);
       mdal.find("#today2").val(today);
   });

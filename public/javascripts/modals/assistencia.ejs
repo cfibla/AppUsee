@@ -16,35 +16,34 @@
     
           <form role="form" method="post" action="/assistPDF" target="_blank" id="assisDataD">
 
-            <div class="form-group col-md-12">
-              <p>Alumne/a:</p>
-              <input type="text" class="form-control" name="nomAl" id="nomAl" value="" disabled="true">
+            <div class="col-md-12 clear">
+            <strong>Alumne/a: </strong><div id="nomAl"></div>
               <input type="hidden" id="idAl" form="assisDataD" name="alumneId" value ="" >
             </div>
 
   <!--DATEPICKER-->
-
-            <div class="col-md-6" id="data" style="clear:both;">
-              <label for="alumneAssistU">Des del dia</label>
-              <div class="input-group date alturabox" data-provide="datepicker">
-              <input type="text" id="today1" class="form-control" form="assisDataD" name= "alumneAssistU" value ="">
-                <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
+            <div class="form-group col-md-12">
+            <div class="row">
+            <p class="margetop small col-md-12">Faltes d'assistència</p>
+              <div class="md-form col-md-6" id="data" style="clear:both;">
+                <label class="active" for="alumneAssistU">Des del dia</label>
+                <div class="input-group date alturabox" data-provide="datepicker">
+                  <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control textcenter" id="today1" form="assisDataD" name="alumneAssistU">
                 </div>
               </div>
-            </div>
 
+              <div class="md-form col-md-6" id="dataP">
+                <label class="active" for="alumneAssistD">Fins el dia</label>
+                <div class="input-group date alturabox" data-provide="datepicker">
 
-            <div class="col-md-6" id="dataP">
-              <label for="alumneAssistD">Fins el dia</label>
-              <div class="input-group date alturabox" data-provide="datepicker">
-                <input type="text" id="today2" class="form-control" form="assisDataD" name= "alumneAssistD" value ="">
-                <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
+                  <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control textcenter" id="today2" form="assisDataD" name="alumneAssistD">
                 </div>
               </div>
-            </div>
-
+            </div></div>
           </form>
         </div>
       </div>
