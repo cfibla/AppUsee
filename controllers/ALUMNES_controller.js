@@ -90,18 +90,6 @@ exports.create = function (req, res){
 	}
 };
 
-//Modificar dades - GET
-/*exports.mod = function (req, res) {
-	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
-		if (error) {
-			return res.json(error);
-		} else {
-			res.render('modDades', {alumne: alumne});
-		}
-	});
-};*/
-
 //Modificar dades - PUT
 exports.update = function (req, res){
 
@@ -191,7 +179,7 @@ exports.assisPost = function (req, res) {
 		alumAssist['tarda'] = alumTarda;
 		if (!alumAssist['dataIso']){
 
-//TO ISODATE
+			//TO ISODATE
 
 			darr1 = alumDate.split("/");    // ["29", "1", "2016"]
 			var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
@@ -304,7 +292,7 @@ exports.menjaPost = function (req, res) {
 		alumMenjador['paga'] = alumPaga;
 		if (!alumMenjador['dataIsoMen']){
 
-//TO ISODATE
+			//TO ISODATE
 
 			darr1 = alumDateM.split("/");    // ["29", "1", "2016"]
 			var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));

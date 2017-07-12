@@ -30,22 +30,29 @@
         <div class="col-md-10">
           <hr>
         </div>
+      </div>
+    </div>
         
-        <form role="form" method="post" action="/usuari/<%=usuari._id%>?_method=put" id="usuari_dades">
-          <div class="form-group" style="clear: both;">
-            <div class="form-group col-md-3">
+    
+    <form role="form" method="post" action="/usuari/<%=usuari._id%>?_method=put" id="usuari_dades">
+    <div class="container">
+      <div class="row">
+        <div class="md-form col-12" style="clear: both;">
+          <div class="row">
+          
+            <div class="md-form col-md-3">
               <label for="nom_usuari">Nom</label>
               <input type="text" class="form-control" id="nom_usuari"
                      placeholder="<%=usuari.nom%>">
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="md-form col-md-3">
               <label for="cognom_usuari">Primer Cognom</label>
               <input type="text" class="form-control" id="cognom_usuari"
                      placeholder="<%=usuari.cognom%>">
             </div>
 
-            <div class="form-group col-md-3" style="clear: both;">
+            <div class="md-form col-md-3">
               <label for="email_usuari">Correu electrònic</label>
               <input type="text" class="form-control" id="cognom_usuari"
                      placeholder="<%=usuari.email%>">
@@ -57,7 +64,7 @@
             </div>
 
             <div class="form-group col-md-2" id="curs">
-              <label for="curs_act">Curs actual</label>
+              <label class="active" for="curs_act">Curs actual</label>
                 <select class="form-control" id="curs_act" name="curs">
                   <option value="<%=usr%>" selected><%=usr%></option>
                   <option value="1r A">1r A</option>
@@ -72,31 +79,35 @@
                   <option value="5è B">5è B</option>
                   <option value="6è A">6è A</option>
                   <option value="6è B">6è B</option>
+                  <option value="At. diversitat">At. diversitat</option>
                 </select>
+              </div>
             </div>
           </div>
-        </form>
-
-
-        <div class="form-group col-md-3 col-md-offset-9" style="text-align:right;">
-          <% 
-          var li = "/list";
-          if(session.user.mestre === "ee"){
-            li = "/list_EE"}
-          %> 
-          <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
-          <% if(session.user.mestre === "tutor"){ %>
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#elimModal">Elimina</button>
-          <% } %>
-          <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
         </div>
       </div>
+    </form>
+
+
+    <div class="md-form col-md-3 col-md-offset-9" style="text-align:right;">
+      <% 
+      var li = "/list";
+      if(session.user.mestre === "ee"){
+        li = "/list_EE"}
+      %> 
+      <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
+      <% if(session.user.mestre === "tutor"){ %>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#elimModal">Elimina</button>
+      <% } %>
+      <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
     </div>
+  </div>
+</div>
 
 
 
-        </div>
     </div>
+</div>
 
 <!-- Modal -->
   <div class="modal fade" id="elimModal" role="dialog">
