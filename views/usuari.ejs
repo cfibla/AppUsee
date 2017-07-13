@@ -14,119 +14,148 @@
         </form>
       </div>
     </div> -->
-    <%
-      var usr = usuari.curs;
-      if (usuari.mestre==="ee"){
-        usr = "At. diversitat"
-      }
-    %>
+  <%
+    var usr = usuari.curs;
+    var mestre = usuari.mestre;
+    var mst;
+    if (usuari.mestre==="ee"){
+      usr = "At. diversitat"
+    }
+
+    if (mestre==="tutor"){
+      mst = "Tutor"
+    }
+
+    if (mestre==="ee"){
+      mst = "At. diversitat"
+    }
+
+
+  %>
 
 <!--DADES USUARI-->
-    <div class="container margetop clear">
-      <div class="row">
-        <div class="col-md-2">
-          <div class="page-t">Dades usuari</div>
-        </div>
-        <div class="col-md-10">
-          <hr>
-        </div>
+<!--
+  <div class="container margetop clear">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="page-t">Dades usuari</div>
       </div>
-    </div>
-        
-    
-    <form role="form" method="post" action="/usuari/<%=usuari._id%>?_method=put" id="usuari_dades">
-    <div class="container">
-      <div class="row">
-        <div class="md-form col-12" style="clear: both;">
-          <div class="row">
-          
-            <div class="md-form col-md-3">
-              <label for="nom_usuari">Nom</label>
-              <input type="text" class="form-control" id="nom_usuari"
-                     placeholder="<%=usuari.nom%>">
-            </div>
-
-            <div class="md-form col-md-3">
-              <label for="cognom_usuari">Primer Cognom</label>
-              <input type="text" class="form-control" id="cognom_usuari"
-                     placeholder="<%=usuari.cognom%>">
-            </div>
-
-            <div class="md-form col-md-3">
-              <label for="email_usuari">Correu electrònic</label>
-              <input type="text" class="form-control" id="cognom_usuari"
-                     placeholder="<%=usuari.email%>">
-            </div>
-
-             <div class="form-group col-md-2">
-              <label for="codi_escola">Codi escola *</label>
-              <input type="text" class="form-control" id="codi_escola" name="codiEscola" placeholder = "<%=usuari.escola%>" value = "<%=usuari.escola%>">
-            </div>
-
-            <div class="form-group col-md-2" id="curs">
-              <label class="active" for="curs_act">Curs actual</label>
-                <select class="form-control" id="curs_act" name="curs">
-                  <option value="<%=usr%>" selected><%=usr%></option>
-                  <option value="1r A">1r A</option>
-                  <option value="1r B">1r B</option>
-                  <option value="2n A">2n A</option>
-                  <option value="2n B">2n B</option>
-                  <option value="3r A">3r A</option>
-                  <option value="3r B">3r B</option>
-                  <option value="4t A">4t A</option>
-                  <option value="4t B">4t B</option>
-                  <option value="5è A">5è A</option>
-                  <option value="5è B">5è B</option>
-                  <option value="6è A">6è A</option>
-                  <option value="6è B">6è B</option>
-                  <option value="At. diversitat">At. diversitat</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="col-md-10">
+        <hr>
       </div>
-    </form>
-
-
-    <div class="md-form col-md-3 col-md-offset-9" style="text-align:right;">
-      <% 
-      var li = "/list";
-      if(session.user.mestre === "ee"){
-        li = "/list_EE"}
-      %> 
-      <a type="button" href="<%=li%>" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Torna enrere</a>
-      <% if(session.user.mestre === "tutor"){ %>
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#elimModal">Elimina</button>
-      <% } %>
-      <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
     </div>
   </div>
+-->       
+  
+<form role="form" method="post" action="/usuari/<%=usuari._id%>?_method=put" id="usuari_dades">
+  <div class="container margetop clear">
+    <div class="row">
+      <div class="md-form col-12" style="clear: both;">
+        <div class="row">
+        
+          <div class="md-form col-md-3">
+            <label for="nom_usuari">Nom</label>
+            <input type="text" class="form-control" id="nom_usuari"
+                   placeholder="<%=usuari.nom%>">
+          </div>
+
+          <div class="md-form col-md-3">
+            <label for="cognom_usuari">Primer Cognom</label>
+            <input type="text" class="form-control" id="cognom_usuari"
+                   placeholder="<%=usuari.cognom%>">
+          </div>
+
+          <div class="md-form col-md-3">
+            <label for="email_usuari">Correu electrònic</label>
+            <input type="text" class="form-control" id="cognom_usuari"
+                   placeholder="<%=usuari.email%>">
+          </div>
+
+           <div class="form-group col-md-2">
+            <label for="codi_escola">Codi escola *</label>
+            <input type="text" class="form-control" id="codi_escola" name="codiEscola" placeholder = "<%=usuari.escola%>" value = "<%=usuari.escola%>">
+          </div>
+
+          <div class="form-group col-md-2" id="curs">
+            <label class="active" for="curs_act">Categoria</label>
+            <select class="form-control" id="categoria" name="mestre">
+              <option value="<%=mestre%>" selected><%=mst%></option>
+              <option value="tutor">Tutor</option>
+              <option value="ee">At. diversitat</option>
+            </select>
+          </div>
+
+          <%if (mestre==="tutor") {%>
+          <div class="form-group col-md-2" id="curs">
+            <label class="active" for="curs_act">Curs actual</label>
+            <select class="form-control" id="curs_act" name="curs">
+              <option value="<%=usr%>" selected><%=usr%></option>
+              <option value="1r A">1r A</option>
+              <option value="1r B">1r B</option>
+              <option value="2n A">2n A</option>
+              <option value="2n B">2n B</option>
+              <option value="3r A">3r A</option>
+              <option value="3r B">3r B</option>
+              <option value="4t A">4t A</option>
+              <option value="4t B">4t B</option>
+              <option value="5è A">5è A</option>
+              <option value="5è B">5è B</option>
+              <option value="6è A">6è A</option>
+              <option value="6è B">6è B</option>
+              <option value="At. diversitat">At. diversitat</option>
+            </select>
+          </div>
+          <%}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<div class="container">
+  <div class="clearfix float-right">
+    <% 
+    var li = "/list";
+    if(session.user.mestre === "ee"){
+      li = "/list_EE"}
+    %>
+    <span class="col-md-2">
+      <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna enrere</span></a>
+    </span>
+    <span class="col-md-2">
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#elimModal">Elimina</button>
+    </span>
+    <span class="col-md-2">
+    <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
+    </span>
+  </div>
+</div>
 </div>
 
 
 
-    </div>
+  </div>
 </div>
 
 <!-- Modal -->
-  <div class="modal fade" id="elimModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Eliminar les vostres dades</h4>
-        </div>
-        <div class="modal-body">
-          <p>Aquesta acció eliminarà totes les vostres dades i us esborrarà de la base de dades.</p>
-        </div>
-        <div class="modal-footer">
-          <a class="btn btn-default btn-sm" role="button" data-dismiss="modal">Cancel·la</a>
-<!--          <a href="/dades_suprD/<%=usuari.id%>" class="btn btn-danger btn-sm" role="button">Elimina</a>-->
-        </div>
+<div class="modal fade" id="elimModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminar les vostres dades</h4>
       </div>
-      
+      <div class="modal-body">
+        <p>Aquesta acció eliminarà totes les vostres dades i us esborrarà de la base de dades.</p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-default btn-sm" role="button" data-dismiss="modal">Cancel·la</a>
+<!--          <a href="/dades_suprD/<%=usuari.id%>" class="btn btn-danger btn-sm" role="button">Elimina</a>-->
+      </div>
     </div>
+    
   </div>
+</div>
