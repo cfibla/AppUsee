@@ -23,6 +23,7 @@ router.post('/escola_crear',		escolaController.createEscola);
 router.get('/usuari_nou',			userController.nouUser);
 router.post('/usuari_crear',		userController.createUser);
 router.get('/usuari/:id',			userController.profile);
+router.put('/usuari/:id',			userController.update);
 
 //rutas USER_EE
 router.get('/usuari_ee_nou',		userEeController.nouUser);
@@ -31,7 +32,6 @@ router.post('/usuari_ee_crear',		userEeController.createUser);
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);
 router.post('/alumneNou', 			sessionController.loginRequired, alumController.create);
-//router.get('/dadesAlumne/:id', 		sessionController.loginRequired, alumController.mod);
 router.put('/dadesUpdate/:id', 		sessionController.loginRequired, alumController.update);
 router.get('/assistencia',			sessionController.loginRequired, alumController.assisGet);
 router.post('/assisData',			sessionController.loginRequired, alumController.assisData);

@@ -40,6 +40,7 @@ exports.createUser = function (req, res){
 	};
 };
 
+//GET USER PROFILE
 exports.profile = function (req, res){
 	var userId = req.params.id;
 	models.User.findById(userId, function(error, usuari){
@@ -49,11 +50,27 @@ exports.profile = function (req, res){
 		if (!usuari) {
 			models.UserEe.findById(userId, function(error, usuari){
 			if (error) {
+				return res.json(error);
+			} else {
+				res.render('usuari', {usuari: usuari});
+			}
+			});
+		};
+	});
+};
+
+//UPDATE user profile
+exports.update = function (req, res){
+
+	var userId = req.params.id;
+	var usuari = req.body;
+
+	models.User.findByIdAndUpdate(userId, usuari, {new: true, safe: true, upsert: true},
+	function (error, usuari){
+		if (error) {
 			return res.json(error);
 		} else {
 			res.render('usuari', {usuari: usuari});
 		}
 	});
-};
-});
 };

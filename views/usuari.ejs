@@ -31,21 +31,7 @@
     }
 
 
-  %>
-
-<!--DADES USUARI-->
-<!--
-  <div class="container margetop clear">
-    <div class="row">
-      <div class="col-md-2">
-        <div class="page-t">Dades usuari</div>
-      </div>
-      <div class="col-md-10">
-        <hr>
-      </div>
-    </div>
-  </div>
--->       
+  %>  
   
 <form role="form" method="post" action="/usuari/<%=usuari._id%>?_method=put" id="usuari_dades">
   <div class="container margetop clear">
@@ -56,24 +42,24 @@
           <div class="md-form col-md-3">
             <label for="nom_usuari">Nom</label>
             <input type="text" class="form-control" id="nom_usuari"
-                   placeholder="<%=usuari.nom%>">
+                   value="<%=usuari.nom%>">
           </div>
 
           <div class="md-form col-md-3">
             <label for="cognom_usuari">Primer Cognom</label>
             <input type="text" class="form-control" id="cognom_usuari"
-                   placeholder="<%=usuari.cognom%>">
+                   value="<%=usuari.cognom%>">
           </div>
 
           <div class="md-form col-md-3">
             <label for="email_usuari">Correu electrònic</label>
             <input type="text" class="form-control" id="cognom_usuari"
-                   placeholder="<%=usuari.email%>">
+                   value="<%=usuari.email%>">
           </div>
 
            <div class="form-group col-md-2">
             <label for="codi_escola">Codi escola *</label>
-            <input type="text" class="form-control" id="codi_escola" name="codiEscola" placeholder = "<%=usuari.escola%>" value = "<%=usuari.escola%>">
+            <input type="text" class="form-control" id="codi_escola" name="codiEscola" value = "<%=usuari.escola%>">
           </div>
 
           <div class="form-group col-md-2" id="curs">
@@ -129,12 +115,6 @@
     <span class="col-md-2">
     <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
     </span>
-  </div>
-</div>
-</div>
-
-
-
   </div>
 </div>
 
