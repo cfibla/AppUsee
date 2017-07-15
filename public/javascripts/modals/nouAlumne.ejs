@@ -8,62 +8,67 @@
   </head>
 
   <body>
-    <div class="modal-header" style="padding:35px 50px;">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Afegir alumnes
+    <div class="modal-header">
+      <div class="modal-title">Afegir alumnes</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="modal-body" id="modalAfegir"style="padding:40px 50px;">
-      <div class="container-fluid">
+    <div class="modal-body" id="modalAfegir">
         <form role="form" data-toggle="validator" method="post" action="/alumneNou" id="dadesAlumne">
-          <div class="form-group">
+        <div class="container">
+          <div class="md-form col-12">
           <div class="row">
-            <div class="form-group col-md-4" style="clear:both;">
+            <div class="md-form col-md-4" style="clear:both;">
               <label for="nom_alumne">Nom *</label>
-              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_alumne" name="nom" placeholder="Nom" required="true">
+              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_alumne" name="nom" required="true">
                <div class="help-block with-errors"></div>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="md-form col-md-4">
               <label for="cognom1_alumne">Primer cognom *</label>
-              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="cognom1_alumne" name="cognom1" placeholder = "Primer cognom" required="true">
+              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="cognom1_alumne" name="cognom1" required="true">
               <div class="help-block with-errors"></div>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="md-form col-md-4">
               <label for="cognom2_alumne">Segon cognom</label>
-              <input type="text" class="form-control" id="cognom2_alumne" name="cognom2" placeholder="Segon cognom">
+              <input type="text" class="form-control" id="cognom2_alumne" name="cognom2">
             </div>
             </div>
 
             <div class="row">
-            <div class="form-group col-md-3">
-              <label for="data_naixement">Data naixement</label>
+            <div class="md-form col-md-4">
+              <label class="active" for="data_naixement">Data naixement</label>
               <div class="input-group date" data-provide="datepicker" id="naixement">
-                <input type="text" class="form-control" form="dadesAlumne" id="data_naixement" name="naixement">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
+
+              <div class="input-group-addon"><i class="fa fa-calendar"></i>
                 </div>
-              </div>
+                <input type="text" class="form-control textcenter" id="data_naixement" name="naixement">
+
+                </div>
               <div class="help-block with-errors"></div>
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="md-form col-md-4">
               <label for="targeta_SS">Targeta SS</label>
-              <input type="text" class="form-control" id="targeta_SS" name="sSocial"
-                     placeholder="Seguretat Social">
+              <input type="text" class="form-control" id="targeta_SS" name="sSocial">
             </div>
-            
-
-            
-             <div class="form-group col-md-3">
-                <label for="codi_escola">Codi escola *</label>
-                <input type="text" class="form-control" id="codiEscola" name="codiEscola" value ="" disabled="true">
+          
+             <div class="md-form col-md-4">
+                <label class="active" for="codi_escola">Codi escola *</label>
+                <input type="text" class="form-control" id="cdEscola" name="codiEscola" disabled="true">
               </div>
 
-              <div class="form-group col-md-3" id="curs">
-                <label for="curs_act">Curs actual *</label>
-                  <select class="form-control" id="curs" name="curs">
-                    <option id="opcio" value=""></option>
+            </div>
+
+
+            <div class="row">
+
+              <div class="md-form col-md-3" id="curs">
+                <label class="active" for="curs_act">Curs *</label>
+                  <select class="form-control" id="selCurs" name="curs">
+                    <option id="opcio"></option>
                     <option value="1r A">1r A</option>
                     <option value="1r B">1r B</option>
                     <option value="2n A">2n A</option>
@@ -78,12 +83,8 @@
                     <option value="6è B">6è B</option>
                   </select>
               </div>
-            </div>
-
-
-            <div class="row">
-              <div class="form-group col-md-3" style="clear:both;">
-                <label for="selecRep">Repetidor</label>
+              <div class="form-group col-md-2" style="clear:both;">
+                <label class="active" for="selecRep">Repetidor</label>
                 <select class="form-control" id="selecRep" name="radios.0">
                   <option value="">No</option>
                   <option value="true">Si</option>
@@ -91,23 +92,24 @@
               </div>
 
               <div class="form-group col-md-3">
-                <label for="eeUsee">Atenció a la diversitat</label>
+                <label class="active" for="eeUsee">Atenció a la diversitat</label>
                 <select class="form-control" id="eeUsee" name="eeUsee">
                   <option value="">No</option>
                   <option value="true">Si</option>
                 </select>
               </div>
 
-              <div class="form-group col-md-3">
-                <label for="aill">Atès a AiLL</label>
+              <div class="form-group col-md-2">
+                <label class="active" for="aill">Atès a AiLL</label>
                 <select class="form-control" id="aill" name="checks.2">
                   <option value="">No</option>
                   <option value="true">Si</option>
                 </select>
               </div>
 
-              <div class="form-group col-md-3">
-                <label for="selecSs">Serveis socials</label>
+
+              <div class="form-group col-md-2">
+                <label class="active" for="selecSs">Serveis socials</label>
                 <select class="form-control" id="selecSs" name="">
                   <option value="">No</option>
                   <option value="true">Si</option>

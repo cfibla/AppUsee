@@ -831,9 +831,16 @@ $(document).ready(function (){
     var actg = $(e.relatedTarget);
     var escola = actg.data('escola');
     var curs = actg.data('curs');
+    var usr = actg.data('usr');
+
     var mdal = $(this);
-    mdal.find(".form-group #codiEscola").val(escola);
-    mdal.find(".form-group #curs").val(curs);
+    mdal.find(".modal-body #cdEscola").val(escola);
+    mdal.find(".modal-body #opcio").text(curs);
+    if (usr==="tutor"){
+      $("#selCurs").prop('disabled', true);
+    } else {
+      $("#selCurs").prop('disabled', false);
+    }
   });
 
 //MODAL DELETE ALUMNES
