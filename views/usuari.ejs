@@ -71,8 +71,8 @@
             </select>
           </div>
 
-          <%if (mestre==="tutor") {%>
-          <div class="form-group col-md-2" id="curs">
+  
+          <div class="form-group col-md-2" id="usrCurs">
             <label class="active" for="curs_act">Curs actual</label>
             <select class="form-control" id="curs_act" name="curs">
               <option value="<%=usr%>" selected><%=usr%></option>
@@ -91,7 +91,7 @@
               <option value="At. diversitat">At. diversitat</option>
             </select>
           </div>
-          <%}%>
+
         </div>
       </div>
     </div>
@@ -106,11 +106,10 @@
     if(session.user.mestre === "ee"){
       li = "/list_EE"}
     %>
-    <!--
-    <span class="col-md-2">
-      <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna enrere</span></a>
-    </span>-->
-    <span class="col-md-4">
+
+    <span class="col-md-5">
+      <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna a la llista</span></a>
+
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#elimModal">Donar-me de baixa</button>
 
     <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>

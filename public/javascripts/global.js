@@ -872,6 +872,20 @@ $(document).ready(function (){
         $('#menjaD').submit();
     })
 
+///// USUARI /////////////
+    if ($('#categoria').val()==='tutor'){
+        $("#usrCurs").show();
+      } else {
+        $("#usrCurs").hide();
+      }
+    $('#categoria').change(function(){
+      if ($('#categoria').val()==='tutor'){
+        $("#usrCurs").fadeIn('slow');
+      } else {
+        $("#usrCurs").hide('slow');
+      }
+    });
+
 ////// SEGUIMENT reload al mateix TAB /////////////////////////
 /*  $('#segTabs a').click(function(e) {
     e.preventDefault();
