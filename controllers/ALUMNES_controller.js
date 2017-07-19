@@ -25,7 +25,8 @@ exports.create = function (req, res){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('nouAlumne', {errorAlta:"ATENCIÓ: Heu d'emplenar els camps obligatoris (*)", alumne: alum});
+			res.json(alum);
+			console.log(alum);
 			};
 		});
 	} else {

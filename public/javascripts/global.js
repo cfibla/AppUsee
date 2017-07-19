@@ -830,18 +830,19 @@ $(document).ready(function (){
   $('#afegirModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var escola = actg.data('escola');
-    var curs = actg.data('curs');
+    var alumneCurs = actg.data('curs');
     var usr = actg.data('usr');
 
     var mdal = $(this);
     mdal.find(".modal-body #cdEscola").val(escola);
-    mdal.find(".modal-body #opcio").text(curs);
+    mdal.find(".modal-body #opcio").text(alumneCurs);
     if (usr==="tutor"){
       $("#selCurs").prop('disabled', true);
     } else {
       $("#selCurs").prop('disabled', false);
     }
   });
+     
 
 //MODAL DELETE ALUMNES
   $('#deleteModal').on('shown.bs.modal', function (e) {
