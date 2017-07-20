@@ -78,6 +78,13 @@ exports.create = function (req, res){
 				mailAlum: "",
 				passwordAl: "",
 				telefon: "",
+				altresEsp: "",
+				atServPrivats: "",
+				percentDim: "",
+				motiuDic: "",
+				anyVal: "",
+				derivacio: "",
+				motiuDer: ""
 
 			});
 			nouAlumne.save(function(error){
