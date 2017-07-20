@@ -27,6 +27,7 @@ exports.create = function (req, res){
 		} else {
 			res.json(alum);
 			console.log(alum);
+			console.log("curs: " + alum.curs);
 			};
 		});
 	} else {

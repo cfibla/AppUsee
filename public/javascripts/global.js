@@ -842,7 +842,6 @@ $(document).ready(function (){
       $("#selCurs").prop('disabled', false);
     }
   });
-     
 
 //MODAL DELETE ALUMNES
   $('#deleteModal').on('shown.bs.modal', function (e) {
