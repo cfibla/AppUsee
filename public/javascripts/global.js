@@ -835,12 +835,12 @@ $(document).ready(function (){
 
     var mdal = $(this);
     mdal.find(".modal-body #cdEscola").val(escola);
-    mdal.find(".modal-body #opcio").text(alumneCurs);
-    if (usr==="tutor"){
+    mdal.find(".modal-body #opc").text(alumneCurs);
+ /*   if (usr==="tutor"){
       $("#selCurs").prop('disabled', true);
     } else {
       $("#selCurs").prop('disabled', false);
-    }
+    }*/
   });
 
 //MODAL DELETE ALUMNES

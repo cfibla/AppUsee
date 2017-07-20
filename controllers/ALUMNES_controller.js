@@ -74,6 +74,11 @@ exports.create = function (req, res){
 					dataIso: new Date()
 				}],
 
+				observacions: "",
+				mailAlum: "",
+				passwordAl: "",
+				telefon: "",
+
 			});
 			nouAlumne.save(function(error){
 				if (error) {
