@@ -19,6 +19,10 @@ exports.list = function (req, res) {
 exports.create = function (req, res){
 
 	var alum = req.body;
+	console.log(alum);
+	var rep = alum['radios.0'];
+	var aill = alum['checks.2'];
+	var sersoc = alum['checks.29'];
 
 	if (!alum.nom||!alum.cognom1||!alum.curs){
 		models.Alumne.find(function(error, docs){
@@ -73,6 +77,21 @@ exports.create = function (req, res){
 					tarda: null,
 					dataIso: new Date()
 				}],
+				checks: [false, false, aill, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, sersoc, 
+				false, false, false, false, false],
+
+				radios: [rep, false, false, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, false, 
+				false, false, false, false, false],
 
 				observacions: "",
 				mailAlum: "",

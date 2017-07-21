@@ -72,8 +72,9 @@ $(document).ready(function (){
       todayHighlight: true,
       language: "ca"  
     });
-//CHECKS
+
     var actg = $(e.relatedTarget);
+//CHECKS
     var alumneId = actg.data('id');
     var alumneNom = actg.data('nom');
     var alumneC1 = actg.data('cognom');
