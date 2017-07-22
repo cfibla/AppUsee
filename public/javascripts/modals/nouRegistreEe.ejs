@@ -9,36 +9,51 @@
 
   <body>
 
-    <div class="modal-header" style="padding:35px 50px;">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Nou registre USEE
+    <div class="modal-header">
+      <div class="modal-title">Nou registre EE-USEE</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
 
-    <div class="modal-body" style="padding:40px 50px;">
+    <div class="modal-body">
       <form id="formUsee" role="form" method="post" action="/usuari_ee_crear">
-        <div class="form-group">
-          <label for="email_user_usee">Empleneu els següents apartats</label><br>
-          <input type="email" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="email_user_usee" name="email" placeholder="Correu electrònic" required="true">
-          <div class="help-block with-errors"></div>
+        <div class="row">
+          <div class="md-form col-md-6">
+          <label for="nom_user_usee">Nom</label>
+            <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_user_usee" name="nom" required="true">
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="md-form col-md-6">
+            <label for="cognom_user">Cognom</label>
+            <input type="text" class="form-control" id="cognom_user_usee" name="cognom" required="true">
+          </div>
         </div>
 
-        <div class="form-group">
-          <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_user_usee" name="nom" placeholder="Nom" required="true">
-          <div class="help-block with-errors"></div>
+        <div class="row">
+          <div class="md-form col-md-12">
+            <label for="codi_esc_usee">Codi escola</label>
+            <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="codi_esc_usee" name="escola"  required="true">
+            <div class="help-block with-errors"></div>
+          </div>
         </div>
 
-        <div class="form-group">
-          <input type="text" class="form-control" id="cognom_user_usee" name="cognom" placeholder="Cognom">
+        <div class="row">
+          <div class="md-form col-md-12">
+            <label for="email_user_usee">Correu electrònic</label>
+            <input type="email" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="email_user_usee" name="email" required="true">
+            <div class="help-block with-errors"></div>
+          </div>
         </div>
 
-        <div class="form-group">
-          <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="codi_esc_usee" name="escola" placeholder="Codi escola" required="true">
-          <div class="help-block with-errors"></div>
-        </div>
-
-        <div class="form-group">
-          <input type="password" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="password_user_usee" name="password" placeholder="Contrasenya" required="true">
-          <div class="help-block with-errors"></div>
+        <div class="row">
+          <div class="md-form col-md-12">
+            <label for="password_user_usee">Contrasenya</label>
+            <input type="password" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="password_user_usee" name="password" required="true">
+            <div class="help-block with-errors"></div>
+            <div class="md-form"><small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small></div><br>
+          </div>
         </div>
         
       </form>

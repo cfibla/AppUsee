@@ -3,40 +3,41 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Afegir alumnes</title>
+    <title>Nou registre</title>
   </head>
 
   <body>
-    <div class="modal-header" style="padding:35px 50px;">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Nou registre
+    <div class="modal-header">
+      <div class="modal-title">Nou registre</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
 
-    <div class="modal-body" style="padding:40px 50px;">
+    <div class="modal-body">
       <form id="formUser" data-toggle="validator" role="form" method="post" action="/usuari_crear">
 
-        <div class="form-group">
-        <label>Si us plau, empleneu els següents apartats</label><br>
-        </div>
-
         <div class="row">
-          <div class="form-group col-md-6">
-            <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_user" name="nom" placeholder="Nom"  required="true">
+          <div class="md-form col-md-6">
+          <label for="nom_user">Nom</label>
+            <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_user" name="nom" required="true">
             <div class="help-block with-errors"></div>
           </div>
 
-          <div class="form-group col-md-6">
-            <input type="text" class="form-control" id="cognom_user" name="cognom" placeholder="Cognom">
+          <div class="md-form col-md-6">
+            <label for="cognom_user">Cognom</label>
+            <input type="text" class="form-control" id="cognom_user" name="cognom" required="true">
           </div>
         </div>
 
         <div class="row">
-          <div class="form-group col-md-6">
-            <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="codi_esc_tutor" name="escola" placeholder="Codi escola" required="true">
+          <div class="md-form col-md-6">
+            <label for="codi_esc_tutor">Codi escola</label>
+            <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="codi_esc_tutor" name="escola"  required="true">
             <div class="help-block with-errors"></div>
           </div>
 
-          <div class="form-group col-md-6">
+          <div class="md-form col-md-6">
             <select class="form-control" id="curs_act" name="curs" required="true" data-error="Cal escollir un curs">
               <option value="">Seleccioneu curs</option>
               <option value="1r A">1r A</option>
@@ -56,15 +57,17 @@
           <div class="help-block with-errors"></div>
         </div>
 
-        <div class="form-group">
-        <label for="email_user">Per a accedir a l'aplicació, sempre se us demanarà el vostre correu electrònic i la contrasenya</label><br>
-          <input type="email" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="email_user" name="email" placeholder="Email" required="true">
+        <div class="md-form">
+          <label for="email_user">Correu electrònic</label>
+          <input type="email" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="email_user" name="email" required="true">
           <div class="help-block with-errors"></div>
         </div>
 
-        <div class="form-group">
+        <div class="md-form">
+          <label for="password_user">Contrasenya</label>
           <input type="password" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="password_user" name="password" placeholder="Contrasenya" required="true">
           <div class="help-block with-errors"></div>
+          <div class="md-form"><small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small></div><br>
         </div>
       </form>
     </div>

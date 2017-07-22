@@ -8,26 +8,27 @@
 
   <body>
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      Eliminar dades
+      <div class="modal-title">Eliminar dades</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <div class="modal-body" style="padding:40px 50px;">
-      <div class="container-fluid">
-        <div class="row">
-          <form role="form" method="post" id="del_alum">
-            <div>
-              <p class = "clear"><strong>Les següents dades seran eliminades</strong><br></p>
-              <div class="col-md-5 clear">
+    <div class="modal-body">
+      <form role="form" method="post" id="del_alum">
+        <div class="container">
+          <div class="row">
+            <p class = "clear"><strong>Les següents dades seran eliminades</strong><br></p>
+              <div class="col-md-12 clear">
               <strong>Alumne/a: </strong><div id="nomAlDel"></div><br><br>
+            <p class = "clear"><strong>Voleu continuar?</strong><br></p>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    </div>
     <div class="modal-footer">
-      <a class="btn btn-default btn-sm" role="button" data-dismiss="modal">Cancel·la</a>
-      <button type="submit" form="del_alum" id="alumDel" class="btn btn-danger btn-sm">Elimina dades</button>
+      <a class="btn btn-default" role="button" data-dismiss="modal">Cancel·la</a>
+      <button type="submit" form="del_alum" id="alumDel" class="btn btn-danger">Elimina dades</button>
     </div>
   </body>
 </html>
