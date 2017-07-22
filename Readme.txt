@@ -9,6 +9,7 @@ Login -> Demanar escola
 
 AULA ORDINARIA
 Reunions pares
+Modals Assistència i Menjador
 Imprimir assistència diària
 Imprimir menjador diari
 DB menjador (ordinari, musulmá...)
