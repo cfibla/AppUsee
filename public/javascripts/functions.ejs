@@ -174,7 +174,7 @@ radioTrueRT = function(){
 //MENJA ORDINARI
 menjaOrdi = function(){
   var ordi='';
-  if (dataObj[0].ordinari === true) {
+  if (dataObj[0].menu === "ordinari") {
     ordi ="checked";
     return ordi;
   } else {
@@ -184,7 +184,7 @@ menjaOrdi = function(){
 //MENJA MUSULMA
 menjaMusul = function(){
   var musu='';
-  if (dataObj[0].musulma === true) {
+  if (dataObj[0].menu === "musulma") {
     musu ="checked";
     return musu;
   } else {
@@ -194,7 +194,7 @@ menjaMusul = function(){
 //MENJA CELÍAC
 menjaCeliac = function(){
   var celi='';
-  if (dataObj[0].celiac === true) {
+  if (dataObj[0].menu === "celiac") {
     celi ="checked";
     return celi;
   } else {
@@ -204,7 +204,7 @@ menjaCeliac = function(){
 //MENJA DIETA
 menjaDieta = function(){
   var diet='';
-  if (dataObj[0].dieta === true) {
+  if (dataObj[0].menu === "dieta") {
     diet ="checked";
     return diet;
   } else {

@@ -50,10 +50,7 @@ module.exports = new mongoose.Schema ({
 	}],
 //MENJADOR
 	menjador: [{
-		ordinari: Boolean,
-		musulma: Boolean,
-		celiac: Boolean,
-		dieta: Boolean,
+		menu: String,
 		dataMen: String,
 		dataIsoMen: Date
 	}],

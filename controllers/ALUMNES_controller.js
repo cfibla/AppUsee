@@ -314,18 +314,14 @@ exports.menjaPost = function (req, res) {
 		var alumArray = alum['arraylng.'+i];
 
 		var alumDateM = alum['menjador.dataMen.'+i];
-		var alumOrdinari = alum['menjador.ordinari.'+i];
-		var alumMusulma = alum['menjador.musulma.'+i];
-		var alumCeliac = alum['menjador.celiac.'+i];
-		var alumDieta = alum['menjador.dieta.'+i];
+		var alumMenu = alum['menjador.menu.'+i];
+		
 
 		var alumMenjador = {};
 
 		alumMenjador['dataMen']= alumDateM;
-		alumMenjador['ordinari']= alumOrdinari;
-		alumMenjador['musulma'] = alumMusulma;
-		alumMenjador['celiac'] = alumCeliac;
-		alumMenjador['dieta'] = alumDieta;
+		alumMenjador['menu']= alumMenu;
+	
 		if (!alumMenjador['dataIsoMen']){
 
 			//TO ISODATE
