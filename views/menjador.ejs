@@ -61,8 +61,10 @@
           if (dataObj[0] === undefined){
             ddoo ={
                         dataMen: today,
-                        menja: false,
-                        paga: false,
+                        ordinari: false,
+                        musulma: false,
+                        celiac: false,
+                        dieta: false,
                         dataIsoMen: new Date()}
           dataObj = JSON.stringify(ddoo)
           }
@@ -76,10 +78,10 @@
       <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
       <input type="hidden" form="menjaForm" name="menjador.dataMen.<%=i%>" value ="<%=DataVM%>">
       <input type="hidden" form="menjaForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-      <td class="d-inline-block col-1"><input id="mMenj" type="radio" form="menjaForm" name="menjador.menja.<%=i%>" value = true <%=menjaMenja()%>></td>
-      <td class="d-inline-block col-1"><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
-      <td class="d-inline-block col-1"><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
-      <td class="d-inline-block col-1"><input id="mPag" type="radio" form="menjaForm" name="menjador.paga.<%=i%>" value = true <%=menjaPaga()%>></td>
+      <td class="d-inline-block col-1"><input id="mOrd" type="radio" form="menjaForm" name="menjador.ordinari.<%=i%>" value = true <%=menjaOrdi()%>></td>
+      <td class="d-inline-block col-1"><input id="mMus" type="radio" form="menjaForm" name="menjador.musulma.<%=i%>" value = true <%=menjaMusul()%>></td>
+      <td class="d-inline-block col-1"><input id="mCel" type="radio" form="menjaForm" name="menjador.celiac.<%=i%>" value = true <%=menjaCeliac()%>></td>
+      <td class="d-inline-block col-1"><input id="mDie" type="radio" form="menjaForm" name="menjador.dieta.<%=i%>" value = true <%=menjaDieta()%>></td>
       <!-- imprimir -->
       <td class="d-inline-block col-1">
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;

@@ -171,24 +171,44 @@ radioTrueRT = function(){
   }
 };
 /////////// M E N J A D O R //////////////
-//MENJA MENJA
-menjaMenja = function(){
-  var menj='';
-  if (dataObj[0].menja === true) {
-    menj ="checked";
-    return menj;
+//MENJA ORDINARI
+menjaOrdi = function(){
+  var ordi='';
+  if (dataObj[0].ordinari === true) {
+    ordi ="checked";
+    return ordi;
   } else {
-  return menj;
+  return ordi;
   }
 };
-//MENJA PAGA
-menjaPaga = function(){
-  var pag='';
-  if (dataObj[0].paga === true) {
-    pag ="checked";
-    return pag;
+//MENJA MUSULMA
+menjaMusul = function(){
+  var musu='';
+  if (dataObj[0].musulma === true) {
+    musu ="checked";
+    return musu;
   } else {
-  return pag;
+  return musu;
+  }
+};
+//MENJA CELÍAC
+menjaCeliac = function(){
+  var celi='';
+  if (dataObj[0].celiac === true) {
+    celi ="checked";
+    return celi;
+  } else {
+  return celi;
+  }
+};
+//MENJA DIETA
+menjaDieta = function(){
+  var diet='';
+  if (dataObj[0].dieta === true) {
+    diet ="checked";
+    return diet;
+  } else {
+  return diet;
   }
 };
 %>
