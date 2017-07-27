@@ -918,6 +918,16 @@ $(document).ready(function (){
 
 });
 
+////// LOADING OVERLAY-SPINNER /////////
+
+$(document)
+  .ajaxStart(function () {
+    $.LoadingOverlay("show");
+  })
+  .ajaxStop(function () {
+    $.LoadingOverlay("hide");
+  });
+
 /*  $('button#assistBtn').click(function(){
     $('assistModal').modal('hide')
   });*/

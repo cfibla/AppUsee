@@ -1,7 +1,9 @@
 branch --> menjador
 
 GENERAL
-Refresh
+Refresh:
+	Loading overlay
+	Loading spinner
 Merge users Tutor-USEE
 disable escola
 Login -> Demanar escola
