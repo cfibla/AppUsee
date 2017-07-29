@@ -257,7 +257,7 @@ $(document).ready(function (){
       e.preventDefault();
       var urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
       var data = $('#alumne_dades').serialize();
-      
+
       $.ajax({
           url: urlPost, //this is the submit URL
           method: 'POST',
@@ -266,10 +266,12 @@ $(document).ready(function (){
             location.reload();
           }
       }).then(function(){
+        $.LoadingOverlay("show");
         $('#dadesModal').modal('toggle');
       });
-      //console.log($('#alumne_dades').serialize());
+      $.LoadingOverlay("hide");
     });
+
 ///////// LABEL ACTIVE ///////////////
     function checkForInput(element) {
   // element is passed to the function ^
@@ -436,16 +438,22 @@ $(document).ready(function (){
     $('#seg_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-      $('#actuModal').modal('toggle');
+      //$('#actuModal').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#seg_actuacions').serialize(),
-          success: function(){
-            location.reload()}
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#actuModal').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
       });
     });
-  });
+
 
 //MODAL ACTUACIO GET
     $('#actuModalGet').on('shown.bs.modal', function (e) {
@@ -491,16 +499,22 @@ $(document).ready(function (){
     $('#upd_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      $('#actuModalUpd').modal('toggle');
+      //$('#actuModalUpd').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#upd_actuacions').serialize(),
           success:function(){
-            location.reload()}
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#actuModalUpd').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
       });
     });
-  });
+
 
 //MODAL ACTUACIO DELETE
   $('#actuModalDel').on('shown.bs.modal', function (e) {
@@ -920,6 +934,7 @@ $(document).ready(function (){
 
 ////// LOADING OVERLAY-SPINNER /////////
 
+/*
 $(document)
   .ajaxStart(function () {
     $.LoadingOverlay("show");
@@ -927,6 +942,9 @@ $(document)
   .ajaxStop(function () {
     $.LoadingOverlay("hide");
   });
+*/
+
+
 
 /*  $('button#assistBtn').click(function(){
     $('assistModal').modal('hide')
