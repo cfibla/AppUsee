@@ -1,7 +1,6 @@
 branch --> menjador
 
 GENERAL
-Validators
 Faldón
 canviar escola per defecte
 Merge users Tutor-USEE
@@ -16,5 +15,5 @@ Imprimir assistència diària
 Imprimir menjador diari
 
 USEE
-Donar d'alta alumnes
+
 /* Seguiment -> Tornar a la pestaña
