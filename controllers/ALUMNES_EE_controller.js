@@ -123,14 +123,14 @@ exports.suprV = function (req, res) {
 };
 
 //Suprimir alumne - DELETE
-exports.suprD = function (req, res) {
+exports.alta = function (req, res) {
 
 	var alumneId = req.params.id;
 	models.Alumne.findByIdAndUpdate(alumneId, {'eeUsee': false}, {new: true}, function(error, alumne){
 		if (error){
 			return res.json(error);
 		} else {
-			res.redirect('/list');
+			res.json(alumneId);
 			}
 	});
 };

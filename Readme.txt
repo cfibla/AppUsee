@@ -2,9 +2,10 @@ branch --> menjador
 
 GENERAL
 Validators
+Faldón
 canviar escola per defecte
 Merge users Tutor-USEE
-disable escola
+
 Login -> Demanar escola
 
 
@@ -13,7 +14,7 @@ Reunions pares
 Modals Assistència i Menjador
 Imprimir assistència diària
 Imprimir menjador diari
-DB menjador (ordinari, musulmá...)
 
 USEE
 Donar d'alta alumnes
+/* Seguiment -> Tornar a la pestaña

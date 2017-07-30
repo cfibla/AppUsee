@@ -151,7 +151,7 @@
             </a>
           </span>
           <span class="col-md-1">
-            <a data-tggle="tooltip" data-placement="top" title="Donar d'alta" data-toggle="modal" id="btnAlta" href="" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#altaModal"><i class="fa fa-close verm" aria-hidden="true"></i>
+            <a data-tggle="tooltip" data-placement="top" title="Donar d'alta" data-toggle="modal" id="btnAlta" href="/javascripts/modals/altaAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#altaModal"><i class="fa fa-close verm" aria-hidden="true"></i>
             </a>
           </span>
         <% } %>
@@ -217,6 +217,16 @@
 <!-- MODAL DELETE-->
 
 <div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+
+<!-- MODAL ALTA EE-USEE -->
+
+<div class="modal fade" id="altaModal" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">

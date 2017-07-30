@@ -948,6 +948,32 @@ $(document).ready(function (){
       });
     });
 
+//MODAL alta ALUMNES
+  $('#altaModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneId = actg.data('id');
+    var alumneNom = actg.data('nom');
+    var mdal = $(this);
+    mdal.find(".modal-body #nomAlAl").text(alumneNom);
+    $('#alt_alum').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/dades_alta/" + alumneId + "?_method=put";
+      $('#altaModal').modal('toggle');
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#alt_alum').serialize(),
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#altaModal').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
+      });
+    });
+
 /////////// M E N J A D O R ////////////////
 //DATEPICKER
     $('#mData .input-group.date').datepicker({
@@ -979,7 +1005,7 @@ $(document).ready(function (){
     });
 
 ////// SEGUIMENT reload al mateix TAB /////////////////////////
-/*  $('#segTabs a').click(function(e) {
+  $('#segTabs a').click(function(e) {
     e.preventDefault();
     $(this).tab('show');
   });
@@ -993,7 +1019,7 @@ $(document).ready(function (){
   // on load of the page: switch to the currently selected tab
   var hash = window.location.hash;
   $('#segTabs a[href="' + hash + '"]').tab('show');
-*/
+
 ///////////// V A L I D A T O R /////////////////
 /*
   $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy');
