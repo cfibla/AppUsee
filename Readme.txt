@@ -1,9 +1,6 @@
 branch --> menjador
 
 GENERAL
-Refresh:
-	Loading overlay
-	Loading spinner
 Validators
 canviar escola per defecte
 Merge users Tutor-USEE

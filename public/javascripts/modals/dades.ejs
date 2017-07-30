@@ -55,22 +55,20 @@
               <label for="targeta_SS">Targeta SS</label>
             </div>
             <div class="md-form col-md-3">
-              <input type="text" class="form-control" id="codi_escola" name="codiEscola" required="true">
+              <input type="text" class="form-control" id="codi_escola" name="codiEscola" required="true" disabled="true">
               <label for="codi_escola">Codi escola *</label>
             </div>
             <div class="md-form col-md-3">
-              <input type="email" class="form-control" id="email_alumne" name="mailAlum" data-error="Format incorrecte">
+              <input type="email" class="form-control validate" id="email_alumne" name="mailAlum" data-error="Format incorrecte">
               <label for="email_alumne">Correu electrònic</label>
-              <div class="help-block with-errors"></div>
             </div>
             <div class="md-form col-md-3">
               <input type="text" class="form-control" id="tel_alumne" name="telefon" data-error="Format incorrecte">
               <label for="tel_alumne1">Telèfon</label>
-              <div class="help-block with-errors"></div>
             </div>
             <div class="md-form col-md-3" id="curs">
           <label class="active" for="curs_act">Curs actual</label>
-          <select class="form-control" id="curs_act" name="curs">
+          <select class="form-control" id="curs_act" name="curs" required="true">
             <option id="cursval" class="margetopmini"></option>
             <option value="1r A">1r A</option>
             <option value="1r B">1r B</option>
