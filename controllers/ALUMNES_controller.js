@@ -2,7 +2,9 @@ var models = require('../models/index');
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
-	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+	models.Alumne.find({
+	/*	tutor: req.session.user, */
+		curs: req.session.user.curs}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('escola tutor')
 	.exec(function(error, docs){
@@ -19,7 +21,6 @@ exports.list = function (req, res) {
 exports.create = function (req, res){
 
 	var alum = req.body;
-	console.log(alum);
 	var rep = alum['radios.0'];
 	var aill = alum['checks.2'];
 	var sersoc = alum['checks.29'];
@@ -30,7 +31,6 @@ exports.create = function (req, res){
 			console.log(error);
 		} else {
 			res.json(alum);
-			console.log(alum);
 			};
 		});
 	} else {
@@ -107,16 +107,19 @@ exports.create = function (req, res){
 			});
 			nouAlumne.save(function(error){
 				if (error) {
-					return res.json(error);}
+					return res.json(error);
+				} else{
+					return res.json(nouAlumne)
+				}
 			});
-			var list = "";
+/*			var list = "";
 			var usr = req.session.user.mestre;
 			if (usr === "tutor"){
 				list = "/list"
 			} else {
 				list = "/list_EE"
 			}
-			res.redirect(list);
+			res.redirect(list);*/
 			};
 		});
 	}
@@ -298,7 +301,6 @@ exports.menjaGet = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			//console.log(JSON.stringify(alumnes));
 			res.render('menjador',{Alumnes: alumnes, DataVM: today});
 			}
 	});

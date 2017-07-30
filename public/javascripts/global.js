@@ -634,7 +634,6 @@ $(document).ready(function (){
     $('#upd_CAD').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      //$('#cadModalUpd').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
@@ -667,7 +666,6 @@ $(document).ready(function (){
     $('#del_CAD').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/cadDel/" + alumneI + "?_method=put";
-      //$('#cadModalDel').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
@@ -713,7 +711,6 @@ $(document).ready(function (){
     $('#altres_coord').on('submit', function(e){
         e.preventDefault();
         var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-        //$('#altresCoordModal').modal('toggle');
         $.ajax({
             url: urlPost, //this is the submit URL
             type: 'POST',
@@ -773,7 +770,6 @@ $(document).ready(function (){
     $('#upd_altres').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      //$('#altresCoordModalUpd').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
@@ -807,7 +803,6 @@ $(document).ready(function (){
     $('#del_altres').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/altresDel/" + alumneI + "?_method=put";
-      //$('#altresCoordModalDel').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
@@ -879,16 +874,31 @@ $(document).ready(function (){
     var escola = actg.data('escola');
     var alumneCurs = actg.data('curs');
     var usr = actg.data('usr');
+    var t_use1, v_use1, t_use2, v_use2;
+    if (usr === "ee") {
+      t_use1 = "Si";
+      v_use1 = true;
+      t_use2 = "No";
+      v_use2 = null;
+      alumneCurs = "Seleccioneu curs";
+      v_alumneCurs = null;
+    } else {
+      t_use1 = "No";
+      v_use1 = null;
+      t_use2 = "Si";
+      v_use2 = true;
+      v_alumneCurs = alumneCurs;
+    };
 
     var mdal = $(this);
     mdal.find(".modal-body #cdEscola").val(escola);
-    mdal.find(".modal-body #opc").text(alumneCurs);
-
+    mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
+    mdal.find('.modal-body #o_use1').text(t_use1).val(v_use1);
+    mdal.find('.modal-body #o_use2').text(t_use2).val(v_use2);
 
     $('#dadesAlumne').on('submit', function(e){
         e.preventDefault();
         var urlPost = "/alumneNou";
-        //$('#afegirModal').modal('toggle');
         $.ajax({
             url: urlPost, //this is the submit URL
             type: 'POST',
@@ -979,25 +989,12 @@ $(document).ready(function (){
   $('#segTabs a[href="' + hash + '"]').tab('show');
 */
 ///////////// V A L I D A T O R /////////////////
-
+/*
   $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy');
   $(this).find('form[data-toggle=validator]').validator() });
   $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator() });
-
-});
-
-////// LOADING OVERLAY-SPINNER /////////
-
-/*
-$(document)
-  .ajaxStart(function () {
-    $.LoadingOverlay("show");
-  })
-  .ajaxStop(function () {
-    $.LoadingOverlay("hide");
-  });
 */
-
+});
 
 
 /*  $('button#assistBtn').click(function(){

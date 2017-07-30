@@ -15,14 +15,13 @@
         </button>
     </div>
     <div class="modal-body" id="modalAfegir">
-        <form role="form" data-toggle="validator" id="dadesAlumne">
+        <form role="form" id="dadesAlumne">
         <div class="container">
           <div class="md-form col-12">
           <div class="row">
             <div class="md-form col-md-4" style="clear:both;">
-              <label for="nom_alumne">Nom *</label>
-              <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_alumne" name="nom" required="true">
-               <div class="help-block with-errors"></div>
+              <input type="text" class="form-control" id="nom_alumne" name="nom" required="true">
+              <label for="nom_alumne" >Nom *</label>
             </div>
 
             <div class="md-form col-md-4">
@@ -64,7 +63,7 @@
             <div class="row">
               <div class="md-form col-md-3" id="aCurs">
                 <label class="active" for="selCurs">Curs *</label>
-                  <select class ="form-control" id="selCurs" name="curs">
+                  <select class ="form-control validate" id="selCurs" name="curs" required ="true">
                     <option id="opc" class="margetopmini"></option>
                     <option value="1r A">1r A</option>
                     <option value="1r B">1r B</option>
@@ -91,8 +90,8 @@
               <div class="form-group col-md-3">
                 <label class="active" for="eeUsee">Atenció a la diversitat</label>
                 <select class="form-control" id="eeUsee" name="eeUsee">
-                  <option value="">No</option>
-                  <option value="true">Si</option>
+                  <option id="o_use1"></option>
+                  <option id="o_use2"></option>
                 </select>
               </div>
 
