@@ -438,7 +438,6 @@ $(document).ready(function (){
     $('#seg_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-      //$('#actuModal').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
@@ -499,7 +498,6 @@ $(document).ready(function (){
     $('#upd_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      //$('#actuModalUpd').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
@@ -533,16 +531,20 @@ $(document).ready(function (){
     $('#del_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
-      $('#actuModalDel').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#del_actuacions').serialize(),
-          success: function(){
-            location.reload()}
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#actuModalDel').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
       });
     });
-  });
 
 ///////// CAD ////////////////
 //MODAL CAD NEW
@@ -573,16 +575,20 @@ $(document).ready(function (){
     $('#info_CAD').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-      $('#cadModal').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#info_CAD').serialize(),
-          success: function(){
-            location.reload()}
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#cadModal').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
       });
     });
-  });
 
 //MODAL CAD GET
   $('#cadModalGet').on('shown.bs.modal', function (e) {
@@ -628,16 +634,21 @@ $(document).ready(function (){
     $('#upd_CAD').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      $('#cadModalUpd').modal('toggle');
+      //$('#cadModalUpd').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#upd_CAD').serialize(),
-          success: function(){
-            location.reload()}
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#cadModalUpd').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
       });
     });
-  });
 
 //MODAL CAD DELETE
   $('#cadModalDel').on('shown.bs.modal', function (e) {
@@ -656,16 +667,22 @@ $(document).ready(function (){
     $('#del_CAD').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/cadDel/" + alumneI + "?_method=put";
-      $('#cadModalDel').modal('toggle');
+      //$('#cadModalDel').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#del_CAD').serialize(),
-          success: function(){
-            location.reload()}
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#cadModalDel').modal('toggle');
       });
-    });
+      $.LoadingOverlay("hide");
+      });
   });
+
 
 ///////// ALTRES COORD ////////////////
 //MODAL ALTRES COORD NEW
@@ -696,16 +713,21 @@ $(document).ready(function (){
     $('#altres_coord').on('submit', function(e){
         e.preventDefault();
         var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-        $('#altresCoordModal').modal('toggle');
+        //$('#altresCoordModal').modal('toggle');
         $.ajax({
             url: urlPost, //this is the submit URL
             type: 'POST',
             data: $('#altres_coord').serialize(),
-            success: function(){
-              location.reload()}
+            success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#altresCoordModal').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
         });
       });
-    });
 
 //MODAL ALTRES COORD GET
   $('#altresCoordModalGet').on('shown.bs.modal', function (e) {
@@ -751,16 +773,21 @@ $(document).ready(function (){
     $('#upd_altres').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      $('#altresCoordModalUpd').modal('toggle');
+      //$('#altresCoordModalUpd').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#upd_altres').serialize(),
-          success: function(){
-            location.reload()}
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#altresCoordModalUpd').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
       });
     });
-  });
 
 
 //MODAL ALTRES COORD DELETE
@@ -780,16 +807,21 @@ $(document).ready(function (){
     $('#del_altres').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/altresDel/" + alumneI + "?_method=put";
-      $('#altresCoordModalDel').modal('toggle');
+      //$('#altresCoordModalDel').modal('toggle');
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#del_altres').serialize(),
-          success: function(){
-            location.reload()}
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#altresCoordModalDel').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
       });
     });
-  });
 
   //////////////// DATEPICKER ASSISTENCIA.ejs //////////////// 
     $('#aData .input-group.date').datepicker({
@@ -851,12 +883,34 @@ $(document).ready(function (){
     var mdal = $(this);
     mdal.find(".modal-body #cdEscola").val(escola);
     mdal.find(".modal-body #opc").text(alumneCurs);
- /*   if (usr==="tutor"){
+
+
+    $('#dadesAlumne').on('submit', function(e){
+        e.preventDefault();
+        var urlPost = "/alumneNou";
+        //$('#afegirModal').modal('toggle');
+        $.ajax({
+            url: urlPost, //this is the submit URL
+            type: 'POST',
+            data: $('#dadesAlumne').serialize(),
+            success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#altresCoordModal').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
+        });
+      });
+
+ /* 
+
+  if (usr==="tutor"){
       $("#selCurs").prop('disabled', true);
     } else {
       $("#selCurs").prop('disabled', false);
     }*/
-  });
 
 //MODAL DELETE ALUMNES
   $('#deleteModal').on('shown.bs.modal', function (e) {
