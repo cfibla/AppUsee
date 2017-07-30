@@ -908,7 +908,7 @@ $(document).ready(function (){
           }
       }).then(function(){
         $.LoadingOverlay("show");
-        $('#altresCoordModal').modal('toggle');
+        $('#afegirModal').modal('toggle');
       });
       $.LoadingOverlay("hide");
         });
@@ -937,11 +937,17 @@ $(document).ready(function (){
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#del_alum').serialize(),
-          success: function(){
-            location.reload()}
+          success:function(){
+            location.reload();
+          }
+      }).then(function(){
+        $.LoadingOverlay("show");
+        $('#deleteModal').modal('toggle');
+      });
+      $.LoadingOverlay("hide");
       });
     });
-  });
+
 /////////// M E N J A D O R ////////////////
 //DATEPICKER
     $('#mData .input-group.date').datepicker({
