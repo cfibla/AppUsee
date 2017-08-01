@@ -15,11 +15,8 @@ var routes = require('./routes/index');
 var app = express();
 
 //HTTPS
-var https        = require('https');
-var http         = require('http');
 
-http.createServer(app).listen(80);
-https.createServer(app).listen(443);
+app.all('*', ensureSecure);
 
 function ensureSecure(req, res, next){
     if(req.headers['x-forwarded-proto'] === 'https'){ // OK, continue
