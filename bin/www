@@ -1,13 +1,6 @@
 #!/usr/bin/env node
 var debug = require('debug')('usee');
 var app = require('../app');
-// set up plain http server
-var http = express.createServer();
-
-// set up a route to redirect http to https
-http.get('*',function(req,res){  
-    res.redirect('https://appescola.cat'+req.url)
-})
 
 app.set('port', process.env.PORT || 3000);
 
