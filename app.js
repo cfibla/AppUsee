@@ -38,6 +38,7 @@ function ensureSecure(req, res, next){
   res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
 };
 
+app.enable("trust proxy");
 
 // Helpers Dinámicos:
 
