@@ -14,18 +14,6 @@ var routes = require('./routes/index');
 
 var app = express();
 
-//HTTPS
-var http = require('http');
-var url = require('url');
-
-http.createServer (function(req,res){
-    var pathname = url.parse(req.url).pathname;
-    res.writeHead(301, {Location: 'https://appescola.cat/' + pathname});
-    res.end();
-}).listen(8888);
-
-app.enable("trust proxy");
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
