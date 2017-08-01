@@ -6,7 +6,7 @@ var https = require('https');
 
 var options = {
 	key: fs.readFileSync('certs/appscl-key.pem').toString(),
-	cert: fs.readFileSync('certs/appscl-cert.pem').toString();
+	cert: fs.readFileSync('certs/appscl-cert.pem').toString()
 };
 
 app.set('port', process.env.PORT || 3000);
