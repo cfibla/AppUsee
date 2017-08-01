@@ -14,16 +14,6 @@ var routes = require('./routes/index');
 
 var app = express();
 
-// set up plain http server
-var http = express.createServer();
-
-// set up a route to redirect http to https
-http.get('*',function(req,res){  
-    res.redirect('https://appescola.cat'+req.url)
-})
-// have it listen on 8080
-http.listen(8080);
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -38,6 +28,17 @@ app.use(cookieParser('appE'));
 app.use(session({secret:'AppEscola2016', resave: false, saveUninitialize: false}))
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Redirect all HTTP traffic to HTTPS
+function ensureSecure(req, res, next){
+  if(req.headers["x-forwarded-proto"] === "https"){
+  // OK, continue
+  return next();
+  };
+  res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
+};
+
+app.enable("trust proxy");
 
 // Helpers Dinámicos:
 
