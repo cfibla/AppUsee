@@ -2,6 +2,18 @@
 var debug = require('debug')('usee');
 var app = require('../app');
 
+
+// Redirect all HTTP traffic to HTTPS
+function ensureSecure(req, res, next){
+  if(req.headers["x-forwarded-proto"] === "https"){
+  // OK, continue
+  return next();
+  };
+  res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
+};
+
+app.enable("trust proxy");
+
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
