@@ -14,6 +14,16 @@ var routes = require('./routes/index');
 
 var app = express();
 
+// set up plain http server
+var http = express.createServer();
+
+// set up a route to redirect http to https
+http.get('*',function(req,res){  
+    res.redirect('https://appescola.cat'+req.url)
+})
+// have it listen on 8080
+http.listen(8080);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
