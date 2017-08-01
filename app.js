@@ -15,15 +15,14 @@ var routes = require('./routes/index');
 var app = express();
 
 //HTTPS
+var http = require('http');
+var url = require('url');
 
-app.all('*', ensureSecure);
-
-function ensureSecure(req, res, next){
-    if(req.headers['x-forwarded-proto'] === 'https'){ // OK, continue
-        return next()
-    };
-    res.redirect('https://' + req.headers.host)
-};
+http.createServer (function(req,res){
+    var pathname = url.parse(req.url).pathname;
+    res.writeHead(301, {Location: 'https://appescola.cat/' + pathname});
+    res.end();
+}).listen(8888);
 
 app.enable("trust proxy");
 
