@@ -28,7 +28,7 @@ app.use(cookieParser('appE'));
 app.use(session({secret:'AppEscola2016', resave: false, saveUninitialize: false}))
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
-
+/*
 //HTTPS
 app.all('*', ensureSecure); // at top of routing calls
 
@@ -38,7 +38,7 @@ function ensureSecure(req, res, next){
     };
     res.redirect('https://' + req.headers.host)
 }
-
+*/
 // Helpers Dinámicos:
 
     //hace visible req.session en las vistas
