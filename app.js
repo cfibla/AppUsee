@@ -14,6 +14,20 @@ var routes = require('./routes/index');
 
 var app = express();
 
+//HTTPS
+var https        = require('https');
+var http         = require('http');
+
+http.createServer(app).listen(80)
+https.createServer(sslOptions, app).listen(443)
+
+function ensureSecure(req, res, next){
+    if(req.headers['x-forwarded-proto'] === 'https'){ // OK, continue
+        return next()
+    };
+    res.redirect('https://' + req.headers.host)
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
