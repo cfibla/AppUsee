@@ -18,15 +18,17 @@ var app = express();
 var https        = require('https');
 var http         = require('http');
 
-http.createServer(app).listen(80)
-https.createServer(app).listen(443)
+http.createServer(app).listen(80);
+https.createServer(app).listen(443);
 
 function ensureSecure(req, res, next){
     if(req.headers['x-forwarded-proto'] === 'https'){ // OK, continue
         return next()
     };
     res.redirect('https://' + req.headers.host)
-}
+};
+
+app.enable("trust proxy");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
