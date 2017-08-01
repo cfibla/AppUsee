@@ -29,6 +29,16 @@ app.use(session({secret:'AppEscola2016', resave: false, saveUninitialize: false}
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Redirect all HTTP traffic to HTTPS
+function ensureSecure(req, res, next){
+  if(req.headers["x-forwarded-proto"] === "https"){
+  // OK, continue
+  return next();
+  };
+  res.redirect('https://'+req.hostname+req.url); // handle port numbers if you need non defaults
+};
+
+
 // Helpers Dinámicos:
 
     //hace visible req.session en las vistas

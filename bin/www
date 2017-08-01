@@ -2,15 +2,6 @@
 var debug = require('debug')('usee');
 var app = require('../app');
 
-app.use(function(req, res, next) {
- /* if(!req.secure) {*/
-    return res.redirect(['https://', req.get('Host'), req.url].join(''));
-/*  }*/
-  next();
-});
-
-app.set('trust proxy', true)
-
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
