@@ -56,7 +56,7 @@ $(document).ready(function (){
    $('document').on('hidden.bs.modal', function () {
       $('.modal-body .modal-footer').html("");
 
-    });*/
+    });
 
 ////////////////  D A D E S   P E R S O N A L S ////////////////
 
