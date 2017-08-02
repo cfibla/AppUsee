@@ -53,10 +53,10 @@ $(document).ready(function (){
 
 ///////////////////// M O D A L S ///////////////////// 
   $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(this).data("target")+' .modal-content').load($(this).attr('href')); }); 
-    $('document').on('hidden.bs.modal', function () {
+ /*   $('document').on('hidden.bs.modal', function () {
       $('.modal-body .modal-footer').html("");
 
-    });
+    });*/
 
 ////////////////  D A D E S   P E R S O N A L S ////////////////
 
