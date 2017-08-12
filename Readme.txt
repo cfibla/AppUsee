@@ -5,8 +5,8 @@ Faldón
 canviar escola per defecte
 Merge users Tutor-USEE
 Agenda
-
-Login -> Demanar escola (falta SAVE escola)
+Login USEE -> Igual que tutor
+Perfil usuari -> Escola
 
 
 AULA ORDINARIA
