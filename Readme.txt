@@ -4,8 +4,9 @@ GENERAL
 Faldón
 canviar escola per defecte
 Merge users Tutor-USEE
+Agenda
 
-Login -> Demanar escola
+Login -> Demanar escola (falta SAVE escola)
 
 
 AULA ORDINARIA
@@ -17,3 +18,11 @@ Imprimir menjador diari
 USEE
 
 /* Seguiment -> Tornar a la pestaña
+
+USUARIS DEMO
+demo@demo.cat
+contrasenya: demo
+
+demoEE@demo.cat
+contrasenya: demo
+

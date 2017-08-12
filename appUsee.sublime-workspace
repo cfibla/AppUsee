@@ -1,0 +1,912 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"border-",
+				"border-top"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"tra",
+				"transition"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"produ",
+				"producto"
+			],
+			[
+				"re",
+				"readFileSync"
+			],
+			[
+				"Co",
+				"Coche\talias"
+			],
+			[
+				"Con",
+				"ConversorPipe\talias"
+			],
+			[
+				"valu",
+				"value_two\tlet"
+			],
+			[
+				"par",
+				"parseInt\tfunction"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"d",
+				"diseño"
+			],
+			[
+				"po",
+				"posicionamiento"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"col-md",
+				"col-md-offset-3"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"_r",
+				"_router\tproperty"
+			],
+			[
+				"func",
+				"function\tkeyword"
+			],
+			[
+				"APP",
+				"appRoutingProviders\talias"
+			],
+			[
+				"for",
+				"forRoot\tmethod"
+			],
+			[
+				"Rou",
+				"RouterModule\talias"
+			],
+			[
+				"E",
+				"EmpleadosComponent\talias"
+			],
+			[
+				"colo",
+				"color_seleccionado\tproperty"
+			],
+			[
+				"For",
+				"FormsModule\talias"
+			],
+			[
+				"cons",
+				"constructor\tkeyword"
+			],
+			[
+				"Com",
+				"Component\talias"
+			],
+			[
+				"pu",
+				"punt_1"
+			],
+			[
+				"punt",
+				"punt_2"
+			],
+			[
+				"oper",
+				"operator_1"
+			],
+			[
+				"elim",
+				"elim_1"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"mo",
+				"month_highs"
+			],
+			[
+				"gad",
+				"grade"
+			],
+			[
+				"t",
+				"throw"
+			],
+			[
+				"get",
+				"getvar2"
+			],
+			[
+				"gta",
+				"getvar2"
+			],
+			[
+				"ga",
+				"getvar1"
+			],
+			[
+				"S",
+				"Server"
+			],
+			[
+				"Mo",
+				"MongoClient"
+			],
+			[
+				"wordp",
+				"wordpress"
+			],
+			[
+				"ta",
+				"target\tAttr"
+			],
+			[
+				"va",
+				"vacío"
+			],
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"i",
+				"img\tTag"
+			],
+			[
+				"ali",
+				"text-align"
+			],
+			[
+				"h",
+				"href\tAttr"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"border-co",
+				"border-color"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"img",
+				"img-responsive"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
+				"onmou",
+				"onmouseover\tAttr"
+			],
+			[
+				"f",
+				"font-size"
+			],
+			[
+				"pos",
+				"posx"
+			],
+			[
+				"a",
+				"addEventListener"
+			],
+			[
+				"zero",
+				"zeroseg"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"noi",
+				"noinit"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"al",
+				"alert"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"objeto",
+				"objetoDOM"
+			],
+			[
+				"objet",
+				"objetoDOM"
+			],
+			[
+				"obje",
+				"objetoDOM"
+			],
+			[
+				"obj",
+				"objetoDOM"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"zerom",
+				"zeromili1"
+			],
+			[
+				"in",
+				"innerHTML"
+			],
+			[
+				"Ca",
+				"CapEsp"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"bar",
+				"background"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"border-top",
+				"border-top-color"
+			],
+			[
+				"border",
+				"border-bottom-width"
+			],
+			[
+				"F",
+				"font-size"
+			],
+			[
+				"border-left",
+				"border-left-color"
+			],
+			[
+				"border-lef",
+				"border-left-style"
+			],
+			[
+				"border-r",
+				"border-right-color"
+			],
+			[
+				"border-bottom",
+				"border-bottom-color"
+			],
+			[
+				"Font",
+				"font-family"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "branch --> windows\n\nGENERAL\nFaldón\ncanviar escola per defecte\nMerge users Tutor-USEE\nAgenda\n\nLogin -> Demanar escola\n\n\nAULA ORDINARIA\nReunions pares\nModals Assistència i Menjador\nImprimir assistència diària\nImprimir menjador diari\n\nUSEE\n\n/* Seguiment -> Tornar a la pestaña",
+			"file": "Readme.txt",
+			"file_size": 289,
+			"file_write_time": 131460672860583805,
+			"settings":
+			{
+				"buffer_size": 273,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/layout.ejs",
+			"settings":
+			{
+				"buffer_size": 8854,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"typescript",
+				"Set Syntax: AppleScript"
+			],
+			[
+				"",
+				"Preferences: Browse Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/AppUsee"
+	],
+	"file_history":
+	[
+		"/C/Users/Charlie/Desktop/index.html",
+		"/C/Users/Charlie/Desktop/app.component.html",
+		"/C/wamp64/www/webapp/src/index.html",
+		"/C/wamp64/www/webapp/src/assets/bootstrap/css/bootstrap.min.css",
+		"/C/wamp64/www/webapp/src/app/app.component.ts",
+		"/C/wamp64/www/webapp/src/app/app.component.html",
+		"/C/wamp64/www/webapp/src/assets/jquery.min.js",
+		"/C/wamp64/www/Angular4-backend/bbdd.sql",
+		"/C/wamp64/www/Angular4-backend/composer.json",
+		"/C/wamp64/www/Angular4-backend/index.php",
+		"/C/cygwin64/home/Charlie/.bash_profile",
+		"/E/Cursos/angular4/app1/src/app/plantillas/plantillas.component.ts",
+		"/E/Cursos/angular4/app1/src/app/plantillas/plantillas.component.html",
+		"/C/wamp64/bin/apache/apache2.4.23/conf/httpd.conf",
+		"/C/wamp/www/index.php",
+		"/E/Cursos/angular4/app1/src/app/coches/coches.component.ts",
+		"/E/Cursos/angular4/app1/src/app/services/peticiones.service.ts",
+		"/E/Cursos/angular4/app1/src/app/app.component.html",
+		"/E/Cursos/angular4/app1/src/app/app.module.ts",
+		"/E/Cursos/angular4/app1/src/app/app.routing.ts",
+		"/E/Cursos/angular4/app1/src/app/coches/coches.component.html",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/index.html",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/cat.html",
+		"/E/AppUsee/package.json",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteenMASTER/index.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteen/styleBlog.css",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteenMASTER/header.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteen/style.css",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteen/content-page.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-blog-header.php",
+		"/E/Cursos/angular4/app1/angular4-app1.sublime-project",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteen/sidebar.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfifteen/sidebar.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/index.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteen/index.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/.htaccess",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/index.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfifteen/footer.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfifteen/header.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteen/header.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfifteen/index.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/index.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/themes/twentyfifteen/footer.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/index.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/blog/wp-content/index.php",
+		"/C/xampp/htdocs/index.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfifteen/functions.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfifteen/css/editor-style.css",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-includes/theme-compat/header.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-blog-header.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfifteen/author-bio.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfourteen/sidebar-content.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfourteen/sidebar.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentythirteen/sidebar-main.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentythirteen/header.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/WordPress_02/wp-content/themes/twentyfourteen/header.php",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/dist/css/normalize.css",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/dist/css/bootstrap.css",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/dist/css/bootstrap-theme.css",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/dist/css/style.css",
+		"/E/Cursos/angular4/app1/src/app/empleados/empleados.ts",
+		"/C/xampp/htdocs/mis_proyectos/www.trailersdesign.com/TD+BLOG 1-11-15/www.trailersdesign.com/contact.html",
+		"/C/xampp/htdocs/mis_proyectos/Medianostrum/dist/css/carousel.css",
+		"/C/Users/Charlie/NodeJs/proyectos_NODEjs/1_hola_EXPRESS/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_3/chapter3/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/conexionNodeMongo/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/chapter1/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_2/chapter-2-examples/6-examples/package.json",
+		"/C/Users/Charlie/NodeJs/proyectos_NODEjs/1_hola_EXPRESS/node_modules/express/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_3/chapter3_examples/2-examples/server_alt.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_3/chapter3_examples/3-examples/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_3/chapter3_examples/2-introExpress/server.js",
+		"/E/Programacion/Cursos/Curso MEAN STACK/3-REST APIs with Express/chapter3_examples/2-examples/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_3/chapter3_examples/2-examples/index.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_3/chapter3_examples/3-examples/server.js",
+		"/E/Programacion/Cursos/Curso MEAN STACK/3-REST APIs with Express/chapter3_examples/2-examples/server.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_2/chapter-2-examples/9-examples/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_2/chapter-2-examples/9-examples/product.js",
+		"/E/Programacion/Cursos/Curso MEAN STACK/2-MongoDB schema design/chapter-2-examples/2-examples/schema.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_2/chapter-2-examples/9-examples/category.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_2/chapter-2-examples/9-examples/virtuals_example.js",
+		"/E/Programacion/Cursos/Curso MEAN STACK/3-REST APIs with Express/chapter3_examples/2-examples/index.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/chapter1/index.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/chapter1/interface.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/chapter1/connect.js",
+		"/C/xampp/htdocs/mis_proyectos/Escardats/assets/js/jquery.magnific-popup.js",
+		"/C/xampp/htdocs/mis_proyectos/Escardats/assets/css/style.css",
+		"/C/xampp/htdocs/mis_proyectos/Escardats/portfolio.html",
+		"/E/Programacion/WEBS/Escardats/portfolio.html",
+		"/E/Programacion/WEBS/Escardats/index-2.html",
+		"/E/Programacion/Cursos/Curso MEAN STACK/2-MongoDB schema design/chapter-2-examples/2-examples/index.js",
+		"/C/xampp/htdocs/mis_proyectos/Escardats/assets/bootstrap/css/bootstrap-theme.css",
+		"/C/xampp/htdocs/mis_proyectos/Escardats/assets/bootstrap/css/bootstrap.css",
+		"/E/Programacion/Cursos/Curso MEAN STACK/1-Introduction to MongoDB and NodeJS/chapter1/interface.js",
+		"/E/Programacion/Cursos/Curso MEAN STACK/1-Introduction to MongoDB and NodeJS/chapter-1-examples/6-examples/test.js",
+		"/E/Programacion/Cursos/Curso MEAN STACK/1-Introduction to MongoDB and NodeJS/chapter-1-examples/4-examples/timeout.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/chapter1/curso_MEAN_STACK.lnk",
+		"/E/Programacion/Cursos/Curso MEAN STACK/1-Introduction to MongoDB and NodeJS/chapter-1-examples/2-examples/index.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha_gulp/package.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha_gulp/test.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha_gulp/gulpfile.js",
+		"/E/Programacion/Cursos/Curso MEAN STACK/chapter1/interface.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/chapter1/movies.json",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha_gulp/node_modules/.bin/test.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha_gulp/node_modules/gulp/index.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha_gulp/node_modules/gulp/bin/gulp.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha/node_modules/.bin/mocha",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha/node_modules/.bin/_mocha",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/mocha/node_modules/mocha/index.js",
+		"/C/Users/Charlie/NodeJs/curso_MEAN_STACK/dia_1/conexionNodeMongo/index.js",
+		"/E/Programacion/Cursos/Curso MongoDB/week_4_performance.e335ce208d41/creating_indexes/create_scores2.js",
+		"/C/Users/Charlie/AppData/Local/Temp/Rar$DI48.672/using_push.js",
+		"/E/Programacion/WEBS/PLANTILLAS/Carousel/carousel.css",
+		"/E/Programacion/WEBS/Escardats/assets/css/style.css",
+		"/C/Users/Charlie/NodeJs/mongodb/Semana 3/homework_3_1/homework_3_1_remove_lowest_homework.js",
+		"/C/Users/Charlie/NodeJs/mongodb/Semana 2/Nodejs driver, findOne, cursors/hw2_2.js",
+		"/E/Programacion/WEBS/Escardats/assets/js/scripts.js",
+		"/E/Programacion/WEBS/Escardats/index.html",
+		"/C/Users/Charlie/NodeJs/mongodb/Semana 2/hw2-3/hw2-3/blog/users.js",
+		"/C/Users/Charlie/NodeJs/mongodb/Semana 2/Nodejs driver, findOne, cursors/driverUPSERT.js",
+		"/C/xampp/htdocs/mis_proyectos/www.trailersdesign.com/Trailers Design + BLOG/remolques.html",
+		"/C/xampp/htdocs/mis_proyectos/www.trailersdesign.com/Trailers Design + BLOG/contact.html",
+		"/C/Users/Charlie/Desktop/blog/index.php",
+		"/C/Users/Charlie/Desktop/blog/style.css",
+		"/C/Users/Charlie/NodeJs/mongodb/POST req/views/fruitPicker.html",
+		"/C/Users/Charlie/NodeJs/mongodb/hello_world_express_swig_mongodb/app.js",
+		"/C/Users/Charlie/NodeJs/mongodb/POST req/post_express.js",
+		"/E/Programacion/WEBS/Escardats/assets/css/form-elements.css"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"descripcion",
+			"nombre",
+			"\"",
+			"imagen",
+			"coches",
+			"4",
+			"iconos",
+			"clientes",
+			"nosotros",
+			"Posicio",
+			"posicio",
+			"Posicio",
+			"posicio",
+			"posicionament",
+			"diseño-web",
+			"#posicio",
+			"#posicion",
+			"Posicion",
+			"posicion",
+			"posicionament",
+			"Posicionament",
+			"Posicionamient",
+			"posicionamient",
+			"Posicionamient",
+			"Posicion",
+			"posicion",
+			"Posicion",
+			"posicion",
+			"Posicion",
+			"posicion",
+			"Posicion",
+			"posicion",
+			"social-media",
+			"main",
+			"nombre",
+			"contacto",
+			"p",
+			"P",
+			"p",
+			"navbar",
+			".more-link",
+			".widget",
+			".widget-title",
+			"widget",
+			"sidebar",
+			"footer",
+			"dropdown",
+			"content-area",
+			"primary",
+			"dropdown",
+			"background",
+			"backgroud",
+			"main",
+			"primary",
+			"content-area",
+			".nav",
+			"nav",
+			"background",
+			"nav",
+			"Nav",
+			"nav",
+			"font-family",
+			"Noto Sans",
+			"font-family",
+			"font-family:",
+			"li",
+			"30",
+			"#myCarousel",
+			"alegreya",
+			"lato",
+			"on-line",
+			"<div>",
+			"linkedC",
+			"40",
+			"20",
+			"5",
+			"10",
+			"50",
+			"10",
+			"30",
+			"div",
+			"10px",
+			"50",
+			"65",
+			"2",
+			"lightgray",
+			"iconos",
+			"f5f5f5",
+			"iconos",
+			"f5f5f5",
+			"h2",
+			"f5f5f5",
+			"1",
+			"style=\"text-align:right\"",
+			" style=\"text-align:right\"",
+			"columna",
+			"60",
+			"40",
+			"window",
+			"windo",
+			"window",
+			"3",
+			"separador2",
+			"a",
+			"h3",
+			"empleados",
+			"h3",
+			"empleados",
+			"routing",
+			"Routing",
+			"routing",
+			"trabajadores[1]",
+			"0",
+			"1",
+			"empleado",
+			"2",
+			"1",
+			"fruta",
+			"logop",
+			"item",
+			"columna",
+			"columna sm",
+			"pyZ9p998gT4",
+			"portfolio",
+			"portfoli",
+			"gallery",
+			"portfolio",
+			"portfolio-box"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Readme.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/layout.ejs",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 8854,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 280.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "appUsee.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 272.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
