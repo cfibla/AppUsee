@@ -9,6 +9,7 @@ exports.nouUser = function(req, res) {
 exports.createUser = function (req, res){
 
 	var user_EE = req.body;
+	var escolaId = user_EE.escola;
 	
 	if (!user_EE.email||!user_EE.nom||!user_EE.cognom||!user_EE.password){
 		models.UserEe.find(function(error, docs){
@@ -35,6 +36,19 @@ exports.createUser = function (req, res){
 	nouUser_EE.save(function(error, user){
 		if (error) res.json(error)
 	});
-		res.redirect('/list_EE');
+
+	models.Escola.findById(escolaId, function(error, escola){
+		if (!escola){
+		var nouEscola = new models.Escola({
+			_id: user_EE.escola,
+			nom: user_EE.escolanom
+		});
+	
+		nouEscola.save(function(error, scola){
+			if (error) res.json(error)
+		});
+		}
+	});
+		res.redirect('/list');
 	};
 };

@@ -35,7 +35,7 @@ exports.actuaPost = function (req, res) {
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 	function (error, alumne){
 		if (error) res.json(error);
-		res.render('seg_act_EE', {alumne: alumne, page_name:''});
+		res.json(alumne);
 	});
 
 }

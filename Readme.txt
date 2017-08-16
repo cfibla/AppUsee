@@ -23,6 +23,6 @@ USUARIS DEMO
 demo@demo.cat
 contrasenya: demo
 
-demoEE@demo.cat
+demoee@demo.cat
 contrasenya: demo
 

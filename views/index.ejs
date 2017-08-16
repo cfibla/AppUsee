@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
 
-  <div class="container margetop clear">
+  <div class="container margetop clear" id="llista">
 <%  if (Alumnes.length === 0) { %>
   <p><br />
     Encara no hi ha alumnes registrats
@@ -178,7 +178,7 @@
         data-usr="<%=session.user.mestre%>"
         data-target="#afegirModal"><i class="fa fa-plus"></i> Afegir alumnes</a>
       </div>
-
+<div id="prova"></div>
     </div>
   </div>
 </div>

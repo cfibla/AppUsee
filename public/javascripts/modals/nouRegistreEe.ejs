@@ -3,14 +3,12 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Afegir alumnes</title>
-
+    <title>Nous usuaris EE-USEE</title>
   </head>
 
   <body>
-
     <div class="modal-header">
-      <div class="modal-title">Nou registre EE-USEE</div>
+      <div class="modal-title">Nous usuaris EE-SIEI</div>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -18,11 +16,11 @@
 
     <div class="modal-body">
       <form id="formUsee" role="form" method="post" action="/usuari_ee_crear">
+
         <div class="row">
           <div class="md-form col-md-6">
           <label for="nom_user_usee">Nom</label>
-            <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="nom_user_usee" name="nom" required="true">
-            <div class="help-block with-errors"></div>
+            <input type="text" class="form-control" id="nom_user_usee" name="nom" required="true">
           </div>
 
           <div class="md-form col-md-6">
@@ -32,30 +30,33 @@
         </div>
 
         <div class="row">
-          <div class="md-form col-md-12">
+          <div class="md-form col-md-6">
             <label for="codi_esc_usee">Codi escola</label>
-            <input type="text" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="codi_esc_usee" name="escola"  required="true">
-            <div class="help-block with-errors"></div>
+            <input type="text" class="form-control" id="codi_esc_usee" name="escola"  required="true">
+          </div>
+
+          <div class="md-form col-md-6">
+            <label for="nom_esc_EE">Nom escola (sense "Escola")</label>
+            <input type="text" class="form-control" id="nom_esc_EE" name="escolanom" required="true">
           </div>
         </div>
 
         <div class="row">
           <div class="md-form col-md-12">
             <label for="email_user_usee">Correu electrònic</label>
-            <input type="email" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="email_user_usee" name="email" required="true">
-            <div class="help-block with-errors"></div>
+            <input type="email" class="form-control" id="email_user_usee" name="email" required="true">
           </div>
         </div>
 
         <div class="row">
-          <div class="md-form col-md-12">
+          <div class="md-form col-md-12" style="
+    margin-bottom: 0px;">
             <label for="password_user_usee">Contrasenya</label>
-            <input type="password" class="form-control" data-error="Si us plau, empleneu aquest apartat" id="password_user_usee" name="password" required="true">
-            <div class="help-block with-errors"></div>
-            <div class="md-form"><small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small></div><br>
+            <input type="password" class="form-control" id="password_user_usee" name="password" required="true">
+            <div class="md-form" style="
+    margin-bottom: 0px;"><small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small></div><br>
           </div>
         </div>
-        
       </form>
     </div>
     <div class="modal-footer">

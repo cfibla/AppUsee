@@ -49,7 +49,7 @@ exports.createUser = function (req, res){
 		}
 	});
 
-		res.redirect('/list');
+		res.json({type: true, data: JSON.stringify(user)});
 	};
 };
 

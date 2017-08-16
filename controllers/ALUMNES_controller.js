@@ -24,6 +24,7 @@ exports.create = function (req, res){
 	var rep = alum['radios.0'];
 	var aill = alum['checks.2'];
 	var sersoc = alum['checks.29'];
+	console.log(alum);
 
 	if (!alum.nom||!alum.cognom1||!alum.curs){
 		models.Alumne.find(function(error, docs){
@@ -158,7 +159,8 @@ exports.update = function (req, res){
 		if (error) {
 			return res.json(error);
 		} else {
-			res.json(alumne)}
+			res.json({type:true, Alumne: JSON.stringify(alumne)});
+		}
 	});
 };
 
