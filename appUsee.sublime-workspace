@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"url",
+				"urlLong"
+			],
+			[
 				"hi",
 				"hidden"
 			],
@@ -403,43 +407,7 @@
 			"file": "Readme.txt",
 			"settings":
 			{
-				"buffer_size": 385,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/index.ejs",
-			"settings":
-			{
-				"buffer_size": 9933,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/javascripts/modals/nouRegistre.ejs",
-			"settings":
-			{
-				"buffer_size": 3167,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/javascripts/modals/dades.ejs",
-			"settings":
-			{
-				"buffer_size": 17413,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "controllers/USER_controller.js",
-			"settings":
-			{
-				"buffer_size": 1828,
+				"buffer_size": 454,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -454,19 +422,36 @@
 			}
 		},
 		{
-			"file": "views/layout.ejs",
+			"file": "controllers/SESSION_controller.js",
 			"settings":
 			{
-				"buffer_size": 9664,
+				"buffer_size": 1340,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/javascripts/modals/deleteUser.ejs",
+			"settings":
+			{
+				"buffer_size": 915,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/javascripts/modals/nouRegistreEe.ejs",
+			"file": "public/javascripts/modals/nouAlumne.ejs",
 			"settings":
 			{
-				"buffer_size": 2441,
+				"buffer_size": 5599,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/usuari.ejs",
+			"settings":
+			{
+				"buffer_size": 4285,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -475,34 +460,25 @@
 			"file": "public/javascripts/global.js",
 			"settings":
 			{
-				"buffer_size": 36159,
+				"buffer_size": 35698,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "controllers/ALUMNES_EE_controller.js",
+			"file": "controllers/USER_controller.js",
 			"settings":
 			{
-				"buffer_size": 3110,
+				"buffer_size": 2192,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "views/seg_act_EE.ejs",
+			"file": "views/layout.ejs",
 			"settings":
 			{
-				"buffer_size": 19261,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/stylesheets/css/style.css",
-			"settings":
-			{
-				"buffer_size": 4363,
+				"buffer_size": 8874,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -575,14 +551,22 @@
 		"/E/AppUsee/public/javascripts/modals",
 		"/E/AppUsee/public/stylesheets",
 		"/E/AppUsee/public/stylesheets/css",
-		"/E/AppUsee/routes",
-		"/E/AppUsee/views"
+		"/E/AppUsee/routes"
 	],
 	"file_history":
 	[
 		"/E/AppUsee/controllers/USER_controller.js",
-		"/E/AppUsee/views/layout.ejs",
+		"/E/AppUsee/routes/index.js",
+		"/E/AppUsee/public/javascripts/modals/nouRegistreEe.ejs",
+		"/E/AppUsee/public/stylesheets/css/style.css",
+		"/E/AppUsee/public/javascripts/modals/nouRegistre.ejs",
+		"/E/AppUsee/views/usuari.ejs",
+		"/E/AppUsee/views/seg_act_EE.ejs",
+		"/E/AppUsee/controllers/ALUMNES_EE_controller.js",
 		"/E/AppUsee/views/index.ejs",
+		"/E/AppUsee/public/javascripts/modals/dades.ejs",
+		"/E/AppUsee/views/layout.ejs",
+		"/E/AppUsee/controllers/ALUMNES_controller.js",
 		"/E/AppUsee/controllers/USER_ee_controller.js",
 		"/C/Users/Charlie/Desktop/index.html",
 		"/C/Users/Charlie/Desktop/app.component.html",
@@ -698,16 +682,7 @@
 		"/C/Users/Charlie/AppData/Local/Temp/Rar$DI48.672/using_push.js",
 		"/E/Programacion/WEBS/PLANTILLAS/Carousel/carousel.css",
 		"/E/Programacion/WEBS/Escardats/assets/css/style.css",
-		"/C/Users/Charlie/NodeJs/mongodb/Semana 3/homework_3_1/homework_3_1_remove_lowest_homework.js",
-		"/C/Users/Charlie/NodeJs/mongodb/Semana 2/Nodejs driver, findOne, cursors/hw2_2.js",
-		"/E/Programacion/WEBS/Escardats/assets/js/scripts.js",
-		"/E/Programacion/WEBS/Escardats/index.html",
-		"/C/Users/Charlie/NodeJs/mongodb/Semana 2/hw2-3/hw2-3/blog/users.js",
-		"/C/Users/Charlie/NodeJs/mongodb/Semana 2/Nodejs driver, findOne, cursors/driverUPSERT.js",
-		"/C/xampp/htdocs/mis_proyectos/www.trailersdesign.com/Trailers Design + BLOG/remolques.html",
-		"/C/xampp/htdocs/mis_proyectos/www.trailersdesign.com/Trailers Design + BLOG/contact.html",
-		"/C/Users/Charlie/Desktop/blog/index.php",
-		"/C/Users/Charlie/Desktop/blog/style.css"
+		"/C/Users/Charlie/NodeJs/mongodb/Semana 3/homework_3_1/homework_3_1_remove_lowest_homework.js"
 	],
 	"find":
 	{
@@ -725,6 +700,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"alumne",
+			"deleteModal",
+			"elimModal",
+			"alumne",
+			"Alumne",
+			"alumne",
 			"COORDINACIONS",
 			"Actuacions",
 			"actuacions",
@@ -846,13 +827,7 @@
 			"separador2",
 			"a",
 			"h3",
-			"empleados",
-			"h3",
-			"empleados",
-			"routing",
-			"Routing",
-			"routing",
-			"trabajadores[1]"
+			"empleados"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -870,7 +845,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -879,15 +854,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 385,
+						"buffer_size": 454,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								356,
-								356
+								163,
+								163
 							]
 						],
 						"settings":
@@ -898,130 +873,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "views/index.ejs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9933,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								145,
-								145
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/javascripts/modals/nouRegistre.ejs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3167,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3159,
-								3159
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1303.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/javascripts/modals/dades.ejs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17413,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								563,
-								563
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 200.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "controllers/USER_controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1828,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1025,
-								1076
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 130.0,
-						"translation.y": 360.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "controllers/ALUMNES_controller.js",
 					"semi_transient": false,
 					"settings":
@@ -1033,8 +889,37 @@
 						"selection":
 						[
 							[
-								3565,
-								3565
+								8790,
+								8790
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 7320.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "controllers/SESSION_controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1340,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								443,
+								443
 							]
 						],
 						"settings":
@@ -1043,63 +928,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2725.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "views/layout.ejs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9664,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								835,
-								835
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1219.0,
+						"translation.y": -0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 7,
-					"file": "public/javascripts/modals/nouRegistreEe.ejs",
+					"buffer": 3,
+					"file": "public/javascripts/modals/deleteUser.ejs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2441,
+						"buffer_size": 915,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								753,
-								753
+								688,
+								688
 							]
 						],
 						"settings":
@@ -1109,86 +958,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 59.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/javascripts/modals/nouAlumne.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5599,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								477,
+								465
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3463.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "public/javascripts/global.js",
+					"buffer": 5,
+					"file": "views/usuari.ejs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36159,
+						"buffer_size": 4285,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20526,
-								20526
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 11796.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "controllers/ALUMNES_EE_controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3110,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								908,
-								908
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 60.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "views/seg_act_EE.ejs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 19261,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								80,
-								80
+								4009,
+								3996
 							]
 						],
 						"settings":
@@ -1198,37 +1018,102 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2880.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 11,
-					"file": "public/stylesheets/css/style.css",
+					"buffer": 6,
+					"file": "public/javascripts/global.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4363,
+						"buffer_size": 35698,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2933,
-								2933
+								2636,
+								2636
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 3035.0,
+						"translation.x": 0.0,
+						"translation.y": 1177.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "controllers/USER_controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2192,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1199,
+								1199
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 660.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "views/layout.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6664,
+								6664
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2126.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1265,7 +1150,7 @@
 		"cols":
 		[
 			0.0,
-			0.404212860008,
+			0.468425188775,
 			1.0
 		],
 		"rows":

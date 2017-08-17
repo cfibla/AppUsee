@@ -75,21 +75,55 @@ $(document).ready(function (){
 
     $('#formUser').on('submit', function(e){
       e.preventDefault();
+      $.LoadingOverlay("show");
       var urlPost = "/usuari_crear";
       $.ajax({
           url: urlPost, //this is the submit URL
           type: 'POST',
           data: $('#formUser').serialize(),
           success:function(){
-            location.reload();
+            
           }
       }).then(function(){
-        $.LoadingOverlay("show");
         $('#userModal').modal('toggle');
+        $.LoadingOverlay("hide");
+        location.href="/list";
+      });
+      
+      });
+    });
+
+//MODAL DELETE USERS
+  $('#deleteUserModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var userId = actg.data('id');
+    var mestre = actg.data('mestre');
+    var mdal = $(this);
+  
+    $('#del_user').on('submit', function(e){
+      e.preventDefault();
+      if (mestre==="tutor"){
+      var urlPost = "/usuariD/" + userId + "?_method=put";
+      }
+      if (mestre==="ee"){
+      var urlPost = "/usuari_ee_D/" + userId + "?_method=put";
+      }
+          console.log(urlPost);
+          $.LoadingOverlay("show");
+      $.ajax({
+          url: urlPost, //this is the submit URL
+          type: 'POST',
+          data: $('#del_user').serialize(),
+          success:function(){
+            location.href="/logout";
+          }
+      }).then(function(){
+        $('#deleteUserModal').modal('toggle');
       });
       $.LoadingOverlay("hide");
       });
     });
+
 
 ////////////////  D A D E S   P E R S O N A L S ////////////////
 

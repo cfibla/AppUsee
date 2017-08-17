@@ -7,6 +7,8 @@ Merge users Tutor-USEE
 Agenda
 Login USEE -> Igual que tutor
 Perfil usuari -> Escola
+Nou usuari->LOGIN
+Uppercase modificació dades
 
 
 AULA ORDINARIA
@@ -18,6 +20,7 @@ Imprimir menjador diari
 USEE
 
 /* Seguiment -> Tornar a la pestaña
+Donar usuaris de baixa
 
 USUARIS DEMO
 demo@demo.cat

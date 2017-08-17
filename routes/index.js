@@ -24,10 +24,14 @@ router.get('/usuari_nou',			userController.nouUser);
 router.post('/usuari_crear',		userController.createUser);
 router.get('/usuari/:id',			userController.profile);
 router.put('/usuari/:id',			userController.update);
+router.put('/usuariD/:id',			userController.delUser);
+
 
 //rutas USER_EE
 router.get('/usuari_ee_nou',		userEeController.nouUser);
 router.post('/usuari_ee_crear',		userEeController.createUser);
+router.put('/usuari_ee/:id',		userEeController.update);
+router.put('/usuari_ee_D/:id',		userEeController.delUser);
 
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);

@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Eliminar dades</title>
+  </head>
+
+  <body>
+        
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Eliminar les vostres dades</h4>
+      </div>
+      <div class="modal-body">
+      <form role="form" id="del_user">
+        <p>Aquesta acció eliminarà totes les vostres dades i us esborrarà de la base de dades.</p>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-default" role="button" data-dismiss="modal">Cancel·la</a>
+        <button class="btn btn-danger" type="submit" form="del_user">Vull donar-me de baixa</button>
+<!--          <a href="/dades_suprD/<%=usuari.id%>" class="btn btn-danger btn-sm" role="button">Elimina</a>-->
+      </div>
+  </body>
+</html>

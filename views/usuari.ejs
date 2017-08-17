@@ -18,22 +18,21 @@
     var usr = usuari.curs;
     var mestre = usuari.mestre;
     var mst;
-    if (usuari.mestre==="ee"){
-      usr = "At. diversitat"
+    var usuariUpd;
+
+    if (mestre==="ee"){
+      mst = "At. diversitat"
+      usr = "At. diversitat";
+      usuariUpd = "usuari_ee";
     }
 
     if (mestre==="tutor"){
       mst = "Tutor"
+      usuariUpd = "usuari"
     }
-
-    if (mestre==="ee"){
-      mst = "At. diversitat"
-    }
-
-
   %>  
   
-<form role="form" method="post" action="/usuari/<%=usuari._id%>?_method=put" id="usuari_dades">
+<form role="form" method="post" action="/<%=usuariUpd%>/<%=usuari._id%>?_method=put" id="usuari_dades">
   <div class="container margetop clear">
     <div class="row">
       <div class="md-form col-12" style="clear: both;">
@@ -59,7 +58,7 @@
 
            <div class="form-group col-md-2">
             <label for="codi_escola">Codi escola *</label>
-            <input type="text" class="form-control" id="codi_escola" name="codiEscola" value = "<%=usuari.escola%>">
+            <input type="text" class="form-control" id="codi_escola" name="codiEscola" value = "<%=usuari.escola%>" disabled>
           </div>
 
           <div class="form-group col-md-2" id="curs">
@@ -98,7 +97,6 @@
   </div>
 </form>
 
-
 <div class="container">
   <div class="clearfix float-right">
     <% 
@@ -110,7 +108,7 @@
     <span class="col-md-5">
       <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna a la llista</span></a>
 
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#elimModal">Donar-me de baixa</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" href="/javascripts/modals/deleteUser.ejs" data-id="<%=usuari._id%>" data-mestre="<%=mestre%>">Donar-me de baixa</button>
 
     <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
     </span>
@@ -118,24 +116,10 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="elimModal" role="dialog">
+<div class="modal fade" id="deleteUserModal" role="dialog">
   <div class="modal-dialog">
-  
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Eliminar les vostres dades</h4>
-      </div>
-      <div class="modal-body">
-        <p>Aquesta acció eliminarà totes les vostres dades i us esborrarà de la base de dades.</p>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-default" role="button" data-dismiss="modal">Cancel·la</a>
-        <a class="btn btn-danger" role="button" data-dismiss="modal">Vull donar-me de baixa</a>
-<!--          <a href="/dades_suprD/<%=usuari.id%>" class="btn btn-danger btn-sm" role="button">Elimina</a>-->
-      </div>
     </div>
-    
   </div>
 </div>

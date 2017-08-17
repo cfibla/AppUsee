@@ -16,7 +16,7 @@ exports.createUser = function (req, res){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('nou_usuari', {errorAlta:"Heu d'emplenar tots els apartats"});
+			res.json(docs);
 			};
 		});
 	} else {
@@ -32,10 +32,32 @@ exports.createUser = function (req, res){
 
 		escola: user.escola
 	});
-	nouUser.save(function(error, user){
-		if (error) res.json(error)
-	});
+	nouUser.save(function (error, user){
+		if (error) {
+			res.json(error);
+		} else {
+//login
+			var email = user.email;
+			var password = user.password;
 
+			models.User.findOne({email: email, password: password}, function(error, user){
+				if(error){
+					console.log(error);
+				} else {
+					req.session.user = user;
+					models.Alumne.find(function(error, docs){
+					if (error){
+						console.log(error);
+					} else {
+						res.json(docs);
+						}
+					});
+				}
+			})
+		}
+		
+	});
+//crea escola
 	models.Escola.findById(escolaId, function(error, escola){
 		if (!escola){
 		var nouEscola = new models.Escola({
@@ -49,7 +71,6 @@ exports.createUser = function (req, res){
 		}
 	});
 
-		res.json({type: true, data: JSON.stringify(user)});
 	};
 };
 
@@ -85,5 +106,18 @@ exports.update = function (req, res){
 		} else {
 			res.render('usuari', {usuari: usuari});
 		}
+	});
+};
+
+//DELETE user
+exports.delUser = function (req, res) {
+
+	var userId = req.params.id;
+	models.User.findByIdAndRemove(userId, function(error, user){
+		if (error){
+			return res.json(error);
+		} else {
+			res.redirect('/');
+			}
 	});
 };

@@ -34,9 +34,34 @@ exports.createUser = function (req, res){
 
 
 	nouUser_EE.save(function(error, user){
-		if (error) res.json(error)
-	});
+		if (error){
+			res.json(error);
+		} else {
+//login
+			var email = user.email;
+			var password = user.password;
 
+			
+			models.UserEe.findOne({email: email, password: password}, function(error, user){
+				if(error){
+					console.log(error);}
+				if(!user) {
+					console.log('NO USER');
+				} else {
+					req.session.user = user;
+					models.Alumne.find(function(error, docs){
+					if (error){
+						console.log(error);
+					} else {
+						res.redirect('/list_EE');
+						}
+					});
+				}
+			});
+		}
+
+	});
+//crea escola
 	models.Escola.findById(escolaId, function(error, escola){
 		if (!escola){
 		var nouEscola = new models.Escola({
@@ -49,6 +74,33 @@ exports.createUser = function (req, res){
 		});
 		}
 	});
-		res.redirect('/list');
-	};
+}};
+
+//UPDATE user profile
+exports.update = function (req, res){
+
+	var userId = req.params.id;
+	var usuari = req.body;
+
+	models.UserEe.findByIdAndUpdate(userId, usuari, {new: true, safe: true, upsert: true},
+	function (error, usuari){
+		if (error) {
+			return res.json(error);
+		} else {
+			res.render('usuari', {usuari: usuari});
+		}
+	});
+};
+
+//DELETE user
+exports.delUser = function (req, res) {
+
+	var userId = req.params.id;
+	models.UserEe.findByIdAndRemove(userId, function(error, user){
+		if (error){
+			return res.json(error);
+		} else {
+			res.redirect('/');
+			}
+	});
 };

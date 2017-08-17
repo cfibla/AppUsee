@@ -19,17 +19,17 @@ exports.login = function (req, res, next){
 			next();
 		} else {
 		
-				req.session.user = user;
+			req.session.user = user;
 
-				models.Alumne.find(function(error, docs){
-				if (error){
-					console.log(error);
-				} else {
-					
-					res.redirect('/list');
-					
-					}
-			});}
+			models.Alumne.find(function(error, docs){
+			if (error){
+				console.log(error);
+			} else {
+				
+				res.redirect('/list');
+				
+				}
+		});}
 
 	})
 };
