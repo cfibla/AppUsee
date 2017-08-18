@@ -3,11 +3,11 @@ branch --> windows
 GENERAL
 Faldón
 canviar escola per defecte
-Merge users Tutor-USEE
+/*Merge users Tutor-USEE
 Agenda
-Login USEE -> Igual que tutor
+
 Perfil usuari -> Escola
-Nou usuari->LOGIN
+
 Uppercase modificació dades
 
 

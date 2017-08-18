@@ -30,6 +30,7 @@
         ruta = "";
       }
       %>
+
 <!--Navbar-->
     <nav class="navbar navbar-toggleable-md navbar-dark black fixed-top z-depth-0">
       <div class="container">
@@ -196,5 +197,11 @@
   <script src="//cdn.jsdelivr.net/jquery.loadingoverlay/1.5.3/loadingoverlay.min.js"></script>
 <!-- Fichero externo con JS y jQuery -->
   <script src="/javascripts/global.js"></script>
+  
+      <%if (session.user){
+      if (session.user.mestre === "ee") {%>
+      <script src="/javascripts/seguiment.js"></script>
+      <%}}%>
+
 </body>
 </html>

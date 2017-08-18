@@ -57,43 +57,23 @@ $(document).ready(function (){
       $('.modal-body .modal-footer').html("");
     });
 
-   function ajaxPost(ur, path, obj, anchor){
-     return   $.ajax({
-         url: path, //this is the submit URL
-         type: 'POST',
-         data: obj
-     }).done(function(){
-        var urlLong = ur+anchor;
-       window.location.href = urlLong;
-       location.reload();
-        $.LoadingOverlay("hide");
-        $('.modal').removeClass('show');
-     });
-   }
-///// NOU USUARI
+///////// U S E R S //////////////
+///// CREATE USER
   $('#userModal').on('shown.bs.modal', function (e) {
-
     $('#formUser').on('submit', function(e){
       e.preventDefault();
       $.LoadingOverlay("show");
       var urlPost = "/usuari_crear";
-      $.ajax({
-          url: urlPost, //this is the submit URL
-          type: 'POST',
-          data: $('#formUser').serialize(),
-          success:function(){
-            
-          }
-      }).then(function(){
-        $('#userModal').modal('toggle');
-        $.LoadingOverlay("hide");
+      var data = $('#formUser').serialize();
+      aPost(urlPost, data).always(function(){
         location.href="/list";
       });
-      
-      });
     });
+  });
 
-//MODAL DELETE USERS
+//UPDATE USERS
+
+//DELETE USERS
   $('#deleteUserModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var userId = actg.data('id');
@@ -102,30 +82,22 @@ $(document).ready(function (){
   
     $('#del_user').on('submit', function(e){
       e.preventDefault();
+      $.LoadingOverlay("show");
       if (mestre==="tutor"){
       var urlPost = "/usuariD/" + userId + "?_method=put";
       }
       if (mestre==="ee"){
       var urlPost = "/usuari_ee_D/" + userId + "?_method=put";
       }
-          console.log(urlPost);
-          $.LoadingOverlay("show");
-      $.ajax({
-          url: urlPost, //this is the submit URL
-          type: 'POST',
-          data: $('#del_user').serialize(),
-          success:function(){
-            location.href="/logout";
-          }
-      }).then(function(){
-        $('#deleteUserModal').modal('toggle');
+      var data = $('#del_user').serialize();
+      aPost(urlPost, data).always(function(){
+        location.href="/logout";
       });
-      $.LoadingOverlay("hide");
       });
     });
 
-
-////////////////  D A D E S   P E R S O N A L S ////////////////
+///////// A L U M N E S //////////////
+//  D A D E S   P E R S O N A L S
 
   $('#dadesModal').on('shown.bs.modal', function (e) {
 //datepicker//
@@ -322,21 +294,10 @@ $(document).ready(function (){
 
     $('#alumne_dades').on('submit', function(e){
       e.preventDefault();
+      $.LoadingOverlay("show");
       var urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
       var data = $('#alumne_dades').serialize();
-
-      $.LoadingOverlay("show");
-      $.ajax({
-          url: urlPost, //this is the submit URL
-          method: 'POST',
-          data: data
-      })
-      .done(function(){
-        location.reload();
-        $.modal('toggle');
-        $.LoadingOverlay("hide"); 
-      });
-
+      aPost(urlPost, data);
     });
 
 ///////// LABEL ACTIVE ///////////////
@@ -475,361 +436,74 @@ $(document).ready(function (){
     });
   });
 
-//////////////// S E G U I M E N T //////////////// 
-// ACTUACIONS //
-//MODAL ACTUACIO NEW
-  $('#actuModal').on('shown.bs.modal', function (e) {
-    //datepicker//
-    $('#acData .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-    });
+
+
+//MODAL AFEGIR ALUMNES
+  $('#afegirModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
+    var escola = actg.data('escola');
     var alumneCurs = actg.data('curs');
-    var alumneId = actg.data('id');
-    var actuNum = actg.data('actunum');
-    var today = actg.data('today');
-    location.hash='';
-    var url = location.href;
+    var usr = actg.data('usr');
+    var t_use1, v_use1, t_use2, v_use2;
+    if (usr === "ee") {
+      t_use1 = "Si";
+      v_use1 = true;
+      t_use2 = "No";
+      v_use2 = null;
+      alumneCurs = "Seleccioneu curs";
+      v_alumneCurs = null;
+    } else {
+      t_use1 = "No";
+      v_use1 = null;
+      t_use2 = "Si";
+      v_use2 = true;
+      v_alumneCurs = alumneCurs;
+    };
+
     var mdal = $(this);
-    mdal.find('.modal-body #nomAl').text(alumneNom);
-    mdal.find('.modal-body #cursAl').text(alumneCurs);
-    mdal.find('.modal-body #actuData').attr("name", "segActuacions." + actuNum + ".date");
-    mdal.find('.modal-body #actuBody').attr("name", "segActuacions." + actuNum + ".body");
-    mdal.find('.modal-body #actuData').val(today);
-    $('#seg_actuacions').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-      var data = $('#seg_actuacions').serialize();
-      var anchor = 'actuacions';
-      $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
+    mdal.find(".modal-body #cdEscola").val(escola);
+    mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
+    mdal.find('.modal-body #o_use1').text(t_use1).val(v_use1);
+    mdal.find('.modal-body #o_use2').text(t_use2).val(v_use2);
+
+    $('#dadesAlumne').on('submit', function(e){
+        e.preventDefault();
+        $.LoadingOverlay("show");
+        var urlPost = "/alumneNou";
+        var data = $('#dadesAlumne').serialize();
+        aPost(urlPost, data);
+        });
       });
-    });
 
-
-//MODAL ACTUACIO GET
-    $('#actuModalGet').on('shown.bs.modal', function (e) {
-      var actg = $(e.relatedTarget);
-      var alumneNom = actg.data('nom');
-      var alumneCurs = actg.data('curs');
-      var dta = actg.data('dta');
-      var body = actg.data('body');
-      var mdal = $(this);
-      mdal.find('.modal-body #nomAeAl').text(alumneNom);
-      mdal.find('.modal-body #cursAeAl').text(alumneCurs);
-      mdal.find('.modal-body #actuDataGet').text(dta);
-      mdal.find('.modal-body #actuBodyGet').text(body);
-    });
-
-//MODAL ACTUACIO UPD
-  $('#actuModalUpd').on('shown.bs.modal', function (e) {
-    //datepicker//
-    $('#acDataUpd .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-    });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneId = actg.data('id');
-    var i = actg.data('i')
-    var dta = actg.data('dta');
-    var body = actg.data('body');
-    location.hash='';
-    var url = location.href;
-    var mdal = $(this);
-    mdal.find('.modal-body #nomAlUpd').text(alumneNom);
-    mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
-    mdal.find('.modal-body #actuDataUpd').attr("name", "segActuacions." + i + ".date");
-    mdal.find('.modal-body #actuBodyUpd').attr("name", "segActuacions." + i + ".body");
-    mdal.find('.modal-body #actuDataUpd').val(dta);
-    mdal.find('.modal-body #actuBodyUpd').val(body);
-    $('#upd_actuacions').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      var data = $('#upd_actuacions').serialize();
-      var anchor = 'actuacions';
-      $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
-      });
-    });
-
-
-//MODAL ACTUACIO DELETE
-  $('#actuModalDel').on('shown.bs.modal', function (e) {
+//MODAL DELETE ALUMNES
+  $('#deleteModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneId = actg.data('id');
     var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneI = actg.data('i');
-    var alumneDta = actg.data('dta');
-    var alumneBody = actg.data('body');
-    location.hash='';
-    var url = location.href;
     var mdal = $(this);
-    mdal.find('.modal-body #nomAlDel').text(alumneNom);
-    mdal.find('.modal-body #cursAlDel').text(alumneCurs);
-    mdal.find('.modal-body #actuDataDel').text(alumneDta);
-    mdal.find('.modal-body #actuBodyDel').text(alumneBody);
-    $('#del_actuacions').on('submit', function(e){
+    mdal.find(".modal-body #nomAlDel").text(alumneNom);
+    $('#del_alum').on('submit', function(e){
       e.preventDefault();
-      var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
-      var data = $('#del_actuacions').serialize(); 
-      var anchor = 'actuacions';
       $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
-      });
-    });
-
-///////// CAD ////////////////
-//MODAL CAD NEW
-  $('#cadModal').on('shown.bs.modal', function (e) {
-    // datepicker //
-    $('#cadData .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-    });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneId = actg.data('id');
-    var actuNum = actg.data('actunum')
-    var today = actg.data('today');
-    location.hash='';
-    var url = location.href;
-    
-    var mdal = $(this);
-    mdal.find('.modal-body #nomCnAl').text(alumneNom);
-    mdal.find('.modal-body #cursCnAl').text(alumneCurs);
-    mdal.find('.modal-body #cnData').attr("name", "segInformacioCAD." + actuNum + ".date");
-    mdal.find('.modal-body #cnBody').attr("name", "segInformacioCAD." + actuNum + ".body");
-    mdal.find('.modal-body #cnData').val(today);
-    $('#info_CAD').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-      var data = $('#info_CAD').serialize();
-      var anchor = 'informacions';
-      $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
-
-      });
-    });
-
-//MODAL CAD GET
-  $('#cadModalGet').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var dta = actg.data('dta');
-    var body = actg.data('body');
-    var mdal = $(this);
-    mdal.find('.modal-body #nomCgAl').text(alumneNom);
-    mdal.find('.modal-body #cursCgAl').text(alumneCurs);
-    mdal.find('.modal-body #cadDataGet').text(dta);
-    mdal.find('.modal-body #cadBodyGet').text(body);
-  });
-
-//MODAL CAD UPD
-  $('#cadModalUpd').on('shown.bs.modal', function (e) {
-  // datepicker //
-    $('#cadDataUpd .input-group.date').datepicker({
-      format: "dd/mm/yyyy",
-      setDate: new Date(),
-      maxViewMode: 2,
-      todayBtn: "linked",
-      daysOfWeekDisabled: "0,6",
-      autoclose: true,
-      todayHighlight: true,
-      language: "ca"  
-    });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneId = actg.data('id');
-    var i = actg.data('i');
-    var dta = actg.data('dta');
-    var body = actg.data('body');
-    location.hash='';
-    var url = location.href;
-    var mdal = $(this);
-    mdal.find('.modal-body #nomCuAl').text(alumneNom);
-    mdal.find('.modal-body #cursCuAl').text(alumneCurs);
-    mdal.find('.modal-body #cDataUpd').attr("name", "segInformacioCAD." + i + ".date");
-    mdal.find('.modal-body #cadBodyUpd').attr("name", "segInformacioCAD." + i + ".body");
-    mdal.find('.modal-body #cDataUpd').val(dta);
-    mdal.find('.modal-body #cadBodyUpd').val(body);
-    $('#upd_CAD').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      var data = $('#upd_CAD').serialize();
-      var anchor = 'informacions';
-      $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
+      var urlPost = "/dades_suprD/" + alumneId + "?_method=put";
+      var data = $('#del_alum').serialize();
+      aPost(urlPost, data);
     });
   });
 
-//MODAL CAD DELETE
-  $('#cadModalDel').on('shown.bs.modal', function (e) {
+//MODAL alta ALUMNES
+  $('#altaModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var alumneId = actg.data('id');
     var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneI = actg.data('i');
-    var alumneDta = actg.data('dta');
-    var alumneBody = actg.data('body');
-    location.hash='';
-    var url = location.href;
     var mdal = $(this);
-    mdal.find('.modal-body #nomCdAl').text(alumneNom);
-    mdal.find('.modal-body #cursCdAl').text(alumneCurs);
-    mdal.find('.modal-body #cadDataDel').text(alumneDta);
-    mdal.find('.modal-body #cadBodyDel').text(alumneBody);
-    $('#del_CAD').on('submit', function(e){
+    mdal.find(".modal-body #nomAlAl").text(alumneNom);
+    $('#alt_alum').on('submit', function(e){
       e.preventDefault();
-      var urlPost = "/seguiment-EE/" + alumneId + "/cadDel/" + alumneI + "?_method=put";
-      var data = $('#del_CAD').serialize();
-      var anchor = 'informacions';
       $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
-    });
-  });
-
-
-///////// ALTRES COORD ////////////////
-//MODAL ALTRES COORD NEW
-  $('#altresCoordModal').on('shown.bs.modal', function (e) {
-    // datepicker //
-    $('#altresCoordData .input-group.date').datepicker({
-        format: "dd/mm/yyyy",
-        setDate: new Date(),
-        maxViewMode: 2,
-        todayBtn: "linked",
-        daysOfWeekDisabled: "0,6",
-        autoclose: true,
-        todayHighlight: true,
-        language: "ca"  
-    });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneId = actg.data('id');
-    var altresNum = actg.data('altresnum');
-    var today = actg.data('today');
-    location.hash='';
-    var url = location.href;
-    var mdal = $(this);
-    mdal.find('.modal-body #nomAlnAl').text(alumneNom);
-    mdal.find('.modal-body #cursAlnAl').text(alumneCurs);
-    mdal.find('.modal-body #altresData').attr("name", "segAltresCoord." + altresNum + ".date");
-    mdal.find('.modal-body #altresBody').attr("name", "segAltresCoord." + altresNum + ".body");
-    mdal.find('.modal-body #altresData').val(today);
-    $('#altres_coord').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/seguiment-EE/post/" + alumneId + "?_method=put";
-      var data =  $('#altres_coord').serialize();
-      var anchor = 'coordinacions';
-      $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
-    });
-  });
-
-//MODAL ALTRES COORD GET
-  $('#altresCoordModalGet').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var dta = actg.data('dta');
-    var body = actg.data('body');
-    var mdal = $(this);
-    mdal.find('.modal-body #nomAlgAl').text(alumneNom);
-    mdal.find('.modal-body #cursAlgAl').text(alumneCurs);
-    mdal.find('.modal-body #altresDataGet').text(dta);
-    mdal.find('.modal-body #altresBodyGet').text(body);
-  });
-
-//MODAL ALTRES COORD UPD
-  $('#altresCoordModalUpd').on('shown.bs.modal', function (e) {
-    // datepicker //
-    $('#alDataUpd .input-group.date').datepicker({
-        format: "dd/mm/yyyy",
-        setDate: new Date(),
-        maxViewMode: 2,
-        todayBtn: "linked",
-        daysOfWeekDisabled: "0,6",
-        autoclose: true,
-        todayHighlight: true,
-        language: "ca"  
-    });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneId = actg.data('id');
-    var i = actg.data('i');
-    var dta = actg.data('dta');
-    var body = actg.data('body');
-    location.hash='';
-    var url = location.href;
-    var mdal = $(this);
-    mdal.find('.modal-body #nomAluAl').text(alumneNom);
-    mdal.find('.modal-body #cursAluAl').text(alumneCurs);
-    mdal.find('.modal-body #altresDataUpd').attr("name", "segAltresCoord." + i + ".date");
-    mdal.find('.modal-body #altresBodyUpd').attr("name", "segAltresCoord." + i + ".body");
-    mdal.find('.modal-body #altresDataUpd').val(dta);
-    mdal.find('.modal-body #altresBodyUpd').val(body);
-    $('#upd_altres').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      var data =  $('#upd_altres').serialize();
-      var anchor = 'coordinacions';
-      $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
-    });
-  });
-
-
-//MODAL ALTRES COORD DELETE
-  $('#altresCoordModalDel').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var alumneId = actg.data('id');
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneI = actg.data('i');
-    var alumneDta = actg.data('dta');
-    var alumneBody = actg.data('body');
-    location.hash='';
-    var url = location.href;
-    var mdal =  $(this);
-    mdal.find('.modal-body #nomAldAl').text(alumneNom);
-    mdal.find('.modal-body #cursAldAl').text(alumneCurs);
-    mdal.find('.modal-body #altresDataDel').text(alumneDta);
-    mdal.find('.modal-body #altresBodyDel').text(alumneBody);
-    $('#del_altres').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/seguiment-EE/" + alumneId + "/altresDel/" + alumneI + "?_method=put";
-      var data = $('#del_altres').serialize();
-      var anchor = 'coordinacions';
-      $.LoadingOverlay("show");
-      ajaxPost (url, urlPost, data, anchor);
+      var urlPost = "/dades_alta/" + alumneId + "?_method=put";
+      var data = $('#alt_alum').serialize();
+      aPost(urlPost, data);
       });
     });
 
@@ -883,112 +557,6 @@ $(document).ready(function (){
       mdal.find("#today2").val(today);
   });
 
-//MODAL AFEGIR ALUMNES
-  $('#afegirModal').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var escola = actg.data('escola');
-    var alumneCurs = actg.data('curs');
-    var usr = actg.data('usr');
-    var t_use1, v_use1, t_use2, v_use2;
-    if (usr === "ee") {
-      t_use1 = "Si";
-      v_use1 = true;
-      t_use2 = "No";
-      v_use2 = null;
-      alumneCurs = "Seleccioneu curs";
-      v_alumneCurs = null;
-    } else {
-      t_use1 = "No";
-      v_use1 = null;
-      t_use2 = "Si";
-      v_use2 = true;
-      v_alumneCurs = alumneCurs;
-    };
-
-    var mdal = $(this);
-    mdal.find(".modal-body #cdEscola").val(escola);
-    mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
-    mdal.find('.modal-body #o_use1').text(t_use1).val(v_use1);
-    mdal.find('.modal-body #o_use2').text(t_use2).val(v_use2);
-
-    $('#dadesAlumne').on('submit', function(e){
-        e.preventDefault();
-        var urlPost = "/alumneNou";
-        $.ajax({
-            url: urlPost, //this is the submit URL
-            type: 'POST',
-            data: $('#dadesAlumne').serialize(),
-            success:function(){
-            location.reload();
-          }
-      }).then(function(){
-        $.LoadingOverlay("show");
-        $('#afegirModal').modal('toggle');
-      });
-      $.LoadingOverlay("hide");
-        });
-      });
-
- /* 
-
-  if (usr==="tutor"){
-      $("#selCurs").prop('disabled', true);
-    } else {
-      $("#selCurs").prop('disabled', false);
-    }*/
-
-//MODAL DELETE ALUMNES
-  $('#deleteModal').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var alumneId = actg.data('id');
-    var alumneNom = actg.data('nom');
-    var mdal = $(this);
-    mdal.find(".modal-body #nomAlDel").text(alumneNom);
-    $('#del_alum').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/dades_suprD/" + alumneId + "?_method=put";
-      $('#deleteModal').modal('toggle');
-      $.ajax({
-          url: urlPost, //this is the submit URL
-          type: 'POST',
-          data: $('#del_alum').serialize(),
-          success:function(){
-            location.reload();
-          }
-      }).then(function(){
-        $.LoadingOverlay("show");
-        $('#deleteModal').modal('toggle');
-      });
-      $.LoadingOverlay("hide");
-      });
-    });
-
-//MODAL alta ALUMNES
-  $('#altaModal').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var alumneId = actg.data('id');
-    var alumneNom = actg.data('nom');
-    var mdal = $(this);
-    mdal.find(".modal-body #nomAlAl").text(alumneNom);
-    $('#alt_alum').on('submit', function(e){
-      e.preventDefault();
-      var urlPost = "/dades_alta/" + alumneId + "?_method=put";
-      $('#altaModal').modal('toggle');
-      $.ajax({
-          url: urlPost, //this is the submit URL
-          type: 'POST',
-          data: $('#alt_alum').serialize(),
-          success:function(){
-            location.reload();
-          }
-      }).then(function(){
-        $.LoadingOverlay("show");
-        $('#altaModal').modal('toggle');
-      });
-      $.LoadingOverlay("hide");
-      });
-    });
-
 /////////// M E N J A D O R ////////////////
 //DATEPICKER
     $('#mData .input-group.date').datepicker({
@@ -1019,74 +587,17 @@ $(document).ready(function (){
       }
     });
 
-////// SEGUIMENT reload al mateix TAB /////////////////////////
- $(document).ready(function() {
-    if (location.hash) {
-        $("a[href='" + location.hash + "']").tab("show");
-        console.log('location.hash: ' + location.hash);
-    }
-    $(document.body).on("click", "a[data-toggle]", function(event) {
-        location.hash = this.getAttribute("href");
-        console.log('CLICK location.hash: ' + location.hash);
-    });
+///AJAX FUNCTION///
+   function aPost(path, obj){
+     return   $.ajax({
+         url: path, //this is the submit URL
+         type: 'POST',
+         data: obj
+     }).done(function(){
+       location.reload();
+        $.LoadingOverlay("hide");
+        $('.modal').removeClass('show');
+     });
+   }
+
 });
-
-$(window).on("popstate", function() {
-    var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
-    $("a[href='" + anchor + "']").tab("show");
-    console.log('POPSTATE anchor: ' + location.hash);
-    console.log('POPSTATE location.hash: ' + location.hash);
-});
-
- /* $('#segTabs a').click(function(e) {
-    e.preventDefault();
-    $(this).tab('show');
-  });
-
-  // store the currently selected tab in the hash value
-  $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
-    var id = $(e.target).attr("href").substr(1);
-    window.location.hash = id;
-  });
-
-  // on load of the page: switch to the currently selected tab
-  var hash = window.location.hash;
-  $('#segTabs a[href="' + hash + '"]').tab('show');*/
-
-///////////// V A L I D A T O R /////////////////
-/*
-  $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator('destroy');
-  $(this).find('form[data-toggle=validator]').validator() });
-  $('.modal').on('shown.bs.modal', function (e) { $(this).find('form[data-toggle=validator]').validator() });
-*/
-});
-
-
-/*  $('button#assistBtn').click(function(){
-    $('assistModal').modal('hide')
-  });*/
-
-
-/*
-$('.datepicker').datepicker({
-    format: {
-      
-//         * Say our UI should display a week ahead,
-//         * but textbox should store the actual date.
-//         * This is useful if we need UI to select local dates,
-//         * but store in UTC
-       
-        toDisplay: function (date, format, language) {
-            var d = new Date(date);
-            d.setDate(d.getDate() - 7);
-            return d.toISOString();
-        },
-        toValue: function (date, format, language) {
-            var d = new Date(date);
-            d.setDate(d.getDate() + 7);
-            return new Date(d);
-        }
-    },
-    autoclose: true
-});
-*/
