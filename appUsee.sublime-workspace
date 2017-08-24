@@ -413,6 +413,48 @@
 			}
 		},
 		{
+			"file": "/C/Users/Charlie/Downloads/startbootstrap-heroic-features-gh-pages/startbootstrap-heroic-features-gh-pages/index.html",
+			"settings":
+			{
+				"buffer_size": 5420,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/home.ejs",
+			"settings":
+			{
+				"buffer_size": 3219,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Charlie/Downloads/startbootstrap-heroic-features-gh-pages/startbootstrap-heroic-features-gh-pages/vendor/bootstrap/css/bootstrap.css",
+			"settings":
+			{
+				"buffer_size": 156884,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Charlie/Downloads/startbootstrap-heroic-features-gh-pages/startbootstrap-heroic-features-gh-pages/css/heroic-features.css",
+			"settings":
+			{
+				"buffer_size": 395,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/stylesheets/css/style.css",
+			"settings":
+			{
+				"buffer_size": 4617,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "controllers/ALUMNES_controller.js",
 			"settings":
 			{
@@ -488,7 +530,16 @@
 			"file": "public/javascripts/global.js",
 			"settings":
 			{
-				"buffer_size": 35886,
+				"buffer_size": 19035,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/javascripts/seguiment.js",
+			"settings":
+			{
+				"buffer_size": 13936,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -506,7 +557,25 @@
 			"file": "views/layout.ejs",
 			"settings":
 			{
-				"buffer_size": 8874,
+				"buffer_size": 9019,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/seg_act_EE.ejs",
+			"settings":
+			{
+				"buffer_size": 19262,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 2184,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -573,13 +642,12 @@
 	"expanded_folders":
 	[
 		"/E/AppUsee",
-		"/E/AppUsee/models",
 		"/E/AppUsee/public",
 		"/E/AppUsee/public/javascripts",
-		"/E/AppUsee/public/javascripts/modals",
 		"/E/AppUsee/public/stylesheets",
 		"/E/AppUsee/public/stylesheets/css",
-		"/E/AppUsee/routes"
+		"/E/AppUsee/routes",
+		"/E/AppUsee/views"
 	],
 	"file_history":
 	[
@@ -728,6 +796,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console",
 			"Del",
 			"req.body",
 			"alumne",
@@ -854,8 +923,7 @@
 			"windo",
 			"window",
 			"3",
-			"separador2",
-			"a"
+			"separador2"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -864,7 +932,7 @@
 		"replace_history":
 		[
 		],
-		"reverse": true,
+		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -873,7 +941,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -901,11 +969,157 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "/C/Users/Charlie/Downloads/startbootstrap-heroic-features-gh-pages/startbootstrap-heroic-features-gh-pages/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5420,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1668,
+								4925
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2075.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "views/home.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3219,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								412,
+								412
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Charlie/Downloads/startbootstrap-heroic-features-gh-pages/startbootstrap-heroic-features-gh-pages/vendor/bootstrap/css/bootstrap.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 156884,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70742,
+								70555
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 72955.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/Charlie/Downloads/startbootstrap-heroic-features-gh-pages/startbootstrap-heroic-features-gh-pages/css/heroic-features.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								367
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/stylesheets/css/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4617,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1104,
+								1104
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 780.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "controllers/ALUMNES_controller.js",
 					"semi_transient": false,
 					"settings":
@@ -917,8 +1131,8 @@
 						"selection":
 						[
 							[
-								8391,
-								8410
+								661,
+								661
 							]
 						],
 						"settings":
@@ -927,14 +1141,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 660.0,
+						"translation.y": 1920.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 7,
 					"file": "public/javascripts/modals/nouAlumne.ejs",
 					"semi_transient": false,
 					"settings":
@@ -960,11 +1174,11 @@
 						"translation.y": 2100.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 8,
 					"file": "public/javascripts/modals/dades.ejs",
 					"semi_transient": false,
 					"settings":
@@ -990,11 +1204,11 @@
 						"translation.y": 840.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 9,
 					"file": "controllers/USER_ee_controller.js",
 					"semi_transient": false,
 					"settings":
@@ -1019,11 +1233,11 @@
 						"translation.y": 1266.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 10,
 					"file": "routes/index.js",
 					"semi_transient": false,
 					"settings":
@@ -1047,11 +1261,11 @@
 						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 11,
 					"file": "controllers/SESSION_controller.js",
 					"semi_transient": false,
 					"settings":
@@ -1076,11 +1290,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 12,
 					"file": "public/javascripts/modals/deleteUser.ejs",
 					"semi_transient": false,
 					"settings":
@@ -1106,11 +1320,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 13,
 					"file": "views/usuari.ejs",
 					"semi_transient": false,
 					"settings":
@@ -1136,30 +1350,24 @@
 						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 15,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 9,
+					"buffer": 14,
 					"file": "public/javascripts/global.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 35886,
+						"buffer_size": 19035,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3571,
-								3571
+								19029,
+								19029
 							]
 						],
 						"settings":
@@ -1169,14 +1377,44 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1777.0,
+						"translation.y": 11520.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "public/javascripts/seguiment.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13936,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13565,
+								13546
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7140.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 16,
 					"file": "controllers/USER_controller.js",
 					"semi_transient": false,
 					"settings":
@@ -1201,24 +1439,24 @@
 						"translation.y": 1826.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 17,
 					"file": "views/layout.ejs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8874,
+						"buffer_size": 9019,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4743,
-								4743
+								8862,
+								8862
 							]
 						],
 						"settings":
@@ -1228,7 +1466,67 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2766.0,
+						"translation.y": 3896.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "views/seg_act_EE.ejs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19262,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								50,
+								50
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								357,
+								357
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 11,
@@ -1254,18 +1552,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.450966018451,
 			1.0
 		],
 		"rows":
