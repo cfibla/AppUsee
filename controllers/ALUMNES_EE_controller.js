@@ -110,7 +110,7 @@ exports.altresDelete = function (req, res) {
 };
 
 //Suprimir alumne - VIEW
-exports.suprV = function (req, res) {
+/*exports.suprV = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
@@ -120,7 +120,7 @@ exports.suprV = function (req, res) {
 
 		}
 	});
-};
+};*/
 
 //Suprimir alumne - DELETE
 exports.alta = function (req, res) {

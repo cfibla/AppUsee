@@ -41,6 +41,15 @@ module.exports = new mongoose.Schema ({
 	codiEscola: Number,
 	eeUsee: Boolean,
 	curs: String,
+//REUNIONS PARES
+	reunionsPares:[{
+		curs: String,
+		date: String,
+		convocada: String,
+		composicio: String,
+		body: String,
+		conclusions: String
+	}],
 //ASSISTÈNCIA
 	assist: [{
 		date: String,

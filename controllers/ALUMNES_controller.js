@@ -164,6 +164,19 @@ exports.update = function (req, res){
 	});
 };
 
+//Suprimir alumne - DELETE
+exports.suprD = function (req, res) {
+
+	var alumneId = req.params.id;
+	models.Alumne.findByIdAndRemove(alumneId, function(error, alumne){
+		if (error){
+			return res.json(error);
+		} else {
+			res.redirect('/list');
+			}
+	});
+};
+
 //Assistència d'alumnes - GET
 exports.assisGet = function (req, res) {
 
@@ -381,15 +394,15 @@ exports.menjaAlumne = function (req, res) {
 	});
 };
 
-//Suprimir alumne - DELETE
-exports.suprD = function (req, res) {
-
+//REUNIONS PARES GET
+exports.reunioGet = function (req, res) {
 	var alumneId = req.params.id;
-	models.Alumne.findByIdAndRemove(alumneId, function(error, alumne){
-		if (error){
+	models.Alumne.findById(alumneId, function(error, alumne){
+		if (error) {
 			return res.json(error);
 		} else {
-			res.redirect('/list');
-			}
+			res.render('reunions_pares', {alumne: alumne, page_name:''});
+
+		}
 	});
 };
