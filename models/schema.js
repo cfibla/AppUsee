@@ -48,7 +48,9 @@ module.exports = new mongoose.Schema ({
 		convocada: String,
 		composicio: String,
 		body: String,
-		conclusions: String
+		conclusions: String,
+		creat: String,
+		dataIso: Date
 	}],
 //ASSISTÈNCIA
 	assist: [{

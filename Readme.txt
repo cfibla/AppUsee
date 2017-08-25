@@ -12,7 +12,7 @@ Uppercase modificació dades
 
 
 AULA ORDINARIA
-Reunions pares
+Reunions pares ->view
 Modals Assistència i Menjador
 Imprimir assistència diària
 Imprimir menjador diari
