@@ -12,15 +12,12 @@ Uppercase modificació dades
 
 
 AULA ORDINARIA
-Reunions pares ->view
+Reunions pares ->view, creador pot editar
 Modals Assistència i Menjador
 Imprimir assistència diària
 Imprimir menjador diari
 
 USEE
-
-/* Seguiment -> Tornar a la pestaña
-Donar usuaris de baixa
 
 USUARIS DEMO
 demo@demo.cat

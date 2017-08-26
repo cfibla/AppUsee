@@ -17,7 +17,7 @@
     </div>
 
 <!-- REUNIONS -->
-        <div class="container seguiment tab-pane fade in show active" id="actuacions" role="tabpanel">
+        <div class="container seguiment tab-pane fade in show active" id="reunionsPares" role="tabpanel">
           <div class="row">
             <div class="container tbl">
               <div class="row">
@@ -29,41 +29,53 @@
                 <table class="table table-hover">
                   <thead>
                     <tr class="row m-0">
-                      <th class="d-inline-block col-2">Curs</th>
-                      <th class="d-inline-block col-2">Data</th>
+                      <th class="d-inline-block col-1">Curs</th>
+                      <th class="d-inline-block col-1">Data</th>
                       <th class="d-inline-block col-2">Mestre/a</th>
-                      <th class="d-inline-block col-3">Text</th>
+                      <th class="d-inline-block col-5">Text</th>
                       <th class="d-inline-block col-3"> </th>
                     </tr>
                   </thead>
                   <tbody>
                     <%for (i = 0; i < alumne.reunionsPares.length; i++) { 
                       var punts = "";
-                      if (alumne.reunionsPares[i].body.length > 80)
+                      if (alumne.reunionsPares[i].body.length > 50)
                       {punts="..."};
                     %>  
                     <tr class="row m-0">
-                      <td class="d-inline-block col-2">
+                      <td class="d-inline-block col-1">
                         <%=alumne.reunionsPares[i].curs%>
                       </td>
-                      <td class="d-inline-block col-2">
+                      <td class="d-inline-block col-1">
                         <%=alumne.reunionsPares[i].date%>
                       </td>
                       <td class="d-inline-block col-2">
                         <%=alumne.reunionsPares[i].creat%>
                       </td>
-                      <td class="d-inline-block col-3">
-                        <a href="#" title="<%=alumne.reunionsPares[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.reunionsPares[i].body.substring(0,80) + punts%></a>
+                      <td class="d-inline-block col-5">
+                        <a href="#" title="<%=alumne.reunionsPares[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.reunionsPares[i].body.substring(0,50) + punts%></a>
                       </td>
                       <td class="d-inline-block col-3">
                         <span class="col-md-1">
-                          <a id="btnActuGet" href="/javascripts/modals/actuacionsEeGet.ejs" data-target="#actuModalGet" data-toggle="modal" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.reunionsPares[i].date%>"
-                            data-body = "<%=alumne.reunionsPares[i].body%>" data-tggle="tooltip" data-placement="top" title="Veure"><i class="fa fa-eye gris" aria-hidden="true"></i>
+                          <a id="btnreuParesGet" 
+                          href="/javascripts/modals/reuParesGet.ejs" 
+                          data-target="#reuParesModalGet" 
+                          data-toggle="modal" 
+                          data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" 
+                          data-curs="<%=alumne.curs%>" 
+                          data-dta="<%=alumne.reunionsPares[i].date%>"
+                          data-creat="<%=alumne.reunionsPares[i].creat%>" 
+                          data-convo="<%=alumne.reunionsPares[i].convocada%>"
+                          data-assist="<%=alumne.reunionsPares[i].assistencia%>"
+                          data-compo="<%=alumne.reunionsPares[i].composicio%>"
+                          data-body="<%=alumne.reunionsPares[i].body%>"
+                          data-concl="<%=alumne.reunionsPares[i].conclusions%>"
+                          data-tggle="tooltip" data-placement="top" title="Veure"><i class="fa fa-eye gris" aria-hidden="true"></i>
                           </a>
                         </span>
-                        <% if(session.user.mestre === "ee"){ %>
+                        <% if(session.user.email === alumne.reunionsPares[i].userMail){ %>
                         <span class="col-md-1">
-                          <a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.reunionsPares[i].date%>" data-body = "<%=alumne.reunionsPares[i].body%>" data-target="#actuModalUpd" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                          <a id = "btnreuParesUpd" data-toggle="modal" href="/javascripts/modals/reuParesEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.reunionsPares[i].date%>" data-body = "<%=alumne.reunionsPares[i].body%>" data-target="#reuParesModalUpd" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
                           </a>
                         </span>
                         <span class="col-md-1">
@@ -71,7 +83,7 @@
                           </a>
                         </span>
                         <span class="col-md-1">
-                          <a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.reunionsPares[i].date%>" data-body = "<%=alumne.reunionsPares[i].body%>" data-target="#actuModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                          <a id = "btnreuParesDel" data-toggle="modal" href="/javascripts/modals/reuParesDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.reunionsPares[i].date%>" data-body = "<%=alumne.reunionsPares[i].body%>" data-target="#reuParesModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
                           </a>
                         </span>
                             <% } %>
@@ -85,27 +97,40 @@
             </div>
             <div class="container">
               <div class="clearfix float-right">
-                <% 
+                <%
+                var autor = session.user.nom + " " + session.user.cognom;
+                var num = alumne.reunionsPares.length;
+                var mail = session.user.email;
                 var li = "/list";
+
                 if(session.user.mestre === "ee"){
-                  li = "/list_EE"}
+                  li = "/list_EE"
+                }
                 %>
                 <span class="col-md-2">
                   <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna enrere</span></a>
                 </span>
-                <%if(session.user.mestre === "ee"){%>
+
                   <span class="col-md-2">
-                    <a data-toggle="modal" class = "btn btn-default float-right" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today()%>" data-actunum = "<%=alumne.reunionsPares.length%>" data-target="#actuModal"><i class="fa fa-plus"></i> Nova actuació</a>
+                    <a data-toggle="modal" class = "btn btn-default float-right" id="btnreuParesAfegir" role = "button" href="/javascripts/modals/reuPares.ejs" 
+                    data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>"
+                    data-id="<%=alumne._id%>" 
+                    data-curs="<%=alumne.curs%>"
+                    data-creat="<%=autor%>"
+                    data-today="<%=today()%>"
+                    data-num = "<%=num%>"
+                    data-mail = "<%=mail%>"
+                    data-target="#reuParesModal"><i class="fa fa-plus"></i> Nova reunió</a>
                   </span>
-                <%}%>
+
               </div>
             </div>
           </div>
         </div>
 
-<!-- MODALS ACTUACIONS -->
+<!-- MODALS -->
 <!--CREATE-->
-<div class="modal fade" id="actuModal" role="dialog">
+<div class="modal fade" id="reuParesModal" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content">
@@ -113,7 +138,7 @@
     </div>
 </div>
 <!--READ-->
-<div class="modal fade" id="actuModalGet" role="dialog">
+<div class="modal fade" id="reuParesModalGet" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content">
@@ -121,7 +146,7 @@
     </div>
 </div>
 <!--UPDATE-->
-<div class="modal fade" id="actuModalUpd" role="dialog">
+<div class="modal fade" id="reuParesModalUpd" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content">
@@ -129,76 +154,7 @@
     </div>
 </div>
 <!--DELETE-->
-<div class="modal fade" id="actuModalDel" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
-    </div>
-</div>
-
-<!-- MODALS CAD -->
-<!--CREATE-->
-<div class="modal fade" id="cadModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
-    </div>
-</div>
-<!--READ-->
-<div class="modal fade" id="cadModalGet" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
-    </div>
-</div>
-<!--UPDATE-->
-<div class="modal fade" id="cadModalUpd" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
-    </div>
-</div>
-<!--DELETE-->
-<div class="modal fade" id="cadModalDel" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
-    </div>
-</div>
-
-
-<!-- MODALS ALTRES COORD -->
-<!--CREATE-->
-<div class="modal fade" id="altresCoordModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
-    </div>
-</div>
-<!--READ-->
-<div class="modal fade" id="altresCoordModalGet" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
-    </div>
-</div>
-<!--UPDATE-->
-<div class="modal fade" id="altresCoordModalUpd" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
-    </div>
-</div>
-<!--DELETE-->
-<div class="modal fade" id="altresCoordModalDel" role="dialog">
+<div class="modal fade" id="reuParesModalDel" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content-->
       <div class="modal-content">

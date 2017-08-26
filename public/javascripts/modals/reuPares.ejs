@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Reunions amb la família</title>
+  </head>
+
+  <body>
+    <div class="modal-header">
+      <div class="modal-title">
+        Reunions amb la família
+      </div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form role="form" method="post" id="reunions_Pares">
+    
+          <div class="md-form col-12">
+            <div class="row">
+<!--DATEPICKER-->
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="md-form col-md-3" id="rData">
+                    <strong>Data de la reunió</strong>
+                    <div class="input-group date" data-provide="datepicker">
+                      <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="text" class="form-control textcenter" id="reuData"  form="reunions_Pares">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <input type="hidden" id="cursAlVal"/>
+              <input type="hidden" id="reuMestreVal"/>
+              <input type="hidden" id="email"/>
+
+              <div class="md-form col-md-5">
+                <strong>Alumne/a: </strong><span id="nomAl"></span>
+              </div>
+              <div class="md-form col-md-2">
+                <strong>Curs: </strong><span id="cursAl"></span>
+              </div>
+              <div class="md-form col-md-5">
+                <strong>Mestre/a: </strong><span id="reuMestre"></span>
+              </div>
+
+              <div class="md-form col-md-4">
+                <label for="reuConv">Qui convoca la reunió?</label>
+                <input type="text" class="form-control alturabox" id="reuConv" required="true">
+              </div>
+
+              <div class="md-form col-md-4">
+                <input type="text" class="form-control" id="reuAssist" required="true">
+                <label for="reuConv">Assistents</label>
+              </div>
+
+              <div class="md-form col-md-4">
+                <input type="text" class="form-control" id="reuComp" required="true">
+                <label for="reuConv">Composició familiar</label>
+              </div>
+
+              <div class="md-form col-12" style="height:200px; margin-top: 20px;">
+                <label class="active" for="reuBody">Temes tractats</label><br>
+                <textarea class="form-control" style="height:100%;" id="reuBody" form="reunions_Pares"></textarea>
+              </div>
+
+              <div class="md-form col-12 clear" style="height:100px; margin-top: 40px;">
+                <label class="active" for="reuConcl">Acords i conclusions</label><br>
+                <textarea class="form-control" style="height:100%;" id="reuConcl" form="reunions_Pares"></textarea>
+              </div>
+            </div>
+          </div>
+
+      </form>
+    </div>    
+    <div class="modal-footer">
+      <button type="submit" form="reunions_Pares" class="btn btn-success btn-block" id="actuBtn">Desa</button>
+    </div>
+  </body>
+</html>

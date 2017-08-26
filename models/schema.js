@@ -46,10 +46,12 @@ module.exports = new mongoose.Schema ({
 		curs: String,
 		date: String,
 		convocada: String,
-		composicio: String,
+		assistencia: String,
 		body: String,
 		conclusions: String,
+		composicio: String,
 		creat: String,
+		userMail: String,
 		dataIso: Date
 	}],
 //ASSISTÈNCIA

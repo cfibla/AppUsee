@@ -37,15 +37,20 @@ router.put('/usuari_ee_D/:id',		userEeController.delUser);
 router.get('/list',					sessionController.loginRequired, alumController.list);
 router.post('/alumneNou', 			sessionController.loginRequired, alumController.create);
 router.put('/dadesUpdate/:id', 		sessionController.loginRequired, alumController.update);
+router.put('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
+
+router.get('/reunions-pares/:id', 	sessionController.loginRequired, alumController.reunioGet);
+router.put('/reunions-pares/post/:id', 	sessionController.loginRequired, alumController.reunioPost);
+
 router.get('/assistencia',			sessionController.loginRequired, alumController.assisGet);
 router.post('/assisData',			sessionController.loginRequired, alumController.assisData);
 router.put('/assistenciaN',			sessionController.loginRequired, alumController.assisPost);
 router.get('/assistenciaA/:id',		sessionController.loginRequired, alumController.assisAlumne);
+
 router.get('/menjador',				sessionController.loginRequired, alumController.menjaGet);
 router.post('/menjaData',			sessionController.loginRequired, alumController.menjaData);
 router.put('/menjadorN',			sessionController.loginRequired, alumController.menjaPost);
 router.get('/menjadorA/:id',		sessionController.loginRequired, alumController.menjaAlumne);
-router.put('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
 
 //rutas ALUMNE EE
 router.get('/list_EE',				sessionController.loginRequired, alumEeController.list);

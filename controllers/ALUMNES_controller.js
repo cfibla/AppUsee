@@ -406,3 +406,16 @@ exports.reunioGet = function (req, res) {
 		}
 	});
 };
+
+//SEGUIMENT POST
+exports.reunioPost = function (req, res) {
+	var alumneId = req.params.id;
+	var alum = req.body;
+	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
+	function (error, alumne){
+		if (error) res.json(error);
+		res.json(alumne);
+		console.log(alum);
+	});
+
+}

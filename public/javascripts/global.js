@@ -96,6 +96,22 @@ $(document).ready(function (){
       });
     });
 
+
+// USUARI CURS
+    if ($('#categoria').val()==='tutor'){
+        $("#usrCurs").show();
+      } else {
+        $("#usrCurs").hide();
+      }
+    $('#categoria').change(function(){
+      if ($('#categoria').val()==='tutor'){
+        $("#usrCurs").fadeIn('slow');
+      } else {
+        $("#usrCurs").hide('slow');
+      }
+    });
+
+
 ///////// A L U M N E S //////////////
 //  D A D E S   P E R S O N A L S
 
@@ -171,7 +187,6 @@ $(document).ready(function (){
     var esp = actg.data('esp');
     var serpriv = actg.data('serpriv');
 
-
     if (der === ""){
       der = "Seleccioneu"
     };
@@ -190,8 +205,6 @@ $(document).ready(function (){
     var cdim = funcSel(cdm);
     var eap = funcSel(veap);
     var dic = funcSel(dict);
-
-
 
     function funcSel (v){
       var op1, val1, op2, val2;
@@ -436,8 +449,6 @@ $(document).ready(function (){
     });
   });
 
-
-
 //MODAL AFEGIR ALUMNES
   $('#afegirModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
@@ -573,21 +584,151 @@ $(document).ready(function (){
         $('#menjaD').submit();
     })
 
-///// USUARI /////////////
-    if ($('#categoria').val()==='tutor'){
-        $("#usrCurs").show();
-      } else {
-        $("#usrCurs").hide();
-      }
-    $('#categoria').change(function(){
-      if ($('#categoria').val()==='tutor'){
-        $("#usrCurs").fadeIn('slow');
-      } else {
-        $("#usrCurs").hide('slow');
-      }
+///////////// REUNIONS /////////
+//CREATE MODAL
+  $('#reuParesModal').on('shown.bs.modal', function (e) {
+    //datepicker//
+    $('#rData .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+    });
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var creat = actg.data('creat');
+    var mail = actg.data('mail');
+    var reuParesnum = actg.data('num');
+    var today = actg.data('today');
+
+    if (typeof(reuParesnum)=== "undefined"){
+      reuParesnum = 0;
+    }
+
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAl').text(alumneNom);
+    mdal.find('.modal-body #cursAl').text(alumneCurs)
+    mdal.find('.modal-body #cursAlVal').val(alumneCurs).attr("name", "reunionsPares." + reuParesnum + ".curs");
+    mdal.find('.modal-body #reuMestre').text(creat)
+    mdal.find('.modal-body #reuMestreVal').val(creat).attr("name", "reunionsPares." + reuParesnum + ".creat");
+    mdal.find('.modal-body #email').val(mail).attr("name", "reunionsPares." + reuParesnum + ".userMail");
+    mdal.find('.modal-body #reuData').attr("name", "reunionsPares." + reuParesnum + ".date");
+    mdal.find('.modal-body #reuConv').attr("name", "reunionsPares." + reuParesnum + ".convocada");
+    mdal.find('.modal-body #reuComp').attr("name", "reunionsPares." + reuParesnum + ".composicio");
+    mdal.find('.modal-body #reuAssist').attr("name", "reunionsPares." + reuParesnum + ".assistencia");
+    mdal.find('.modal-body #reuBody').attr("name", "reunionsPares." + reuParesnum + ".body");
+    mdal.find('.modal-body #reuConcl').attr("name", "reunionsPares." + reuParesnum + ".conclusions");
+    mdal.find('.modal-body #reuData').val(today);
+    $('#reunions_Pares').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/reunions-pares/post/" + alumneId + "?_method=put";
+      var data = $('#reunions_Pares').serialize();
+ 
+      $.LoadingOverlay("show");
+      aPost (urlPost, data);
+      });
     });
 
-///AJAX FUNCTION///
+
+//READ MODAL
+    $('#reuParesModalGet').on('shown.bs.modal', function (e) {
+      var actg = $(e.relatedTarget);
+      var alumneNom = actg.data('nom');
+      var alumneCurs = actg.data('curs');
+      var dta = actg.data('dta');
+      var mestre = actg.data('creat');
+      var convo = actg.data('convo');
+      var assist = actg.data('assist');
+      var compo = actg.data('compo');
+      var body = actg.data('body');
+      var conclu = actg.data('concl');
+      var mdal = $(this);
+      mdal.find('.modal-body #nomAeAl').text(alumneNom);
+      mdal.find('.modal-body #cursAeAl').text(alumneCurs);
+      mdal.find('.modal-body #reuDataGet').text(dta);
+      mdal.find('.modal-body #reuMestreGet').text(mestre);
+      mdal.find('.modal-body #reuConvGet').text(convo);
+      mdal.find('.modal-body #reuAssistGet').text(assist);
+      mdal.find('.modal-body #reuCompoGet').text(compo);
+      mdal.find('.modal-body #reuBodyGet').text(body);
+      mdal.find('.modal-body #reuConclGet').text(conclu);
+    });
+
+//UPDATE MODAL (ACTUACIONS)
+  $('#reuParesModalUpd').on('shown.bs.modal', function (e) {
+    //datepicker//
+    $('#acDataUpd .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
+    });
+    var actg = $(e.relatedTarget);
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneId = actg.data('id');
+    var i = actg.data('i')
+    var dta = actg.data('dta');
+    var body = actg.data('body');
+    location.hash='';
+    var url = location.href;
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAlUpd').text(alumneNom);
+    mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
+    mdal.find('.modal-body #reuDataUpd').attr("name", "reunionsPares." + i + ".date");
+    mdal.find('.modal-body #actuBodyUpd').attr("name", "reunionsPares." + i + ".body");
+    mdal.find('.modal-body #reuDataUpd').val(dta);
+    mdal.find('.modal-body #actuBodyUpd').val(body);
+    $('#upd_actuacions').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
+      var data = $('#upd_actuacions').serialize();
+      var anchor = 'actuacions';
+      $.LoadingOverlay("show");
+      ajaxReuPost (url, urlPost, data, anchor);
+      });
+    });
+
+
+//DELETE MODAL (ACTUACIONS)
+  $('#reuParesModalDel').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var alumneId = actg.data('id');
+    var alumneNom = actg.data('nom');
+    var alumneCurs = actg.data('curs');
+    var alumneI = actg.data('i');
+    var alumneDta = actg.data('dta');
+    var alumneBody = actg.data('body');
+    location.hash='';
+    var url = location.href;
+    var mdal = $(this);
+    mdal.find('.modal-body #nomAlDel').text(alumneNom);
+    mdal.find('.modal-body #cursAlDel').text(alumneCurs);
+    mdal.find('.modal-body #reuDataDel').text(alumneDta);
+    mdal.find('.modal-body #actuBodyDel').text(alumneBody);
+    $('#del_actuacions').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
+      var data = $('#del_actuacions').serialize(); 
+      var anchor = 'actuacions';
+      $.LoadingOverlay("show");
+      ajaxReuPost (url, urlPost, data, anchor);
+      });
+    });
+
+
+///AJAX FUNCTIONS///
+
    function aPost(path, obj){
      return   $.ajax({
          url: path, //this is the submit URL
@@ -599,5 +740,20 @@ $(document).ready(function (){
         $('.modal').removeClass('show');
      });
    }
+
+   function ajaxReuPost(ur, path, obj, anchor){
+     return   $.ajax({
+         url: path, //this is the submit URL
+         type: 'POST',
+         data: obj
+     }).done(function(){
+        var urlLong = ur+anchor;
+       window.location.href = urlLong;
+       location.reload();
+        $.LoadingOverlay("hide");
+        $('.modal').removeClass('show');
+     });
+   }
+
 
 });
