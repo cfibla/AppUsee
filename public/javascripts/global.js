@@ -604,26 +604,26 @@ $(document).ready(function (){
     var alumneId = actg.data('id');
     var creat = actg.data('creat');
     var mail = actg.data('mail');
-    var reuParesnum = actg.data('num');
+    var i = actg.data('i');
     var today = actg.data('today');
 
-    if (typeof(reuParesnum)=== "undefined"){
-      reuParesnum = 0;
+    if (typeof(i)=== "undefined"){
+      i = 0;
     }
 
     var mdal = $(this);
     mdal.find('.modal-body #nomAl').text(alumneNom);
     mdal.find('.modal-body #cursAl').text(alumneCurs)
-    mdal.find('.modal-body #cursAlVal').val(alumneCurs).attr("name", "reunionsPares." + reuParesnum + ".curs");
+    mdal.find('.modal-body #cursAlVal').val(alumneCurs).attr("name", "reunionsPares." + i + ".curs");
     mdal.find('.modal-body #reuMestre').text(creat)
-    mdal.find('.modal-body #reuMestreVal').val(creat).attr("name", "reunionsPares." + reuParesnum + ".creat");
-    mdal.find('.modal-body #email').val(mail).attr("name", "reunionsPares." + reuParesnum + ".userMail");
-    mdal.find('.modal-body #reuData').attr("name", "reunionsPares." + reuParesnum + ".date");
-    mdal.find('.modal-body #reuConv').attr("name", "reunionsPares." + reuParesnum + ".convocada");
-    mdal.find('.modal-body #reuComp').attr("name", "reunionsPares." + reuParesnum + ".composicio");
-    mdal.find('.modal-body #reuAssist').attr("name", "reunionsPares." + reuParesnum + ".assistencia");
-    mdal.find('.modal-body #reuBody').attr("name", "reunionsPares." + reuParesnum + ".body");
-    mdal.find('.modal-body #reuConcl').attr("name", "reunionsPares." + reuParesnum + ".conclusions");
+    mdal.find('.modal-body #reuMestreVal').val(creat).attr("name", "reunionsPares." + i + ".creat");
+    mdal.find('.modal-body #email').val(mail).attr("name", "reunionsPares." + i + ".userMail");
+    mdal.find('.modal-body #reuData').attr("name", "reunionsPares." + i + ".date");
+    mdal.find('.modal-body #reuConv').attr("name", "reunionsPares." + i + ".convocada");
+    mdal.find('.modal-body #reuComp').attr("name", "reunionsPares." + i + ".composicio");
+    mdal.find('.modal-body #reuAssist').attr("name", "reunionsPares." + i + ".assistencia");
+    mdal.find('.modal-body #reuBody').attr("name", "reunionsPares." + i + ".body");
+    mdal.find('.modal-body #reuConcl').attr("name", "reunionsPares." + i + ".conclusions");
     mdal.find('.modal-body #reuData').val(today);
     $('#reunions_Pares').on('submit', function(e){
       e.preventDefault();
@@ -634,7 +634,6 @@ $(document).ready(function (){
       aPost (urlPost, data);
       });
     });
-
 
 //READ MODAL
     $('#reuParesModalGet').on('shown.bs.modal', function (e) {
@@ -660,10 +659,10 @@ $(document).ready(function (){
       mdal.find('.modal-body #reuConclGet').text(conclu);
     });
 
-//UPDATE MODAL (ACTUACIONS)
+//UPDATE MODAL
   $('#reuParesModalUpd').on('shown.bs.modal', function (e) {
     //datepicker//
-    $('#acDataUpd .input-group.date').datepicker({
+    $('#rDataUpd .input-group.date').datepicker({
       format: "dd/mm/yyyy",
       setDate: new Date(),
       maxViewMode: 2,
@@ -680,15 +679,14 @@ $(document).ready(function (){
     var i = actg.data('i')
     var dta = actg.data('dta');
     var body = actg.data('body');
-    location.hash='';
-    var url = location.href;
+
     var mdal = $(this);
     mdal.find('.modal-body #nomAlUpd').text(alumneNom);
     mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
-    mdal.find('.modal-body #reuDataUpd').attr("name", "reunionsPares." + i + ".date");
-    mdal.find('.modal-body #actuBodyUpd').attr("name", "reunionsPares." + i + ".body");
     mdal.find('.modal-body #reuDataUpd').val(dta);
+    mdal.find('.modal-body #reuDataUpd').attr("name", "reunionsPares." + i + ".date");
     mdal.find('.modal-body #actuBodyUpd').val(body);
+    mdal.find('.modal-body #actuBodyUpd').attr("name", "reunionsPares." + i + ".body");
     $('#upd_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";

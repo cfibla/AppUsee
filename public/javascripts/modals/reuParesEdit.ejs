@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Modificar actuació</title>
+    <title>Modificar reunió</title>
 
   </head>
   <body>
     <div class="modal-header">
-      <div class="modal-title">Modificar actuació</div>
+      <div class="modal-title">Modificar reunió</div>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -23,23 +23,23 @@
           </div>
 
           <div class="md-form col-12"><br>          
-            <form role="form" method="post" id="upd_actuacions">
+            <form role="form" method="post" id="reunions_pares_upd">
 
             <!--DATEPICKER-->
-              <div class="md-form col-md-3 alturabox" id="acDataUpd">
-                <label class="active" for="actuDataUpd">Data</label>
+              <div class="md-form col-md-3 alturabox" id="rDataUpd">
+                <label class="active" for="reuDataUpd">Data</label>
                 <div class="input-group date" data-provide="datepicker">
 
                   <div class="input-group-addon"><i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" id="actuDataUpd" class="form-control" form="upd_actuacions">
+                  <input type="text" id="reuDataUpd" class="form-control" form="reunions_pares_upd">
                 </div><br><br>
               </div>
 
               <!-- BODY -->
               <div class="md-form col-12 alturabox" style="height:100px;">
-                <label class="active" for="actuBodyUpd">Actuació</label><br>
-                <textarea class="form-control" style="height:100%;" id="actuBodyUpd" form="upd_actuacions"></textarea>
+                <label class="active" for="actuBodyUpd">Temes tractats</label><br>
+                <textarea class="form-control" style="height:100%;" id="actuBodyUpd" form="reunions_pares_upd"></textarea>
               </div>
             </form>
           </div>
@@ -47,7 +47,7 @@
       </div>
     </div>    
     <div class="modal-footer">
-      <button type="submit" form="upd_actuacions" class="btn btn-success btn-block" id="actuBtn">Actualitza</button>
+      <button type="submit" form="reunions_pares_upd" class="btn btn-success btn-block" id="actuBtn">Actualitza</button>
     </div>
   </body>
 </html>

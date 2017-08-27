@@ -1,4 +1,14 @@
 <% include ../public/javascripts/functions.ejs %>
+<%
+var autor = session.user.nom + " " + session.user.cognom;
+var i = alumne.reunionsPares.length;
+var mail = session.user.email;
+var li = "/list";
+
+if(session.user.mestre === "ee"){
+  li = "/list_EE"
+}
+%>
 <div class="container">
   <div class="row">
 <!--DADES ALUMNE-->
@@ -75,7 +85,22 @@
                         </span>
                         <% if(session.user.email === alumne.reunionsPares[i].userMail){ %>
                         <span class="col-md-1">
-                          <a id = "btnreuParesUpd" data-toggle="modal" href="/javascripts/modals/reuParesEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.reunionsPares[i].date%>" data-body = "<%=alumne.reunionsPares[i].body%>" data-target="#reuParesModalUpd" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                          <a id = "btnreuParesUpd"
+                          data-toggle="modal"
+                          href="/javascripts/modals/reuParesEdit.ejs"
+                          data-target="#reuParesModalUpd"
+                          data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>"
+                          data-id="<%=alumne._id%>"
+                          data-curs="<%=alumne.curs%>"
+                          data-i="<%=i%>"
+                          data-dta = "<%=alumne.reunionsPares[i].date%>"
+                          data-mestre = "<%=alumne.reunionsPares[i].creat%>"
+                          data-convo = "<%=alumne.reunionsPares[i].convocada%>"
+                          data-assist = "<%=alumne.reunionsPares[i].assistencia%>"
+                          data-body = "<%=alumne.reunionsPares[i].body%>"
+                          data-concl = "<%=alumne.reunionsPares[i].conclusions%>"
+                          data-mail = "<%=alumne.reunionsPares[i].userMail%>"
+                          data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
                           </a>
                         </span>
                         <span class="col-md-1">
@@ -97,16 +122,6 @@
             </div>
             <div class="container">
               <div class="clearfix float-right">
-                <%
-                var autor = session.user.nom + " " + session.user.cognom;
-                var num = alumne.reunionsPares.length;
-                var mail = session.user.email;
-                var li = "/list";
-
-                if(session.user.mestre === "ee"){
-                  li = "/list_EE"
-                }
-                %>
                 <span class="col-md-2">
                   <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna enrere</span></a>
                 </span>
@@ -118,8 +133,9 @@
                     data-curs="<%=alumne.curs%>"
                     data-creat="<%=autor%>"
                     data-today="<%=today()%>"
-                    data-num = "<%=num%>"
+                    data-i = "<%=i%>"
                     data-mail = "<%=mail%>"
+                    data-dataIso = "<% new Date()%>"
                     data-target="#reuParesModal"><i class="fa fa-plus"></i> Nova reunió</a>
                   </span>
 
