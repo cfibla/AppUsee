@@ -407,7 +407,7 @@ exports.reunioGet = function (req, res) {
 	});
 };
 
-//SEGUIMENT POST
+//REUNIONS POST
 exports.reunioPost = function (req, res) {
 	var alumneId = req.params.id;
 	var alum = req.body;
@@ -416,6 +416,21 @@ exports.reunioPost = function (req, res) {
 		if (error) res.json(error);
 		res.json(alumne);
 		console.log(alum);
+	});
+
+}
+
+//REUNIONS UPDATE
+exports.reunioUpdate = function (req, res) {
+	var alumneId = req.params.id;
+	var alumneI = req.params.i;
+	var alum = req.body;
+
+	models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
+
+	function (error, alumne){
+		if (error) res.json(error);
+		res.render('seg_act_EE', {alumne: alumne, page_name:''});
 	});
 
 }

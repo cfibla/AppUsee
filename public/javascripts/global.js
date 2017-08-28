@@ -678,22 +678,34 @@ $(document).ready(function (){
     var alumneId = actg.data('id');
     var i = actg.data('i')
     var dta = actg.data('dta');
+    var convo = actg.data('convo');
+    var comp = actg.data('comp');
+    var assist = actg.data('assist');
     var body = actg.data('body');
+    var concl = actg.data('concl');
 
     var mdal = $(this);
     mdal.find('.modal-body #nomAlUpd').text(alumneNom);
     mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
     mdal.find('.modal-body #reuDataUpd').val(dta);
     mdal.find('.modal-body #reuDataUpd').attr("name", "reunionsPares." + i + ".date");
+    mdal.find('.modal-body #reuConvUpd').val(convo);
+    mdal.find('.modal-body #reuConvUpd').attr("name", "reunionsPares." + i + ".convocatoria");
+    mdal.find('.modal-body #reuAssistUpd').val(assist);
+    mdal.find('.modal-body #reuAssistUpd').attr("name", "reunionsPares." + i + ".assistencia");
+    mdal.find('.modal-body #reuCompUpd').val(comp);
+    mdal.find('.modal-body #reuCompUpd').attr("name", "reunionsPares." + i + ".composicio");
     mdal.find('.modal-body #actuBodyUpd').val(body);
     mdal.find('.modal-body #actuBodyUpd').attr("name", "reunionsPares." + i + ".body");
-    $('#upd_actuacions').on('submit', function(e){
+    mdal.find('.modal-body #reuConclUpd').val(concl);
+    mdal.find('.modal-body #reuConclUpd').attr("name", "reunionsPares." + i + ".conclusions");
+    $('#reunions_pares_upd').on('submit', function(e){
       e.preventDefault();
-      var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
-      var data = $('#upd_actuacions').serialize();
-      var anchor = 'actuacions';
+      var urlPost = "/reunions-pares/upd/" + i +"/" + alumneId + "?_method=put";
+      var data = $('#reunions_pares_upd').serialize();
+      
       $.LoadingOverlay("show");
-      ajaxReuPost (url, urlPost, data, anchor);
+      aPost (urlPost, data);
       });
     });
 

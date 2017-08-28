@@ -13,6 +13,7 @@
         </button>
     </div>
     <div class="modal-body">
+      <form role="form" method="post" id="reunions_pares_upd">
       <div class="container">
         <div class="row">
           <div class="col-md-6 clear">
@@ -22,8 +23,9 @@
             <strong>Curs: </strong><span id="cursAlUpd"></span><br><br>
           </div>
 
-          <div class="md-form col-12"><br>          
-            <form role="form" method="post" id="reunions_pares_upd">
+          <div class="md-form col-12">
+
+            
 
             <!--DATEPICKER-->
               <div class="md-form col-md-3 alturabox" id="rDataUpd">
@@ -36,15 +38,36 @@
                 </div><br><br>
               </div>
 
+              <div class="md-form col-md-4">
+                <label for="reuConvUpd">Qui convoca la reunió?</label>
+                <input type="text" class="form-control alturabox" id="reuConvUpd" required="true">
+              </div>
+
+              <div class="md-form col-md-4">
+                <input type="text" class="form-control" id="reuAssistUpd" required="true">
+                <label for="reuAssistUpd">Assistents</label>
+              </div>
+
+              <div class="md-form col-md-4">
+                <input type="text" class="form-control" id="reuCompUpd" required="true">
+                <label for="reuCompUpd">Composició familiar</label>
+              </div>
+
               <!-- BODY -->
-              <div class="md-form col-12 alturabox" style="height:100px;">
+              <div class="md-form col-12 alturabox" style="height:200px; margin-top: 20px;">
                 <label class="active" for="actuBodyUpd">Temes tractats</label><br>
                 <textarea class="form-control" style="height:100%;" id="actuBodyUpd" form="reunions_pares_upd"></textarea>
               </div>
-            </form>
+
+              <div class="md-form col-12 clear" style="height:100px; margin-top: 40px;">
+                <label class="active" for="reuConclUpd">Acords i conclusions</label><br>
+                <textarea class="form-control" style="height:100%;" id="reuConclUpd" form="reunions_pares_upd"></textarea>
+              </div>
+            
           </div>
         </div>
       </div>
+      </form>
     </div>    
     <div class="modal-footer">
       <button type="submit" form="reunions_pares_upd" class="btn btn-success btn-block" id="actuBtn">Actualitza</button>
