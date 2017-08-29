@@ -402,7 +402,6 @@ exports.reunioGet = function (req, res) {
 			return res.json(error);
 		} else {
 			res.render('reunions_pares', {alumne: alumne, page_name:''});
-
 		}
 	});
 };
@@ -415,7 +414,6 @@ exports.reunioPost = function (req, res) {
 	function (error, alumne){
 		if (error) res.json(error);
 		res.json(alumne);
-		console.log(alum);
 	});
 
 }
@@ -429,8 +427,29 @@ exports.reunioUpdate = function (req, res) {
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
 
 	function (error, alumne){
-		if (error) res.json(error);
-		res.render('seg_act_EE', {alumne: alumne, page_name:''});
+		if (error) {
+			res.json(error);
+		} else{
+			res.json(alumne);
+		}
 	});
 
 }
+
+//REUNIONS DELETE
+exports.reunioDel = function (req, res) {
+	var alumneId = req.params.id;
+	var alumneI = req.params.i;
+
+	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
+		if (error) res.json(error);
+		alumne.reunionsPares.splice(alumneI,1);
+		alumne.save(function(error){
+			if (error) {res.json(error);
+		} else{
+			res.render('reunions_pares', {alumne: alumne, page_name:''});
+		};
+		});
+
+	});
+};

@@ -52,8 +52,10 @@ $(document).ready(function (){
   });
 
 ///////////////////// M O D A L S ///////////////////// 
-  $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){ $($(this).data("target")+' .modal-content').load($(this).attr('href')); }); 
-   $('document').on('hidden.bs.modal', function () {
+  $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){
+     $($(this).data("target")+' .modal-content').load($(this).attr('href'));
+   }); 
+  $('document').on('hidden.bs.modal', function () {
       $('.modal-body .modal-footer').html("");
     });
 
@@ -661,6 +663,7 @@ $(document).ready(function (){
 
 //UPDATE MODAL
   $('#reuParesModalUpd').on('shown.bs.modal', function (e) {
+
     //datepicker//
     $('#rDataUpd .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -699,6 +702,30 @@ $(document).ready(function (){
     mdal.find('.modal-body #actuBodyUpd').attr("name", "reunionsPares." + i + ".body");
     mdal.find('.modal-body #reuConclUpd').val(concl);
     mdal.find('.modal-body #reuConclUpd').attr("name", "reunionsPares." + i + ".conclusions");
+
+      ///////// LABEL ACTIVE ///////////////
+    function checkForInput(element) {
+  // element is passed to the function ^
+  
+      const $label = $(element).siblings('label');
+
+      if ($(element).val().length > 0) {
+        $label.addClass('active');
+      } else {
+        $label.removeClass('active');
+      }
+    }
+
+    // The lines below are executed on page load
+    $('input').each(function() {
+      checkForInput(this);
+    });
+
+    // The lines below (inside) are executed on change & keyup
+    $('input').on('change keyup', function() {
+      checkForInput(this);  
+    });
+
     $('#reunions_pares_upd').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/reunions-pares/upd/" + i +"/" + alumneId + "?_method=put";
@@ -716,49 +743,35 @@ $(document).ready(function (){
     var alumneId = actg.data('id');
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
-    var alumneI = actg.data('i');
+    var i = actg.data('i');
     var alumneDta = actg.data('dta');
     var alumneBody = actg.data('body');
-    location.hash='';
-    var url = location.href;
+    var alumneConcl = actg.data('concl');
+
     var mdal = $(this);
     mdal.find('.modal-body #nomAlDel').text(alumneNom);
     mdal.find('.modal-body #cursAlDel').text(alumneCurs);
     mdal.find('.modal-body #reuDataDel').text(alumneDta);
-    mdal.find('.modal-body #actuBodyDel').text(alumneBody);
-    $('#del_actuacions').on('submit', function(e){
+    mdal.find('.modal-body #reuBodyDel').text(alumneBody);
+    mdal.find('.modal-body #reuConclDel').text(alumneConcl);
+    $('#reunions_pares_del').on('submit', function(e){
       e.preventDefault();
-      var urlPost = "/seguiment-EE/" + alumneId + "/actDel/" + alumneI + "?_method=put";
-      var data = $('#del_actuacions').serialize(); 
-      var anchor = 'actuacions';
+      var urlPost = "/reunions-pares/del/" + i +"/" + alumneId + "?_method=put";
+      var data = $('#reunions_pares_del').serialize(); 
+
       $.LoadingOverlay("show");
-      ajaxReuPost (url, urlPost, data, anchor);
+      aPost (urlPost, data);
       });
     });
 
 
 ///AJAX FUNCTIONS///
-
    function aPost(path, obj){
      return   $.ajax({
          url: path, //this is the submit URL
          type: 'POST',
          data: obj
      }).done(function(){
-       location.reload();
-        $.LoadingOverlay("hide");
-        $('.modal').removeClass('show');
-     });
-   }
-
-   function ajaxReuPost(ur, path, obj, anchor){
-     return   $.ajax({
-         url: path, //this is the submit URL
-         type: 'POST',
-         data: obj
-     }).done(function(){
-        var urlLong = ur+anchor;
-       window.location.href = urlLong;
        location.reload();
         $.LoadingOverlay("hide");
         $('.modal').removeClass('show');

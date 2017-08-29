@@ -109,7 +109,17 @@ if(session.user.mestre === "ee"){
                           </a>
                         </span>
                         <span class="col-md-1">
-                          <a id = "btnreuParesDel" data-toggle="modal" href="/javascripts/modals/reuParesDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.reunionsPares[i].date%>" data-body = "<%=alumne.reunionsPares[i].body%>" data-target="#reuParesModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                          <a id = "btnreuParesDel"
+                          data-toggle="modal"
+                          href="/javascripts/modals/reuParesDel.ejs"
+                          data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>"
+                          data-id="<%=alumne._id%>"
+                          data-curs="<%=alumne.curs%>"
+                          data-i="<%=i%>"
+                          data-dta = "<%=alumne.reunionsPares[i].date%>"
+                          data-body = "<%=alumne.reunionsPares[i].body%>"
+                          data-concl = "<%=alumne.reunionsPares[i].conclusions%>"
+                          data-target="#reuParesModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
                           </a>
                         </span>
                             <% } %>

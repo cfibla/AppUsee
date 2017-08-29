@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Eliminar reunions</title>
+
+  </head>
+
+  <body>
+    <div class="modal-header">
+      <div class="modal-title">Eliminar reunions</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" style="padding:40px 50px;">
+      <div class="container">
+        <div class="row">
+          <div class="md-form col-md-5 clear">
+            <strong>Alumne/a: </strong><span id="nomAlDel"></span>
+          </div>
+          <div class="md-form col-md-3">
+            <strong>Curs: </strong><span id="cursAlDel"></span><br><br>
+          </div>
+          <form role="form" method="post" action="" id="reunions_pares_del">
+            <div class="md-form col-md-12 clear>
+              <p class = "clear"><strong>Voleu esborrar aquesta reunió?</strong></p>
+              <p class = "clear"><strong>Data de la reunió</strong><p id="reuDataDel"></p></p>
+              <p class = "clear"><strong>Temes tractats</strong><p id="reuBodyDel"></p></p>
+              <p class = "clear"><strong>Conclusions</strong><p id="reuConclDel"></p></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-default" role="button" data-dismiss="modal">Cancel·la</a>
+      <button type="submit" form="reunions_pares_del" id="reuDel" class="btn btn-danger">Elimina la reunió</button>
+    </div>
+  </body>
+</html>

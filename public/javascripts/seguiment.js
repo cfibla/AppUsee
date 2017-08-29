@@ -359,7 +359,7 @@ $( document ).ready(function() {
     });
 
 ////// SEGUIMENT reload al mateix TAB /////////////////////////
- $(document).ready(function() {
+ $('#seg').ready(function() {
     if (location.hash) {
         $("a[href='" + location.hash + "']").tab("show");
     }

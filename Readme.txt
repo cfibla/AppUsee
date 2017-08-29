@@ -5,17 +5,16 @@ Faldón
 canviar escola per defecte
 /*Merge users Tutor-USEE
 Agenda
-
+botons inici (home)
 Perfil usuari -> Escola
-
 Uppercase modificació dades
 
 
 AULA ORDINARIA
-Reunions pares ->view, creador pot editar
 Modals Assistència i Menjador
 Imprimir assistència diària
 Imprimir menjador diari
+Imprimir reunions pares
 
 USEE
 

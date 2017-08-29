@@ -42,6 +42,7 @@ router.put('/dades_suprD/:id', 		sessionController.loginRequired, alumController
 router.get('/reunions-pares/:id', 	sessionController.loginRequired, alumController.reunioGet);
 router.put('/reunions-pares/post/:id', 	sessionController.loginRequired, alumController.reunioPost);
 router.put('/reunions-pares/upd/:i/:id', 	sessionController.loginRequired, alumController.reunioUpdate);
+router.put('/reunions-pares/del/:i/:id', 	sessionController.loginRequired, alumController.reunioDel);
 
 router.get('/assistencia',			sessionController.loginRequired, alumController.assisGet);
 router.post('/assisData',			sessionController.loginRequired, alumController.assisData);
