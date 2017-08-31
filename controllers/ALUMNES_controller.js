@@ -20,11 +20,14 @@ exports.list = function (req, res) {
 //Altes d'alumnes - POST
 exports.create = function (req, res){
 
+	var scola = req.session.user.escola;
+
+	console.log (scola);
+
 	var alum = req.body;
 	var rep = alum['radios.0'];
 	var aill = alum['checks.2'];
 	var sersoc = alum['checks.29'];
-	console.log(alum);
 
 	if (!alum.nom||!alum.cognom1||!alum.curs){
 		models.Alumne.find(function(error, docs){
@@ -35,9 +38,9 @@ exports.create = function (req, res){
 			};
 		});
 	} else {
-		models.Escola.find({"_id": 17008237}, function(error, esc){
+		models.Escola.find({"_id": scola}, function(error, esc){
 		if (error){
-			console.log(error);
+			console.log('error: '+ error);
 		} else {
 		//TODAY
 			var today = new Date();

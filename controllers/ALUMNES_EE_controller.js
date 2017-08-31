@@ -15,7 +15,7 @@ exports.list = function (req, res) {
 
 };
 
-//SEGUIMENT GET
+//SEG_ACTUACIONS GET
 exports.actuaGet = function (req, res) {
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
@@ -28,7 +28,7 @@ exports.actuaGet = function (req, res) {
 	});
 };
 
-//SEGUIMENT POST
+//SEG_ACTUACIONS POST
 exports.actuaPost = function (req, res) {
 	var alumneId = req.params.id;
 	var alum = req.body;
@@ -109,20 +109,7 @@ exports.altresDelete = function (req, res) {
 	});
 };
 
-//Suprimir alumne - VIEW
-/*exports.suprV = function (req, res) {
-	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
-		if (error) {
-			return res.json(error);
-		} else {
-			res.render('delete_view', {alumne: alumne, page_name:''});
-
-		}
-	});
-};*/
-
-//Suprimir alumne - DELETE
+//Alta alumne - DELETE
 exports.alta = function (req, res) {
 
 	var alumneId = req.params.id;

@@ -2,7 +2,7 @@ branch --> windows
 
 GENERAL
 Faldón
-canviar escola per defecte
+/*canviar escola per defecte
 /*Merge users Tutor-USEE
 Agenda
 botons inici (home)
