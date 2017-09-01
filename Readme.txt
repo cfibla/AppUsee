@@ -25,3 +25,15 @@ contrasenya: demo
 demoee@demo.cat
 contrasenya: demo
 
+{
+    "_id": 17008237,
+    "password": "licitant",
+    "nom": "Montserrat Vayreda",
+    "telefon": 972458083,
+    "email": "b7008237@xtec.cat",
+    "adreca": "Carretera Mas Oliva s/n",
+    "codiPostal": 17480,
+    "poblacio": "Roses",
+    "provincia": "Girona",
+    "__v": 0
+}
