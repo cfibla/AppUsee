@@ -44,7 +44,8 @@ exports.createUser = function (req, res){
 			
 			models.UserEe.findOne({email: email, password: password}, function(error, user){
 				if(error){
-					console.log(error);}
+					console.log(error);
+				}
 				if(!user) {
 					console.log('NO USER');
 				} else {
@@ -62,9 +63,9 @@ exports.createUser = function (req, res){
 
 	});
 //crea escola
-	models.Escola.findById(escolaId, function(error, escola){
+	models.Centre.findById(escolaId, function(error, escola){
 		if (!escola){
-		var nouEscola = new models.Escola({
+		var nouEscola = new models.Centre({
 			_id: user_EE.escola,
 			nom: user_EE.escolanom
 		});

@@ -4,6 +4,7 @@ var router = express.Router();
 var alumController = require('../controllers/ALUMNES_controller');
 var alumEeController = require('../controllers/ALUMNES_EE_controller');
 var escolaController = require('../controllers/ESCOLA_controller');
+var centreController = require('../controllers/CENTRE_controller');
 var userController = require('../controllers/USER_controller');
 var userEeController = require('../controllers/USER_ee_controller');
 var sessionController = require('../controllers/SESSION_controller');
@@ -16,8 +17,12 @@ router.post('/login',				sessionController.login, sessionController.login_EE);
 router.get('/logout',				sessionController.loginRequired, sessionController.destroy);
 
 //rutas ESCOLA
-router.get('/escola_nou',			escolaController.nouEscola);
-router.post('/escola_crear',		escolaController.createEscola);
+//router.get('/escola_nou',			escolaController.nouEscola);
+//router.post('/escola_crear',		escolaController.createEscola);
+
+//rutas CENTRE
+router.get('/escola_nou',			centreController.nouCentre);
+router.post('/escola_crear',		centreController.createCentre);
 
 //rutas USER
 router.get('/usuari_nou',			userController.nouUser);
