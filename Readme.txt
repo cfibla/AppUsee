@@ -2,7 +2,7 @@ branch --> windows
 
 GENERAL
 Faldón
-/*canviar escola per defecte
+ARREGLAR ESCOLES!!! schema alumnes->type: mongoose.Schema.ObjectId,
 /*Merge users Tutor-USEE
 Agenda
 botons inici (home)
