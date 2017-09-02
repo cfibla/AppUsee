@@ -7,77 +7,118 @@ exports.nouUser = function(req, res) {
 
 // Nou user POST
 exports.createUser = function (req, res){
-	console.log('rebut req: ' + req.body);
 	var user = req.body;
 	var escolaId = user.escola;
-	console.log('rebut user: ' + user);
-	console.log('rebut escolaId: ' + escolaId);
-//	if (!user.email||!user.nom||!user.cognom||!user.password){
-		console.log('IF USER');
-		models.User.find(function(error, docs){
-			console.log('USER FIND');
-		if (error){
-			res.json(error);
-			console.log(error);
-		} else {
-			console.log('DOCS 1: '+ docs);
-			var nouUser = new models.User({
-				email: user.email,
-				nom: user.nom,
-				cognom: user.cognom,
-				password: user.password,
-				
-				mestre: 'tutor',
-				curs: user.curs,
-
-				escola: user.escola,
-//				centre: user.escola
+	if (user.email && user.nom && user.cognom && user.password && user.escola){
+	//crea escola
+		models.Centre.findOne({codi:escolaId}, function(error, eskola){
+			if (!eskola){
+			console.log('NO ESCOLA');
+			var nouEscola = new models.Centre({
+				codi: user.escola,
+				nom: user.escolanom
 			});
-			nouUser.save(function (error, user){
+			nouEscola.save(function(error, scl){
 				if (error) {
-					res.json(error);
+					res.json(error)
 				} else {
-					console.log('LOGIN USER: '+ user);
-				//login
-					var email = user.email;
-					var password = user.password;
+						models.User.find(function(error, docs){
+					if (error){
+						res.json(error);
+					} else {
+						var nouUser = new models.User({
+							email: user.email,
+							nom: user.nom,
+							cognom: user.cognom,
+							password: user.password,
+							mestre: 'tutor',
+							curs: user.curs,
+							escola: user.escola,
+							centre: scl._id
+						});
+						nouUser.save(function (error, user){
+							if (error) {
+								res.json(error);
+							} else {
+							console.log('usuari creat: '+user);
+							//login
+								var email = user.email;
+								var password = user.password;
 
-					models.User.findOne({email: email, password: password}, function(error, user){
-						if(error){
-							console.log(error);
-						} else {
-							req.session.user = user;
-						}
-					})
-				}
-				
-			});
-			//crea escola
-			models.Centre.findById(escolaId, function(error, escola){
-				if (!escola){
-				console.log('NO ESCOLA: '+ escola);
-				var nouEscola = new models.Centre({
-					codi: user.escola,
-					nom: user.escolanom
+								models.User.findOne({email: email, password: password}, function(error, user){
+									if(error){
+										console.log(error);
+									} else {
+										console.log('usuari trobat: '+user);
+										req.session.user = user;
+										console.log('req.session.user: '+req.session.user);
+										models.Alumne.find(function(error, docs){
+											console.log('ALUMNE');
+											if (error){
+												console.log('ALUMNE ERROR');
+												console.log(error);
+											} else {
+												res.render('/list',{Alumnes:docs})
+											}
+										});
+									}
+								})
+							}			
+						});
+					};
 				});
-			
-				nouEscola.save(function(error, scola){
-					if (error) res.json(error)
-				});
-				} else {
-					console.log('SI ESCOLA: '+ scola);
-					models.Alumne.find(function(error, docs){
-						if (error){
-							console.log(error);
-						} else {
-							res.render('/list',{Alumnes:docs})
-						}
-					});
 				}
 			});
-		};
+			} else {
+				models.User.find(function(error, docs){
+					if (error){
+						res.json(error);
+					} else {
+						var nouUser = new models.User({
+							email: user.email,
+							nom: user.nom,
+							cognom: user.cognom,
+							password: user.password,
+							mestre: 'tutor',
+							curs: user.curs,
+							escola: user.escola,
+							centre: eskola._id
+						});
+						nouUser.save(function (error, user){
+							if (error) {
+								res.json(error);
+								
+							} else {
+								console.log('usuari creat: '+user);
+							//login
+								var email = user.email;
+								var password = user.password;
+
+								models.User.findOne({email: email, password: password}, function(error, user){
+									if(error){
+										console.log(error);
+									} else {
+										console.log('usuari trobat: '+user);
+										req.session.user = user;
+										console.log('req.session.user: '+req.session.user);
+										models.Alumne.find(function(error, docs){
+											console.log('ALUMNE');
+											if (error){
+												console.log('ALUMNE ERROR');
+												console.log(error);
+											} else {
+												res.render('/list',{Alumnes:docs})
+											}
+										});
+									}
+								})
+							}			
+						});
+					};
+				});
+			}
 		});
-//	};
+	};
 };
 
 //GET USER PROFILE

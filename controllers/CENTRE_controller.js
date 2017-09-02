@@ -17,7 +17,6 @@ exports.createCentre = function (req, res){
 			console.log(error);
 		} else {
 			res.redirect('/');
-			console.log("DOCS OK: "+ docs);
 			};
 		});
 	} else {
@@ -40,7 +39,6 @@ exports.createCentre = function (req, res){
 			res.json(error)
 		} else {
 			res.redirect('/');
-			console.log("CENTRE OK: "+ scola);
 		}
 	});
 	};
