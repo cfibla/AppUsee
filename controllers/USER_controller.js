@@ -13,7 +13,6 @@ exports.createUser = function (req, res){
 	//crea escola
 		models.Centre.findOne({codi:escolaId}, function(error, eskola){
 			if (!eskola){
-			console.log('NO ESCOLA');
 			var nouEscola = new models.Centre({
 				codi: user.escola,
 				nom: user.escolanom,
@@ -29,9 +28,7 @@ exports.createUser = function (req, res){
 			nouEscola.save(function(error, scl){
 				if (error) {
 					res.json(error);
-					console.log('ESCOLA ERROR: ' + error);
 				} else {
-					console.log('ESCOLA CREADA: ' + scl);
 					models.User.find(function(error, docs){
 					if (error){
 						res.json(error);
@@ -50,23 +47,17 @@ exports.createUser = function (req, res){
 							if (error) {
 								res.json(error);
 							} else {
-							console.log('usuari creat: '+user);
 							//login
 								var email = user.email;
 								var password = user.password;
-
 								models.User.findOne({email: email, password: password}, function(error, user){
 									if(error){
-										console.log(error);
+										res.json(error);
 									} else {
-										console.log('usuari trobat: '+user);
 										req.session.user = user;
-										console.log('req.session.user: '+req.session.user);
 										models.Alumne.find(function(error, docs){
-											console.log('ALUMNE');
 											if (error){
-												console.log('ALUMNE ERROR');
-												console.log(error);
+												res.json(error);
 											} else {
 												res.json(docs)
 											}
@@ -80,7 +71,6 @@ exports.createUser = function (req, res){
 				}
 			});
 			} else {
-				console.log('SI ESCOLA: '+eskola);
 				models.User.find(function(error, docs){
 					if (error){
 						res.json(error);
@@ -100,23 +90,18 @@ exports.createUser = function (req, res){
 								res.json(error);
 								
 							} else {
-								console.log('usuari creat: '+user);
 							//login
 								var email = user.email;
 								var password = user.password;
 
 								models.User.findOne({email: email, password: password}, function(error, user){
 									if(error){
-										console.log(error);
+										res.json(error);
 									} else {
-										console.log('usuari trobat: '+user);
 										req.session.user = user;
-										console.log('req.session.user: '+req.session.user);
 										models.Alumne.find(function(error, docs){
-											console.log('ALUMNE');
 											if (error){
-												console.log('ALUMNE ERROR');
-												console.log(error);
+												res.json(error);
 											} else {
 												res.json(docs)
 											}

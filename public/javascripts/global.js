@@ -60,8 +60,7 @@ $(document).ready(function (){
     });
 
 ///////// U S E R S //////////////
-//TUTOR
-///// CREATE USER
+///// CREATE USER TUTOR
   $('#userModal').on('shown.bs.modal', function (e) {
     $('#formUser').on('submit', function(e){
       e.preventDefault();
@@ -70,6 +69,19 @@ $(document).ready(function (){
       var data = $('#formUser').serialize();
       aPost(urlPost, data).always(function(){
         location.href="/list";
+      });
+    });
+  });
+
+///// CREATE USER TUTOR EE -USEE - SIEI
+  $('#useeModal').on('shown.bs.modal', function (e) {
+    $('#formUsee').on('submit', function(e){
+      e.preventDefault();
+      $.LoadingOverlay("show");
+      var urlPost = "/usuari_ee_crear";
+      var data = $('#formUsee').serialize();
+      aPost(urlPost, data).always(function(){
+        location.href="/list_EE";
       });
     });
   });
@@ -112,20 +124,6 @@ $(document).ready(function (){
         $("#usrCurs").hide('slow');
       }
     });
-
-//TUTOR EE -USEE - SIEI
-///// CREATE USER
-  $('#useeModal').on('shown.bs.modal', function (e) {
-    $('#formUsee').on('submit', function(e){
-      e.preventDefault();
-      $.LoadingOverlay("show");
-      var urlPost = "/usuari_ee_crear";
-      var data = $('#formUsee').serialize();
-      aPost(urlPost, data).always(function(){
-        location.href="/list_EE";
-      });
-    });
-  });
 
 ///////// A L U M N E S //////////////
 //  D A D E S   P E R S O N A L S

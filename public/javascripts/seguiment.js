@@ -1,6 +1,8 @@
 
 //////////////// S E G U I M E N T //////////////// 
-$( document ).ready(function() {
+$(document).ready(function() {
+  if ( $("#seg").length > 0 ) {
+
 // ACTUACIONS //
 //CREATE MODAL (ACTUACIONS)
   $('#actuModal').on('shown.bs.modal', function (e) {
@@ -388,4 +390,5 @@ $(window).on("popstate", function() {
         $('.modal').removeClass('show');
      });
    }
+  }
 });
