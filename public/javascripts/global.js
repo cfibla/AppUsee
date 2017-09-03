@@ -60,6 +60,7 @@ $(document).ready(function (){
     });
 
 ///////// U S E R S //////////////
+//TUTOR
 ///// CREATE USER
   $('#userModal').on('shown.bs.modal', function (e) {
     $('#formUser').on('submit', function(e){
@@ -98,7 +99,6 @@ $(document).ready(function (){
       });
     });
 
-
 // USUARI CURS
     if ($('#categoria').val()==='tutor'){
         $("#usrCurs").show();
@@ -113,6 +113,19 @@ $(document).ready(function (){
       }
     });
 
+//TUTOR EE -USEE - SIEI
+///// CREATE USER
+  $('#useeModal').on('shown.bs.modal', function (e) {
+    $('#formUsee').on('submit', function(e){
+      e.preventDefault();
+      $.LoadingOverlay("show");
+      var urlPost = "/usuari_ee_crear";
+      var data = $('#formUsee').serialize();
+      aPost(urlPost, data).always(function(){
+        location.href="/list_EE";
+      });
+    });
+  });
 
 ///////// A L U M N E S //////////////
 //  D A D E S   P E R S O N A L S

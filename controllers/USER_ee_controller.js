@@ -7,75 +7,129 @@ exports.nouUser = function(req, res) {
 
 // Nou user POST
 exports.createUser = function (req, res){
-
-	var user_EE = req.body;
-	var escolaId = user_EE.escola;
-	
-	if (!user_EE.email||!user_EE.nom||!user_EE.cognom||!user_EE.password){
-		models.UserEe.find(function(error, docs){
-		if (error){
-			console.log(error);
-		} else {
-			res.render('nou_usuari_EE', {errorAlta:"Heu d'emplenar tots els apartats"});
-			};
-		});
-	} else {
-
-	var nouUser_EE = new models.UserEe({
-		email: user_EE.email,
-		nom: user_EE.nom,
-		cognom: user_EE.cognom,
-		password: user_EE.password,
-
-		mestre: 'ee',		
-
-		escola: user_EE.escola
-	});
-
-
-	nouUser_EE.save(function(error, user){
-		if (error){
-			res.json(error);
-		} else {
-//login
-			var email = user.email;
-			var password = user.password;
-
-			
-			models.UserEe.findOne({email: email, password: password}, function(error, user){
-				if(error){
-					console.log(error);
-				}
-				if(!user) {
-					console.log('NO USER');
+	var user = req.body;
+	var escolaId = user.escola;
+	if (user.email && user.nom && user.cognom && user.password && user.escola){
+	//crea escola
+		models.Centre.findOne({codi:escolaId}, function(error, eskola){
+			if (!eskola){
+			console.log('NO ESCOLA');
+			var nouEscola = new models.Centre({
+				codi: user.escola,
+				nom: user.escolanom,
+				password: "",
+				telefon: 0,
+				email:"",
+				adreca: "",
+				codiPostal: 0,
+				poblacio: "",
+				provincia: ""
+			});
+			nouEscola.save(function(error, scl){
+				if (error) {
+					res.json(error);
+					console.log('ESCOLA ERROR: ' + error);
 				} else {
-					req.session.user = user;
-					models.Alumne.find(function(error, docs){
+					console.log('ESCOLA CREADA: ' + scl);
+					models.UserEe.find(function(error, docs){
 					if (error){
-						console.log(error);
+						res.json(error);
 					} else {
-						res.redirect('/list_EE');
-						}
-					});
+						var nouUser = new models.UserEe({
+							email: user.email,
+							nom: user.nom,
+							cognom: user.cognom,
+							password: user.password,
+							mestre: 'ee',
+							curs: user.curs,
+							escola: user.escola,
+							centre: scl._id
+						});
+						nouUser.save(function (error, user){
+							if (error) {
+								res.json(error);
+							} else {
+							console.log('usuari creat: '+user);
+							//login
+								var email = user.email;
+								var password = user.password;
+
+								models.UserEe.findOne({email: email, password: password}, function(error, user){
+									if(error){
+										console.log(error);
+									} else {
+										console.log('usuari trobat: '+user);
+										req.session.user = user;
+										console.log('req.session.user: '+req.session.user);
+										models.Alumne.find(function(error, docs){
+											console.log('ALUMNE');
+											if (error){
+												console.log('ALUMNE ERROR');
+												console.log(error);
+											} else {
+												res.json(docs)
+											}
+										});
+									}
+								})
+							}			
+						});
+					};
+				});
 				}
 			});
-		}
+			} else {
+				console.log('SI ESCOLA: '+eskola);
+				models.UserEe.find(function(error, docs){
+					if (error){
+						res.json(error);
+					} else {
+						var nouUser = new models.UserEe({
+							email: user.email,
+							nom: user.nom,
+							cognom: user.cognom,
+							password: user.password,
+							mestre: 'ee',
+							curs: user.curs,
+							escola: user.escola,
+							centre: eskola._id
+						});
+						nouUser.save(function (error, user){
+							if (error) {
+								res.json(error);
+								
+							} else {
+								console.log('usuari creat: '+user);
+							//login
+								var email = user.email;
+								var password = user.password;
 
-	});
-//crea escola
-	models.Centre.findById(escolaId, function(error, escola){
-		if (!escola){
-		var nouEscola = new models.Centre({
-			_id: user_EE.escola,
-			nom: user_EE.escolanom
+								models.UserEe.findOne({email: email, password: password}, function(error, user){
+									if(error){
+										console.log(error);
+									} else {
+										console.log('usuari trobat: '+user);
+										req.session.user = user;
+										console.log('req.session.user: '+req.session.user);
+										models.Alumne.find(function(error, docs){
+											console.log('ALUMNE');
+											if (error){
+												console.log('ALUMNE ERROR');
+												console.log(error);
+											} else {
+												res.json(docs)
+											}
+										});
+									}
+								})
+							}			
+						});
+					};
+				});
+			}
 		});
-	
-		nouEscola.save(function(error, scola){
-			if (error) res.json(error)
-		});
-		}
-	});
-}};
+	};
+};
 
 //UPDATE user profile
 exports.update = function (req, res){
