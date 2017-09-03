@@ -16,13 +16,23 @@ exports.createUser = function (req, res){
 			console.log('NO ESCOLA');
 			var nouEscola = new models.Centre({
 				codi: user.escola,
-				nom: user.escolanom
+				nom: user.escolanom,
+				password: "",
+				telefon: 0,
+				email:"",
+				adreca: "",
+				codiPostal: 0,
+				poblacio: "",
+				provincia: ""
 			});
+			//nouEscola.isNew =false;
 			nouEscola.save(function(error, scl){
 				if (error) {
-					res.json(error)
+					res.json(error);
+					console.log('ESCOLA ERROR: ' + error);
 				} else {
-						models.User.find(function(error, docs){
+					console.log('ESCOLA CREADA: ' + scl);
+					models.User.find(function(error, docs){
 					if (error){
 						res.json(error);
 					} else {
@@ -58,7 +68,7 @@ exports.createUser = function (req, res){
 												console.log('ALUMNE ERROR');
 												console.log(error);
 											} else {
-												res.render('/list',{Alumnes:docs})
+												res.json(docs)
 											}
 										});
 									}
@@ -70,6 +80,7 @@ exports.createUser = function (req, res){
 				}
 			});
 			} else {
+				console.log('SI ESCOLA: '+eskola);
 				models.User.find(function(error, docs){
 					if (error){
 						res.json(error);
@@ -107,7 +118,7 @@ exports.createUser = function (req, res){
 												console.log('ALUMNE ERROR');
 												console.log(error);
 											} else {
-												res.render('/list',{Alumnes:docs})
+												res.json(docs)
 											}
 										});
 									}

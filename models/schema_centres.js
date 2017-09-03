@@ -12,7 +12,7 @@ module.exports = new mongoose.Schema({
 	telefon: Number,
 	email: {
 		type: String,
-		unique:true
+//		unique:true
 	},
 	adreca: String,
 	codiPostal: Number,
