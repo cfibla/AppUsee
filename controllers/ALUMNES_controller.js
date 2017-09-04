@@ -3,10 +3,11 @@ var models = require('../models/index');
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
 	models.Alumne.find({
+		escola: req.session.user.escola,
 	/*	tutor: req.session.user, */
 		curs: req.session.user.curs}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
-	.populate('escola tutor')
+	.populate('centre tutor')
 	.exec(function(error, docs){
 		if (error){
 			console.log(error);
@@ -73,6 +74,7 @@ exports.create = function (req, res){
 
 				escola: req.session.user.escola,
 				tutor: req.session.user,
+				centre:req.session.user.centre,
 
 				assist: [{
 					date: today,

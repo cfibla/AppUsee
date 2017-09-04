@@ -68,8 +68,8 @@
          data-segsoc="<%=Alumnes[i].seguretatSoc%>"
          data-mail="<%=Alumnes[i].mailAlum%>"
          data-tel="<%=Alumnes[i].telefon%>"
-         data-escola="<%=Alumnes[i].escola._id%>"
-         data-nomescola="<%=Alumnes[i].escola.nom%>"
+         data-escola="<%=Alumnes[i].centre.codi%>"
+         data-nomescola="<%=Alumnes[i].centre.nom%>"
          data-curs="<%=Alumnes[i].curs%>"
          data-atdiv="<%=Alumnes[i].eeUsee%>"
          data-rep="<%=Alumnes[i].radios[0]%>"
@@ -177,7 +177,6 @@
         data-usr="<%=session.user.mestre%>"
         data-target="#afegirModal"><i class="fa fa-plus"></i> Afegir alumnes</a>
       </div>
-<div id="prova"></div>
     </div>
   </div>
 </div>
