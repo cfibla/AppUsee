@@ -2,7 +2,16 @@ var models = require('../models/index');
 
 /* GET home page. */
 exports.new = function(req, res) {
-	res.render('home', { title: 'AppEscola',  page_name:'home'});
+	if(req.session.user){
+		if(req.session.user.mestre === "tutor"){
+			res.redirect('/list');
+		}
+		if(req.session.user.mestre === "ee"){
+			res.redirect('/list_EE');
+		}
+	} else {
+		res.render('home', { title: 'AppEscola',  page_name:'home'});
+	}
 };
 
 
