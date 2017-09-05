@@ -53,7 +53,7 @@ exports.login_EE = function (req, res){
 		}
 
 		if(!user) {
-			console.log('Usuari inexistent');
+			console.log('Usuari inexistent'); //CANVIAR PER MISSATGE - ALERT
 			res.redirect('/');
 		} else {
 		

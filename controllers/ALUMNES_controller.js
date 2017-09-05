@@ -23,8 +23,6 @@ exports.create = function (req, res){
 
 	var scola = req.session.user.escola;
 
-	console.log (scola);
-
 	var alum = req.body;
 	var rep = alum['radios.0'];
 	var aill = alum['checks.2'];
