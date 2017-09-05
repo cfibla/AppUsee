@@ -8,6 +8,7 @@ Agenda
 botons inici (home)
 Perfil usuari -> Escola
 Uppercase modificació dades
+Comunicar errors SIGN UP
 
 
 AULA ORDINARIA
