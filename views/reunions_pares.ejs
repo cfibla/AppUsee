@@ -105,7 +105,7 @@ if(session.user.mestre === "ee"){
                           </a>
                         </span>
                         <span class="col-md-1">
-                          <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="" target="_blank"><i class="fa fa-print gris" aria-hidden="true"></i>
+                          <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="" target="_blank" disabled="true"><i class="fa fa-print gris" aria-hidden="true"></i>
                           </a>
                         </span>
                         <span class="col-md-1">
@@ -122,7 +122,25 @@ if(session.user.mestre === "ee"){
                           data-target="#reuParesModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
                           </a>
                         </span>
-                            <% } %>
+                            <% } else {%>
+                                                    <span class="col-md-1">
+                          <a 
+                          href="/javascripts/modals/reuParesEdit.ejs" class="disabled"
+                          data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                        <span class="col-md-1">
+                          <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="" target="_blank" class="disabled"><i class="fa fa-print gris" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                        <span class="col-md-1">
+                          <a 
+                          href="/javascripts/modals/reuParesDel.ejs"
+                          class="disabled"
+                          data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                         <% } %>
                       </td>
                     </tr>
                     <% } %>
