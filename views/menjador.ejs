@@ -90,7 +90,7 @@
       <td class="d-inline-block col-1">
       <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
         var idAlumne = Alumnes[i]._id;%>
-      <a data-tggle="tooltip" data-placement="top" title="Imprimir assistència"  id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled><i class="fa fa-print fa-lg verd"></i></a>
+      <a class="disabled" data-tggle="tooltip" data-placement="top" title="Imprimir assistència menjador" id = "btnMenja" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/menjador.ejs" data-today="<%=today()%>" data-target="#menjaModal" disabled><i class="fa fa-print fa-lg verd"></i></a>
       </td>
      </tr>
      </form>
