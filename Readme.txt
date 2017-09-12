@@ -5,8 +5,8 @@ Faldón
 ARREGLAR ESCOLES!!! schema alumnes->type: mongoose.Schema.ObjectId,
 /*Merge users Tutor-USEE
 Agenda
-botons inici (home)
-Perfil usuari -> Escola
+/*botons inici (home)
+Perfil usuari -> Escola (crear nova si canvia) - Companys
 Uppercase modificació dades
 Comunicar errors SIGN UP
 
@@ -14,8 +14,8 @@ Comunicar errors SIGN UP
 AULA ORDINARIA
 Modals Assistència i Menjador
 Imprimir assistència diària
-Imprimir menjador diari
-Imprimir reunions pares
+/*Imprimir menjador diari
+/*Imprimir reunions pares
 
 USEE
 
@@ -25,16 +25,3 @@ contrasenya: demo
 
 demoee@demo.cat
 contrasenya: demo
-
-{
-    "_id": 17008237,
-    "password": "licitant",
-    "nom": "Montserrat Vayreda",
-    "telefon": 972458083,
-    "email": "b7008237@xtec.cat",
-    "adreca": "Carretera Mas Oliva s/n",
-    "codiPostal": 17480,
-    "poblacio": "Roses",
-    "provincia": "Girona",
-    "__v": 0
-}
