@@ -7,6 +7,7 @@ var escolaController = require('../controllers/ESCOLA_controller');
 var centreController = require('../controllers/CENTRE_controller');
 var userController = require('../controllers/USER_controller');
 var userEeController = require('../controllers/USER_ee_controller');
+var horariController = require('../controllers/HORARI_controller');
 var sessionController = require('../controllers/SESSION_controller');
 var assistPDF = require('../public/javascripts/PDFs/assistencia');
 var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
@@ -68,6 +69,9 @@ router.put('/seguiment-EE/:id/actDel/:i',	sessionController.loginRequired, alumE
 router.put('/seguiment-EE/:id/cadDel/:i',	sessionController.loginRequired, alumEeController.cadDelete);
 router.put('/seguiment-EE/:id/altresDel/:i',	sessionController.loginRequired, alumEeController.altresDelete);
 router.put('/dades_alta/:id', 		sessionController.loginRequired, alumEeController.alta);
+
+//rutas HORARI
+router.post('/crear-horari',				sessionController.loginRequired, horariController.create);
 
 //rutas PDF
 router.post('/assistPDF',			sessionController.loginRequired, assistPDF.PDF);

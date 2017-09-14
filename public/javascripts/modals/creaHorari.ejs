@@ -17,32 +17,31 @@
         <div class="row">
     
           <form role="form" method="post" action="/crear-horari" target="_blank" id="crearHorariForm">
-
             <div class="col-md-12 clear">
-          
+              <div class="col-md-12" style="text-align: center;"><h2>Durada de l'horari</h2></div>
               <input type="hidden" form="crearHorariForm" name="" value ="" >
             </div>
 
   <!--DATEPICKER-->
-            <div class="form-group col-md-12">
+            <div class="margetop form-group col-md-12">
             <div class="row">
-            <p class="margetop col-md-12"><strong>Durada de l'horari</strong></p>
-              <div class="md-form col-md-6" id="data" style="clear:both;">
+            
+              <div class="md-form col-md-6" id="iniciHorari" style="clear:both;">
                 <label class="active" for="horariInici">Comença el dia</label>
                 <div class="input-group date alturabox" data-provide="datepicker">
                   <div class="input-group-addon"><i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control textcenter" id="today1" form="crearHorariForm" name="horariInici">
+                    <input type="text" class="form-control textcenter" id="inici" form="crearHorariForm" name="horariInici">
                 </div>
               </div>
 
-              <div class="md-form col-md-6" id="dataP">
+              <div class="md-form col-md-6" id="finalHorari">
                 <label class="active" for="horariFinal">Acaba el dia</label>
                 <div class="input-group date alturabox" data-provide="datepicker">
 
                   <div class="input-group-addon"><i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control textcenter" id="today2" form="crearHorariForm" name="horariFinal">
+                    <input type="text" class="form-control textcenter" id="final" form="crearHorariForm" name="horariFinal">
                 </div>
               </div>
             </div></div>
