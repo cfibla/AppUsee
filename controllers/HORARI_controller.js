@@ -4,15 +4,71 @@ var moment = require('moment');
 
 //CREAR HORARI
 exports.create = function (req, res) {
-	var hora = moment().format('DD MM YYYY');
 	var horari = req.body;
 
-		console.log('INICI OK');
-		console.log(hora);
+	var inici = moment(horari.horariInici, 'DD/MM/YYYY');
+	var final = moment(horari.horariFinal, 'DD/MM/YYYY');
 
+	for(i=inici; i<final; i=moment(i).add(1,'days')){
 
-	res.json(req.body);
-};
+		var nouHorari = new models.Horari({
+			data: [i]
+		});
+		nouHorari.save(function (error, horari){
+			if (error) {
+				res.json(error);
+				
+			} else {
+
+				console.log('DATA: '+moment(i).format('DD/MM/YYYY'));
+					
+			}
+	
+	
+		})
+
+	};
+	res.json(horari);
+}
+
+/*
+						var nouUser = new models.User({
+							email: user.email,
+							nom: user.nom,
+							cognom: user.cognom,
+							password: user.password,
+							mestre: 'tutor',
+							curs: user.curs,
+							escola: user.escola,
+							centre: eskola._id
+						});
+						nouUser.save(function (error, user){
+							if (error) {
+								res.json(error);
+								
+							} else {
+							//login
+								var email = user.email;
+								var password = user.password;
+
+								models.User.findOne({email: email, password: password}, function(error, user){
+									if(error){
+										res.json(error);
+									} else {
+										req.session.user = user;
+										models.Alumne.find(function(error, docs){
+											if (error){
+												res.json(error);
+											} else {
+												res.json(docs)
+											}
+										});
+									}
+								})
+							}			
+						});
+					};
+*/
 
 //SEG_ACTUACIONS GET
 exports.actuaGet = function (req, res) {

@@ -1,10 +1,13 @@
 var mongoose = require ('mongoose');
 
-var schemaescoles = require('./schema_escoles');
-var Escola = mongoose.model('Escola', schemaescoles, 'Escoles');
+var schemaEscoles = require('./schema_escoles');
+var Escola = mongoose.model('Escola', schemaEscoles, 'Escoles');
 
-var schemacentres = require('./schema_centres');
-var Centre = mongoose.model('Centre',schemacentres, 'Centres');
+var schemaCentres = require('./schema_centres');
+var Centre = mongoose.model('Centre',schemaCentres, 'Centres');
+
+var schemaHoraris = require('./schema_horari');
+var Horari = mongoose.model('Horari',schemaHoraris, 'Horaris');
 
 module.exports = new mongoose.Schema({
 	email:{
@@ -26,6 +29,10 @@ module.exports = new mongoose.Schema({
 	centre: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'Centre'
+	},
+	horari: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'Horari'
 	},
 	escola: {
 		type: Number,
