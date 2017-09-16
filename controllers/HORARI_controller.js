@@ -5,6 +5,8 @@ var moment = require('moment');
 //CREAR HORARI
 exports.create = function (req, res) {
 	var horari = req.body;
+	var usr=req.session.user;
+	var usrId = usr.id
 
 	var inici = moment(horari.horariInici, 'DD/MM/YYYY');
 	var final = moment(horari.horariFinal, 'DD/MM/YYYY');
@@ -14,61 +16,30 @@ exports.create = function (req, res) {
 		var nouHorari = new models.Horari({
 			data: [i]
 		});
-		nouHorari.save(function (error, horari){
-			if (error) {
-				res.json(error);
-				
-			} else {
-
-				console.log('DATA: '+moment(i).format('DD/MM/YYYY'));
-					
-			}
-	
-	
-		})
 
 	};
+
+	nouHorari.save(function (error, horari){
+		if (error) {
+			res.json(error);
+		} else {
+			console.log('DATA: '+moment(i).format('DD/MM/YYYY'));
+			//VINCULAR HORARI CON USER
+			models.User.findOne({
+			  _id: usrId
+			})
+			.then((user) => {
+			  user.horari = horari;
+			  user
+			    .save()
+			    .then(() => {
+			      res.jsonp({ user }); // enviamos user de vuelta
+			    });
+			});	
+		}
+	})
 	res.json(horari);
 }
-
-/*
-						var nouUser = new models.User({
-							email: user.email,
-							nom: user.nom,
-							cognom: user.cognom,
-							password: user.password,
-							mestre: 'tutor',
-							curs: user.curs,
-							escola: user.escola,
-							centre: eskola._id
-						});
-						nouUser.save(function (error, user){
-							if (error) {
-								res.json(error);
-								
-							} else {
-							//login
-								var email = user.email;
-								var password = user.password;
-
-								models.User.findOne({email: email, password: password}, function(error, user){
-									if(error){
-										res.json(error);
-									} else {
-										req.session.user = user;
-										models.Alumne.find(function(error, docs){
-											if (error){
-												res.json(error);
-											} else {
-												res.json(docs)
-											}
-										});
-									}
-								})
-							}			
-						});
-					};
-*/
 
 //SEG_ACTUACIONS GET
 exports.actuaGet = function (req, res) {

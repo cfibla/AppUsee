@@ -24,7 +24,6 @@ exports.createUser = function (req, res){
 				poblacio: "",
 				provincia: ""
 			});
-			//nouEscola.isNew =false;
 			nouEscola.save(function(error, scl){
 				if (error) {
 					res.json(error);
