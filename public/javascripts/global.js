@@ -17,11 +17,17 @@ $(document).ready(function (){
     $("#menjador").addClass("navcolor");
     $("#situ").html("Control de menjador ");
   }
-
-    if(pth=="/usuari"){
+    if(pth==="/usuari"){
     $("#llista").removeClass("active");
+    $("#assistencia").removeClass("active");
     $("#menjador").removeClass("active");
     $("#situ").html("Perfil d'usuari");
+  }
+    if(pth==="/horari-crear"){
+    $("#llista").removeClass("active");
+    $("#assistencia").removeClass("active");
+    $("#menjador").removeClass("active");
+    $("#situ").html("Configuració d'horari");
   }
 
 //TOOLTIPS

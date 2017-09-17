@@ -16,14 +16,15 @@
       <div class="container-fluid">
         <div class="row">
     
-          <form role="form" method="post" action="/crear-horari" target="_blank" id="crearHorariForm">
+          <form role="form" method="post" action="/horari-crear" target="_blank" id="crearHorariForm">
             <div class="col-md-12 clear">
-              <div class="col-md-12" style="text-align: center;"><h2>Durada de l'horari</h2></div>
-              <input type="hidden" form="crearHorariForm" name="" value ="" >
+              <input type="text" class="form-control" id="nom_horari" name="nom" required="true">
+              <label for="nom_horari">Nom de l'horari</label>
             </div>
+            <p><br><h4>Duració de l'horari</h4></p>
 
   <!--DATEPICKER-->
-            <div class="margetop form-group col-md-12">
+            <div class="form-group col-md-12">
             <div class="row">
             
               <div class="md-form col-md-6" id="iniciHorari" style="clear:both;">

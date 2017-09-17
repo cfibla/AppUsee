@@ -1,22 +1,44 @@
 var models = require('../models/index');
 var moment = require('moment');
 
-
 //CREAR HORARI
 exports.create = function (req, res) {
 	var horari = req.body;
+	var nom = horari.nom;
 	var usr=req.session.user;
-	var usrId = usr.id
+	var usrId = usr._id;
 
 	var inici = moment(horari.horariInici, 'DD/MM/YYYY');
 	var final = moment(horari.horariFinal, 'DD/MM/YYYY');
 
-	for(i=inici; i<final; i=moment(i).add(1,'days')){
+	var nouHorari = new models.Horari(
+		{ nom: nom
+		}
+	);
 
-		var nouHorari = new models.Horari({
-			data: [i]
+	for(i=inici; i<=final; i=moment(i).add(1,'days')){
+		nouHorari.dades.push({
+			data: moment(i).format('DD/MM/YYYY'),
+			dia: i.day(),
+			h1: '',
+			clase1: '',
+			prog1: '',
+			h2: '',
+			clase2: '',
+			prog2: '',
+			h3: '',
+			clase3: '',
+			prog3: '',
+			h4: '',
+			clase4: '',
+			prog4: '',
+			h5: '',
+			clase5: '',
+			prog5: '',
+			h6: '',
+			clase6: '',
+			prog6: ''
 		});
-
 	};
 
 	nouHorari.save(function (error, horari){
@@ -25,24 +47,30 @@ exports.create = function (req, res) {
 		} else {
 			console.log('DATA: '+moment(i).format('DD/MM/YYYY'));
 			//VINCULAR HORARI CON USER
-			models.User.findOne({
-			  _id: usrId
+			models.User.findById(usrId, function(error, user){
+				if (error){
+					res.json(error);
+				} else{
+					user.horari = horari;
+					user.save(function (error, upduser){
+						if (error){
+							res.json(error);
+						} else {
+							console.log(upduser);
+						}
+					})
+				}
 			})
-			.then((user) => {
-			  user.horari = horari;
-			  user
-			    .save()
-			    .then(() => {
-			      res.jsonp({ user }); // enviamos user de vuelta
-			    });
-			});	
 		}
 	})
-	res.json(horari);
-}
+	res.render('horari', {horari:horari, page_name:'horari'});
+};
 
-//SEG_ACTUACIONS GET
-exports.actuaGet = function (req, res) {
+//CONFIGURACIÓ HORARI
+exports.config = function (req, res) {
+	console.log(req.body);
+	res.json(req.body);
+	/*
 	var alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
@@ -51,7 +79,7 @@ exports.actuaGet = function (req, res) {
 			res.render('seg_act_EE', {alumne: alumne, page_name:''});
 
 		}
-	});
+	});*/
 };
 
 //SEG_ACTUACIONS POST

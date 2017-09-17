@@ -116,14 +116,6 @@ exports.create = function (req, res){
 					return res.json(nouAlumne)
 				}
 			});
-/*			var list = "";
-			var usr = req.session.user.mestre;
-			if (usr === "tutor"){
-				list = "/list"
-			} else {
-				list = "/list_EE"
-			}
-			res.redirect(list);*/
 			};
 		});
 	}

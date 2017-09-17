@@ -1,0 +1,41 @@
+
+<form role="form" method="post" action="/horari-config?_method=put" id="horari_config">
+  <div class="container margetop clear">
+    <div class="row">
+      <div class="md-form col-12" style="clear: both;">
+        <div class="row">
+        
+          <div class="md-form col-md-3">
+            <label for="nom_usuari">Nom</label>
+            <input type="text" class="form-control" id="nom_horari" name="nom"
+                   value="<%=horari.nom%>">
+          </div>
+
+
+           <div class="form-group col-md-2">
+            <label for="codi_escola">Codi escola *</label>
+            <input type="text" class="form-control" id="codi_escola" name="codiEscola" value = "hhhh" disabled>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="container">
+  <div class="clearfix float-right">
+    <% 
+    var li = "/list";
+    if(session.user.mestre === "ee"){
+      li = "/list_EE"}
+    %>
+
+    <span class="col-md-5">
+      <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>Torna a la llista</span></a>
+
+    <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
+    </span>
+  </div>
+</div>

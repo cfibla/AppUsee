@@ -71,7 +71,8 @@ router.put('/seguiment-EE/:id/altresDel/:i',	sessionController.loginRequired, al
 router.put('/dades_alta/:id', 		sessionController.loginRequired, alumEeController.alta);
 
 //rutas HORARI
-router.post('/crear-horari',				sessionController.loginRequired, horariController.create);
+router.post('/horari-crear',				sessionController.loginRequired, horariController.create);
+router.put('/horari-config',				sessionController.loginRequired, horariController.config);
 
 //rutas PDF
 router.post('/assistPDF',			sessionController.loginRequired, assistPDF.PDF);
