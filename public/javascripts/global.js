@@ -111,9 +111,7 @@ $(document).ready(function (){
       var urlPost = "/usuari_ee_D/" + userId + "?_method=put";
       }
       var data = $('#del_user').serialize();
-      aPost(urlPost, data).always(function(){
-        location.href="/logout";
-      });
+      aPost(urlPost, data)
       });
     });
 

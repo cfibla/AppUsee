@@ -30,10 +30,10 @@ module.exports = new mongoose.Schema({
 		type: mongoose.Schema.ObjectId,
 		ref: 'Centre'
 	},
-	horari:[{
+	horari:{
 			type: mongoose.Schema.ObjectId,
 			ref: 'Horari'
-		}],
+		},
 	escola: {
 		type: Number,
 		ref: 'Escola'

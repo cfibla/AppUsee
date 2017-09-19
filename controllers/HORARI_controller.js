@@ -56,30 +56,40 @@ exports.create = function (req, res) {
 						if (error){
 							res.json(error);
 						} else {
-							console.log(upduser);
+							console.log('UPDUSER: '+upduser);
+							res.json(horari);
 						}
 					})
 				}
 			})
 		}
 	})
-	res.render('horari', {horari:horari, page_name:'horari'});
 };
 
 //CONFIGURACIÓ HORARI
 exports.config = function (req, res) {
-	console.log(req.body);
-	res.json(req.body);
-	/*
-	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
-		if (error) {
-			return res.json(error);
-		} else {
-			res.render('seg_act_EE', {alumne: alumne, page_name:''});
+	var usr=req.session.user;
+	var usrId = usr._id;
 
+	models.User.findById(usrId, function(error, user){
+		if(error){
+			console.log(error);
+		} else {
+			console.log(user);
+			req.session.user = user;
+			var horariId=user.horari;
+
+			console.log('HORARI ID: '+ horariId);
+			models.Horari.findById(horariId, function(error, horari){
+				if (error) {
+					return res.json(error);
+				} else {
+					res.render('horari', {horari:horari, page_name:'horari'});
+				}
+			});
 		}
-	});*/
+
+	})
 };
 
 //SEG_ACTUACIONS POST

@@ -44,7 +44,31 @@ var today = function(){
     var mdal =  $(this);
       mdal.find("#inici").val(today);
       mdal.find("#final").val(today);
+
+    $('#crearHorariForm').on('submit', function(e){
+      e.preventDefault();
+      var urlPost = "/horari-crear";
+      var data = $('#crearHorariForm').serialize(); 
+
+      $.LoadingOverlay("show");
+      aPost (urlPost, data).always(function(){
+        location.href="/horari-config";
+      });
+      });
   });
 
+
+///AJAX FUNCTIONS///
+   function aPost(path, obj){
+     return   $.ajax({
+         url: path, //this is the submit URL
+         type: 'POST',
+         data: obj
+     }).done(function(){
+       location.reload();
+        $.LoadingOverlay("hide");
+        $('.modal').removeClass('show');
+     });
+   }
 
 });
