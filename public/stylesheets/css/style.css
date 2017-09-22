@@ -272,6 +272,27 @@ span.glyphicon-user {
 .tbl{
     min-height: 250px;
 }
+/*HORARI*/
+#horari .col-sm{
+    padding-right: 0px;
+    padding-left: 0px
+}
+
+.fila1 {
+    border: 1px solid black;
+    height: 40px;
+    text-align: center;
+}
+
+.fila2 {
+    border: 1px solid black;
+    height: 40px;
+}
+
+.hores {
+    border: 1px solid black;
+    height: 100px;
+}
 
 /*COLORS*/
 .blau{
