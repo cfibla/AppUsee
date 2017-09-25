@@ -61,17 +61,15 @@
                 <%if(session.user.mestre === "tutor"){%>
                   <li id="assistencia" class="nav-item"><a class="nav-link" href="/assistencia">Assistència</a></li>
                   <li id="menjador" class="nav-item"><a class="nav-link" href="/menjador">Menjador</a></li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Horaris</a>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal" role="button">Crear Horari</a>
-                      <!--
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Separated link</a>-->
-                    </div>
-                  </li>
+                  <% if (!session.user.horari) {%>
+                    <li id="menjador" class="nav-item"><a class="nav-link" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li><%} else{%>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Horaris</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" id="configHorari" href="/horari-config">Configurar horari</a>
+                      </div>
+                    </li>
+                  <%}%>
                 <%}%>
               </ul>
             

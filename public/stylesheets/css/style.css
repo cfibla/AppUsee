@@ -279,19 +279,33 @@ span.glyphicon-user {
 }
 
 .fila1 {
+    padding-top: .5em;
     border: 1px solid black;
     height: 40px;
     text-align: center;
 }
 
 .fila2 {
+    padding-top: .5em;
     border: 1px solid black;
     height: 40px;
 }
 
 .hores {
+    padding-left: .5em;
+    padding-top: .5em;
     border: 1px solid black;
     height: 100px;
+}
+
+.input-horari {
+    margin-left: 1em;
+    margin-right: 1em;
+    padding-bottom: 1em;
+}
+
+.input-horari input{
+    text-align: center;
 }
 
 /*COLORS*/
