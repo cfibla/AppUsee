@@ -57,7 +57,27 @@ var today = function(){
       });
   });
 
+      $('#iniciHorari .input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        setDate: new Date(),
+        maxViewMode: 2,
+        todayBtn: "linked",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true,
+        language: "ca"  
+    });
 
+    $('#finalHorari .input-group.date').datepicker({
+        format: "dd/mm/yyyy",
+        setDate: new Date(),
+        maxViewMode: 2,
+        todayBtn: "linked",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true,
+        language: "ca"
+    });
 ///AJAX FUNCTIONS///
    function aPost(path, obj){
      return   $.ajax({

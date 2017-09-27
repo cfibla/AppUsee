@@ -23,7 +23,7 @@ $(document).ready(function (){
     $("#menjador").removeClass("active");
     $("#situ").html("Perfil d'usuari");
   }
-    if(pth==="/horari-crear"){
+    if(pth==="/horari-config"){
     $("#llista").removeClass("active");
     $("#assistencia").removeClass("active");
     $("#menjador").removeClass("active");

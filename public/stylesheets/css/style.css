@@ -272,6 +272,8 @@ span.glyphicon-user {
 .tbl{
     min-height: 250px;
 }
+
+
 /*HORARI*/
 #horari .col-sm{
     padding-right: 0px;
@@ -304,8 +306,21 @@ span.glyphicon-user {
     padding-bottom: 1em;
 }
 
-.input-horari input{
+.input-horari input::-webkit-input-placeholder{
     text-align: center;
+    font-style: italic;
+}
+.input-horari input::-moz-placeholder{
+    text-align: center;
+    font-style: italic;
+}
+.input-horari input::-ms-input-placeholder{
+    text-align: center;
+    font-style: italic;
+}
+.input-horari input:-moz-input-placeholder{
+    text-align: center;
+    font-style: italic;
 }
 
 /*COLORS*/
