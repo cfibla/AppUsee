@@ -27,7 +27,7 @@ $(document).ready(function (){
     $("#llista").removeClass("active");
     $("#assistencia").removeClass("active");
     $("#menjador").removeClass("active");
-    $("#situ").html("Configuració d'horari");
+    $("#situ").html("Configuració de l'horari");
   }
 
 //TOOLTIPS

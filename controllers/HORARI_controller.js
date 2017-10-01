@@ -1,7 +1,7 @@
 var models = require('../models/index');
 var moment = require('moment');
 
-//CREAR HORARI
+//HORARI - CREATE
 exports.create = function (req, res) {
 	var horari = req.body;
 	var nom = horari.nom;
@@ -56,7 +56,6 @@ exports.create = function (req, res) {
 						if (error){
 							res.json(error);
 						} else {
-							console.log('UPDUSER: '+upduser);
 							res.json(horari);
 						}
 					})
@@ -66,20 +65,17 @@ exports.create = function (req, res) {
 	})
 };
 
-//CONFIGURACIÓ HORARI
+//CONF. HORARI - GET
 exports.config = function (req, res) {
 	var usr=req.session.user;
 	var usrId = usr._id;
 
 	models.User.findById(usrId, function(error, user){
 		if(error){
-			console.log(error);
+			res.json(error);
 		} else {
-			console.log(user);
 			req.session.user = user;
 			var horariId=user.horari;
-
-			console.log('HORARI ID: '+ horariId);
 			models.Horari.findById(horariId, function(error, horari){
 				if (error) {
 					return res.json(error);
@@ -90,4 +86,31 @@ exports.config = function (req, res) {
 		}
 
 	})
+};
+
+//CONF. HORARI - UPDATE
+exports.update = function (req, res){
+	var horariReq = req.body;
+	var user = req.session.user;
+	var horariId = user.horari;
+	var iniciReq = moment(horariReq.horariInici, 'DD/MM/YYYY');
+	var finalReq = moment(horariReq.horariFinal, 'DD/MM/YYYY');
+
+	models.Horari.findById(horariId, function(error, horari){
+		var inici = moment(horari.dades[0].data, 'DD/MM/YYYY');
+		var final = moment(horari.dades[3].data, 'DD/MM/YYYY');
+		if (error) {
+			return res.json(error);
+		} else {
+			if (iniciReq == inici) {
+				console.log("INICIO OK");
+			} else {
+				console.log("INICIO DISTINTO");
+				console.log('INICI REQ: ' + iniciReq);
+				console.log('INICI: ' + inici);
+			}
+		}
+	});
+
+	res.json(horariReq);
 };

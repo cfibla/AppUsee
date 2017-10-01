@@ -14,7 +14,7 @@ var today = function(){
   tday = dd+'/'+mm+'/'+yyyy;
   return tday
 }
-//CREAR HORARI MODAL 
+//CREATE HORARI MODAL 
   $('#creaHorariModal').on('shown.bs.modal', function (e) {
       $('#iniciHorari .input-group.date').datepicker({
         format: "dd/mm/yyyy",
@@ -37,10 +37,7 @@ var today = function(){
         todayHighlight: true,
         language: "ca"
     });
-/*    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneId = actg.data('id');
-    var today = actg.data('today');*/
+
     var mdal =  $(this);
       mdal.find("#inici").val(today);
       mdal.find("#final").val(today);
@@ -56,7 +53,7 @@ var today = function(){
       });
       });
   });
-
+//UPDATE HORARI
       $('#iniciHorari .input-group.date').datepicker({
         format: "dd/mm/yyyy",
         setDate: new Date(),
@@ -78,6 +75,8 @@ var today = function(){
         todayHighlight: true,
         language: "ca"
     });
+
+    
 ///AJAX FUNCTIONS///
    function aPost(path, obj){
      return   $.ajax({
