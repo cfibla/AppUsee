@@ -102,12 +102,22 @@ exports.update = function (req, res){
 		if (error) {
 			return res.json(error);
 		} else {
-			if (iniciReq == inici) {
-				console.log("INICIO OK");
+			//ARREGLAR ESTO
+			if (moment(iniciReq).isSame(inici)||moment(finalReq).isSame(final)) {
+				console.log("INICIO Y FINAL OK");
 			} else {
-				console.log("INICIO DISTINTO");
-				console.log('INICI REQ: ' + iniciReq);
-				console.log('INICI: ' + inici);
+				if (moment(iniciReq).isBefore(inici)) {
+					console.log("INICIO: HAS INTRODUCIDO UNA FECHA ANTERIOR");
+				}
+				if (moment(iniciReq).isAfter(inici)) {
+					console.log("INICIO: HAS INTRODUCIDO UNA FECHA POSTERIOR");
+				}
+				if (moment(finalReq).isBefore(final)) {
+					console.log("FINAL: HAS INTRODUCIDO UNA FECHA ANTERIOR");
+				}
+				if (moment(finalReq).isAfter(final)) {
+					console.log("FINAL: HAS INTRODUCIDO UNA FECHA POSTERIOR");
+				}				
 			}
 		}
 	});
