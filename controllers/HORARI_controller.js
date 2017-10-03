@@ -97,14 +97,37 @@ exports.update = function (req, res){
 	var finalReq = moment(horariReq.horariFinal, 'DD/MM/YYYY');
 
 	models.Horari.findById(horariId, function(error, horari){
+		var lgt = horari.dades.length-1;
 		var inici = moment(horari.dades[0].data, 'DD/MM/YYYY');
-		var final = moment(horari.dades[3].data, 'DD/MM/YYYY');
+		var final = moment(horari.dades[lgt].data, 'DD/MM/YYYY');
+		function upd(){
+			horari.nom = horariReq.nom;
+			for (var i=0; i < horari.dades.length; i++) {
+		        if (horari.dades[i].dia === 1) {
+		            console.log('dilluns');
+		        }
+		    }
+			};
 		if (error) {
 			return res.json(error);
 		} else {
-			//ARREGLAR ESTO
-			if (moment(iniciReq).isSame(inici)||moment(finalReq).isSame(final)) {
+			//ERRORES
+			//FINAL ANTES QUE INICIO
+			if (moment(finalReq).isBefore(iniciReq)) {
+					if (moment(finalReq).isBefore(inici)) {
+						console.log("ERROR: FINAL ES ANTERIOR A INICIO");
+					}
+				}
+			//INICIO DESPUÉS DE FINAL
+			if (moment(iniciReq).isAfter(finalReq)) {
+					if (moment(iniciReq).isAfter(final)) {
+						console.log("ERROR: INICIO ES POSTERIOR A FINAL");
+					}
+				}
+			//OK
+			if (moment(iniciReq).isSame(inici) && moment(finalReq).isSame(final)) {
 				console.log("INICIO Y FINAL OK");
+				upd();
 			} else {
 				if (moment(iniciReq).isBefore(inici)) {
 					console.log("INICIO: HAS INTRODUCIDO UNA FECHA ANTERIOR");
@@ -120,7 +143,9 @@ exports.update = function (req, res){
 				}				
 			}
 		}
+		horari.save(function (err, updatedHorari) {
+		    if (err) return res.json(error);
+		    res.send(updatedHorari);
+  		});
 	});
-
-	res.json(horariReq);
 };

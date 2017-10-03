@@ -22,6 +22,6 @@ module.exports = new mongoose.Schema({
 			prog5: String,
 			h6: String,
 			clase6: String,
-			prog6: String}
-	]
+			prog6: String
+		}]
 });
