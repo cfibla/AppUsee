@@ -1,4 +1,12 @@
-<%var lg=horari.dades.length-1%>
+<%
+var lg=horari.dades.length-1;
+for (var i=0; i < horari.dades.length; i++) {
+            if (horari.dades[i].dia === 1) {
+              var dilluns = horari.dades[i];
+              console.log(dilluns);
+              }
+}
+%>
 <form role="form" method="post" action="/horari-post?_method=put" id="horari_post">
   <div class="container margetop clear" id="horari">
 
@@ -41,22 +49,38 @@
             <div class="hores">
               9:00
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe1dll" placeholder="Matèria">
+                <input type="text" class="form-control" name="classe1dll" id="dcl1" value=<%=dilluns.clase1%>>
+                <%
+                  if(!dilluns.clase1) {
+                %>
+                <label for="dcl1">Matèria</label>
+                <%}%>
               </div>
             </div>
             <div class="hores">
               10:00
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe2dll" placeholder="Matèria">
+                <input type="text" class="form-control" name="classe2dll" id="dcl2" value=<%=dilluns.clase2%>>
+                <%
+                  if(!dilluns.clase2) {
+                %>
+                <label for="dcl2">Matèria</label>
+                <%}%>
               </div>
             </div>
+
             <div class="fila1">
               11:00
             </div>
             <div class="hores">
               11:30
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe3dll" placeholder="Matèria">
+                <input type="text" class="form-control" name="classe3dll" id="dcl3" value=<%=dilluns.clase3%>>
+                <%
+                  if(!dilluns.clase3) {
+                %>
+                <label for="dcl3">Matèria</label>
+                <%}%>
               </div>
             </div>
             <div class="fila1">12:30</div>
@@ -64,7 +88,12 @@
             <div class="hores">
               15:30
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe4dll" placeholder="Matèria">
+                <input type="text" class="form-control" name="classe4dll" id="dcl4" value=<%=dilluns.clase4%>>
+                <%
+                  if(!dilluns.clase4) {
+                %>
+                <label for="dcl4">Matèria</label>
+                <%}%>
               </div>
             </div>
         </div>

@@ -104,7 +104,19 @@ exports.update = function (req, res){
 			horari.nom = horariReq.nom;
 			for (var i=0; i < horari.dades.length; i++) {
 		        if (horari.dades[i].dia === 1) {
+		        	horari.dades[i].clase1 = horariReq.classe1dll;
+		        	horari.dades[i].clase2 = horariReq.classe2dll;
+		        	horari.dades[i].clase3 = horariReq.classe3dll;
+		        	horari.dades[i].clase4 = horariReq.classe4dll;
+		        	horari.dades[i].clase5 = horariReq.classe5dll;
+		        	horari.dades[i].clase6 = horariReq.classe6dll;	
 		            console.log('dilluns');
+		            console.log(horariReq.classe1dll);
+		            console.log(horariReq.classe2dll);
+		            console.log(horariReq.classe3dll);
+		            console.log(horariReq.classe4dll);
+		            console.log(horariReq.classe5dll);
+		            console.log(horariReq.classe6dll);
 		        }
 		    }
 			};
