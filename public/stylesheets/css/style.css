@@ -285,12 +285,17 @@ span.glyphicon-user {
     border: 1px solid black;
     height: 40px;
     text-align: center;
+    background: #464646;
+    color: white;
 }
 
 .fila2 {
     padding-top: .5em;
     border: 1px solid black;
     height: 40px;
+    text-align: center;
+    background: #7f7e7e;
+   /* color: white;*/
 }
 
 .hores {

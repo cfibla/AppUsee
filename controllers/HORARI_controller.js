@@ -110,13 +110,38 @@ exports.update = function (req, res){
 		        	horari.dades[i].clase4 = horariReq.classe4dll;
 		        	horari.dades[i].clase5 = horariReq.classe5dll;
 		        	horari.dades[i].clase6 = horariReq.classe6dll;	
-		            console.log('dilluns');
-		            console.log(horariReq.classe1dll);
-		            console.log(horariReq.classe2dll);
-		            console.log(horariReq.classe3dll);
-		            console.log(horariReq.classe4dll);
-		            console.log(horariReq.classe5dll);
-		            console.log(horariReq.classe6dll);
+		        }
+		        if (horari.dades[i].dia === 2) {
+		        	horari.dades[i].clase1 = horariReq.classe1dm;
+		        	horari.dades[i].clase2 = horariReq.classe2dm;
+		        	horari.dades[i].clase3 = horariReq.classe3dm;
+		        	horari.dades[i].clase4 = horariReq.classe4dm;
+		        	horari.dades[i].clase5 = horariReq.classe5dm;
+		        	horari.dades[i].clase6 = horariReq.classe6dm;	
+		        }
+		        if (horari.dades[i].dia === 3) {
+		        	horari.dades[i].clase1 = horariReq.classe1dx;
+		        	horari.dades[i].clase2 = horariReq.classe2dx;
+		        	horari.dades[i].clase3 = horariReq.classe3dx;
+		        	horari.dades[i].clase4 = horariReq.classe4dx;
+		        	horari.dades[i].clase5 = horariReq.classe5dx;
+		        	horari.dades[i].clase6 = horariReq.classe6dx;	
+		        }
+		        if (horari.dades[i].dia === 4) {
+		        	horari.dades[i].clase1 = horariReq.classe1dj;
+		        	horari.dades[i].clase2 = horariReq.classe2dj;
+		        	horari.dades[i].clase3 = horariReq.classe3dj;
+		        	horari.dades[i].clase4 = horariReq.classe4dj;
+		        	horari.dades[i].clase5 = horariReq.classe5dj;
+		        	horari.dades[i].clase6 = horariReq.classe6dj;	
+		        }
+		        if (horari.dades[i].dia === 5) {
+		        	horari.dades[i].clase1 = horariReq.classe1dv;
+		        	horari.dades[i].clase2 = horariReq.classe2dv;
+		        	horari.dades[i].clase3 = horariReq.classe3dv;
+		        	horari.dades[i].clase4 = horariReq.classe4dv;
+		        	horari.dades[i].clase5 = horariReq.classe5dv;
+		        	horari.dades[i].clase6 = horariReq.classe6dv;	
 		        }
 		    }
 			};
