@@ -99,7 +99,9 @@ exports.update = function (req, res){
 	models.Horari.findById(horariId, function(error, horari){
 		var lgt = horari.dades.length-1;
 		var inici = moment(horari.dades[0].data, 'DD/MM/YYYY');
+		var iniciAnt = moment(inici).subtract(1,'days');
 		var final = moment(horari.dades[lgt].data, 'DD/MM/YYYY');
+		var finalPost = moment(final).add(1,'days');
 		function upd(){
 			horari.nom = horariReq.nom;
 			for (var i=0; i < horari.dades.length; i++) {
@@ -168,15 +170,70 @@ exports.update = function (req, res){
 			} else {
 				if (moment(iniciReq).isBefore(inici)) {
 					console.log("INICIO: HAS INTRODUCIDO UNA FECHA ANTERIOR");
+					for(i=iniciAnt; i>=iniciReq; i=moment(i).subtract(1,'days')){
+						horari.dades.unshift({
+							data: moment(i).format('DD/MM/YYYY'),
+							dia: i.day(),
+							h1: '',
+							clase1: '',
+							prog1: '',
+							h2: '',
+							clase2: '',
+							prog2: '',
+							h3: '',
+							clase3: '',
+							prog3: '',
+							h4: '',
+							clase4: '',
+							prog4: '',
+							h5: '',
+							clase5: '',
+							prog5: '',
+							h6: '',
+							clase6: '',
+							prog6: ''
+						});
+					};
+					upd();
 				}
 				if (moment(iniciReq).isAfter(inici)) {
 					console.log("INICIO: HAS INTRODUCIDO UNA FECHA POSTERIOR");
+					iniciDiff = iniciReq.diff(inici, 'days');
+					horari.dades.splice(0,iniciDiff);
 				}
 				if (moment(finalReq).isBefore(final)) {
 					console.log("FINAL: HAS INTRODUCIDO UNA FECHA ANTERIOR");
+					finalDiff = final.diff(finalReq, 'days');
+					horari.dades.splice(lgt-finalDiff+1,finalDiff);
 				}
 				if (moment(finalReq).isAfter(final)) {
 					console.log("FINAL: HAS INTRODUCIDO UNA FECHA POSTERIOR");
+						for(i=finalPost; i<=finalReq; i=moment(i).add(1,'days')){
+							horari.dades.push({
+								data: moment(i).format('DD/MM/YYYY'),
+								dia: i.day(),
+								h1: '',
+								clase1: '',
+								prog1: '',
+								h2: '',
+								clase2: '',
+								prog2: '',
+								h3: '',
+								clase3: '',
+								prog3: '',
+								h4: '',
+								clase4: '',
+								prog4: '',
+								h5: '',
+								clase5: '',
+								prog5: '',
+								h6: '',
+								clase6: '',
+								prog6: ''
+							});
+						};
+					upd();
+
 				}				
 			}
 		}
