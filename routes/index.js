@@ -74,6 +74,7 @@ router.put('/dades_alta/:id', 		sessionController.loginRequired, alumEeControlle
 router.post('/horari-crear',				sessionController.loginRequired, horariController.create);
 router.get('/horari-config',				sessionController.loginRequired, horariController.config);
 router.put('/horari-post',					sessionController.loginRequired, horariController.update);
+router.get('/horari-diari',					sessionController.loginRequired, horariController.diariGet);
 
 
 //rutas PDF

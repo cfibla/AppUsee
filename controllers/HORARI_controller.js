@@ -280,3 +280,26 @@ exports.update = function (req, res){
   		});
 	});
 };
+
+//CONF. HORARI - GET
+exports.diariGet = function (req, res) {
+	var usr=req.session.user;
+	var usrId = usr._id;
+
+	models.User.findById(usrId, function(error, user){
+		if(error){
+			res.json(error);
+		} else {
+			req.session.user = user;
+			var horariId=user.horari;
+			models.Horari.findById(horariId, function(error, horari){
+				if (error) {
+					return res.json(error);
+				} else {
+					res.render('horari-diari', {horari:horari, page_name:'horari'});
+				}
+			});
+		}
+
+	})
+};

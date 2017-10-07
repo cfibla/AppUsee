@@ -275,6 +275,7 @@ span.glyphicon-user {
 
 
 /*HORARI*/
+/*  CONFIG  */
 #horari .col-sm{
     padding-right: 0px;
     padding-left: 0px
@@ -310,24 +311,30 @@ span.glyphicon-user {
     margin-right: 1em;
     padding-bottom: 1em;
 }
-/*
-.input-horari input::-webkit-input-placeholder{
-    text-align: center;
-    font-style: italic;
+/*DIARI*/
+.diaDiari {
+    margin-top: 2em;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 20px 20px 0 0;
+    background: #464646;
+    color: white;
 }
-.input-horari input::-moz-placeholder{
-    text-align: center;
-    font-style: italic;
+
+.horesDiari {
+    padding-left: .5em;
+    padding-top: .5em;
+    border: 1px solid black;
+    height: 100px;
 }
-.input-horari input::-ms-input-placeholder{
-    text-align: center;
-    font-style: italic;
+
+.horesBottom {
+    padding-left: .5em;
+    padding-top: .5em;
+    border: 1px solid black;
+    border-radius: 0 0 20px 20px;
+    min-height: 100px;
 }
-.input-horari input:-moz-input-placeholder{
-    text-align: center;
-    font-style: italic;
-}
-*/
 /*COLORS*/
 .blau{
     color:#4285F4;
