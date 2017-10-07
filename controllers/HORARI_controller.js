@@ -10,6 +10,12 @@ exports.create = function (req, res) {
 
 	var inici = moment(horari.horariInici, 'DD/MM/YYYY');
 	var final = moment(horari.horariFinal, 'DD/MM/YYYY');
+	//MENOS DE UNA SEMANA
+	console.log(final.diff(inici, 'days'));
+	if (final.diff(inici, 'days')<7){
+		console.log("ERROR: MENOS DE UNA SEMANA");
+		final = moment(inici).add(7,'days');
+	}
 
 	var nouHorari = new models.Horari(
 		{ nom: nom
@@ -23,21 +29,27 @@ exports.create = function (req, res) {
 			h1: '',
 			clase1: '',
 			prog1: '',
+			ref1:'',
 			h2: '',
 			clase2: '',
 			prog2: '',
+			ref2:'',
 			h3: '',
 			clase3: '',
 			prog3: '',
+			ref3:'',
 			h4: '',
 			clase4: '',
 			prog4: '',
+			ref4:'',
 			h5: '',
 			clase5: '',
 			prog5: '',
+			ref5:'',
 			h6: '',
 			clase6: '',
-			prog6: ''
+			prog6: '',
+			ref6:''
 		});
 	};
 
@@ -102,6 +114,7 @@ exports.update = function (req, res){
 		var iniciAnt = moment(inici).subtract(1,'days');
 		var final = moment(horari.dades[lgt].data, 'DD/MM/YYYY');
 		var finalPost = moment(final).add(1,'days');
+
 		function upd(){
 			horari.nom = horariReq.nom;
 			for (var i=0; i < horari.dades.length; i++) {
@@ -163,6 +176,16 @@ exports.update = function (req, res){
 						console.log("ERROR: INICIO ES POSTERIOR A FINAL");
 					}
 				}
+			if (moment(iniciReq).isBefore(inici) && moment(finalReq).isBefore(inici)) {
+				console.log("ERROR: INICIO Y FINAL ANTES");
+				iniciReq = inici;
+				finalReq = final;
+			}
+			if (moment(iniciReq).isAfter(final) && moment(finalReq).isAfter(final)) {
+				console.log("ERROR: INICIO Y FINAL DESPUÉS");
+				iniciReq = inici;
+				finalReq = final;
+			}
 			//OK
 			if (moment(iniciReq).isSame(inici) && moment(finalReq).isSame(final)) {
 				console.log("INICIO Y FINAL OK");
@@ -177,21 +200,27 @@ exports.update = function (req, res){
 							h1: '',
 							clase1: '',
 							prog1: '',
+							ref1:'',
 							h2: '',
 							clase2: '',
 							prog2: '',
+							ref2:'',
 							h3: '',
 							clase3: '',
 							prog3: '',
+							ref3:'',
 							h4: '',
 							clase4: '',
 							prog4: '',
+							ref4:'',
 							h5: '',
 							clase5: '',
 							prog5: '',
+							ref5:'',
 							h6: '',
 							clase6: '',
-							prog6: ''
+							prog6: '',
+							ref6:''
 						});
 					};
 					upd();
@@ -200,11 +229,13 @@ exports.update = function (req, res){
 					console.log("INICIO: HAS INTRODUCIDO UNA FECHA POSTERIOR");
 					iniciDiff = iniciReq.diff(inici, 'days');
 					horari.dades.splice(0,iniciDiff);
+					//upd();
 				}
 				if (moment(finalReq).isBefore(final)) {
 					console.log("FINAL: HAS INTRODUCIDO UNA FECHA ANTERIOR");
 					finalDiff = final.diff(finalReq, 'days');
 					horari.dades.splice(lgt-finalDiff+1,finalDiff);
+					//upd();
 				}
 				if (moment(finalReq).isAfter(final)) {
 					console.log("FINAL: HAS INTRODUCIDO UNA FECHA POSTERIOR");
@@ -215,21 +246,27 @@ exports.update = function (req, res){
 								h1: '',
 								clase1: '',
 								prog1: '',
+								ref1:'',
 								h2: '',
 								clase2: '',
 								prog2: '',
+								ref2:'',
 								h3: '',
 								clase3: '',
 								prog3: '',
+								ref3:'',
 								h4: '',
 								clase4: '',
 								prog4: '',
+								ref4:'',
 								h5: '',
 								clase5: '',
 								prog5: '',
+								ref5:'',
 								h6: '',
 								clase6: '',
-								prog6: ''
+								prog6: '',
+								ref6:''
 							});
 						};
 					upd();
