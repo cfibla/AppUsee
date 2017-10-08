@@ -154,7 +154,7 @@ if(session.user.mestre === "ee"){
                 <span class="col-md-2">
                   <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna enrere</span></a>
                 </span>
-
+<% if (session.user.mestre==="tutor") {%>
                   <span class="col-md-2">
                     <a data-toggle="modal" class = "btn btn-default float-right" id="btnreuParesAfegir" role = "button" href="/javascripts/modals/reuPares.ejs" 
                     data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>"
@@ -167,7 +167,7 @@ if(session.user.mestre === "ee"){
                     data-dataIso = "<% new Date()%>"
                     data-target="#reuParesModal"><i class="fa fa-plus"></i> Nova entrevista</a>
                   </span>
-
+<%}%>
               </div>
             </div>
           </div>

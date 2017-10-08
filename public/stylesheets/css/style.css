@@ -80,15 +80,16 @@ nav a{
 .seconnav {
     width: 100%;
     background-color: #2BBBAD;
-    padding: 4em 1em .5em 2em;
+    padding: 2.5em 1em .5em 2em;
     position: fixed;
     z-index: 1000;
+    opacity: 0.5;
 }
 .navcolor{
     background-color: #2BBBAD;
 }
 .navcolor a{
-    color: black !important;
+    color: white !important;
 }
 table a:hover{
     opacity: .5;
@@ -213,7 +214,7 @@ span.glyphicon-user {
 
 .curs-t{
     text-align: left;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
 }
 .curs-t2{
