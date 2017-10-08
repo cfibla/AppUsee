@@ -11,6 +11,7 @@ var horariController = require('../controllers/HORARI_controller');
 var sessionController = require('../controllers/SESSION_controller');
 var assistPDF = require('../public/javascripts/PDFs/assistencia');
 var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
+var reunionsPDF = require('../public/javascripts/PDFs/reunionsPares');
 
 //rutas SESSION
 router.get('/',						sessionController.new);
@@ -80,6 +81,7 @@ router.get('/horari-diari',					sessionController.loginRequired, horariControlle
 //rutas PDF
 router.post('/assistPDF',			sessionController.loginRequired, assistPDF.PDF);
 router.get('/print_EE/:id',			sessionController.loginRequired, segUseePDF.PDF);
+router.get('/reunioPares/:id',		sessionController.loginRequired, reunionsPDF.PDF);
 
 
 
