@@ -43,3 +43,7 @@ exports.createCentre = function (req, res){
 	});
 	};
 };
+
+exports.centreMain = function(req, res) {
+		res.render('centre-main');
+	};

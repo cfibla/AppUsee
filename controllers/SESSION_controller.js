@@ -43,7 +43,7 @@ exports.login = function (req, res, next){
 	})
 };
 
-exports.login_EE = function (req, res){
+exports.login_EE = function (req, res, next){
 	var email = req.body.email;
 	var password = req.body.password;
 
@@ -53,8 +53,9 @@ exports.login_EE = function (req, res){
 		}
 
 		if(!user) {
-			console.log('Usuari inexistent'); //CANVIAR PER MISSATGE - ALERT
-			res.redirect('/');
+			next();
+//			console.log('Usuari inexistent'); //CANVIAR PER MISSATGE - ALERT
+//			res.redirect('/');
 		} else {
 		
 				req.session.user = user;
@@ -71,6 +72,37 @@ exports.login_EE = function (req, res){
 
 	})
 };
+
+exports.loginCentre = function(req, res){
+	var email = req.body.email;
+	var password = req.body.password;
+
+	models.Centre.findOne({email: email, password: password}, function(error, user){
+		if(error){
+			console.log(error);
+		}
+
+		if(!user) {
+
+			console.log('Usuari inexistent'); //CANVIAR PER MISSATGE - ALERT
+			res.redirect('/');
+		} else {
+		
+				req.session.user = user;
+
+				models.Alumne.find(function(error, docs){
+				if (error){
+					console.log(error);
+				} else {
+					
+					res.redirect('/centre');
+
+					}
+			});}
+
+	})
+
+}
 
 exports.loginRequired = function(req, res, next){
 	if(req.session.user){

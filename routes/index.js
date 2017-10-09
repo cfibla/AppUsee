@@ -15,7 +15,7 @@ var reunionsPDF = require('../public/javascripts/PDFs/reunionsPares');
 
 //rutas SESSION
 router.get('/',						sessionController.new);
-router.post('/login',				sessionController.login, sessionController.login_EE);
+router.post('/login',				sessionController.login, sessionController.login_EE, sessionController.loginCentre);
 router.get('/logout',				sessionController.loginRequired, sessionController.destroy);
 
 //rutas ESCOLA
@@ -25,6 +25,7 @@ router.get('/logout',				sessionController.loginRequired, sessionController.dest
 //rutas CENTRE
 router.get('/escola_nou',			centreController.nouCentre);
 router.post('/escola_crear',		centreController.createCentre);
+router.get('/centre',				centreController.centreMain);
 
 //rutas USER
 router.get('/usuari_nou',			userController.nouUser);
