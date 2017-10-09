@@ -81,7 +81,7 @@ router.get('/horari-diari',					sessionController.loginRequired, horariControlle
 //rutas PDF
 router.post('/assistPDF',			sessionController.loginRequired, assistPDF.PDF);
 router.get('/print_EE/:id',			sessionController.loginRequired, segUseePDF.PDF);
-router.get('/reunioPares/:id',		sessionController.loginRequired, reunionsPDF.PDF);
+router.get('/reunioPares/:id/:i',		sessionController.loginRequired, reunionsPDF.PDF);
 
 
 

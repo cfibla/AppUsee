@@ -195,7 +195,7 @@ exports.PDF = function (req, res) {
 					for (i = 0; i < alumne.segAltresCoord.length; i++) {
 						var dataCoor = alumne.segAltresCoord[i].date;
 						var bodyCoor = alumne.segAltresCoord[i].body;
-						var bodyCoorC = bodyCAD.replace(/\r\n|\r/g, '\n');
+						var bodyCoorC = bodyCoor.replace(/\r\n|\r/g, '\n');
 						doc.text(dataCoor);
 						doc.text(bodyCoorC);
 						doc.moveDown();
