@@ -313,6 +313,9 @@ span.glyphicon-user {
     padding-bottom: 1em;
 }
 /*DIARI*/
+.link {
+    color:#464646;
+}
 .diaDiari {
     margin-top: 2em;
     padding: 1em;
