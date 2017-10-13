@@ -5,32 +5,35 @@
 var dia;
 for (var i=0; i < horari.dades.length; i++) {
   if (horari.dades[i].dia === 1) {
-    var dia = "DILLUNS ";
+    var dia = "DILLUNS";
     }
   if (horari.dades[i].dia === 2) {
-    var dia = "DIMARTS ";
+    var dia = "DIMARTS";
     }
   if (horari.dades[i].dia === 3) {
-    var dia = "DIMECRES ";
+    var dia = "DIMECRES";
     }
   if (horari.dades[i].dia === 4) {
-    var dia = "DIJOUS ";
+    var dia = "DIJOUS";
     }
   if (horari.dades[i].dia === 5) {
-    var dia = "DIVENDRES ";
+    var dia = "DIVENDRES";
     }
 %>
     <div class="container">
       <div class="row">
-
         <!-- http://demos.flesler.com/jquery/scrollTo/ -->
 <%if (horari.dades[i].dia!=0 && horari.dades[i].dia!=6) {%>
         <div class="col-md-12">
-            <div class="diaDiari"><%=dia%><strong><%=horari.dades[i].data%></strong></div>
+            <div class="diaDiari"><%=dia%> <strong><%=horari.dades[i].data%></strong></div>
               <div class="horesDiari">
                 <div class="row">
                 <span class="col-md-10"><strong>9:00 <%=horari.dades[i].clase1%></strong></span>
-                <span class="col-md-2"><a class="link" href="#">Programar</a></span>
+                <span class="col-md-2"><a class="link diariLink" href="#" id="<%=dia%>+edit1" data-dia="<%=dia%>"><i class="fa fa-pencil prefix"></i></a></span>
+                <div class="col-md-12">
+                  <textarea id="h1" class="form-control"></textarea>
+                </div>
+
               </div>
             </div>
 

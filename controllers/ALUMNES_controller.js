@@ -188,7 +188,10 @@ exports.assisGet = function (req, res) {
     } 
     today = dd+'/'+mm+'/'+yyyy;
 
-	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+	models.Alumne.find({
+		escola: req.session.user.escola,
+	/*	tutor: req.session.user, */
+		curs: req.session.user.curs}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
@@ -262,7 +265,10 @@ exports.assisData = function (req, res) {
 
 	var dataA = req.body.dataAssis;
 
-	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+	models.Alumne.find({
+		escola: req.session.user.escola,
+	/*	tutor: req.session.user, */
+		curs: req.session.user.curs}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
@@ -304,7 +310,10 @@ exports.menjaGet = function (req, res) {
     } 
     today = dd+'/'+mm+'/'+yyyy;
 
-	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+	models.Alumne.find({
+		escola: req.session.user.escola,
+	/*	tutor: req.session.user, */
+		curs: req.session.user.curs}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){
@@ -363,7 +372,10 @@ exports.menjaData = function (req, res) {
 
 	var dataM = req.body.dataMenja;
 
-	models.Alumne.find({tutor: req.session.user, curs: req.session.user.curs}
+	models.Alumne.find({
+		escola: req.session.user.escola,
+	/*	tutor: req.session.user, */
+		curs: req.session.user.curs}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('escola tutor')
 	.exec(function(error, alumnes){

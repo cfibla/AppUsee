@@ -326,10 +326,9 @@ span.glyphicon-user {
 }
 
 .horesDiari {
-    padding-left: .5em;
-    padding-top: .5em;
+    padding:.5em;
     border: 1px solid black;
-    height: 100px;
+    min-height: 100px;
 }
 
 .horesBottom {

@@ -1,41 +1,41 @@
 $(document).ready(function (){
 
-var today = function(){
-  var tday = new Date();
-  var dd = tday.getDate();
-  var mm = tday.getMonth()+1; //January is 0!
-  var yyyy = tday.getFullYear();
-  if(dd<10) {
-      dd='0'+dd
-  } 
-  if(mm<10) {
-      mm='0'+mm
-  } 
-  tday = dd+'/'+mm+'/'+yyyy;
-  return tday
-}
+  var today = function(){
+    var tday = new Date();
+    var dd = tday.getDate();
+    var mm = tday.getMonth()+1; //January is 0!
+    var yyyy = tday.getFullYear();
+    if(dd<10) {
+        dd='0'+dd
+    } 
+    if(mm<10) {
+        mm='0'+mm
+    } 
+    tday = dd+'/'+mm+'/'+yyyy;
+    return tday
+  }
 //CREATE HORARI MODAL 
   $('#creaHorariModal').on('shown.bs.modal', function (e) {
-      $('#iniciHorari .input-group.date').datepicker({
-        format: "dd/mm/yyyy",
-        setDate: new Date(),
-        maxViewMode: 2,
-        todayBtn: "linked",
-        daysOfWeekDisabled: "0,6",
-        autoclose: true,
-        todayHighlight: true,
-        language: "ca"  
+    $('#iniciHorari .input-group.date').datepicker({
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"  
     });
 
     $('#finalHorari .input-group.date').datepicker({
-        format: "dd/mm/yyyy",
-        setDate: new Date(),
-        maxViewMode: 2,
-        todayBtn: "linked",
-        daysOfWeekDisabled: "0,6",
-        autoclose: true,
-        todayHighlight: true,
-        language: "ca"
+      format: "dd/mm/yyyy",
+      setDate: new Date(),
+      maxViewMode: 2,
+      todayBtn: "linked",
+      daysOfWeekDisabled: "0,6",
+      autoclose: true,
+      todayHighlight: true,
+      language: "ca"
     });
 
     var mdal =  $(this);
@@ -51,31 +51,42 @@ var today = function(){
       aPost (urlPost, data).always(function(){
         location.href="/horari-config";
       });
-      });
+    });
   });
 //UPDATE HORARI
-      $('#iniciHorari .input-group.date').datepicker({
-        format: "dd/mm/yyyy",
-        setDate: new Date(),
-        maxViewMode: 2,
-        todayBtn: "linked",
-        daysOfWeekDisabled: "0,6",
-        autoclose: true,
-        todayHighlight: true,
-        language: "ca"  
-    });
+  $('#iniciHorari .input-group.date').datepicker({
+    format: "dd/mm/yyyy",
+    setDate: new Date(),
+    maxViewMode: 2,
+    todayBtn: "linked",
+    daysOfWeekDisabled: "0,6",
+    autoclose: true,
+    todayHighlight: true,
+    language: "ca"  
+  });
 
-    $('#finalHorari .input-group.date').datepicker({
-        format: "dd/mm/yyyy",
-        setDate: new Date(),
-        maxViewMode: 2,
-        todayBtn: "linked",
-        daysOfWeekDisabled: "0,6",
-        autoclose: true,
-        todayHighlight: true,
-        language: "ca"
-    });
+  $('#finalHorari .input-group.date').datepicker({
+    format: "dd/mm/yyyy",
+    setDate: new Date(),
+    maxViewMode: 2,
+    todayBtn: "linked",
+    daysOfWeekDisabled: "0,6",
+    autoclose: true,
+    todayHighlight: true,
+    language: "ca"
+  });
 
+//HORARI DIARI ++++CORREGIR ++++
+  $('.diariLink').click(function(){
+    var dia=$(this).data('dia');
+    var diaDiv=dia+"h1";
+    var diaDivH="#"+diaDiv;
+    $(diaDivH).text('sdfsdfsdf');
+    $('.horesDiari').find('h1').text("HOLA");
+    console.log("dia: " + dia);
+    console.log("diaDiv: " + diaDiv);
+    console.log("diaDivH: " + diaDivH);
+  })
     
 ///AJAX FUNCTIONS///
    function aPost(path, obj){
