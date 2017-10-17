@@ -77,12 +77,11 @@ $(document).ready(function (){
   });
 
 //HORARI DIARI ++++CORREGIR ++++
-  $('.diariLink').click(function(){
+  $('#txtdll').on('click', function(){
     var dia=$(this).data('dia');
-    var diaDiv=dia+"h1";
+    var diaDiv=$(this).find('textarea').text('rwer');
     var diaDivH="#"+diaDiv;
-    $(diaDivH).text('sdfsdfsdf');
-    $('.horesDiari').find('h1').text("HOLA");
+
     console.log("dia: " + dia);
     console.log("diaDiv: " + diaDiv);
     console.log("diaDivH: " + diaDivH);
