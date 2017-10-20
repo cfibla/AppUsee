@@ -77,9 +77,9 @@ $(document).ready(function (){
   });
 
 //HORARI DIARI ++++CORREGIR ++++
-  $('#txtdll').on('click', function(){
+  $('#edit1').on('click', function(){
     var dia=$(this).data('dia');
-    var diaDiv=$(this).find('textarea').text('rwer');
+    var diaDiv=$('#txt').find('textarea').text('rwer');
     var diaDivH="#"+diaDiv;
 
     console.log("dia: " + dia);

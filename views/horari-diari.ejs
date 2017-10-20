@@ -24,16 +24,19 @@ for (var i=0; i < horari.dades.length; i++) {
       <div class="row">
         <!-- http://demos.flesler.com/jquery/scrollTo/ -->
 <%if (horari.dades[i].dia!=0 && horari.dades[i].dia!=6) {%>
+<!-- Hace falta un INDEX en el MODELO para saber de qué día-hora se trata-->
         <div class="col-md-12">
             <div class="diaDiari"><%=dia%> <strong><%=horari.dades[i].data%></strong></div>
               <div class="horesDiari">
-                <div class="row" id="txtdll">
+                <div class="row" id="txt">
                 <span class="col-md-10"><strong>9:00 <%=horari.dades[i].clase1%></strong></span>
-                <span class="col-md-2"><a class="link diariLink" href="#" id="<%=dia%>edit1" data-dia="<%=horari.dades[i].data%>"><i class="fa fa-pencil prefix"></i></a></span>
+                <span class="col-md-2">
+                  <a class="link diariLink" href="#" id="edit1"
+                  data-dia="<%=horari.dades[i].data%>">
+                  <i class="fa fa-pencil prefix"></i></a></span>
                 <div class="col-md-12">
-                  <textarea id="<%=dia%>h1" class="form-control"></textarea>
+                  <textarea id="<%=dia%>h1" class="form-control disabled"></textarea>
                 </div>
-
               </div>
             </div>
 
