@@ -1,4 +1,4 @@
-<form role="form" method="post" action="/horari-post?_method=put" id="horari_post">
+<form role="form" method="post" action="/horari-diari-post?_method=put" id="horari_post">
   <div class="container margetop clear" id="horariDiari">
 
 <%
@@ -24,7 +24,7 @@ for (var i=0; i < horari.dades.length; i++) {
       <div class="row">
         <!-- http://demos.flesler.com/jquery/scrollTo/ -->
 <%if (horari.dades[i].dia!=0 && horari.dades[i].dia!=6) {%>
-<!-- Hace falta un INDEX en el MODELO para saber de qué día-hora se trata-->
+<!-- Hace falta un INDEX en el MODELO para saber de qué día-hora se trata????? -->
         <div class="col-md-12">
             <div class="diaDiari"><%=dia%> <strong><%=horari.dades[i].data%></strong></div>
               <div class="horesDiari">
@@ -35,7 +35,9 @@ for (var i=0; i < horari.dades.length; i++) {
                   data-dia="<%=horari.dades[i].data%>">
                   <i class="fa fa-pencil prefix"></i></a></span>
                 <div class="col-md-12">
-                  <textarea id="<%=dia%>h1" class="form-control disabled"></textarea>
+                  <input type="hidden" name="diaData" value=<%=horari.dades[i].data%>>
+                  <textarea id="<%=dia%>h1" class="form-control" name="diaData.prog1"></textarea>
+                  <button type="submit">Enviar</button>
                 </div>
               </div>
             </div>

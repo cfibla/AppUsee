@@ -77,6 +77,7 @@ router.post('/horari-crear',				sessionController.loginRequired, horariControlle
 router.get('/horari-config',				sessionController.loginRequired, horariController.config);
 router.put('/horari-post',					sessionController.loginRequired, horariController.update);
 router.get('/horari-diari',					sessionController.loginRequired, horariController.diariGet);
+router.put('/horari-diari-post',			sessionController.loginRequired, horariController.diariPost);
 
 
 //rutas PDF

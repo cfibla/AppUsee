@@ -281,7 +281,7 @@ exports.update = function (req, res){
 	});
 };
 
-//CONF. HORARI - GET
+//HORARI DIARI - GET
 exports.diariGet = function (req, res) {
 	var usr=req.session.user;
 	var usrId = usr._id;
@@ -302,4 +302,36 @@ exports.diariGet = function (req, res) {
 		}
 
 	})
+};
+
+//HORARI DIARI - POST
+exports.diariPost = function (req, res){
+	var horariReq = req.body;
+	var user = req.session.user;
+	var horariId = user.horari;
+	console.log(horariReq);
+
+	models.Horari.findById(horariId, function(error, horari){
+		var lgt = horari.dades.length-1;
+
+		function upd(){
+			for (var i=0; i < horari.dades.length; i++) {
+				console.log('data-i: ' + horariReq.diaData[i] + ' ' + i);
+				console.log('prog-i: ' + horariReq.diaData.prog1 + ' ' + i);
+		        if (horari.dades[i].data === horariReq.diaData[i]) {
+		        	horari.dades[i].prog1 = horariReq.diaData.prog1[i];	
+		        }
+
+		    }
+			};
+		if (error) {
+			return res.json(error);
+		} else {
+			upd();
+			horari.save(function (err, updatedHorari) {
+			    if (err) return res.json(error);
+			    res.send(updatedHorari);
+	  		});
+		}
+	});
 };
