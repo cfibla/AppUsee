@@ -316,12 +316,11 @@ exports.diariPost = function (req, res){
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
-				console.log('data-i: ' + horariReq.diaData[i] + ' ' + i);
-				console.log('prog-i: ' + horariReq.diaData.prog1 + ' ' + i);
+				console.log('data-i: '+i +' ' + horariReq.diaData[i]);
+				console.log('prog-i: ' +i +' ' + horariReq.prog1[i]);
 		        if (horari.dades[i].data === horariReq.diaData[i]) {
-		        	horari.dades[i].prog1 = horariReq.diaData.prog1[i];	
+		        	horari.dades[i].prog1 = horariReq.prog1[i];	
 		        }
-
 		    }
 			};
 		if (error) {

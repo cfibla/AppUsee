@@ -35,8 +35,8 @@ for (var i=0; i < horari.dades.length; i++) {
                   data-dia="<%=horari.dades[i].data%>">
                   <i class="fa fa-pencil prefix"></i></a></span>
                 <div class="col-md-12">
-                  <input type="hidden" name="diaData" value=<%=horari.dades[i].data%>>
-                  <textarea id="<%=dia%>h1" class="form-control" name="diaData.prog1"></textarea>
+                  <textarea id="<%=dia%>h1" class="form-control" name="prog1"></textarea>
+                   <input type="hidden" name="diaData" value=<%=[horari.dades[i].data]%>>
                   <button type="submit">Enviar</button>
                 </div>
               </div>
