@@ -52,6 +52,16 @@ exports.create = function (req, res) {
 			ref6:''
 		});
 	};
+	/*ELIMINAR SABADOS Y DOMINGOS*/
+	var horariLength = nouHorari.length;
+	for (var i = 0; i < horariLength; i++) {
+		console.log("HORARI DIARI: " + nouHorari.dades[i]);
+		
+	    if (nouHorari.dades[i].dia==0 || nouHorari.dades[i].dia==6) {
+		    console.log("AQUIIIII");
+			nouHorari.dades[i].splice(i,1);
+		}
+	}
 
 	nouHorari.save(function (error, horari){
 		if (error) {
@@ -318,7 +328,8 @@ exports.diariPost = function (req, res){
 			for (var i=0; i < horari.dades.length; i++) {
 				console.log('data-i: '+i +' ' + horariReq.diaData[i]);
 				console.log('prog-i: ' +i +' ' + horariReq.prog1[i]);
-		        if (horari.dades[i].data === horariReq.diaData[i]) {
+
+		        if (horari.dades[i].data == horariReq.diaData[i]) {
 		        	horari.dades[i].prog1 = horariReq.prog1[i];	
 		        }
 		    }
