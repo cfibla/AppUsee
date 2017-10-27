@@ -53,13 +53,10 @@ exports.create = function (req, res) {
 		});
 	};
 	/*ELIMINAR SABADOS Y DOMINGOS*/
-	var horariLength = nouHorari.length;
-	for (var i = 0; i < horariLength; i++) {
-		console.log("HORARI DIARI: " + nouHorari.dades[i]);
-		
+	var horariLength = nouHorari.dades.length;
+	for (var i = horariLength - 1; i >= 0; i--) {
 	    if (nouHorari.dades[i].dia==0 || nouHorari.dades[i].dia==6) {
-		    console.log("AQUIIIII");
-			nouHorari.dades[i].splice(i,1);
+			nouHorari.dades.splice(i,1);
 		}
 	}
 
@@ -67,7 +64,6 @@ exports.create = function (req, res) {
 		if (error) {
 			res.json(error);
 		} else {
-			console.log('DATA: '+moment(i).format('DD/MM/YYYY'));
 			//VINCULAR HORARI CON USER
 			models.User.findById(usrId, function(error, user){
 				if (error){
@@ -168,6 +164,14 @@ exports.update = function (req, res){
 		        	horari.dades[i].clase5 = horariReq.classe5dv;
 		        	horari.dades[i].clase6 = horariReq.classe6dv;	
 		        }
+		        	/*ELIMINAR SABADOS Y DOMINGOS*/
+				var horariLength = horari.dades.length;
+				for (var i = horariLength - 1; i >= 0; i--) {
+				    if (horari.dades[i].dia==0 || horari.dades[i].dia==6) {
+						horari.dades.splice(i,1);
+					}
+				}
+
 		    }
 			};
 		if (error) {
@@ -203,6 +207,7 @@ exports.update = function (req, res){
 			} else {
 				if (moment(iniciReq).isBefore(inici)) {
 					console.log("INICIO: HAS INTRODUCIDO UNA FECHA ANTERIOR");
+					//CORREGIR --> Vigilar eliminar SABADOS Y DOMINGOS
 					for(i=iniciAnt; i>=iniciReq; i=moment(i).subtract(1,'days')){
 						horari.dades.unshift({
 							data: moment(i).format('DD/MM/YYYY'),
@@ -286,7 +291,7 @@ exports.update = function (req, res){
 		}
 		horari.save(function (err, updatedHorari) {
 		    if (err) return res.json(error);
-		    res.send(updatedHorari);
+		    res.redirect('/horari-diari');
   		});
 	});
 };
@@ -326,8 +331,8 @@ exports.diariPost = function (req, res){
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
-				console.log('data-i: '+i +' ' + horariReq.diaData[i]);
-				console.log('prog-i: ' +i +' ' + horariReq.prog1[i]);
+				console.log('data-i: '+ i +' ' + horariReq.diaData[i]);
+				console.log('prog-i: ' + i +' ' + horariReq.prog1[i]);
 
 		        if (horari.dades[i].data == horariReq.diaData[i]) {
 		        	horari.dades[i].prog1 = horariReq.prog1[i];	

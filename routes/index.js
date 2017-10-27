@@ -34,7 +34,6 @@ router.get('/usuari/:id',			userController.profile);
 router.put('/usuari/:id',			userController.update);
 router.put('/usuariD/:id',			userController.delUser);
 
-
 //rutas USER_EE
 router.get('/usuari_ee_nou',		userEeController.nouUser);
 router.post('/usuari_ee_crear',		userEeController.createUser);

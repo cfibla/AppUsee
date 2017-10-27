@@ -82,9 +82,15 @@ $(document).ready(function (){
     var diaDiv=$('#txt').find('textarea').text('rwer');
     var diaDivH="#"+diaDiv;
 
-    console.log("dia: " + dia);
+    console.log("dia: " + moment(testDate).format('MM/DD/YYYY'));
     console.log("diaDiv: " + diaDiv);
     console.log("diaDivH: " + diaDivH);
+  })
+
+  $('#horariDiari').on('load', function(){
+        $('html, body').animate({
+        scrollTop: $("#"+moment(testDate).format('MM/DD/YYYY')).offset().top
+    }, 2000);
   })
     
 ///AJAX FUNCTIONS///
