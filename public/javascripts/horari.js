@@ -87,9 +87,10 @@ $(document).ready(function (){
     console.log("diaDivH: " + diaDivH);
   })
 
-  $('#horariDiari').on('load', function(){
+  $('#horariDiari').ready(function(){
+    var fecha = moment(testDate).format('MM/DD/YYYY');
         $('html, body').animate({
-        scrollTop: $("#"+moment(testDate).format('MM/DD/YYYY')).offset().top
+        scrollTop: $("#"+fecha).offset().top
     }, 2000);
   })
     
