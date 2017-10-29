@@ -19,13 +19,14 @@ for (var i=0; i < horari.dades.length; i++) {
   if (horari.dades[i].dia === 5) {
     var dia = "DIVENDRES";
     }
+var daata = horari.dades[i].data.replace(/\//g, "");
 %>
     <div class="container">
       <div class="row">
         <!-- http://demos.flesler.com/jquery/scrollTo/ -->
 
 <!-- Hace falta un INDEX en el MODELO para saber de qué día-hora se trata????? -->
-        <div class="col-md-12" id="<%=horari.dades[i].data%>">
+        <div class="col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
             <div class="diaDiari"><%=dia%> <strong><%=horari.dades[i].data%></strong></div>
               <div class="horesDiari">
                 <div class="row" id="txt">
@@ -85,3 +86,55 @@ for (var i=0; i < horari.dades.length; i++) {
     </span>
   </div>
 </div>
+
+<script languate="javascript" type="text/javascript">
+  //Qué dia es hoy?
+  var today;
+  var today2;
+  var tday = new Date();
+  var dd = tday.getDate();
+  var mm = tday.getMonth()+1; //January is 0!
+  var yyyy = tday.getFullYear();
+  var d=tday.getDay();
+  if(dd<10) {
+      dd='0'+dd
+  } 
+  if(mm<10) {
+      mm='0'+mm
+  } 
+  today = dd+'/'+mm+'/'+yyyy;
+  today2 = today;
+
+  // Función que suma o resta días a la fecha indicada
+  sumaFecha = function(d, fecha)
+  {
+    var Fecha = new Date();
+    var sFecha = fecha || (Fecha.getDate() + "/" + (Fecha.getMonth() +1) + "/" + Fecha.getFullYear());
+    var sep = sFecha.indexOf('/') != -1 ? '/' : '-'; 
+    var aFecha = sFecha.split(sep);
+    var fecha = aFecha[2]+'/'+aFecha[1]+'/'+aFecha[0];
+    fecha= new Date(fecha);
+    fecha.setDate(fecha.getDate()+parseInt(d));
+    var anno=fecha.getFullYear();
+    var mes= fecha.getMonth()+1;
+    var dia= fecha.getDate();
+    mes = (mes < 10) ? ("0" + mes) : mes;
+    dia = (dia < 10) ? ("0" + dia) : dia;
+    var fechaFinal = dia+sep+mes+sep+anno;
+    return (fechaFinal);
+  }
+  if (d==0){
+    today2 = sumaFecha(1, today);
+   }
+  if (d==6){
+    today2 = sumaFecha(2, today)
+   }
+
+  var tooday = today2.replace(/\//g, "");
+  console.log(tooday);
+
+  var divToday=document.getElementById("div_"+tooday);
+
+  window.onload=divToday.scrollIntoView(true);
+ 
+</script>

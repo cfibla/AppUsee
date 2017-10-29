@@ -1,6 +1,6 @@
 $(document).ready(function (){
 
-  var today = function(){
+  var today;
     var tday = new Date();
     var dd = tday.getDate();
     var mm = tday.getMonth()+1; //January is 0!
@@ -11,9 +11,8 @@ $(document).ready(function (){
     if(mm<10) {
         mm='0'+mm
     } 
-    tday = dd+'/'+mm+'/'+yyyy;
-    return tday
-  }
+    today = dd+'/'+mm+'/'+yyyy;
+
 //CREATE HORARI MODAL 
   $('#creaHorariModal').on('shown.bs.modal', function (e) {
     $('#iniciHorari .input-group.date').datepicker({
@@ -86,13 +85,14 @@ $(document).ready(function (){
     console.log("diaDiv: " + diaDiv);
     console.log("diaDivH: " + diaDivH);
   })
-
+/*
   $('#horariDiari').ready(function(){
-    var fecha = moment(testDate).format('MM/DD/YYYY');
+    var fecha = today;
+    console.log(fecha);
         $('html, body').animate({
         scrollTop: $("#"+fecha).offset().top
     }, 2000);
-  })
+  })*/
     
 ///AJAX FUNCTIONS///
    function aPost(path, obj){
