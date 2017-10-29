@@ -46,7 +46,9 @@
               <li class="nav-item dropdown btn-group">
                 <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
                 <div class="dropdown-menu dropdown" aria-labelledby="nouUser">
+                  <!--
                 <a class="dropdown-item" data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
+              -->
                 <a class="dropdown-item" data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Nou tutor/a</a>
                 <a class="dropdown-item" data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Nou tutor/a EE-SIEI</a>
                 </div>
@@ -61,7 +63,7 @@
                 <%if(session.user.mestre === "tutor"){%>
                   <li id="assistencia" class="nav-item"><a class="nav-link" href="/assistencia">Assistència</a></li>
                   <li id="menjador" class="nav-item"><a class="nav-link" href="/menjador">Menjador</a></li>
-                  <% if (!session.user.horari) {%>
+<!--                  <% if (!session.user.horari) {%>
                     <li id="menjador" class="nav-item"><a class="nav-link" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li><%} else{%>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Horaris</a>
@@ -71,7 +73,7 @@
                       </div>
                     </li>
                   <%}%>
-                <%}%>
+                <%}%>-->
               </ul>
             
               <ul class="navbar-nav">
