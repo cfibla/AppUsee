@@ -1,3 +1,4 @@
+<body>
 <form role="form" method="post" action="/horari-diari-post?_method=put" id="horari_post">
   <div class="container margetop clear" id="horariDiari">
 
@@ -25,7 +26,6 @@ var daata = horari.dades[i].data.replace(/\//g, "");
       <div class="row">
         <!-- http://demos.flesler.com/jquery/scrollTo/ -->
 
-<!-- Hace falta un INDEX en el MODELO para saber de qué día-hora se trata????? -->
         <div class="col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
             <div class="diaDiari"><%=dia%> <strong><%=horari.dades[i].data%></strong></div>
               <div class="horesDiari">
@@ -36,7 +36,7 @@ var daata = horari.dades[i].data.replace(/\//g, "");
                   data-dia="<%=horari.dades[i].data%>">
                   <i class="fa fa-pencil prefix"></i></a></span>
                 <div class="col-md-12">
-                  <textarea id="<%=dia%>h1" class="form-control" name="prog1"></textarea>
+                  <textarea id="<%=dia%>h1" class="horaritext" name="prog1"><%=[horari.dades[i].prog1]%></textarea>
                    <input type="hidden" name="diaData" value=<%=[horari.dades[i].data]%>>
                   <button type="submit">Enviar</button>
                 </div>
@@ -86,6 +86,7 @@ var daata = horari.dades[i].data.replace(/\//g, "");
     </span>
   </div>
 </div>
+</body>
 
 <script languate="javascript" type="text/javascript">
   //Qué dia es hoy?

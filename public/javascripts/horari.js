@@ -85,6 +85,16 @@ $(document).ready(function (){
     console.log("diaDiv: " + diaDiv);
     console.log("diaDivH: " + diaDivH);
   })
+
+  //Textarea dinamica
+  $('.horaritext').each(function () {
+  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+}).on('input', function () {
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
+});
+
+//scroll
 /*
   $('#horariDiari').ready(function(){
     var fecha = today;
