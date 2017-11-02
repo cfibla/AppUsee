@@ -23,7 +23,7 @@ for (var i=0; i < horari.dades.length; i++) {
 var daata = horari.dades[i].data.replace(/\//g, "");
 %>
     <div class="container">
-      <div class="row">
+      <div class="row" id="horariMain">
         <!-- http://demos.flesler.com/jquery/scrollTo/ -->
 
         <div class="col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
@@ -31,14 +31,18 @@ var daata = horari.dades[i].data.replace(/\//g, "");
               <div class="horesDiari">
                 <div class="row" id="txt">
                 <span class="col-md-10"><strong>9:00 <%=horari.dades[i].clase1%></strong></span>
+                <!--
                 <span class="col-md-2">
                   <a class="link diariLink" href="#" id="edit1"
                   data-dia="<%=horari.dades[i].data%>">
                   <i class="fa fa-pencil prefix"></i></a></span>
+                -->
                 <div class="col-md-12">
                   <textarea id="<%=dia%>h1" class="horaritext" name="prog1"><%=[horari.dades[i].prog1]%></textarea>
                    <input type="hidden" name="diaData" value=<%=[horari.dades[i].data]%>>
-                  <button type="submit">Enviar</button>
+                </div>
+                <div class="col-md-2 offset-md-10">
+                  <button type="submit" class="btn btn-default">Enviar</button>
                 </div>
               </div>
             </div>
@@ -87,55 +91,3 @@ var daata = horari.dades[i].data.replace(/\//g, "");
   </div>
 </div>
 </body>
-
-<script languate="javascript" type="text/javascript">
-  //Qué dia es hoy?
-  var today;
-  var today2;
-  var tday = new Date();
-  var dd = tday.getDate();
-  var mm = tday.getMonth()+1; //January is 0!
-  var yyyy = tday.getFullYear();
-  var d=tday.getDay();
-  if(dd<10) {
-      dd='0'+dd
-  } 
-  if(mm<10) {
-      mm='0'+mm
-  } 
-  today = dd+'/'+mm+'/'+yyyy;
-  today2 = today;
-
-  // Función que suma o resta días a la fecha indicada
-  sumaFecha = function(d, fecha)
-  {
-    var Fecha = new Date();
-    var sFecha = fecha || (Fecha.getDate() + "/" + (Fecha.getMonth() +1) + "/" + Fecha.getFullYear());
-    var sep = sFecha.indexOf('/') != -1 ? '/' : '-'; 
-    var aFecha = sFecha.split(sep);
-    var fecha = aFecha[2]+'/'+aFecha[1]+'/'+aFecha[0];
-    fecha= new Date(fecha);
-    fecha.setDate(fecha.getDate()+parseInt(d));
-    var anno=fecha.getFullYear();
-    var mes= fecha.getMonth()+1;
-    var dia= fecha.getDate();
-    mes = (mes < 10) ? ("0" + mes) : mes;
-    dia = (dia < 10) ? ("0" + dia) : dia;
-    var fechaFinal = dia+sep+mes+sep+anno;
-    return (fechaFinal);
-  }
-  if (d==0){
-    today2 = sumaFecha(1, today);
-   }
-  if (d==6){
-    today2 = sumaFecha(2, today)
-   }
-
-  var tooday = today2.replace(/\//g, "");
-  console.log(tooday);
-
-  var divToday=document.getElementById("div_"+tooday);
-
-  window.onload=divToday.scrollIntoView(true);
- 
-</script>

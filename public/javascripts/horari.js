@@ -75,34 +75,23 @@ $(document).ready(function (){
     language: "ca"
   });
 
-//HORARI DIARI ++++CORREGIR ++++
-  $('#edit1').on('click', function(){
-    var dia=$(this).data('dia');
-    var diaDiv=$('#txt').find('textarea').text('rwer');
-    var diaDivH="#"+diaDiv;
-
-    console.log("dia: " + moment(testDate).format('MM/DD/YYYY'));
-    console.log("diaDiv: " + diaDiv);
-    console.log("diaDivH: " + diaDivH);
-  })
-
+//HORARI DIARI
   //Textarea dinamica
-  $('.horaritext').each(function () {
-  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-}).on('input', function () {
-  this.style.height = 'auto';
-  this.style.height = (this.scrollHeight) + 'px';
-});
+    $('.horaritext').each(function () {
+      this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+    }).on('input', function () {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    });
 
-//scroll
-/*
-  $('#horariDiari').ready(function(){
-    var fecha = today;
-    console.log(fecha);
-        $('html, body').animate({
-        scrollTop: $("#"+fecha).offset().top
-    }, 2000);
-  })*/
+  //scroll
+    if($("#horariMain").length){
+    var tooday = today.replace(/\//g, "");
+            $("html, body").animate({
+            scrollTop: $("#div_"+tooday).offset().top - 80
+        }, 2000);
+    }
+
     
 ///AJAX FUNCTIONS///
    function aPost(path, obj){

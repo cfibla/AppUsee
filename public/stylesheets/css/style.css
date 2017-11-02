@@ -315,6 +315,9 @@ span.glyphicon-user {
     padding-bottom: 1em;
 }
 /*DIARI*/
+.horaritext{
+    min-height: 100px;
+}
 .link {
     color:#464646;
 }
