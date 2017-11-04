@@ -5,6 +5,18 @@ $(document).ready(function (){
     var dd = tday.getDate();
     var mm = tday.getMonth()+1; //January is 0!
     var yyyy = tday.getFullYear();
+    if(tday.getDay() == 6 && dd < 26){
+      dd = dd + 2;
+    }
+    if(tday.getDay() == 6 && dd >= 26){
+      dd = dd - 1;
+    }
+    if(tday.getDay() == 0 && dd < 26){
+      dd = dd + 1;
+    }
+    if(tday.getDay() == 0 && dd >= 26){
+      dd = dd - 2;
+    }
     if(dd<10) {
         dd='0'+dd
     } 
@@ -87,6 +99,7 @@ $(document).ready(function (){
   //scroll
     if($("#horariMain").length){
     var tooday = today.replace(/\//g, "");
+    console.log("#div_"+tooday);
             $("html, body").animate({
             scrollTop: $("#div_"+tooday).offset().top - 80
         }, 2000);

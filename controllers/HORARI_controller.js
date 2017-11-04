@@ -164,16 +164,15 @@ exports.update = function (req, res){
 		        	horari.dades[i].clase5 = horariReq.classe5dv;
 		        	horari.dades[i].clase6 = horariReq.classe6dv;	
 		        }
-		        	/*ELIMINAR SABADOS Y DOMINGOS*/
-				var horariLength = horari.dades.length;
-				for (var i = horariLength - 1; i >= 0; i--) {
-				    if (horari.dades[i].dia==0 || horari.dades[i].dia==6) {
-						horari.dades.splice(i,1);
-					}
-				}
-
 		    }
-			};
+	    	/*ELIMINAR SABADOS Y DOMINGOS*/
+			var horariLength = horari.dades.length;
+			for (var i = horariLength - 1; i >= 0; i--) {
+			    if (horari.dades[i].dia==0 || horari.dades[i].dia==6) {
+					horari.dades.splice(i,1);
+				}
+			}
+		};
 		if (error) {
 			return res.json(error);
 		} else {
@@ -331,11 +330,15 @@ exports.diariPost = function (req, res){
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
-				console.log('data-i: '+ i +' ' + horariReq.diaData[i]);
-				console.log('prog-i: ' + i +' ' + horariReq.prog1[i]);
 
 		        if (horari.dades[i].data == horariReq.diaData[i]) {
-		        	horari.dades[i].prog1 = horariReq.prog1[i];	
+
+		        	horari.dades[i].prog1 = horariReq.prog1[i];
+		        	horari.dades[i].prog2 = horariReq.prog2[i];
+		        	horari.dades[i].prog3 = horariReq.prog3[i];	
+
+		        	console.log('data-i: '+ i +' ' + horariReq.diaData[i]);
+					console.log('prog-i: ' + i +' ' + horari.dades[i].prog1);
 		        }
 		    }
 			};
