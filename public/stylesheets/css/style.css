@@ -26,6 +26,30 @@ body {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+     nav {
+        height: 40px;
+    }
+
+
+    /*SIDEBAR*/
+    .sidebar
+    {
+        position: fixed;
+        width: 200px;
+        height: 100%;
+        padding-top: 50px;
+        top: 0;
+        left: 0;
+        background: #2BBBAD;
+    }
+
+    .sidebar ul
+    {
+        position: absolute;
+        height: 200px;
+        top: 50%;
+        margin: -100px 0;
+    }
 
 }
 
@@ -34,6 +58,27 @@ body {
     nav {
         height: 40px;
     }
+
+    /*SIDEBAR*/
+    .sidebar
+    {
+        position: fixed;
+        width: 200px;
+        height: 100%;
+        padding-top: 50px;
+        top: 0;
+        left: 0;
+        background: #2BBBAD;
+    }
+
+    .sidebar ul
+    {
+       /* position: absolute;
+        /*height: 200px;
+       /* top: 50%;*/
+       /* margin: -100px 0;*/
+    }
+
 }
 
 
@@ -218,6 +263,7 @@ span.glyphicon-user {
     text-align: left;
     font-size: 1.5em;
     font-weight: bold;
+    color: #fff;
 }
 .curs-t2{
     text-align: left;
@@ -226,7 +272,7 @@ span.glyphicon-user {
 }
 
 .datep-t{
-    margin-top:5em;
+    margin-top:.5em;
 }
 
 .tablemarge{
@@ -340,6 +386,14 @@ span.glyphicon-user {
     padding: .5em;
     border: 1px solid #bbb;
     min-height: 100px;
+}
+
+#situ {
+    padding-top: 1em;
+    font-size: 110%;
+    text-transform: uppercase;
+    color: #fff;
+    /*text-align: center;*/
 }
 /*COLORS*/
 .blau{

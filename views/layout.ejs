@@ -32,7 +32,7 @@
       %>
 
 <!--Navbar-->
-    <nav class="navbar navbar-toggleable-md navbar-dark black fixed-top z-depth-0">
+    <nav class="navbar navbar-toggleable-md navbar-dark black fixed-top z-depth-0 scrolling-navbar">
       <div class="container">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -90,6 +90,25 @@
     </div>
   </nav>
 <%if (session.user) {%>
+  <aside class="col-md-2 sidebar">
+    <%if (session.user.mestre==="ee") {%>
+      <div class="col-md-12 curs-t">Atenció a la DIVERSITAT</div>
+    <%}%>
+    <div class="col-md-12"><strong>Tutoria </strong><%=session.user.nom + " " + session.user.cognom%></div>
+    <div class="col-md-12"><strong>Escola </strong><%=session.user.escola%></div>
+    <div class="col-md-12 curs-t" id="situ"></div>
+    <%if (session.user.mestre==="tutor") {%>
+      <div class="col-md-12 curs-t"><%=session.user.curs%></div>
+    <%}%>
+    
+    <ul class="col-md-12">
+      <li><a href="#">New Entry</a></li>
+      <li><a href="#">Edit Entry</a></li>
+      <li><a href="#">Delete Entry</a></li>
+    </ul>
+  </aside>
+
+<!--
   <div class="container-flex seconnav animated fadeIn">
     <div class="row align-items-center">
       <%if (session.user.mestre==="tutor") {%>
@@ -102,7 +121,7 @@
       <div class="col-md-2 offset-md-3"><strong>Tutoria </strong><%=session.user.nom + " " + session.user.cognom%></div>
         <div class="col-md-2"><strong>Escola </strong><%=session.user.escola%></div>
       </div>
-    </div>
+    </div>-->
 <%}%>
 
   <section class ="mainsection">
