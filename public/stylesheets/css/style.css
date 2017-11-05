@@ -286,26 +286,26 @@ span.glyphicon-user {
 
 .fila1 {
     padding-top: .5em;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     height: 40px;
     text-align: center;
-    background: #464646;
+    background: #ccc;
     color: white;
 }
 
 .fila2 {
     padding-top: .5em;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     height: 40px;
     text-align: center;
-    background: #7f7e7e;
+    background: #ccc;
    /* color: white;*/
 }
 
 .hores {
     padding-left: .5em;
     padding-top: .5em;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     height: 100px;
 }
 
@@ -323,24 +323,22 @@ span.glyphicon-user {
 }
 .diaDiari {
     margin-top: 2em;
-    padding: 1em;
-    border: 1px solid black;
-    border-radius: 20px 20px 0 0;
-    background: #464646;
+    padding: .5em;
+    border: 1px solid #bbb;
+    font-size: 150%;
+    background: #bbb;
     color: white;
 }
 
 .horesDiari {
     padding:.5em;
-    border: 1px solid black;
+    border: 1px solid #bbb;
     min-height: 100px;
 }
 
 .horesBottom {
-    padding-left: .5em;
-    padding-top: .5em;
-    border: 1px solid black;
-    border-radius: 0 0 20px 20px;
+    padding: .5em;
+    border: 1px solid #bbb;
     min-height: 100px;
 }
 /*COLORS*/
