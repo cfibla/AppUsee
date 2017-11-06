@@ -20,7 +20,14 @@ body {
 /*    font-size: 14px;*/
     /*background: #f8f7f7;*/
 }
+@media (max-width: 992px) {
+    .hid {
+        display: none;
+    }
+
+}
 @media (min-width: 768px) {
+
 
 }
 
@@ -29,12 +36,11 @@ body {
      nav {
         height: 40px;
     }
-
-
     /*SIDEBAR*/
     .sidebar
     {
         position: fixed;
+        z-index: 10;
         width: 200px;
         height: 100%;
         padding-top: 50px;
@@ -42,14 +48,27 @@ body {
         left: 0;
         background: #2BBBAD;
     }
-
-    .sidebar ul
+    .sidebar a
     {
-        position: absolute;
-        height: 200px;
-        top: 50%;
-        margin: -100px 0;
+        color: #000;
+        text-transform: uppercase;
+        text-decoration: none;
     }
+    .sidebar a:hover
+    {
+        color: #7BDFD4;
+    }
+    .sidelink {
+        padding-top: 20px;
+    }
+
+    #situ {
+    padding-top: 1em;
+    font-size: 150%;
+    text-transform: uppercase;
+    color: #fff;
+    /*text-align: center;*/
+}
 
 }
 
@@ -58,11 +77,11 @@ body {
     nav {
         height: 40px;
     }
-
     /*SIDEBAR*/
     .sidebar
     {
         position: fixed;
+        z-index: 10;
         width: 200px;
         height: 100%;
         padding-top: 50px;
@@ -70,15 +89,27 @@ body {
         left: 0;
         background: #2BBBAD;
     }
-
-    .sidebar ul
+    .sidebar a
     {
-       /* position: absolute;
-        /*height: 200px;
-       /* top: 50%;*/
-       /* margin: -100px 0;*/
+        color: #000;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    .sidebar a:hover
+    {
+        color: #7BDFD4;
+    }
+    .sidelink {
+        padding-top: 20px;
     }
 
+    #situ {
+    padding-top: 1em;
+    font-size: 150%;
+    text-transform: uppercase;
+    color: #fff;
+    /*text-align: center;*/
+}
 }
 
 
@@ -181,7 +212,7 @@ table a:hover{
 }
 .footer {
     position: absolute;
-    z-index: 1000;
+    /*z-index: 9990;*/
     right: 0;
     bottom: 0;
     left: 0;
@@ -261,7 +292,7 @@ span.glyphicon-user {
 
 .curs-t{
     text-align: left;
-    font-size: 1.5em;
+    font-size: 3em;
     font-weight: bold;
     color: #fff;
 }
@@ -388,13 +419,6 @@ span.glyphicon-user {
     min-height: 100px;
 }
 
-#situ {
-    padding-top: 1em;
-    font-size: 110%;
-    text-transform: uppercase;
-    color: #fff;
-    /*text-align: center;*/
-}
 /*COLORS*/
 .blau{
     color:#4285F4;

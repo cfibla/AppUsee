@@ -5,17 +5,27 @@ $(document).ready(function (){
 
   if(pth==="/list"){
     $("#llista").removeClass("active").addClass("navcolor");
-    $("#situ").html("Llista d'alumnes");
+    $("#situ").html("Llista tutoria");
+    $("#a1").html("Tutoria").attr('href', "/list");
+    $("#a2").html("Assistència").attr('href', "/assistencia");
+    $("#a3").html("Menjador").attr('href', "/menjador");
   }
   if(pth==="/assistencia"){
     $("#llista").removeClass("active");
     $("#assistencia").addClass("navcolor");
     $("#situ").html("Control assistència");
+    $("#a1").html("Tutoria").attr('href', "/list");
+    $("#a2").html("Assistència").attr('href', "/assistencia");
+    $("#a3").html("Menjador").attr('href', "/menjador");
+    /*$("#a4").html("Documents").attr('href', "#");*/
   }
   if(pth==="/menjador"){
     $("#llista").removeClass("active");
     $("#menjador").addClass("navcolor");
     $("#situ").html("Control menjador");
+    $("#a1").html("Tutoria").attr('href', "/list");
+    $("#a2").html("Assistència").attr('href', "/assistencia");
+    $("#a3").html("Menjador").attr('href', "/menjador");
   }
     if(pth==="/usuari"){
     $("#llista").removeClass("active");
@@ -28,12 +38,17 @@ $(document).ready(function (){
     $("#assistencia").removeClass("active");
     $("#menjador").removeClass("active");
     $("#situ").html("Configuració horari");
+    $("#a1").html("Configuració").attr('href', "/horari-config");
+    $("#a2").html("Horari diari").attr('href', "/horari-diari");
   }
     if(pth==="/horari-diari"){
     $("#llista").removeClass("active");
     $("#assistencia").removeClass("active");
     $("#menjador").removeClass("active");
     $("#situ").html("Horari diari");
+    $("#a1").html("Configuració").attr('href', "/horari-config");
+    $("#a2").html("Horari diari").attr('href', "/horari-diari");
+
   }
 
 //TOOLTIPS

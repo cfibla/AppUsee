@@ -58,7 +58,7 @@
               </li>
             </ul>
             <%} else {%>
-              <ul class="navbar-nav mr-auto">
+              <ul class="navbar-nav mr-auto offset-md-4">
                 <li id="llista" class="nav-item active"><a class="nav-link" href="<%=ruta%>">Llista<span class="sr-only">(current)</span></a></li>
                 <%if(session.user.mestre === "tutor"){%>
                   <li id="assistencia" class="nav-item"><a class="nav-link" href="/assistencia">Assistència</a></li>
@@ -90,38 +90,19 @@
     </div>
   </nav>
 <%if (session.user) {%>
-  <aside class="col-md-2 sidebar">
+  <aside class="col-md-2 sidebar hid">
     <%if (session.user.mestre==="ee") {%>
       <div class="col-md-12 curs-t">Atenció a la DIVERSITAT</div>
     <%}%>
-    <div class="col-md-12"><strong>Tutoria </strong><%=session.user.nom + " " + session.user.cognom%></div>
-    <div class="col-md-12"><strong>Escola </strong><%=session.user.escola%></div>
     <div class="col-md-12 curs-t" id="situ"></div>
     <%if (session.user.mestre==="tutor") {%>
       <div class="col-md-12 curs-t"><%=session.user.curs%></div>
     <%}%>
-    
-    <ul class="col-md-12">
-      <li><a href="#">New Entry</a></li>
-      <li><a href="#">Edit Entry</a></li>
-      <li><a href="#">Delete Entry</a></li>
-    </ul>
+      <div class="col-md-12 hid sidelink"><a id="a1"></a></div>
+      <div class="col-md-12 hid sidelink"><a id="a2"></a></div>
+      <div class="col-md-12 hid sidelink"><a id="a3"></a></div>
+      <div class="col-md-12 hid sidelink"><a id="a4"></a></div>
   </aside>
-
-<!--
-  <div class="container-flex seconnav animated fadeIn">
-    <div class="row align-items-center">
-      <%if (session.user.mestre==="tutor") {%>
-        <div class="col-md-1 curs-t"><%=session.user.curs%></div>
-        <div class="col-md-4 curs-t" id="situ"></div>
-      <%}%>
-      <%if (session.user.mestre==="ee") {%>
-        <div class="col-md-4 curs-t">Atenció a la DIVERSITAT</div>
-      <%}%>
-      <div class="col-md-2 offset-md-3"><strong>Tutoria </strong><%=session.user.nom + " " + session.user.cognom%></div>
-        <div class="col-md-2"><strong>Escola </strong><%=session.user.escola%></div>
-      </div>
-    </div>-->
 <%}%>
 
   <section class ="mainsection">
