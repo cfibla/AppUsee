@@ -1,6 +1,29 @@
 var models = require('../models/index');
 var moment = require('moment');
 
+//CONF. HORARI - GET
+exports.config = function (req, res) {
+	var usr=req.session.user;
+	var usrId = usr._id;
+
+	models.User.findById(usrId, function(error, user){
+		if(error){
+			res.json(error);
+		} else {
+			req.session.user = user;
+			var horariId=user.horari;
+			models.Horari.findById(horariId, function(error, horari){
+				if (error) {
+					return res.json(error);
+				} else {
+					res.render('horari', {horari:horari, page_name:'horari'});
+				}
+			});
+		}
+
+	})
+};
+
 //HORARI - CREATE
 exports.create = function (req, res) {
 	var horari = req.body;
@@ -80,29 +103,6 @@ exports.create = function (req, res) {
 				}
 			})
 		}
-	})
-};
-
-//CONF. HORARI - GET
-exports.config = function (req, res) {
-	var usr=req.session.user;
-	var usrId = usr._id;
-
-	models.User.findById(usrId, function(error, user){
-		if(error){
-			res.json(error);
-		} else {
-			req.session.user = user;
-			var horariId=user.horari;
-			models.Horari.findById(horariId, function(error, horari){
-				if (error) {
-					return res.json(error);
-				} else {
-					res.render('horari', {horari:horari, page_name:'horari'});
-				}
-			});
-		}
-
 	})
 };
 

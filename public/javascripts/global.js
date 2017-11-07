@@ -13,7 +13,7 @@ $(document).ready(function (){
   if(pth==="/assistencia"){
     $("#llista").removeClass("active");
     $("#assistencia").addClass("navcolor");
-    $("#situ").html("Control assistència");
+    $("#situ").html("Llista assistència");
     $("#a1").html("Tutoria").attr('href', "/list");
     $("#a2").html("Assistència").attr('href', "/assistencia");
     $("#a3").html("Menjador").attr('href', "/menjador");
@@ -22,7 +22,7 @@ $(document).ready(function (){
   if(pth==="/menjador"){
     $("#llista").removeClass("active");
     $("#menjador").addClass("navcolor");
-    $("#situ").html("Control menjador");
+    $("#situ").html("Llista menjador");
     $("#a1").html("Tutoria").attr('href', "/list");
     $("#a2").html("Assistència").attr('href', "/assistencia");
     $("#a3").html("Menjador").attr('href', "/menjador");
