@@ -52,8 +52,8 @@ $(document).ready(function (){
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").addClass("navcolor");
-    $("#situ").html("Configuració horari");
-    $("#a1").html("Configuració").attr('href', "/horari-config");
+    $("#situ").html("Configurar horari");
+    $("#a1").html("Configurar").attr('href', "/horari-config");
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
     $("#a1div").addClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
@@ -64,7 +64,7 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").addClass("navcolor");
     $("#situ").html("Horari diari");
-    $("#a1").html("Configuració").attr('href', "/horari-config");
+    $("#a1").html("Configurar").attr('href', "/horari-config");
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").addClass("navcolorside");

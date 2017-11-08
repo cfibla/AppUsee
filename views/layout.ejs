@@ -64,9 +64,11 @@
                   <li id="tutoria" class="nav-item hidBig"><a class="nav-link" href="/list">Tutoria</a></li>
                   <li id="assistencia" class="nav-item hidBig"><a class="nav-link" href="/assistencia">Assistència</a></li>
                   <li id="menjador" class="nav-item hidBig"><a class="nav-link" href="/menjador">Menjador</a></li>
-                  <li id="horari-menu" class="nav-item hid"><a class="nav-link" href="/horari-diari">Horaris</a></li>
+                  <%}%>
                   <% if (!session.user.horari) {%>
-                    <li id="crearHoraris" class="nav-item"><a class="nav-link" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li><%} else{%>
+                    <li id="crearHoraris" class="nav-item"><a class="nav-link" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li>
+                    <%} else {%>
+                    <li id="horari-menu" class="nav-item hid"><a class="nav-link" href="/horari-diari">Horaris</a></li>
                     <li class="nav-item dropdown hidBig">
                       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/horari-diari" role="button" aria-haspopup="true" aria-expanded="false">Horaris</a>
                       <div class="dropdown-menu">
@@ -74,7 +76,7 @@
                         <a class="dropdown-item" id="diariHorari" href="/horari-diari">Horari diari</a>
                       </div>
                     </li>
-                  <%}%>
+                  
                 <%}%>
               </ul>
             
@@ -94,7 +96,7 @@
 <%if (session.user) {%>
   <aside class="col-md-2 sidebar hid">
     <%if (session.user.mestre==="ee") {%>
-      <div class="col-md-12 curs-t">Atenció a la DIVERSITAT</div>
+      <div class="col-md-12 curs-t" id="situee">Atenció a la DIVERSITAT</div>
     <%}%>
     <div class="col-md-12 curs-t" id="situ"></div>
     <%if (session.user.mestre==="tutor") {%>
