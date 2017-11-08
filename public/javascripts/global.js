@@ -4,28 +4,42 @@ $(document).ready(function (){
   var pth = window.location.pathname; // Returns path only
 
   if(pth==="/list"){
-    $("#llista").removeClass("active").addClass("navcolor");
+    $("#llista").addClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
     $("#situ").html("Llista tutoria");
     $("#a1").html("Tutoria").attr('href', "/list");
     $("#a2").html("Assistència").attr('href', "/assistencia");
     $("#a3").html("Menjador").attr('href', "/menjador");
+    $("#a1div").addClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
+    $("#a3div").removeClass("navcolorside");
+    $("#a4div").removeClass("navcolorside");
   }
+
   if(pth==="/assistencia"){
-    $("#llista").removeClass("navcolor");
+    $("#llista").addClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
     $("#assistencia").addClass("navcolor");
     $("#situ").html("Llista assistència");
     $("#a1").html("Tutoria").attr('href', "/list");
     $("#a2").html("Assistència").attr('href', "/assistencia");
     $("#a3").html("Menjador").attr('href', "/menjador");
-    /*$("#a4").html("Documents").attr('href', "#");*/
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").addClass("navcolorside");
+    $("#a3div").removeClass("navcolorside");
+    $("#a4div").removeClass("navcolorside");
   }
   if(pth==="/menjador"){
-    $("#llista").removeClass("navcolor");
-    $("#menjador").addClass("navcolor");
+    $("#llista").addClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
     $("#situ").html("Llista menjador");
     $("#a1").html("Tutoria").attr('href', "/list");
     $("#a2").html("Assistència").attr('href', "/assistencia");
     $("#a3").html("Menjador").attr('href', "/menjador");
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
+    $("#a3div").addClass("navcolorside");
+    $("#a4div").removeClass("navcolorside");
   }
     if(pth==="/usuari"){
     $("#llista").removeClass("navcolor");
@@ -41,6 +55,8 @@ $(document).ready(function (){
     $("#situ").html("Configuració horari");
     $("#a1").html("Configuració").attr('href', "/horari-config");
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
+    $("#a1div").addClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
   }
     if(pth==="/horari-diari"){
     $("#llista").removeClass("navcolor");
@@ -50,7 +66,8 @@ $(document).ready(function (){
     $("#situ").html("Horari diari");
     $("#a1").html("Configuració").attr('href', "/horari-config");
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
-
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").addClass("navcolorside");
   }
 
 //TOOLTIPS

@@ -62,7 +62,7 @@ body {
         color: #7BDFD4;
     }
     .sidelink {
-        padding-top: 20px;
+        padding: 20px;
     }
 
     #situ {
@@ -70,49 +70,13 @@ body {
     font-size: 150%;
     text-transform: uppercase;
     color: #fff;
-    /*text-align: center;*/
 }
 
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    nav {
-        height: 45px;
-    }
-    /*SIDEBAR*/
-    .sidebar
-    {
-        position: fixed;
-        z-index: 10;
-        width: 200px;
-        height: 100%;
-        padding-top: 50px;
-        top: 0;
-        left: 0;
-        background: #2BBBAD;
-    }
-    .sidebar a
-    {
-        color: #000;
-        text-transform: uppercase;
-        text-decoration: none;
-    }
-    .sidebar a:hover
-    {
-        color: #7BDFD4;
-    }
-    .sidelink {
-        padding-top: 20px;
-    }
 
-    #situ {
-    padding-top: 1em;
-    font-size: 150%;
-    text-transform: uppercase;
-    color: #fff;
-    /*text-align: center;*/
-}
 }
 
 
@@ -172,6 +136,14 @@ nav a{
 .navcolor a{
     color: white !important;
 }
+.navcolorside {
+    background: #008577;
+}
+
+.navcolorside a {
+    color: #fff;
+}
+
 table a:hover{
     opacity: .5;
 }

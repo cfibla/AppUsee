@@ -61,6 +61,7 @@
               <ul class="navbar-nav mr-auto offset-md-1">
                 <li id="llista" class="nav-item"><a class="nav-link" href="<%=ruta%>">Llistes<span class="sr-only">(current)</span></a></li>
                 <%if(session.user.mestre === "tutor"){%>
+                  <li id="tutoria" class="nav-item hidBig"><a class="nav-link" href="/list">Tutoria</a></li>
                   <li id="assistencia" class="nav-item hidBig"><a class="nav-link" href="/assistencia">Assistència</a></li>
                   <li id="menjador" class="nav-item hidBig"><a class="nav-link" href="/menjador">Menjador</a></li>
                   <li id="horari-menu" class="nav-item hid"><a class="nav-link" href="/horari-diari">Horaris</a></li>
@@ -99,10 +100,10 @@
     <%if (session.user.mestre==="tutor") {%>
       <div class="col-md-12 curs-t"><%=session.user.curs%></div>
     <%}%>
-      <div class="col-md-12 hid sidelink"><a id="a1"></a></div>
-      <div class="col-md-12 hid sidelink"><a id="a2"></a></div>
-      <div class="col-md-12 hid sidelink"><a id="a3"></a></div>
-      <div class="col-md-12 hid sidelink"><a id="a4"></a></div>
+      <div class="col-md-12 hid sidelink" id="a1div"><a id="a1"></a></div>
+      <div class="col-md-12 hid sidelink" id="a2div"><a id="a2"></a></div>
+      <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
+      <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
   </aside>
 <%}%>
 
