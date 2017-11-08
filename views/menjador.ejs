@@ -14,7 +14,7 @@
       </form>
     </div> 
  
-  <div class="col-md-12 margetop">
+  <div class="container margetop clear">
 
   <% if (Alumnes.length === 0) { %>
       <p><br />
@@ -25,7 +25,7 @@
     <thead>
       <tr>
         <th class="d-inline-block col-1">Núm.</th>
-        <th class="d-inline-block col-4">Cognoms i nom</th>
+        <th class="d-inline-block col-5">Cognoms i nom</th>
         <th class="d-inline-block col-1">Curs</th>
         <th class="d-inline-block col-1">Ordinari</th>
         <th class="d-inline-block col-1">Musulmà</th>
@@ -72,7 +72,7 @@
       <form role="form" method="post" action="/menjadorN?_method=put" id="menjaForm" name="menjadorForm">
       <tr id="tradios">
       <td class="d-inline-block col-1"><%=i+1%></td>
-      <td class="d-inline-block col-4"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
+      <td class="d-inline-block col-5"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
       </td>
       <td class="d-inline-block col-1"><%=Alumnes[i].curs%></td>
       <input type="hidden" form="menjaForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">

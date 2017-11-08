@@ -11,7 +11,7 @@ $(document).ready(function (){
     $("#a3").html("Menjador").attr('href', "/menjador");
   }
   if(pth==="/assistencia"){
-    $("#llista").removeClass("active");
+    $("#llista").removeClass("navcolor");
     $("#assistencia").addClass("navcolor");
     $("#situ").html("Llista assistència");
     $("#a1").html("Tutoria").attr('href', "/list");
@@ -20,7 +20,7 @@ $(document).ready(function (){
     /*$("#a4").html("Documents").attr('href', "#");*/
   }
   if(pth==="/menjador"){
-    $("#llista").removeClass("active");
+    $("#llista").removeClass("navcolor");
     $("#menjador").addClass("navcolor");
     $("#situ").html("Llista menjador");
     $("#a1").html("Tutoria").attr('href', "/list");
@@ -28,23 +28,25 @@ $(document).ready(function (){
     $("#a3").html("Menjador").attr('href', "/menjador");
   }
     if(pth==="/usuari"){
-    $("#llista").removeClass("active");
-    $("#assistencia").removeClass("active");
-    $("#menjador").removeClass("active");
+    $("#llista").removeClass("navcolor");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
     $("#situ").html("Perfil d'usuari");
   }
     if(pth==="/horari-config"){
-    $("#llista").removeClass("active");
-    $("#assistencia").removeClass("active");
-    $("#menjador").removeClass("active");
+    $("#llista").removeClass("navcolor");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#horari-menu").addClass("navcolor");
     $("#situ").html("Configuració horari");
     $("#a1").html("Configuració").attr('href', "/horari-config");
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
   }
     if(pth==="/horari-diari"){
-    $("#llista").removeClass("active");
-    $("#assistencia").removeClass("active");
-    $("#menjador").removeClass("active");
+    $("#llista").removeClass("navcolor");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#horari-menu").addClass("navcolor");
     $("#situ").html("Horari diari");
     $("#a1").html("Configuració").attr('href', "/horari-config");
     $("#a2").html("Horari diari").attr('href', "/horari-diari");

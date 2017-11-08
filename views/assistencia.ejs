@@ -14,7 +14,7 @@
       </form>
     </div>
      
-  <div class="col-md-12 margetop">
+  <div class="container margetop clear">
 
   <% if (Alumnes.length === 0) { %>
       <p><br />
@@ -23,9 +23,9 @@
       <%} else {%>           
   <table class="table table-hover">
     <thead>
-      <tr>
+      <tr  class="row m-0">
         <th class="d-inline-block col-1">Núm.</th>
-        <th class="d-inline-block col-4">Cognoms i nom</th>
+        <th class="d-inline-block col-6">Cognoms i nom</th>
         <th class="d-inline-block col-1">F matí</th>
         <th class="d-inline-block col-1">R matí</th>
         <th class="d-inline-block col-1">F tarda</th>
@@ -69,7 +69,7 @@
       <form role="form" method="post" action="/assistenciaN?_method=put" id="assisForm" name="assis">
       <tr id="tradios">
       <td class="d-inline-block col-1"><%=i+1%></td>
-      <td class="d-inline-block col-4"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
+      <td class="d-inline-block col-6"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
       </td>
 
       <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">

@@ -34,7 +34,10 @@ body {
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
      nav {
-        height: 40px;
+        height: 45px;
+    }
+    .hidBig{
+        display: none;
     }
     /*SIDEBAR*/
     .sidebar
@@ -75,7 +78,7 @@ body {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     nav {
-        height: 40px;
+        height: 45px;
     }
     /*SIDEBAR*/
     .sidebar
@@ -164,7 +167,7 @@ nav a{
     opacity: 0.5;
 }
 .navcolor{
-    background-color: #2BBBAD;
+    border-bottom: 5px solid #2BBBAD;
 }
 .navcolor a{
     color: white !important;
