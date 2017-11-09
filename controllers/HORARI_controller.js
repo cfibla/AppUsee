@@ -391,7 +391,7 @@ exports.diariPost = function (req, res){
 	var horariReq = req.body;
 	var user = req.session.user;
 	var horariId = user.horari;
-	console.log(horariReq);
+	/*console.log(horariReq);*/
 
 	models.Horari.findById(horariId, function(error, horari){
 		var lgt = horari.dades.length-1;
@@ -415,7 +415,7 @@ exports.diariPost = function (req, res){
 			upd();
 			horari.save(function (err, updatedHorari) {
 			    if (err) return res.json(error);
-			    	res.render('horari-diari', {horari:updatedHorari, page_name:'horari'});
+			    	 res.redirect('/horari-diari');
 	  		});
 		}
 	});
