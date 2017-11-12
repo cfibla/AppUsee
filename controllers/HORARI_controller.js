@@ -346,14 +346,30 @@ exports.diariGet = function (req, res) {
 	var usr=req.session.user;
 	var usrId = usr._id;
 	var mestre = req.session.user.mestre;
+	//Fechas
+	var hoy = new Date();
+	var check = moment(hoy, 'DD/MM/YYYY');
+	var month = check.format('M');
+	var day   = check.format('D');
+	var year  = check.format('YYYY');
+
+	var initDay = hoy.subtract(10, 'days');
+	var finishDay = hoy.add(30, 'days');
+
+		console.log('month: ' + month);
+
 	if(mestre == "tutor"){
+/*
+		models.tweets.find({created_at: {$lt: last_displayed_date}}).
+          sort({created_at: -1}).limit(20);
+*/
 		models.User.findById(usrId, function(error, user){
 			if(error){
 				res.json(error);
 			} else {
 				req.session.user = user;
 				var horariId=user.horari;
-				models.Horari.findById(horariId, function(error, horari){
+				models.Horari.findOne({_id:horariId}, function(error, horari){
 					if (error) {
 						return res.json(error);
 					} else {
