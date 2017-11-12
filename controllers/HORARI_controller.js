@@ -348,15 +348,25 @@ exports.diariGet = function (req, res) {
 	var mestre = req.session.user.mestre;
 	//Fechas
 	var hoy = new Date();
-	var check = moment(hoy, 'DD/MM/YYYY');
-	var month = check.format('M');
-	var day   = check.format('D');
-	var year  = check.format('YYYY');
+	var dataMoment = moment(hoy, 'DD/MM/YYYY');
+	//var dataISO = datamoment.toIsoDate
+	var month = dataMoment.format('M');
+	var day   = dataMoment.format('D');
+	var year  = dataMoment.format('YYYY');
 
-	var initDay = hoy.subtract(10, 'days');
-	var finishDay = hoy.add(30, 'days');
 
+	var initDay = moment().subtract(7, 'days');
+	var finishDay = moment().add(30, 'days');
+	var initMoment = initDay.format('D')+'/'+initDay.format('M')+'/'+initDay.format('YYYY');
+	var finishMoment = finishDay.format('D')+'/'+finishDay.format('M')+'/'+finishDay.format('YYYY');
+
+	//hay que convertir TODAS las fechas a ISO primero para poder operar con ellas
 		console.log('month: ' + month);
+		console.log('inici: ' + initMoment);
+		console.log('finish: ' + finishMoment);
+		console.log('monthInit: ' + moment(initMoment).format('M'));
+		console.log('monthFinish: ' + moment(finishMoment).format('M'));
+
 
 	if(mestre == "tutor"){
 /*
