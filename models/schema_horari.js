@@ -2,6 +2,7 @@ var mongoose = require ('mongoose');
 
 module.exports = new mongoose.Schema({
 	nom: String,
+	areasArray: Array,
 	dades:[{
 			data: String,
 			dia: Number,

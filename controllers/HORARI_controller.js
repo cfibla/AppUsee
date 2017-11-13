@@ -169,6 +169,7 @@ exports.update = function (req, res){
 
 		function upd(){
 			horari.nom = nom;
+			horari.areasArray = [];
 			for (var i=0; i < horari.dades.length; i++) {
 		        if (horari.dades[i].dia === 1) {
 		        	horari.dades[i].clase1 = horariReq.classe1dll;
@@ -211,13 +212,29 @@ exports.update = function (req, res){
 		        	horari.dades[i].clase6 = horariReq.classe6dv;	
 		        }
 		    }
-	    	/*ELIMINAR SABADOS Y DOMINGOS*/
+	    	//ELIMINAR SABADOS Y DOMINGOS
 			var horariLength = horari.dades.length;
 			for (var i = horariLength - 1; i >= 0; i--) {
 			    if (horari.dades[i].dia==0 || horari.dades[i].dia==6) {
 					horari.dades.splice(i,1);
 				}
 			}
+
+			//ARRAY DE ÁREAS
+			Array.prototype.unique=function(a){
+				return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
+				});
+			var areasArray = [];
+			for (var i=0; i < 8; i++) {
+			areasArray.push	(horari.dades[i].clase1);
+			areasArray.push	(horari.dades[i].clase2);
+			areasArray.push	(horari.dades[i].clase3);
+			areasArray.push	(horari.dades[i].clase4);
+			areasArray.push	(horari.dades[i].clase5);
+			areasArray.push	(horari.dades[i].clase6);
+			}
+			horari.areasArray = areasArray.unique();
+			console.log(horari.areasArray.sort());
 		};
 		if (error) {
 			return res.json(error);
@@ -252,7 +269,7 @@ exports.update = function (req, res){
 			} else {
 				if (moment(iniciReq).isBefore(inici)) {
 					console.log("INICIO: HAS INTRODUCIDO UNA FECHA ANTERIOR");
-					//CORREGIR --> Vigilar eliminar SABADOS Y DOMINGOS
+
 					for(i=iniciAnt; i>=iniciReq; i=moment(i).subtract(1,'days')){
 						horari.dades.unshift({
 							data: moment(i).format('DD/MM/YYYY'),
@@ -361,11 +378,11 @@ exports.diariGet = function (req, res) {
 	var finishMoment = finishDay.format('D')+'/'+finishDay.format('M')+'/'+finishDay.format('YYYY');
 
 	//hay que convertir TODAS las fechas a ISO primero para poder operar con ellas
-		console.log('month: ' + month);
-		console.log('inici: ' + initMoment);
-		console.log('finish: ' + finishMoment);
-		console.log('monthInit: ' + moment(initMoment).format('M'));
-		console.log('monthFinish: ' + moment(finishMoment).format('M'));
+	//	console.log('month: ' + month);
+	//	console.log('inici: ' + initMoment);
+	//	console.log('finish: ' + finishMoment);
+	//	console.log('monthInit: ' + moment(initMoment).format('M'));
+	//	console.log('monthFinish: ' + moment(finishMoment).format('M'));
 
 
 	if(mestre == "tutor"){
