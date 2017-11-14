@@ -106,16 +106,16 @@
       <div class="col-md-12 hid sidelink" id="a2div"><a id="a2"></a></div>
       <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
       <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
-<!--
-      <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=" "+ "Hola, " + session.user.nom +" "+ session.user.cognom%></a>
+
+      <div class="nav-item dropdown hidDrop" id="areasDrop">
+        <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
         <div class="dropdown-menu" aria-labelledby="areasDropdown">
           <% for (var i = 0; i < horari.areasArray.length; i++) { -%>
-            <a class="dropdown-item" href="#">horari.areasArray</a>
+            <a class="dropdown-item" href="#"><%=horari.areasArray[i]%></a>
           <% } -%>
         </div>
       </div>
--->
+
   </aside>
 <%}%>
 
@@ -161,7 +161,7 @@
           <div class="col-md-6">
             © 2017 <a href="https://twitter.com/appescola"> appEscola </a>
           </div>
-          <div class="col-md-6">Versió Beta 1.0</div>
+          <div class="col-md-6">Versió Beta 1.1</div>
         </div>      
       </div>
     <!--/.Copyright-->

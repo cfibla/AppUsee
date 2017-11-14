@@ -103,6 +103,10 @@ nav .dropdown-item:hover {
 nav a{
 }
 
+.hidDrop{
+     display: none;
+}
+
 .jumbotron{
     background: #eee;
 }

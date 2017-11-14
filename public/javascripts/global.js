@@ -14,6 +14,7 @@ $(document).ready(function (){
     $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
+    $("#areasDrop").addClass("hidDrop");
   }
 
   if(pth==="/assistencia"){
@@ -28,6 +29,7 @@ $(document).ready(function (){
     $("#a2div").addClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
+    $("#areasDrop").addClass("hidDrop");
   }
   if(pth==="/menjador"){
     $("#llista").addClass("navcolor");
@@ -40,12 +42,14 @@ $(document).ready(function (){
     $("#a2div").removeClass("navcolorside");
     $("#a3div").addClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
+    $("#areasDrop").addClass("hidDrop");
   }
     if(pth==="/usuari"){
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#situ").html("Perfil d'usuari");
+    $("#areasDrop").addClass("hidDrop");
   }
     if(pth==="/horari-config"){
     $("#llista").removeClass("navcolor");
@@ -57,6 +61,7 @@ $(document).ready(function (){
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
     $("#a1div").addClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
+    $("#areasDrop").removeClass("hidDrop");
   }
     if(pth==="/horari-diari"){
     $("#llista").removeClass("navcolor");
@@ -68,6 +73,7 @@ $(document).ready(function (){
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").addClass("navcolorside");
+    $("#areasDrop").removeClass("hidDrop");
   }
 
 //TOOLTIPS
