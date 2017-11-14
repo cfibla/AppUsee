@@ -226,15 +226,15 @@ exports.update = function (req, res){
 				});
 			var areasArray = [];
 			for (var i=0; i < 8; i++) {
-			areasArray.push	(horari.dades[i].clase1);
-			areasArray.push	(horari.dades[i].clase2);
-			areasArray.push	(horari.dades[i].clase3);
-			areasArray.push	(horari.dades[i].clase4);
-			areasArray.push	(horari.dades[i].clase5);
-			areasArray.push	(horari.dades[i].clase6);
+				areasArray.push	(horari.dades[i].clase1);
+				areasArray.push	(horari.dades[i].clase2);
+				areasArray.push	(horari.dades[i].clase3);
+				areasArray.push	(horari.dades[i].clase4);
+				areasArray.push	(horari.dades[i].clase5);
+				areasArray.push	(horari.dades[i].clase6);
 			}
-			horari.areasArray = areasArray.unique();
-			console.log(horari.areasArray.sort());
+			horari.areasArray = areasArray.unique().sort();
+			console.log(horari.areasArray);
 		};
 		if (error) {
 			return res.json(error);
@@ -371,13 +371,12 @@ exports.diariGet = function (req, res) {
 	var day   = dataMoment.format('D');
 	var year  = dataMoment.format('YYYY');
 
-
 	var initDay = moment().subtract(7, 'days');
 	var finishDay = moment().add(30, 'days');
 	var initMoment = initDay.format('D')+'/'+initDay.format('M')+'/'+initDay.format('YYYY');
 	var finishMoment = finishDay.format('D')+'/'+finishDay.format('M')+'/'+finishDay.format('YYYY');
 
-	//hay que convertir TODAS las fechas a ISO primero para poder operar con ellas
+	//???hay que convertir TODAS las fechas a ISO primero para poder operar con ellas
 	//	console.log('month: ' + month);
 	//	console.log('inici: ' + initMoment);
 	//	console.log('finish: ' + finishMoment);

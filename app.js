@@ -42,11 +42,11 @@ function ensureSecure(req, res, next){
 */
 // Helpers Dinámicos:
 
-    //hace visible req.session en las vistas
-    app.use (function(req, res, next){
-        res.locals.session = req.session;
-        next();
-    });
+//hace visible req.session en las vistas
+app.use (function(req, res, next){
+    res.locals.session = req.session;
+    next();
+});
 
 app.use('/', routes);
 
