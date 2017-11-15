@@ -11,7 +11,7 @@ exports.new = function(req, res) {
 				} else {
 					console.log('HORARI NEW: '+ horari);
 					if(req.session.user.mestre === "tutor"){
-						res.render('/list', {horari: horari});
+						res.render('index', {horari: horari});
 					}
 					if(req.session.user.mestre === "ee"){
 						res.render('/list_EE', {horari: horari});
@@ -36,34 +36,28 @@ exports.login = function (req, res, next){
 	var email = req.body.email;
 	var password = req.body.password;
 
-	models.User.findOne({email: email, password: password}, function(error, user){
-		if(error){
+	models.User.findOne({email: email, password: password})
+	.populate('horari')
+	.exec(function(error, user){
+		if (error){
 			console.log(error);
 		}
 		if(!user) {
 			next();
 		} else {
 			req.session.user = user;
-			models.Alumne.find(function(error, docs){
-			if (error){
-				console.log(error);
-			} else {
-				if(req.session.user.horari){
-					horariId = req.session.user.horari;
-					models.Horari.find({_id: horariId}, function(err, horari){
-						if(err){
-							console.log(err);
-						} else {
-							console.log('HORARI LOGIN: '+ horari);
-							res.render('/list', {horari: horari, alumnes: docs});
-						}
-					})
-				}	
-				//res.redirect('/list');
-				}
-		});}
-
-	})
+			if(req.session.user.horari){
+				horariId = req.session.user.horari;
+				models.Horari.find({_id: horariId}, function(err, horari){
+					if(err){
+						console.log(err);
+					} else {
+						res.redirect('/list');
+					}
+				})
+			}	
+		}
+	});
 };
 
 exports.login_EE = function (req, res, next){

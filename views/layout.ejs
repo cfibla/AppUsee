@@ -110,9 +110,9 @@
       <div class="nav-item dropdown hidDrop" id="areasDrop">
         <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
         <div class="dropdown-menu" aria-labelledby="areasDropdown">
-          <% for (var i = 0; i < horari.areasArray.length; i++) { -%>
-            <a class="dropdown-item" href="#"><%=horari.areasArray[i]%></a>
-          <% } -%>
+          <% for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
+            <a class="dropdown-item" href="#"><%=session.user.horari.areasArray[i]%></a>
+          <% } %>
         </div>
       </div>
 

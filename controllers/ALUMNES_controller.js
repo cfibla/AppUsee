@@ -2,6 +2,7 @@ var models = require('../models/index');
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
+	console.log('holaquetal');
 	models.Alumne.find({
 		escola: req.session.user.escola,
 	/*	tutor: req.session.user, */
@@ -12,8 +13,19 @@ exports.list = function (req, res) {
 		if (error){
 			console.log(error);
 		} else {
-			res.render('index',{Alumnes: docs});
+			if(req.session.user.horari){
+				console.log('holaquetal => 2');
+				horariId = req.session.user.horari;
+				models.Horari.find({_id: horariId}, function(err, horariUser){
+					if(err){
+						console.log(err);
+					} else {
+						console.log('HORARI LIST: '+ horariUser);
+						res.render('index',{Alumnes: docs, horari: horariUser});
+					}
+				});
 			}
+		}
 	});
 
 };
