@@ -393,16 +393,19 @@ exports.diariGet = function (req, res) {
 			if(error){
 				res.json(error);
 			} else {
-				req.session.user = user;
-				var horariId=user.horari;
-				models.Horari.findOne({_id:horariId}, function(error, horari){
-					if (error) {
-						return res.json(error);
+			if(req.session.user.horari){
+				console.log('holaquetal => 3');
+				horariId = req.session.user.horari;
+				models.Horari.find({_id: horariId}, function(err, horariUser){
+					if(err){
+						console.log(err);
 					} else {
-						res.render('horari-diari', {horari:horari, page_name:'horari'});
+						console.log('HORARI DIARI: '+ horariUser);
+						res.render('horari-diari',{horari: horariUser});
 					}
 				});
 			}
+				};
 
 		})
 	}

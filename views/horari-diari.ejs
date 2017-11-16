@@ -2,6 +2,8 @@
 <form role="form" method="post" action="/horari-diari-post?_method=put" id="horari_post">
   <div class="container margetop clear col-md-10 offset-md-2" id="horariDiari">
 <%
+
+console.log('HORARIVIEW: ' + horari.dades[1]);
 var dia;
 for (var i=0; i < horari.dades.length; i++) {
   if (horari.dades[i].dia === 1) {

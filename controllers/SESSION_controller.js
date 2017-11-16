@@ -5,16 +5,16 @@ exports.new = function(req, res) {
 	if(req.session.user){
 		if(req.session.user.horari){
 			horariId = req.session.user.horari;
-			models.Horari.findOne({_id: horariId}, function(err, horari){
+			models.Horari.find({_id: horariId}, function(err, horari){
 				if(err){
 					console.log(err);
 				} else {
 					console.log('HORARI NEW: '+ horari);
 					if(req.session.user.mestre === "tutor"){
-						res.render('index', {horari: horari});
+						res.redirect('/list');
 					}
 					if(req.session.user.mestre === "ee"){
-						res.render('/list_EE', {horari: horari});
+						res.redirect('/list_EE');
 					}
 				}
 			})
@@ -30,7 +30,6 @@ exports.new = function(req, res) {
 		res.render('home', { title: 'AppEscola',  page_name:'home'});
 	}
 };
-
 
 exports.login = function (req, res, next){
 	var email = req.body.email;
