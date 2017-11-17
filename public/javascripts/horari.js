@@ -105,7 +105,13 @@ $(document).ready(function (){
         }, 2000);
     }
 
-    
+    //POST
+/*    $('#horariDiariPost').on('click', function(){
+      var urlPost = "/horari-diari-post?_method=put";
+      var data = $('#horari_post').serialize();
+      aPost(urlPost, data);
+    })
+    */
 ///AJAX FUNCTIONS///
    function aPost(path, obj){
      return   $.ajax({

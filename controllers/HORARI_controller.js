@@ -459,6 +459,7 @@ exports.diariPost = function (req, res){
 		} else {
 			upd();
 			horari.save(function (err, updatedHorari) {
+				req.session.user.horari = updatedHorari;
 			    if (err) return res.json(error);
 			    	 res.redirect('/horari-diari');
 	  		});

@@ -19,17 +19,19 @@
   </head>
 
   <body>
-  <%  if (session.user){
-        var ruta;
-        if(session.user.mestre === "ee"){
-        ruta = "/list_EE";
-        } else {
-          ruta = "/list";
-      }
+  <%  
+  if (session.user){
+    var horari = session.user.horari;
+      var ruta;
+      if(session.user.mestre === "ee"){
+      ruta = "/list_EE";
       } else {
-        ruta = "";
-      }
-      %>
+        ruta = "/list";
+    }
+    } else {
+      ruta = "";
+    }
+  %>
 
 <!--Navbar-->
     <nav class="navbar navbar-toggleable-md navbar-dark black fixed-top z-depth-0 scrolling-navbar">
@@ -102,8 +104,16 @@
     <%if (session.user.mestre==="tutor") {%>
       <div class="col-md-12 curs-t"><%=session.user.curs%></div>
     <%}%>
-      <div class="col-md-12 hid sidelink" id="a1div"><a id="a1"></a></div>
-      <div class="col-md-12 hid sidelink" id="a2div"><a id="a2"></a></div>
+      <div class="col-md-12 hid sidelink" id="a1div">
+        <a id="a1"></a>
+      </div>
+      <div class="col-md-12 hid sidelink" id="a2div">
+        <a id="a2"></a>
+        <div class="col-md-12">
+          <button type="submit" form = "horari_post" class="btn btn-default" id="horariDiariPost">Guarda Horari</button>
+        </div>
+
+      </div>
       <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
       <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
 
