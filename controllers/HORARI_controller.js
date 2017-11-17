@@ -8,21 +8,17 @@ exports.config = function (req, res) {
 	var mestre = req.session.user.mestre;
 
 	if(mestre == "tutor"){
-		models.User.findById(usrId, function(error, user){
-			if(error){
-				res.json(error);
-			} else {
-				req.session.user = user;
-				var horariId=user.horari;
-				models.Horari.findById(horariId, function(error, horari){
-					if (error) {
-						return res.json(error);
+			if(req.session.user.horari){
+				console.log('CONFIGURACIO-DIARI GET');
+				horariId = req.session.user.horari;
+				models.Horari.findById(horariId, function(err, horariUser){
+					if(err){
+						console.log(err);
 					} else {
-						res.render('horari', {horari:horari, page_name:'horari'});
-					}
+						res.render('horari', {horari: horariUser});
+					};
 				});
-			}
-		})
+			};
 	}
 	if(mestre == "ee"){
 		models.UserEe.findById(usrId, function(error, user){
@@ -389,26 +385,20 @@ exports.diariGet = function (req, res) {
 		models.tweets.find({created_at: {$lt: last_displayed_date}}).
           sort({created_at: -1}).limit(20);
 */
-		models.User.findById(usrId, function(error, user){
-			if(error){
-				res.json(error);
-			} else {
 			if(req.session.user.horari){
-				console.log('holaquetal => 3');
+				console.log('HORARI-DIARI GET');
 				horariId = req.session.user.horari;
-				models.Horari.find({_id: horariId}, function(err, horariUser){
+				models.Horari.findById(horariId, function(err, horariUser){
 					if(err){
 						console.log(err);
 					} else {
-						console.log('HORARI DIARI: '+ horariUser);
-						res.render('horari-diari');
+						res.render('horari-diari', {horari: horariUser});
 					};
 				});
 			};
 
 		}
-	});
-}
+
 	if(mestre == "ee"){
 		models.UserEe.findById(usrId, function(error, user){
 			if(error){

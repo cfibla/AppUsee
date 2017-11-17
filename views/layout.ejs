@@ -106,25 +106,25 @@
     <%}%>
       <div class="col-md-12 hid sidelink" id="a1div">
         <a id="a1"></a>
+          <button type="submit" form = "horari_post" class="btn btn-default hidDrop" id="configDiariPost">Guarda Configuració</button>
       </div>
       <div class="col-md-12 hid sidelink" id="a2div">
         <a id="a2"></a>
-        <div class="col-md-12">
-          <button type="submit" form = "horari_post" class="btn btn-default" id="horariDiariPost">Guarda Horari</button>
-        </div>
-
+          <button type="submit" form = "horari_post" class="btn btn-default hidDrop" id="horariDiariPost">Guarda Horari</button>
       </div>
       <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
       <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
 
       <div class="nav-item dropdown hidDrop" id="areasDrop">
         <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
+        <%if (session.user.horari) {%>
         <div class="dropdown-menu" aria-labelledby="areasDropdown">
           <% console.log("ARRAY:  " + session.user.horari.areasArray.length);
           for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
             <a class="dropdown-item" href="#"><%=session.user.horari.areasArray[i]%></a>
           <% } %>
         </div>
+        <% } %>
       </div>
 
   </aside>
