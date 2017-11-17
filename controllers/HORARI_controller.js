@@ -401,14 +401,14 @@ exports.diariGet = function (req, res) {
 						console.log(err);
 					} else {
 						console.log('HORARI DIARI: '+ horariUser);
-						res.render('horari-diari',{horari: horariUser});
-					}
+						res.render('horari-diari');
+					};
 				});
-			}
-				};
+			};
 
-		})
-	}
+		}
+	});
+}
 	if(mestre == "ee"){
 		models.UserEe.findById(usrId, function(error, user){
 			if(error){
