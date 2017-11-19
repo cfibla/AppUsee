@@ -17,6 +17,15 @@ $(document).ready(function (){
     $("#areasDrop").addClass("hidDrop");
   }
 
+  if(pth==="/list_EE"){
+    $("#llista").addClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
+//    $("#situ").html("Atenció a la diversitat");
+    $("#a1").html("Tutoria").attr('href', "/list_EE");
+    $("#a1div").addClass("navcolorside");
+    $("#areasDrop").addClass("hidDrop");
+  }
+
   if(pth==="/assistencia"){
     $("#llista").addClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
@@ -57,7 +66,7 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").addClass("navcolor");
     $("#situ").html("Configurar horari");
-    $("#a1").html("Configurar").attr('href', "/horari-config");
+    $("#a1").html("Configuració").attr('href', "/horari-config");
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
     $("#a1div").addClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
@@ -70,7 +79,7 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").addClass("navcolor");
     $("#situ").html("Horari diari");
-    $("#a1").html("Configurar").attr('href', "/horari-config");
+    $("#a1").html("Configuració").attr('href', "/horari-config");
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").addClass("navcolorside");

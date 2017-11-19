@@ -24,6 +24,23 @@ body {
     .hid {
         display: none;
     }
+    .divButton{
+        padding: .5em;
+        border: 1px solid #bbb;
+        min-height: 50px;
+    }
+    .buttonDiari {
+        border:2px solid #008577;
+        background: #fff;
+        color: #008577 !important;
+        box-shadow: none;    
+    }
+    .buttonDiari:hover {
+        border:2px solid #008577;
+        background: #008577 !important;
+        color: black !important;
+        box-shadow: none;    
+    }
 
 }
 @media (min-width: 768px) {
@@ -65,19 +82,44 @@ body {
         padding: 20px;
     }
 
+    .buttonSide {
+        margin: 0;
+        width: 100%;
+        border:2px solid #2BBBAD;
+        padding: 10px;
+        background: #008577;
+        box-shadow: none;
+    }
+
+    .buttonSide:hover {
+        margin: 0;
+        width: 100%;
+        padding: 10px;
+        background: #2BBBAD !important;
+        box-shadow: none;
+    }
+
     #situ {
     padding-top: 1em;
     font-size: 150%;
     text-transform: uppercase;
     color: #fff;
-}
+    }
 
     #situee {
     padding-top: 1em;
     font-size: 180%;
     text-transform: uppercase;
     color: #fff;
-}
+    }
+
+    .navcolorside {
+    background: #008577;
+    }
+
+    .navcolorside a {
+        color: #fff;
+    }
 
 }
 
@@ -146,13 +188,6 @@ nav a{
 }
 .navcolor a{
     color: white !important;
-}
-.navcolorside {
-    background: #008577;
-}
-
-.navcolorside a {
-    color: #fff;
 }
 
 table a:hover{

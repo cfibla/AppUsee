@@ -9,7 +9,7 @@ exports.new = function(req, res) {
 				if(err){
 					console.log(err);
 				} else {
-					console.log('HORARI NEW: '+ horari);
+					console.log('sessionControllerNEW');
 					if(req.session.user.mestre === "tutor"){
 						res.redirect('/list');
 					}
@@ -54,7 +54,9 @@ exports.login = function (req, res, next){
 						res.redirect('/list');
 					}
 				})
-			}	
+			} else {
+				res.redirect('/list');
+			}
 		}
 	});
 };

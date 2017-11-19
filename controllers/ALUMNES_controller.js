@@ -23,6 +23,8 @@ exports.list = function (req, res) {
 						res.render('index',{Alumnes: docs, horari: horariUser});
 					}
 				});
+			} else {
+				res.render('index',{Alumnes: docs});
 			}
 		}
 	});

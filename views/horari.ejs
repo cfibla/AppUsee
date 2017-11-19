@@ -32,9 +32,9 @@ for (var i=0; i < horari.dades.length; i++) {
       </div>
 -->
 <!--DATEPICKER-->
-      <div class="md-form col-md-6">
+      <div class="md-form col-md-12">
         <div class="row">
-          <div class="md-form col-md-5" id="iniciHorari">
+          <div class="md-form col-md-3" id="iniciHorari">
             <label class="active" for="inici">Comença el dia</label>
             <div class="input-group date" data-provide="datepicker">
               <div class="input-group-addon"><i class="fa fa-calendar"></i>
@@ -42,7 +42,7 @@ for (var i=0; i < horari.dades.length; i++) {
                 <input type="text" class="form-control textcenter" id="inici" form="horari_post" name="horariInici" value="<%=horari.dades[0].data%>">
             </div>
           </div>
-          <div class="md-form col-md-5" id="finalHorari">
+          <div class="md-form col-md-3" id="finalHorari">
             <label class="active" for="horariFinal">Acaba el dia</label>
             <div class="input-group date" data-provide="datepicker">
               <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -377,24 +377,11 @@ for (var i=0; i < horari.dades.length; i++) {
             </div>
         </div>
       </div><br><br>
+      <div class="md-form col-md-3 offset-md-8">
+        <button type="submit" form = "horari_post" class="btn btn-success btn-lg btn-block buttonDiari hidBig" id="horariDiariPost">Desa l'horari</button>
+      </div>
     </div>
 
     </div>
   </div>
 </form>
-
-<div class="container clear">
-  <div class="clearfix float-right">
-    <% 
-    var li = "/list";
-    if(session.user.mestre === "ee"){
-      li = "/list_EE"}
-    %>
-
-    <span class="col-md-5">
-      <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span>Torna a la llista</span></a>
-
-    <button type="submit" form="horari_post" class="btn btn-primary">Desa</button>
-    </span>
-  </div>
-</div>
