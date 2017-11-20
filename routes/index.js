@@ -12,6 +12,7 @@ var sessionController = require('../controllers/SESSION_controller');
 var assistPDF = require('../public/javascripts/PDFs/assistencia');
 var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
 var reunionsPDF = require('../public/javascripts/PDFs/reunionsPares');
+var actuacionsPDF = require('../public/javascripts/PDFs/actuacions');
 
 //rutas SESSION
 router.get('/',						sessionController.new);
@@ -82,7 +83,8 @@ router.put('/horari-diari-post',			sessionController.loginRequired, horariContro
 //rutas PDF
 router.post('/assistPDF',			sessionController.loginRequired, assistPDF.PDF);
 router.get('/print_EE/:id',			sessionController.loginRequired, segUseePDF.PDF);
-router.get('/reunioPares/:id/:i',		sessionController.loginRequired, reunionsPDF.PDF);
+router.get('/reunioPares/:i/:id',		sessionController.loginRequired, reunionsPDF.PDF);
+router.get('/actuacions/:i/:id',		sessionController.loginRequired, actuacionsPDF.PDF);
 
 
 
