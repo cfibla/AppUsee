@@ -70,6 +70,8 @@ $(document).ready(function (){
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
     $("#a1div").addClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
+    $("#a3div").addClass("hidBig");
+    $("#a4div").addClass("hidBig");
     $("#configDiariPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
   }
@@ -83,6 +85,8 @@ $(document).ready(function (){
     $("#a2").html("Horari diari").attr('href', "/horari-diari");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").addClass("navcolorside");
+    $("#a3div").addClass("hidBig");
+    $("#a4div").addClass("hidBig");
     $("#horariDiariPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
   }
