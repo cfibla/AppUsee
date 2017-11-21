@@ -36,7 +36,7 @@ exports.login = function (req, res, next){
 	var password = req.body.password;
 
 	models.User.findOne({email: email, password: password})
-	.populate('horari')
+	.populate('horari centre')
 	.exec(function(error, user){
 		if (error){
 			console.log(error);

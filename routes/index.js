@@ -13,6 +13,8 @@ var assistPDF = require('../public/javascripts/PDFs/assistencia');
 var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
 var reunionsPDF = require('../public/javascripts/PDFs/reunionsPares');
 var actuacionsPDF = require('../public/javascripts/PDFs/actuacions');
+var infoCadPDF = require('../public/javascripts/PDFs/infocad');
+var altresCoordPDF = require('../public/javascripts/PDFs/altresCoord');
 
 //rutas SESSION
 router.get('/',						sessionController.new);
@@ -85,6 +87,8 @@ router.post('/assistPDF',			sessionController.loginRequired, assistPDF.PDF);
 router.get('/print_EE/:id',			sessionController.loginRequired, segUseePDF.PDF);
 router.get('/reunioPares/:i/:id',		sessionController.loginRequired, reunionsPDF.PDF);
 router.get('/actuacions/:i/:id',		sessionController.loginRequired, actuacionsPDF.PDF);
+router.get('/infoCAD/:i/:id',		sessionController.loginRequired, infoCadPDF.PDF);
+router.get('/altresCoord/:i/:id',		sessionController.loginRequired, altresCoordPDF.PDF);
 
 
 
