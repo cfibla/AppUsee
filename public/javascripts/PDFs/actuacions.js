@@ -66,19 +66,6 @@ exports.PDF = function (req, res) {
 					doc.text(bodyOk);
 					doc.moveDown(1.5);
 
-/*
-					doc.text('Altres coordinacions - Coordinacions amb tutors', {underline: 1});
-					doc.moveDown(0.5);
-					for (i = 0; i < alumne.segAltresCoord.length; i++) {
-						var dataCoor = alumne.segAltresCoord[i].date;
-						var bodyCoor = alumne.segAltresCoord[i].body;
-						var bodyCoorC = bodyCAD.replace(/\r\n|\r/g, '\n');
-						doc.text(dataCoor);
-						doc.text(bodyCoorC);
-						doc.moveDown();
-						};
-
-*/
 					doc.end(); //we end the document writing.
 
 		}
