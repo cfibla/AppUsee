@@ -456,3 +456,7 @@ exports.diariPost = function (req, res){
 		}
 	});
 };
+
+exports.areaGet = function(req,res){
+	res.send(req.body);
+}

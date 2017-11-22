@@ -108,19 +108,19 @@
       </div>
       <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
       <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
-
+<!--
       <div class="nav-item dropdown hidDrop" id="areasDrop">
         <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
         <%if (session.user.horari) {%>
-        <div class="dropdown-menu" aria-labelledby="areasDropdown">
+        <div class="dropdown-menu dropAside" aria-labelledby="areasDropdown">
           <% console.log("ARRAY:  " + session.user.horari.areasArray.length);
           for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
-            <a class="dropdown-item" href="#"><%=session.user.horari.areasArray[i]%></a>
+            <a class="dropdown-item" href="horari-area/<%=session.user.horari.areasArray[i]%>"><%=session.user.horari.areasArray[i]%></a>
           <% } %>
         </div>
         <% } %>
       </div>
-
+-->
   </aside>
 <%}%>
 

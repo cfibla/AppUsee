@@ -80,6 +80,7 @@ router.get('/horari-config',				sessionController.loginRequired, horariControlle
 router.put('/horari-post',					sessionController.loginRequired, horariController.update);
 router.get('/horari-diari',					sessionController.loginRequired, horariController.diariGet);
 router.put('/horari-diari-post',			sessionController.loginRequired, horariController.diariPost);
+router.get('/horari-area/:area',			sessionController.loginRequired, horariController.areaGet);
 
 
 //rutas PDF
@@ -89,7 +90,6 @@ router.get('/reunioPares/:i/:id',		sessionController.loginRequired, reunionsPDF.
 router.get('/actuacions/:i/:id',		sessionController.loginRequired, actuacionsPDF.PDF);
 router.get('/infoCAD/:i/:id',		sessionController.loginRequired, infoCadPDF.PDF);
 router.get('/altresCoord/:i/:id',		sessionController.loginRequired, altresCoordPDF.PDF);
-
 
 
 module.exports = router;

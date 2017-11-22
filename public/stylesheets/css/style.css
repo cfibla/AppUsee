@@ -99,6 +99,11 @@ body {
         box-shadow: none;
     }
 
+    .dropAside{
+        max-height: 200px;
+        overflow: scroll;
+    }
+
     #situ {
     padding-top: 1em;
     font-size: 150%;
