@@ -56,3 +56,54 @@ module.exports = new mongoose.Schema({
 			session6: String,
 		}]
 });
+
+/*
+module.exports = new mongoose.Schema({
+	nom: String,
+	areasArray: Array,
+	dades:[{
+		data: String,
+		dia: Number,
+		clase1:{
+			area: String,
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			session: String,
+			ref: String
+		},
+		clase2:{
+			area: String,
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			session: String,
+			ref: String
+		},
+		clase3:{
+			area: String,
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			session: String,
+			ref: String
+		},
+		clase4:{
+			area: String,
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			session: String,
+			ref: String
+		},
+		clase5:{
+			area: String,
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			session: String,
+			ref: String
+		},
+	}]
+
+*/

@@ -458,11 +458,14 @@ exports.diariPost = function (req, res){
 };
 
 exports.areaGet = function(req,res){
+	var user = req.session.user;
+	var horariId = user.horari;
 	var area = req.params.area;
-	models.Horari.find({'dades[clase1]': area}, function(err, hores){
+	models.Horari.findById(horariId, function(err, hores){
 		if (err){
 			return res.json(err)
 		} else {
+			//Buscar aquí las clases
 				res.send(hores);
 		}
 	})
