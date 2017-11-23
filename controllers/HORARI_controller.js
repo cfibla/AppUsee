@@ -459,6 +459,12 @@ exports.diariPost = function (req, res){
 
 exports.areaGet = function(req,res){
 	var area = req.params.area;
+	models.Horari.find({'dades[clase1]': area}, function(err, hores){
+		if (err){
+			return res.json(err)
+		} else {
+				res.send(hores);
+		}
+	})
 
-	res.send(area);
 }
