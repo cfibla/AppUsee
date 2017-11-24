@@ -3,6 +3,75 @@ var mongoose = require ('mongoose');
 module.exports = new mongoose.Schema({
 	nom: String,
 	areasArray: Array,
+	dataIni: String,
+	dataFi:String,
+	dades:[{
+		hora_1:{
+			data: String,
+			dia: Number,
+			area: {
+				type: String,
+				uppercase: true
+			},
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			sessio: String
+		},
+		hora_2:{
+			data: String,
+			dia: Number,
+			area: {
+				type: String,
+				uppercase: true
+			},
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			sessio: String
+		},
+		hora_3:{
+			data: String,
+			dia: Number,
+			area: {
+				type: String,
+				uppercase: true
+			},
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			sessio: String
+		},
+		hora_4:{
+			data: String,
+			dia: Number,
+			area: {
+				type: String,
+				uppercase: true
+			},
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			sessio: String
+		},
+		hora_5:{
+			data: String,
+			dia: Number,
+			area: {
+				type: String,
+				uppercase: true
+			},
+			hinici: String,
+			hfinal: String,
+			prog: String,
+			sessio: String
+		}
+	}]
+});
+/*
+module.exports = new mongoose.Schema({
+	nom: String,
+	areasArray: Array,
 	dades:[{
 			data: String,
 			dia: Number,
@@ -56,54 +125,4 @@ module.exports = new mongoose.Schema({
 			session6: String,
 		}]
 });
-
-/*
-module.exports = new mongoose.Schema({
-	nom: String,
-	areasArray: Array,
-	dades:[{
-		data: String,
-		dia: Number,
-		clase1:{
-			area: String,
-			hinici: String,
-			hfinal: String,
-			prog: String,
-			session: String,
-			ref: String
-		},
-		clase2:{
-			area: String,
-			hinici: String,
-			hfinal: String,
-			prog: String,
-			session: String,
-			ref: String
-		},
-		clase3:{
-			area: String,
-			hinici: String,
-			hfinal: String,
-			prog: String,
-			session: String,
-			ref: String
-		},
-		clase4:{
-			area: String,
-			hinici: String,
-			hfinal: String,
-			prog: String,
-			session: String,
-			ref: String
-		},
-		clase5:{
-			area: String,
-			hinici: String,
-			hfinal: String,
-			prog: String,
-			session: String,
-			ref: String
-		},
-	}]
-
 */

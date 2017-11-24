@@ -15,7 +15,7 @@ exports.config = function (req, res) {
 					if(err){
 						console.log(err);
 					} else {
-						res.render('horari', {horari: horariUser});
+						res.render('horari-config', {horari: horariUser});
 					};
 				});
 			};
@@ -31,7 +31,7 @@ exports.config = function (req, res) {
 					if (error) {
 						return res.json(error);
 					} else {
-						res.render('horari', {horari:horari, page_name:'horari'});
+						res.render('horari-config', {horari:horari, page_name:'horari-config'});
 					}
 				});
 			}
