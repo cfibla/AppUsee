@@ -1,7 +1,5 @@
 var mongoose = require ('mongoose');
 
-var schemaEscoles = require('./schema_escoles');
-var Escola = mongoose.model('Escola', schemaEscoles, 'Escoles');
 
 var schemaCentres = require('./schema_centres');
 var Centre = mongoose.model('Centre',schemaCentres, 'Centres');

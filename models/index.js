@@ -2,7 +2,6 @@ var mongoose = require ('mongoose');
 
 var schema = require ('./schema');
 var schemaUsers = require ('./schema_users');
-var schemaEscoles = require('./schema_escoles');
 var schemaCentres = require('./schema_centres');
 var schemaEsp = require('./schema_usersEsp');
 var schemaEe = require('./schema_usersEe');
@@ -15,7 +14,6 @@ mongoose.connect('mongodb://localhost:27017/test');
 //Els paràmetres són: nom model, esquema, collection
 exports.Alumne = mongoose.model('Alumne', schema, 'Alumnes');
 exports.User = mongoose.model('User', schemaUsers, 'Users');
-exports.Escola = mongoose.model('Escola',schemaEscoles, 'Escoles');
 exports.Centre = mongoose.model('Centre',schemaCentres, 'Centres');
 exports.UserEsp = mongoose.model('UserEsp', schemaEsp, 'UserEsps');
 exports.UserEe = mongoose.model('UserEe', schemaEe, 'UserEes');

@@ -1,8 +1,7 @@
 branch --> horaris
 
 GENERAL
-
-menú lateral if session
+Treure 'escola' de tots els usuaris-alumnes
 
 Perfil usuari -> Escola (crear nova si canvia) - Companys
 Uppercase modificació dades

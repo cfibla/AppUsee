@@ -6,6 +6,8 @@ module.exports = new mongoose.Schema({
 	dataIni: String,
 	dataFi:String,
 	dades:[{
+		data: String,
+		dia: Number,
 		hora_1:{
 			data: String,
 			dia: Number,
@@ -13,9 +15,10 @@ module.exports = new mongoose.Schema({
 				type: String,
 				uppercase: true
 			},
-			hinici: String,
-			hfinal: String,
+			h_inici: String,
+			h_final: String,
 			prog: String,
+			objectius: String,
 			sessio: String
 		},
 		hora_2:{
@@ -25,9 +28,10 @@ module.exports = new mongoose.Schema({
 				type: String,
 				uppercase: true
 			},
-			hinici: String,
-			hfinal: String,
+			h_inici: String,
+			h_final: String,
 			prog: String,
+			objectius: String,
 			sessio: String
 		},
 		hora_3:{
@@ -37,9 +41,10 @@ module.exports = new mongoose.Schema({
 				type: String,
 				uppercase: true
 			},
-			hinici: String,
-			hfinal: String,
+			h_inici: String,
+			h_final: String,
 			prog: String,
+			objectius: String,
 			sessio: String
 		},
 		hora_4:{
@@ -49,9 +54,10 @@ module.exports = new mongoose.Schema({
 				type: String,
 				uppercase: true
 			},
-			hinici: String,
-			hfinal: String,
+			h_inici: String,
+			h_final: String,
 			prog: String,
+			objectius: String,
 			sessio: String
 		},
 		hora_5:{
@@ -61,9 +67,10 @@ module.exports = new mongoose.Schema({
 				type: String,
 				uppercase: true
 			},
-			hinici: String,
-			hfinal: String,
+			h_inici: String,
+			h_final: String,
 			prog: String,
+			objectius: String,
 			sessio: String
 		}
 	}]
