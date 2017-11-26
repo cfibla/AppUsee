@@ -388,11 +388,13 @@ span.glyphicon-user {
 }
 
 .fila1 {
+    margin: 5px;
     padding-top: .5em;
     border: 1px solid #ccc;
+    border-radius: 5px;
     height: 40px;
     text-align: center;
-    background: #ccc;
+    background: #008577;
     color: white;
 }
 
@@ -406,9 +408,11 @@ span.glyphicon-user {
 }
 
 .hores {
+    margin: 5px;
     padding-left: .5em;
     padding-top: .5em;
     border: 1px solid #ccc;
+    border-radius: 5px;
     height: 100px;
 }
 

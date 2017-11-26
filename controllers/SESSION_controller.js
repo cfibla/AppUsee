@@ -3,6 +3,7 @@ var models = require('../models/index');
 /* GET home page. */
 exports.new = function(req, res) {
 	if(req.session.user){
+		console.log('HOME PAGE NEW');
 		if(req.session.user.horari){
 			horariId = req.session.user.horari;
 			models.Horari.find({_id: horariId}, function(err, horari){
@@ -51,6 +52,7 @@ exports.login = function (req, res, next){
 					if(err){
 						console.log(err);
 					} else {
+						console.log('LOGIN')
 						res.redirect('/list');
 					}
 				})

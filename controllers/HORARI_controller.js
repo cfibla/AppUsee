@@ -3,22 +3,28 @@ var moment = require('moment');
 
 //CONF. HORARI - GET
 exports.config = function (req, res) {
+	console.log('CONFIGURACIO-DIARI GET');
 	var usr=req.session.user;
-	var usrId = usr._id;
+	var usrId = usr;
 	var mestre = req.session.user.mestre;
 
-	if(mestre == "tutor"){
-			if(req.session.user.horari){
-				console.log('CONFIGURACIO-DIARI GET');
-				horariId = req.session.user.horari;
-				models.Horari.findById(horariId, function(err, horariUser){
-					if(err){
-						console.log(err);
+	if(mestre === "tutor"){
+		models.User.findById(usrId, function(error, user){
+			if(error){
+				res.json(error);
+			} else {
+				console.log(user);
+				req.session.user = user;
+				var horariId = user.horari;
+				models.Horari.findById(horariId, function(error, horariFind){
+					if (error) {
+						return res.json(error);
 					} else {
-						res.render('horari-config', {horari: horariUser});
-					};
+						res.render('horari-config', {horari:horariFind});
+					}
 				});
-			};
+			}
+		})
 	}
 	if(mestre == "ee"){
 		models.UserEe.findById(usrId, function(error, user){
@@ -50,6 +56,8 @@ exports.create = function (req, res) {
 
 	var inici = moment(horari.horariInici, 'DD/MM/YYYY');
 	var final = moment(horari.horariFinal, 'DD/MM/YYYY');
+	var dataI = moment(inici).format('DD/MM/YYYY');
+	var dataF = moment(final).format('DD/MM/YYYY');
 	//MENOS DE UNA SEMANA
 	console.log(final.diff(inici, 'days'));
 	if (final.diff(inici, 'days')<7){
@@ -58,38 +66,72 @@ exports.create = function (req, res) {
 	}
 
 	var nouHorari = new models.Horari(
-		{ nom: nom
+		{ dataIni: dataI,
+			dataFi: dataF
 		}
 	);
 
 	for(i=inici; i<=final; i=moment(i).add(1,'days')){
+		var momentData = moment(i).format('DD/MM/YYYY');
+		var iDia = i.day();
 		nouHorari.dades.push({
-			data: moment(i).format('DD/MM/YYYY'),
-			dia: i.day(),
-			h1: '',
-			clase1: '',
-			prog1: '',
-			ref1:'',
-			h2: '',
-			clase2: '',
-			prog2: '',
-			ref2:'',
-			h3: '',
-			clase3: '',
-			prog3: '',
-			ref3:'',
-			h4: '',
-			clase4: '',
-			prog4: '',
-			ref4:'',
-			h5: '',
-			clase5: '',
-			prog5: '',
-			ref5:'',
-			h6: '',
-			clase6: '',
-			prog6: '',
-			ref6:''
+			data: momentData,
+			dia: iDia,
+			hora_1: {
+				data: momentData,
+				dia: iDia,
+				area: '',
+				h_inici: '',
+				h_final: '',
+				prog: '',
+				objectius: '',
+				sessio: '',
+				color: ''
+			},
+			hora_2: {
+				data: momentData,
+				dia: iDia,
+				area: '',
+				h_inici: '',
+				h_final: '',
+				prog: '',
+				objectius: '',
+				sessio: '',
+				color: ''
+			},
+			hora_3: {
+				data: momentData,
+				dia: iDia,
+				area: '',
+				h_inici: '',
+				h_final: '',
+				prog: '',
+				objectius: '',
+				sessio: '',
+				color: ''
+			},
+			hora_4: {
+				data: momentData,
+				dia: iDia,
+				area: '',
+				h_inici: '',
+				h_final: '',
+				prog: '',
+				objectius: '',
+				sessio: '',
+				color: ''
+			},
+			hora_5: {
+				data: momentData,
+				dia: iDia,
+				area: '',
+				h_inici: '',
+				h_final: '',
+				prog: '',
+				objectius: '',
+				sessio: '',
+				color: ''
+			}
 		});
 	};
 	/*ELIMINAR SABADOS Y DOMINGOS*/
@@ -114,7 +156,7 @@ exports.create = function (req, res) {
 							if (error){
 								res.json(error);
 							} else {
-								res.json(horari);
+								res.redirect('/horari-config');
 							}
 						})
 					}
@@ -222,12 +264,11 @@ exports.update = function (req, res){
 				});
 			var areasArray = [];
 			for (var i=0; i < 8; i++) {
-				areasArray.push	(horari.dades[i].clase1);
-				areasArray.push	(horari.dades[i].clase2);
-				areasArray.push	(horari.dades[i].clase3);
-				areasArray.push	(horari.dades[i].clase4);
-				areasArray.push	(horari.dades[i].clase5);
-				areasArray.push	(horari.dades[i].clase6);
+				areasArray.push	(horari.dades[i].hora_1);
+				areasArray.push	(horari.dades[i].hora_2);
+				areasArray.push	(horari.dades[i].hora_3);
+				areasArray.push	(horari.dades[i].hora_4);
+				areasArray.push	(horari.dades[i].hora_5);
 			}
 			horari.areasArray = areasArray.unique().sort();
 			console.log(horari.areasArray);

@@ -1,5 +1,6 @@
 <%
 var lg=horari.dades.length-1;
+console.log('HORARI: ' + horari);
 for (var i=0; i < horari.dades.length; i++) {
   if (horari.dades[i].dia === 1) {
     var dilluns = horari.dades[i];
@@ -41,6 +42,9 @@ for (var i=0; i < horari.dades.length; i++) {
         </div>
       </div>
 <!--END DATEPICKER-->
+<div style="padding:200px;">
+<input class="timepicker" name="timepicker"/>
+</div>
 
     <div class="container">
       <div class="row">
@@ -51,9 +55,9 @@ for (var i=0; i < horari.dades.length; i++) {
               <strong>9:00 - 10:00</strong>
               <div class="md-form input-horari">
                 <input type="text" class="form-control" name="classe1dll" id="dcl1"
-                value="<%=dilluns.clase1%>" style="text-transform:uppercase">
+                value="<%=dilluns.hora_1.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dilluns.hora_1) {
+                  if(!dilluns.hora_1.area) {
                 %>
                 <label for="dcl1">Matèria</label>
                 <%}%>
@@ -62,9 +66,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>10:00 - 11:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe2dll" id="dcl2" value="<%=dilluns.hora_2%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe2dll" id="dcl2" value="<%=dilluns.hora_2.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dilluns.hora_2) {
+                  if(!dilluns.hora_2.area) {
                 %>
                 <label for="dcl2">Matèria</label>
                 <%}%>
@@ -77,9 +81,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>11:30 - 12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe3dll" id="dcl3" value="<%=dilluns.hora_3%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe3dll" id="dcl3" value="<%=dilluns.hora_3.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dilluns.hora_3) {
+                  if(!dilluns.hora_3.area) {
                 %>
                 <label for="dcl3">Matèria</label>
                 <%}%>
@@ -88,9 +92,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe4dll" id="dcl4" value="<%=dilluns.hora_4%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe4dll" id="dcl4" value="<%=dilluns.hora_4.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dilluns.hora_4) {
+                  if(!dilluns.hora_4.area) {
                 %>
                 <label for="dcl4">Exclusiva</label>
                 <%}%>
@@ -100,9 +104,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>15:00 - 14:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe5dll" id="dcl5" value="<%=dilluns.hora_5%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe5dll" id="dcl5" value="<%=dilluns.hora_5.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dilluns.hora_5) {
+                  if(!dilluns.hora_5.area) {
                 %>
                 <label for="dcl5">Matèria</label>
                 <%}%>
@@ -115,9 +119,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>9:00 - 10:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe1dm" id="dmcl1" value="<%=dimarts.hora_1%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe1dm" id="dmcl1" value="<%=dimarts.hora_1.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimarts.hora_1) {
+                  if(!dimarts.hora_1.area) {
                 %>
                 <label for="dmcl1">Matèria</label>
                 <%}%>
@@ -126,9 +130,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>10:00 - 11:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe2dm" id="dmcl2" value="<%=dimarts.hora_2%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe2dm" id="dmcl2" value="<%=dimarts.hora_2.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimarts.hora_2) {
+                  if(!dimarts.hora_2.area) {
                 %>
                 <label for="dmcl2">Matèria</label>
                 <%}%>
@@ -141,9 +145,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>11:30 - 12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe3dm" id="dmcl3" value="<%=dimarts.hora_3%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe3dm" id="dmcl3" value="<%=dimarts.hora_3.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimarts.hora_3) {
+                  if(!dimarts.hora_3.area) {
                 %>
                 <label for="dmcl3">Matèria</label>
                 <%}%>
@@ -152,9 +156,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe4dm" id="dmcl4" value="<%=dimarts.hora_4%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe4dm" id="dmcl4" value="<%=dimarts.hora_4.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimarts.hora_4) {
+                  if(!dimarts.hora_4.area) {
                 %>
                 <label for="dmcl4">Exclusiva</label>
                 <%}%>
@@ -164,9 +168,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>15:00 - 14:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe5dm" id="dmcl5" value="<%=dimarts.hora_5%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe5dm" id="dmcl5" value="<%=dimarts.hora_5.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimarts.hora_5) {
+                  if(!dimarts.hora_5.area) {
                 %>
                 <label for="dmcl5">Matèria</label>
                 <%}%>
@@ -179,9 +183,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>9:00 - 10:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe1dx" id="dxcl1" value="<%=dimecres.hora_1%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe1dx" id="dxcl1" value="<%=dimecres.hora_1.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimecres.hora_1) {
+                  if(!dimecres.hora_1.area) {
                 %>
                 <label for="dxcl1">Matèria</label>
                 <%}%>
@@ -190,9 +194,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>10:00 - 11:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe2dx" id="dxcl2" value="<%=dimecres.hora_2%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe2dx" id="dxcl2" value="<%=dimecres.hora_2.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimecres.hora_2) {
+                  if(!dimecres.hora_2.area) {
                 %>
                 <label for="dxcl2">Matèria</label>
                 <%}%>
@@ -205,9 +209,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>11:30 - 12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe3dx" id="dxcl3" value="<%=dimecres.hora_3%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe3dx" id="dxcl3" value="<%=dimecres.hora_3.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimecres.hora_3) {
+                  if(!dimecres.hora_3.area) {
                 %>
                 <label for="dxcl3">Matèria</label>
                 <%}%>
@@ -216,9 +220,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe4dx" id="dxcl4" value="<%=dimecres.hora_4%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe4dx" id="dxcl4" value="<%=dimecres.hora_4.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimecres.hora_4) {
+                  if(!dimecres.hora_4.area) {
                 %>
                 <label for="dxcl4">Exclusiva</label>
                 <%}%>
@@ -228,9 +232,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>15:00 - 14:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe5dx" id="dxcl5" value="<%=dimecres.hora_5%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe5dx" id="dxcl5" value="<%=dimecres.hora_5.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dimecres.hora_5) {
+                  if(!dimecres.hora_5.area) {
                 %>
                 <label for="dxcl5">Matèria</label>
                 <%}%>
@@ -243,9 +247,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>9:00 - 10:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe1dj" id="djcl1" value="<%=dijous.hora_1%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe1dj" id="djcl1" value="<%=dijous.hora_1.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dijous.hora_1) {
+                  if(!dijous.hora_1.area) {
                 %>
                 <label for="djcl1">Matèria</label>
                 <%}%>
@@ -254,9 +258,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>10:00 - 11:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe2dj" id="djcl2" value="<%=dijous.hora_2%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe2dj" id="djcl2" value="<%=dijous.hora_2.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dijous.hora_2) {
+                  if(!dijous.hora_2.area) {
                 %>
                 <label for="djcl2">Matèria</label>
                 <%}%>
@@ -269,9 +273,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>11:30 - 12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe3dj" id="djcl3" value="<%=dijous.hora_3%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe3dj" id="djcl3" value="<%=dijous.hora_3.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dijous.hora_3) {
+                  if(!dijous.hora_3.area) {
                 %>
                 <label for="djcl3">Matèria</label>
                 <%}%>
@@ -280,9 +284,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe4dj" id="djcl4" value="<%=dijous.hora_4%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe4dj" id="djcl4" value="<%=dijous.hora_4.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dijous.hora_4) {
+                  if(!dijous.hora_4.area) {
                 %>
                 <label for="djcl4">Exclusiva</label>
                 <%}%>
@@ -292,9 +296,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>15:00 - 14:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe5dj" id="djcl5" value="<%=dijous.hora_5%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe5dj" id="djcl5" value="<%=dijous.hora_5.area%>" style="text-transform:uppercase">
                 <%
-                  if(!dijous.hora_5) {
+                  if(!dijous.hora_5.area) {
                 %>
                 <label for="djcl5">Matèria</label>
                 <%}%>
@@ -307,9 +311,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>9:00 - 10:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe1dv" id="dvcl1" value="<%=divendres.hora_1%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe1dv" id="dvcl1" value="<%=divendres.hora_1.area%>" style="text-transform:uppercase">
                 <%
-                  if(!divendres.hora_1) {
+                  if(!divendres.hora_1.area) {
                 %>
                 <label for="dvcl1">Matèria</label>
                 <%}%>
@@ -318,9 +322,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>10:00 - 11:00</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe2dv" id="dvcl2" value="<%=divendres.hora_2%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe2dv" id="dvcl2" value="<%=divendres.hora_2.area%>" style="text-transform:uppercase">
                 <%
-                  if(!divendres.hora_2) {
+                  if(!divendres.hora_2.area) {
                 %>
                 <label for="dvcl2">Matèria</label>
                 <%}%>
@@ -333,9 +337,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>11:30 - 12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe3dv" id="dvcl3" value="<%=divendres.hora_3%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe3dv" id="dvcl3" value="<%=divendres.hora_3.area%>" style="text-transform:uppercase">
                 <%
-                  if(!divendres.hora_3) {
+                  if(!divendres.hora_3.area) {
                 %>
                 <label for="dvcl3">Matèria</label>
                 <%}%>
@@ -344,9 +348,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>12:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe4dv" id="dvcl4" value="<%=divendres.hora_4%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe4dv" id="dvcl4" value="<%=divendres.hora_4.area%>" style="text-transform:uppercase">
                 <%
-                  if(!divendres.hora_4) {
+                  if(!divendres.hora_4.area) {
                 %>
                 <label for="dvcl4">Exclusiva</label>
                 <%}%>
@@ -356,9 +360,9 @@ for (var i=0; i < horari.dades.length; i++) {
             <div class="hores">
               <strong>15:00 - 14:30</strong>
               <div class="md-form input-horari">
-                <input type="text" class="form-control" name="classe5dv" id="dvcl5" value="<%=divendres.hora_5%>" style="text-transform:uppercase">
+                <input type="text" class="form-control" name="classe5dv" id="dvcl5" value="<%=divendres.hora_5.area%>" style="text-transform:uppercase">
                 <%
-                  if(!divendres.hora_5) {
+                  if(!divendres.hora_5.area) {
                 %>
                 <label for="dvcl5">Matèria</label>
                 <%}%>
@@ -370,7 +374,6 @@ for (var i=0; i < horari.dades.length; i++) {
         <button type="submit" form = "horari_post" class="btn btn-success btn-lg btn-block buttonDiari hidBig" id="horariDiariPost">Desa l'horari</button>
       </div>
     </div>
-
     </div>
   </div>
 </form>

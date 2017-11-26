@@ -14,8 +14,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" rel="stylesheet">
     <!-- CSS de Bootstrap-DATEPICKER -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.css" rel="stylesheet"/>
-    <!-- CSS de Bootstrap-TIMEPICKER --> 
-    <link type="text/css" href="/stylesheets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+    <!-- CSS de jQuery-TIMEPICKER -->
+    <link type="text/css" href="stylesheets/plugins/jquery-timepicker/jquery.timepicker.css" />
     <!-- CSS -->
     <link href="/stylesheets/css/style.css" rel="stylesheet" media="screen">
   </head>
@@ -113,14 +113,15 @@
 
       <div class="nav-item dropdown hidDrop" id="areasDrop">
         <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
-        <%if (session.user.horari) {%>
+        <%if (session.user.horari) {
+          if(session.user.horari.areasArray){%>
         <div class="dropdown-menu dropAside" aria-labelledby="areasDropdown">
           <% console.log("ARRAY:  " + session.user.horari.areasArray.length);
           for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
             <a class="dropdown-item" href="horari-area/<%=session.user.horari.areasArray[i]%>"><%=session.user.horari.areasArray[i]%></a>
           <% } %>
         </div>
-        <% } %>
+        <% }} %>
       </div>
 
   </aside>
@@ -229,14 +230,14 @@
   <script src="/stylesheets/plugins/tether.min.js"></script>
 <!-- Bootstrap.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
 <!-- Datepicker -->  
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
   <script type="text/javascript" src="/stylesheets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.ca.min.js"></script>
 <!-- Timepicker --> 
-  <script type="text/javascript" src="/stylesheets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+  <script type="text/javascript" src="stylesheets/plugins/jquery-timepicker/jquery.timepicker.js"></script>
 <!-- Spinner -->
   <script src="//cdn.jsdelivr.net/jquery.loadingoverlay/1.5.3/loadingoverlay.min.js"></script>
 <!-- Fichero externo con JS y jQuery -->

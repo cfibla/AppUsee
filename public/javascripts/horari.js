@@ -61,7 +61,8 @@ $(document).ready(function (){
       $.LoadingOverlay("show");
       aPost (urlPost, data).always(function(){
         location.href="/horari-config";
-      });
+      })
+      console.log('DATA JQUERY: '+data);
     });
   });
 //UPDATE HORARI
@@ -86,7 +87,18 @@ $(document).ready(function (){
     todayHighlight: true,
     language: "ca"
   });
-
+  //TimePICKER
+$('input.timepicker').timepicker({
+    timeFormat: 'h:mm',
+    interval: 15,
+    minTime: '08:00am',
+    maxTime: '6:00pm',
+    defaultTime: '09:00',
+    startTime: '08:00',
+    dynamic: true,
+    dropdown: true,
+    scrollbar: true
+});
 //HORARI DIARI
   //Textarea dinamica
     $('.horaritext').each(function () {

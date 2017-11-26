@@ -5,7 +5,6 @@ exports.list = function (req, res) {
 	console.log('LIST');
 	models.Alumne.find({
 		centre: req.session.user.centre,
-	/*	tutor: req.session.user, */
 		curs: req.session.user.curs}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('centre tutor')
