@@ -89,10 +89,10 @@ $(document).ready(function (){
   });
   //TimePICKER
 $('input.timepicker').timepicker({
-    timeFormat: 'h:mm',
+    timeFormat: 'hh:mm',
     interval: 15,
     minTime: '08:00am',
-    maxTime: '6:00pm',
+    maxTime: '06:00pm',
     defaultTime: '09:00',
     startTime: '08:00',
     dynamic: true,
