@@ -88,17 +88,7 @@ $(document).ready(function (){
     language: "ca"
   });
   //TimePICKER
-$('input.timepicker').timepicker({
-    timeFormat: 'hh:mm',
-    interval: 15,
-    minTime: '08:00am',
-    maxTime: '06:00pm',
-    defaultTime: '09:00',
-    startTime: '08:00',
-    dynamic: true,
-    dropdown: true,
-    scrollbar: true
-});
+
 //HORARI DIARI
   //Textarea dinamica
     $('.horaritext').each(function () {
