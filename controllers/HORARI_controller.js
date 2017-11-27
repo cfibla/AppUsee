@@ -13,7 +13,6 @@ exports.config = function (req, res) {
 			if(error){
 				res.json(error);
 			} else {
-				console.log(user);
 				req.session.user = user;
 				var horariId = user.horari;
 				models.Horari.findById(horariId, function(error, horariFind){
