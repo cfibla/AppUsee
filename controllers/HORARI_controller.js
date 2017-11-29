@@ -207,10 +207,19 @@ exports.update = function (req, res){
 		function upd(){
 			horari.nom = nom;
 			horari.areasArray = [];
+			console.log(horariReq);
 			for (var i=0; i < horari.dades.length; i++) {
 		        if (horari.dades[i].dia === 1) {
-		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1;
-		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1;
+		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dll;
+		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1dll;
+		        	horari.dades[i].hora_2.h_inici = horariReq.horaIni_2dll;
+		        	horari.dades[i].hora_2.h_final = horariReq.horaFinal_2dll;
+		        	horari.dades[i].hora_3.h_inici = horariReq.horaIni_3dll;
+		        	horari.dades[i].hora_3.h_final = horariReq.horaFinal_3dll;
+		        	horari.dades[i].hora_4.h_inici = horariReq.horaIni_4dll;
+		        	horari.dades[i].hora_4.h_final = horariReq.horaFinal_4dll;
+		        	horari.dades[i].hora_5.h_inici = horariReq.horaIni_5dll;
+		        	horari.dades[i].hora_5.h_final = horariReq.horaFinal_5dll;
 
 		        	horari.dades[i].hora_1.area = horariReq.classe1dll;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dll;
@@ -219,8 +228,16 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_5.area = horariReq.classe5dll;
 		        }
 		        if (horari.dades[i].dia === 2) {
-		        	horari.dades[i].hora_2.h_inici = horariReq.horaIni_2;
-		        	horari.dades[i].hora_2.h_final = horariReq.horaFinal_2;
+		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dm;
+		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1dm;
+		        	horari.dades[i].hora_2.h_inici = horariReq.horaIni_2dm;
+		        	horari.dades[i].hora_2.h_final = horariReq.horaFinal_2dm;
+		        	horari.dades[i].hora_3.h_inici = horariReq.horaIni_3dm;
+		        	horari.dades[i].hora_3.h_final = horariReq.horaFinal_3dm;
+		        	horari.dades[i].hora_4.h_inici = horariReq.horaIni_4dm;
+		        	horari.dades[i].hora_4.h_final = horariReq.horaFinal_4dm;
+		        	horari.dades[i].hora_5.h_inici = horariReq.horaIni_5dm;
+		        	horari.dades[i].hora_5.h_final = horariReq.horaFinal_5dm;
 
 		        	horari.dades[i].hora_1.area = horariReq.classe1dm;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dm;
@@ -229,8 +246,16 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_5.area = horariReq.classe5dm;	
 		        }
 		        if (horari.dades[i].dia === 3) {
-		        	horari.dades[i].hora_3.h_inici = horariReq.horaIni_3;
-		        	horari.dades[i].hora_3.h_final = horariReq.horaFinal_3;
+		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dx;
+		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1dx;
+		        	horari.dades[i].hora_2.h_inici = horariReq.horaIni_2dx;
+		        	horari.dades[i].hora_2.h_final = horariReq.horaFinal_2dx;
+		        	horari.dades[i].hora_3.h_inici = horariReq.horaIni_3dx;
+		        	horari.dades[i].hora_3.h_final = horariReq.horaFinal_3dx;
+		        	horari.dades[i].hora_4.h_inici = horariReq.horaIni_4dx;
+		        	horari.dades[i].hora_4.h_final = horariReq.horaFinal_4dx;
+		        	horari.dades[i].hora_5.h_inici = horariReq.horaIni_5dx;
+		        	horari.dades[i].hora_5.h_final = horariReq.horaFinal_5dx;
 
 		        	horari.dades[i].hora_1.area = horariReq.classe1dx;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dx;
@@ -239,8 +264,16 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_5.area = horariReq.classe5dx;
 		        }
 		        if (horari.dades[i].dia === 4) {
-		        	horari.dades[i].hora_4.h_inici = horariReq.horaIni_4;
-		        	horari.dades[i].hora_4.h_final = horariReq.horaFinal_4;
+		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dj;
+		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1dj;
+		        	horari.dades[i].hora_2.h_inici = horariReq.horaIni_2dj;
+		        	horari.dades[i].hora_2.h_final = horariReq.horaFinal_2dj;
+		        	horari.dades[i].hora_3.h_inici = horariReq.horaIni_3dj;
+		        	horari.dades[i].hora_3.h_final = horariReq.horaFinal_3dj;
+		        	horari.dades[i].hora_4.h_inici = horariReq.horaIni_4dj;
+		        	horari.dades[i].hora_4.h_final = horariReq.horaFinal_4dj;
+		        	horari.dades[i].hora_5.h_inici = horariReq.horaIni_5dj;
+		        	horari.dades[i].hora_5.h_final = horariReq.horaFinal_5dj;
 
 		        	horari.dades[i].hora_1.area = horariReq.classe1dj;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dj;
@@ -249,8 +282,16 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_5.area = horariReq.classe5dj;	
 		        }
 		        if (horari.dades[i].dia === 5) {
-		        	horari.dades[i].hora_5.h_inici = horariReq.horaIni_5;
-		        	horari.dades[i].hora_5.h_final = horariReq.horaFinal_5;
+		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dv;
+		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1dv;
+		        	horari.dades[i].hora_2.h_inici = horariReq.horaIni_2dv;
+		        	horari.dades[i].hora_2.h_final = horariReq.horaFinal_2dv;
+		        	horari.dades[i].hora_3.h_inici = horariReq.horaIni_3dv;
+		        	horari.dades[i].hora_3.h_final = horariReq.horaFinal_3dv;
+		        	horari.dades[i].hora_4.h_inici = horariReq.horaIni_4dv;
+		        	horari.dades[i].hora_4.h_final = horariReq.horaFinal_4dv;
+		        	horari.dades[i].hora_5.h_inici = horariReq.horaIni_5dv;
+		        	horari.dades[i].hora_5.h_final = horariReq.horaFinal_5dv;
 
 		        	horari.dades[i].hora_1.area = horariReq.classe1dv;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dv;
