@@ -209,6 +209,9 @@ exports.update = function (req, res){
 			horari.areasArray = [];
 			for (var i=0; i < horari.dades.length; i++) {
 		        if (horari.dades[i].dia === 1) {
+		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1;
+		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1;
+
 		        	horari.dades[i].hora_1.area = horariReq.classe1dll;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dll;
 		        	horari.dades[i].hora_3.area = horariReq.classe3dll;
@@ -216,6 +219,9 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_5.area = horariReq.classe5dll;
 		        }
 		        if (horari.dades[i].dia === 2) {
+		        	horari.dades[i].hora_2.h_inici = horariReq.horaIni_2;
+		        	horari.dades[i].hora_2.h_final = horariReq.horaFinal_2;
+
 		        	horari.dades[i].hora_1.area = horariReq.classe1dm;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dm;
 		        	horari.dades[i].hora_3.area = horariReq.classe3dm;
@@ -223,6 +229,9 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_5.area = horariReq.classe5dm;	
 		        }
 		        if (horari.dades[i].dia === 3) {
+		        	horari.dades[i].hora_3.h_inici = horariReq.horaIni_3;
+		        	horari.dades[i].hora_3.h_final = horariReq.horaFinal_3;
+
 		        	horari.dades[i].hora_1.area = horariReq.classe1dx;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dx;
 		        	horari.dades[i].hora_3.area = horariReq.classe3dx;
@@ -230,6 +239,9 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_5.area = horariReq.classe5dx;
 		        }
 		        if (horari.dades[i].dia === 4) {
+		        	horari.dades[i].hora_4.h_inici = horariReq.horaIni_4;
+		        	horari.dades[i].hora_4.h_final = horariReq.horaFinal_4;
+
 		        	horari.dades[i].hora_1.area = horariReq.classe1dj;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dj;
 		        	horari.dades[i].hora_3.area = horariReq.classe3dj;
@@ -237,6 +249,9 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_5.area = horariReq.classe5dj;	
 		        }
 		        if (horari.dades[i].dia === 5) {
+		        	horari.dades[i].hora_5.h_inici = horariReq.horaIni_5;
+		        	horari.dades[i].hora_5.h_final = horariReq.horaFinal_5;
+
 		        	horari.dades[i].hora_1.area = horariReq.classe1dv;
 		        	horari.dades[i].hora_2.area = horariReq.classe2dv;
 		        	horari.dades[i].hora_3.area = horariReq.classe3dv;
