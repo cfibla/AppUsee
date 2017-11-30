@@ -557,7 +557,32 @@ exports.areaGet = function(req,res){
 			return res.json(err)
 		} else {
 			//Buscar aquí las clases
-				res.send(hores);
+			function search(nameKey, myArray){
+				var nouArray = [];
+			    for (var i=0; i < myArray.length; i++) {
+			        if (myArray[i].hora_1.area == nameKey) {
+			        	nouArray.push(myArray[i].hora_1);
+			        }
+			        if (myArray[i].hora_2.area == nameKey) {
+			        	nouArray.push(myArray[i].hora_2);
+			        }
+			        if (myArray[i].hora_3.area == nameKey) {
+			        	nouArray.push(myArray[i].hora_3);
+			        }
+			        if (myArray[i].hora_4.area == nameKey) {
+			        	nouArray.push(myArray[i].hora_4);
+			        }
+			        if (myArray[i].hora_5.area == nameKey) {
+			        	nouArray.push(myArray[i].hora_5);
+			        }
+			    }
+			    return nouArray;
+			}
+
+			var resultObject = search(area, hores.dades);
+			console.log('AREA: '+area);
+			console.log('RESULT: '+resultObject);
+				res.send(resultObject);
 		}
 	})
 
