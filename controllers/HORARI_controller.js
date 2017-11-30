@@ -314,11 +314,11 @@ exports.update = function (req, res){
 				});
 			var areasArray = [];
 			for (var i=0; i < 8; i++) {
-				areasArray.push	(horari.dades[i].hora_1);
-				areasArray.push	(horari.dades[i].hora_2);
-				areasArray.push	(horari.dades[i].hora_3);
-				areasArray.push	(horari.dades[i].hora_4);
-				areasArray.push	(horari.dades[i].hora_5);
+				areasArray.push	(horari.dades[i].hora_1.area);
+				areasArray.push	(horari.dades[i].hora_2.area);
+				areasArray.push	(horari.dades[i].hora_3.area);
+				areasArray.push	(horari.dades[i].hora_4.area);
+				areasArray.push	(horari.dades[i].hora_5.area);
 			}
 			horari.areasArray = areasArray.unique().sort();
 			console.log(horari.areasArray);
