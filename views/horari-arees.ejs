@@ -27,11 +27,11 @@ var daata = horari[i].data.replace(/\//g, "");
         <div class="col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
           <input type="hidden" name="diaData" value=<%=[horari[i].data]%>>
           <div class="diaDiari">
-            <%=dia%> <strong><%=horari[i].data%></strong>
+            <strong><%=horari[i].area%></strong>
           </div>
             <div class="horesDiari">
               <div class="row">
-                <span class="col-md-10"><strong>9:00 <%=horari[i].area%></strong></span>
+                <span class="col-md-10"><%=dia%> <strong><%=horari[i].data%></strong></span>
                 <div class="col-md-12">
                   <textarea id="<%=dia%>h1" class="horaritext" name="prog1" placeholder="Activitats"><%=[horari[i].prog]%></textarea>
                 </div>
