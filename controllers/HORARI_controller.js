@@ -580,9 +580,9 @@ exports.areaGet = function(req,res){
 			}
 
 			var resultObject = search(area, hores.dades);
-			console.log('AREA: '+area);
-			console.log('RESULT: '+resultObject);
-				res.send(resultObject);
+			//console.log('AREA: '+area);
+			//console.log('RESULT: '+ resultObject);
+			res.render('horari-arees', {horari:resultObject});
 		}
 	})
 

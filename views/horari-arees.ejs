@@ -1,0 +1,50 @@
+<body>
+<form role="form" method="post" action="/horari-diari-post?_method=put" id="horari_post">
+  <div class="container margetop clear col-md-10 offset-md-2" id="horariDiari">
+<%
+console.log('HORARI_AREES: '+horari);
+var dia;
+for (var i=0; i < horari.length; i++) {
+  if (horari[i].dia === 1) {
+    var dia = "DILLUNS";
+    }
+  if (horari[i].dia === 2) {
+    var dia = "DIMARTS";
+    }
+  if (horari[i].dia === 3) {
+    var dia = "DIMECRES";
+    }
+  if (horari[i].dia === 4) {
+    var dia = "DIJOUS";
+    }
+  if (horari[i].dia === 5) {
+    var dia = "DIVENDRES";
+    }
+var daata = horari[i].data.replace(/\//g, "");
+%>
+    <div class="container">
+      <div class="row" id="horariMain">
+        <div class="col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
+          <input type="hidden" name="diaData" value=<%=[horari[i].data]%>>
+          <div class="diaDiari">
+            <%=dia%> <strong><%=horari[i].data%></strong>
+          </div>
+            <div class="horesDiari">
+              <div class="row">
+                <span class="col-md-10"><strong>9:00 <%=horari[i].area%></strong></span>
+                <div class="col-md-12">
+                  <textarea id="<%=dia%>h1" class="horaritext" name="prog1" placeholder="Activitats"><%=[horari[i].prog]%></textarea>
+                </div>
+              </div>
+            </div>
+
+          <div class="divButton">
+            <button type="submit" form = "horari_post" class="btn btn-success btn-lg btn-block buttonDiari hidBig" id="horariDiariPost">Desa l'horari</button>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <%}%>
+  </div>
+</form>
+</body>
