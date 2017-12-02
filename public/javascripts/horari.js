@@ -107,6 +107,24 @@ $(document).ready(function (){
         }, 2000);
     }
 
+//HORARI ÀREES
+  //Textarea dinamica
+    $('.areestext').each(function () {
+      this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+    }).on('input', function () {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    });
+
+  //scroll
+    if($("#areesMain").length){
+    var tooday = today.replace(/\//g, "");
+    console.log("#div_"+tooday);
+            $("html, body").animate({
+            scrollTop: $("#div_"+tooday).offset().top - 80
+        }, 2000);
+    }
+
     //POST
 /*    $('#horariDiariPost').on('click', function(){
       var urlPost = "/horari-diari-post?_method=put";

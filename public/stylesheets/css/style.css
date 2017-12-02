@@ -435,13 +435,15 @@ span.glyphicon-user {
     padding: .5em;
     border: 1px solid #bbb;
     font-size: 150%;
-    background: #bbb;
+    background: #008577;
+    border-radius: 10px;
     color: white;
 }
 
 .horesDiari {
     padding:.5em;
     border: 1px solid #bbb;
+    border-radius: 10px;
     min-height: 100px;
 }
 
@@ -450,7 +452,10 @@ span.glyphicon-user {
     border: 1px solid #bbb;
     min-height: 100px;
 }
-
+/*ÀREES*/
+.areestext{
+    min-height: 100px;
+}
 /*COLORS*/
 .blau{
     color:#4285F4;

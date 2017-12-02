@@ -517,14 +517,13 @@ exports.diariPost = function (req, res){
 	var horariReq = req.body;
 	var user = req.session.user;
 	var horariId = user.horari;
-	/*console.log(horariReq);*/
 
 	models.Horari.findById(horariId, function(error, horari){
 		var lgt = horari.dades.length-1;
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
-
+//ACTUALIZAR ESTO!!!!
 		        if (horari.dades[i].data == horariReq.diaData[i]) {
 
 		        	horari.dades[i].prog1 = horariReq.prog1[i];
@@ -580,8 +579,6 @@ exports.areaGet = function(req,res){
 			}
 
 			var resultObject = search(area, hores.dades);
-			//console.log('AREA: '+area);
-			//console.log('RESULT: '+ resultObject);
 			res.render('horari-arees', {horari:resultObject});
 		}
 	})

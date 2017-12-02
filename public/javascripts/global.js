@@ -90,6 +90,25 @@ $(document).ready(function (){
     $("#horariDiariPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
   }
+  if(pth.match("/horari-area/")){
+    var areaUrl = pth.split("/");
+    var decodeUrl = decodeURIComponent(areaUrl[2]);
+    $("#llista").removeClass("navcolor");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#horari-menu").addClass("navcolor");
+    $("#situ").html(decodeUrl);
+    $("#a1").html("Configuració").attr('href', "/horari-config");
+    $("#a2").html("Horari diari").attr('href', "/horari-diari");
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
+    $("#areasdiv").addClass("navcolorside");
+    $("#a3div").addClass("hidBig");
+    $("#a4div").addClass("hidBig");
+    $("#areasPost").removeClass("hidDrop");
+    $("#areasDrop").removeClass("hidDrop");
+    $("#areasDrop").addClass("navcolorside");
+  }
 
 //TOOLTIPS
   $(function () {
