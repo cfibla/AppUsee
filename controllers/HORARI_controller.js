@@ -525,7 +525,7 @@ exports.diariPost = function (req, res){
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
-//ACTUALIZAR ESTO!!!!
+//ACTUALIZAR ESTO!!!!?????
 		        if (horari.dades[i].data == horariReq.diaData[i]) {
 
 		        	horari.dades[i].prog1 = horariReq.prog1[i];
@@ -586,3 +586,39 @@ exports.areaGet = function(req,res){
 	})
 
 }
+
+//HORARI DIARI - POST
+exports.areaPost = function (req, res){
+	var areaReq = req.body;
+	var user = req.session.user;
+	var horariId = user.horari;
+	console.log('OBJETO AREA: ' + JSON.stringify(areaReq));
+
+	models.Horari.findById(horariId, function(error, horari){
+		var lgt = horari.dades.length-1;
+
+		function upd(){
+			for (var i=0; i < horari.dades.length; i++) {
+//ACTUALIZAR ESTO!!!!?????
+		        if (horari.dades[i].data == areaReq.diaData[i]) {
+
+		        	horari.dades[i].prog1 = areaReq.prog1[i];
+		        	horari.dades[i].prog2 = areaReq.prog2[i];
+		        	horari.dades[i].prog3 = areaReq.prog3[i];
+		        	horari.dades[i].prog4 = areaReq.prog4[i];
+		        	horari.dades[i].prog5 = areaReq.prog5[i];
+		        }
+		    }
+		};
+		if (error) {
+			return res.json(error);
+		} else {
+			upd();
+			horari.save(function (err, updatedHorari) {
+				req.session.user.horari = updatedHorari;
+			    if (err) return res.json(error);
+			    	 res.redirect('/horari-arees');
+	  		});
+		}
+	});
+};

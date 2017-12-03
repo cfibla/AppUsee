@@ -81,6 +81,7 @@ router.put('/horari-post',					sessionController.loginRequired, horariController
 router.get('/horari-diari',					sessionController.loginRequired, horariController.diariGet);
 router.put('/horari-diari-post',			sessionController.loginRequired, horariController.diariPost);
 router.get('/horari-area/:area',			sessionController.loginRequired, horariController.areaGet);
+router.put('/horari-area-post/',			sessionController.loginRequired, horariController.areaPost);
 
 
 //rutas PDF
