@@ -24,9 +24,9 @@ app.use(favicon(__dirname + '/public/images/favicon.png'));
 app.use(partials());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: true }));
 app.use(cookieParser('appE'));
-app.use(session({secret:'AppEscola2016', resave: false, saveUninitialize: false}))
+app.use(session({secret:'AppEscola2016', resave: false, saveUninitialized: false}))
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 /*

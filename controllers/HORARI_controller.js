@@ -580,8 +580,9 @@ exports.areaGet = function(req,res){
 			    return nouArray;
 			}
 
-			var resultObject = search(area, hores.dades);
-			res.render('horari-arees', {horari:resultObject});
+			var sessionsArea = search(area, hores.dades);
+			console.log(sessionsArea);
+			res.render('horari-arees', {horari:sessionsArea});
 		}
 	})
 
