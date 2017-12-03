@@ -9,7 +9,9 @@ exports.config = function (req, res) {
 	var mestre = req.session.user.mestre;
 
 	if(mestre === "tutor"){
-		models.User.findById(usrId, function(error, user){
+		models.User.findById(usrId)
+			.populate('horari centre')
+			.exec(function(error, user){
 			if(error){
 				res.json(error);
 			} else {
