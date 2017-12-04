@@ -119,11 +119,17 @@ $(document).ready(function (){
   //scroll
     if($("#areesMain").length){
     var tooday = today.replace(/\//g, "");
-    console.log("#div_"+tooday);
-    console.log($("#div_"+tooday).offset());
-            $("html, body").animate({
+    if($("#div_"+tooday).offset()){
+        console.log('OKEY' + tooday);
+        console.log("#div_"+tooday);
+        console.log($("#div_"+tooday).offset());
+        $("html, body").animate({
             scrollTop: $("#div_"+tooday).offset().top - 80
         }, 2000);
+
+      } else {
+        console.log('NOOOOOO');
+      }
     }
 
     //POST
