@@ -20,12 +20,14 @@ for (var i=0; i < horari.length; i++) {
     var dia = "DIVENDRES";
     }
 var daata = horari[i].data.replace(/\//g, "");
+var mes_1 = horari[i].data.split('/');
+var mes = mes_1[1];
 %>
     <div class="container">
       <div class="row" id="areesMain">
-        <div class="col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
+        <div class="col-md-12 <%=mes%>" id="<%='div_' + daata%>" style="margin-top: 20px;">
           <input type="hidden" name="diaData" value=<%=[horari[i].data]%>>
-            <div class="horesDiari">
+            <div class="horesDiari" id="<%=mes%>">
               <div class="row">
                 <span class="col-md-10"><strong><%=horari[i].data%> </strong><%=dia%></span>
                 <div class="col-md-12">
