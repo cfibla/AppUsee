@@ -29,7 +29,15 @@ var mes = mes_1[1];
           <input type="hidden" name="diaData" value=<%=[horari[i].data]%>>
             <div class="horesDiari" id="<%=mes%>">
               <div class="row">
-                <span class="col-md-10"><strong><%=horari[i].data%> </strong><%=dia%></span>
+                <div class="col-md-10 titlearea"><strong><%=horari[i].data%> </strong><%=dia%></div>
+                <div class="col-md-11 firstline">
+                  <label for="<%='tema_'+ i%>">Tema/UD</label>
+                  <input type="text" name="tema" id="<%='tema_'+ i%>" value=<%=[horari[i].tema]%>>
+                </div>
+                <div class="col-md-1 firstline">
+                  <label for="<%='sessio_'+ i%>">Sessió</label>
+                  <input type="text" name="sessio" id="<%='sessio_'+ i%>" value=<%=[horari[i].sessio]%>>
+                </div>
                 <div class="col-md-12">
                   <textarea id="<%=dia%>h1" class="areestext" name="prog1" placeholder="Activitats"><%=[horari[i].prog]%></textarea>
                 </div>
@@ -43,6 +51,7 @@ var mes = mes_1[1];
       </div>
     </div>
     <%}%>
+    <input type="hidden" name="area" value=<%=area%>>
   </div>
 </form>
 </body>

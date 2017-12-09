@@ -456,6 +456,13 @@ span.glyphicon-user {
 .areestext{
     min-height: 100px;
 }
+
+.firstline {
+    margin-bottom: 15px;
+}
+.titlearea {
+    font-size: 150%;
+}
 /*COLORS*/
 .blau{
     color:#4285F4;

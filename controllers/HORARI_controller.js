@@ -549,6 +549,8 @@ exports.diariPost = function (req, res){
 	});
 };
 
+
+//HORARI ÀREES - GET
 exports.areaGet = function(req,res){
 	var user = req.session.user;
 	var horariId = user.horari;
@@ -581,33 +583,55 @@ exports.areaGet = function(req,res){
 			}
 
 			var sessionsArea = search(area, hores.dades);
-			console.log(sessionsArea);
-			res.render('horari-arees', {horari:sessionsArea});
+			res.render('horari-arees', {horari:sessionsArea, area:area});
 		}
 	})
 
 }
 
-//HORARI DIARI - POST
+//HORARI AREES - POST
 exports.areaPost = function (req, res){
 	var areaReq = req.body;
 	var user = req.session.user;
 	var horariId = user.horari;
+	var area = areaReq.area;
+
 	console.log('OBJETO AREA: ' + JSON.stringify(areaReq));
 
 	models.Horari.findById(horariId, function(error, horari){
 		var lgt = horari.dades.length-1;
 
+		console.log('OBJETO HORARI: ' + JSON.stringify(horari));
+
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
-//ACTUALIZAR ESTO!!!!?????
-		        if (horari.dades[i].data == areaReq.diaData[i]) {
 
-		        	horari.dades[i].prog1 = areaReq.prog1[i];
-		        	horari.dades[i].prog2 = areaReq.prog2[i];
-		        	horari.dades[i].prog3 = areaReq.prog3[i];
-		        	horari.dades[i].prog4 = areaReq.prog4[i];
-		        	horari.dades[i].prog5 = areaReq.prog5[i];
+		        if (horari.dades[i].data == areaReq.diaData[i]) {
+		        	if(horari.dades[i].hora_1.area == area){
+		        		horari.dades[i].hora_1.tema = areaReq.tema[i];
+		        		horari.dades[i].hora_1.sessio = areaReq.sessio[i];
+		        		horari.dades[i].hora_1.prog = areaReq.prog[i];
+		        	}
+		        	if(horari.dades[i].hora_2.area == area){
+		        		horari.dades[i].hora_2.tema = areaReq.tema[i];
+		        		horari.dades[i].hora_2.sessio = areaReq.sessio[i];
+		        		horari.dades[i].hora_2.prog = areaReq.prog[i];
+		        	}
+		        	if(horari.dades[i].hora_3.area == area){
+		        		horari.dades[i].hora_3.tema = areaReq.tema[i];
+		        		horari.dades[i].hora_3.sessio = areaReq.sessio[i];
+		        		horari.dades[i].hora_3.prog = areaReq.prog[i];
+		        	}
+		        	if(horari.dades[i].hora_4.area == area){
+		        		horari.dades[i].hora_4.tema = areaReq.tema[i];
+		        		horari.dades[i].hora_4.sessio = areaReq.sessio[i];
+		        		horari.dades[i].hora_4.prog = areaReq.prog[i];
+		        	}
+		        	if(horari.dades[i].hora_5.area == area){
+		        		horari.dades[i].hora_5.tema = areaReq.tema[i];
+		        		horari.dades[i].hora_5.sessio = areaReq.sessio[i];
+		        		horari.dades[i].hora_5.prog = areaReq.prog[i];
+		        	}
 		        }
 		    }
 		};
