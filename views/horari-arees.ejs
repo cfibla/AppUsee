@@ -39,7 +39,10 @@ var mes = mes_1[1];
                   <input type="text" name="sessio" id="<%='sessio_'+ i%>" value=<%=[horari[i].sessio]%>>
                 </div>
                 <div class="col-md-12">
-                  <textarea id="<%=dia%>h1" class="areestext" name="prog1" placeholder="Activitats"><%=[horari[i].prog]%></textarea>
+                  <textarea id="<%=dia%>obj" class="objtext" name="obj" placeholder="Objectius"><%=[horari[i].objectius]%></textarea>
+                </div>
+                <div class="col-md-12">
+                  <textarea id="<%=dia%>h1" class="areestext" name="prog" placeholder="Activitats"><%=[horari[i].prog]%></textarea>
                 </div>
               </div>
             </div>

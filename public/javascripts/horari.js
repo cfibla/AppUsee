@@ -109,7 +109,7 @@ $(document).ready(function (){
 
 //HORARI ÀREES
   //Textarea dinamica
-    $('.areestext').each(function () {
+    $('.areestext, .objtext').each(function () {
       this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
     }).on('input', function () {
       this.style.height = 'auto';

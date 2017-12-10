@@ -601,35 +601,70 @@ exports.areaPost = function (req, res){
 	models.Horari.findById(horariId, function(error, horari){
 		var lgt = horari.dades.length-1;
 
-		console.log('OBJETO HORARI: ' + JSON.stringify(horari));
+		console.log('OBJETO HORARI.DADES: ' + JSON.stringify(horari.dades));
+		function search(nameKey, myArray){
+		    for (var i=0; i < myArray.length; i++) {
+		    	var areArray =[];
+		        if (myArray[i].hora_1.area == nameKey) {
+		            areArray.push = myArray[i];
+		        }
+		        if (myArray[i].hora_2.area == nameKey) {
+		            areArray.push = myArray[i];
+		        }
+		        if (myArray[i].hora_3.area == nameKey) {
+		            areArray.push = myArray[i];
+		        }
+		        if (myArray[i].hora_4.area == nameKey) {
+		            areArray.push = myArray[i];
+		        }
+		        if (myArray[i].hora_5.area == nameKey) {
+		            areArray.push = myArray[i];
+		        }
+
+		        return areArray;
+		    }
+		}
+		var resultObject = search(area, horari.dades);
+		console.log('OBJETO RESULT: '+resultObject);
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
 
 		        if (horari.dades[i].data == areaReq.diaData[i]) {
 		        	if(horari.dades[i].hora_1.area == area){
+		        		console.log ('HRA 1');
 		        		horari.dades[i].hora_1.tema = areaReq.tema[i];
 		        		horari.dades[i].hora_1.sessio = areaReq.sessio[i];
 		        		horari.dades[i].hora_1.prog = areaReq.prog[i];
 		        	}
 		        	if(horari.dades[i].hora_2.area == area){
+		        		console.log ('HRA 2');
 		        		horari.dades[i].hora_2.tema = areaReq.tema[i];
 		        		horari.dades[i].hora_2.sessio = areaReq.sessio[i];
 		        		horari.dades[i].hora_2.prog = areaReq.prog[i];
 		        	}
 		        	if(horari.dades[i].hora_3.area == area){
+		        		console.log ('HRA 3');
 		        		horari.dades[i].hora_3.tema = areaReq.tema[i];
 		        		horari.dades[i].hora_3.sessio = areaReq.sessio[i];
 		        		horari.dades[i].hora_3.prog = areaReq.prog[i];
 		        	}
 		        	if(horari.dades[i].hora_4.area == area){
+		        		console.log ('HRA 4');
 		        		horari.dades[i].hora_4.tema = areaReq.tema[i];
 		        		horari.dades[i].hora_4.sessio = areaReq.sessio[i];
 		        		horari.dades[i].hora_4.prog = areaReq.prog[i];
 		        	}
 		        	if(horari.dades[i].hora_5.area == area){
+		        		console.log ('HRA 5');
+		        		console.log ('i: '+i);
+		        		console.log ('TEMA: '+areaReq.tema[i]);
+		        		console.log ('SESSIO: '+areaReq.sessio[i]);
+		        		console.log ('OBJ: '+areaReq.obj[i]);
+		        		console.log ('PROG: '+areaReq.prog[i]);
 		        		horari.dades[i].hora_5.tema = areaReq.tema[i];
 		        		horari.dades[i].hora_5.sessio = areaReq.sessio[i];
+		        		horari.dades[i].hora_5.objectius = areaReq.obj[i];
 		        		horari.dades[i].hora_5.prog = areaReq.prog[i];
 		        	}
 		        }
@@ -642,7 +677,7 @@ exports.areaPost = function (req, res){
 			horari.save(function (err, updatedHorari) {
 				req.session.user.horari = updatedHorari;
 			    if (err) return res.json(error);
-			    	 res.redirect('/horari-arees');
+			    	 res.render('horari-arees', {horari:updatedHorari, area:area});
 	  		});
 		}
 	});

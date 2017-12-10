@@ -456,6 +456,9 @@ span.glyphicon-user {
 .areestext{
     min-height: 100px;
 }
+.objtext{
+    min-height: 50px;
+}
 
 .firstline {
     margin-bottom: 15px;
