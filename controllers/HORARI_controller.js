@@ -601,31 +601,54 @@ exports.areaPost = function (req, res){
 	models.Horari.findById(horariId, function(error, horari){
 		var lgt = horari.dades.length-1;
 
-		console.log('OBJETO HORARI.DADES: ' + JSON.stringify(horari.dades));
+		//console.log('OBJETO HORARI.DADES: ' + JSON.stringify(horari.dades));
 		function search(nameKey, myArray){
+
+			console.log('MYARRAY.length: '+ myArray.length);
+
 		    for (var i=0; i < myArray.length; i++) {
+
 		    	var areArray =[];
+
 		        if (myArray[i].hora_1.area == nameKey) {
-		            areArray.push = myArray[i];
+		        	console.log('HORA_1: '+myArray[i].hora_1.area);
+		        	console.log('nameKey_1: '+nameKey);
+		        	console.log('MYARRAY[i]: '+myArray[i].hora_1);
+		            areArray.push(myArray[i].hora_1);
 		        }
 		        if (myArray[i].hora_2.area == nameKey) {
-		            areArray.push = myArray[i];
+		        	console.log('HORA_2: '+myArray[i].hora_2.area);
+		        	console.log('nameKey_2: '+nameKey);
+		        	console.log('MYARRAY[i]: '+myArray[i].hora_2);
+		            areArray.push(myArray[i].hora_2);
 		        }
 		        if (myArray[i].hora_3.area == nameKey) {
-		            areArray.push = myArray[i];
+		        	console.log('HORA_3: '+myArray[i].hora_3.area);
+		        	console.log('nameKey_3: '+nameKey);
+		        	console.log('MYARRAY[i]: '+myArray[i].hora_3);
+		            areArray.push(myArray[i].hora_3);
 		        }
 		        if (myArray[i].hora_4.area == nameKey) {
-		            areArray.push = myArray[i];
+		        	console.log('HORA_4: '+myArray[i].hora_4.area);
+		        	console.log('nameKey_4: '+nameKey);
+		        	console.log('MYARRAY[i]: '+myArray[i].hora_4);
+		            areArray.push(myArray[i].hora_4);
 		        }
 		        if (myArray[i].hora_5.area == nameKey) {
-		            areArray.push = myArray[i];
+		        	console.log('HORA_5: '+myArray[i].hora_5.area);
+		        	console.log('nameKey_5: '+nameKey);
+		            areArray.push(myArray[i].hora_5);
+		            console.log('MYARRAY[i]: '+myArray[i].hora_5);
 		        }
 
+		        console.log('AREARRAY: '+areArray);
+		        //console.log('MYARRAY: '+myArray);
 		        return areArray;
 		    }
 		}
+
 		var resultObject = search(area, horari.dades);
-		console.log('OBJETO RESULT: '+resultObject);
+		console.log('OBJETO RESULT: ' + resultObject);
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
