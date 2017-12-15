@@ -595,20 +595,37 @@ exports.areaPost = function (req, res){
 	var user = req.session.user;
 	var horariId = user.horari;
 	var area = areaReq.area;
+	var areaJson=[{
+		data:'',
+		tema:'',
+		sessio:'',
+		objectius:'',
+		prog:''
+	}];
 
 	console.log('OBJETO AREA: ' + JSON.stringify(areaReq));
+
+	for (var i=0; i < areaReq.length; i++){
+		if (areaReq[i].data){
+			areaJson[i].data = areaReq[i].data;
+			areaJson[i].tema = areaReq[i].tema;
+			areaJson[i].sessio = areaReq[i].sessio;
+			areaJson[i].objectius = areaReq[i].objectius;
+			areaJson[i].prog = areaReq[i].prog;
+		}
+	}
+
+	console.log('AREA JSON: ' + JSON.stringify(areaJson));
 
 	models.Horari.findById(horariId, function(error, horari){
 		var lgt = horari.dades.length-1;
 
-		//console.log('OBJETO HORARI.DADES: ' + JSON.stringify(horari.dades));
 		function search(nameKey, myArray){
 
 			console.log('MYARRAY.length: '+ myArray.length);
+			var areArray =[];
 
 		    for (var i=0; i < myArray.length; i++) {
-
-		    	var areArray =[];
 
 		        if (myArray[i].hora_1.area == nameKey) {
 		        	console.log('HORA_1: '+myArray[i].hora_1.area);
@@ -640,20 +657,19 @@ exports.areaPost = function (req, res){
 		            areArray.push(myArray[i].hora_5);
 		            console.log('MYARRAY[i]: '+myArray[i].hora_5);
 		        }
-
-		        console.log('AREARRAY: '+areArray);
-		        //console.log('MYARRAY: '+myArray);
-		        return areArray;
 		    }
+		    console.log('AREARRAY: '+areArray);
+		    return areArray;
 		}
 
 		var resultObject = search(area, horari.dades);
 		console.log('OBJETO RESULT: ' + resultObject);
+		console.log('horariDadesLength ' + horari.dades.length);
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
 
-		        if (horari.dades[i].data == areaReq.diaData[i]) {
+		        if (horari.dades[i].data == areaReq.data[i]) {
 		        	if(horari.dades[i].hora_1.area == area){
 		        		console.log ('HRA 1');
 		        		horari.dades[i].hora_1.tema = areaReq.tema[i];
@@ -683,11 +699,11 @@ exports.areaPost = function (req, res){
 		        		console.log ('i: '+i);
 		        		console.log ('TEMA: '+areaReq.tema[i]);
 		        		console.log ('SESSIO: '+areaReq.sessio[i]);
-		        		console.log ('OBJ: '+areaReq.obj[i]);
+		        		console.log ('OBJ: '+areaReq.objectius[i]);
 		        		console.log ('PROG: '+areaReq.prog[i]);
 		        		horari.dades[i].hora_5.tema = areaReq.tema[i];
 		        		horari.dades[i].hora_5.sessio = areaReq.sessio[i];
-		        		horari.dades[i].hora_5.objectius = areaReq.obj[i];
+		        		horari.dades[i].hora_5.objectius = areaReq.objectius[i];
 		        		horari.dades[i].hora_5.prog = areaReq.prog[i];
 		        	}
 		        }

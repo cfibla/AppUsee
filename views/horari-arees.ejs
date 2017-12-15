@@ -26,7 +26,7 @@ var mes = mes_1[1];
     <div class="container">
       <div class="row" id="areesMain">
         <div class="col-md-12 <%=mes%>" id="<%='div_' + daata%>" style="margin-top: 20px;">
-          <input type="hidden" name="diaData" value=<%=[horari[i].data]%>>
+          <input type="hidden" name="data" value=<%=[horari[i].data]%>>
             <div class="horesDiari" id="<%=mes%>">
               <div class="row">
                 <div class="col-md-10 titlearea"><strong><%=horari[i].data%> </strong><%=dia%></div>
@@ -39,7 +39,7 @@ var mes = mes_1[1];
                   <input type="text" name="sessio" id="<%='sessio_'+ i%>" value=<%=[horari[i].sessio]%>>
                 </div>
                 <div class="col-md-12">
-                  <textarea id="<%=dia%>obj" class="objtext" name="obj" placeholder="Objectius"><%=[horari[i].objectius]%></textarea>
+                  <textarea id="<%=dia%>obj" class="objtext" name="objectius" placeholder="Objectius"><%=[horari[i].objectius]%></textarea>
                 </div>
                 <div class="col-md-12">
                   <textarea id="<%=dia%>h1" class="areestext" name="prog" placeholder="Activitats"><%=[horari[i].prog]%></textarea>
