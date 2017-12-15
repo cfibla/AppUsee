@@ -595,24 +595,20 @@ exports.areaPost = function (req, res){
 	var user = req.session.user;
 	var horariId = user.horari;
 	var area = areaReq.area;
-	var areaJson=[{
-		data:'',
-		tema:'',
-		sessio:'',
-		objectius:'',
-		prog:''
-	}];
+	var areaJson=[];
 
 	console.log('OBJETO AREA: ' + JSON.stringify(areaReq));
 
-	for (var i=0; i < areaReq.length; i++){
-		if (areaReq[i].data){
-			areaJson[i].data = areaReq[i].data;
-			areaJson[i].tema = areaReq[i].tema;
-			areaJson[i].sessio = areaReq[i].sessio;
-			areaJson[i].objectius = areaReq[i].objectius;
-			areaJson[i].prog = areaReq[i].prog;
-		}
+	for (var i=0; i < areaReq.data.length; i++){
+
+			var aJson = {};
+			aJson.data = areaReq.data[i];
+			aJson.tema = areaReq.tema[i];
+			aJson.sessio = areaReq.sessio[i];
+			aJson.objectius = areaReq.objectius[i];
+			aJson.prog = areaReq.prog[i];
+		
+		areaJson.push(aJson);
 	}
 
 	console.log('AREA JSON: ' + JSON.stringify(areaJson));
@@ -626,7 +622,7 @@ exports.areaPost = function (req, res){
 			var areArray =[];
 
 		    for (var i=0; i < myArray.length; i++) {
-
+/*
 		        if (myArray[i].hora_1.area == nameKey) {
 		        	console.log('HORA_1: '+myArray[i].hora_1.area);
 		        	console.log('nameKey_1: '+nameKey);
@@ -656,19 +652,19 @@ exports.areaPost = function (req, res){
 		        	console.log('nameKey_5: '+nameKey);
 		            areArray.push(myArray[i].hora_5);
 		            console.log('MYARRAY[i]: '+myArray[i].hora_5);
-		        }
+		        } */
 		    }
-		    console.log('AREARRAY: '+areArray);
+		   // console.log('AREARRAY: '+areArray);
 		    return areArray;
 		}
 
 		var resultObject = search(area, horari.dades);
-		console.log('OBJETO RESULT: ' + resultObject);
-		console.log('horariDadesLength ' + horari.dades.length);
+		//console.log('OBJETO RESULT: ' + resultObject);
+		//console.log('horariDadesLength ' + horari.dades.length);
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
-
+/*
 		        if (horari.dades[i].data == areaReq.data[i]) {
 		        	if(horari.dades[i].hora_1.area == area){
 		        		console.log ('HRA 1');
@@ -705,10 +701,10 @@ exports.areaPost = function (req, res){
 		        		horari.dades[i].hora_5.sessio = areaReq.sessio[i];
 		        		horari.dades[i].hora_5.objectius = areaReq.objectius[i];
 		        		horari.dades[i].hora_5.prog = areaReq.prog[i];
-		        	}
+		        	}*/
 		        }
 		    }
-		};
+	//	};
 		if (error) {
 			return res.json(error);
 		} else {
