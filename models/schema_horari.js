@@ -21,7 +21,8 @@ module.exports = new mongoose.Schema({
 			objectius: String,
 			sessio: String,
 			tema: String,
-			color: String
+			color: String,
+			hora: String
 		},
 		hora_2:{
 			data: String,
@@ -36,7 +37,8 @@ module.exports = new mongoose.Schema({
 			objectius: String,
 			sessio: String,
 			tema: String,
-			color: String
+			color: String,
+			hora: String
 		},
 		hora_3:{
 			data: String,
@@ -51,7 +53,8 @@ module.exports = new mongoose.Schema({
 			objectius: String,
 			sessio: String,
 			tema: String,
-			color: String
+			color: String,
+			hora: String
 		},
 		hora_4:{
 			data: String,
@@ -66,7 +69,8 @@ module.exports = new mongoose.Schema({
 			objectius: String,
 			sessio: String,
 			tema: String,
-			color: String
+			color: String,
+			hora: String
 		},
 		hora_5:{
 			data: String,
@@ -81,7 +85,8 @@ module.exports = new mongoose.Schema({
 			objectius: String,
 			sessio: String,
 			tema: String,
-			color: String
+			color: String,
+			hora: String
 		}
 	}]
 });
