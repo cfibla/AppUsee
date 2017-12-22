@@ -555,17 +555,16 @@ exports.diariPost = function (req, res){
 
 		function upd(){
 			for (var i=0; i < horari.dades.length; i++) {
-//ACTUALIZAR ESTO!!!!?????
 		        if (horari.dades[i].data == horariReq.diaData[i]) {
-
-		        	horari.dades[i].prog1 = horariReq.prog1[i];
-		        	horari.dades[i].prog2 = horariReq.prog2[i];
-		        	horari.dades[i].prog3 = horariReq.prog3[i];
-		        	horari.dades[i].prog4 = horariReq.prog4[i];
-		        	horari.dades[i].prog5 = horariReq.prog5[i];
+		        	horari.dades[i].hora_1.prog = horariReq.prog1[i];
+		        	horari.dades[i].hora_2.prog = horariReq.prog2[i];
+		        	horari.dades[i].hora_3.prog = horariReq.prog3[i];
+		        	horari.dades[i].hora_4.prog = horariReq.prog4[i];
+		        	horari.dades[i].hora_5.prog = horariReq.prog5[i];
 		        }
 		    }
 		};
+
 		if (error) {
 			return res.json(error);
 		} else {
@@ -637,6 +636,7 @@ exports.areaPost = function (req, res){
 		aJson.sessio = areaReq.sessio[i];
 		aJson.objectius = areaReq.objectius[i];
 		aJson.prog = areaReq.prog[i];
+		aJson.hora = areaReq.hora[i];
 		aJson.area = area;
 		
 		areaJson.push(aJson);
@@ -685,6 +685,7 @@ exports.areaPost = function (req, res){
 	        		console.log ('SESSIO: ' + areaJson[i].sessio);
 	        		console.log ('OBJ: ' + areaJson[i].objectius);
 	        		console.log ('PROG: ' + areaJson[i].prog);
+	        		console.log ('HORA: ' + areaJson[i].hora);
 	        	}   
 		    }
 		};
