@@ -644,6 +644,56 @@ exports.areaPost = function (req, res){
 
 	console.log('AREA JSON: ' + JSON.stringify(areaJson));
 
+	models.Horari.find(horariId,function(error,horari){
+		if (error){
+			console.log(error);
+		} else {
+			for(var i=0; i < areaJson.length; i++){
+				if(areaJson[i].data){
+					for (h=0; h < horari[0].dades.length; h++) {
+						if(areaJson[i].data == horari[0].dades[h].hora_1.data && areaJson[i].area == horari[0].dades[h].hora_1.area){
+							horari[0].dades[h].hora_1.tema = areaJson[i].tema;
+							horari[0].dades[h].hora_1.sessio = areaJson[i].sessio;
+							horari[0].dades[h].hora_1.objectius = areaJson[i].objectius;
+							horari[0].dades[h].hora_1.prog = areaJson[i].prog;
+						}
+
+						if(areaJson[i].data == horari[0].dades[h].hora_2.data && areaJson[i].area == horari[0].dades[h].hora_2.area){
+							horari[0].dades[h].hora_2.tema = areaJson[i].tema;
+							horari[0].dades[h].hora_2.sessio = areaJson[i].sessio;
+							horari[0].dades[h].hora_2.objectius = areaJson[i].objectius;
+							horari[0].dades[h].hora_2.prog = areaJson[i].prog;
+						}
+
+						if(areaJson[i].data == horari[0].dades[h].hora_3.data && areaJson[i].area == horari[0].dades[h].hora_3.area){
+							horari[0].dades[h].hora_3.tema = areaJson[i].tema;
+							horari[0].dades[h].hora_3.sessio = areaJson[i].sessio;
+							horari[0].dades[h].hora_3.objectius = areaJson[i].objectius;
+							horari[0].dades[h].hora_3.prog = areaJson[i].prog;
+						}
+
+						if(areaJson[i].data == horari[0].dades[h].hora_4.data && areaJson[i].area == horari[0].dades[h].hora_4.area){
+							horari[0].dades[h].hora_4.tema = areaJson[i].tema;
+							horari[0].dades[h].hora_4.sessio = areaJson[i].sessio;
+							horari[0].dades[h].hora_4.objectius = areaJson[i].objectius;
+							horari[0].dades[h].hora_4.prog = areaJson[i].prog;
+						}
+
+						if(areaJson[i].data == horari[0].dades[h].hora_5.data && areaJson[i].area == horari[0].dades[h].hora_5.area){
+							horari[0].dades[h].hora_5.tema = areaJson[i].tema;
+							horari[0].dades[h].hora_5.sessio = areaJson[i].sessio;
+							horari[0].dades[h].hora_5.objectius = areaJson[i].objectius;
+							horari[0].dades[h].hora_5.prog = areaJson[i].prog;
+						}
+					}
+				}
+
+			}
+			//console.log ('HHOORRARRII: '+horari);
+			res.json(horari);
+		}
+	})
+/*
 	models.Horari.findById(horariId, function(error, horari){
 
 		function search(nameKey, myArray){
@@ -700,5 +750,5 @@ exports.areaPost = function (req, res){
 	  		});
 		}
 	//};
-});
+});*/
 }
