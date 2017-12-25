@@ -1,6 +1,8 @@
 <body>
 <form role="form" method="post" action="/horari-diari-post?_method=put" id="horari_post">
   <div class="container margetop clear col-md-10 offset-md-2" id="horariDiari">
+    <div class="row" id="horariMain">
+
 <%
 var dia;
 for (var i=0; i < horari.dades.length; i++) {
@@ -21,9 +23,7 @@ for (var i=0; i < horari.dades.length; i++) {
     }
 var daata = horari.dades[i].data.replace(/\//g, "");
 %>
-    <div class="container">
-      <div class="row" id="horariMain">
-        <div class="col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
+        <div class="col-md-5 offset-md-1" id="<%='div_' + daata%>" style="margin-top: 20px;">
           <input type="hidden" name="diaData" value=<%=[horari.dades[i].data]%>>
           <div class="diaDiari">
             <%=dia%> <strong><%=horari.dades[i].data%></strong>
@@ -82,9 +82,8 @@ var daata = horari.dades[i].data.replace(/\//g, "");
             <button type="submit" form = "horari_post" class="btn btn-success btn-lg btn-block buttonDiari hidBig" id="horariDiariPost">Desa l'horari</button>
           </div>
         </div> 
-      </div>
-    </div>
     <%}%>
+    </div>
   </div>
 </form>
 </body>

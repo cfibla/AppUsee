@@ -1,6 +1,7 @@
 <body>
 <form role="form" method="post" action="/horari-area-post?_method=put" id="areas_post">
   <div class="container margetop clear col-md-10 offset-md-2" id="horariDiari">
+    <div class="row" id="areesMain">
 <%
 var dia;
 for (var i=0; i < horari.length; i++) {
@@ -23,19 +24,19 @@ var daata = horari[i].data.replace(/\//g, "");
 var mes_1 = horari[i].data.split('/');
 var mes = mes_1[1];
 %>
-    <div class="container">
-      <div class="row" id="areesMain">
-        <div class="col-md-12 <%=mes%>" id="<%='div_' + daata%>" style="margin-top: 20px;">
+<!--    <div class="container"> -->
+      
+        <div class="col-md-5 offset-md-1 <%=mes%>" id="<%='div_' + daata%>" style="margin-top: 20px;">
           <input type="hidden" name="data" value=<%=[horari[i].data]%>>
           <input type="hidden" name="hora" value=<%=[horari[i].hora]%>>
             <div class="horesDiari" id="<%=mes%>">
               <div class="row">
                 <div class="col-md-10 titlearea"><strong><%=horari[i].data%> </strong><%=dia%></div>
-                <div class="col-md-11 firstline">
+                <div class="col-md-10 firstline">
                   <label for="<%='tema_'+ i%>">Tema/UD</label>
                   <input type="text" name="tema" id="<%='tema_'+ i%>" value=<%=[horari[i].tema]%>>
                 </div>
-                <div class="col-md-1 firstline">
+                <div class="col-md-2 firstline">
                   <label for="<%='sessio_'+ i%>">Sessió</label>
                   <input type="text" name="sessio" id="<%='sessio_'+ i%>" value=<%=[horari[i].sessio]%>>
                 </div>
@@ -52,10 +53,11 @@ var mes = mes_1[1];
             <button type="submit" form = "horari_post" class="btn btn-success btn-lg btn-block buttonDiari hidBig" id="horariDiariPost">Desa l'horari</button>
           </div>
         </div> 
-      </div>
-    </div>
+      
+<!--    </div> -->
     <%}%>
     <input type="hidden" name="area" value=<%=area%>>
+  </div>
   </div>
 </form>
 </body>
