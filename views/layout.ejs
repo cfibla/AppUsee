@@ -94,6 +94,16 @@
   <aside class="col-md-2 sidebar hid">
     <%if (session.user.mestre==="ee") {%>
       <div class="col-md-12 curs-t" id="situee">Atenció a la DIVERSITAT</div>
+      <div class="nav-item dropdown hidDrop" id="cursosDrop">
+        <a class="nav-link dropdown-toggle" id="cursosDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
+        <div class="dropdown-menu dropAside" aria-labelledby="cursosDropdown">
+          <%
+          var cursosArray = ['P3', 'P4', 'P5', 'PRIMER', 'SEGON', 'TERCER', 'QUART', 'CINQUÈ', 'SISÈ']
+          for (var i = 0; i < cursosArray.length; i++) { %>
+            <a class="dropdown-item" href="/list_EE/<%=cursosArray[i]%>"><%=cursosArray[i]%></a>
+          <% } %>
+        </div>
+      </div>
     <%}%>
     <div class="col-md-12 curs-t" id="situ"></div>
     <%if (session.user.mestre==="tutor") {%>
@@ -112,7 +122,6 @@
 
       
         <%if (session.user.horari) {
-          console.log(session.user.horari.areasArray);
           if(session.user.horari.areasArray){%>
             <div class="nav-item dropdown hidDrop" id="areasDrop">
               <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>

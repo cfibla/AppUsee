@@ -20,10 +20,12 @@ $(document).ready(function (){
   if(pth==="/list_EE"){
     $("#llista").addClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
-//    $("#situ").html("Atenció a la diversitat");
-    $("#a1").html("Tutoria").attr('href', "/list_EE");
+//    $("#situ").html("Atenció a la diversitat"); -->DONDE ESTÁ?????
+    $("#a1").html("Tots els alumnes").attr('href', "/list_EE");
     $("#a1div").addClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
+    $("#cursosDrop").removeClass("hidDrop");
+    $("#cursosDrop").addClass("navcolorside");
   }
 
   if(pth==="/assistencia"){

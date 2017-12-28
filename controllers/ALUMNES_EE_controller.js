@@ -3,14 +3,30 @@ var models = require('../models/index');
 
 //Llstat d'alumnes EE- GET
 exports.list = function (req, res) {
-	models.Alumne.find({'eeUsee': true, 'escola': req.session.user.escola})
-	.populate('escola ee')
+	console.log('LIST_EE');
+	models.Alumne.find({
+		'eeUsee': true,
+		centre: req.session.user.centre}
+		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+	.populate('centre ee')
 	.exec(function(error, docs){
 		if (error){
 			console.log(error);
 		} else {
-			res.render('index',{Alumnes: docs, page_name:''});
+			if(req.session.user.horari){
+				console.log('LIST_EE TIENE HORARI');
+				horariId = req.session.user.horari;
+				models.Horari.find({_id: horariId}, function(err, horariUser){
+					if(err){
+						console.log(err);
+					} else {
+						res.render('index',{Alumnes: docs, horari: horariUser});
+					}
+				});
+			} else {
+				res.render('index',{Alumnes: docs});
 			}
+		}
 	});
 
 };
