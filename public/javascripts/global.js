@@ -20,7 +20,7 @@ $(document).ready(function (){
   if(pth==="/list_EE"){
     $("#llista").addClass("navcolor");
     //$("#horari-menu").removeClass("navcolor");
-//    $("#situ").html("Atenció a la diversitat"); -->DONDE ESTÁ?????
+    $("#situ").html("Atenció a la diversitat");
     $("#a1").html("Tots els alumnes").attr('href', "/list_EE");
     $("#a1div").addClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
@@ -34,8 +34,9 @@ $(document).ready(function (){
     $("#llista").addClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
-    $("#horari-menu").addClass("navcolor");
-    $("#situ").html(decodeUrl);
+    //$("#horari-menu").addClass("navcolor");
+    $("#situ").html("Atenció a la diversitat");
+    $("#situ2").html(decodeUrl);
     $("#a1").html("Tots els alumnes").attr('href', "/list_EE");
     $("#a2").addClass("hidBig");
     $("#a1div").removeClass("navcolorside");

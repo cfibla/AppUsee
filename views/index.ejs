@@ -11,7 +11,13 @@
     <thead>
       <tr id="tutoriaRow" class="row m-0">
         <th class="d-inline-block col-1">Núm.</th>
+        <%if(session.user.mestre === "tutor"){ %>
         <th class="d-inline-block col-8">Cognoms i nom</th>
+        <%}%>
+        <%if(session.user.mestre === "ee"){ %>
+        <th class="d-inline-block col-6">Cognoms i nom</th>
+        <th class="d-inline-block col-2">Curs</th>
+        <%}%>
         <th class="d-inline-block col-3 centered"><span class="col-md-1"></span></th>
         <%if(session.user.mestre === "tutor"){ %>
 <!--        <th class="col-md-2">
@@ -55,7 +61,13 @@
 
     <tr class="row m-0">
       <td class="d-inline-block col-1"><%=i+1%></td>
+      <%if(session.user.mestre === "tutor"){ %>
       <td class="d-inline-block col-8"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
+      <%}%>
+      <%if(session.user.mestre === "ee"){ %>
+      <td class="d-inline-block col-6"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
+      <td class="d-inline-block col-2"><%=Alumnes[i].curs%></td>
+      <%}%>
       <td class="d-inline-block col-3">
         <span class="col-md-1">
          <a id="btnDades" data-toggle="modal" data-tggle="tooltip" data-placement="top" title="Dades personals" href="/javascripts/modals/dades.ejs"
