@@ -692,3 +692,37 @@ exports.areaPost = function (req, res){
 		}
 	})
 }
+
+//HORARI EE CURSOS-GET
+exports.cursGet = function (req, res){
+	var curs = req.params.curs;
+	var cursA = curs + ' A';
+	var cursB = curs + ' B';
+	models.Alumne.find({
+		'eeUsee': true,
+		centre: req.session.user.centre,
+		$or:[{curs: cursA},{curs: cursB}]
+	}
+		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+	.populate('centre ee')
+	.exec(function(error, docs){
+		if (error){
+			console.log(error);
+		} else {
+			if(req.session.user.horari){
+				console.log('LIST_EE TIENE HORARI');
+				horariId = req.session.user.horari;
+				models.Horari.find({_id: horariId}, function(err, horariUser){
+					if(err){
+						console.log(err);
+					} else {
+						res.render('index',{Alumnes: docs, horari: horariUser});
+					}
+				});
+			} else {
+				res.render('index',{Alumnes: docs});
+			}
+		}
+	});
+
+}

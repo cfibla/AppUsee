@@ -19,11 +19,29 @@ $(document).ready(function (){
 
   if(pth==="/list_EE"){
     $("#llista").addClass("navcolor");
-    $("#horari-menu").removeClass("navcolor");
+    //$("#horari-menu").removeClass("navcolor");
 //    $("#situ").html("Atenció a la diversitat"); -->DONDE ESTÁ?????
     $("#a1").html("Tots els alumnes").attr('href', "/list_EE");
     $("#a1div").addClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
+    $("#cursosDrop").removeClass("hidDrop");
+    //$("#cursosDrop").addClass("navcolorside");
+  }
+
+  if(pth.match("/list_EE/")){
+    var areaUrl = pth.split("/");
+    var decodeUrl = decodeURIComponent(areaUrl[2]);
+    $("#llista").addClass("navcolor");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#horari-menu").addClass("navcolor");
+    $("#situ").html(decodeUrl);
+    $("#a1").html("Tots els alumnes").attr('href', "/list_EE");
+    $("#a2").addClass("hidBig");
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").addClass("hidBig");
+    $("#a3div").addClass("hidBig");
+    $("#a4div").addClass("hidBig");
     $("#cursosDrop").removeClass("hidDrop");
     $("#cursosDrop").addClass("navcolorside");
   }

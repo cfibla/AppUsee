@@ -82,6 +82,7 @@ router.get('/horari-diari',					sessionController.loginRequired, horariControlle
 router.put('/horari-diari-post',			sessionController.loginRequired, horariController.diariPost);
 router.get('/horari-area/:area',			sessionController.loginRequired, horariController.areaGet);
 router.put('/horari-area-post',				sessionController.loginRequired, horariController.areaPost);
+router.get('/list_EE/:curs',				sessionController.loginRequired, horariController.cursGet);
 
 
 //rutas PDF

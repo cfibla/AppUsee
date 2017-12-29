@@ -90,15 +90,15 @@
         </div>
     </div>
   </nav>
-<%if (session.user) {%>
+<% if (session.user) {%>
   <aside class="col-md-2 sidebar hid">
-    <%if (session.user.mestre==="ee") {%>
+    <% if (session.user.mestre==="ee") {%>
       <div class="col-md-12 curs-t" id="situee">Atenció a la DIVERSITAT</div>
       <div class="nav-item dropdown hidDrop" id="cursosDrop">
         <a class="nav-link dropdown-toggle" id="cursosDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
         <div class="dropdown-menu dropAside" aria-labelledby="cursosDropdown">
           <%
-          var cursosArray = ['P3', 'P4', 'P5', 'PRIMER', 'SEGON', 'TERCER', 'QUART', 'CINQUÈ', 'SISÈ']
+          var cursosArray = ['P3', 'P4', 'P5', '1r', '2n', '3r', '4t', '5è', '6è']
           for (var i = 0; i < cursosArray.length; i++) { %>
             <a class="dropdown-item" href="/list_EE/<%=cursosArray[i]%>"><%=cursosArray[i]%></a>
           <% } %>
@@ -106,7 +106,7 @@
       </div>
     <%}%>
     <div class="col-md-12 curs-t" id="situ"></div>
-    <%if (session.user.mestre==="tutor") {%>
+    <% if (session.user.mestre==="tutor") {%>
       <div class="col-md-12 curs-t"><%=session.user.curs%></div>
     <%}%>
       <div class="col-md-12 hid sidelink" id="a1div">
@@ -121,7 +121,7 @@
       <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
 
       
-        <%if (session.user.horari) {
+        <% if (session.user.horari) {
           if(session.user.horari.areasArray){%>
             <div class="nav-item dropdown hidDrop" id="areasDrop">
               <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
