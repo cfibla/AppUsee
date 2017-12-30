@@ -76,9 +76,22 @@ $(document).ready(function (){
   }
     if(pth==="/usuari"){
     $("#llista").removeClass("navcolor");
+    $("#situ").html("El meu perfil");
+    $("#a1").html("Dades personals").attr('href', "/usuari");
+    $("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
+    $("#a1div").addClass("navcolorside");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
-    $("#situ").html("Perfil d'usuari");
+    $("#areasDrop").addClass("hidDrop");
+  }
+    if(pth==="/contrasenya"){
+    $("#llista").removeClass("navcolor");
+    $("#situ").html("El meu perfil");
+    $("#a1").html("Dades personals").attr('href', "/usuari");
+    $("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
+    $("#a2div").addClass("navcolorside");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
   }
     if(pth==="/horari-config"){

@@ -33,7 +33,9 @@ router.get('/centre',				centreController.centreMain);
 //rutas USER
 router.get('/usuari_nou',			userController.nouUser);
 router.post('/usuari_crear',		userController.createUser);
-router.get('/usuari/:id',			userController.profile);
+router.get('/usuari',				userController.profile);
+router.get('/contrasenya',			userController.updPwdGet);
+router.put('/contrasenya-upd',		userController.updPwdPost);
 router.put('/usuari/:id',			userController.update);
 router.put('/usuariD/:id',			userController.delUser);
 

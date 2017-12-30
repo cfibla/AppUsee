@@ -116,6 +116,8 @@ exports.createUser = function (req, res){
 	};
 };
 
+//GET USER-EE PROFILE en userController
+
 //UPDATE user profile
 exports.update = function (req, res){
 

@@ -116,9 +116,10 @@ exports.createUser = function (req, res){
 	};
 };
 
-//GET USER PROFILE
+//GET USER / USER-EE PROFILE 
 exports.profile = function (req, res){
-	var userId = req.params.id;
+	var userId = req.session.user._id;
+	console.log('USERID: '+userId);
 	models.User.findById(userId, function(error, usuari){
 		if (usuari) {
 			res.render('usuari', {usuari: usuari});
@@ -150,6 +151,18 @@ exports.update = function (req, res){
 		}
 	});
 };
+//UPDATE contrasenya - GET
+exports.updPwdGet = function (req, res){
+	res.render('contrasenya');
+}
+
+//UPDATE contrasenya - POST
+exports.updPwdPost = function (req, res){
+	var pwd = req.body;
+	console.log('CONTRASENYA-UPD-1: '+(pwd.password1));
+	console.log('CONTRASENYA-UPD-2: '+(pwd.password2));
+	res.redirect('/usuari');
+}
 
 //DELETE user
 exports.delUser = function (req, res) {
