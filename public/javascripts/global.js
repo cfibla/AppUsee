@@ -95,6 +95,7 @@ $(document).ready(function (){
     $("#a4div").addClass("hidBig");
     $("#configDiariPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
+    $("#horariDiariPost").removeClass("hidDrop");
   }
     if(pth==="/horari-diari"){
     $("#llista").removeClass("navcolor");
@@ -110,6 +111,7 @@ $(document).ready(function (){
     $("#a4div").addClass("hidBig");
     $("#horariDiariPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
+    $("#horariDiariPost").removeClass("hidDrop");
   }
   if(pth.match("/horari-area/")){
     var areaUrl = pth.split("/");
