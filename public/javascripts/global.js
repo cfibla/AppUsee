@@ -84,7 +84,7 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
   }
-    if(pth==="/contrasenya"){
+  if(pth==="/contrasenya"){
     $("#llista").removeClass("navcolor");
     $("#situ").html("El meu perfil");
     $("#a1").html("Dades personals").attr('href', "/usuari");
@@ -94,7 +94,7 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
   }
-    if(pth==="/horari-config"){
+  if(pth==="/horari-config"){
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -108,7 +108,7 @@ $(document).ready(function (){
     $("#a4div").addClass("hidBig");
     $("#configDiariPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
-    $("#horariDiariPost").removeClass("hidDrop");
+    $("#horariDiariPost_2").removeClass("hidDrop");
   }
     if(pth==="/horari-diari"){
     $("#llista").removeClass("navcolor");
@@ -122,9 +122,9 @@ $(document).ready(function (){
     $("#a2div").addClass("navcolorside");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
-    $("#horariDiariPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
-    $("#horariDiariPost").removeClass("hidDrop");
+    $("#horariDiariPost").removeClass("hidBig");
+    $("#horariDiariPost_2").removeClass("hidDrop");
   }
   if(pth.match("/horari-area/")){
     var areaUrl = pth.split("/");
@@ -144,6 +144,7 @@ $(document).ready(function (){
     $("#areasPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
     $("#areasDrop").addClass("navcolorside");
+    $("#areasPost_2").removeClass("hidDrop");
   }
 
 //TOOLTIPS

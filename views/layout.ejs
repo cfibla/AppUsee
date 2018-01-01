@@ -43,7 +43,8 @@
         <a class="navbar-brand" href="<%=ruta%>">
           <strong>appEscola</strong>
         </a>
-        <button type="submit" form = "horari_post" class="btn btn-default hidBig hidDrop" id="horariDiariPost">Desa l'horari</button>
+        <button type="submit" form = "horari_post" class="btn btn-default hidBig hidDrop" id="horariDiariPost_2">Desa l'horari</button>
+        <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidBig hidDrop" id="areasPost_2">Desa</button>
         <div class="collapse navbar-collapse" id="navbarNav1">       
           <%if (!session.user){%>
             <ul class="nav navbar-nav ml-auto">
@@ -71,11 +72,19 @@
                   <%}%>
                   <% if (!session.user.horari) {%>
                     <li id="crearHoraris" class="nav-item"><a class="nav-link" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li>
-                    <%} else {%>
+                  <%} else {%>
                     <li id="horari-menu" class="nav-item"><a class="nav-link" href="/horari-diari">Horaris</a></li>
                     <li id="configHorari" class="nav-item hidBig"><a class="nav-link" href="/horari-config">Configurar horari</a></li>
-                    <li id="diariHorari" class="nav-item hidBig"><a class="nav-link" href="/horari-diari">Horari diari</a></li>                 
-                <%}%>
+                    <li id="diariHorari" class="nav-item hidBig"><a class="nav-link" href="/horari-diari">Horari diari</a></li>
+                    <li id="area" class="nav-item dropdown hidBig">
+                      <a class="nav-link dropdown-toggle" id="areasDr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
+                      <div class="dropdown-menu dropAside" aria-labelledby="areasDr">
+                        <% for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
+                          <a class="dropdown-item" href="/horari-area/<%=session.user.horari.areasArray[i]%>"><%=session.user.horari.areasArray[i]%></a>
+                        <% } %>
+                      </div>
+                    </li>
+                  <%}%>
               </ul>
             
               <ul class="navbar-nav">
@@ -116,11 +125,10 @@
       </div>
       <div class="col-md-12 hid sidelink" id="a2div">
         <a id="a2"></a>
-          <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidDrop" id="horariDiariPost">Desa</button>
+          <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidBig" id="horariDiariPost">Desa</button>
       </div>
       <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
       <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
-
       
         <% if (session.user.horari) {
           if(session.user.horari.areasArray){%>
