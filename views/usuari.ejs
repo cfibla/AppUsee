@@ -89,28 +89,17 @@
               <option value="At. diversitat">At. diversitat</option>
             </select>
           </div>
-
+          <div class="container">
+            <span class="col-md-5 float-right">
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" href="/javascripts/modals/deleteUser.ejs" data-id="<%=usuari._id%>" data-mestre="<%=mestre%>">Donar-me de baixa</button>
+              <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
+            </span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </form>
-
-<div class="container">
-  <div class="clearfix float-right">
-    <% 
-    var li = "/list";
-    if(session.user.mestre === "ee"){
-      li = "/list_EE"}
-    %>
-
-    <span class="col-md-5">
-<!--      <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna a la llista</span></a> -->
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" href="/javascripts/modals/deleteUser.ejs" data-id="<%=usuari._id%>" data-mestre="<%=mestre%>">Donar-me de baixa</button>
-      <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
-    </span>
-  </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="deleteUserModal" role="dialog">
