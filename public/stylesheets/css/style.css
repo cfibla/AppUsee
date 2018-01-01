@@ -399,13 +399,24 @@ span.glyphicon-user {
 }
 
 .fila2 {
-    margin: 5px;
-    padding-top: .5em;
+    /*margin: 5px;*/
+    padding-top: 1em;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    height: 40px;
+    /*border-radius: 5px;*/
+    height: 60px;
     text-align: center;
-    background: #2BBBAD;
+    background: #bbb;
+    /*color: white;*/
+}
+
+.fila3 {
+    /*margin: 5px;*/
+    padding-top: 1.5em;
+    border: 1px solid #ccc;
+    /*border-radius: 5px;*/
+    height: 80px;
+    text-align: center;
+    background: #aaa;
     /*color: white;*/
 }
 
@@ -436,14 +447,14 @@ span.glyphicon-user {
     border: 1px solid #bbb;
     font-size: 150%;
     background: #008577;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     color: white;
 }
 
 .horesDiari {
     padding:.5em;
     border: 1px solid #bbb;
-    border-radius: 10px;
+   /* border-radius: 10px;*/
     min-height: 100px;
 }
 

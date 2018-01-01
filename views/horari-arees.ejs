@@ -24,7 +24,7 @@
           var mes_1 = horari[i].data.split('/');
           var mes = mes_1[1];
         %>
-        <div class="col-md-6 <%=mes%>" id="<%='div_' + daata%>" style="margin-top: 20px;">
+        <div class="col-md-12 <%=mes%>" id="<%='div_' + daata%>" style="margin-top: 20px;">
           <input type="hidden" name="data" value=<%=[horari[i].data]%>>
           <input type="hidden" name="hora" value=<%=[horari[i].hora]%>>
           <div class="horesDiari" id="<%=mes%>">
