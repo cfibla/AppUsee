@@ -399,25 +399,21 @@ span.glyphicon-user {
 }
 
 .fila2 {
-    /*margin: 5px;*/
-    padding-top: 1em;
-    border: 1px solid #ccc;
-    /*border-radius: 5px;*/
+    padding-top: .2em;
     height: 60px;
     text-align: center;
     background: #bbb;
-    /*color: white;*/
+    font-size: 2em;
+    color: white;
 }
 
 .fila3 {
-    /*margin: 5px;*/
-    padding-top: 1.5em;
-    border: 1px solid #ccc;
-    /*border-radius: 5px;*/
+    padding-top: .5em;
     height: 80px;
     text-align: center;
     background: #aaa;
-    /*color: white;*/
+    font-size: 2em;
+    color: white;
 }
 
 .hores {
@@ -441,6 +437,10 @@ span.glyphicon-user {
 .link {
     color:#464646;
 }
+
+.titleHora {
+    font-size:1.3em;
+}
 .diaDiari {
     margin-top: 2em;
     padding: .5em;
@@ -454,7 +454,6 @@ span.glyphicon-user {
 .horesDiari {
     padding:.5em;
     border: 1px solid #bbb;
-   /* border-radius: 10px;*/
     min-height: 100px;
 }
 
