@@ -1,4 +1,5 @@
 var models = require('../models/index');
+var bcrypt = require ('bcrypt');
 
 // Nou user GET
 exports.nouUser = function(req, res) {
@@ -42,6 +43,7 @@ exports.createUser = function (req, res){
 							escola: user.escola,
 							centre: scl._id
 						});
+						nouUser.password = bcrypt.hashSync(req.body.password, 10);
 						nouUser.save(function (error, user){
 							if (error) {
 								res.json(error);
@@ -84,6 +86,7 @@ exports.createUser = function (req, res){
 							escola: user.escola,
 							centre: eskola._id
 						});
+						nouUser.password = bcrypt.hashSync(req.body.password, 10);
 						nouUser.save(function (error, user){
 							if (error) {
 								res.json(error);
@@ -153,7 +156,7 @@ exports.update = function (req, res){
 };
 //UPDATE contrasenya - GET
 exports.updPwdGet = function (req, res){
-	res.render('contrasenya');
+	res.render('contrasenya', {msg:''});
 }
 
 //UPDATE contrasenya - POST
@@ -161,7 +164,11 @@ exports.updPwdPost = function (req, res){
 	var pwd = req.body;
 	console.log('CONTRASENYA-UPD-1: '+(pwd.password1));
 	console.log('CONTRASENYA-UPD-2: '+(pwd.password2));
-	res.redirect('/usuari');
+	if(pwd.password1 != pwd.password2){
+		res.render('contrasenya', {msg:'No coincideixen les contrasenyes'});
+	} else {
+		res.render('contrasenya', {msg:'La contrasenya ha estat canviada'});
+	}
 }
 
 //DELETE user

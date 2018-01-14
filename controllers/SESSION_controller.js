@@ -1,4 +1,7 @@
+'use strict';
 var models = require('../models/index');
+var bcrypt = require('bcrypt');
+//var jwt = require('jsonwebtoken');
 
 /* GET home page. */
 exports.new = function(req, res) {
@@ -36,7 +39,7 @@ exports.login = function (req, res, next){
 	var email = req.body.email;
 	var password = req.body.password;
 
-	models.User.findOne({email: email, password: password})
+	models.User.findOne({email: email})
 	.populate('horari centre')
 	.exec(function(error, user){
 		if (error){
@@ -44,21 +47,26 @@ exports.login = function (req, res, next){
 		}
 		if(!user) {
 			next();
-		} else {
-			req.session.user = user;
-			if(req.session.user.horari){
-				horariId = req.session.user.horari;
-				models.Horari.find({_id: horariId}, function(err, horari){
-					if(err){
-						console.log(err);
-					} else {
-						console.log('LOGIN')
-						res.redirect('/list');
-					}
-				})
+		}
+		if(user) {
+			if(bcrypt.compareSync(password, user.password)){
+				req.session.user = user;
+				if(req.session.user.horari){
+					horariId = req.session.user.horari;
+					models.Horari.find({_id: horariId}, function(err, horari){
+						if(err){
+							console.log(err);
+						} else {
+							res.redirect('/list');
+						}
+					})
+				} else {
+					res.redirect('/list');
+				}
 			} else {
-				res.redirect('/list');
+				res.redirect('/');
 			}
+			
 		}
 	});
 };
@@ -67,61 +75,61 @@ exports.login_EE = function (req, res, next){
 	var email = req.body.email;
 	var password = req.body.password;
 
-	models.UserEe.findOne({email: email, password: password}, function(error, user){
-		if(error){
+	models.UserEe.findOne({email: email})
+	.populate('horari centre')
+	.exec(function(error, user){
+		if (error){
 			console.log(error);
 		}
-
 		if(!user) {
 			next();
-//			console.log('Usuari inexistent'); //CANVIAR PER MISSATGE - ALERT
-//			res.redirect('/');
-		} else {
-		
+		}
+		if(user) {
+			if(bcrypt.compareSync(password, user.password)){
 				req.session.user = user;
-
-				models.Alumne.find(function(error, docs){
-				if (error){
-					console.log(error);
+				if(req.session.user.horari){
+					horariId = req.session.user.horari;
+					models.Horari.find({_id: horariId}, function(err, horari){
+						if(err){
+							console.log(err);
+						} else {
+							res.redirect('/list_EE');
+						}
+					})
 				} else {
-					
 					res.redirect('/list_EE');
-
-					}
-			});}
-
-	})
+				}
+			} else {
+				res.redirect('/');
+			}
+			
+		}
+	});
 };
 
 exports.loginCentre = function(req, res){
 	var email = req.body.email;
 	var password = req.body.password;
 
-	models.Centre.findOne({email: email, password: password}, function(error, user){
-		if(error){
+	models.Centre.findOne({email: email})
+//	.populate('horari centre')
+	.exec(function(error, user){
+		if (error){
 			console.log(error);
 		}
-
 		if(!user) {
-
-			console.log('Usuari inexistent'); //CANVIAR PER MISSATGE - ALERT
-			res.redirect('/');
-		} else {
-		
+			next();
+		}
+		if(user) {
+			if(bcrypt.compareSync(password, user.password)){
 				req.session.user = user;
-
-				models.Alumne.find(function(error, docs){
-				if (error){
-					console.log(error);
-				} else {
-					
-					res.redirect('/centre');
-
-					}
-			});}
-
-	})
-
+				res.redirect('/centre');
+			} else {
+				res.redirect('/');
+			}
+			
+		}
+	});
 }
 
 exports.loginRequired = function(req, res, next){
