@@ -78,7 +78,7 @@ $(document).ready(function (){
     $("#llista").removeClass("navcolor");
     $("#situ").html("El meu perfil");
     $("#a1").html("Dades personals").attr('href', "/usuari");
-    //$("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
+    $("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
     $("#a1div").addClass("navcolorside");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");

@@ -173,7 +173,6 @@ exports.updPwdPost = function (req, res){
 
 //DELETE user
 exports.delUser = function (req, res) {
-
 	var userId = req.params.id;
 	models.User.findByIdAndRemove(userId, function(error, user){
 		if (error){
