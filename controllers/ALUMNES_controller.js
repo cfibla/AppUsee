@@ -41,96 +41,91 @@ exports.create = function (req, res){
 	var sersoc = alum['checks.29'];
 
 	if (!alum.nom||!alum.cognom1||!alum.curs){
-		models.Alumne.find(function(error, docs){
-		if (error){
-			console.log(error);
-		} else {
-			res.json(alum);
-			};
-		});
+		res.json('Alguns camps són obligatoris')
 	} else {
-		models.Centre.find({"_id": scola}, function(error, esc){
-		if (error){
-			console.log('error: '+ error);
-		} else {
-		//TODAY
-			var today = new Date();
-			var dd = today.getDate();
-			var mm = today.getMonth()+1; //January is 0!
-			var yyyy = today.getFullYear();
+		models.Alumne.find(function(error, alumne){
+			if (error){
+				console.log('error: '+ error);
+			} else {
+			//TODAY
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1; //January is 0!
+				var yyyy = today.getFullYear();
 
-			if(dd<10) {
-				dd='0'+dd
-			} 
-			if(mm<10) {
-				mm='0'+mm
-			} 
-			today = dd+'/'+mm+'/'+yyyy;
+				if(dd<10) {
+					dd='0'+dd
+				} 
+				if(mm<10) {
+					mm='0'+mm
+				} 
+				today = dd+'/'+mm+'/'+yyyy;
 
-			if(!alum.naixement){
-				alum.naixement = new Date();
-			};
+				if(!alum.naixement){
+					alum.naixement = new Date();
+				};
 
-			var nouAlumne = new models.Alumne({
-				nomAlumne: alum.nom,
-				cognomAlumne1: alum.cognom1,
-				cognomAlumne2: alum.cognom2,
-				dataNaixement: alum.naixement,
-				seguretatSoc: alum.sSocial,
+				var nouAlumne = new models.Alumne({
+					nomAlumne: alum.nom,
+					cognomAlumne1: alum.cognom1,
+					cognomAlumne2: alum.cognom2,
+					dataNaixement: alum.naixement,
+					seguretatSoc: alum.sSocial,
 
-				codiEscola: req.session.user.centre._id,
-				curs: alum.curs,
-				eeUsee: alum.eeUsee,
+					codialumneola: req.session.user.centre._id,
+					curs: alum.curs,
+					eeUsee: alum.eeUsee,
 
-				tutor: req.session.user,
-				centre:req.session.user.centre,
+					tutor: req.session.user,
+					centre:req.session.user.centre,
 
-				assist: [{
-					date: today,
-					mati: null,
-					tarda: null,
-					dataIso: new Date()
-				}],
-				checks: [false, false, aill, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, sersoc, 
-				false, false, false, false, false],
+					assist: [{
+						date: today,
+						mati: null,
+						tarda: null,
+						dataIso: new Date()
+					}],
+					checks: [false, false, aill, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, sersoc, 
+					false, false, false, false, false],
 
-				radios: [rep, false, false, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, false, 
-				false, false, false, false, false],
+					radios: [rep, false, false, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, false, 
+					false, false, false, false, false],
 
-				observacions: "",
-				mailAlum: "",
-				passwordAl: "",
-				telefon: "",
-				altresEsp: "",
-				atServPrivats: "",
-				percentDim: "",
-				motiuDic: "",
-				anyVal: "",
-				derivacio: "",
-				motiuDer: ""
+					observacions: "",
+					mailAlum: "",
+					passwordAl: "",
+					telefon: "",
+					altresEsp: "",
+					atServPrivats: "",
+					percentDim: "",
+					motiuDic: "",
+					anyVal: "",
+					derivacio: "",
+					motiuDer: ""
 
-			});
-			nouAlumne.save(function(error){
-				if (error) {
-					return res.json(error);
-				} else{
-					return res.json(nouAlumne)
-				}
-			});
+				});
+				nouAlumne.save(function(error){
+					if (error) {
+						return res.json(error);
+					} else{
+						return res.json(nouAlumne);
+					}
+				});
 			};
 		});
 	}
 };
+
 
 //Modificar dades - PUT
 exports.update = function (req, res){
@@ -215,59 +210,63 @@ exports.assisGet = function (req, res) {
 
 };
 
-
-
 //Assistència d'alumnes - POST
 exports.assisPost = function (req, res) {
-
 	var alum = req.body;
 	var alumI = alum.i;
 
-	for (var i =0; i < alumI; i ++) {
-		var alumneId = alum['alumneId.'+i];
-		var alumArray = alum['arraylng.'+i];
+	function queryAssist(index,callback){
+		if (index < alumI){
+			var alumneId = alum['alumneId.'+index];
+			var alumArray = alum['arraylng.'+index];
+			var alumDate = alum['assist.date.'+index];
+			var alumMati = alum['assist.mati.'+index];
+			var alumTarda = alum['assist.tarda.'+index];
 
-		var alumDate = alum['assist.date.'+i];
-		var alumMati = alum['assist.mati.'+i];
-		var alumTarda = alum['assist.tarda.'+i];
+			var alumAssist = {};
+			alumAssist['date']= alumDate;
+			alumAssist['mati']= alumMati;
+			alumAssist['tarda'] = alumTarda;
 
-		var alumAssist = {};
-
-		alumAssist['date']= alumDate;
-		alumAssist['mati']= alumMati;
-		alumAssist['tarda'] = alumTarda;
-		if (!alumAssist['dataIso']){
-
-			//TO ISODATE
-
-			darr1 = alumDate.split("/");    // ["29", "1", "2016"]
-			var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
-			                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
-			//var data1Iso = data1.toISOString();
-			//var data1IsoFull = 'ISODate("'+ data1Iso +'")';
-
-			                         //2016-01-28T18:30:00.000Z
-
-			alumAssist['dataIso'] = dataI;
+			if (!alumAssist['dataIso']){
+				//TO ISODATE
+				darr1 = alumDate.split("/");    // ["29", "1", "2016"]
+				var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
+				                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
+				//var data1Iso = data1.toISOString();
+				//var data1IsoFull = 'ISODate("'+ data1Iso +'")';
+				                         //2016-01-28T18:30:00.000Z
+				alumAssist['dataIso'] = dataI;
+			}
+			//ELIMINA ASSIST amb mateixa data
+			models.Alumne.findByIdAndUpdate(alumneId, {$pull: {assist:{date: alumDate}, $push: {assist: alumAssist}}},{multi: true},
+				function (error, pullalumne){
+					if (error){
+						res.json(error);
+					} else {
+						console.log('DATA BORRADA '+alumneId+ ": " +alumDate);
+						//UPDATE ASSIST
+						models.Alumne.findByIdAndUpdate(alumneId, {$push: {assist: alumAssist}},{multi: true},
+							function (error, pushalumne){
+								if (error) res.json(error);
+								console.log('ALUMASSIST UPDATE '+alumneId+ ": " + JSON.stringify(alumAssist));
+						});
+					}
+				}
+			);
+			console.log('IF '+index);
+			queryAssist(index+1, callback);
+		} else {
+			callback();
+			console.log('ELSE');
 		}
-
-		//ELIMINA ASSIST amb mateixa data
-		models.Alumne.findByIdAndUpdate(alumneId, {$pull: {assist:{date: alumDate}}},{multi: true},
-
-		function (error, alumne){
-		if (error) res.json(error);
-		});
-
-		//UPDATE ASSIST
-		models.Alumne.findByIdAndUpdate(alumneId, {$push: {assist: alumAssist}},
-
-		function (error, alumne){
-			if (error) res.json(error);
-		});
-	};
-	
-		res.redirect('/assistencia');
-
+	}
+	queryAssist(0, function(){
+		console.log('PRE ASSISTENCIA');
+		setTimeout(function(){ res.redirect('/assistencia'); }, 3000);
+		
+		console.log('POST ASSISTENCIA');
+	})
 };
 
 
