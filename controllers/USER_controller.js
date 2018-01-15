@@ -162,14 +162,30 @@ exports.updPwdGet = function (req, res){
 //UPDATE contrasenya - POST
 exports.updPwdPost = function (req, res){
 	var pwd = req.body;
+	var userId = req.session.user._id;
+
 	console.log('CONTRASENYA-UPD-1: '+(pwd.password1));
 	console.log('CONTRASENYA-UPD-2: '+(pwd.password2));
 	if(pwd.password1 != pwd.password2){
 		res.render('contrasenya', {msg:'No coincideixen les contrasenyes'});
 	} else {
-		res.render('contrasenya', {msg:'La contrasenya ha estat canviada'});
+		models.User.findOne({_id:userId}, function(error, user){
+			if (error){
+				res.json(error);
+			} else {
+				user.password = bcrypt.hashSync(pwd.password1, 10);
+				user.save(function (error, user){
+					if (error) {
+						res.json(error);
+					} else {
+						res.render('contrasenya', {msg:'La contrasenya ha estat canviada'});
+					}
+				});
+			}
+		});
 	}
 }
+
 
 //DELETE user
 exports.delUser = function (req, res) {
