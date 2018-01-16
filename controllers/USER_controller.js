@@ -121,18 +121,20 @@ exports.createUser = function (req, res){
 
 //GET USER / USER-EE PROFILE 
 exports.profile = function (req, res){
+
 	var userId = req.session.user._id;
-	console.log(req.flash());
+	var msg =  req.flash('passwordMsg');
+	
 	models.User.findById(userId, function(error, usuari){
 		if (usuari) {
-			res.render('usuari', {usuari: usuari, passwordMsg: req.flash('passwordMsg')});
+			res.render('usuari', {usuari: usuari, passwordMsg: msg});
 		}
 		if (!usuari) {
 			models.UserEe.findById(userId, function(error, usuari){
 			if (error) {
 				return res.json(error);
 			} else {
-				res.render('usuari', {usuari: usuari, passwordMsg: req.flash('passwordMsg')});
+				res.render('usuari', {usuari: usuari,  passwordMsg: msg});
 			}
 			});
 		};
