@@ -30,6 +30,7 @@
       mst = "Tutor"
       usuariUpd = "usuari"
     }
+    console.log(passwordMsg);
   %>  
   
 <form role="form" method="post" action="/<%=usuariUpd%>/<%=usuari._id%>?_method=put" id="usuari_dades">
@@ -37,6 +38,13 @@
     <div class="row">
       <div class="md-form col-12">
         <div class="row">
+          <% if (typeof passwordMsg !='undefined' && passwordMsg){ %>
+            <div class="alert alert-success col-md-6">
+              <%-passwordMsg%>
+            </div>
+            <div class="col-md-6 offset-md-6">
+            </div>
+          <% } %>
 
           <div class="md-form col-md-3">
             <label for="nom_usuari">Nom</label>

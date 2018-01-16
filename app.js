@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require ('method-override');
 var session = require ('express-session');
+var flash = require('req-flash');
 
 
 var routes = require('./routes/index');
@@ -26,9 +27,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true }));
 app.use(cookieParser('appE'));
-app.use(session({secret:'AppEscola2016', resave: false, saveUninitialized: false}))
+app.use(session({secret:'AppEscola2016', resave: false, saveUninitialized: true}))
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 /*
 //HTTPS
 app.all('*', ensureSecure); // at top of routing calls

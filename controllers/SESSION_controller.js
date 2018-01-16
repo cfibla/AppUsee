@@ -118,7 +118,7 @@ exports.loginCentre = function(req, res){
 			console.log(error);
 		}
 		if(!user) {
-			next();
+			res.redirect('/');
 		}
 		if(user) {
 			if(bcrypt.compareSync(password, user.password)){

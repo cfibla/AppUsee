@@ -1,5 +1,4 @@
 $(document).ready(function (){
-
   //NAVBAR
   var pth = window.location.pathname; // Returns path only
 

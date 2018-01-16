@@ -122,17 +122,17 @@ exports.createUser = function (req, res){
 //GET USER / USER-EE PROFILE 
 exports.profile = function (req, res){
 	var userId = req.session.user._id;
-	console.log('USERID: '+userId);
+	console.log(req.flash());
 	models.User.findById(userId, function(error, usuari){
 		if (usuari) {
-			res.render('usuari', {usuari: usuari});
+			res.render('usuari', {usuari: usuari, passwordMsg: req.flash('passwordMsg')});
 		}
 		if (!usuari) {
 			models.UserEe.findById(userId, function(error, usuari){
 			if (error) {
 				return res.json(error);
 			} else {
-				res.render('usuari', {usuari: usuari});
+				res.render('usuari', {usuari: usuari, passwordMsg: req.flash('passwordMsg')});
 			}
 			});
 		};
@@ -150,7 +150,7 @@ exports.update = function (req, res){
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('usuari', {usuari: usuari});
+			res.redirect('/usuari');
 		}
 	});
 };
@@ -178,7 +178,8 @@ exports.updPwdPost = function (req, res){
 					if (error) {
 						res.json(error);
 					} else {
-						res.render('contrasenya', {msg:'La contrasenya ha estat canviada'});
+						req.flash('passwordMsg', 'La vostra contrasenya ha estat canviada');
+						res.redirect('/usuari');
 					}
 				});
 			}
