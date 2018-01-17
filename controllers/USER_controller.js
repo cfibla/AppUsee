@@ -158,7 +158,8 @@ exports.update = function (req, res){
 };
 //UPDATE contrasenya - GET
 exports.updPwdGet = function (req, res){
-	res.render('contrasenya', {msg:''});
+	var msg =  req.flash('passwordMsg');
+	res.render('contrasenya', {passwordMsg: msg});
 }
 
 //UPDATE contrasenya - POST
@@ -166,10 +167,9 @@ exports.updPwdPost = function (req, res){
 	var pwd = req.body;
 	var userId = req.session.user._id;
 
-	console.log('CONTRASENYA-UPD-1: '+(pwd.password1));
-	console.log('CONTRASENYA-UPD-2: '+(pwd.password2));
 	if(pwd.password1 != pwd.password2){
-		res.render('contrasenya', {msg:'No coincideixen les contrasenyes'});
+		req.flash('passwordMsg', 'Les dues contrasenyes no coincideixen');
+		res.redirect('/contrasenya');
 	} else {
 		models.User.findOne({_id:userId}, function(error, user){
 			if (error){
