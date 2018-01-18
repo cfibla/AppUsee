@@ -33,17 +33,17 @@ router.get('/centre',				centreController.centreMain);
 //rutas USER
 router.get('/usuari_nou',			userController.nouUser);
 router.post('/usuari_crear',		userController.createUser);
-router.get('/usuari',				userController.profile);
-router.get('/contrasenya',			userController.updPwdGet);
-router.put('/contrasenya-upd',		userController.updPwdPost);
-router.put('/usuari/:id',			userController.update);
-router.put('/usuariD/:id',			userController.delUser);
+router.get('/usuari',				sessionController.loginRequired, userController.profile);
+router.get('/contrasenya',			sessionController.loginRequired, userController.updPwdGet);
+router.put('/contrasenya-upd',		sessionController.loginRequired, userController.updPwdPost);
+router.put('/usuari/:id',			sessionController.loginRequired, userController.update);
+router.put('/usuariD/:id',			sessionController.loginRequired, userController.delUser);
 
 //rutas USER_EE
 router.get('/usuari_ee_nou',		userEeController.nouUser);
 router.post('/usuari_ee_crear',		userEeController.createUser);
-router.put('/usuari_ee/:id',		userEeController.update);
-router.put('/usuari_ee_D/:id',		userEeController.delUser);
+router.put('/usuari_ee/:id',		sessionController.loginRequired, userEeController.update);
+router.put('/usuari_ee_D/:id',		sessionController.loginRequired, userEeController.delUser);
 
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);
