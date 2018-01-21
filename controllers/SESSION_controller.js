@@ -38,6 +38,7 @@ exports.new = function(req, res) {
 exports.login = function (req, res, next){
 	var email = req.body.email;
 	var password = req.body.password;
+	var msg =  req.flash('Aquí va el missatge');
 
 	models.User.findOne({email: email})
 	.populate('horari centre')
@@ -52,7 +53,7 @@ exports.login = function (req, res, next){
 			if(bcrypt.compareSync(password, user.password)){
 				req.session.user = user;
 				if(req.session.user.horari){
-					horariId = req.session.user.horari;
+					var horariId = req.session.user.horari;
 					models.Horari.find({_id: horariId}, function(err, horari){
 						if(err){
 							console.log(err);
