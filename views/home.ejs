@@ -1,202 +1,134 @@
 <div class="container">
-
-    <!-- Jumbotron Header -->
-    <header class="jumbotron my-4" id="leadJumbo">
-        <h1 class="display-3">Benvinguts a l'<strong>appEscola</strong></h1>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="panel panel-login">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <a href="#" class="active" id="login-form-link">Entrar</a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="#" id="register-form-link">Registar-me</a>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">   
-                                    <div class="modal-body">
-                                      <form role="form" data-toggle ="validator" method="post" action="/login" id="login-form">
-                                        <div class="md-form">
-                                          <i class="fa fa-envelope prefix"></i>
-                                          <input type="email" data-error="Si us plau, empleneu aquest apartat" class="form-control" id="usrname"  name="email" required="true">
-                                          <label for="usrname">Correu electrònic</label>
-                                          <div class="help-block with-errors"></div>
-                                        </div>
-                                        <div class="md-form">
-                                        <i class="fa fa-lock prefix"></i>
-                                          <input type="password" class="form-control" id="psw" data-error="Si us plau, empleneu aquest apartat" name="password" required="true">
-                                          <label for="psw">Contrasenya</label>
-                                          <div class="help-block with-errors"></div>
-                                        </div>
-                                            <div class="col-sm-6 col-sm-offset-3">
-
-                                      <button type="submit" class="form-control btn btn-login" form="login-form">Entra</button>
-
-                                    </div>
-                                        <p><a href="#">Heu oblidat la vostra contrasenya?</a></p>
-                                        <div class="checkbox">
-                                          <label><input type="checkbox" value="" checked>Recorda'm</label>
-                                        </div>
-                                      </form>
-                                    </div>
-
-                                    <form id="formUser" role="form">
-
-        <div class="row">
-          <div class="md-form col-md-6">
-          <label for="nom_user">Nom</label>
-            <input type="text" class="form-control" id="nom_user" name="nom" required="true">
-          </div>
-
-          <div class="md-form col-md-6">
-            <label for="cognom_user">Cognom</label>
-            <input type="text" class="form-control" id="cognom_user" name="cognom" required="true">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="md-form col-md-6">
-            <label for="codi_esc_tutor">Codi escola</label>
-            <input type="number" class="form-control" id="codi_esc_tutor" name="escola" required="true">
-          </div>
-
-          <div class="md-form col-md-6">
-            <label for="nom_esc_tutor">Nom escola (sense "Escola")</label>
-            <input type="text" class="form-control" id="nom_esc_tutor" name="escolanom" required="true">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="md-form col-md-12">
-            <select class="form-control" id="curs_act" name="curs" required="true">
-              <option value="">Seleccioneu curs</option>
-              <option value="1r A">1r A</option>
-              <option value="1r B">1r B</option>
-              <option value="2n A">2n A</option>
-              <option value="2n B">2n B</option>
-              <option value="3r A">3r A</option>
-              <option value="3r B">3r B</option>
-              <option value="4t A">4t A</option>
-              <option value="4t B">4t B</option>
-              <option value="5è A">5è A</option>
-              <option value="5è B">5è B</option>
-              <option value="6è A">6è A</option>
-              <option value="6è B">6è B</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row">
-        <div class="md-form col-md-12">
-          <label for="email_user">Correu electrònic</label>
-          <input type="email" class="form-control" id="email_user" name="email" required="true">
-        </div>
-
-        <div class="md-form col-md-12" style="
-    margin-bottom: 0px;">
-          <label for="password_user">Contrasenya</label>
-          <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya" required="true">
-          <div class="md-form" style="
-    margin-bottom: 0px;"><small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small></div><br>
-        </div></div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="submit" form="formUser" class="btn btn-success btn-block">Envia la informació</button>
-    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Jumbotron Header -->
+  <header class="jumbotron my-4" id="leadJumbo">
+    <h1 class="display-3">Benvinguts a l'<strong>appEscola</strong></h1>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="panel panel-login">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-6">
+                    <a href="#" class="active" id="login-form-link">Entrar</a>
                 </div>
+                <div class="col-md-6">
+                    <a href="#" id="register-form-link">Registar-me</a>
+                </div>
+              </div>
+              <hr>
             </div>
-        </div>
-        <p class="lead">Aquesta app és en fase de proves. Feu arribar qualsevol proposta de millora!</p>
-        <p class="lead">Si voleu provar l'aplicació podeu accedir-hi de dues maneres:</p>
-        <p><strong>Tutors primària</strong></p>
-        <p>Cliqueu a "Entra" i introduiu els següents paràmetres</p>
-        <p>usuari: demo@demo.cat</p>
-        <p>contrasenya: demo</p>
-        <br>
-        <p><strong>Tutors EE - SIEI -USEE</strong></p>
-        <p>Cliqueu a "Entra" i introduiu els següents paràmetres</p>
-        <p>usuari: demoee@demo.cat</p>
-        <p>contrasenya: demo</p>
-        <br>
-        <p class="lead">Investigueu tot el que volgueu! Podeu crear alumnes, modificar i esborrar les seves dades. Podeu fer un seguiment de les seves adaptacions, de les seves necessitats i de la seva progressió.</p>
-        <br>
-        <p class="lead">Si us agrada el funcionament de l'appEscola, doneu-vos d'alta clicant a "Nou usuari/a", indiqueu si sou tutor d'aula o EE - SIEI i introduiu les vostres dades. A partir d'ara podreu entrar clicant a "Entra".</p>
-        <br>
-<!--
-        <a href="#" class="btn btn-primary btn-lg">Donar-me d'alta</a>
-        <a href="#" class="btn btn-success btn-lg">Entra</a>
-        -->
-    </header>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">  
+                  <div class="modal-body">
+                    <form role="form" data-toggle ="validator" method="post" action="/login" id="login-form" style="display: block;">
+                      <div class="md-form">
+                        <i class="fa fa-envelope prefix"></i>
+                        <input type="email" data-error="Si us plau, empleneu aquest apartat" class="form-control" id="usrname"  name="email" required="true">
+                        <label for="usrname">Correu electrònic</label>
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <div class="md-form">
+                      <i class="fa fa-lock prefix"></i>
+                        <input type="password" class="form-control" id="psw" data-error="Si us plau, empleneu aquest apartat" name="password" required="true">
+                        <label for="psw">Contrasenya</label>
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <div class="col-sm-6 col-sm-offset-3">
+                        <button type="submit" class="form-control btn btn-login" form="login-form">Entra</button>
+                      </div>
+                      <p>
+                        <a href="#">Heu oblidat la vostra contrasenya?</a>
+                      </p>
+                      <div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Recorda'm</label>
+                      </div>
+                    </form>
+                  </div>
 
-    <!-- Page Features -->
+                  <div class="modal-body">
+                    <form id="formUser" role="form" style="display: none;">
+                      <div class="md-form col-md-6">
+                        <label for="nom_user">Nom</label>
+                        <input type="text" class="form-control" id="nom_user" name="nom" required="true">
+                      </div>
+                      <div class="md-form col-md-6">
+                        <label for="cognom_user">Cognom</label>
+                        <input type="text" class="form-control" id="cognom_user" name="cognom" required="true">
+                      </div>
+                      <div class="row">
+                        <div class="md-form col-md-6">
+                          <label for="codi_esc_tutor">Codi escola</label>
+                          <input type="number" class="form-control" id="codi_esc_tutor" name="escola" required="true">
+                        </div>
+                        <div class="md-form col-md-6">
+                          <label for="nom_esc_tutor">Nom escola (sense "Escola")</label>
+                          <input type="text" class="form-control" id="nom_esc_tutor" name="escolanom" required="true">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="md-form col-md-12">
+                          <select class="form-control" id="curs_act" name="curs" required="true">
+                            <option value="">Seleccioneu curs</option>
+                            <option value="1r A">1r A</option>
+                            <option value="1r B">1r B</option>
+                            <option value="2n A">2n A</option>
+                            <option value="2n B">2n B</option>
+                            <option value="3r A">3r A</option>
+                            <option value="3r B">3r B</option>
+                            <option value="4t A">4t A</option>
+                            <option value="4t B">4t B</option>
+                            <option value="5è A">5è A</option>
+                            <option value="5è B">5è B</option>
+                            <option value="6è A">6è A</option>
+                            <option value="6è B">6è B</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="md-form col-md-12">
+                          <label for="email_user">Correu electrònic</label>
+                          <input type="email" class="form-control" id="email_user" name="email" required="true">
+                        </div>
+                      </div>
+                      <div class="md-form col-md-12" style="margin-bottom: 0px;">
+                        <label for="password_user">Contrasenya</label>
+                        <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya" required="true">
+                        <div class="md-form" style="margin-bottom: 0px;">
+                          <small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small>
+                        </div><br>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" form="formUser" class="btn btn-success btn-block">Envia la informació</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <p class="lead">Aquesta app és en fase de proves. Feu arribar qualsevol proposta de millora!</p>
+    <p class="lead">Si voleu provar l'aplicació podeu accedir-hi de dues maneres:</p>
+    <p><strong>Tutors primària</strong></p>
+    <p>Cliqueu a "Entra" i introduiu els següents paràmetres</p>
+    <p>usuari: demo@demo.cat</p>
+    <p>contrasenya: demo</p>
+    <br>
+    <p><strong>Tutors EE - SIEI -USEE</strong></p>
+    <p>Cliqueu a "Entra" i introduiu els següents paràmetres</p>
+    <p>usuari: demoee@demo.cat</p>
+    <p>contrasenya: demo</p>
+    <br>
+    <p class="lead">Investigueu tot el que volgueu! Podeu crear alumnes, modificar i esborrar les seves dades. Podeu fer un seguiment de les seves adaptacions, de les seves necessitats i de la seva progressió.</p>
+    <br>
+    <p class="lead">Si us agrada el funcionament de l'appEscola, doneu-vos d'alta clicant a "Nou usuari/a", indiqueu si sou tutor d'aula o EE - SIEI i introduiu les vostres dades. A partir d'ara podreu entrar clicant a "Entra".</p>
+    <br>
     <!--
-    <div class="row text-center">
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- /.row -->
-
+    <a href="#" class="btn btn-primary btn-lg">Donar-me d'alta</a>
+    <a href="#" class="btn btn-success btn-lg">Entra</a>
+    -->
+  </header>
 </div>
