@@ -19,11 +19,12 @@
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-12">  
-                  <div class="modal-body">
+                  
                     <form role="form" data-toggle ="validator" method="post" action="/login" id="login-form" style="display: block;">
+                      <div class="modal-body">
                       <div class="md-form">
                         <i class="fa fa-envelope prefix"></i>
-                        <input type="email" data-error="Si us plau, empleneu aquest apartat" class="form-control" id="usrname"  name="email" required="true">
+                        <input type="email" class="form-control" data-error="Si us plau, empleneu aquest apartat" class="form-control" id="usrname"  name="email" required="true">
                         <label for="usrname">Correu electrònic</label>
                         <div class="help-block with-errors"></div>
                       </div>
@@ -33,6 +34,7 @@
                         <label for="psw">Contrasenya</label>
                         <div class="help-block with-errors"></div>
                       </div>
+
                       <div class="col-sm-6 col-sm-offset-3">
                         <button type="submit" class="form-control btn btn-login" form="login-form">Entra</button>
                       </div>
@@ -41,12 +43,13 @@
                       </p>
                       <div class="checkbox">
                         <label><input type="checkbox" value="" checked>Recorda'm</label>
-                      </div>
+                      </div></div>
                     </form>
-                  </div>
-
-                  <div class="modal-body">
+                  
+                  
                     <form id="formUser" role="form" style="display: none;">
+                      <div class="modal-body">
+                        <div class="row">
                       <div class="md-form col-md-6">
                         <label for="nom_user">Nom</label>
                         <input type="text" class="form-control" id="nom_user" name="nom" required="true">
@@ -54,7 +57,7 @@
                       <div class="md-form col-md-6">
                         <label for="cognom_user">Cognom</label>
                         <input type="text" class="form-control" id="cognom_user" name="cognom" required="true">
-                      </div>
+                      </div></div>
                       <div class="row">
                         <div class="md-form col-md-6">
                           <label for="codi_esc_tutor">Codi escola</label>
@@ -66,9 +69,17 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="md-form col-md-12">
+
+                        <div class="md-form col-md-6">Sóc
+                          <select class="form-control" id="mestres" name="curs" required="true">
+                            <option value="tutor">Tutor</option>
+                            <option value="ee">EE-SIEI</option>
+                          </select>
+                        </div>
+             
+                        <div class="md-form col-md-6">Seleccioneu curs
                           <select class="form-control" id="curs_act" name="curs" required="true">
-                            <option value="">Seleccioneu curs</option>
+                            <option value=""></option>
                             <option value="1r A">1r A</option>
                             <option value="1r B">1r B</option>
                             <option value="2n A">2n A</option>
@@ -84,7 +95,6 @@
                           </select>
                         </div>
                       </div>
-
                       <div class="row">
                         <div class="md-form col-md-12">
                           <label for="email_user">Correu electrònic</label>
@@ -94,15 +104,16 @@
                       <div class="md-form col-md-12" style="margin-bottom: 0px;">
                         <label for="password_user">Contrasenya</label>
                         <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya" required="true">
+
                         <div class="md-form" style="margin-bottom: 0px;">
                           <small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small>
                         </div><br>
                       </div>
                       <div class="modal-footer">
                         <button type="submit" form="formUser" class="btn btn-success btn-block">Envia la informació</button>
-                      </div>
+                      </div></div>
                   </form>
-                </div>
+                
               </div>
             </div>
           </div>
