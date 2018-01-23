@@ -34,18 +34,7 @@
     }
   %>
 
-<!--Navbar-->
-    <nav class="navbar navbar-toggleable-md navbar-dark black fixed-top z-depth-0 scrolling-navbar">
-      <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="<%=ruta%>">
-          <strong>appEscola</strong>
-        </a>
-        <button type="submit" form = "horari_post" class="btn btn-default hidBig hidDrop" id="horariDiariPost_2">Desa l'horari</button>
-        <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidBig hidDrop" id="areasPost_2">Desa</button>
-        <div class="collapse navbar-collapse" id="navbarNav1">       
+     
           <%if (!session.user){%>
           <!--
             <ul class="nav navbar-nav ml-auto">
@@ -64,6 +53,18 @@
               </li>
             </ul>-->
             <%} else {%>
+<!--Navbar-->
+    <nav class="navbar navbar-toggleable-md navbar-dark black fixed-top z-depth-0 scrolling-navbar">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="<%=ruta%>">
+          <strong>appEscola</strong>
+        </a>
+        <button type="submit" form = "horari_post" class="btn btn-default hidBig hidDrop" id="horariDiariPost_2">Desa l'horari</button>
+        <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidBig hidDrop" id="areasPost_2">Desa</button>
+        <div class="collapse navbar-collapse" id="navbarNav1">  
               <ul class="navbar-nav mr-auto offset-md-1">
                 <li id="llista" class="nav-item"><a class="nav-link" href="<%=ruta%>">Llistes<span class="sr-only">(current)</span></a></li>
                 <%if(session.user.mestre === "tutor"){%>
