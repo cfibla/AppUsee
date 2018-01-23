@@ -134,6 +134,9 @@ body {
 }
 
 /*LOGIN*/
+.intro-back{
+    background: #00C851;
+}
 .panel-login {
     margin-top: 50px;
     margin-bottom: 50px;

@@ -47,13 +47,14 @@
         <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidBig hidDrop" id="areasPost_2">Desa</button>
         <div class="collapse navbar-collapse" id="navbarNav1">       
           <%if (!session.user){%>
+          <!--
             <ul class="nav navbar-nav ml-auto">
               <li class="nav-item dropdown btn-group">
                 <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
-                <div class="dropdown-menu dropdown" aria-labelledby="nouUser">
+                <div class="dropdown-menu dropdown" aria-labelledby="nouUser">-->
                   <!--
                 <a class="dropdown-item" data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
-              -->
+              --><!--
                 <a class="dropdown-item" data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Nou tutor/a</a>
                 <a class="dropdown-item" data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Nou tutor/a EE-SIEI</a>
                 </div>
@@ -61,7 +62,7 @@
               <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal"><i class="fa fa-sign-in"></i> Entra</a>
               </li>
-            </ul>
+            </ul>-->
             <%} else {%>
               <ul class="navbar-nav mr-auto offset-md-1">
                 <li id="llista" class="nav-item"><a class="nav-link" href="<%=ruta%>">Llistes<span class="sr-only">(current)</span></a></li>
@@ -149,10 +150,15 @@
 
   </aside>
 <%}%>
-
-  <section class ="mainsection">
+ <%if (!session.user){%>
+ <section class ="mainsection intro-back">
     <%- body %>
   </section>
+ <%} else {%>
+   <section class ="mainsection">
+    <%- body %>
+  </section>
+<%}%>
 
   <footer class="footer">
     <div class="container-fluid">
