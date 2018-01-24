@@ -132,8 +132,14 @@ body {
 @media (min-width: 1200px) {
 
 }
-
+.mainsection {
+    margin-bottom: 10em;
+}
 /*LOGIN*/
+.containerxtra{
+    width: 100%;
+
+}
 .intro-back{
     background: #2BBBAD;
 }
@@ -345,11 +351,7 @@ table a:hover{
 .master {
     min-height: 100%;
 }
-.mainsection {
-    padding: 0em;
-    padding-bottom: 0px;
-    margin-bottom: 10em;
-}
+
 .footer {
     position: absolute;
     /*z-index: 9990;*/
