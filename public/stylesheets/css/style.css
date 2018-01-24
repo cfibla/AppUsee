@@ -135,7 +135,7 @@ body {
 
 /*LOGIN*/
 .intro-back{
-    background: #00C851;
+    background: #2BBBAD;
 }
 .panel-login {
     margin-top: 50px;
@@ -238,9 +238,19 @@ body {
     border-color: #1CA347;
 }
 /*NAV*/
+.head {
+    background: #4dccbe;
+    color: #fff;
+    font-size: 3em;
+}
+.navbar {
+    background: #0AAD9C;
+    margin: 0PX;
+}
 
 nav {
     z-index:1000;
+
 }
 nav .container{
     width: 100%;

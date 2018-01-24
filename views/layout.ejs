@@ -32,28 +32,36 @@
     } else {
       ruta = "";
     }
-  %>
-
-     
-          <%if (!session.user){%>
-          <!--
-            <ul class="nav navbar-nav ml-auto">
-              <li class="nav-item dropdown btn-group">
-                <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
-                <div class="dropdown-menu dropdown" aria-labelledby="nouUser">-->
-                  <!--
-                <a class="dropdown-item" data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
-              --><!--
-                <a class="dropdown-item" data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Nou tutor/a</a>
-                <a class="dropdown-item" data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Nou tutor/a EE-SIEI</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal"><i class="fa fa-sign-in"></i> Entra</a>
-              </li>
-            </ul>-->
-            <%} else {%>
-<!--Navbar-->
+  %>  
+  <%if (!session.user){%>
+    <header class="col-md-12 head">
+      appEscola
+    </header>
+<!--Navbar NO USER-->
+    <nav class="navbar navbar-toggleable-md navbar-dark z-depth-0 scrolling-navbar">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav0" aria-controls="navbarNav0" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav0">
+        <ul class="navbar-nav mr-auto offset-md-1">
+          <li class="nav-item dropdown btn-group">
+            <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
+            <div class="dropdown-menu dropdown" aria-labelledby="nouUser">
+            <!--
+            <a class="dropdown-item" data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
+            -->
+            <a class="dropdown-item" data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Nou tutor/a</a>
+            <a class="dropdown-item" data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Nou tutor/a EE-SIEI</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal"><i class="fa fa-sign-in"></i> Entra</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  <%} else {%>
+<!--Navbar USER-->
     <nav class="navbar navbar-toggleable-md navbar-dark black fixed-top z-depth-0 scrolling-navbar">
       <div class="container">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
