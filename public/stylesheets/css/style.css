@@ -138,7 +138,6 @@ body {
     background: #2BBBAD;
 }
 .panel-login {
-    margin-top: 50px;
     margin-bottom: 50px;
     border-color: #ccc;
     border-radius: 5px;
@@ -347,7 +346,7 @@ table a:hover{
     min-height: 100%;
 }
 .mainsection {
-    padding-top: 4.5em;
+    padding: 0em;
     padding-bottom: 0px;
     margin-bottom: 10em;
 }
