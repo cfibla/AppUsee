@@ -32,8 +32,6 @@
                         <label for="psw">Contrasenya</label>
                         <div class="help-block with-errors"></div>
                       </div>
-
-                      
                       <div class="checkbox">
                         <label><input type="checkbox" value="" checked>Recorda'm</label>
                       </div>
@@ -125,16 +123,29 @@
   <div class="row">
     <div class="col-md-12 lead">Aquesta app és en fase de proves. Feu arribar qualsevol proposta de millora! Si voleu provar l'aplicació podeu accedir-hi de dues maneres:</div>
       <div class="col-md-6 margintop">
+        <form role="form" data-toggle ="validator" method="post" action="/login" id="login-mestre" style="display: block;">
+            <input type="hidden"  name="email" value="demo@demo.cat">
+            <input type="hidden"  name="password" value="demo">
+            <button type="submit" class="btn btn-default" form="login-mestre">Prova com a tutor/a</button>
+        </form>
+        </div>
+        <!--
         <p><strong>Tutors primària</strong></p>
         <p>Cliqueu a "Entra" i introduiu els següents paràmetres</p>
         <p>usuari: demo@demo.cat</p>
-        <p>contrasenya: demo</p>
-      </div>
+        <p>contrasenya: demo</p>-->
+      
       <div class="col-md-6 margintop">
+        <form role="form" data-toggle ="validator" method="post" action="/login" id="login-ee" style="display: block;">
+            <input type="hidden"  name="email" value="demoee@demo.cat">
+            <input type="hidden"  name="password" value="demo">
+            <button type="submit" class="btn btn-success" form="login-ee">Prova mestre EE - SIEI</button>
+        </form>
+        <!--
         <p><strong>Tutors EE - SIEI -USEE</strong></p>
         <p>Cliqueu a "Entra" i introduiu els següents paràmetres</p>
         <p>usuari: demoee@demo.cat</p>
-        <p>contrasenya: demo</p>
+        <p>contrasenya: demo</p>-->
       </div>
       <div class="col-md-12 lead">Investigueu tot el que volgueu! Podeu crear alumnes, modificar i esborrar les seves dades. Podeu fer un seguiment de les seves adaptacions, de les seves necessitats i de la seva progressió.</div>
       <br>
