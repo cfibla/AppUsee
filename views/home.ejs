@@ -118,7 +118,11 @@
 </div>
 <div class="container containerxtra">
   <div class="row">
-    <div class="col-md-12 lead">Aquesta app és en fase de proves. Voleu fer una prova? Ho podeu fer de dues maneres:</div>
+    <div class="col-md-12 lead">
+        AppEscola és una aplicació online pensada per mestres. Permet crear alumnes, modificar i esborrar les seves dades. Podeu fer un seguiment de les seves adaptacions, de les seves necessitats i de la seva progressió.
+    </div>
+      <br>
+    <div class="col-md-12 lead">Voleu provar l'<strong>appEscola</strong>? Feu clic al botó corresponent i entrareu com a usuari "demo". Podeu provar tot i investigar tot allò que volgueu:</div>
       <div class="col-md-6 margintop">
         <form role="form" data-toggle ="validator" method="post" action="/login" id="login-mestre" style="display: block;">
             <input type="hidden"  name="email" value="demo@demo.cat">
@@ -133,12 +137,17 @@
             <button type="submit" class="btn btn-success" form="login-ee">Prova mestre EE - SIEI</button>
         </form>
       </div>
-      <div class="col-md-12 lead">
-        AppEscola és una aplicació online pensada per mestres. Permet crear alumnes, modificar i esborrar les seves dades. Podeu fer un seguiment de les seves adaptacions, de les seves necessitats i de la seva progressió.
-    </div>
-      <br>
       <div class="col-md-12 lead">Si us agrada el funcionament de l'appEscola, doneu-vos d'alta clicant a "Nou usuari/a", indiqueu si sou tutor d'aula o EE - SIEI i introduiu les vostres dades. A partir d'ara podreu entrar clicant a "Entra".</div>
       <br>
+      <a class="dropdown-item" data-toggle="modal" id="btnUser" href="/javascripts/modals/mail.ejs" data-target="#mailModal" role="button">Enviar mail</a>
   </div>
 </div>
 
+<!-- MODAL NOU TUTOR -->
+<div class="modal fade" id="mailModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
