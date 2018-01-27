@@ -9,6 +9,7 @@ var userController = require('../controllers/USER_controller');
 var userEeController = require('../controllers/USER_ee_controller');
 var horariController = require('../controllers/HORARI_controller');
 var sessionController = require('../controllers/SESSION_controller');
+var emailController = require('../controllers/EMAIL_controller');
 var assistPDF = require('../public/javascripts/PDFs/assistencia');
 var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
 var reunionsPDF = require('../public/javascripts/PDFs/reunionsPares');
@@ -86,6 +87,8 @@ router.get('/horari-area/:area',			sessionController.loginRequired, horariContro
 router.put('/horari-area-post',				sessionController.loginRequired, horariController.areaPost);
 router.get('/list_EE/:curs',				sessionController.loginRequired, horariController.cursGet);
 
+//rutas MAIL
+router.post('/send-email',					emailController.sendEmail);
 
 //rutas PDF
 router.post('/assistPDF',			sessionController.loginRequired, assistPDF.PDF);

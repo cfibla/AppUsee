@@ -12,22 +12,18 @@
       </button>
     </div>
     <div class="modal-body">
-      
-        <div class="row">
-
-            <form role="form" method="post" id="info_mail" class="col-md-12">
-              <div class="md-form col-12 alturabox">
-                <label for="mailRmt">Introduiu el vostre correu</label>
-                <input type="email" class="form-control" id="mailRmt" form="info_mail">
-              </div>
-              <div class="md-form col-12 alturabox" style="height:100px;">
-                Missatge<br>
-                <textarea class="form-control" style="height:100%;" id="mailBody" form="info_mail"></textarea>
-              </div>
-            </form>
-    
-        </div>
-  
+      <div class="row">
+        <form role="form" method="post" id="info_mail" class="col-md-12" action="/send-email">
+          <div class="md-form col-12 alturabox">
+            <label for="mailRmt">Introduiu el vostre correu</label>
+            <input type="email" class="form-control" id="mailRmt" form="info_mail" name="mail">
+          </div>
+          <div class="md-form col-12 alturabox" style="height:100px;">
+            Missatge<br>
+            <textarea class="form-control" style="height:100%;" id="mailBody" form="info_mail" name="msg"></textarea>
+          </div>
+        </form>
+      </div>
     </div>    
     <div class="modal-footer">
       <button type="submit" form="info_mail" class="btn btn-success btn-block" id="mailBtn">Desa</button>

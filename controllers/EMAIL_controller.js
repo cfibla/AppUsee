@@ -1,24 +1,42 @@
 var nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: 'charliesuper@gmail.com',
-    pass: 'alternativa'
-  }
-});
+exports.sendEmail = function (req, res) {
+  var mail = req.body.mail;
+  var msg = req.body.msg;
+  var missatge = 'TEXT: ' + msg + '\n' + 'EMAIL: ' + mail;
 
-var mailOptions = {
-  from: 'youremail@gmail.com',
-  to: 'myfriend@yahoo.com',
-  subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
+  console.log('Mail: ' + mail);
+  console.log('MSG: ' + msg);
+
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'charliesuper@gmail.com',
+      pass: 'alternativa'
+    }
+  });
+
+  var mailOptions = {
+    from: mail,
+    to: 'charliesuper@gmail.com',
+    subject: 'AppEscola',
+    text: missatge
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
+//  res.send('<script>alert("Hello")</script>')
+
+  res.redirect('/');
+/*
+  var msg =  req.flash('mailMsg');
+  res.render('contrasenya', {mailMsg: msg});
+*/
 };
-
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
-});
