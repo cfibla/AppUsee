@@ -198,21 +198,44 @@ $(document).ready(function (){
     });
 
 ///////// U S E R S //////////////
-///// CREATE USER TUTOR
-  $('#userModal').on('shown.bs.modal', function (e) {
+///// CREATE USER
+//  $('#userModal').on('shown.bs.modal', function (e) {
     $('#formUser').on('submit', function(e){
       e.preventDefault();
       $.LoadingOverlay("show");
       var urlPost = "/usuari_crear";
       var data = $('#formUser').serialize();
-      aPost(urlPost, data).always(function(){
-        location.href="/list";
+
+      var destUrl;
+      if(($('#mestres').val()) === "tutor"){
+        destUrl = "/list";
+      }
+      if(($('#mestres').val()) === "ee"){
+        destUrl = "/list_EE";
+      }
+
+      aPost(urlPost, data)
+      .always(function(){
+        location.href = destUrl;
       });
     });
-  });
+//  });
+    // USUARI CURS
+    if ($('#mestres').val()==='tutor'){
+        $("#curs_act").show();
+      } else {
+        $("#curs_act").hide().prop('required', false);
+      }
+    $('#mestres').change(function(){
+      if ($('#mestres').val()==='tutor'){
+        $("#curs_act").fadeIn('slow');
+      } else {
+        $("#curs_act").hide('slow').prop('required', false);
+      }
+    });
 
 ///// CREATE USER TUTOR EE -USEE - SIEI
-  $('#useeModal').on('shown.bs.modal', function (e) {
+/*  $('#useeModal').on('shown.bs.modal', function (e) {
     $('#formUsee').on('submit', function(e){
       e.preventDefault();
       $.LoadingOverlay("show");
@@ -223,8 +246,23 @@ $(document).ready(function (){
       });
     });
   });
+*/
+
 
 //UPDATE USERS
+    // USUARI CURS
+    if ($('#categoria').val()==='tutor'){
+        $("#usrCurs").show();
+      } else {
+        $("#usrCurs").hide();
+      }
+    $('#categoria').change(function(){
+      if ($('#categoria').val()==='tutor'){
+        $("#usrCurs").fadeIn('slow');
+      } else {
+        $("#usrCurs").hide('slow');
+      }
+    });
 
 //DELETE USERS
   $('#deleteUserModal').on('shown.bs.modal', function (e) {
@@ -247,19 +285,6 @@ $(document).ready(function (){
       });
     });
 
-// USUARI CURS
-    if ($('#categoria').val()==='tutor'){
-        $("#usrCurs").show();
-      } else {
-        $("#usrCurs").hide();
-      }
-    $('#categoria').change(function(){
-      if ($('#categoria').val()==='tutor'){
-        $("#usrCurs").fadeIn('slow');
-      } else {
-        $("#usrCurs").hide('slow');
-      }
-    });
 
 ///////// A L U M N E S //////////////
 //  D A D E S   P E R S O N A L S

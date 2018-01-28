@@ -58,11 +58,21 @@ exports.login = function (req, res, next){
 						if(err){
 							console.log(err);
 						} else {
-							res.redirect('/list');
+							if (user.mestre === "tutor"){
+								res.redirect('/list');
+							}
+							if (user.mestre === "ee"){
+								res.redirect('/list_EE');
+							}
 						}
 					})
 				} else {
-					res.redirect('/list');
+					if (user.mestre === "tutor"){
+						res.redirect('/list');
+					}
+					if (user.mestre === "ee"){
+						res.redirect('/list_EE');
+					}
 				}
 			} else {
 				res.redirect('/');

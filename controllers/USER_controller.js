@@ -38,7 +38,7 @@ exports.createUser = function (req, res){
 							nom: user.nom,
 							cognom: user.cognom,
 							password: user.password,
-							mestre: 'tutor',
+							mestre: user.mestre,
 							curs: user.curs,
 							escola: user.escola,
 							centre: scl._id
@@ -81,7 +81,7 @@ exports.createUser = function (req, res){
 							nom: user.nom,
 							cognom: user.cognom,
 							password: user.password,
-							mestre: 'tutor',
+							mestre: user.mestre,
 							curs: user.curs,
 							escola: user.escola,
 							centre: eskola._id

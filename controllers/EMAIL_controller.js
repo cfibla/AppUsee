@@ -1,13 +1,10 @@
 var nodemailer = require('nodemailer');
 
 exports.sendEmail = function (req, res) {
+
   var mail = req.body.mail;
   var msg = req.body.msg;
   var missatge = 'TEXT: ' + msg + '\n' + 'EMAIL: ' + mail;
-
-  console.log('Mail: ' + mail);
-  console.log('MSG: ' + msg);
-
 
   var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -29,14 +26,7 @@ exports.sendEmail = function (req, res) {
       console.log(error);
     } else {
       console.log('Email sent: ' + info.response);
+      res.redirect('/');
     }
   });
-
-//  res.send('<script>alert("Hello")</script>')
-
-  res.redirect('/');
-/*
-  var msg =  req.flash('mailMsg');
-  res.render('contrasenya', {mailMsg: msg});
-*/
 };

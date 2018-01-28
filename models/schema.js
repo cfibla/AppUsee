@@ -89,10 +89,10 @@ module.exports = new mongoose.Schema ({
 		type: mongoose.Schema.ObjectId,
 		ref: 'Centre'
 	},
-	escola: {
+/*	escola: {
 		type: Number,
 		ref: 'Escola'
-	},
+	},*/
 	tutor: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'User'

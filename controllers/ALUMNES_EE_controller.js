@@ -1,9 +1,9 @@
 var models = require('../models/index');
 
-
 //Llstat d'alumnes EE- GET
 exports.list = function (req, res) {
 	console.log('LIST_EE');
+	console.log('CENTRE: ' + req.session.user.centre);
 	models.Alumne.find({
 		'eeUsee': true,
 		centre: req.session.user.centre}
