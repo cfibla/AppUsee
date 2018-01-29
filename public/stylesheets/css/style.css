@@ -137,11 +137,15 @@ body {
 .mainsection {
     margin-bottom: 10em;
 }
-/*LOGIN*/
+/*LOGIN - HOME*/
 .containerxtra{
     width: 100%;
     padding: 60px;
-
+}
+.containerbottom{
+    width: 100%;
+    padding: 60px;
+    background: #7bdfd4;
 }
 .margintop {
     margin-top: 30px;
@@ -251,6 +255,11 @@ body {
     color: #fff;
     background-color: #1CA347;
     border-color: #1CA347;
+}
+
+.titleHome{
+    font-size: 200%;
+    margin-bottom: 10px;
 }
 /*NAV*/
 .head {
@@ -369,9 +378,15 @@ table a:hover{
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: #bbb;
-    color: black;
+    background-color: #008577;
+    color: #fff;
     text-align: left;
+}
+.footer a {
+    color:#fff;
+}
+.footer a:hover {
+    color:#2bbbac;
 }
 .md-form .prefix.active {
      color: inherit; 
