@@ -9,6 +9,7 @@ var userController = require('../controllers/USER_controller');
 var userEeController = require('../controllers/USER_ee_controller');
 var horariController = require('../controllers/HORARI_controller');
 var sessionController = require('../controllers/SESSION_controller');
+var introController = require('../controllers/INTRO_controller');
 var emailController = require('../controllers/EMAIL_controller');
 var assistPDF = require('../public/javascripts/PDFs/assistencia');
 var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
@@ -16,6 +17,12 @@ var reunionsPDF = require('../public/javascripts/PDFs/reunionsPares');
 var actuacionsPDF = require('../public/javascripts/PDFs/actuacions');
 var infoCadPDF = require('../public/javascripts/PDFs/infocad');
 var altresCoordPDF = require('../public/javascripts/PDFs/altresCoord');
+
+//rutas LOGIN
+router.get('/home',					introController.entra);
+router.get('/quees',				introController.quees);
+router.get('/provar',				introController.provar);
+router.get('/bloc',					introController.bloc);
 
 //rutas SESSION
 router.get('/',						sessionController.new);
