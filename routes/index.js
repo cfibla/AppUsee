@@ -19,9 +19,7 @@ var infoCadPDF = require('../public/javascripts/PDFs/infocad');
 var altresCoordPDF = require('../public/javascripts/PDFs/altresCoord');
 
 //rutas LOGIN
-router.get('/home',					introController.entra);
-router.get('/quees',				introController.quees);
-router.get('/provar',				introController.provar);
+router.get('/home',					introController.inici);
 router.get('/bloc',					introController.bloc);
 
 //rutas SESSION

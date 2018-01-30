@@ -1,15 +1,7 @@
-exports.entra = function (req, res) {
-  res.render('home', {anchor:'#navbarNav0'});
-}
-
-exports.quees = function (req, res) {
-  res.render('home', {anchor:'#quees'});
-}
-
-exports.provar = function (req, res) {
-  res.render('home',  {anchor:'#provar'});
+exports.inici = function (req, res) {
+  res.render('home');
 }
 
 exports.bloc = function (req, res) {
-  res.render('home');
+  res.render('bloc');
 }
