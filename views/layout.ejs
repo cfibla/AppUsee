@@ -106,7 +106,9 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=" "+ "Hola, " + session.user.nom +" "+ session.user.cognom%></a>
                   <div class="dropdown-menu" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="/usuari">El meu perfil</a>
+                    <%if (session.user.email !='demo@demo.cat' && session.user.email !='demoee@demo.cat') {%>
+                      <a class="dropdown-item" href="/usuari">El meu perfil</a>
+                    <%}%>
                     <a class="dropdown-item" href="/logout">Sortir</a>
                   </div>
                 </li>
