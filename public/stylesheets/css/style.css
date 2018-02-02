@@ -147,6 +147,11 @@ body {
     padding: 60px;
     background: #7bdfd4;
 }
+.containerintro{
+    width: 100%;
+    padding: 60px;
+    background: #0aad9c;
+}
 .margintop {
     margin-top: 30px;
     margin-bottom: 30px;
