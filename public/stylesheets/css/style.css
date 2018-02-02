@@ -380,7 +380,7 @@ table a:hover{
 .master {
     min-height: 100%;
 }
-
+/*FOOTER */
 .footer {
     position: absolute;
     /*z-index: 9990;*/
@@ -397,6 +397,9 @@ table a:hover{
 }
 .footer a:hover {
     color:#2bbbac;
+}
+.footertext{
+    margin-bottom: 2.5em;
 }
 .md-form .prefix.active {
      color: inherit; 
