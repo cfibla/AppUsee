@@ -196,15 +196,9 @@
           <!--Second column-->
           <!--/.Footer Links-->
           <div class="col-md-5">
-              <h5 class="title">Aquesta app està feta amb:</h5>
-              <ul>
-                  <li><a href="https://nodejs.org/es/">Node JS</a></li>
-                  <li><a href="https://www.mongodb.com/es">MongoDB</a></li>
-                  <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
-                  <li><a href="https://angular.io/">Angular (properament)</a></li>
-                  
-              </ul>
-
+            <h5 class="title">Tens algun dubte o suggerència?</h5>
+              <a data-toggle="modal" id="btnUser" href="/javascripts/modals/mail.ejs" data-target="#mailModal" role="button">
+                <i class="fa fa-envelope prefix"></i> Escriu-me!</a>
           </div>
           <!--/.Second column-->
       </div>
@@ -212,9 +206,8 @@
       <div class="footer-copyright">
         <div class="row">
           <div class="col-md-5 offset-md-2">
-            © 2018 <a href="https://twitter.com/appescola"> appEscola </a>
+            Versió Alpha 1.0.0 - © 2018 <a href="https://twitter.com/appescola"> appEscola </a>
           </div>
-          <div class="col-md-5">Versió Alpha 1.0.0</div>
         </div>      
       </div>
     <!--/.Copyright-->
@@ -266,6 +259,14 @@
     </div>
   </div>
 
+<!-- MODAL ENVIAR EMAIL -->
+<div class="modal fade" id="mailModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
 <!-- Librería jQuery requerida por los plugins de JavaScript -->
   <script
   src="https://code.jquery.com/jquery-3.1.1.js"
