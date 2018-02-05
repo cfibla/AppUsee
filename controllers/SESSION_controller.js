@@ -31,14 +31,15 @@ exports.new = function(req, res) {
 			}	
 		}
 	} else {
-		res.render('home', { title: 'AppEscola',  page_name:'home'});
+		var msg =  req.flash('loginMsg');
+		res.render('home', { loginMsg: msg, title: 'AppEscola',  page_name:'home'});
 	}
 };
 
 exports.login = function (req, res, next){
 	var email = req.body.email;
 	var password = req.body.password;
-	var msg =  req.flash('Aquí va el missatge');
+	//var msg =  req.flash('Correu o contrasenya incorrectes');
 
 	models.User.findOne({email: email})
 	.populate('horari centre')
@@ -47,7 +48,9 @@ exports.login = function (req, res, next){
 			console.log(error);
 		}
 		if(!user) {
-			next();
+			req.flash('loginMsg', "Usuari desconegut. Registreu-vos abans d'iniciar sessió");
+			res.redirect('/');
+			//next();
 		}
 		if(user) {
 			if(bcrypt.compareSync(password, user.password)){
@@ -75,9 +78,9 @@ exports.login = function (req, res, next){
 					}
 				}
 			} else {
+				req.flash('loginMsg', 'Contrasenya incorrecta');
 				res.redirect('/');
 			}
-			
 		}
 	});
 };

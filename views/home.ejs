@@ -29,7 +29,14 @@
                     <i class="fa fa-lock prefix"></i>
                     <input type="password" class="form-control" id="psw" name="password" required="true">
                     <label for="psw">Contrasenya</label>
-                  </div><!--
+                  </div>
+                  <% if (typeof loginMsg !='undefined' && loginMsg){ %>
+                    <div class="alert alert-danger loginAlert">
+                      <%-loginMsg%>
+                    </div>
+
+                  <% } %>
+                  <!--
                   <div class="checkbox">
                     <label><input type="checkbox" value="" checked>Recorda'm</label>
                   </div>
