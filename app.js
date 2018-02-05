@@ -43,13 +43,11 @@ function ensureSecure(req, res, next){
 }
 */
 // Helpers Dinámicos:
-
 //hace visible req.session en las vistas
 app.use (function(req, res, next){
     res.locals.session = req.session;
     next();
 });
-
 app.use('/', routes);
 
 // catch 404 and forward to error handler
@@ -59,8 +57,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// error handlers
-
+// ERROR HANDLERS
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -72,7 +69,6 @@ if (app.get('env') === 'development') {
         });
     });
 }
-
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {

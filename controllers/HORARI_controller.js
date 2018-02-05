@@ -28,23 +28,24 @@ exports.config = function (req, res) {
 		})
 	}
 	if(mestre == "ee"){
-		models.UserEe.findById(usrId, function(error, user){
+		models.UserEe.findById(usrId)
+			.populate('horari centre')
+			.exec(function(error, user){
 			if(error){
 				res.json(error);
 			} else {
 				req.session.user = user;
-				var horariId=user.horari;
-				models.Horari.findById(horariId, function(error, horari){
+				var horariId = user.horari;
+				models.Horari.findById(horariId, function(error, horariFind){
 					if (error) {
 						return res.json(error);
 					} else {
-						res.render('horari-config', {horari:horari, page_name:'horari-config'});
+						res.render('horari-config', {horari:horariFind});
 					}
 				});
 			}
 		})
 	}
-
 };
 
 //HORARI - CREATE
@@ -180,7 +181,7 @@ exports.create = function (req, res) {
 							if (error){
 								res.json(error);
 							} else {
-								res.json(horari);
+								res.redirect('/horari-config');
 							}
 						})
 					}
