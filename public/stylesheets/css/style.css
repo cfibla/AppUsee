@@ -137,6 +137,9 @@ body {
 .mainsection {
     margin-bottom: 10em;
 }
+.containerMain {
+    padding-bottom: 2em;
+}
 /*LOGIN - HOME*/
 .containerxtra{
     width: 100%;

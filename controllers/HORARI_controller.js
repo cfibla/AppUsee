@@ -6,46 +6,25 @@ exports.config = function (req, res) {
 	console.log('CONFIGURACIO-DIARI GET');
 	var usr=req.session.user;
 	var usrId = usr;
-	var mestre = req.session.user.mestre;
 
-	if(mestre === "tutor"){
-		models.User.findById(usrId)
-			.populate('horari centre')
-			.exec(function(error, user){
-			if(error){
-				res.json(error);
-			} else {
-				req.session.user = user;
-				var horariId = user.horari;
-				models.Horari.findById(horariId, function(error, horariFind){
-					if (error) {
-						return res.json(error);
-					} else {
-						res.render('horari-config', {horari:horariFind});
-					}
-				});
-			}
-		})
-	}
-	if(mestre == "ee"){
-		models.UserEe.findById(usrId)
-			.populate('horari centre')
-			.exec(function(error, user){
-			if(error){
-				res.json(error);
-			} else {
-				req.session.user = user;
-				var horariId = user.horari;
-				models.Horari.findById(horariId, function(error, horariFind){
-					if (error) {
-						return res.json(error);
-					} else {
-						res.render('horari-config', {horari:horariFind});
-					}
-				});
-			}
-		})
-	}
+	models.User.findById(usrId)
+		.populate('horari centre')
+		.exec(function(error, user){
+		if(error){
+			res.json(error);
+		} else {
+			req.session.user = user;
+			var horariId = user.horari;
+			models.Horari.findById(horariId, function(error, horariFind){
+				if (error) {
+					return res.json(error);
+				} else {
+					res.render('horari-config', {horari:horariFind});
+				}
+			});
+		}
+	})
+
 };
 
 //HORARI - CREATE
@@ -143,7 +122,7 @@ exports.create = function (req, res) {
 			nouHorari.dades.splice(i,1);
 		}
 	}
-	if (mestre == "tutor"){
+
 		nouHorari.save(function (error, horari){
 			if (error) {
 				res.json(error);
@@ -165,30 +144,7 @@ exports.create = function (req, res) {
 				})
 			}
 		})
-	}
-	if (mestre == "ee"){
-		nouHorari.save(function (error, horari){
-			if (error) {
-				res.json(error);
-			} else {
-				//VINCULAR HORARI CON USER
-				models.UserEe.findById(usrId, function(error, user){
-					if (error){
-						res.json(error);
-					} else{
-						user.horari = horari;
-						user.save(function (error, upduser){
-							if (error){
-								res.json(error);
-							} else {
-								res.redirect('/horari-config');
-							}
-						})
-					}
-				})
-			}
-		})
-	}
+
 };
 
 //CONF. HORARI - UPDATE
@@ -480,21 +436,9 @@ exports.update = function (req, res){
 
 //HORARI DIARI - GET
 exports.diariGet = function (req, res) {
-	var usr=req.session.user;
-	var usrId = usr._id;
-	var mestre = req.session.user.mestre;
-	//Fechas
-	var hoy = new Date();
-	var dataMoment = moment(hoy, 'DD/MM/YYYY');
-	//var dataISO = datamoment.toIsoDate
-	var month = dataMoment.format('M');
-	var day   = dataMoment.format('D');
-	var year  = dataMoment.format('YYYY');
+	var usr = req.session.user;
+	var horariId = usr.horari;
 
-	var initDay = moment().subtract(7, 'days');
-	var finishDay = moment().add(30, 'days');
-	var initMoment = initDay.format('D')+'/'+initDay.format('M')+'/'+initDay.format('YYYY');
-	var finishMoment = finishDay.format('D')+'/'+finishDay.format('M')+'/'+finishDay.format('YYYY');
 
 	//???hay que convertir TODAS las fechas a ISO primero para poder operar con ellas
 	//	console.log('month: ' + month);
@@ -502,16 +446,12 @@ exports.diariGet = function (req, res) {
 	//	console.log('finish: ' + finishMoment);
 	//	console.log('monthInit: ' + moment(initMoment).format('M'));
 	//	console.log('monthFinish: ' + moment(finishMoment).format('M'));
-
-
-	if(mestre == "tutor"){
 /*
 		models.tweets.find({created_at: {$lt: last_displayed_date}}).
           sort({created_at: -1}).limit(20);
 */
-			if(req.session.user.horari){
+
 				console.log('HORARI-DIARI GET');
-				horariId = req.session.user.horari;
 				models.Horari.findById(horariId, function(err, horariUser){
 					if(err){
 						console.log(err);
@@ -519,28 +459,9 @@ exports.diariGet = function (req, res) {
 						res.render('horari-diari', {horari: horariUser});
 					};
 				});
-			};
 
-		}
 
-	if(mestre == "ee"){
-		models.UserEe.findById(usrId, function(error, user){
-			if(error){
-				res.json(error);
-			} else {
-				req.session.user = user;
-				var horariId=user.horari;
-				models.Horari.findById(horariId, function(error, horari){
-					if (error) {
-						return res.json(error);
-					} else {
-						res.render('horari-diari', {horari:horari, page_name:'horari'});
-					}
-				});
-			}
 
-		})
-	}
 
 
 };
