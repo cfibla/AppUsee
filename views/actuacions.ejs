@@ -1,0 +1,151 @@
+<% include ../public/javascripts/functions.ejs %>
+
+<div class="container col-md-10 offset-md-2" id="seg">
+  <div class="row">
+
+<!--DADES ALUMNE-->
+    <div class="container margetop">
+      <div class="row seg-title">
+        <div class="col-md-4 text-muted clear">
+          <h4><strong>Nom: </strong><%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%></h4>
+        </div>
+        <div class="col-md-2 text-muted">
+          <h4><strong>Curs: </strong><%=alumne.curs%></h4>
+        </div>
+        <div class="col-md-5 text-muted">
+          <h4><strong>Escola: </strong><%=alumne.codiEscola%></h4>
+        </div>
+      </div>
+    </div>
+
+<!-- ACTUACIONS -->
+    <div class="container">   
+      <div class="clearfix">
+        <div class="container seguiment tab-pane fade in show active" id="actuacions" role="tabpanel">
+          <div class="row">
+            <div class="container tbl">
+              <div class="row">
+              <%  if (alumne.segActuacions.length === 0) { %>
+                <p><br />
+                  Encara no heu registrat cap actuació
+                </p>
+              <% } else { %> 
+                <table class="table table-hover">
+                  <thead>
+                    <tr class="row m-0">
+                      <th class="d-inline-block col-3">Data</th>
+                      <th class="d-inline-block col-6">Text</th>
+                      <th class="d-inline-block col-3"> </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%for (i = 0; i < alumne.segActuacions.length; i++) { 
+                      var punts = "";
+                      if (alumne.segActuacions[i].body.length > 80)
+                      {punts="..."};
+                    %>  
+                    <tr class="row m-0">
+                      <td class="d-inline-block col-3">
+                        <%=alumne.segActuacions[i].date%>
+                      </td>
+                      <td class="d-inline-block col-6">
+                        <a href="#" title="<%=alumne.segActuacions[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segActuacions[i].body.substring(0,80) + punts%></a>
+                      </td>
+                      <td class="d-inline-block col-3">
+                        <span class="col-md-1">
+                          <a id="btnActuGet" href="/javascripts/modals/actuacionsEeGet.ejs" data-target="#actuModalGet" data-toggle="modal" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segActuacions[i].date%>"
+                            data-body = "<%=alumne.segActuacions[i].body%>" data-tggle="tooltip" data-placement="top" title="Veure"><i class="fa fa-eye gris" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                        <% if(session.user.mestre === "ee"){ %>
+                        <span class="col-md-1">
+                          <a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                        <span class="col-md-1">
+                          <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="/actuacions/<%=i%>/<%=alumne._id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true" class="disabled"></i>
+                          </a>
+                        </span>
+                        <span class="col-md-1">
+                          <a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                        <% } else {%>
+                            <span class="col-md-1">
+                            <a class="disabled" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                            </a>
+                          </span> 
+                          <span class="col-md-1">
+                            <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="/actuacions/<%=i%>/<%=alumne._id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true" class="disabled"></i>
+                          </a>
+                          </span>
+                          <span class="col-md-1">
+                            <a class="disabled" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                            </a>
+                          </span>
+                        <% } %>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+                <% } %>
+              </div>
+            </div>
+            <div class="container">
+              <div class="clearfix float-right">
+                <% 
+                var li = "/list";
+                if(session.user.mestre === "ee"){
+                  li = "/list_EE"}
+                %>
+                <span class="col-md-2">
+                  <a href="<%=li%>" type="button" class="btn btn-blue-grey"><i class="fa fa-arrow-left" aria-hidden="true"></i><span> Torna enrere</span></a>
+                </span>
+                <%if(session.user.mestre === "ee"){%>
+                  <span class="col-md-2">
+                    <a data-toggle="modal" class = "btn btn-default float-right" id="btnActuAfegir" role = "button" href="/javascripts/modals/actuacionsEe.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-today="<%=today()%>" data-actunum = "<%=alumne.segActuacions.length%>" data-target="#actuModal"><i class="fa fa-plus"></i> Nova actuació</a>
+                  </span>
+                <%}%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS ACTUACIONS -->
+<!--CREATE-->
+<div class="modal fade" id="actuModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--READ-->
+<div class="modal fade" id="actuModalGet" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--UPDATE-->
+<div class="modal fade" id="actuModalUpd" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>
+<!--DELETE-->
+<div class="modal fade" id="actuModalDel" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+      </div>
+    </div>
+</div>

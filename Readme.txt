@@ -6,6 +6,8 @@ Treure 'escola' de tots els usuaris-alumnes (DB)
 
 Apartat reunions i reunions seguiment: títol i apartats a l'aside
 
+A Horaris i seguiment: Un botó "esa els canvis" a l'aside
+
 Perfil usuari -> Escola (crear nova si canvia) - Companys
 
 Uppercase modificació dades 

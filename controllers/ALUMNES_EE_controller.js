@@ -38,7 +38,7 @@ exports.actuaGet = function (req, res) {
 		if (error) {
 			return res.json(error);
 		} else {
-			res.render('seg_act_EE', {alumne: alumne, page_name:''});
+			res.render('actuacions', {alumne: alumne, page_name:''});
 
 		}
 	});
