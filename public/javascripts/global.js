@@ -93,6 +93,23 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
   }
+/*  if(pth.match("/seguiment/actuacions/")){
+    $("#llista").removeClass("navcolor");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
+    $("#situ").html("Actuacions");
+    $("#a1").html("Actuacions").attr('href', "/horari-config");
+    $("#a2").html("Reunions CAD").attr('href', "/horari-diari");
+    $("#a3").html("Altres Reunions").attr('href', "/horari-diari");
+    $("#a1div").addClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
+    $("#a3div").addClass("hidBig");
+    $("#a4div").addClass("hidBig");
+    $("#configDiariPost").removeClass("hidDrop");
+    $("#areasDrop").removeClass("hidDrop");
+    $("#horariDiariPost_2").removeClass("hidDrop");
+  }*/
   if(pth==="/horari-config"){
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");

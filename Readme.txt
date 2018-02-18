@@ -1,15 +1,25 @@
 GENERAL
 
-Treure 'escola' de tots els usuaris-alumnes
+BETA 1.0.0
+
+Treure 'escola' de tots els usuaris-alumnes (DB)
+
+Apartat reunions i reunions seguiment: títol i apartats a l'aside
 
 Perfil usuari -> Escola (crear nova si canvia) - Companys
 
-Uppercase modificació dades
+Uppercase modificació dades 
 
-Comunicar errors SIGN UP
+Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 
-Enviar mail a l'admin
+Dades personals alumnes: Canviar "codi escola" pel nom de l'escola
 
-Juntar "Mestres - EE"
+Registre "mestre -ee -escola"
 
-Registre mestre -ee -escola
+
+
++Comunicar errors SIGN UP
+
++Enviar mail a l'admin
+
++Juntar "Mestres - EE"
