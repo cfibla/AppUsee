@@ -106,9 +106,20 @@ $(document).ready(function (){
     $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("hidBig");
     $("#a4div").addClass("hidBig");
-    $("#configDiariPost").removeClass("hidDrop");
-    $("#areasDrop").addClass("hidDrop");
-    $("#horariDiariPost_2").removeClass("hidDrop");
+  }
+  if(pth.match("/seguiment-EE/cad/")){
+    $("#llista").removeClass("navcolor");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
+    $("#situ").html("Reunions CAD");
+    $("#a1").html("Actuacions").attr('href', "/seguiment-EE/actuacions/");
+    $("#a2").html("Reunions CAD");
+    $("#a3").html("Altres Reunions").attr('href', "/seguiment-EE/altres/");
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").addClass("navcolorside");
+    $("#a3div").removeClass("hidBig");
+    $("#a4div").addClass("hidBig");
   }
   if(pth==="/horari-config"){
     $("#llista").removeClass("navcolor");
