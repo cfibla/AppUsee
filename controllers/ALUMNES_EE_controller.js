@@ -57,6 +57,19 @@ exports.cadGet = function (req, res) {
 	});
 };
 
+//SEG_ALTRES-REUNIONS GET
+exports.altresGet = function (req, res) {
+	var alumneId = req.params.id;
+	models.Alumne.findById(alumneId, function(error, alumne){
+		if (error) {
+			return res.json(error);
+		} else {
+			res.render('altres-reunions', {alumne: alumne, page_name:''});
+
+		}
+	});
+};
+
 //SEG_ACTUACIONS POST
 exports.actuaPost = function (req, res) {
 	var alumneId = req.params.id;

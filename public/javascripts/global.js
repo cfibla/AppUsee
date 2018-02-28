@@ -103,7 +103,7 @@ $(document).ready(function (){
     $("#situ").html("Actuacions");
     $("#a1").html("Actuacions");
     $("#a2").html("Reunions CAD").attr('href', "/seguiment-EE/cad/" + id);
-    $("#a3").html("Altres Reunions").attr('href', "/seguiment-EE/altres/" + id);
+    $("#a3").html("Altres Coordinacions").attr('href', "/seguiment-EE/altres/" + id);
     $("#a1div").addClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("hidBig");
@@ -119,10 +119,26 @@ $(document).ready(function (){
     $("#situ").html("Reunions CAD");
     $("#a1").html("Actuacions").attr('href', "/seguiment-EE/actuacions/" + id);
     $("#a2").html("Reunions CAD");
-    $("#a3").html("Altres Reunions").attr('href', "/seguiment-EE/altres/" + id);
+    $("#a3").html("Altres Coordinacions").attr('href', "/seguiment-EE/altres/" + id);
     $("#a1div").removeClass("navcolorside");
     $("#a2div").addClass("navcolorside");
     $("#a3div").removeClass("hidBig");
+    $("#a4div").addClass("hidBig");
+  }
+  if(pth.match("/seguiment-EE/altres/")){
+    var areaUrl = pth.split("/");
+    var id = decodeURIComponent(areaUrl[3]);
+    $("#llista").removeClass("navcolor");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
+    $("#situ").html("Altres Coord.");
+    $("#a1").html("Actuacions").attr('href', "/seguiment-EE/actuacions/" + id);
+    $("#a2").html("Reunions CAD").attr('href', "/seguiment-EE/cad/" + id);
+    $("#a3").html("Altres Coordinacions");
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
+    $("#a3div").removeClass("hidBig").addClass("navcolorside");
     $("#a4div").addClass("hidBig");
   }
   if(pth==="/horari-config"){
