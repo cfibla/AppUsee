@@ -414,7 +414,9 @@ exports.menjaAlumne = function (req, res) {
 //REUNIONS PARES GET
 exports.reunioGet = function (req, res) {
 	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
+	models.Alumne.findById(alumneId)
+	.populate('centre')
+	.exec(function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {

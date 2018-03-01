@@ -34,7 +34,9 @@ exports.list = function (req, res) {
 //SEG_ACTUACIONS GET
 exports.actuaGet = function (req, res) {
 	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
+	models.Alumne.findById(alumneId)
+	.populate('centre')
+	.exec(function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {
@@ -47,7 +49,9 @@ exports.actuaGet = function (req, res) {
 //SEG_CAD GET
 exports.cadGet = function (req, res) {
 	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
+	models.Alumne.findById(alumneId)
+	.populate('centre')
+	.exec(function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {
@@ -60,7 +64,9 @@ exports.cadGet = function (req, res) {
 //SEG_ALTRES-REUNIONS GET
 exports.altresGet = function (req, res) {
 	var alumneId = req.params.id;
-	models.Alumne.findById(alumneId, function(error, alumne){
+	models.Alumne.findById(alumneId)
+	.populate('centre')
+	.exec(function(error, alumne){
 		if (error) {
 			return res.json(error);
 		} else {
