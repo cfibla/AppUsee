@@ -93,6 +93,16 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
   }
+  if(pth.match("/reunions-pares")){
+    $("#llista").removeClass("navcolor");
+    $("#situ").html("Reunions pares");
+  /*  $("#a1").html("Dades personals").attr('href', "/usuari");
+    $("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
+    $("#a2div").addClass("navcolorside");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#areasDrop").addClass("hidDrop");*/
+  }
   if(pth.match("/seguiment-EE/actuacions/")){
     var areaUrl = pth.split("/");
     var id = decodeURIComponent(areaUrl[3]);
