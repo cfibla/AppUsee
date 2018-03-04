@@ -96,12 +96,13 @@ $(document).ready(function (){
   if(pth.match("/reunions-pares")){
     $("#llista").removeClass("navcolor");
     $("#situ").html("Reunions pares");
-  /*  $("#a1").html("Dades personals").attr('href', "/usuari");
+  /*$("#a1").html("Dades personals").attr('href', "/usuari");
     $("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
     $("#a2div").addClass("navcolorside");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
-    $("#areasDrop").addClass("hidDrop");*/
+    $("#areasDrop").addClass("hidDrop");
+  */
   }
   if(pth.match("/seguiment-EE/actuacions/")){
     var areaUrl = pth.split("/");
@@ -163,8 +164,8 @@ $(document).ready(function (){
     $("#a2div").removeClass("navcolorside");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
-    $("#configDiariPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
+    $("#desaButton").removeClass("hidBig");
     $("#horariDiariPost_2").removeClass("hidDrop");
   }
     if(pth==="/horari-diari"){
@@ -180,7 +181,7 @@ $(document).ready(function (){
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop");
-    $("#horariDiariPost").removeClass("hidBig");
+    $("#desaButton").removeClass("hidBig");
     $("#horariDiariPost_2").removeClass("hidDrop");
   }
   if(pth.match("/horari-area/")){
@@ -198,9 +199,9 @@ $(document).ready(function (){
     $("#areasdiv").addClass("navcolorside");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
-    $("#areasPost").removeClass("hidDrop");
     $("#areasDrop").removeClass("hidDrop");
     $("#areasDrop").addClass("navcolorside");
+    $("#desaButton").removeClass("hidBig");
     $("#areasPost_2").removeClass("hidDrop");
   }
 

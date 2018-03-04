@@ -2,19 +2,14 @@ GENERAL
 
 BETA 1.0.0
 
-Treure 'escola' de tots els usuaris-alumnes (DB)
 
-Apartat reunions i reunions seguiment: títol i apartats a l'aside
-
-A Horaris i seguiment: Un botó "esa els canvis" a l'aside
+-->A Horaris i seguiment: Un botó general "Desa els canvis" a l'aside
 
 Perfil usuari -> Escola (crear nova si canvia) - Companys
 
 Uppercase modificació dades 
 
 Quan es crea un horari no funciona apartat "ÀREES" (1st call)
-
-Dades personals alumnes: Canviar "codi escola" pel nom de l'escola
 
 Registre "mestre -ee -escola"
 
@@ -25,3 +20,9 @@ Registre "mestre -ee -escola"
 +Enviar mail a l'admin
 
 +Juntar "Mestres - EE"
+
++Dades personals alumnes: Canviar "codi escola" pel nom de l'escola
+
++Treure 'escola' de tots els usuaris-alumnes (DB)
+
++Apartat reunions i reunions seguiment: títol i apartats a l'aside

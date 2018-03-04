@@ -83,7 +83,7 @@ body {
     .sidelink {
         padding: 20px;
     }
-
+/*
     .buttonSide {
         margin: 0;
         width: 100%;
@@ -100,7 +100,7 @@ body {
         background: #2BBBAD !important;
         box-shadow: none;
     }
-
+*/
     .dropAside{
         max-height: 200px;
         overflow: scroll;
