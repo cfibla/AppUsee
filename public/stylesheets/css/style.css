@@ -83,24 +83,24 @@ body {
     .sidelink {
         padding: 20px;
     }
-/*
+
     .buttonSide {
         margin: 0;
         width: 100%;
-        border:2px solid #2BBBAD;
-        padding: 10px;
-        background: #008577;
+        border:2px solid #0aa29c;
+        padding: 20px;
+        background: #0aa29c;
         box-shadow: none;
     }
 
     .buttonSide:hover {
         margin: 0;
         width: 100%;
-        padding: 10px;
+        padding: 20px;
         background: #2BBBAD !important;
         box-shadow: none;
     }
-*/
+
     .dropAside{
         max-height: 200px;
         overflow: scroll;
