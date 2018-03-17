@@ -547,11 +547,8 @@ $(document).ready(function (){
     });
 
 ///////// LABEL ACTIVE ///////////////
-    function checkForInput(element) {
-  // element is passed to the function ^
-  
-      const $label = $(element).siblings('label');
-
+/*    function checkForInput(element) {
+     const $label = $(element).siblings('label');
       if ($(element).val().length > 0) {
         $label.addClass('active');
       } else {
@@ -568,7 +565,7 @@ $(document).ready(function (){
     $('input').on('change keyup', function() {
       checkForInput(this);  
     });
-
+*/
   ////////////////// A D A P T A C I O N S ////////////////// 
     if ($('#programació_individualitzada').val()==='true'){
         $("#divPi").show();
@@ -935,7 +932,7 @@ $(document).ready(function (){
     mdal.find('.modal-body #reuConclUpd').attr("name", "reunionsPares." + i + ".conclusions");
 
       ///////// LABEL ACTIVE ///////////////
-    function checkForInput(element) {
+/*    function checkForInput(element) {
   // element is passed to the function ^
   
       const $label = $(element).siblings('label');
@@ -946,9 +943,9 @@ $(document).ready(function (){
         $label.removeClass('active');
       }
     }
-
+*/
     // The lines below are executed on page load
-    $('input').each(function() {
+/*    $('input').each(function() {
       checkForInput(this);
     });
 
@@ -956,7 +953,7 @@ $(document).ready(function (){
     $('input').on('change keyup', function() {
       checkForInput(this);  
     });
-
+*/
     $('#reunions_pares_upd').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/reunions-pares/upd/" + i +"/" + alumneId + "?_method=put";
@@ -995,6 +992,25 @@ $(document).ready(function (){
       });
     });
 
+///ALERT UNSAVED CHANGES///
+var unsaved = false;
+$(window).bind('beforeunload', function() {
+    if(unsaved){
+        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+    }
+});
+$('.modal').bind('hidden.bs.modal', function() {
+  $(document).on('change', ':input', function(){ //triggers change in all input fields including text type
+    unsaved = true;
+});
+    if(unsaved){
+        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+    }
+});
+// Monitor dynamic inputs
+$(document).on('change', ':input', function(){ //triggers change in all input fields including text type
+    unsaved = true;
+});
 
 ///AJAX FUNCTIONS///
    function aPost(path, obj){
