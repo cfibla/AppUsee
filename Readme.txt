@@ -3,7 +3,9 @@ GENERAL
 BETA 1.0.0
 
 
--->A Horaris i seguiment: Un botó general "Desa els canvis" a l'aside
+Avís de guardar canvis
+
+Open Graph Facebook
 
 Perfil usuari -> Escola (crear nova si canvia) - Companys
 
@@ -14,6 +16,8 @@ Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 Registre "mestre -ee -escola"
 
 
+
++A Horaris i seguiment: Un botó general "Desa els canvis" a l'aside
 
 +Comunicar errors SIGN UP
 

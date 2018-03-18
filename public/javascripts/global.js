@@ -1000,16 +1000,16 @@ $(window).bind('beforeunload', function() {
     }
 });
 $('.modal').bind('hidden.bs.modal', function() {
-  $(document).on('change', ':input', function(){ //triggers change in all input fields including text type
-    unsaved = true;
-});
+  console.log("close modal");
     if(unsaved){
-        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
-    }
+      event.stopPropagation();
+      $("#alertaDades").removeClass("hidDrop");
+            }
 });
 // Monitor dynamic inputs
 $(document).on('change', ':input', function(){ //triggers change in all input fields including text type
     unsaved = true;
+    console.log ("change!");
 });
 
 ///AJAX FUNCTIONS///
