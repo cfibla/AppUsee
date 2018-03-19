@@ -347,7 +347,6 @@ $(document).ready(function (){
 
 ///////// A L U M N E S //////////////
 //  D A D E S   P E R S O N A L S
-
   $('#dadesModal').on('shown.bs.modal', function (e) {
 //datepicker//
     $('#dataNaix .input-group.date').datepicker({
@@ -547,7 +546,7 @@ $(document).ready(function (){
     });
 
 ///////// LABEL ACTIVE ///////////////
-/*    function checkForInput(element) {
+    function checkForInput(element) {
      const $label = $(element).siblings('label');
       if ($(element).val().length > 0) {
         $label.addClass('active');
@@ -565,7 +564,7 @@ $(document).ready(function (){
     $('input').on('change keyup', function() {
       checkForInput(this);  
     });
-*/
+
   ////////////////// A D A P T A C I O N S ////////////////// 
     if ($('#programació_individualitzada').val()==='true'){
         $("#divPi").show();
@@ -993,24 +992,22 @@ $(document).ready(function (){
     });
 
 ///ALERT UNSAVED CHANGES///
-var unsaved = false;
-$(window).bind('beforeunload', function() {
-    if(unsaved){
-        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
-    }
-});
-$('.modal').bind('hidden.bs.modal', function() {
-  console.log("close modal");
-    if(unsaved){
-      event.stopPropagation();
-      $("#alertaDades").removeClass("hidDrop");
-            }
-});
-// Monitor dynamic inputs
-$(document).on('change', ':input', function(){ //triggers change in all input fields including text type
-    unsaved = true;
-    console.log ("change!");
-});
+    var unsaved = false;
+    $(window).bind('beforeunload', function() {
+        if(unsaved){
+            return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+        }
+    });
+    $('.modal').on('hide.bs.modal', function(e) {
+        if(unsaved){
+          e.preventDefault();
+          $("#alertaDades").removeClass("hidDrop");
+        }
+    });
+    // Monitor dynamic inputs
+    $(document).on('change', ':input', function(){ //triggers change in all input fields including text type
+        unsaved = true;
+    });
 
 ///AJAX FUNCTIONS///
    function aPost(path, obj){

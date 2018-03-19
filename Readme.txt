@@ -7,6 +7,8 @@ Avís de guardar canvis
 
 Open Graph Facebook
 
+Etiquetes actives
+
 Perfil usuari -> Escola (crear nova si canvia) - Companys
 
 Uppercase modificació dades 

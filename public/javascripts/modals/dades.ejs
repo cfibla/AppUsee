@@ -13,328 +13,339 @@
         </button>
     </div>
   
-<div class="modal-body">
-  <form role="form" method="post" data-toggle="validator" id="alumne_dades">
-    <div class="container">
-      <div class="row">
+    <div class="modal-body">
+      <form role="form" method="post" data-toggle="validator" id="alumne_dades">
+        <div class="container">
+          <div class="row">
+            <div id="alertaDades" class="alert alert-success col-md-12 hidDrop">
+              Encara no heu desat els canvis. Realment voleu abandonar aquest quadre?<br>
+              <div class="row justify-content-end">
+                <button class="btn btn-warning" id="modalDiscard">
+                  Abandonar
+                </button>
+                <button class="btn btn-default" id="modalSave">
+                  Desar
+                </button>
+              </div>
+            </div>
            <!--
-        <div class="md-form col-3">
-          <div class="row">
-            <div class="thumbnail">
-              <img src="http://placehold.it/150x150">
-            </div>
-             <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                  <small id="fileHelp" class="form-text text-muted">This is some help text.</small>-->
-          </div>
-        </div>
-<!--DADES ALUMNE-->
-        <div class="md-form col-12">
-          <div class="row">
-            <div class="md-form col-md-3">
-              <input type="text" class="form-control" id="nom_alumne" name="nomAlumne" required="true" style="text-transform:uppercase">
-              <label for="nom_alumne">Nom *</label>
-            </div>
-            <div class="md-form col-md-3">
-              <input type="text" class="form-control" id="cnom_alumne1" name="cognomAlumne1" required="true" style="text-transform:uppercase">
-              <label for="cnom_alumne1">Primer Cognom *</label>
-            </div>
-            <div class="md-form col-md-3">
-              <input type="text" class="form-control" id="cnom_alumne2" style="text-transform:uppercase" name="cognomAlumne2">
-              <label for="cnom_alumne2">Segon Cognom</label>
-            </div>
-            <div class="md-form col-md-3" id="dataNaix">
-              <label class="active" for="data_naixement">Data naixement</label>
-              <div class="input-group date alturabox" data-provide="datepicker">
-                <div class="input-group-addon"><i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control textcenter" id="data_naixement" name="naixement">
-              </div>
-            </div>
-            <div class="md-form col-md-3">
-              <input type="text" class="form-control" id="targeta_SS" name="seguretatSoc">
-              <label for="targeta_SS">Targeta SS</label>
-            </div>
-            <div class="md-form col-md-3">
-              <input type="text" class="form-control" id="codi_escola" name="codiEscola" required="true" disabled="true">
-              <label for="codi_escola">Codi escola *</label>
-            </div>
-            <div class="md-form col-md-3">
-              <input type="email" class="form-control validate" id="email_alumne" name="mailAlum" data-error="Format incorrecte">
-              <label for="email_alumne">Correu electrònic</label>
-            </div>
-            <div class="md-form col-md-3">
-              <input type="text" class="form-control" id="tel_alumne" name="telefon" data-error="Format incorrecte">
-              <label for="tel_alumne1">Telèfon</label>
-            </div>
-            <div class="md-form col-md-3" id="curs">
-          <label class="active" for="curs_act">Curs actual</label>
-          <select class="form-control" id="curs_act" name="curs" required="true">
-            <option id="cursval" class="margetopmini"></option>
-            <option value="P3 A">P3 A</option>
-            <option value="P3 B">P3 B</option>
-            <option value="P4 A">P4 A</option>
-            <option value="P4 B">P4 B</option>
-            <option value="P5 A">P5 A</option>
-            <option value="P5 B">P5 B</option>
-            <option value="1r A">1r A</option>
-            <option value="1r B">1r B</option>
-            <option value="2n A">2n A</option>
-            <option value="2n B">2n B</option>
-            <option value="3r A">3r A</option>
-            <option value="3r B">3r B</option>
-            <option value="4t A">4t A</option>
-            <option value="4t B">4t B</option>
-            <option value="5è A">5è A</option>
-            <option value="5è B">5è B</option>
-            <option value="6è A">6è A</option>
-            <option value="6è B">6è B</option>
-          </select>
-        </div>
-        <div class="md-form col-md-3">
-          <label class="active" for="selecRep">Repetidor</label>
-          <select class="form-control" id="selecRep" name="radios.0">
-            <option id="rep_alumne1"></option>
-            <option id="rep_alumne2"></option>
-          </select>
-        </div>
-        <div class="md-form col-md-2">
-          <label class="active" for="eeUsee">At. diversitat</label>
-          <select class="form-control" id="eeUsee" name="eeUsee">
-            <option id="ad_alumne1"></option>
-            <option id="ad_alumne2"></option>
-          </select>
-        </div>
-        <div class="md-form col-md-2">
-          <label class="active" for="sAill">Atès a AiLL</label>
-          <select class="form-control" id="sAill" name="checks.2">
-            <option id="aill_alumne1"></option>
-            <option id="aill_alumne2"></option>
-          </select>
-        </div>
-        <div class="md-form col-md-2">
-          <label class="active" for="serSoc">Serveis socials</label>
-          <select class="form-control" id="serSoc" name="checks.29">
-            <option id="ss_alumne1"></option>
-            <option id="ss_alumne2"></option>
-          </select>
-        </div>
-          </div>
-        </div>
-              <!--
-              <div class="md-form col-md-12">
-                <input type="text" class="form-control" id="nom_escola" name="nomEscola" required="true" disabled>
-                <label class="active" for="nom_escola">Escola</label>
-              </div>
-              -->
-        <div class="md-form col-12">
-          <div class="row">
-            <div class="md-form col-md-12" style="height:100px;">
-              <label class="active" for="Obs_alumne">Observacions generals</label>
-              <textarea class="form-control" style="height:100%;" id="obs_alumne" name="observacions"  placeholder="Observacions sobre l'alumne/a"></textarea>
-            </div>
-          </div>
-        </div>
-        <div id="alertaDades" class="alert alert-success col-md-6 hidDrop">
-          Encara no heu desat els canvis
-        </div>
-
-        
-<!--ADAPTACIONS ALUMNE -->
-        <div class="form-group col-md-12 centered">
-          <a class="btn btn-light-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1" href="#collapse1">Adaptacions <i class="fa fa-plus" aria-hidden="true"></i></a>
-            <div id="collapse1" class="collapse">
-              <div class="card card-block">
+            <div class="md-form col-3">
               <div class="row">
-                <div class="form-group col-md-12 left">
-                  <div class="form-group">
-                    <label for="programació_individualitzada">Pla individualitzat (PI)</label>
-                      <select class="form-control" id="programació_individualitzada" name="radios.15">
-                        <option  id="pi_alumne1"></option>
-                        <option  id="pi_alumne2"></option>
-                      </select>
-                  </div>
-                  <div id="divPi">
-                    <div class="form-group">
-                      <label class="checkbox-inline">
-                      <input id="curr" type="checkbox" value="true" name="checks.16"> Curricular </label>
-                      <label class="checkbox-inline">
-                      <input id="met" type="checkbox" value="true" name="checks.17"> Metodològic </label>
-                      <label class="checkbox-inline">
-                      <input id="cond" type="checkbox" value="true" name="checks.18"> Conductual </label>
+                <div class="thumbnail">
+                  <img src="http://placehold.it/150x150">
+                </div>
+                 <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                  <small id="fileHelp" class="form-text text-muted">This is some help text.</small>
+              </div>
+            </div>
+            -->
+    <!--DADES ALUMNE-->
+            <div class="md-form col-12">
+              <div class="row">
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="nom_alumne" name="nomAlumne" required="true" style="text-transform:uppercase">
+                  <label for="nom_alumne">Nom *</label>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="cnom_alumne1" name="cognomAlumne1" required="true" style="text-transform:uppercase">
+                  <label for="cnom_alumne1">Primer Cognom *</label>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="cnom_alumne2" style="text-transform:uppercase" name="cognomAlumne2">
+                  <label for="cnom_alumne2">Segon Cognom</label>
+                </div>
+                <div class="md-form col-md-3" id="dataNaix">
+                  <label class="active" for="data_naixement">Data naixement</label>
+                  <div class="input-group date alturabox" data-provide="datepicker">
+                    <div class="input-group-addon"><i class="fa fa-calendar"></i>
                     </div>
-                    <div class="form-group alturaBox">
-                    <label for="arees_adaptades">Àrees adaptades PI</label><br>
-                    <label class="checkbox-inline">
-                      <input id="cat" type="checkbox" value="true" name="checks.19">Català</label>
-                    <label class="checkbox-inline">
-                      <input id="cast" type="checkbox" value="true" name="checks.20">Castellà</label>
-                    <label class="checkbox-inline">
-                      <input id="mat" type="checkbox" value="true" name="checks.21">Matemàtiques</label>
-                    <label class="checkbox-inline">
-                      <input id="mediN" type="checkbox" value="true" name="checks.22">Medi natural</label>
-                    <label class="checkbox-inline">
-                      <input id="mediS" type="checkbox" value="true" name="checks.23">Medi social</label>
-                    <label class="checkbox-inline">
-                      <input id="efis" type="checkbox" value="true" name="checks.24">Educació Física</label>
-                    <label class="checkbox-inline">
-                      <input id="art" type="checkbox" value="true" name="checks.25">Àrea artística</label>
-                  </div>
-                  <div class="form-group alturaBox">
-                    <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
-                      <select class="form-control" id="material_diferenciat" name="radios.5">
-                        <option id="mtr_alumne1"></option>
-                        <option id="mtr_alumne2"></option>
-                      </select>
+                    <input type="text" class="form-control textcenter" id="data_naixement" name="naixement">
                   </div>
                 </div>
-              </div></div>
-
-              <div class="row">
-              <div class="form-group col-md-6">
-                <label for="adequacio_continguts">Adequació de continguts</label>
-                <select class="form-control" id="adequacio_continguts" name="radios.6">
-                  <option id="adeq_alumne1"></option>
-                  <option id="adeq_alumne2"></option>
-                </select>
-              
-              <div id="divAde">
-                <div class="form-group">
-                  <label class="checkbox-inline" for="mat2">
-                  <input id="mat2" type="checkbox" value="true" name="checks.26">Matemàtiques</label><br>
-                  <label class="checkbox-inline" for="mat2">
-                  <input id="cat2" type="checkbox" value="true" name="checks.27">Català</label><br>
-                  <label class="checkbox-inline" for="mat2">
-                  <input id="med2" type="checkbox" value="true" name="checks.28">Medi</label><br>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="targeta_SS" name="seguretatSoc">
+                  <label for="targeta_SS">Targeta SS</label>
                 </div>
-              </div>
-              </div>
-
-              <div class="form-group col-md-6">
-                <label for="full_derivacio">Full de derivació</label>
-                <select class="form-control" id="full_derivacio" name="radios.7">
-                  <option id="fder_alumne1"></option>
-                  <option id="fder_alumne2"></option>
-                </select>
-              
-              <div class="form-group" id="divDer">
-                <div class="form-group">
-                  <label for="qui_fa_derivacio">Qui el fa?</label>
-                  <select class="form-control" id="qui_fa_derivacio" name="derivacio">
-                  </select>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="codi_escola" name="codiEscola" required="true" disabled="true">
+                  <label for="codi_escola">Codi escola *</label>
                 </div>
-                <div class="form-group" style="height:100px;">
-                  <label class="active" for="motiu_derivacio">Motiu</label>
-                  <textarea class="form-control" style="height:100%;" id="motiu_derivacio" name="motiuDer"></textarea>
-                </div></div>
-              </div></div>
+                <div class="md-form col-md-3">
+                  <input type="email" class="form-control validate" id="email_alumne" name="mailAlum" data-error="Format incorrecte">
+                  <label for="email_alumne">Correu electrònic</label>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="tel_alumne" name="telefon" data-error="Format incorrecte">
+                  <label for="tel_alumne1">Telèfon</label>
+                </div>
+                <div class="md-form col-md-3" id="curs">
+              <label class="active" for="curs_act">Curs actual</label>
+              <select class="form-control" id="curs_act" name="curs" required="true">
+                <option id="cursval" class="margetopmini"></option>
+                <option value="P3 A">P3 A</option>
+                <option value="P3 B">P3 B</option>
+                <option value="P4 A">P4 A</option>
+                <option value="P4 B">P4 B</option>
+                <option value="P5 A">P5 A</option>
+                <option value="P5 B">P5 B</option>
+                <option value="1r A">1r A</option>
+                <option value="1r B">1r B</option>
+                <option value="2n A">2n A</option>
+                <option value="2n B">2n B</option>
+                <option value="3r A">3r A</option>
+                <option value="3r B">3r B</option>
+                <option value="4t A">4t A</option>
+                <option value="4t B">4t B</option>
+                <option value="5è A">5è A</option>
+                <option value="5è B">5è B</option>
+                <option value="6è A">6è A</option>
+                <option value="6è B">6è B</option>
+              </select>
             </div>
-          </div>
-        </div>
-
-<!--ATENCIÓ DIVERSITAT ALUMNE-->
-        <div class="form-group col-md-12 centered" id="divDiv">
-          <a class="btn btn-dark-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2" href="#collapse2">Atenció a la diversitat  <i class="fa fa-plus" aria-hidden="true"></i></a>
-            <div id="collapse2" class="collapse left">
-              <div class="card card-block">
+            <div class="md-form col-md-3">
+              <label class="active" for="selecRep">Repetidor</label>
+              <select class="form-control" id="selecRep" name="radios.0">
+                <option id="rep_alumne1"></option>
+                <option id="rep_alumne2"></option>
+              </select>
+            </div>
+            <div class="md-form col-md-2">
+              <label class="active" for="eeUsee">At. diversitat</label>
+              <select class="form-control" id="eeUsee" name="eeUsee">
+                <option id="ad_alumne1"></option>
+                <option id="ad_alumne2"></option>
+              </select>
+            </div>
+            <div class="md-form col-md-2">
+              <label class="active" for="sAill">Atès a AiLL</label>
+              <select class="form-control" id="sAill" name="checks.2">
+                <option id="aill_alumne1"></option>
+                <option id="aill_alumne2"></option>
+              </select>
+            </div>
+            <div class="md-form col-md-2">
+              <label class="active" for="serSoc">Serveis socials</label>
+              <select class="form-control" id="serSoc" name="checks.29">
+                <option id="ss_alumne1"></option>
+                <option id="ss_alumne2"></option>
+              </select>
+            </div>
+              </div>
+            </div>
+                  <!--
+                  <div class="md-form col-md-12">
+                    <input type="text" class="form-control" id="nom_escola" name="nomEscola" required="true" disabled>
+                    <label class="active" for="nom_escola">Escola</label>
+                  </div>
+                  -->
+            <div class="md-form col-12">
               <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="seg_ad">Seguiment atenció a la diversitat</label>
-                  <select class="form-control" id="seg_ad" name="checks.0">
-                    <option id="seg_alumne1"></option>
-                    <option  id="seg_alumne2"></option>
-                  </select>
+                <div class="md-form col-md-12" style="height:100px;">
+                  <label class="active" for="Obs_alumne">Observacions generals</label>
+                  <textarea class="form-control" style="height:100%;" id="obs_alumne" name="observacions"  placeholder="Observacions sobre l'alumne/a"></textarea>
                 </div>
+              </div>
+            </div>
 
-                <div class="form-group col-md-6">
-                  <div class="form-group">
-                    <label for="beca">Beca</label>
-                    <select class="form-control" id="beca" name="radios.1">
-                      <option id="beca_alumne1"></option>
-                      <option id="beca_alumne2"></option>
+            
+    <!--ADAPTACIONS ALUMNE -->
+            <div class="form-group col-md-12 centered">
+              <a class="btn btn-light-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1" href="#collapse1">Adaptacions <i class="fa fa-plus" aria-hidden="true"></i></a>
+                <div id="collapse1" class="collapse">
+                  <div class="card card-block">
+                  <div class="row">
+                    <div class="form-group col-md-12 left">
+                      <div class="form-group">
+                        <label for="programació_individualitzada">Pla individualitzat (PI)</label>
+                          <select class="form-control" id="programació_individualitzada" name="radios.15">
+                            <option  id="pi_alumne1"></option>
+                            <option  id="pi_alumne2"></option>
+                          </select>
+                      </div>
+                      <div id="divPi">
+                        <div class="form-group">
+                          <label class="checkbox-inline">
+                          <input id="curr" type="checkbox" value="true" name="checks.16"> Curricular </label>
+                          <label class="checkbox-inline">
+                          <input id="met" type="checkbox" value="true" name="checks.17"> Metodològic </label>
+                          <label class="checkbox-inline">
+                          <input id="cond" type="checkbox" value="true" name="checks.18"> Conductual </label>
+                        </div>
+                        <div class="form-group alturaBox">
+                        <label for="arees_adaptades">Àrees adaptades PI</label><br>
+                        <label class="checkbox-inline">
+                          <input id="cat" type="checkbox" value="true" name="checks.19">Català</label>
+                        <label class="checkbox-inline">
+                          <input id="cast" type="checkbox" value="true" name="checks.20">Castellà</label>
+                        <label class="checkbox-inline">
+                          <input id="mat" type="checkbox" value="true" name="checks.21">Matemàtiques</label>
+                        <label class="checkbox-inline">
+                          <input id="mediN" type="checkbox" value="true" name="checks.22">Medi natural</label>
+                        <label class="checkbox-inline">
+                          <input id="mediS" type="checkbox" value="true" name="checks.23">Medi social</label>
+                        <label class="checkbox-inline">
+                          <input id="efis" type="checkbox" value="true" name="checks.24">Educació Física</label>
+                        <label class="checkbox-inline">
+                          <input id="art" type="checkbox" value="true" name="checks.25">Àrea artística</label>
+                      </div>
+                      <div class="form-group alturaBox">
+                        <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
+                          <select class="form-control" id="material_diferenciat" name="radios.5">
+                            <option id="mtr_alumne1"></option>
+                            <option id="mtr_alumne2"></option>
+                          </select>
+                      </div>
+                    </div>
+                  </div></div>
+
+                  <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="adequacio_continguts">Adequació de continguts</label>
+                    <select class="form-control" id="adequacio_continguts" name="radios.6">
+                      <option id="adeq_alumne1"></option>
+                      <option id="adeq_alumne2"></option>
                     </select>
+                  
+                  <div id="divAde">
+                    <div class="form-group">
+                      <label class="checkbox-inline" for="mat2">
+                      <input id="mat2" type="checkbox" value="true" name="checks.26">Matemàtiques</label><br>
+                      <label class="checkbox-inline" for="mat2">
+                      <input id="cat2" type="checkbox" value="true" name="checks.27">Català</label><br>
+                      <label class="checkbox-inline" for="mat2">
+                      <input id="med2" type="checkbox" value="true" name="checks.28">Medi</label><br>
+                    </div>
                   </div>
-                </div>
+                  </div>
 
-                <div class="form-group col-md-6">
-                  <div class="form-group">
-                    <label for="disminucio">Certificat disminució</label>
-                    <select class="form-control" id="disminucio" name="radios.2">
-                      <option id="cdim_alumne1"></option>
-                      <option id="cdim_alumne2"></option>
+                  <div class="form-group col-md-6">
+                    <label for="full_derivacio">Full de derivació</label>
+                    <select class="form-control" id="full_derivacio" name="radios.7">
+                      <option id="fder_alumne1"></option>
+                      <option id="fder_alumne2"></option>
                     </select>
-                  </div>
-
-                  <div class="md-form col-md-12" id="divDim">
-                    <input type="text" class="form-control" id="percent_dim" name="percentDim">
-                    <label for="percent_dim">Indiqueu %</label>
-                  </div>
+                  
+                  <div class="form-group" id="divDer">
+                    <div class="form-group">
+                      <label for="qui_fa_derivacio">Qui el fa?</label>
+                      <select class="form-control" id="qui_fa_derivacio" name="derivacio">
+                      </select>
+                    </div>
+                    <div class="form-group" style="height:100px;">
+                      <label class="active" for="motiu_derivacio">Motiu</label>
+                      <textarea class="form-control" style="height:100%;" id="motiu_derivacio" name="motiuDer"></textarea>
+                    </div></div>
+                  </div></div>
                 </div>
+              </div>
+            </div>
 
-                <div class="form-group col-md-6">
-                  <div class="form-group">
-                    <label for="valoracio_eap">Valoració EAP</label>
-                    <select class="form-control" id="valoracio_eap" name="radios.4">
-                      <option id="eap_alumne1"></option>
-                      <option id="eap_alumne2"></option>
-                    </select>
-                  </div>
-                  <div class="md-form col-md-12" id="divVal">
-                    <input type="text" class="form-control" id="any_val" name="anyVal">
-                    <label for="any_val">Any Valoració</label>
-                  </div>
-                </div>
-
-                <div class="form-group col-md-12">
-                  <div class="form-group">
-                    <label for="dictamen">Dictamen</label><br>
-                    <select class="form-control" id="dictamen" name="radios.3">
-                      <option id="dic_alumne1"></option>
-                      <option id="dic_alumne2"></option>
-                    </select>
-                  </div>
-                  <div class="md-form col-md-12" id="divDic">
-                    <input type="text" class="form-control" id="motiu_dic" name="motiuDic">
-                    <label for="any_val">Indiqueu el motiu</label>
-                  </div>
-                </div>
-
-                <div class="form-group col-md-12">
+    <!--ATENCIÓ DIVERSITAT ALUMNE-->
+            <div class="form-group col-md-12 centered" id="divDiv">
+              <a class="btn btn-dark-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2" href="#collapse2">Atenció a la diversitat  <i class="fa fa-plus" aria-hidden="true"></i></a>
+                <div id="collapse2" class="collapse left">
+                  <div class="card card-block">
                   <div class="row">
                     <div class="form-group col-md-6">
-                      <label for="seguiment_serveis_externs">Seguiment serveis externs</label><br>
-                      <label class="checkbox-inline">
-                        <input id="c_eap" type="checkbox" value="true" name="checks.5">EAP</label>
-                      <label class="checkbox-inline">
-                        <input id="ts_eap" type="checkbox" value="true" name="checks.6">TS EAP</label>
-                      <label class="checkbox-inline">
-                        <input id="credag" type="checkbox" value="true" name="checks.7">CREDAG</label>
-                      <label class="checkbox-inline">
-                        <input id="credv" type="checkbox" value="true" name="checks.8">CREDV</label>
-                      <label class="checkbox-inline">
-                        <input id="csmij" type="checkbox" value="true" name="checks.9">CSMIJ</label>
-                      <label class="checkbox-inline">
-                        <input id="seetdic" type="checkbox" value="true" name="checks.10">SEETDIC</label>
-                      <label class="checkbox-inline">
-                        <input id="cdiap" type="checkbox" value="true" name="checks.11">CDIAP</label>
+                      <label for="seg_ad">Seguiment atenció a la diversitat</label>
+                      <select class="form-control" id="seg_ad" name="checks.0">
+                        <option id="seg_alumne1"></option>
+                        <option  id="seg_alumne2"></option>
+                      </select>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="seguiment_medic">Seguiment mèdic</label><br>
-                      <label class="checkbox-inline">
-                        <input id="ped" type="checkbox" value="true" name="checks.12">Pediatria</label>
-                      <label class="checkbox-inline">
-                        <input id="nped" type="checkbox" value="true" name="checks.13">Neuropediatria</label>
-                      <label class="checkbox-inline">
-                        <input id="altresesp" type="checkbox" value="true" name="checks.14">Altres especialitats</label>
-                      <div class="md-form col-md-12" id="espDiv">
-                        <input id="esp" type="text" class="form-control" name="altresEsp">
-                        <label for="esp">Indiqueu altres especialitats</label>
+                      <div class="form-group">
+                        <label for="beca">Beca</label>
+                        <select class="form-control" id="beca" name="radios.1">
+                          <option id="beca_alumne1"></option>
+                          <option id="beca_alumne2"></option>
+                        </select>
                       </div>
                     </div>
 
-                    <div class="md-form col-md-12">
-                      <input type="text" class="form-control" id="serpriv" name="atServPrivats">
-                      <label class="active" for="esp">Atenció serveis privats</label>
+                    <div class="form-group col-md-6">
+                      <div class="form-group">
+                        <label for="disminucio">Certificat disminució</label>
+                        <select class="form-control" id="disminucio" name="radios.2">
+                          <option id="cdim_alumne1"></option>
+                          <option id="cdim_alumne2"></option>
+                        </select>
+                      </div>
+
+                      <div class="md-form col-md-12" id="divDim">
+                        <input type="text" class="form-control" id="percent_dim" name="percentDim">
+                        <label for="percent_dim">Indiqueu %</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <div class="form-group">
+                        <label for="valoracio_eap">Valoració EAP</label>
+                        <select class="form-control" id="valoracio_eap" name="radios.4">
+                          <option id="eap_alumne1"></option>
+                          <option id="eap_alumne2"></option>
+                        </select>
+                      </div>
+                      <div class="md-form col-md-12" id="divVal">
+                        <input type="text" class="form-control" id="any_val" name="anyVal">
+                        <label for="any_val">Any Valoració</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <div class="form-group">
+                        <label for="dictamen">Dictamen</label><br>
+                        <select class="form-control" id="dictamen" name="radios.3">
+                          <option id="dic_alumne1"></option>
+                          <option id="dic_alumne2"></option>
+                        </select>
+                      </div>
+                      <div class="md-form col-md-12" id="divDic">
+                        <input type="text" class="form-control" id="motiu_dic" name="motiuDic">
+                        <label for="any_val">Indiqueu el motiu</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                          <label for="seguiment_serveis_externs">Seguiment serveis externs</label><br>
+                          <label class="checkbox-inline">
+                            <input id="c_eap" type="checkbox" value="true" name="checks.5">EAP</label>
+                          <label class="checkbox-inline">
+                            <input id="ts_eap" type="checkbox" value="true" name="checks.6">TS EAP</label>
+                          <label class="checkbox-inline">
+                            <input id="credag" type="checkbox" value="true" name="checks.7">CREDAG</label>
+                          <label class="checkbox-inline">
+                            <input id="credv" type="checkbox" value="true" name="checks.8">CREDV</label>
+                          <label class="checkbox-inline">
+                            <input id="csmij" type="checkbox" value="true" name="checks.9">CSMIJ</label>
+                          <label class="checkbox-inline">
+                            <input id="seetdic" type="checkbox" value="true" name="checks.10">SEETDIC</label>
+                          <label class="checkbox-inline">
+                            <input id="cdiap" type="checkbox" value="true" name="checks.11">CDIAP</label>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                          <label for="seguiment_medic">Seguiment mèdic</label><br>
+                          <label class="checkbox-inline">
+                            <input id="ped" type="checkbox" value="true" name="checks.12">Pediatria</label>
+                          <label class="checkbox-inline">
+                            <input id="nped" type="checkbox" value="true" name="checks.13">Neuropediatria</label>
+                          <label class="checkbox-inline">
+                            <input id="altresesp" type="checkbox" value="true" name="checks.14">Altres especialitats</label>
+                          <div class="md-form col-md-12" id="espDiv">
+                            <input id="esp" type="text" class="form-control" name="altresEsp">
+                            <label for="esp">Indiqueu altres especialitats</label>
+                          </div>
+                        </div>
+
+                        <div class="md-form col-md-12">
+                          <input type="text" class="form-control" id="serpriv" name="atServPrivats">
+                          <label class="active" for="esp">Atenció serveis privats</label>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -342,15 +353,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
-  </form>
-</div>
-
-
-
-      <div class="modal-footer">
-        <button type="submit" form="alumne_dades" class="btn btn-success btn-block" id="btn_dades">Desa</button>
-      </div>
-      </body>
-      </html>
+    <div class="modal-footer">
+      <button type="submit" form="alumne_dades" class="btn btn-success btn-block" id="btn_dades">Desa</button>
+    </div>
+  </body>
+</html>
