@@ -993,9 +993,17 @@ $(document).ready(function (){
 
 ///ALERT UNSAVED CHANGES///
     var unsaved = false;
+    //Anula el efecto en el Login
     $('.noSave').click(function() {
     unsaved = false;
-});
+    });
+    //Anula el efecto en vistas sin save
+    if(pth.match("/"||"/list_EE/"||"list")){
+      window.onbeforeunload = function () {
+      unsaved = false;
+      };
+    }
+    //Algoritmo
     $(window).bind('beforeunload', function() {
         if(unsaved){
             return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
