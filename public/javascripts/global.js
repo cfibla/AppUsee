@@ -348,6 +348,14 @@ $(document).ready(function (){
 ///////// A L U M N E S //////////////
 //  D A D E S   P E R S O N A L S
   $('#dadesModal').on('shown.bs.modal', function (e) {
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     })
 //datepicker//
     $('#dataNaix .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -1009,16 +1017,22 @@ $(document).ready(function (){
             return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
         }
     });
+    //Alert unsaved changes
     $('.modal').on('hide.bs.modal', function(e) {
         if(unsaved){
           e.preventDefault();
           $("#alertaDades").removeClass("hidDrop");
+          $('.modal').animate({
+        scrollTop: $("#alertaDades").offset().top
+    }, 2000);
+
         }
     });
     // Monitor dynamic inputs
     $(document).on('change', ':input', function(){ //triggers change in all input fields including text type
         unsaved = true;
     });
+
 
 ///AJAX FUNCTIONS///
    function aPost(path, obj){

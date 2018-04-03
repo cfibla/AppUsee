@@ -450,6 +450,11 @@ span.glyphicon-user {
     max-height: 15em;
     overflow: auto;
 }
+
+.alerta{
+    margin-bottom: 10px;
+}
+
 .divintro{
     margin: 0;
     padding-top: 1em;

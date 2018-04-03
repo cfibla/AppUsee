@@ -9,6 +9,8 @@ Open Graph Facebook
 
 Etiquetes actives
 
+bootstrap 4 + mdb4.5
+
 Perfil usuari -> Escola (crear nova si canvia) - Companys
 
 Uppercase modificació dades 
