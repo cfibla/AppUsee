@@ -824,6 +824,14 @@ $(document).ready(function (){
 ///////////// REUNIONS /////////
 //CREATE MODAL
   $('#reuParesModal').on('shown.bs.modal', function (e) {
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     })
     //datepicker//
     $('#rData .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -898,7 +906,14 @@ $(document).ready(function (){
 
 //UPDATE MODAL
   $('#reuParesModalUpd').on('shown.bs.modal', function (e) {
-
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     })
     //datepicker//
     $('#rDataUpd .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -1023,9 +1038,8 @@ $(document).ready(function (){
           e.preventDefault();
           $("#alertaDades").removeClass("hidDrop");
           $('.modal').animate({
-        scrollTop: $("#alertaDades").offset().top
-    }, 2000);
-
+          scrollTop: $("#alertaDades").offset().top
+          }, 2000);
         }
     });
     // Monitor dynamic inputs
