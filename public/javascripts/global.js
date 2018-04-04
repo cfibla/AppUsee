@@ -205,6 +205,27 @@ $(document).ready(function (){
     $("#areasPost_2").removeClass("hidDrop");
   }
 
+  
+///////// LABEL ACTIVE ///////////////
+  function checkForInput(element) {
+   const $label = $(element).siblings('label');
+    if ($(element).val().length > 0) {
+      $label.addClass('active');
+    } else {
+      $label.removeClass('active');
+    }
+  }
+
+  // The lines below are executed on page load
+  $('input').each(function() {
+    checkForInput(this);
+  });
+
+  // The lines below (inside) are executed on change & keyup
+  $('input').on('change keyup', function() {
+    checkForInput(this);  
+  });
+
 //TOOLTIPS
   $(function () {
     $('[data-tggle="tooltip"]').tooltip();
@@ -954,7 +975,7 @@ $(document).ready(function (){
     mdal.find('.modal-body #reuConclUpd').attr("name", "reunionsPares." + i + ".conclusions");
 
       ///////// LABEL ACTIVE ///////////////
-/*    function checkForInput(element) {
+    function checkForInput(element) {
   // element is passed to the function ^
   
       const $label = $(element).siblings('label');
@@ -965,9 +986,9 @@ $(document).ready(function (){
         $label.removeClass('active');
       }
     }
-*/
+
     // The lines below are executed on page load
-/*    $('input').each(function() {
+   $('input').each(function() {
       checkForInput(this);
     });
 
@@ -975,7 +996,7 @@ $(document).ready(function (){
     $('input').on('change keyup', function() {
       checkForInput(this);  
     });
-*/
+
     $('#reunions_pares_upd').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/reunions-pares/upd/" + i +"/" + alumneId + "?_method=put";

@@ -7,7 +7,7 @@ Avís de guardar canvis
 
 Open Graph Facebook
 
-Etiquetes actives
+Etiquetes actives - LABELS
 
 bootstrap 4 + mdb4.5
 
