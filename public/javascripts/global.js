@@ -1042,7 +1042,7 @@ $(document).ready(function (){
     unsaved = false;
     });
     //Anula el efecto en vistas sin save
-    if(pth.match("/"||"/list_EE/"||"list")){
+    if(pth.match("/list_EE/"||"list")){
       window.onbeforeunload = function () {
       unsaved = false;
       };

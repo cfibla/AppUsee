@@ -6,6 +6,14 @@ $(document).ready(function() {
 // ACTUACIONS //
 //CREATE MODAL (ACTUACIONS)
   $('#actuModal').on('shown.bs.modal', function (e) {
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     })
     //datepicker//
     $('#acData .input-group.date').datepicker({
       format: "dd/mm/yyyy",
