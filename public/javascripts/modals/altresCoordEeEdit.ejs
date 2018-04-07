@@ -46,8 +46,14 @@
         </div>
       </div>
     </div>    
-    <div class="modal-footer">
-      <button type="submit" form="upd_altres" class="btn btn-success btn-block" id="altresBtn">Actualitza</button>
-    </div>
+      <div class="modal-footer">
+        <div class="container">
+          <span id="alertaDades" class="alerta hidDrop">
+            Encara no heu desat els canvis. Realment voleu abandonar aquest quadre?
+            <button class="btn btn-warning btn-block" id="modalDiscard">Abandonar</button>
+          </span>
+          <button type="submit" form="upd_altres" class="btn btn-success btn-block" id="actuBtn">Actualitza</button>
+        </div>
+      </div>
   </body>
 </html>

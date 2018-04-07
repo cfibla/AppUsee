@@ -23,19 +23,15 @@
           </div>
           <div class="md-form col-12"><br>
             <form role="form" method="post" id="upd_CAD">
-
               <!--DATEPICKER-->
               <div class="md-form col-md-3 alturabox" id="cadDataUpd">
                 <label class="active" for="cDataUpd">Data</label>
                 <div class="input-group date" data-provide="datepicker">
-
                   <div class="input-group-addon"><i class="fa fa-calendar"></i>
                   </div>
                   <input type="text" id="cDataUpd" class="form-control" form="upd_CAD">
-                  </div><br><br>
-
+                </div><br><br>
               </div>
-
               <!-- BODY -->
               <div class="md-form col-12 alturabox" style="height:100px;">
                 <label class="active" for="cadBodyUpd">Informació CAD</label>
@@ -47,7 +43,13 @@
       </div>
     </div>    
     <div class="modal-footer">
-        <button type="submit" form="upd_CAD" class="btn btn-success btn-block" id="cadBtn">Actualitza</button>
+      <div class="container">
+        <span id="alertaDades" class="alerta hidDrop">
+          Encara no heu desat els canvis. Realment voleu abandonar aquest quadre?
+          <button class="btn btn-warning btn-block" id="modalDiscard">Abandonar</button>
+        </span>
+        <button type="submit" form="upd_CAD" class="btn btn-success btn-block" id="actuBtn">Desa</button>
+      </div>
     </div>
   </body>
 </html>

@@ -141,6 +141,15 @@ $(document).ready(function() {
 ///////// CAD ////////////////
 //CREATE MODAL (CAD)
   $('#cadModal').on('shown.bs.modal', function (e) {
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     });
+
     // datepicker //
     $('#cadData .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -194,6 +203,14 @@ $(document).ready(function() {
 
 //UPDATE MODAL (CAD)
   $('#cadModalUpd').on('shown.bs.modal', function (e) {
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     });
   // datepicker //
     $('#cadDataUpd .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -261,6 +278,14 @@ $(document).ready(function() {
 ///////// ALTRES COORD ////////////////
 //CREATE MODAL (ALTRES COORD)
   $('#altresCoordModal').on('shown.bs.modal', function (e) {
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     });
     // datepicker //
     $('#altresCoordData .input-group.date').datepicker({
         format: "dd/mm/yyyy",
@@ -312,6 +337,14 @@ $(document).ready(function() {
 
 //UPDATE MODAL (ALTRES COORD)
   $('#altresCoordModalUpd').on('shown.bs.modal', function (e) {
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     });
     // datepicker //
     $('#alDataUpd .input-group.date').datepicker({
         format: "dd/mm/yyyy",
