@@ -13,7 +13,7 @@ $(document).ready(function() {
         e.preventDefault();
        location.reload();
         $('.modal').removeClass('show');
-     })
+     });
     //datepicker//
     $('#acData .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -66,6 +66,14 @@ $(document).ready(function() {
 
 //UPDATE MODAL (ACTUACIONS)
   $('#actuModalUpd').on('shown.bs.modal', function (e) {
+    //DISMISS
+    $('#modalDiscard').click(
+      function(){
+        unsaved = false;
+        e.preventDefault();
+       location.reload();
+        $('.modal').removeClass('show');
+     });
     //datepicker//
     $('#acDataUpd .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -367,22 +375,6 @@ $(document).ready(function() {
       ajaxPost (url, urlPost, data, anchor);
       });
     });
-
-////// SEGUIMENT reload al mateix TAB /////////////////////////
- $('#seg').ready(function() {
-    if (location.hash) {
-        $("a[href='" + location.hash + "']").tab("show");
-    }
-    $(document.body).on("click", "a[data-toggle]", function(event) {
-        location.hash = this.getAttribute("href");
-    });
-});
-
-$(window).on("popstate", function() {
-    var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
-    $("a[href='" + anchor + "']").tab("show");
-});
-
 
 ///AJAX FUNCTION///
    function ajaxPost(ur, path, obj, anchor){

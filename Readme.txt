@@ -9,6 +9,8 @@ Open Graph Facebook
 
 Etiquetes actives - LABELS
 
+Horari-Arees EE (not working)
+
 bootstrap 4 + mdb4.5
 
 Perfil usuari -> Escola (crear nova si canvia) - Companys

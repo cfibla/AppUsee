@@ -376,7 +376,7 @@ $(document).ready(function (){
         e.preventDefault();
        location.reload();
         $('.modal').removeClass('show');
-     })
+     });
 //datepicker//
     $('#dataNaix .input-group.date').datepicker({
       format: "dd/mm/yyyy",
@@ -1042,9 +1042,15 @@ $(document).ready(function (){
     unsaved = false;
     });
     //Anula el efecto en vistas sin save
-    if(pth.match("/list_EE/"||"list")){
+    if(pth.match("/"||"/list_EE/"||"list")){
       window.onbeforeunload = function () {
       unsaved = false;
+      };
+    }
+    //True en vistas con save
+    if(pth.match("horari-diari"||"horari-config"||"horari-area")){
+      window.onbeforeunload = function () {
+      unsaved = true;
       };
     }
     //Algoritmo
