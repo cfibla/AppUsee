@@ -1048,9 +1048,11 @@ $(document).ready(function (){
       };
     }
     //True en vistas con save
-    if(pth.match("horari-diari"||"horari-config"||"horari-area")){
+    if(pth.match("horari-diari")|| pth.match("horari-config") || pth.match("horari-area")){
       window.onbeforeunload = function () {
-      unsaved = true;
+        $(document).on('change', ':input', function(){ //triggers change in all input fields including text type
+          unsaved = true;
+        });
       };
     }
     //Algoritmo

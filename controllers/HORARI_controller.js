@@ -534,6 +534,8 @@ exports.areaGet = function(req,res){
 			}
 
 			var sessionsArea = search(area, hores.dades);
+			console.log('sessionsArea:' + sessionsArea);
+			console.log('area:' + area);
 			res.render('horari-arees', {horari:sessionsArea, area:area});
 		}
 	})

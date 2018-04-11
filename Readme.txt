@@ -9,7 +9,7 @@ Open Graph Facebook
 
 Etiquetes actives - LABELS
 
-Horari-Arees EE (not working)
+Horari-config - Cambiar data inici/final cuando hay cambios
 
 bootstrap 4 + mdb4.5
 
