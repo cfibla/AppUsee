@@ -165,8 +165,14 @@ exports.update = function (req, res){
 
 		function upd(){
 			horari.nom = nom;
+			var dataI = moment(iniciReq).format('DD/MM/YYYY');
+			var dataF = moment(finalReq).format('DD/MM/YYYY');
+			horari.dataIni = dataI;
+			horari.dataFi = dataF;
 			horari.areasArray = [];
 			console.log(horariReq);
+			console.log('INICI: '+ dataI);
+			console.log('FINAL: ' + dataF);
 			for (var i=0; i < horari.dades.length; i++) {
 		        if (horari.dades[i].dia === 1) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dll;
@@ -344,6 +350,7 @@ exports.update = function (req, res){
 				upd();
 			} else {
 				if (moment(iniciReq).isBefore(inici)) {
+
 					console.log("INICIO: HAS INTRODUCIDO UNA FECHA ANTERIOR");
 
 					for(i=iniciAnt; i>=iniciReq; i=moment(i).subtract(1,'days')){
