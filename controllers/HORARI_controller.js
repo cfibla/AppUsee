@@ -174,6 +174,16 @@ exports.update = function (req, res){
 			console.log('INICI: '+ dataI);
 			console.log('FINAL: ' + dataF);
 			for (var i=0; i < horari.dades.length; i++) {
+/*data: momentData,
+				dia: iDia,
+				area: '',
+				h_inici: '',
+				h_final: '',
+				prog: '',
+				objectius: '',
+				sessio: '',
+				color: ''
+*/
 		        if (horari.dades[i].dia === 1) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dll;
 		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1dll;
@@ -387,15 +397,23 @@ exports.update = function (req, res){
 				}
 				if (moment(iniciReq).isAfter(inici)) {
 					console.log("INICIO: HAS INTRODUCIDO UNA FECHA POSTERIOR");
+					if (final.diff(iniciReq, 'days')<7){
+						console.log("ERROR: MENOS DE UNA SEMANA");
+						final = moment(inici).add(7,'days');
+					}
 					iniciDiff = iniciReq.diff(inici, 'days');
 					horari.dades.splice(0,iniciDiff);
-					//upd();
+					upd();
 				}
 				if (moment(finalReq).isBefore(final)) {
 					console.log("FINAL: HAS INTRODUCIDO UNA FECHA ANTERIOR");
+					if (finalReq.diff(inici, 'days')<7){
+						console.log("ERROR: MENOS DE UNA SEMANA");
+						final = moment(inici).add(7,'days');
+					}
 					finalDiff = final.diff(finalReq, 'days');
 					horari.dades.splice(lgt-finalDiff+1,finalDiff);
-					//upd();
+					upd();
 				}
 				if (moment(finalReq).isAfter(final)) {
 					console.log("FINAL: HAS INTRODUCIDO UNA FECHA POSTERIOR");
@@ -445,32 +463,19 @@ exports.update = function (req, res){
 exports.diariGet = function (req, res) {
 	var usr = req.session.user;
 	var horariId = usr.horari;
-
-
-	//???hay que convertir TODAS las fechas a ISO primero para poder operar con ellas
-	//	console.log('month: ' + month);
-	//	console.log('inici: ' + initMoment);
-	//	console.log('finish: ' + finishMoment);
-	//	console.log('monthInit: ' + moment(initMoment).format('M'));
-	//	console.log('monthFinish: ' + moment(finishMoment).format('M'));
 /*
 		models.tweets.find({created_at: {$lt: last_displayed_date}}).
           sort({created_at: -1}).limit(20);
 */
 
-				console.log('HORARI-DIARI GET');
-				models.Horari.findById(horariId, function(err, horariUser){
-					if(err){
-						console.log(err);
-					} else {
-						res.render('horari-diari', {horari: horariUser});
-					};
-				});
-
-
-
-
-
+	console.log('HORARI-DIARI GET');
+	models.Horari.findById(horariId, function(err, horariUser){
+		if(err){
+			console.log(err);
+		} else {
+			res.render('horari-diari', {horari: horariUser});
+		};
+	});
 };
 
 //HORARI DIARI - POST
