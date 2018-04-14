@@ -207,6 +207,30 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_3.hora = horariReq.hora_3dll;
 		        	horari.dades[i].hora_4.hora = horariReq.hora_4dll;
 		        	horari.dades[i].hora_5.hora = horariReq.hora_5dll;
+
+		        	horari.dades[i].hora_1.prog = '';
+		        	horari.dades[i].hora_2.prog = '';
+		        	horari.dades[i].hora_3.prog = '';
+		        	horari.dades[i].hora_4.prog = '';
+		        	horari.dades[i].hora_5.prog = '';
+
+		        	horari.dades[i].hora_1.objectius = '';
+		        	horari.dades[i].hora_2.objectius = '';
+		        	horari.dades[i].hora_3.objectius = '';
+		        	horari.dades[i].hora_4.objectius = '';
+		        	horari.dades[i].hora_5.objectius = '';
+
+		        	horari.dades[i].hora_1.sessio = '';
+		        	horari.dades[i].hora_2.sessio = '';
+		        	horari.dades[i].hora_3.sessio = '';
+		        	horari.dades[i].hora_4.sessio = '';
+		        	horari.dades[i].hora_5.sessio = '';
+
+		        	horari.dades[i].hora_1.color = '';
+		        	horari.dades[i].hora_2.color = '';
+		        	horari.dades[i].hora_3.color = '';
+		        	horari.dades[i].hora_4.color = '';
+		        	horari.dades[i].hora_5.color = '';
 		        }
 		        if (horari.dades[i].dia === 2) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dm;
@@ -230,7 +254,31 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_2.hora = horariReq.hora_2dm;
 		        	horari.dades[i].hora_3.hora = horariReq.hora_3dm;
 		        	horari.dades[i].hora_4.hora = horariReq.hora_4dm;
-		        	horari.dades[i].hora_5.hora = horariReq.hora_5dm;	
+		        	horari.dades[i].hora_5.hora = horariReq.hora_5dm;
+
+		        	horari.dades[i].hora_1.prog = '';
+		        	horari.dades[i].hora_2.prog = '';
+		        	horari.dades[i].hora_3.prog = '';
+		        	horari.dades[i].hora_4.prog = '';
+		        	horari.dades[i].hora_5.prog = '';
+
+		        	horari.dades[i].hora_1.objectius = '';
+		        	horari.dades[i].hora_2.objectius = '';
+		        	horari.dades[i].hora_3.objectius = '';
+		        	horari.dades[i].hora_4.objectius = '';
+		        	horari.dades[i].hora_5.objectius = '';
+
+		        	horari.dades[i].hora_1.sessio = '';
+		        	horari.dades[i].hora_2.sessio = '';
+		        	horari.dades[i].hora_3.sessio = '';
+		        	horari.dades[i].hora_4.sessio = '';
+		        	horari.dades[i].hora_5.sessio = '';
+
+		        	horari.dades[i].hora_1.color = '';
+		        	horari.dades[i].hora_2.color = '';
+		        	horari.dades[i].hora_3.color = '';
+		        	horari.dades[i].hora_4.color = '';
+		        	horari.dades[i].hora_5.color = '';	
 		        }
 		        if (horari.dades[i].dia === 3) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dx;
@@ -255,6 +303,30 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_3.hora = horariReq.hora_3dx;
 		        	horari.dades[i].hora_4.hora = horariReq.hora_4dx;
 		        	horari.dades[i].hora_5.hora = horariReq.hora_5dx;
+
+		        	horari.dades[i].hora_1.prog = '';
+		        	horari.dades[i].hora_2.prog = '';
+		        	horari.dades[i].hora_3.prog = '';
+		        	horari.dades[i].hora_4.prog = '';
+		        	horari.dades[i].hora_5.prog = '';
+
+		        	horari.dades[i].hora_1.objectius = '';
+		        	horari.dades[i].hora_2.objectius = '';
+		        	horari.dades[i].hora_3.objectius = '';
+		        	horari.dades[i].hora_4.objectius = '';
+		        	horari.dades[i].hora_5.objectius = '';
+
+		        	horari.dades[i].hora_1.sessio = '';
+		        	horari.dades[i].hora_2.sessio = '';
+		        	horari.dades[i].hora_3.sessio = '';
+		        	horari.dades[i].hora_4.sessio = '';
+		        	horari.dades[i].hora_5.sessio = '';
+
+		        	horari.dades[i].hora_1.color = '';
+		        	horari.dades[i].hora_2.color = '';
+		        	horari.dades[i].hora_3.color = '';
+		        	horari.dades[i].hora_4.color = '';
+		        	horari.dades[i].hora_5.color = '';
 		        }
 		        if (horari.dades[i].dia === 4) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dj;
@@ -278,7 +350,31 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_2.hora = horariReq.hora_2dj;
 		        	horari.dades[i].hora_3.hora = horariReq.hora_3dj;
 		        	horari.dades[i].hora_4.hora = horariReq.hora_4dj;
-		        	horari.dades[i].hora_5.hora = horariReq.hora_5dj;	
+		        	horari.dades[i].hora_5.hora = horariReq.hora_5dj;
+
+		        	horari.dades[i].hora_1.prog = '';
+		        	horari.dades[i].hora_2.prog = '';
+		        	horari.dades[i].hora_3.prog = '';
+		        	horari.dades[i].hora_4.prog = '';
+		        	horari.dades[i].hora_5.prog = '';
+
+		        	horari.dades[i].hora_1.objectius = '';
+		        	horari.dades[i].hora_2.objectius = '';
+		        	horari.dades[i].hora_3.objectius = '';
+		        	horari.dades[i].hora_4.objectius = '';
+		        	horari.dades[i].hora_5.objectius = '';
+
+		        	horari.dades[i].hora_1.sessio = '';
+		        	horari.dades[i].hora_2.sessio = '';
+		        	horari.dades[i].hora_3.sessio = '';
+		        	horari.dades[i].hora_4.sessio = '';
+		        	horari.dades[i].hora_5.sessio = '';
+
+		        	horari.dades[i].hora_1.color = '';
+		        	horari.dades[i].hora_2.color = '';
+		        	horari.dades[i].hora_3.color = '';
+		        	horari.dades[i].hora_4.color = '';
+		        	horari.dades[i].hora_5.color = '';
 		        }
 		        if (horari.dades[i].dia === 5) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dv;
@@ -303,6 +399,30 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_3.hora = horariReq.hora_3dv;
 		        	horari.dades[i].hora_4.hora = horariReq.hora_4dv;
 		        	horari.dades[i].hora_5.hora = horariReq.hora_5dv;
+
+		        	horari.dades[i].hora_1.prog = '';
+		        	horari.dades[i].hora_2.prog = '';
+		        	horari.dades[i].hora_3.prog = '';
+		        	horari.dades[i].hora_4.prog = '';
+		        	horari.dades[i].hora_5.prog = '';
+
+		        	horari.dades[i].hora_1.objectius = '';
+		        	horari.dades[i].hora_2.objectius = '';
+		        	horari.dades[i].hora_3.objectius = '';
+		        	horari.dades[i].hora_4.objectius = '';
+		        	horari.dades[i].hora_5.objectius = '';
+
+		        	horari.dades[i].hora_1.sessio = '';
+		        	horari.dades[i].hora_2.sessio = '';
+		        	horari.dades[i].hora_3.sessio = '';
+		        	horari.dades[i].hora_4.sessio = '';
+		        	horari.dades[i].hora_5.sessio = '';
+
+		        	horari.dades[i].hora_1.color = '';
+		        	horari.dades[i].hora_2.color = '';
+		        	horari.dades[i].hora_3.color = '';
+		        	horari.dades[i].hora_4.color = '';
+		        	horari.dades[i].hora_5.color = '';
 		        }
 		    }
 	    	//ELIMINAR SABADOS Y DOMINGOS
