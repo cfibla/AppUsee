@@ -174,9 +174,6 @@ exports.update = function (req, res){
 			console.log('INICI: '+ dataI);
 			console.log('FINAL: ' + dataF);
 			for (var i=0; i < horari.dades.length; i++) {
-/*
-				FALTA DATA I DIA
-*/
 		        if (horari.dades[i].dia === 1) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dll;
 		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1dll;

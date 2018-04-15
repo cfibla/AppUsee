@@ -2,14 +2,16 @@ GENERAL
 
 BETA 1.0.0
 
-
 Avís de guardar canvis
 
 Open Graph Facebook
 
 Etiquetes actives - LABELS
 
-Horari-config - Cambiar data inici/final cuando hay cambios
+Horari-config:
+Alerts errores
+Button 'desa horari' treure avis de canvis
+No funciona button 'desa horari' en horari-arees
 
 bootstrap 4 + mdb4.5
 
