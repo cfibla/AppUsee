@@ -174,15 +174,8 @@ exports.update = function (req, res){
 			console.log('INICI: '+ dataI);
 			console.log('FINAL: ' + dataF);
 			for (var i=0; i < horari.dades.length; i++) {
-/*data: momentData,
-				dia: iDia,
-				area: '',
-				h_inici: '',
-				h_final: '',
-				prog: '',
-				objectius: '',
-				sessio: '',
-				color: ''
+/*
+				FALTA DATA I DIA
 */
 		        if (horari.dades[i].dia === 1) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dll;
@@ -231,6 +224,18 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_3.color = '';
 		        	horari.dades[i].hora_4.color = '';
 		        	horari.dades[i].hora_5.color = '';
+
+		        	horari.dades[i].hora_1.data = horari.dades[i].data;
+		        	horari.dades[i].hora_2.data = horari.dades[i].data;
+		        	horari.dades[i].hora_3.data = horari.dades[i].data;
+		        	horari.dades[i].hora_4.data = horari.dades[i].data;
+		        	horari.dades[i].hora_5.data = horari.dades[i].data;
+
+		        	horari.dades[i].hora_1.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_2.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_3.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_4.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_5.dia = horari.dades[i].dia;
 		        }
 		        if (horari.dades[i].dia === 2) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dm;
@@ -278,7 +283,19 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_2.color = '';
 		        	horari.dades[i].hora_3.color = '';
 		        	horari.dades[i].hora_4.color = '';
-		        	horari.dades[i].hora_5.color = '';	
+		        	horari.dades[i].hora_5.color = '';
+
+		        	horari.dades[i].hora_1.data = horari.dades[i].data;
+		        	horari.dades[i].hora_2.data = horari.dades[i].data;
+		        	horari.dades[i].hora_3.data = horari.dades[i].data;
+		        	horari.dades[i].hora_4.data = horari.dades[i].data;
+		        	horari.dades[i].hora_5.data = horari.dades[i].data;
+
+		        	horari.dades[i].hora_1.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_2.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_3.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_4.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_5.dia = horari.dades[i].dia;
 		        }
 		        if (horari.dades[i].dia === 3) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dx;
@@ -327,6 +344,18 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_3.color = '';
 		        	horari.dades[i].hora_4.color = '';
 		        	horari.dades[i].hora_5.color = '';
+
+		        	horari.dades[i].hora_1.data = horari.dades[i].data;
+		        	horari.dades[i].hora_2.data = horari.dades[i].data;
+		        	horari.dades[i].hora_3.data = horari.dades[i].data;
+		        	horari.dades[i].hora_4.data = horari.dades[i].data;
+		        	horari.dades[i].hora_5.data = horari.dades[i].data;
+
+		        	horari.dades[i].hora_1.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_2.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_3.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_4.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_5.dia = horari.dades[i].dia;
 		        }
 		        if (horari.dades[i].dia === 4) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dj;
@@ -375,6 +404,18 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_3.color = '';
 		        	horari.dades[i].hora_4.color = '';
 		        	horari.dades[i].hora_5.color = '';
+
+		        	horari.dades[i].hora_1.data = horari.dades[i].data;
+		        	horari.dades[i].hora_2.data = horari.dades[i].data;
+		        	horari.dades[i].hora_3.data = horari.dades[i].data;
+		        	horari.dades[i].hora_4.data = horari.dades[i].data;
+		        	horari.dades[i].hora_5.data = horari.dades[i].data;
+
+		        	horari.dades[i].hora_1.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_2.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_3.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_4.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_5.dia = horari.dades[i].dia;
 		        }
 		        if (horari.dades[i].dia === 5) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dv;
@@ -423,6 +464,18 @@ exports.update = function (req, res){
 		        	horari.dades[i].hora_3.color = '';
 		        	horari.dades[i].hora_4.color = '';
 		        	horari.dades[i].hora_5.color = '';
+
+		        	horari.dades[i].hora_1.data = horari.dades[i].data;
+		        	horari.dades[i].hora_2.data = horari.dades[i].data;
+		        	horari.dades[i].hora_3.data = horari.dades[i].data;
+		        	horari.dades[i].hora_4.data = horari.dades[i].data;
+		        	horari.dades[i].hora_5.data = horari.dades[i].data;
+
+		        	horari.dades[i].hora_1.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_2.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_3.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_4.dia = horari.dades[i].dia;
+		        	horari.dades[i].hora_5.dia = horari.dades[i].dia;
 		        }
 		    }
 	    	//ELIMINAR SABADOS Y DOMINGOS

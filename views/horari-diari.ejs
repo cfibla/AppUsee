@@ -21,6 +21,7 @@
             var dia = "DIVENDRES";
             }
         var daata = horari.dades[i].data.replace(/\//g, "");
+        console.log('DAATA DIARI: '+ daata);
         %>
           <div class="col-md-6" id="<%='div_' + daata%>" style="margin-top: 20px;">
             <input type="hidden" name="diaData" value=<%=[horari.dades[i].data]%>>
