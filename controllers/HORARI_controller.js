@@ -3,7 +3,7 @@ var moment = require('moment');
 
 //CONF. HORARI - GET
 exports.config = function (req, res) {
-	console.log('CONFIGURACIO-DIARI GET');
+	var msg =  req.flash('horariMsg');
 	var usr=req.session.user;
 	var usrId = usr;
 
@@ -41,17 +41,15 @@ exports.create = function (req, res) {
 	var dataF = moment(final).format('DD/MM/YYYY');
 	//MENOS DE UNA SEMANA
 	console.log(final.diff(inici, 'days'));
-	if (final.diff(inici, 'days')<7){
-		console.log("ERROR: MENOS DE UNA SEMANA");
-		final = moment(inici).add(7,'days');
+	if (final.diff(inici, 'days')<13){
+		console.log("ERROR: MENOS DE DOS SEMANAS");
+		final = moment(inici).add(14,'days');
 	}
-
 	var nouHorari = new models.Horari(
 		{ dataIni: dataI,
 			dataFi: dataF
 		}
 	);
-
 	for(i=inici; i<=final; i=moment(i).add(1,'days')){
 		var momentData = moment(i).format('DD/MM/YYYY');
 		var iDia = i.day();
@@ -496,21 +494,35 @@ exports.update = function (req, res){
 				areasArray.push	(horari.dades[i].hora_5.area);
 			}
 			horari.areasArray = areasArray.unique().sort();
-			console.log(horari.areasArray);
 		};
 		if (error) {
 			return res.json(error);
 		} else {
 			//ERRORES
+			//MENOS DE 2 SEMANAS
+			if (finalReq.diff(iniciReq, 'days')<13){
+				console.log("ERROR: MENOS DE DOS SEMANAS");
+				finalReq = moment(iniciReq).add(14,'days');
+				req.flash('horariMsg', "Hi ha un error: La durada de l'horari ha de ser de 2 setmanes com a mínim");
+				res.redirect('/horari-config');
+			}
 			//FINAL ANTES QUE INICIO
 			if (moment(finalReq).isBefore(iniciReq)) {
 					if (moment(finalReq).isBefore(inici)) {
+						iniciReq = inici;
+						finalReq = final;
+						req.flash('horariMsg', "Hi ha un error: El final no pot ser anterior a l'inici");
+						res.redirect('/horari-config');
 						console.log("ERROR: FINAL ES ANTERIOR A INICIO");
 					}
 				}
 			//INICIO DESPUÉS DE FINAL
 			if (moment(iniciReq).isAfter(finalReq)) {
 					if (moment(iniciReq).isAfter(final)) {
+						iniciReq = inici;
+						finalReq = final;
+						req.flash('horariMsg', "Hi ha un error: L'inici no pot ser posterior al final");
+						res.redirect('/horari-config');
 						console.log("ERROR: INICIO ES POSTERIOR A FINAL");
 					}
 				}

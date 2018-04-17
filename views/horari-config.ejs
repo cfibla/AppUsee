@@ -38,6 +38,11 @@ for (var i=0; i < horari.dades.length; i++) {
               <input type="text" class="form-control textcenter" id="final" form="horari_post" name="horariFinal" value="<%=horari.dades[lg].data%>">
             </div>
           </div>
+          <% if (typeof horariMsg !='undefined' && horariMsg){ %>
+            <div class="alert alert-success col-md-12">
+              <%-horariMsg%>
+            </div>
+          <% } %>
         </div>
       </div>
 <!--END DATEPICKER-->
