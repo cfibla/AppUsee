@@ -4,6 +4,8 @@ BETA 1.0.0
 
 Avís de guardar canvis
 
+Menú lateral desapareix al canviar tamany
+
 Open Graph Facebook
 
 Etiquetes actives - LABELS

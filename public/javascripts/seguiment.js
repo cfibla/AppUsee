@@ -1,6 +1,10 @@
 
 //////////////// S E G U I M E N T //////////////// 
 $(document).ready(function() {
+localStorage.setItem('changeData','false');
+var changeData = localStorage.getItem('changeData');
+console.log('CHANGEDATA seguiment: ' + changeData);
+
   if ( $("#seg").length > 0 ) {
 
 // ACTUACIONS //
@@ -24,7 +28,15 @@ $(document).ready(function() {
       autoclose: true,
       todayHighlight: true,
       language: "ca"  
+    }).on('change', function(e){
+      unsaved = false;
+      localStorage.setItem('changeData','true');
+      console.log('CHANGEDATA datepicker change: ' + localStorage.getItem('changeData'));
+      //e.preventDefault();
+      console.log('datepicker change');
+      console.log('UNSAVED datepicker: ' + unsaved)
     });
+    
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
@@ -84,7 +96,12 @@ $(document).ready(function() {
       autoclose: true,
       todayHighlight: true,
       language: "ca"  
+    }).on('change', function(e){
+      unsaved = false;
+      localStorage.setItem('changeData','true');
+      console.log('CHANGEDATA datepicker change: ' + localStorage.getItem('changeData'));
     });
+
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
@@ -101,6 +118,7 @@ $(document).ready(function() {
     mdal.find('.modal-body #actuBodyUpd').attr("name", "segActuacions." + i + ".body");
     mdal.find('.modal-body #actuDataUpd').val(dta);
     mdal.find('.modal-body #actuBodyUpd').val(body);
+
     $('#upd_actuacions').on('submit', function(e){
       e.preventDefault();
       var urlPost = "/seguiment-EE/" + alumneId + "/act/" + i + "?_method=put";
@@ -160,7 +178,12 @@ $(document).ready(function() {
       autoclose: true,
       todayHighlight: true,
       language: "ca"  
+    }).on('change', function(e){
+      unsaved = false;
+      localStorage.setItem('changeData','true');
+      console.log('CHANGEDATA datepicker change: ' + localStorage.getItem('changeData'));
     });
+
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
@@ -221,7 +244,12 @@ $(document).ready(function() {
       autoclose: true,
       todayHighlight: true,
       language: "ca"  
+    }).on('change', function(e){
+      unsaved = false;
+      localStorage.setItem('changeData','true');
+      console.log('CHANGEDATA datepicker change: ' + localStorage.getItem('changeData'));
     });
+
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
@@ -296,7 +324,12 @@ $(document).ready(function() {
         autoclose: true,
         todayHighlight: true,
         language: "ca"  
+    }).on('change', function(e){
+      unsaved = false;
+      localStorage.setItem('changeData','true');
+      console.log('CHANGEDATA datepicker change: ' + localStorage.getItem('changeData'));
     });
+
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');
     var alumneCurs = actg.data('curs');
@@ -355,6 +388,10 @@ $(document).ready(function() {
         autoclose: true,
         todayHighlight: true,
         language: "ca"  
+    }).on('change', function(e){
+      unsaved = false;
+      localStorage.setItem('changeData','true');
+      console.log('CHANGEDATA datepicker change: ' + localStorage.getItem('changeData'));
     });
     var actg = $(e.relatedTarget);
     var alumneNom = actg.data('nom');

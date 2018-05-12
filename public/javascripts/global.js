@@ -1035,47 +1035,23 @@ $(document).ready(function (){
       });
     });
 
-///ALERT UNSAVED CHANGES///
-    var unsaved = false;
-    //Anula el efecto en el Login
-    $('.noSave').click(function() {
-    unsaved = false;
-    });
-    //Anula el efecto en vistas sin save
-    if(pth.match("/"||"/list_EE/"||"list")){
-      window.onbeforeunload = function () {
-      unsaved = false;
-      };
-    }
-    //True en vistas con save
-    if(pth.match("horari-diari")|| pth.match("horari-config") || pth.match("horari-area")){
-      window.onbeforeunload = function () {
-        $(document).on('change', ':input', function(){ //triggers change in all input fields including text type
-          unsaved = true;
-        });
-      };
-    }
-    //Algoritmo
-    $(window).bind('beforeunload', function() {
-        if(unsaved){
-            return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
-        }
-    });
-    //Alert unsaved changes
-    $('.modal').on('hide.bs.modal', function(e) {
-        if(unsaved){
-          e.preventDefault();
-          $("#alertaDades").removeClass("hidDrop");
-          $('.modal').animate({
-          scrollTop: $("#alertaDades").offset().top
-          }, 2000);
-        }
-    });
-    // Monitor dynamic inputs
-    $(document).on('change', ':input', function(){ //triggers change in all input fields including text type
-        unsaved = true;
-    });
 
+  //Control dates
+  /*
+  var inici = $('#inici'),
+      final = $('#final');
+      $(document).on('change', '#final', function(){
+        unsaved = false;
+        console.log('INICI'+inici);
+        console.log('FINAL'+JSON.stringify(final));/*
+        console.log(final.diff(inici, 'days'));
+        if (final.diff(inici, 'days')<13){
+          console.log("ERROR: MENOS DE DOS SEMANAS");
+          $('#alertaDades').removeClass('hidDrop')
+          final = moment(inici).add(14,'days');
+        }
+      });
+*/
 
 ///AJAX FUNCTIONS///
    function aPost(path, obj){
@@ -1089,6 +1065,5 @@ $(document).ready(function (){
         $('.modal').removeClass('show');
      });
    }
-
 
 });

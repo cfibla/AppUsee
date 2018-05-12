@@ -124,25 +124,25 @@
         </div>
     </div>
   </nav>
-<% if (session.user) {%>
-  <aside class="col-md-2 sidebar hid">
-    <div class="col-md-12 curs-t" id="situ"></div>
-    <div class="col-md-12 curs-t" id="situ2"></div>
-    <% if (session.user.mestre==="tutor") {%>
-      <div class="col-md-12 curs-t"><%=session.user.curs%></div>
-    <%}%>
-    <% if (session.user.mestre==="ee") {%>
-      <div class="nav-item dropdown hidDrop" id="cursosDrop">
-        <a class="nav-link dropdown-toggle" id="cursosDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
-        <div class="dropdown-menu dropAside" aria-labelledby="cursosDropdown">
-          <%
-          var cursosArray = ['P3', 'P4', 'P5', '1r', '2n', '3r', '4t', '5è', '6è']
-          for (var i = 0; i < cursosArray.length; i++) { %>
-            <a class="dropdown-item" href="/list_EE/<%=cursosArray[i]%>"><%=cursosArray[i]%></a>
-          <% } %>
+  <% if (session.user) {%>
+    <aside class="col-md-2 sidebar hid">
+      <div class="col-md-12 curs-t" id="situ"></div>
+      <div class="col-md-12 curs-t" id="situ2"></div>
+      <% if (session.user.mestre==="tutor") {%>
+        <div class="col-md-12 curs-t"><%=session.user.curs%></div>
+      <%}%>
+      <% if (session.user.mestre==="ee") {%>
+        <div class="nav-item dropdown hidDrop" id="cursosDrop">
+          <a class="nav-link dropdown-toggle" id="cursosDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
+          <div class="dropdown-menu dropAside" aria-labelledby="cursosDropdown">
+            <%
+            var cursosArray = ['P3', 'P4', 'P5', '1r', '2n', '3r', '4t', '5è', '6è']
+            for (var i = 0; i < cursosArray.length; i++) { %>
+              <a class="dropdown-item" href="/list_EE/<%=cursosArray[i]%>"><%=cursosArray[i]%></a>
+            <% } %>
+          </div>
         </div>
-      </div>
-    <%}%>
+      <%}%>
       <div class="col-md-12 hid sidelink" id="a1div">
         <a id="a1"></a>
           <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidDrop" id="configDiariPost">Desa</button>
@@ -153,38 +153,31 @@
       </div>
       <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
       <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
-      
-        <% if (session.user.horari) {
-          if(session.user.horari.areasArray){%>
-            <div class="nav-item dropdown hidDrop" id="areasDrop">
-              <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
-              <div class="dropdown-menu dropAside" aria-labelledby="areasDropdown">
-                <% for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
-                  <a class="dropdown-item" href="/horari-area/<%=session.user.horari.areasArray[i]%>"><%=session.user.horari.areasArray[i]%></a>
-                <% } %>
-              </div>
+      <% if (session.user.horari) {
+        if(session.user.horari.areasArray){%>
+          <div class="nav-item dropdown hidDrop" id="areasDrop">
+            <a class="nav-link dropdown-toggle" id="areasDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
+            <div class="dropdown-menu dropAside" aria-labelledby="areasDropdown">
+              <% for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
+                <a class="dropdown-item" href="/horari-area/<%=session.user.horari.areasArray[i]%>"><%=session.user.horari.areasArray[i]%></a>
+              <% } %>
             </div>
-            <div class="col-md-12 hid sidelink" id="areasdiv">
-              <a id="areas"></a>
-                <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidDrop" id="areasPost">Desa l'horari</button>
-            </div>
-          <% } %>
-            <div class="col-md-12 hid sidelink" id="desaButtonDiv" style="margin-top:120px;">
-              <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidBig" id="desaButton">Desa l'horari</button>
-            </div>
+          </div>
+          <div class="col-md-12 hid sidelink" id="areasdiv">
+            <a id="areas"></a>
+              <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidDrop" id="areasPost">Desa l'horari</button>
+          </div>
         <% } %>
+          <div class="col-md-12 hid sidelink" id="desaButtonDiv" style="margin-top:120px;">
+            <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidBig" id="desaButton">Desa l'horari</button>
+          </div>
+      <% } %>
+    </aside>
+  <% } %>
 
-  </aside>
-<%}%>
- <%if (!session.user){%>
- <section class ="mainsection">
+  <section class ="mainsection">
     <%- body %>
   </section>
- <%} else {%>
-   <section class ="mainsection">
-    <%- body %>
-  </section>
-<%}%>
 
   <footer class="footer">
     <div class="container-fluid">
@@ -295,10 +288,12 @@
 
 <!-- Spinner -->
   <script src="//cdn.jsdelivr.net/jquery.loadingoverlay/1.5.3/loadingoverlay.min.js"></script>
-<!-- Fichero externo con JS y jQuery -->
-  <script src="/javascripts/global.js"></script>
+<!-- Ficheros externos con JS y jQuery -->
   <script src="/javascripts/seguiment.js"></script>
+  <script src="/javascripts/global.js"></script>
   <script src="/javascripts/horari.js"></script>
+  <script src="/javascripts/moment/moment.js"></script>
+  <script src="/javascripts/alert-changes.js"></script>
 
 </body>
 </html>

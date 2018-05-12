@@ -31,7 +31,7 @@
             
               <div class="md-form col-md-6" id="iniciHorari" style="clear:both;">
                 <label class="active" for="horariInici">Comença el dia</label>
-                <div class="input-group date alturabox" data-provide="datepicker">
+                <div class="input-group date alturabox dateNoSave" data-provide="datepicker">
                   <div class="input-group-addon"><i class="fa fa-calendar"></i>
                   </div>
                     <input type="text" class="form-control textcenter" id="inici" form="crearHorariForm" name="horariInici">
@@ -40,7 +40,7 @@
 
               <div class="md-form col-md-6" id="finalHorari">
                 <label class="active" for="horariFinal">Acaba el dia</label>
-                <div class="input-group date alturabox" data-provide="datepicker">
+                <div class="input-group date alturabox dateNoSave" data-provide="datepicker">
 
                   <div class="input-group-addon"><i class="fa fa-calendar"></i>
                   </div>
@@ -51,7 +51,12 @@
           </form>
         </div>
       </div>
-    </div>    
+    </div>
+    <div class="container">
+        <span id="alertaDurada" class="alerta hidDrop">
+          La durada de l'horari ha de ser superior a 14 dies
+        </span>
+      </div> 
     <div class="modal-footer">
         <button type="submit" form="crearHorariForm" class="btn btn-success btn-block" id="horariCreaBtn">Crear horari</button>
     </div>

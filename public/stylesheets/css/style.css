@@ -23,6 +23,30 @@ body {
     /*background: #f8f7f7;*/
 }
 @media (max-width: 992px) {
+
+/*SIDEBAR*/
+    .sidebarnav
+    {
+        position: fixed;
+        z-index: 10;
+        width: 200px;
+        height: 100%;
+        padding-top: 50px;
+        top: 0;
+        left: 0;
+        background: #2BBBAD;
+    }
+    .sidebarnav a
+    {
+        color: #000;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    .sidebarnav a:hover
+    {
+        color: #7BDFD4;
+    }
+
     .hid {
         display: none;
     }
