@@ -2,9 +2,7 @@ GENERAL
 
 BETA 1.0.0
 
-Avís de guardar canvis
-
-Menú lateral desapareix al canviar tamany
+Curs i Tots els alumnes en NAV-collapse en la pantalla petita
 
 Open Graph Facebook
 
@@ -26,6 +24,7 @@ Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 Registre "mestre -ee -escola"
 
 
++Avís de guardar canvis
 
 +A Horaris i seguiment: Un botó general "Desa els canvis" a l'aside
 

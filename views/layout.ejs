@@ -91,7 +91,14 @@
                   <li id="tutoria" class="nav-item hidBig"><a class="nav-link" href="/list">Tutoria</a></li>
                   <li id="assistencia" class="nav-item hidBig"><a class="nav-link" href="/assistencia">Assistència</a></li>
                   <li id="menjador" class="nav-item hidBig"><a class="nav-link" href="/menjador">Menjador</a></li>
-                  <%}%>
+                <%}%>
+
+                <%if(session.user.mestre === "ee"){%>
+                  <li id="a1divnav" class="nav-item hidBig"><a class="nav-link" id="a1nav" ></a></li>
+                  <li id="a2divnav" class="nav-item hidBig"><a class="nav-link" id="a2nav" ></a></li>
+                  <li id="a3divnav" class="nav-item hidBig"><a class="nav-link" id="a3nav" ></a></li>
+                <%}%>
+
                   <% if (!session.user.horari) {%>
                     <li id="crearHoraris" class="nav-item"><a class="nav-link" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li>
                   <%} else {%>
