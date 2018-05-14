@@ -94,9 +94,22 @@
                 <%}%>
 
                 <%if(session.user.mestre === "ee"){%>
-                  <li id="a1divnav" class="nav-item hidBig"><a class="nav-link" id="a1nav" ></a></li>
-                  <li id="a2divnav" class="nav-item hidBig"><a class="nav-link" id="a2nav" ></a></li>
-                  <li id="a3divnav" class="nav-item hidBig"><a class="nav-link" id="a3nav" ></a></li>
+                  <li id="a1divnav" class="nav-item hidBig hidDrop"><a class="nav-link" id="a1nav" ></a></li>
+                  <li id="a2divnav" class="nav-item hidBig hidDrop"><a class="nav-link" id="a2nav" ></a></li>
+                  <li id="a3divnav" class="nav-item hidBig hidDrop"><a class="nav-link" id="a3nav" ></a></li>
+
+                  <li id="totsAlumnes" class="nav-item hidBig"><a class="nav-link" href="/list_EE">Tots els alumnes</a></li>
+
+                  <li class="nav-item dropdown hidBig" id="cursosDropNav">
+                    <a class="nav-link dropdown-toggle" id="cursosDropdownNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
+                    <div class="dropdown-menu dropAside" aria-labelledby="cursosDropdownNav">
+                      <%
+                      var cursosArray = ['P3', 'P4', 'P5', '1r', '2n', '3r', '4t', '5è', '6è']
+                      for (var i = 0; i < cursosArray.length; i++) { %>
+                        <a class="dropdown-item" href="/list_EE/<%=cursosArray[i]%>"><%=cursosArray[i]%></a>
+                      <% } %>
+                    </div>
+                  </li>
                 <%}%>
 
                   <% if (!session.user.horari) {%>

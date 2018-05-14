@@ -2,8 +2,6 @@ GENERAL
 
 BETA 1.0.0
 
-Curs i Tots els alumnes en NAV-collapse en la pantalla petita
-
 Open Graph Facebook
 
 Etiquetes actives - LABELS
@@ -23,6 +21,8 @@ Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 
 Registre "mestre -ee -escola"
 
+
++Curs i Tots els alumnes en NAV-collapse en la pantalla petita
 
 +Avís de guardar canvis
 

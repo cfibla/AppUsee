@@ -2,8 +2,11 @@
 <div class="container containerMain col-md-10 offset-md-2">
   <div class="row">
 
+ 
+  <div class="container margetop clear">
+
 <!--DATEPICKER-->
-    <div id="mData" class="col-md-2 datep-t">
+    <div id="mData" class="col-md-2 datep-t" style="margin-bottom: 40px;">
       <form role="form" method="post" action="/menjaData" id="menjaD">
         <div class="input-group date" data-provide="datepicker">
           <div class="input-group-addon">
@@ -12,9 +15,7 @@
           <input type="text" class="form-control textcenter" form="menjaD" name= "dataMenja" value ="<%=DataVM%>" aria-describedby="basic-addon2">
         </div>
       </form>
-    </div> 
- 
-  <div class="container margetop clear">
+    </div>
 
   <% if (Alumnes.length === 0) { %>
       <p><br />

@@ -23,6 +23,9 @@ body {
     /*background: #f8f7f7;*/
 }
 @media (max-width: 992px) {
+    .marginPetit {
+        margin-top: 50px;
+    }
 
 /*SIDEBAR*/
     .sidebarnav

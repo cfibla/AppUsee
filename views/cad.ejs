@@ -14,6 +14,9 @@
         <div class="col-md-5 text-muted">
           <h4><strong>Escola: </strong><%=alumne.centre.nom%></h4>
         </div>
+        <div class="col-md-5 hidBig" style="margin-top: 40px;">
+          <h1><strong>REUNIONS CAD</strong></h1>
+        </div>
       </div>
     </div>
 
@@ -26,7 +29,7 @@
               <div class="row">
               <%  if (alumne.segInformacioCAD.length === 0) { %>
                 <p><br />
-                  Encara no heu registrat cap informació CAD
+                  Encara no heu registrat cap reunió CAD
                 </p>
               <% } else {%> 
                 <table class="table table-hover">
