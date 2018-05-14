@@ -1,115 +1,112 @@
 <% include ../public/javascripts/functions.ejs %>
 <div class="container containerMain col-md-10 offset-md-2 marginPetit">
   <div class="row">
-     
-  <div class="container margetop clear">
+    <div class="container margetop clear">
 
-    <!--DATEPICKER-->
-    <div id="aData" class="col-md-2 datep-t" style="margin-bottom: 40px;">
-      <form role="form" method="post" action="/assisData" id="assisData">
-        <div class="input-group date" data-provide="datepicker">
-          <div class="input-group-addon">
-              <i class="fa fa-calendar"></i>
+      <!--DATEPICKER-->
+      <div id="aData" class="col-md-2 datep-t" style="margin-bottom: 40px;">
+        <form role="form" method="post" action="/assisData" id="assisData">
+          <div class="input-group date" data-provide="datepicker">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <input type="text" class="form-control textcenter" form="assisData" name= "dataAssis" value ="<%=DataV%>" aria-describedby="basic-addon2">
           </div>
-          <input type="text" class="form-control textcenter" form="assisData" name= "dataAssis" value ="<%=DataV%>" aria-describedby="basic-addon2">
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
 
-  <% if (Alumnes.length === 0) { %>
-      <p><br />
-      No hi ha alumnes registrats
-      </p>
+      <% if (Alumnes.length === 0) { %>
+        <p><br />
+        No hi ha alumnes registrats
+        </p>
       <%} else {%>           
-  <table class="table table-hover">
-    <thead>
-      <tr  class="row m-0">
-        <th class="d-inline-block col-1">Núm.</th>
-        <th class="d-inline-block col-6">Cognoms i nom</th>
-        <th class="d-inline-block col-1">F matí</th>
-        <th class="d-inline-block col-1">R matí</th>
-        <th class="d-inline-block col-1">F tarda</th>
-        <th class="d-inline-block col-1">R tarda</th>
-        <th class="d-inline-block col-1">Imprimir</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%
-      for (var i=0; i < Alumnes.length; i++) {
-        var segonC;
-      if (Alumnes[i].cognomAlumne2===""){
-        segonC = "";
-      } else {
-        var segonC = " " +Alumnes[i].cognomAlumne2;
-      }
-      //ARRAY ASSIST
-          var arraylng = Alumnes[i].assist.length;
-          var arraymn = arraylng - 1;
-      //FILTRE DATA
-          function filtreData(obj){
-            if (obj.date === DataV){
-              return obj.date
-            };
-          };
-          
-          var dataSelec ={};
-          
-          dataSelec = Alumnes[i].assist.filter(filtreData);
-          
-          var dataObj = JSON.parse(JSON.stringify(dataSelec));
-          if (dataObj[0] === undefined){
-            ddoo ={
-                        date: today,
-                        mati: null,
-                        tarda: null,
-                        dataIso: new Date()}
-          dataObj = JSON.stringify(ddoo)
-          }
-      %>
-      <form role="form" method="post" action="/assistenciaN?_method=put" id="assisForm" name="assis">
-      <tr id="tradios">
-      <td class="d-inline-block col-1"><%=i+1%></td>
-      <td class="d-inline-block col-6"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
-      </td>
+        <table class="table table-hover">
+          <thead>
+            <tr  class="row m-0">
+              <th class="d-inline-block col-1">Núm.</th>
+              <th class="d-inline-block col-6">Cognoms i nom</th>
+              <th class="d-inline-block col-1">F matí</th>
+              <th class="d-inline-block col-1">R matí</th>
+              <th class="d-inline-block col-1">F tarda</th>
+              <th class="d-inline-block col-1">R tarda</th>
+              <th class="d-inline-block col-1">Imprimir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i=0; i < Alumnes.length; i++) {
+              var segonC;
+              if (Alumnes[i].cognomAlumne2===""){
+                segonC = "";
+              } else {
+                var segonC = " " +Alumnes[i].cognomAlumne2;
+              }
+              //ARRAY ASSIST
+              var arraylng = Alumnes[i].assist.length;
+              var arraymn = arraylng - 1;
+              //FILTRE DATA
+              function filtreData(obj){
+                if (obj.date === DataV){
+                  return obj.date
+                };
+              };
+              
+              var dataSelec ={};
+              dataSelec = Alumnes[i].assist.filter(filtreData);
+              var dataObj = JSON.parse(JSON.stringify(dataSelec));
+              if (dataObj[0] === undefined){
+                ddoo ={
+                  date: today,
+                  mati: null,
+                  tarda: null,
+                  dataIso: new Date()}
+                dataObj = JSON.stringify(ddoo)
+              }
+            %>
+              <form role="form" method="post" action="/assistenciaN?_method=put" id="assisForm" name="assis">
+                <tr id="tradios">
+                  <td class="d-inline-block col-1"><%=i+1%></td>
+                  <td class="d-inline-block col-6"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
+                  </td>
 
-      <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
-      <input type="hidden" form="assisForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
-      <input type="hidden" form="assisForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
-      <td class="d-inline-block col-1"><input id="aMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
-      <td class="d-inline-block col-1"><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
-      <td class="d-inline-block col-1"><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
-      <td class="d-inline-block col-1"><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
-<!-- Imprimir -->
-      <td class="d-inline-block col-1"><% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
-          var idAlumne = Alumnes[i]._id;%>
-        <a data-tggle="tooltip" data-placement="top" title="Imprimir assistència" id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-print fa-lg gris"></i></a>
-      </td>
-     </tr>
-     </form>
-     <%}%>
-    </tbody>
-  </table>
-          <div class="fclearfix" style="text-align:right;">
-            <input type="hidden" form="assisForm" name="i" value ="<%=i%>">
-                <% 
-                var li = "/list";
-                if(session.user.mestre === "ee"){
-                  li = "/list_EE"}
-                %> 
-            <button type="submit" form="assisForm" class="btn btn-default float-right">Desa</button>
-          </div>
-    <%}%>
+                  <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
+                  <input type="hidden" form="assisForm" name="assist.date.<%=i%>" value ="<%=DataV%>">
+                  <input type="hidden" form="assisForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
+                  <td class="d-inline-block col-1"><input id="aMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
+                  <td class="d-inline-block col-1"><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
+                  <td class="d-inline-block col-1"><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
+                  <td class="d-inline-block col-1"><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
+            <!-- Imprimir -->
+                  <td class="d-inline-block col-1">
+                    <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
+                      var idAlumne = Alumnes[i]._id;%>
+                    <a data-tggle="tooltip" data-placement="top" title="Imprimir assistència" id="btnAssist" data-toggle="modal" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " + Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" href="/javascripts/modals/assistencia.ejs" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-print fa-lg gris"></i></a>
+                  </td>
+                </tr>
+              </form>
+            <%}%>
+          </tbody>
+        </table>
+        <div class="fclearfix" style="text-align:right;">
+          <input type="hidden" form="assisForm" name="i" value ="<%=i%>">
+              <% 
+              var li = "/list";
+              if(session.user.mestre === "ee"){
+                li = "/list_EE"}
+              %> 
+          <button type="submit" form="assisForm" class="btn btn-default float-right">Desa</button>
+        </div>
+      <%}%>
+    </div>
   </div>
-</div>
 </div>
 
 
 <!-- MODAL ASSISTÈNCIA -->
 
 <div class="modal fade" id="assistModal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-      </div>
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
     </div>
+  </div>
 </div>
