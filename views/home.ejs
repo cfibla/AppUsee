@@ -31,13 +31,13 @@
                 <div class="modal-body">
                   <div class="md-form">
                     <i class="fa fa-envelope prefix"></i>
-                    <input type="email" class="form-control" id="usrname" name="email" required="true">
                     <label for="usrname">Correu electrònic</label>
+                    <input type="email" class="form-control" id="usrname" name="email" required="true" autocomplete="username">
                   </div>
                   <div class="md-form">
                     <i class="fa fa-lock prefix"></i>
-                    <input type="password" class="form-control" id="psw" name="password" required="true">
                     <label for="psw">Contrasenya</label>
+                    <input type="password" class="form-control" id="psw" name="password" required="true"  autocomplete="current-password">
                   </div>
                   <% if (typeof loginMsg !='undefined' && loginMsg){ %>
                     <div class="alert alert-danger loginAlert">
@@ -63,11 +63,11 @@
                   <div class="row">
                     <div class="md-form col-md-6">
                       <label for="nom_user">Nom</label>
-                      <input type="text" class="form-control" id="nom_user" name="nom" required="true">
+                      <input type="text" class="form-control" id="nom_user" name="nom" required="true" autocomplete="name">
                     </div>
                     <div class="md-form col-md-6">
                       <label for="cognom_user">Cognom</label>
-                      <input type="text" class="form-control" id="cognom_user" name="cognom" required="true">
+                      <input type="text" class="form-control" id="cognom_user" name="cognom" required="true" autocomplete="name">
                     </div>
                   </div>
                   <div class="row">
@@ -77,7 +77,7 @@
                     </div>
                     <div class="md-form col-md-6">
                       <label for="nom_esc_tutor">Nom escola (sense "Escola")</label>
-                      <input type="text" class="form-control" id="nom_esc_tutor" name="escolanom" required="true">
+                      <input type="text" class="form-control" id="nom_esc_tutor" name="escolanom" required="true"  autocomplete="name">
                     </div>
                   </div>
                   <div class="row">
@@ -90,6 +90,12 @@
                     <div class="md-form col-md-6">Curs
                       <select class="form-control" id="curs_act" name="curs" required="true">
                         <option value=""></option>
+                        <option value="P3 A">P3 A</option>
+                        <option value="P3 B">P3 B</option>
+                        <option value="P4 A">P4 A</option>
+                        <option value="P4 B">P4 B</option>
+                        <option value="P5 A">P5 A</option>
+                        <option value="P5 B">P5 B</option>
                         <option value="1r A">1r A</option>
                         <option value="1r B">1r B</option>
                         <option value="2n A">2n A</option>
@@ -108,13 +114,13 @@
                   <div class="row">
                     <div class="md-form col-md-12">
                       <label for="email_user">Correu electrònic</label>
-                      <input type="email" class="form-control" id="email_user" name="email" required="true">
+                      <input type="email" class="form-control" id="email_user" name="email" required="true" autocomplete="email">
                     </div>
                   </div>
                   <div class="row">
                     <div class="md-form col-md-12" style="margin-bottom: 0px;">
                       <label for="password_user">Contrasenya</label>
-                      <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya" required="true">
+                      <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya" required="true" autocomplete="current-password">
                       <div class="md-form" style="margin-bottom: 0px;">
                         <small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small>
                       </div><br>

@@ -1,4 +1,34 @@
 $(document).ready(function (){
+    
+///////// LABEL ACTIVE ///////////////
+  function checkForInput(element) {
+    var $label = $(element).siblings('label');
+    var labelOBj = JSON.stringify($label);
+    if ($(element).val().length > 0) {
+
+      $label.addClass('active');
+      console.log(labelOBj + ' label ACTIVE');
+
+    } else {
+
+      $label.removeClass('active');
+      console.log(labelOBj + ' label NOOO ACTIVE');
+      
+    }
+  }
+
+// The lines below are executed on page load
+  $('input').each(function() {
+    checkForInput(this);
+    console.log('Check input: ' + JSON.stringify($(this)));
+  });
+
+  // The lines below (inside) are executed on change & keyup
+  $('input').on('change keyup', function() {
+    checkForInput(this);  
+    console.log('Check keyup: ' + $(this).val());
+  });
+
   //NAVBAR
   var pth = window.location.pathname; // Returns path only
 
@@ -223,26 +253,6 @@ $(document).ready(function (){
     $("#areasPost_2").removeClass("hidDrop");
   }
 
-  
-///////// LABEL ACTIVE ///////////////
-  function checkForInput(element) {
-   const $label = $(element).siblings('label');
-    if ($(element).val().length > 0) {
-      $label.addClass('active');
-    } else {
-      $label.removeClass('active');
-    }
-  }
-
-  // The lines below are executed on page load
-  $('input').each(function() {
-    checkForInput(this);
-  });
-
-  // The lines below (inside) are executed on change & keyup
-  $('input').on('change keyup', function() {
-    checkForInput(this);  
-  });
 
 //TOOLTIPS
   $(function () {
@@ -593,6 +603,7 @@ $(document).ready(function (){
     });
 
 ///////// LABEL ACTIVE ///////////////
+
     function checkForInput(element) {
      const $label = $(element).siblings('label');
       if ($(element).val().length > 0) {
@@ -1014,6 +1025,8 @@ $(document).ready(function (){
     $('input').on('change keyup', function() {
       checkForInput(this);  
     });
+
+
 
     $('#reunions_pares_upd').on('submit', function(e){
       e.preventDefault();
