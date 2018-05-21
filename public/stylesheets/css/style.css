@@ -200,7 +200,6 @@ body {
 .icon-logo {
     margin-top: .6rem;
     color: #0AAD9C;
-
 }
 .intro-back{
     background: #2BBBAD;
@@ -237,7 +236,7 @@ body {
     transition: all 0.1s linear;
 }
 .panel-login>.panel-heading a.active{
-    color: #029f5b;
+    color: #0AAD9C;
     font-size: 18px;
 }
 .panel-login>.panel-heading hr{
@@ -445,7 +444,8 @@ table a:hover{
     margin-bottom: 2.5em;
 }
 .md-form .prefix.active {
-     color: inherit; 
+/*     color: inherit; */
+     color: #0AAD9C;
 }
 .fons{
     padding-top:5em;
