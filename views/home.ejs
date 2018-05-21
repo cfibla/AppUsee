@@ -30,13 +30,15 @@
               <form role="form" data-toggle ="validator" method="post" action="/login" id="login-form" style="display: block;">
                 <div class="modal-body">
                   <div class="md-form">
-                    <i class="fa fa-envelope prefix"></i>
-                    <label for="usrname">Correu electrònic</label>
+                    <div>Correu electrònic</div>
+                    <i class="fa fa-envelope prefix icon-logo"></i>
+                    
                     <input type="email" class="form-control" id="usrname" name="email" required="true" autocomplete="username">
                   </div>
                   <div class="md-form">
-                    <i class="fa fa-lock prefix"></i>
-                    <label for="psw">Contrasenya</label>
+                    <div>Contrasenya</div>
+                    <i class="fa fa-lock prefix icon-logo"></i>
+                    
                     <input type="password" class="form-control" id="psw" name="password" required="true"  autocomplete="current-password">
                   </div>
                   <% if (typeof loginMsg !='undefined' && loginMsg){ %>

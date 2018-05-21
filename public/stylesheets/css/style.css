@@ -161,6 +161,7 @@ body {
 @media (min-width: 1200px) {
 
 }
+
 .mainsection {
     margin-bottom: 10em;
 }
@@ -195,6 +196,11 @@ body {
 }
 .marginBottom{
     margin-bottom: 30px;
+}
+.icon-logo {
+    margin-top: .6rem;
+    color: #0AAD9C;
+
 }
 .intro-back{
     background: #2BBBAD;
