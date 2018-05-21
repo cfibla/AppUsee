@@ -4,7 +4,7 @@ BETA 1.0.0
 
 Open Graph Facebook
 
-Etiquetes actives - LABELS
+
 
 Horari-config:
 Alerts errores
@@ -21,6 +21,8 @@ Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 
 Registre "mestre -ee -escola"
 
+
++Etiquetes actives - LABELS
 
 +Curs i Tots els alumnes en NAV-collapse en la pantalla petita
 
