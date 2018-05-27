@@ -1,15 +1,13 @@
 GENERAL
-
 BETA 1.0.0
+
+ARREGLAR 'desa horari' en horari-arees
+Button 'desa horari' treure avis de canvis
 
 Open Graph Facebook
 
-
-
 Horari-config:
 Alerts errores
-Button 'desa horari' treure avis de canvis
-No funciona button 'desa horari' en horari-arees
 
 bootstrap 4 + mdb4.5
 

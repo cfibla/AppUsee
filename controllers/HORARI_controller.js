@@ -744,6 +744,8 @@ exports.areaPost = function (req, res){
 	var area = areaReq.area;
 	var areaJson=[];
 
+	console.log('AREA POST');
+
 	for (var i=0; i < areaReq.data.length; i++){
 		var aJson = {};
 

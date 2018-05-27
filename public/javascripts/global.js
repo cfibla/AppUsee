@@ -213,7 +213,7 @@ $(document).ready(function (){
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop");
-    $("#desaButton").removeClass("hidBig");
+    $("#desaButton").removeClass("hidBig").attr('form', "horari_post");
     $("#horariDiariPost_2").removeClass("hidDrop");
   }
     if(pth==="/horari-diari"){
@@ -229,7 +229,7 @@ $(document).ready(function (){
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop");
-    $("#desaButton").removeClass("hidBig");
+    $("#desaButton").removeClass("hidBig").attr('form', "horari_post");
     $("#horariDiariPost_2").removeClass("hidDrop");
   }
   if(pth.match("/horari-area/")){
@@ -249,7 +249,7 @@ $(document).ready(function (){
     $("#a4div").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop");
     $("#areasDrop").addClass("navcolorside");
-    $("#desaButton").removeClass("hidBig");
+    $("#desaButton").removeClass("hidBig").attr('form', "areas_post");
     $("#areasPost_2").removeClass("hidDrop");
   }
 
