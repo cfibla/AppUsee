@@ -27,7 +27,8 @@
   </head>
 
   <body>
-  <%  
+  <%
+  console.log ('SESSION VIEW: ' + JSON.stringify(session));
   if (session.user){
     var horari = session.user.horari;
       var ruta;

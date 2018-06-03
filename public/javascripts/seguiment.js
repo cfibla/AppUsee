@@ -1,9 +1,8 @@
 
 //////////////// S E G U I M E N T //////////////// 
 $(document).ready(function() {
-localStorage.setItem('changeData','false');
-var changeData = localStorage.getItem('changeData');
-console.log('CHANGEDATA seguiment: ' + changeData);
+  localStorage.setItem('changeData','false');
+  var changeData = localStorage.getItem('changeData');
 
   if ( $("#seg").length > 0 ) {
 
@@ -31,10 +30,10 @@ console.log('CHANGEDATA seguiment: ' + changeData);
     }).on('change', function(e){
       unsaved = false;
       localStorage.setItem('changeData','true');
-      console.log('CHANGEDATA datepicker change: ' + localStorage.getItem('changeData'));
+      //console.log('CHANGEDATA datepicker change: ' + localStorage.getItem('changeData'));
       //e.preventDefault();
-      console.log('datepicker change');
-      console.log('UNSAVED datepicker: ' + unsaved)
+      //console.log('datepicker change');
+      //console.log('UNSAVED datepicker: ' + unsaved)
     });
     
     var actg = $(e.relatedTarget);

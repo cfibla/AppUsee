@@ -736,7 +736,7 @@ exports.areaGet = function(req,res){
 
 }
 
-//HORARI AREES - POST
+//HORARI AREES - UPDATE
 exports.areaPost = function (req, res){
 	var areaReq = req.body;
 	var user = req.session.user;
@@ -807,6 +807,7 @@ exports.areaPost = function (req, res){
 			horari.save(function (err, updatedHorari) {
 				req.session.user.horari = updatedHorari;
 			    if (err) return res.json(error);
+			    console.log ('SESSION BACKEND: ' + JSON.stringify(req.session));
 			    res.redirect('/horari-area/'+area);
 			});
 		}

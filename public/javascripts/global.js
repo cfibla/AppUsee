@@ -1,5 +1,4 @@
 $(document).ready(function (){
-    
 ///////// LABEL ACTIVE ///////////////
   function checkForInput(element) {
     var $label = $(element).siblings('label');
@@ -356,7 +355,6 @@ $(document).ready(function (){
   });
 */
 
-
 //UPDATE USERS
     // USUARI CURS
     if ($('#categoria').val()==='tutor'){
@@ -603,7 +601,6 @@ $(document).ready(function (){
     });
 
 ///////// LABEL ACTIVE ///////////////
-
     function checkForInput(element) {
      const $label = $(element).siblings('label');
       if ($(element).val().length > 0) {
@@ -1003,7 +1000,7 @@ $(document).ready(function (){
     mdal.find('.modal-body #reuConclUpd').val(concl);
     mdal.find('.modal-body #reuConclUpd').attr("name", "reunionsPares." + i + ".conclusions");
 
-      ///////// LABEL ACTIVE ///////////////
+///////// LABEL ACTIVE ///////////////
     function checkForInput(element) {
   // element is passed to the function ^
   
