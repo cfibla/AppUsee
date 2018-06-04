@@ -1,7 +1,7 @@
 GENERAL
 BETA 1.0.0
 
-Button 'desa horari' treure avis de canvis
+Fer apartat "Entra"
 Protecció de dades
 
 Open Graph Facebook
@@ -20,6 +20,9 @@ Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 Registre "mestre -ee -escola"
 
 
+
+
++Button 'desa horari' treure avis de canvis
 
 +ARREGLAR 'desa horari' en horari-arees
 

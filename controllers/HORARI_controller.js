@@ -40,7 +40,7 @@ exports.create = function (req, res) {
 	var dataI = moment(inici).format('DD/MM/YYYY');
 	var dataF = moment(final).format('DD/MM/YYYY');
 	//MENOS DE UNA SEMANA
-	console.log(final.diff(inici, 'days'));
+	//console.log(final.diff(inici, 'days'));
 	if (final.diff(inici, 'days')<13){
 		console.log("ERROR: MENOS DE DOS SEMANAS");
 		final = moment(inici).add(14,'days');
@@ -168,7 +168,7 @@ exports.update = function (req, res){
 			horari.dataIni = dataI;
 			horari.dataFi = dataF;
 			horari.areasArray = [];
-			console.log(horariReq);
+			//console.log(horariReq);
 			console.log('INICI: '+ dataI);
 			console.log('FINAL: ' + dataF);
 			for (var i=0; i < horari.dades.length; i++) {
@@ -728,7 +728,7 @@ exports.areaGet = function(req,res){
 			}
 
 			var sessionsArea = search(area, hores.dades);
-			console.log('sessionsArea:' + sessionsArea);
+			//console.log('sessionsArea:' + sessionsArea);
 			console.log('area:' + area);
 			res.render('horari-arees', {horari:sessionsArea, area:area});
 		}
@@ -807,7 +807,7 @@ exports.areaPost = function (req, res){
 			horari.save(function (err, updatedHorari) {
 				req.session.user.horari = updatedHorari;
 			    if (err) return res.json(error);
-			    console.log ('SESSION BACKEND: ' + JSON.stringify(req.session));
+			    //console.log ('SESSION BACKEND: ' + JSON.stringify(req.session));
 			    res.redirect('/horari-area/'+area);
 			});
 		}
