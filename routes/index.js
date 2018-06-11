@@ -24,7 +24,9 @@ router.get('/bloc',					introController.bloc);
 
 //rutas SESSION
 router.get('/',						sessionController.new);
-router.post('/login',				sessionController.login, sessionController.login_EE, sessionController.loginCentre);
+router.post('/login',				sessionController.login,
+									//sessionController.login_EE,
+									sessionController.loginCentre);
 router.get('/logout',				sessionController.loginRequired, sessionController.destroy);
 
 //rutas ESCOLA

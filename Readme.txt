@@ -2,6 +2,7 @@ GENERAL
 BETA 1.0.0
 
 Fer apartat "Entra"
+QUAN NO TROBI USER O PSW, AVISAR AL MODAL
 Protecció de dades
 
 Open Graph Facebook

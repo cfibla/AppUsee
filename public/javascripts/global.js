@@ -281,7 +281,30 @@ $(document).ready(function (){
   });
 
 ////////////////////LOGIN///////////////////////////
-  $('#login-form-link').click(function(e) {
+/*  $('#login-form-link').click(function(e) {
+    $("#login-form").delay(100).fadeIn(100);
+    $("#formUser").fadeOut(100);
+    $('#register-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+
+  });
+  $('#register-form-link').click(function(e) {
+    $("#formUser").delay(100).fadeIn(100);
+    $("#login-form").fadeOut(100);
+    $('#login-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+  });
+*/
+////////////////////LOGIN///////////////////////////
+  $('#loginModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    //var userId = actg.data('id');
+    //var mestre = actg.data('mestre');
+    var mdal = $(this);
+
+    $('#login-form-link').click(function(e) {
     $("#login-form").delay(100).fadeIn(100);
     $("#formUser").fadeOut(100);
     $('#register-form-link').removeClass('active');
@@ -295,6 +318,50 @@ $(document).ready(function (){
     $(this).addClass('active');
     e.preventDefault();
   });
+
+  $('#login-form').on('submit', function(e){
+    var name = $("#usrname").val();
+    var pwd = $("#psw").val();
+    var loginData ={'email': name, 'password': pwd};
+    console.log('LOGINDATA: ' + JSON.stringify (loginData));
+
+    if( name =='' || pwd ==''){
+      e.preventDefault();
+      $('#login-alert').removeClass('hidDrop');
+      $('#login-alert').html("Heu d'omplir tots els apartats");
+    } else {
+      e.preventDefault();
+      $.ajax({
+        type : 'POST',
+        url : '/login',
+        data : loginData,
+        success: function(text){
+          var textMsg = JSON.stringify(text.messg);
+          if(textMsg=="Usuari inexistent, heu de registrar-vos per poder accedir a l'aplicació"){
+            $('#login-alert').removeClass('hidDrop');
+            $('#login-alert').html(textMsg);
+          }
+          if(textMsg=="Contrasenya incorrecta"){
+            $('#login-alert').removeClass('hidDrop');
+            $('#login-alert').html(textMsg);
+          }
+
+          console.log('messg-LOGIN: '+ textMsg);
+        }
+      })
+      /*
+      .done(function(){
+        console.log('LOGIN-DONE');
+        $.LoadingOverlay("hide");
+        $('.modal').removeClass('show');
+        location.href = '/list';
+      })
+      */
+      ;
+    }
+  })
+});
+
 
 ///////////////////// M O D A L S ///////////////////// 
   $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){

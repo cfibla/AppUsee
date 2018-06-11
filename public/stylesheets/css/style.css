@@ -173,6 +173,9 @@ body {
     width: 100%;
     padding: 60px;
 }
+.containerxtramodal{
+    width: 100%;
+}
 .loginAlert{
     text-align: center;
 }
@@ -205,7 +208,7 @@ body {
     background: #2BBBAD;
 }
 .panel-login {
-    margin-bottom: 50px;
+
     border-color: #ccc;
     border-radius: 5px;
     background-color: #fff;

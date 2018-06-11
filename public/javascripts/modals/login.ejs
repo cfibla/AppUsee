@@ -7,139 +7,129 @@
   </head>
 
   <body>
-    <div class="container">
   <!-- Jumbotron Header -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel panel-login">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-md-6">
-                <a href="#" class="active" id="login-form-link">Entrar</a>
-            </div>
-            <div class="col-md-6">
-                <a href="#" id="register-form-link">Registar-me</a>
-            </div>
+    <div class="panel panel-login">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-md-6">
+              <a href="#" class="active" id="login-form-link">Entrar</a>
           </div>
-          <hr>
+          <div class="col-md-6">
+              <a href="#" id="register-form-link">Registar-me</a>
+          </div>
         </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-12">  
-              <!-- LOGIN -->                 
-              <form role="form" data-toggle ="validator" method="post" action="/login" id="login-form" style="display: block;">
-                <div class="modal-body">
-                  <div class="md-form">
-                    <div>Correu electrònic</div>
-                    <i class="fa fa-envelope prefix icon-logo"></i>
-                    
-                    <input type="email" class="form-control" id="usrname" name="email" required="true" autocomplete="username">
-                  </div>
-                  <div class="md-form">
-                    <div>Contrasenya</div>
-                    <i class="fa fa-lock prefix icon-logo"></i>
-                    
-                    <input type="password" class="form-control" id="psw" name="password" required="true"  autocomplete="current-password">
-                  </div>
-                  <% if (typeof loginMsg !='undefined' && loginMsg){ %>
-                    <div class="alert alert-danger loginAlert">
-                      <%-loginMsg%>
-                    </div>
-
-                  <% } %>
-                  <!--
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="" checked>Recorda'm</label>
-                  </div>
-                  <p>
-                    <a href="#">Heu oblidat la vostra contrasenya?</a>
-                  </p>-->
+        <hr>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">  
+            <!-- LOGIN -->                 
+            <form role="form" id="login-form" style="display: block;">
+              <div class="modal-body">
+                <div class="md-form">
+                  <div>Correu electrònic</div>
+                  <i class="fa fa-envelope prefix icon-logo"></i>
+                  <input type="email" class="form-control" id="usrname" name="email" autocomplete="username">
                 </div>
-                <div class="col-md-6 offset-md-3">
-                  <button type="submit" class="form-control btn btn-login noSave" form="login-form">Entra</button>
+                <div class="md-form">
+                  <div>Contrasenya</div>
+                  <i class="fa fa-lock prefix icon-logo"></i>
+                  <input type="password" class="form-control" id="psw" name="password" autocomplete="current-password">
                 </div>
-              </form>
-              <!-- REGISTRE -->
-              <form id="formUser" role="form" style="display: none;">
-                <div class="modal-body">
-                  <div class="row">
-                    <div class="md-form col-md-6">
-                      <label for="nom_user">Nom</label>
-                      <input type="text" class="form-control" id="nom_user" name="nom" required="true" autocomplete="name">
-                    </div>
-                    <div class="md-form col-md-6">
-                      <label for="cognom_user">Cognom</label>
-                      <input type="text" class="form-control" id="cognom_user" name="cognom" required="true" autocomplete="name">
-                    </div>
+                <div class="alert alert-danger loginAlert hidDrop" id="login-alert"></div>
+                <!--
+                <div class="checkbox">
+                  <label><input type="checkbox" value="" checked>Recorda'm</label>
+                </div>
+                <p>
+                  <a href="#">Heu oblidat la vostra contrasenya?</a>
+                </p>-->
+              </div>
+              <div class="col-md-6 offset-md-3">
+                <button type="submit" class="form-control btn btn-login noSave" form="login-form">Entra</button>
+              </div>
+            </form>
+            <!-- REGISTRE -->
+            <form id="formUser" role="form" style="display: none;">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="md-form col-md-6">
+                    <label for="nom_user">Nom</label>
+                    <input type="text" class="form-control" id="nom_user" name="nom" required="true" autocomplete="name">
                   </div>
-                  <div class="row">
-                    <div class="md-form col-md-6">
-                      <label for="codi_esc_tutor">Codi escola</label>
-                      <input type="number" class="form-control" id="codi_esc_tutor" name="escola" required="true">
-                    </div>
-                    <div class="md-form col-md-6">
-                      <label for="nom_esc_tutor">Nom escola (sense "Escola")</label>
-                      <input type="text" class="form-control" id="nom_esc_tutor" name="escolanom" required="true"  autocomplete="name">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="md-form col-md-6">Sóc
-                      <select class="form-control" id="mestres" name="mestre" required="true">
-                        <option value="tutor">Tutor/a</option>
-                        <option value="ee">EE-SIEI</option>
-                      </select>
-                    </div>
-                    <div class="md-form col-md-6">Curs
-                      <select class="form-control" id="curs_act" name="curs" required="true">
-                        <option value=""></option>
-                        <option value="P3 A">P3 A</option>
-                        <option value="P3 B">P3 B</option>
-                        <option value="P4 A">P4 A</option>
-                        <option value="P4 B">P4 B</option>
-                        <option value="P5 A">P5 A</option>
-                        <option value="P5 B">P5 B</option>
-                        <option value="1r A">1r A</option>
-                        <option value="1r B">1r B</option>
-                        <option value="2n A">2n A</option>
-                        <option value="2n B">2n B</option>
-                        <option value="3r A">3r A</option>
-                        <option value="3r B">3r B</option>
-                        <option value="4t A">4t A</option>
-                        <option value="4t B">4t B</option>
-                        <option value="5è A">5è A</option>
-                        <option value="5è B">5è B</option>
-                        <option value="6è A">6è A</option>
-                        <option value="6è B">6è B</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="md-form col-md-12">
-                      <label for="email_user">Correu electrònic</label>
-                      <input type="email" class="form-control" id="email_user" name="email" required="true" autocomplete="email">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="md-form col-md-12" style="margin-bottom: 0px;">
-                      <label for="password_user">Contrasenya</label>
-                      <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya" required="true" autocomplete="current-password">
-                      <div class="md-form" style="margin-bottom: 0px;">
-                        <small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small>
-                      </div><br>
-                    </div>
+                  <div class="md-form col-md-6">
+                    <label for="cognom_user">Cognom</label>
+                    <input type="text" class="form-control" id="cognom_user" name="cognom" required="true" autocomplete="name">
                   </div>
                 </div>
-                <div class="col-md-6 offset-md-3">
-                  <button type="submit" form="formUser" class="form-control btn btn-login">Envia la informació</button>
+                <div class="row">
+                  <div class="md-form col-md-6">
+                    <label for="codi_esc_tutor">Codi escola</label>
+                    <input type="number" class="form-control" id="codi_esc_tutor" name="escola" required="true">
+                  </div>
+                  <div class="md-form col-md-6">
+                    <label for="nom_esc_tutor">Nom escola (sense "Escola")</label>
+                    <input type="text" class="form-control" id="nom_esc_tutor" name="escolanom" required="true"  autocomplete="name">
+                  </div>
                 </div>
-              </form>
-            </div>
+                <div class="row">
+                  <div class="md-form col-md-6">Sóc
+                    <select class="form-control" id="mestres" name="mestre" required="true">
+                      <option value="tutor">Tutor/a</option>
+                      <option value="ee">EE-SIEI</option>
+                    </select>
+                  </div>
+                  <div class="md-form col-md-6">Curs
+                    <select class="form-control" id="curs_act" name="curs" required="true">
+                      <option value=""></option>
+                      <option value="P3 A">P3 A</option>
+                      <option value="P3 B">P3 B</option>
+                      <option value="P4 A">P4 A</option>
+                      <option value="P4 B">P4 B</option>
+                      <option value="P5 A">P5 A</option>
+                      <option value="P5 B">P5 B</option>
+                      <option value="1r A">1r A</option>
+                      <option value="1r B">1r B</option>
+                      <option value="2n A">2n A</option>
+                      <option value="2n B">2n B</option>
+                      <option value="3r A">3r A</option>
+                      <option value="3r B">3r B</option>
+                      <option value="4t A">4t A</option>
+                      <option value="4t B">4t B</option>
+                      <option value="5è A">5è A</option>
+                      <option value="5è B">5è B</option>
+                      <option value="6è A">6è A</option>
+                      <option value="6è B">6è B</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="md-form col-md-12">
+                    <label for="email_user">Correu electrònic</label>
+                    <input type="email" class="form-control" id="email_user" name="email" required="true" autocomplete="email">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="md-form col-md-12" style="margin-bottom: 0px;">
+                    <label for="password_user">Contrasenya</label>
+                    <input type="password" class="form-control" id="password_user" name="password" placeholder="Contrasenya" required="true" autocomplete="current-password">
+                    <div class="md-form" style="margin-bottom: 0px;">
+                      <small>Per a accedir a l'aplicació sempre se us demanarà el vostre correu electrònic i la contrasenya.</small>
+                    </div><br>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 offset-md-3">
+                <button type="submit" form="formUser" class="form-control btn btn-login">Envia la informació</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    
+  
+
 
     <!--
   <div class="modal-header">

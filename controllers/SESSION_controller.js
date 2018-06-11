@@ -36,9 +36,12 @@ exports.new = function(req, res) {
 	}
 };
 
-exports.login = function (req, res, next){
+exports.login = function (req, res){
 	var email = req.body.email;
 	var password = req.body.password;
+	console.log('EMAIL: ' + email);
+	console.log('PWD: ' + password);
+
 	//var msg =  req.flash('Correu o contrasenya incorrectes');
 
 	models.User.findOne({email: email})
@@ -48,12 +51,16 @@ exports.login = function (req, res, next){
 			console.log(error);
 		}
 		if(!user) {
-			req.flash('loginMsg', "Usuari desconegut. Registreu-vos abans d'iniciar sessió");
-			res.redirect('/');
+			//req.flash('loginMsg', "Usuari desconegut. Registreu-vos abans d'iniciar sessió");
+			//res.redirect('/');
+			res.send({messg: "Usuari inexistent, heu de registrar-vos per poder accedir a l'aplicació"});
+			//QUAN HI HAGI ESCOLES
 			//next();
 		}
 		if(user) {
+			console.log('USER OK');
 			if(bcrypt.compareSync(password, user.password)){
+				console.log('PWD OK');
 				req.session.user = user;
 				if(req.session.user.horari){
 					var horariId = req.session.user.horari;
@@ -78,13 +85,15 @@ exports.login = function (req, res, next){
 					}
 				}
 			} else {
-				req.flash('loginMsg', 'Contrasenya incorrecta');
-				res.redirect('/');
+				//req.flash('loginMsg', 'Contrasenya incorrecta');
+				//res.redirect('/');
+				res.send({messg: "Contrasenya incorrecta"});
 			}
 		}
 	});
 };
 
+/*
 exports.login_EE = function (req, res, next){
 	var email = req.body.email;
 	var password = req.body.password;
@@ -120,7 +129,7 @@ exports.login_EE = function (req, res, next){
 		}
 	});
 };
-
+*/
 exports.loginCentre = function(req, res){
 	var email = req.body.email;
 	var password = req.body.password;
