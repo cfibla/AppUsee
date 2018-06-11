@@ -336,17 +336,17 @@ $(document).ready(function (){
         url : '/login',
         data : loginData,
         success: function(text){
-          var textMsg = JSON.stringify(text.messg);
-          if(textMsg=="Usuari inexistent, heu de registrar-vos per poder accedir a l'aplicació"){
+//MILLORAR AIXO
+          if(text == "Usuari inexistent"){
             $('#login-alert').removeClass('hidDrop');
-            $('#login-alert').html(textMsg);
-          }
-          if(textMsg=="Contrasenya incorrecta"){
-            $('#login-alert').removeClass('hidDrop');
-            $('#login-alert').html(textMsg);
+            $('#login-alert').html(text);
           }
 
-          console.log('messg-LOGIN: '+ textMsg);
+          if(text=="Contrasenya incorrecta"){
+            $('#login-alert').removeClass('hidDrop');
+            $('#login-alert').html(text);
+          }
+
         }
       })
       /*

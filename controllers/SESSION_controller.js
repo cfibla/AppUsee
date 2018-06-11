@@ -53,7 +53,7 @@ exports.login = function (req, res){
 		if(!user) {
 			//req.flash('loginMsg', "Usuari desconegut. Registreu-vos abans d'iniciar sessió");
 			//res.redirect('/');
-			res.send({messg: "Usuari inexistent, heu de registrar-vos per poder accedir a l'aplicació"});
+			res.send("Usuari inexistent");
 			//QUAN HI HAGI ESCOLES
 			//next();
 		}
@@ -87,7 +87,7 @@ exports.login = function (req, res){
 			} else {
 				//req.flash('loginMsg', 'Contrasenya incorrecta');
 				//res.redirect('/');
-				res.send({messg: "Contrasenya incorrecta"});
+				res.send("Contrasenya incorrecta");
 			}
 		}
 	});
