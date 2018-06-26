@@ -337,14 +337,14 @@ $(document).ready(function (){
         data : loginData,
         success: function(text){
 //MILLORAR AIXO
-          if(text == "Usuari inexistent"){
-            $('#login-alert').removeClass('hidDrop');
-            $('#login-alert').html(text);
-          }
-
-          if(text=="Contrasenya incorrecta"){
-            $('#login-alert').removeClass('hidDrop');
-            $('#login-alert').html(text);
+          if(text == "Usuari inexistent"||text=="Contrasenya incorrecta"){
+            $('#login-alert').removeClass('hidDrop').fadeIn('slow');;
+            $('#login-alert').html('Usuari o contrasenya incorrectes');
+          } else {
+        console.log('LOGIN-DONE');
+        $.LoadingOverlay("hide");
+        $('.modal').removeClass('show');
+        location.href = '/list';
           }
 
         }

@@ -29,12 +29,12 @@
                 <div class="md-form">
                   <div>Correu electrònic</div>
                   <i class="fa fa-envelope prefix icon-logo"></i>
-                  <input type="email" class="form-control" id="usrname" name="email" autocomplete="username">
+                  <input type="email" class="form-control login-input" id="usrname" name="email" autocomplete="username">
                 </div>
                 <div class="md-form">
                   <div>Contrasenya</div>
                   <i class="fa fa-lock prefix icon-logo"></i>
-                  <input type="password" class="form-control" id="psw" name="password" autocomplete="current-password">
+                  <input type="password" class="form-control login-input" id="psw" name="password" autocomplete="current-password">
                 </div>
                 <div class="alert alert-danger loginAlert hidDrop" id="login-alert"></div>
                 <!--
@@ -123,6 +123,16 @@
                 <button type="submit" form="formUser" class="form-control btn btn-login">Envia la informació</button>
               </div>
             </form>
+            <!--
+            <div class="modal-footer">
+              <div class="container">
+                <span id="alertaDades" class="alerta hidDrop">
+                  Encara no heu desat els canvis. Realment voleu abandonar aquest quadre?
+                  <button class="btn btn-warning btn-block" id="modalDiscard">Abandonar</button>
+                </span>
+              </div>
+            </div>
+            -->
           </div>
         </div>
       </div>
