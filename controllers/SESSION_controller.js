@@ -42,8 +42,6 @@ exports.login = function (req, res){
 	console.log('EMAIL: ' + email);
 	console.log('PWD: ' + password);
 
-	//var msg =  req.flash('Correu o contrasenya incorrectes');
-
 	models.User.findOne({email: email})
 	.populate('horari centre')
 	.exec(function(error, user){
@@ -51,9 +49,7 @@ exports.login = function (req, res){
 			console.log(error);
 		}
 		if(!user) {
-			//req.flash('loginMsg', "Usuari desconegut. Registreu-vos abans d'iniciar sessió");
-			//res.redirect('/');
-			res.send("Usuari inexistent");
+			res.send("error login");
 			//QUAN HI HAGI ESCOLES
 			//next();
 		}
@@ -69,25 +65,23 @@ exports.login = function (req, res){
 							console.log(err);
 						} else {
 							if (user.mestre === "tutor"){
-								res.redirect('/list');
+								res.send('/list');
 							}
 							if (user.mestre === "ee"){
-								res.redirect('/list_EE');
+								res.send('/list_EE');
 							}
 						}
 					})
 				} else {
 					if (user.mestre === "tutor"){
-						res.redirect('/list');
+						res.send('/list');
 					}
 					if (user.mestre === "ee"){
-						res.redirect('/list_EE');
+						res.send('/list_EE');
 					}
 				}
 			} else {
-				//req.flash('loginMsg', 'Contrasenya incorrecta');
-				//res.redirect('/');
-				res.send("Contrasenya incorrecta");
+				res.send("error login");
 			}
 		}
 	});

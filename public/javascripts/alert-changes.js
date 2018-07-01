@@ -30,12 +30,6 @@ $(document).ready(function (){
 
   // Monitor dynamic inputs
   $(document).on('change', ':input', function(){
-    $('#loginModal').on('shown', function () {
-    console.log('LOGIN-MODAL');
-})
-
-    //PARA LOGIN MIRAR POR AQUI PARA EL CHANGE EN LOS INPUTS
-    
     console.log('CHANGEDATA alert-changes CHANGE: ' + localStorage.getItem('changeData'));
     //triggers change in all input fields including text type
     if (localStorage.getItem('changeData') === 'true') {
@@ -54,17 +48,13 @@ $(document).ready(function (){
     }
   });
 
-//HAY QUE RECONOCER EL MODAL DEL LOGIN PARA HACER EL UNSAVED=TRUE
-  $('#loginModal').on('shown', function () {
-    console.log('login modal abierto');
-  });
-
   $('.modal').on('hide.bs.modal', function(e) {
     if(unsaved==true && localStorage.getItem('changeData') === 'false'){
-      if('loginModal'){
+      //Si es el login-modal, no preguntar
+      if('#loginModal'){
         unsaved = false;
         changeData = false;
-        console.log('login modal abierto')
+        console.log('login modal abierto');
       } else {
         e.preventDefault();
         $("#alertaDades").removeClass("hidDrop");

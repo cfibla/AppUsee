@@ -1,8 +1,8 @@
 GENERAL
 BETA 1.0.0
 
-Fer apartat "Entra"
-QUAN NO TROBI USER O PSW, AVISAR AL MODAL
+Fer que el nom de l'alumne sigui link
+
 Protecció de dades
 
 Open Graph Facebook
@@ -22,6 +22,7 @@ Registre "mestre -ee -escola"
 
 
 
++Fer apartat "Entra"
 
 +Button 'desa horari' treure avis de canvis
 

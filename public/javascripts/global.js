@@ -281,23 +281,6 @@ $(document).ready(function (){
   });
 
 ////////////////////LOGIN///////////////////////////
-/*  $('#login-form-link').click(function(e) {
-    $("#login-form").delay(100).fadeIn(100);
-    $("#formUser").fadeOut(100);
-    $('#register-form-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-
-  });
-  $('#register-form-link').click(function(e) {
-    $("#formUser").delay(100).fadeIn(100);
-    $("#login-form").fadeOut(100);
-    $('#login-form-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-*/
-////////////////////LOGIN///////////////////////////
   $('#loginModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     //var userId = actg.data('id');
@@ -318,7 +301,7 @@ $(document).ready(function (){
     $(this).addClass('active');
     e.preventDefault();
   });
-
+//LOGIN FORM -- Validación
   $('#login-form').on('submit', function(e){
     var name = $("#usrname").val();
     var pwd = $("#psw").val();
@@ -336,32 +319,19 @@ $(document).ready(function (){
         url : '/login',
         data : loginData,
         success: function(text){
-//MILLORAR AIXO
-          if(text == "Usuari inexistent"||text=="Contrasenya incorrecta"){
+          if(text == "error login"){
             $('#login-alert').removeClass('hidDrop').fadeIn('slow');;
             $('#login-alert').html('Usuari o contrasenya incorrectes');
           } else {
-        console.log('LOGIN-DONE');
-        $.LoadingOverlay("hide");
-        $('.modal').removeClass('show');
-        location.href = '/list';
+            $.LoadingOverlay("hide");
+            $('.modal').removeClass('show');
+            location.href = text;
           }
-
         }
-      })
-      /*
-      .done(function(){
-        console.log('LOGIN-DONE');
-        $.LoadingOverlay("hide");
-        $('.modal').removeClass('show');
-        location.href = '/list';
-      })
-      */
-      ;
+      });
     }
   })
 });
-
 
 ///////////////////// M O D A L S ///////////////////// 
   $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){
