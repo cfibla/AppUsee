@@ -89,6 +89,10 @@
         <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidBig hidDrop noSave" id="areasPost_2">Desa</button>
         <div class="collapse navbar-collapse" id="navbarNav1">  
               <ul class="navbar-nav mr-auto offset-md-1">
+                <%if(session.user.mestre === "ADMIN"){
+
+                  
+                } else {%>
                 <li id="llista" class="nav-item"><a class="nav-link navhover" href="<%=ruta%>">Llistes<span class="sr-only">(current)</span></a></li>
                 <%if(session.user.mestre === "tutor"){%>
                   <li id="tutoria" class="nav-item hidBig"><a class="nav-link navhover" href="/list">Tutoria</a></li>
@@ -129,7 +133,7 @@
                         <% } %>
                       </div>
                     </li>
-                  <%}%>
+                  <%}%><%}%>
               </ul>
             
               <ul class="navbar-nav">

@@ -11,9 +11,10 @@
 			    <thead>
 			      <tr id="adminRow" class="row m-0">
 			        <th class="d-inline-block col-1">Núm.</th>
-			        <th class="d-inline-block col-6">Cognoms i nom</th>
+			        <th class="d-inline-block col-4">Cognoms i nom</th>
 			        <th class="d-inline-block col-3">Escola</th>
 			        <th class="d-inline-block col-2">Mestre</th>
+			        <th class="d-inline-block col-2">Login</th>
 			        
 			      </tr>
 			    </thead>
@@ -24,9 +25,10 @@
 
 			    <tr class="row m-0">
 			      <td class="d-inline-block col-1"><%=i+1%></td>
-			      <td class="d-inline-block col-6"><%=Users[i].cognom + ", " + Users[i].nom%></td>
+			      <td class="d-inline-block col-4"><%=Users[i].cognom + ", " + Users[i].nom%></td>
 			      <td class="d-inline-block col-3"><%=Users[i].centre.nom%></td>
 			      <td class="d-inline-block col-2"><%=Users[i].mestre%></td>
+			      <td class="d-inline-block col-2"><%=Users[i].lastLogin%></td>
 			      
 			  </tr>
 			  <%}%>
