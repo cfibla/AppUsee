@@ -32,14 +32,27 @@ $(document).ready(function (){
   var pth = window.location.pathname; // Returns path only
 
   if(pth==="/admin"){
-    $("#llista").addClass("navcolor");
-    $("#horari-menu").removeClass("navcolor");
+    //$("#llista").addClass("navcolor");
+    //$("#horari-menu").removeClass("navcolor");
     $("#situ").html("ADMIN");
     $("#a1").html("General").attr('href', "/admin");
     $("#a2").html("Usuaris").attr('href', "/admin-users");
     $("#a3").html("Escoles").attr('href', "/admin-escoles");
     $("#a1div").addClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
+    $("#a3div").removeClass("navcolorside");
+    $("#a4div").removeClass("navcolorside");
+  }
+
+  if(pth==="/admin-users"){
+    //$("#llista").addClass("navcolor");
+    //$("#horari-menu").removeClass("navcolor");
+    $("#situ").html("ADMIN");
+    $("#a1").html("General").attr('href', "/admin");
+    $("#a2").html("Usuaris").attr('href', "/admin-users");
+    $("#a3").html("Escoles").attr('href', "/admin-escoles");
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").addClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
   }

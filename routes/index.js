@@ -33,6 +33,7 @@ router.get('/logout',				sessionController.loginRequired, sessionController.dest
 
 //Rutas ADMIN
 router.get('/admin',				sessionController.loginRequired, adminController.main);
+router.get('/admin-users',			sessionController.loginRequired, adminController.users);
 
 //rutas ESCOLA
 //router.get('/escola_nou',			escolaController.nouEscola);
