@@ -11,6 +11,12 @@ exports.createUser = function (req, res){
 	var user = req.body;
 	var escolaId = user.escola;
 	if (user.email && user.nom && user.cognom && user.password && user.escola){
+
+		console.log('SI USER: '+user.email);
+		console.log('SI USER: '+user.password);
+		console.log('SI USER: '+user.nom);
+		console.log('SI USER: '+user.cognom);
+		console.log('SI USER: '+user.escola);
 	//crea escola
 		models.Centre.findOne({codi:escolaId}, function(error, eskola){
 			if (!eskola){
@@ -116,6 +122,12 @@ exports.createUser = function (req, res){
 				});
 			}
 		});
+	}else{
+		console.log('NO USER: '+user.email);
+		console.log('NO USER: '+user.password);
+		console.log('NO USER: '+user.nom);
+		console.log('NO USER: '+user.cognom);
+		console.log('NO USER: '+user.escola);
 	};
 };
 

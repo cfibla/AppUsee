@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var adminController = require('../controllers/ADMIN_controller');
+
 var alumController = require('../controllers/ALUMNES_controller');
 var alumEeController = require('../controllers/ALUMNES_EE_controller');
 var escolaController = require('../controllers/ESCOLA_controller');
@@ -28,6 +30,9 @@ router.post('/login',				sessionController.login,
 									//sessionController.login_EE,
 									sessionController.loginCentre);
 router.get('/logout',				sessionController.loginRequired, sessionController.destroy);
+
+//Rutas ADMIN
+router.get('/admin',				sessionController.loginRequired, adminController.main);
 
 //rutas ESCOLA
 //router.get('/escola_nou',			escolaController.nouEscola);

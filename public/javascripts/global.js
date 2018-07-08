@@ -280,7 +280,7 @@ $(document).ready(function (){
       }
   });
 
-////////////////////LOGIN///////////////////////////
+////////////////////LOGIN MODAL///////////////////////////
   $('#loginModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     //var userId = actg.data('id');
@@ -331,20 +331,9 @@ $(document).ready(function (){
       });
     }
   })
-});
-
-///////////////////// M O D A L S ///////////////////// 
-  $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){
-     $($(this).data("target")+' .modal-content').load($(this).attr('href'));
-   }); 
-  $('document').on('hidden.bs.modal', function () {
-      $('.modal-body .modal-footer').html("");
-    });
-
-///////// U S E R S //////////////
-///// CREATE USER
-//  $('#userModal').on('shown.bs.modal', function (e) {
+///// CREATE USER -- Registro
     $('#formUser').on('submit', function(e){
+      console.log('formUser');
       e.preventDefault();
       $.LoadingOverlay("show");
       var urlPost = "/usuari_crear";
@@ -363,7 +352,6 @@ $(document).ready(function (){
         location.href = destUrl;
       });
     });
-//  });
     // USUARI CURS
     if ($('#mestres').val()==='tutor'){
         $("#curs_act").show();
@@ -377,20 +365,17 @@ $(document).ready(function (){
         $("#curs_act").hide('slow').prop('required', false);
       }
     });
+});
 
-///// CREATE USER TUTOR EE -USEE - SIEI
-/*  $('#useeModal').on('shown.bs.modal', function (e) {
-    $('#formUsee').on('submit', function(e){
-      e.preventDefault();
-      $.LoadingOverlay("show");
-      var urlPost = "/usuari_ee_crear";
-      var data = $('#formUsee').serialize();
-      aPost(urlPost, data).always(function(){
-        location.href="/list_EE";
-      });
+///////////////////// M O D A L S ///////////////////// 
+  $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){
+     $($(this).data("target")+' .modal-content').load($(this).attr('href'));
+   }); 
+  $('document').on('hidden.bs.modal', function () {
+      $('.modal-body .modal-footer').html("");
     });
-  });
-*/
+
+///////// U S E R S //////////////
 
 //UPDATE USERS
     // USUARI CURS

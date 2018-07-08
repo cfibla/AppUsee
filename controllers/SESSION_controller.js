@@ -54,9 +54,9 @@ exports.login = function (req, res){
 			//next();
 		}
 		if(user) {
-			console.log('USER OK');
+			//console.log('USER OK');
 			if(bcrypt.compareSync(password, user.password)){
-				console.log('PWD OK');
+				//console.log('PWD OK');
 				req.session.user = user;
 				if(req.session.user.horari){
 					var horariId = req.session.user.horari;
@@ -79,6 +79,9 @@ exports.login = function (req, res){
 					if (user.mestre === "ee"){
 						res.send('/list_EE');
 					}
+					if (user.mestre === "ADMIN"){
+						res.send('/admin');
+					}
 				}
 			} else {
 				res.send("error login");
@@ -87,43 +90,6 @@ exports.login = function (req, res){
 	});
 };
 
-/*
-exports.login_EE = function (req, res, next){
-	var email = req.body.email;
-	var password = req.body.password;
-
-	models.UserEe.findOne({email: email})
-	.populate('horari centre')
-	.exec(function(error, user){
-		if (error){
-			console.log(error);
-		}
-		if(!user) {
-			next();
-		}
-		if(user) {
-			if(bcrypt.compareSync(password, user.password)){
-				req.session.user = user;
-				if(req.session.user.horari){
-					horariId = req.session.user.horari;
-					models.Horari.find({_id: horariId}, function(err, horari){
-						if(err){
-							console.log(err);
-						} else {
-							res.redirect('/list_EE');
-						}
-					})
-				} else {
-					res.redirect('/list_EE');
-				}
-			} else {
-				res.redirect('/');
-			}
-			
-		}
-	});
-};
-*/
 exports.loginCentre = function(req, res){
 	var email = req.body.email;
 	var password = req.body.password;

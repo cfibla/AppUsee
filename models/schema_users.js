@@ -1,6 +1,5 @@
 var mongoose = require ('mongoose');
 
-
 var schemaCentres = require('./schema_centres');
 var Centre = mongoose.model('Centre',schemaCentres, 'Centres');
 
@@ -23,6 +22,8 @@ module.exports = new mongoose.Schema({
 	codiEscola: Number,
 	mestre: String,
 	curs: String,
+
+	lastLogin: String,
 //PROPIETARIS
 	centre: {
 		type: mongoose.Schema.ObjectId,
@@ -36,6 +37,4 @@ module.exports = new mongoose.Schema({
 		type: Number,
 		ref: 'Escola'
 	}
-
-
 });

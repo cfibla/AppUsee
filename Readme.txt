@@ -3,9 +3,9 @@ BETA 1.0.0
 
 Fer que el nom de l'alumne sigui link
 
-Protecció de dades
+Crear usuari ADMIN - botó canvi de curs
 
-Open Graph Facebook
+Protecció de dades
 
 Horari-config:
 Alerts errores
@@ -21,6 +21,7 @@ Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 Registre "mestre -ee -escola"
 
 
++Open Graph Facebook
 
 +Fer apartat "Entra"
 

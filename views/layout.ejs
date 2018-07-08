@@ -52,9 +52,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav0">
         <ul class="navbar-nav mr-auto offset-md-1">
-          <a class="nav-link" id="btnEntra" href="/home">Inici</a>
-          <a class="nav-link" id="btnBloc" href="/bloc">Bloc</a>
-          <a class="nav-link" data-toggle="modal" id="btnUsr" href="/javascripts/modals/mail.ejs" data-target="#mailModal">Contacte</a>
+          <a class="nav-link navhover" id="btnEntra" href="/home">Inici</a>
+          <a class="nav-link navhover" id="btnBloc" href="/bloc">Bloc</a>
+          <a class="nav-link navhover" data-toggle="modal" id="btnUsr" href="/javascripts/modals/mail.ejs" data-target="#mailModal">Contacte</a>
         <!--
           <li class="nav-item dropdown btn-group">
             <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
@@ -70,7 +70,7 @@
         </ul>
         <ul>
           <li class="nav-item ml-auto">
-            <a class="nav-link" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal"><i class="fa fa-sign-in"></i> Entra</a>
+            <a class="nav-link navhover" data-toggle="modal" id="btnAssist" href="/javascripts/modals/login.ejs" data-target="#loginModal"><i class="fa fa-sign-in"></i> Entra</a>
           </li>
         </ul>
       </div>
@@ -89,17 +89,17 @@
         <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidBig hidDrop noSave" id="areasPost_2">Desa</button>
         <div class="collapse navbar-collapse" id="navbarNav1">  
               <ul class="navbar-nav mr-auto offset-md-1">
-                <li id="llista" class="nav-item"><a class="nav-link" href="<%=ruta%>">Llistes<span class="sr-only">(current)</span></a></li>
+                <li id="llista" class="nav-item"><a class="nav-link navhover" href="<%=ruta%>">Llistes<span class="sr-only">(current)</span></a></li>
                 <%if(session.user.mestre === "tutor"){%>
-                  <li id="tutoria" class="nav-item hidBig"><a class="nav-link" href="/list">Tutoria</a></li>
-                  <li id="assistencia" class="nav-item hidBig"><a class="nav-link" href="/assistencia">Assistència</a></li>
-                  <li id="menjador" class="nav-item hidBig"><a class="nav-link" href="/menjador">Menjador</a></li>
+                  <li id="tutoria" class="nav-item hidBig"><a class="nav-link navhover" href="/list">Tutoria</a></li>
+                  <li id="assistencia" class="nav-item hidBig"><a class="nav-link navhover" href="/assistencia">Assistència</a></li>
+                  <li id="menjador" class="nav-item hidBig"><a class="nav-link navhover" href="/menjador">Menjador</a></li>
                 <%}%>
 
                 <%if(session.user.mestre === "ee"){%>
-                  <li id="a1divnav" class="nav-item hidBig hidDrop"><a class="nav-link" id="a1nav" ></a></li>
-                  <li id="a2divnav" class="nav-item hidBig hidDrop"><a class="nav-link" id="a2nav" ></a></li>
-                  <li id="a3divnav" class="nav-item hidBig hidDrop"><a class="nav-link" id="a3nav" ></a></li>
+                  <li id="a1divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a1nav" ></a></li>
+                  <li id="a2divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a2nav" ></a></li>
+                  <li id="a3divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a3nav" ></a></li>
 
                   <li id="totsAlumnes" class="nav-item hidBig"><a class="nav-link" href="/list_EE">Tots els alumnes</a></li>
 
@@ -116,11 +116,11 @@
                 <%}%>
 
                   <% if (!session.user.horari) {%>
-                    <li id="crearHoraris" class="nav-item"><a class="nav-link" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li>
+                    <li id="crearHoraris" class="nav-item"><a class="nav-link navhover" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li>
                   <%} else {%>
-                    <li id="horari-menu" class="nav-item"><a class="nav-link" href="/horari-diari">Horaris</a></li>
-                    <li id="configHorari" class="nav-item hidBig"><a class="nav-link" href="/horari-config">Configurar horari</a></li>
-                    <li id="diariHorari" class="nav-item hidBig"><a class="nav-link" href="/horari-diari">Horari diari</a></li>
+                    <li id="horari-menu" class="nav-item"><a class="nav-link navhover" href="/horari-diari">Horaris</a></li>
+                    <li id="configHorari" class="nav-item hidBig"><a class="nav-link navhover" href="/horari-config">Configurar horari</a></li>
+                    <li id="diariHorari" class="nav-item hidBig"><a class="nav-link navhover" href="/horari-diari">Horari diari</a></li>
                     <li id="area" class="nav-item dropdown hidBig">
                       <a class="nav-link dropdown-toggle" id="areasDr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
                       <div class="dropdown-menu dropAside" aria-labelledby="areasDr">

@@ -344,6 +344,11 @@ nav .dropdown-item:hover {
 nav a{
 }
 
+.navhover:hover {
+    /*font-size:105%;*/
+    font-weight: bold;
+}
+
 .hidDrop{
      display: none;
 }
