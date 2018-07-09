@@ -26,6 +26,18 @@
 					<%}%> 
 				</div>
 			</div>
+			<div class="col-md-4">
+				<div class="col-4 pull-left">
+					<strong>Alumnes:</strong>
+				</div>
+				<div class="col-6 pull-right">
+					<%  if (Users.length === 0) { %>
+						Encara no hi ha alumnes registrats
+					<% } else {%>
+						<%=Alumnes.length%>
+					<%}%> 
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

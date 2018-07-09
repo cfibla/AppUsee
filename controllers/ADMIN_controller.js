@@ -14,10 +14,16 @@ exports.main = function (req, res) {
 					if (error){
 						console.log(error);
 					} else {
-						res.render('admin',{Users: docs, Centres: centres});
+						models.Alumne.find()
+						.exec(function(error, alumnes){
+							if (error){
+								console.log(error);
+							} else {
+								res.render('admin',{Users: docs, Centres: centres, Alumnes: alumnes});
+							}
+						});
 					}
 				});
-
 			}
 		});
 }
