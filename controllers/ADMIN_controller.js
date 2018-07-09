@@ -9,11 +9,18 @@ exports.main = function (req, res) {
 			if (error){
 				console.log(error);
 			} else {
-				res.render('admin',{Users: docs});
+				models.Centre.find()
+				.exec(function(error, centres){
+					if (error){
+						console.log(error);
+					} else {
+						res.render('admin',{Users: docs, Centres: centres});
+					}
+				});
+
 			}
 		});
-
-};
+}
 
 
 exports.users = function (req, res) {
