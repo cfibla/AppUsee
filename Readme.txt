@@ -3,8 +3,6 @@ BETA 1.0.0
 
 Fer que el nom de l'alumne sigui link
 
-Crear usuari ADMIN - botó canvi de curs
-
 Protecció de dades
 
 Horari-config:
@@ -20,6 +18,9 @@ Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 
 Registre "mestre -ee -escola"
 
+
+
++Crear usuari ADMIN - botó canvi de curs
 
 +Open Graph Facebook
 

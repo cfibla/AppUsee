@@ -79,9 +79,6 @@ exports.login = function (req, res){
 					if (user.mestre === "ee"){
 						res.send('/list_EE');
 					}
-					if (user.mestre === "ADMIN"){
-						res.send('/admin');
-					}
 				}
 			} else {
 				res.send("error login");

@@ -24,6 +24,7 @@ module.exports = new mongoose.Schema({
 	curs: String,
 
 	lastLogin: String,
+	admin: String,
 //PROPIETARIS
 	centre: {
 		type: mongoose.Schema.ObjectId,
