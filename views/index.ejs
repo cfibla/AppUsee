@@ -60,17 +60,18 @@
     var dataISO = Alumnes[i].dataNaixement.toISOString() %>
 
     <tr class="row m-0">
+      <%
+        var ample;
+        if(session.user.mestre === "tutor"){
+          var ample=8;
+        }
+        if(session.user.mestre === "ee"){
+          var ample=6;
+        }
+      %>
       <td class="d-inline-block col-1"><%=i+1%></td>
-      <%if(session.user.mestre === "tutor"){ %>
-      <td class="d-inline-block col-8"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
-      <%}%>
-      <%if(session.user.mestre === "ee"){ %>
-      <td class="d-inline-block col-6"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
-      <td class="d-inline-block col-2"><%=Alumnes[i].curs%></td>
-      <%}%>
-      <td class="d-inline-block col-3">
-        <span class="col-md-1">
-         <a id="btnDades" data-toggle="modal" data-tggle="tooltip" data-placement="top" title="Dades personals" href="/javascripts/modals/dades.ejs"
+      <td class="d-inline-block col-<%=ample%>">
+        <a class="nom-link" id="btnDades" data-toggle="modal" data-tggle="tooltip" data-placement="top" title="Dades personals" href="/javascripts/modals/dades.ejs"
          data-nom="<%=Alumnes[i].nomAlumne%>"
          data-cognom="<%=Alumnes[i].cognomAlumne1%>"
          data-scognom="<%=Alumnes[i].cognomAlumne2%>"
@@ -128,10 +129,19 @@
          data-esp="<%=Alumnes[i].altresEsp%>"
          data-serpriv="<%=Alumnes[i].atServPrivats%>"
 
-         data-target="#dadesModal"><i class="fa fa-user gris" aria-hidden="true"></i></a>
-<!--          <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i></a>-->
-        </span>
-
+         data-target="#dadesModal"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></a></td>
+      <!--
+      <%if(session.user.mestre === "tutor"){ %>
+      <td class="d-inline-block col-8"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
+      <%}%>
+    -->
+      <%if(session.user.mestre === "ee"){ %>
+      <!--
+      <td class="d-inline-block col-6"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></td>
+    -->
+      <td class="d-inline-block col-2"><%=Alumnes[i].curs%></td>
+      <%}%>
+      <td class="d-inline-block col-3">
         <% if(session.user.mestre === "tutor"){%>
         <span class="col-md-1">
           <a data-tggle="tooltip" data-placement="top" title="Assistència" data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-calendar gris" aria-hidden="true"></i></a>
@@ -148,7 +158,6 @@
           <a data-tggle="tooltip" data-placement="top" title="Elimina dades" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal"><i class="fa fa-close verm" aria-hidden="true"></i></a><% } %>
         </span>
         <% if(session.user.mestre === "ee"){ %>
-<!--          <a data-tggle="tooltip" data-placement="top" title="Dades personals" href="/dadesAlumne/<%=Alumnes[i].id%>"><i class="fa fa-user gris" aria-hidden="true"></i></a>-->
           <span class="col-md-1">
             <a data-tggle="tooltip" data-placement="top" title="Reunions pares" href="/reunions-pares/<%=Alumnes[i].id%>"><i class="fa fa-file-text-o gris" aria-hidden="true"></i></a>
           </span>

@@ -430,6 +430,22 @@ table a:hover{
 .master {
     min-height: 100%;
 }
+.nom-link {
+    color: gray;
+}
+.nom-link:link {
+    color: green;
+}
+.nom-link:visited {
+    background-color: red;
+}
+.nom-link:hover {
+    color: black;
+    font-weight: bold;
+}
+.margin-footer{
+    padding-bottom: 5em;
+}
 /*FOOTER */
 .footer {
     position: absolute;
