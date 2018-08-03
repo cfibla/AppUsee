@@ -423,7 +423,6 @@ $(document).ready(function (){
     var actg = $(e.relatedTarget);
     var userId = actg.data('id');
     var mestre = actg.data('mestre');
-    var mdal = $(this);
   
     $('#del_user').on('submit', function(e){
       e.preventDefault();
@@ -435,9 +434,27 @@ $(document).ready(function (){
       var urlPost = "/usuari_ee_D/" + userId + "?_method=put";
       }
       var data = $('#del_user').serialize();
-      aPost(urlPost, data)
+      aPost(urlPost, data);
       });
     });
+
+
+//DELETE HORARIS
+  $('#deleteHorariModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var userId = actg.data('id');
+    var horari = actg.data('horari');
+    var mdal = $(this);
+
+    $('#del_horari').on('submit', function(e){
+      e.preventDefault();
+      $.LoadingOverlay("show");
+
+      var urlPost = "/horari-delete/" + userId + "?_method=put";
+
+      aPost(urlPost, horari);
+    }); 
+  });
 
 
 ///////// A L U M N E S //////////////

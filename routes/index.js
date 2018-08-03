@@ -97,6 +97,7 @@ router.put('/dades_alta/:id', 				sessionController.loginRequired, alumEeControl
 router.post('/horari-crear',				sessionController.loginRequired, horariController.create);
 router.get('/horari-config',				sessionController.loginRequired, horariController.config);
 router.put('/horari-post',					sessionController.loginRequired, horariController.update);
+router.put('/horari-delete/:id',			sessionController.loginRequired, horariController.delete);
 router.get('/horari-diari',					sessionController.loginRequired, horariController.diariGet);
 router.put('/horari-diari-post',			sessionController.loginRequired, horariController.diariPost);
 router.get('/horari-area/:area',			sessionController.loginRequired, horariController.areaGet);

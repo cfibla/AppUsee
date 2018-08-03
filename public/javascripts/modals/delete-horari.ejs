@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Eliminar horari</title>
+  </head>
+
+  <body>
+    <div class="modal-header">
+      <div class="modal-title">Eliminar dades</div>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form role="form" method="post" id="del_horari">
+        <div class="container">
+          <div class="row">
+            <p class = "clear"><strong>Esteu segur/a d'eliminar aquest horari?</strong><br>Aquesta acció no es podrà desfer i perdreu tota la informació.<br></p>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-default" role="button" data-dismiss="modal">Cancel·la</a>
+      <button type="submit" form="del_horari" id="horariDel" class="btn btn-danger">Elimina dades</button>
+    </div>
+  </body>
+</html>

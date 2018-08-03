@@ -201,7 +201,6 @@ exports.updPwdPost = function (req, res){
 	}
 }
 
-
 //DELETE user
 exports.delUser = function (req, res) {
 	var userId = req.params.id;
@@ -210,6 +209,6 @@ exports.delUser = function (req, res) {
 			return res.json(error);
 		} else {
 			res.redirect('/');
-			}
+		}
 	});
 };

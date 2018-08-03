@@ -446,11 +446,21 @@ for (var i=0; i < horari.dades.length; i++) {
             </div>
         </div>
       </div><br><br>
-          <div class="pull-right"> 
-      <!-- Indicates a dangerous or potentially negative action -->
-      <button type="button" class="btn btn-danger">Elimina aquest horari</button>
-    </div>
+      <div class="pull-right">
+        <a type="button" class="btn btn-danger" data-toggle="modal" href="/javascripts/modals/delete-horari.ejs"
+      data-target="#deleteHorariModal" data-id="<%=session.user._id%>" data-horari="<%=session.user.horari._id%>">Elimina aquest horari</a>
+      </div>
     </div>
   </div>
-
 </form>
+
+
+<!-- MODAL DELETE HORARI -->
+
+<div class="modal fade" id="deleteHorariModal" role="dialog">
+  <div class="modal-dialog">
+      <!-- Modal content-->
+    <div class="modal-content">
+    </div>
+  </div>
+</div>

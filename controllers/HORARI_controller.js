@@ -641,6 +641,25 @@ exports.update = function (req, res){
 	});
 };
 
+//DELETE horari
+exports.delete = function (req, res) {
+	var user = req.session.user;
+	var userId = req.params.id;
+	var horari = user.horari._id;
+	console.log('DELETE horari');
+
+	models.User.findById(userId, function(error, user){
+		if (error){
+			return res.json(error);
+		} else {
+			console.log('USER ID: '+userId);
+			console.log('USER: '+ user);
+			console.log('HORARI: '+ horari);
+			res.redirect('/list');
+		}
+	});
+};
+
 //HORARI DIARI - GET
 exports.diariGet = function (req, res) {
 	var usr = req.session.user;
