@@ -438,25 +438,6 @@ $(document).ready(function (){
       });
     });
 
-
-//DELETE HORARIS
-  $('#deleteHorariModal').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var userId = actg.data('id');
-    var horari = actg.data('horari');
-    var mdal = $(this);
-
-    $('#del_horari').on('submit', function(e){
-      e.preventDefault();
-      $.LoadingOverlay("show");
-
-      var urlPost = "/horari-delete/" + userId + "?_method=put";
-
-      aPost(urlPost, horari);
-    }); 
-  });
-
-
 ///////// A L U M N E S //////////////
 //  D A D E S   P E R S O N A L S
   $('#dadesModal').on('shown.bs.modal', function (e) {

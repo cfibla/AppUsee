@@ -60,7 +60,7 @@ $(document).ready(function (){
 
       $.LoadingOverlay("show");
       aPost (urlPost, data).always(function(){
-        location.href="/horari-config";
+        location.href="/horari-diari";
       })
       console.log('DATA JQUERY: '+data);
     });
@@ -88,6 +88,32 @@ $(document).ready(function (){
     language: "ca"
   });
   //TimePICKER
+
+//DELETE HORARIS
+  $('#deleteHorariModal').on('shown.bs.modal', function (e) {
+    var actg = $(e.relatedTarget);
+    var userId = actg.data('id');
+    var horari = actg.data('horari');
+    var mestre = actg.data('mestre');
+    var mdal = $(this);
+
+    $('#del_horari').on('submit', function(e){
+      e.preventDefault();
+      $.LoadingOverlay("show");
+
+      var urlPost = "/horari-delete/" + userId + "?_method=put";
+      var destUrl;
+      if(mestre === "tutor"){destUrl = "/list";}
+      if(mestre === "ee"){destUrl = "/list_EE";}
+      console.log('horari JQUERY');
+
+      aPost(urlPost, horari)
+        .always(function(){
+        location.href = destUrl;
+      });
+    }); 
+  });
+
 
 //HORARI DIARI
   //Textarea dinamica

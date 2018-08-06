@@ -643,19 +643,27 @@ exports.update = function (req, res){
 
 //DELETE horari
 exports.delete = function (req, res) {
-	var user = req.session.user;
+	var userHo = req.session.user;
 	var userId = req.params.id;
-	var horari = user.horari._id;
+	var horari = userHo.horari._id;
 	console.log('DELETE horari');
 
-	models.User.findById(userId, function(error, user){
+	models.Horari.findByIdAndRemove(horari, function(error, horari){
 		if (error){
 			return res.json(error);
 		} else {
-			console.log('USER ID: '+userId);
-			console.log('USER: '+ user);
-			console.log('HORARI: '+ horari);
-			res.redirect('/list');
+			console.log('horari eliminat');
+			models.User.findByIdAndUpdate(userId, {$unset:{horari:1}}, function(error, user){
+				if (error){
+					return res.json(error);
+				} else {
+					console.log('horari eliminat USER');
+					delete userHo.horari;
+					console.log(userHo);
+
+					res.redirect('/list');
+				}		
+			})
 		}
 	});
 };

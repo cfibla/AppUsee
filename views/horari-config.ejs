@@ -448,7 +448,7 @@ for (var i=0; i < horari.dades.length; i++) {
       </div><br><br>
       <div class="pull-right">
         <a type="button" class="btn btn-danger" data-toggle="modal" href="/javascripts/modals/delete-horari.ejs"
-      data-target="#deleteHorariModal" data-id="<%=session.user._id%>" data-horari="<%=session.user.horari._id%>">Elimina aquest horari</a>
+      data-target="#deleteHorariModal" data-mestre="<%=session.user.mestre%>" data-id="<%=session.user._id%>" data-horari="<%=session.user.horari._id%>">Elimina aquest horari</a>
       </div>
     </div>
   </div>
