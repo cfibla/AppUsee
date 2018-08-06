@@ -494,6 +494,7 @@ exports.update = function (req, res){
 				areasArray.push	(horari.dades[i].hora_5.area);
 			}
 			horari.areasArray = areasArray.unique().sort();
+			req.session.user.horari.areasArray =  areasArray.unique().sort();
 		};
 		if (error) {
 			return res.json(error);
@@ -646,21 +647,16 @@ exports.delete = function (req, res) {
 	var userHo = req.session.user;
 	var userId = req.params.id;
 	var horari = userHo.horari._id;
-	console.log('DELETE horari');
 
 	models.Horari.findByIdAndRemove(horari, function(error, horari){
 		if (error){
 			return res.json(error);
 		} else {
-			console.log('horari eliminat');
 			models.User.findByIdAndUpdate(userId, {$unset:{horari:1}}, function(error, user){
 				if (error){
 					return res.json(error);
 				} else {
-					console.log('horari eliminat USER');
 					delete userHo.horari;
-					console.log(userHo);
-
 					res.redirect('/list');
 				}		
 			})

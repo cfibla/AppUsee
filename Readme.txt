@@ -1,11 +1,11 @@
 BETA 1.0.2
 Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
-Horari-config: Afegir boton "borrar horari"
++ Horari-config: Afegir boton "borrar horari"
 bootstrap 4 + mdb4.5
 Perfil usuari -> Escola (crear nova si canvia) - Companys
 Uppercase modificació dades 
-Quan es crea un horari no funciona apartat "ÀREES" (1st call)
++Quan es crea un horari no funciona apartat "ÀREES" (1st call)
 Registre "mestre -ee -escola"
 
 
