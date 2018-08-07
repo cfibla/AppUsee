@@ -172,16 +172,6 @@
           </div>
         </div>
       <%}%>
-      <div class="col-md-12 hid sidelink" id="a1div">
-        <a id="a1"></a>
-          <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidDrop noSave" id="configDiariPost">Desa l'horari l'horari</button>
-      </div>
-      <div class="col-md-12 hid sidelink" id="a2div">
-        <a id="a2"></a>
-          <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidBig noSave" id="horariDiariPost">Desa</button>
-      </div>
-      <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
-      <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
       <% if (session.user.horari) {
         if(session.user.horari.areasArray){%>
           <div class="nav-item dropdown hidDrop" id="areasDrop">
@@ -201,6 +191,16 @@
             <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidBig noSave" id="desaButton">Desa l'horari</button>
           </div>
       <% } %>
+      <div class="col-md-12 hid sidelink" id="a1div">
+        <a id="a1"></a>
+          <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidDrop noSave" id="configDiariPost">Desa l'horari</button>
+      </div>
+      <div class="col-md-12 hid sidelink" id="a2div">
+        <a id="a2"></a>
+          <button type="submit" form = "horari_post" class="btn btn-dark-green buttonSide hidBig noSave" id="horariDiariPost">Desa</button>
+      </div>
+      <div class="col-md-12 hid sidelink" id="a3div"><a id="a3"></a></div>
+      <div class="col-md-12 hid sidelink" id="a4div"><a id="a4"></a></div>
     </aside>
   <% } %>
 
