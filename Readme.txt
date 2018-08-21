@@ -3,6 +3,7 @@ Bootstrap 4 + mdb4.5
 Protecció de dades
 
 BETA 1.0.2
+Secció al Home "Com funciona?"
 Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
 +Uppercase modificació dades

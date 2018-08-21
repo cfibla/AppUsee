@@ -134,21 +134,21 @@ body {
     }
 
     #situ {
-    padding-top: 1em;
-    font-size: 150%;
-    text-transform: uppercase;
-    color: #fff;
+        padding-top: 1em;
+        font-size: 150%;
+        text-transform: uppercase;
+        color: #fff;
     }
 
     #situee {
-    padding-top: 1em;
-    font-size: 180%;
-    text-transform: uppercase;
-    color: #fff;
+        padding-top: 1em;
+        font-size: 180%;
+        text-transform: uppercase;
+        color: #fff;
     }
 
     .navcolorside {
-    background: #008577;
+        background: #008577;
     }
 
     .navcolorside a {
@@ -183,7 +183,7 @@ body {
     height: 100px;
     font-size: 200%;
 }
-.containerbottom{
+.containermid{
     width: 100%;
     padding: 60px;
     background: #7bdfd4;
