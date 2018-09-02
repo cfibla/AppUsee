@@ -88,71 +88,66 @@
         <button type="submit" form = "horari_post" class="btn btn-default hidBig hidDrop noSave" id="horariDiariPost_2">Desa l'horari</button>
         <button type="submit" form = "areas_post" class="btn btn-dark-green buttonSide hidBig hidDrop noSave" id="areasPost_2">Desa</button>
         <div class="collapse navbar-collapse" id="navbarNav1">  
-              <ul class="navbar-nav mr-auto offset-md-1">
+          <ul class="navbar-nav mr-auto offset-md-1">
+            <li id="llista" class="nav-item"><a class="nav-link navhover" href="<%=ruta%>">Llistes<span class="sr-only">(current)</span></a></li>
+            <%if(session.user.mestre === "tutor"){%>
+              <li id="tutoria" class="nav-item hidBig"><a class="nav-link navhover" href="/list">Tutoria</a></li>
+              <li id="assistencia" class="nav-item hidBig"><a class="nav-link navhover" href="/assistencia">Assistència</a></li>
+              <li id="menjador" class="nav-item hidBig"><a class="nav-link navhover" href="/menjador">Menjador</a></li>
+            <%}%>
+            <%if(session.user.mestre === "ee"){%>
+              <li id="a1divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a1nav"></a></li>
+              <li id="a2divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a2nav"></a></li>
+              <li id="a3divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a3nav"></a></li>
 
-                <li id="llista" class="nav-item"><a class="nav-link navhover" href="<%=ruta%>">Llistes<span class="sr-only">(current)</span></a></li>
-                <%if(session.user.mestre === "tutor"){%>
-                  <li id="tutoria" class="nav-item hidBig"><a class="nav-link navhover" href="/list">Tutoria</a></li>
-                  <li id="assistencia" class="nav-item hidBig"><a class="nav-link navhover" href="/assistencia">Assistència</a></li>
-                  <li id="menjador" class="nav-item hidBig"><a class="nav-link navhover" href="/menjador">Menjador</a></li>
+              <li id="totsAlumnes" class="nav-item hidBig"><a class="nav-link" href="/list_EE">Tots els alumnes</a></li>
+
+              <li class="nav-item dropdown hidBig" id="cursosDropNav">
+                <a class="nav-link dropdown-toggle" id="cursosDropdownNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
+                <div class="dropdown-menu dropAside" aria-labelledby="cursosDropdownNav">
+                  <%
+                  var cursosArray = ['P3', 'P4', 'P5', '1r', '2n', '3r', '4t', '5è', '6è']
+                  for (var i = 0; i < cursosArray.length; i++) { %>
+                    <a class="dropdown-item" href="/list_EE/<%=cursosArray[i]%>"><%=cursosArray[i]%></a>
+                  <% } %>
+                </div>
+              </li>
+            <%}%>
+            <% if (!session.user.horari) {%>
+              <li id="crearHoraris" class="nav-item"><a class="nav-link navhover" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li>
+            <%} else {%>
+              <li id="horari-menu" class="nav-item"><a class="nav-link navhover" href="/horari-diari">Horaris</a></li>
+              <li id="configHorari" class="nav-item hidBig"><a class="nav-link navhover" href="/horari-config">Configurar horari</a></li>
+              <li id="diariHorari" class="nav-item hidBig"><a class="nav-link navhover" href="/horari-diari">Horari diari</a></li>
+              <li id="area" class="nav-item dropdown hidBig">
+                <a class="nav-link dropdown-toggle" id="areasDr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
+                <div class="dropdown-menu dropAside" aria-labelledby="areasDr">
+                  <% for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
+                    <a class="dropdown-item" href="/horari-area/<%=session.user.horari.areasArray[i]%>"><%=session.user.horari.areasArray[i]%></a>
+                  <% } %>
+                </div>
+              </li>
+            <%}%>
+            <% if(session.user.admin === "ADMIN"){%>
+                <li id="admin" class="nav-item"><a class="nav-link navhover" href="/admin">Administrador</a></li>
+            <%}%>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=" "+ "Hola, " + session.user.nom +" "+ session.user.cognom%></a>
+              <div class="dropdown-menu" aria-labelledby="userDropdown">
+                <%if (session.user.email !='demo@demo.cat' && session.user.email !='demoee@demo.cat') {%>
+                  <a class="dropdown-item" href="/usuari">El meu perfil</a>
                 <%}%>
-
-                <%if(session.user.mestre === "ee"){%>
-                  <li id="a1divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a1nav" ></a></li>
-                  <li id="a2divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a2nav" ></a></li>
-                  <li id="a3divnav" class="nav-item hidBig hidDrop"><a class="nav-link navhover" id="a3nav" ></a></li>
-
-                  <li id="totsAlumnes" class="nav-item hidBig"><a class="nav-link" href="/list_EE">Tots els alumnes</a></li>
-
-                  <li class="nav-item dropdown hidBig" id="cursosDropNav">
-                    <a class="nav-link dropdown-toggle" id="cursosDropdownNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
-                    <div class="dropdown-menu dropAside" aria-labelledby="cursosDropdownNav">
-                      <%
-                      var cursosArray = ['P3', 'P4', 'P5', '1r', '2n', '3r', '4t', '5è', '6è']
-                      for (var i = 0; i < cursosArray.length; i++) { %>
-                        <a class="dropdown-item" href="/list_EE/<%=cursosArray[i]%>"><%=cursosArray[i]%></a>
-                      <% } %>
-                    </div>
-                  </li>
-                <%}%>
-
-                <% if (!session.user.horari) {%>
-                  <li id="crearHoraris" class="nav-item"><a class="nav-link navhover" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li>
-                <%} else {%>
-                  <li id="horari-menu" class="nav-item"><a class="nav-link navhover" href="/horari-diari">Horaris</a></li>
-                  <li id="configHorari" class="nav-item hidBig"><a class="nav-link navhover" href="/horari-config">Configurar horari</a></li>
-                  <li id="diariHorari" class="nav-item hidBig"><a class="nav-link navhover" href="/horari-diari">Horari diari</a></li>
-                  <li id="area" class="nav-item dropdown hidBig">
-                    <a class="nav-link dropdown-toggle" id="areasDr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Àrees</a>
-                    <div class="dropdown-menu dropAside" aria-labelledby="areasDr">
-                      <% for (var i = 0; i < session.user.horari.areasArray.length; i++) { %>
-                        <a class="dropdown-item" href="/horari-area/<%=session.user.horari.areasArray[i]%>"><%=session.user.horari.areasArray[i]%></a>
-                      <% } %>
-                    </div>
-                  </li>
-                <%}%>
-
-                <% if(session.user.admin === "ADMIN"){%>
-                    <li id="admin" class="nav-item"><a class="nav-link navhover" href="/admin">Administrador</a></li>
-                <%}%>
-                
-              </ul>
-            
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=" "+ "Hola, " + session.user.nom +" "+ session.user.cognom%></a>
-                  <div class="dropdown-menu" aria-labelledby="userDropdown">
-                    <%if (session.user.email !='demo@demo.cat' && session.user.email !='demoee@demo.cat') {%>
-                      <a class="dropdown-item" href="/usuari">El meu perfil</a>
-                    <%}%>
-                    <a class="dropdown-item" href="/logout">Sortir</a>
-                  </div>
-                </li>
-              </ul>
+                <a class="dropdown-item" href="/logout">Sortir</a>
+              </div>
+            </li>
+          </ul>
           <%}%>
         </div>
     </div>
   </nav>
+  <!--ASIDE-->
   <% if (session.user) {%>
     <aside class="col-md-2 sidebar hid">
       <div class="col-md-12 curs-t" id="situ"></div>
@@ -161,6 +156,9 @@
         <div class="col-md-12 curs-t"><%=session.user.curs%></div>
       <%}%>
       <% if (session.user.mestre==="ee") {%>
+        <div class="nav-item" id="div1ee"><a class="nav-link" id="a1ee"></a></div>
+        <div class="nav-item" id="div2ee"><a class="nav-link" id="a2ee"></a></div>
+        <div class="nav-item" id="div3ee"><a class="nav-link" id="a3ee"></a></div>
         <div class="nav-item dropdown hidDrop" id="cursosDrop">
           <a class="nav-link dropdown-toggle" id="cursosDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cursos</a>
           <div class="dropdown-menu dropAside" aria-labelledby="cursosDropdown">
