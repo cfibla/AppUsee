@@ -43,12 +43,10 @@ exports.users = function (req, res) {
 }
 
 exports.canviCurs = function (req, res) {
-	models.Alumne.find()
-	.exec(function(error, alumnes){
+	models.Alumne.find({}, function(error, alumnes){
 		if (error){
 			console.log(error);
 		} else {
-
 			console.log('canvi de curs');
 			for(var i=0; i < alumnes.length; i++) {
 				console.log(alumnes[i].nomAlumne +' '+ alumnes[i].cognomAlumne1 +': '+ alumnes[i].curs);
@@ -92,9 +90,14 @@ exports.canviCurs = function (req, res) {
 				};
 
 				console.log(alumnes[i].nomAlumne +' '+ alumnes[i].cognomAlumne1 +': '+ alumnes[i].curs);
-
 				//FALTA EL SAVE
+				alumnes[i].save(function(error){
+					if (error) {
+						res.json(error);
+					}
+				});
 			}
 		}
+		res.redirect('/admin');
 	});
 }

@@ -1,11 +1,11 @@
 Bootstrap 4 + mdb4.5
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
-
-BETA 1.0.2
-Secció al Home "Com funciona?"
 Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
+
+BETA 1.0.2
++Secció al Home "Com funciona?"
 +Uppercase modificació dades
 +Horari-config: Afegir boton "borrar horari" 
 +Quan es crea un horari no funciona apartat "ÀREES" (1st call)
