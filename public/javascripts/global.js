@@ -313,7 +313,7 @@ $(document).ready(function (){
     //var mestre = actg.data('mestre');
     var mdal = $(this);
 
-    $('.modal #login-form-link').click(function(e) {
+    $('#loginModal #login-form-link').click(function(e) {
       console.log('login-form');
       $("#login-form").delay(100).fadeIn(100);
       $("#formUser").fadeOut(100);
@@ -321,7 +321,7 @@ $(document).ready(function (){
       $(this).addClass('active');
       e.preventDefault();
     });
-  $('.modal #register-form-link').click(function(e) {
+  $('#loginModal #register-form-link').click(function(e) {
     console.log('register-form');
     $("#formUser").delay(100).fadeIn(100);
     $("#login-form").fadeOut(100);
