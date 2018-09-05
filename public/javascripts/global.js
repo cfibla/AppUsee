@@ -313,14 +313,16 @@ $(document).ready(function (){
     //var mestre = actg.data('mestre');
     var mdal = $(this);
 
-    $('#login-form-link').click(function(e) {
-    $("#login-form").delay(100).fadeIn(100);
-    $("#formUser").fadeOut(100);
-    $('#register-form-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-  $('#register-form-link').click(function(e) {
+    $('.modal #login-form-link').click(function(e) {
+      console.log('login-form');
+      $("#login-form").delay(100).fadeIn(100);
+      $("#formUser").fadeOut(100);
+      $('#register-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+  $('.modal #register-form-link').click(function(e) {
+    console.log('register-form');
     $("#formUser").delay(100).fadeIn(100);
     $("#login-form").fadeOut(100);
     $('#login-form-link').removeClass('active');
