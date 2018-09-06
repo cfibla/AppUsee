@@ -38,7 +38,7 @@ $(document).ready(function (){
     $("#a1").html("General").attr('href', "/admin");
     $("#a2").html("Usuaris").attr('href', "/admin-users");
     $("#a3").html("Escoles").attr('href', "/admin-escoles");
-    $("#a1div").addClass("navcolorside");
+    $("#a1div").removeClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
@@ -61,10 +61,10 @@ $(document).ready(function (){
     $("#llista").addClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
     $("#situ").html("Llista tutoria");
-    $("#a1").html("Tutoria").attr('href', "/list");
-    $("#a2").html("Assistència").attr('href', "/assistencia");
-    $("#a3").html("Menjador").attr('href', "/menjador");
-    $("#a1div").addClass("navcolorside");
+    $("#a1tutor").html("Tutoria").attr('href', "/list");
+    $("#a2tutor").html("Assistència").attr('href', "/assistencia");
+    $("#a3tutor").html("Menjador").attr('href', "/menjador");
+    $("#a1div").removeClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
@@ -93,7 +93,7 @@ $(document).ready(function (){
     $("#situ2").html(decodeUrl);
     $("#a1ee").html("Tots els alumnes").attr('href', "/list_EE");
     $("#a2").addClass("hidBig");
-    $("#a1div").removeClass("navcolorside");
+    $("#a1div").addClass("hidBig hidden");
     $("#a2div").addClass("hidBig");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
@@ -106,9 +106,9 @@ $(document).ready(function (){
     $("#horari-menu").removeClass("navcolor");
     $("#assistencia").addClass("navcolor");
     $("#situ").html("Llista assistència");
-    $("#a1").html("Tutoria").attr('href', "/list");
-    $("#a2").html("Assistència").attr('href', "/assistencia");
-    $("#a3").html("Menjador").attr('href', "/menjador");
+    $("#a1tutor").html("Tutoria").attr('href', "/list");
+    $("#a2tutor").html("Assistència").attr('href', "/assistencia");
+    $("#a3tutor").html("Menjador").attr('href', "/menjador");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").addClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
@@ -119,9 +119,9 @@ $(document).ready(function (){
     $("#llista").addClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
     $("#situ").html("Llista menjador");
-    $("#a1").html("Tutoria").attr('href', "/list");
-    $("#a2").html("Assistència").attr('href', "/assistencia");
-    $("#a3").html("Menjador").attr('href', "/menjador");
+    $("#a1tutor").html("Tutoria").attr('href', "/list");
+    $("#a2tutor").html("Assistència").attr('href', "/assistencia");
+    $("#a3tutor").html("Menjador").attr('href', "/menjador");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
     $("#a3div").addClass("navcolorside");
