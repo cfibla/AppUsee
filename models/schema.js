@@ -2,14 +2,12 @@ var mongoose = require ('mongoose');
 
 var schema = require ('./schema');
 var schema_users = require ('./schema_users');
-//var schemaescoles = require('./schema_escoles');
 var schemaesp = require('./schema_usersEsp');
 var schemaee = require('./schema_usersEe');
 var schemacentres = require('./schema_centres');
 
 var Centre = mongoose.model('Centre',schemacentres, 'Centres');
 var User = mongoose.model('User', schema_users, 'Users');
-//var Escola = mongoose.model('Escola', schemaescoles, 'Escoles');
 var UserEsp = mongoose.model('UserEsp', schemaesp,'UserEsps');
 var UserEe = mongoose.model('UserEe', schemaee, 'UserEes');
 
@@ -35,7 +33,6 @@ module.exports = new mongoose.Schema ({
 		type: String,
 		uppercase: true
 	},
-
 	observacions: String,
 	mailAlum: String,
 	passwordAl: String,
@@ -60,7 +57,8 @@ module.exports = new mongoose.Schema ({
 	assist: [{
 		date: String,
 		mati: String,
-		tarda:String,
+		tarda: String,
+		justificant: String,
 		dataIso: Date
 	}],
 //MENJADOR
