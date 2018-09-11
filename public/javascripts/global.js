@@ -110,7 +110,7 @@ $(document).ready(function (){
     $("#a2tutor").html("Assistència").attr('href', "/assistencia");
     $("#a3tutor").html("Menjador").attr('href', "/menjador");
     $("#a1div").removeClass("navcolorside");
-    $("#a2div").addClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
@@ -124,7 +124,7 @@ $(document).ready(function (){
     $("#a3tutor").html("Menjador").attr('href', "/menjador");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
-    $("#a3div").addClass("navcolorside");
+    $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
   }
