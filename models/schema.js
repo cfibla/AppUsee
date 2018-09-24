@@ -38,7 +38,7 @@ module.exports = new mongoose.Schema ({
 	passwordAl: String,
 	telefon: String,
 	codiEscola: Number,
-	eeUsee: Boolean,
+	eeUsee: String,
 	curs: String,
 //REUNIONS PARES
 	reunionsPares:[{
@@ -72,6 +72,8 @@ module.exports = new mongoose.Schema ({
 	checks:[Boolean],
 	radios:[Boolean],
 //ATENCIÓ DIVERSITAT
+	valorat: Boolean,
+	valoratAny: String,
 	altresEsp: String,
 	atServPrivats: String,
 	percentDim: String,
@@ -88,10 +90,6 @@ module.exports = new mongoose.Schema ({
 		type: mongoose.Schema.ObjectId,
 		ref: 'Centre'
 	},
-/*	escola: {
-		type: Number,
-		ref: 'Escola'
-	},*/
 	tutor: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'User'

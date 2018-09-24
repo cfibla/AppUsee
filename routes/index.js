@@ -27,7 +27,6 @@ router.get('/bloc',					introController.bloc);
 //rutas SESSION
 router.get('/',						sessionController.new);
 router.post('/login',				sessionController.login,
-									//sessionController.login_EE,
 									sessionController.loginCentre);
 router.get('/logout',				sessionController.loginRequired, sessionController.destroy);
 
@@ -35,10 +34,6 @@ router.get('/logout',				sessionController.loginRequired, sessionController.dest
 router.get('/admin',				sessionController.loginRequired, adminController.main);
 router.get('/admin-users',			sessionController.loginRequired, adminController.users);
 router.get('/canvi-curs',			sessionController.loginRequired, adminController.canviCurs);
-
-//rutas ESCOLA
-//router.get('/escola_nou',			escolaController.nouEscola);
-//router.post('/escola_crear',		escolaController.createEscola);
 
 //rutas CENTRE
 router.get('/escola_nou',			centreController.nouCentre);

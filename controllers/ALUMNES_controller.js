@@ -112,7 +112,6 @@ exports.create = function (req, res){
 					anyVal: "",
 					derivacio: "",
 					motiuDer: ""
-
 				});
 				nouAlumne.save(function(error){
 					if (error) {
@@ -143,9 +142,7 @@ exports.update = function (req, res){
 										motiuDic:'',
 										anyVal:'',
 										derivacio:'',
-										motiuDer:'',
-
-
+										motiuDer:''
 									}, function(error, alumne){
 										if (error){
 											return res.json(error);

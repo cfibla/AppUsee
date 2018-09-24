@@ -1,3 +1,7 @@
+
+Afegir valoració EE
+Afegir "last login" users
+quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Bootstrap 4 + mdb4.5
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades

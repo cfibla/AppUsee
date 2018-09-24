@@ -150,7 +150,7 @@
           <a data-tggle="tooltip" data-placement="top" title="Entrevistes pares" href="/reunions-pares/<%=Alumnes[i].id%>"><i class="fa fa-file-text-o gris" aria-hidden="true"></i></a>
         </span>
         <span class="col-md-1">
-          <% if(Alumnes[i].eeUsee === true) {%>
+          <% if(Alumnes[i].eeUsee === "true") {%>
            <a data-tggle="tooltip" data-placement="top" title="Atenció a la diversitat" href="/seguiment-EE/actuacions/<%=Alumnes[i].id%>"><i class="fa fa-user-plus gris" aria-hidden="true"></i></a>
           <%} else{%><i class="fa fa-user-plus grisfluix" aria-hidden="true"></i><% } %>
         </span>
