@@ -5,8 +5,7 @@ exports.list = function (req, res) {
 	console.log('LIST');
 	models.Alumne.find({
 		centre: req.session.user.centre,
-		curs: req.session.user.curs}
-		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+		curs: req.session.user.curs}, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('centre tutor')
 	.exec(function(error, docs){
 		if (error){
@@ -27,14 +26,12 @@ exports.list = function (req, res) {
 			}
 		}
 	});
-
 };
 
-//Altes d'alumnes - POST
+//CREATE alumnes - POST
 exports.create = function (req, res){
 
 	var scola = req.session.user.centre;
-
 	var alum = req.body;
 	var rep = alum['radios.0'];
 	var aill = alum['checks.2'];
@@ -43,7 +40,16 @@ exports.create = function (req, res){
 	if (!alum.nom||!alum.cognom1||!alum.curs){
 		res.json('Alguns camps són obligatoris')
 	} else {
-		models.Alumne.find(function(error, alumne){
+		models.Alumne.find({
+			nomAlumne: alum.nom,
+			cognomAlumne1: alum.cognom1,
+			cognomAlumne2: alum.cognom2,
+			},
+			function(error, alumne){
+			//Si troba l'alumne, fer UPDATE
+			if (alumne) {
+				console.log('ALUMNE TROBAT: ' + alumne.nomAlumne + " " + alumne.cognomAlumne1);
+			}
 			if (error){
 				console.log('error: '+ error);
 			} else {
@@ -72,7 +78,7 @@ exports.create = function (req, res){
 					dataNaixement: alum.naixement,
 					seguretatSoc: alum.sSocial,
 
-					codialumneola: req.session.user.centre._id,
+					//codialumneola: req.session.user.centre._id,
 					curs: alum.curs,
 					eeUsee: alum.eeUsee,
 

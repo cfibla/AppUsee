@@ -1,11 +1,9 @@
 var models = require('../models/index');
 
-//Llstat d'alumnes EE- GET
+//Llistat d'alumnes EE- GET
 exports.list = function (req, res) {
-	console.log('LIST_EE');
-	console.log('CENTRE: ' + req.session.user.centre);
 	models.Alumne.find({
-		'eeUsee': true,
+		eeUsee: true,
 		centre: req.session.user.centre}
 		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('centre ee')
@@ -28,7 +26,6 @@ exports.list = function (req, res) {
 			}
 		}
 	});
-
 };
 
 //SEG_ACTUACIONS GET

@@ -577,8 +577,8 @@ $(document).ready(function (){
     mdal.find('.modal-body #nom_escola').val(nomescola);
     mdal.find('.modal-body #cursval').text(alumneCurs);
     mdal.find('.modal-body #obs_alumne').text(obs);
-    mdal.find('.modal-body #ad_alumne1').text(aDiv[0]).val(aDiv[1]);
-    mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
+    //mdal.find('.modal-body #ad_alumne1').text(aDiv[0]).val(aDiv[1]);
+    //mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
     mdal.find('.modal-body #rep_alumne1').text(repe[0]).val(repe[1]);
     mdal.find('.modal-body #rep_alumne2').text(repe[2]).val(repe[3]);
     mdal.find('.modal-body #aill_alumne1').text(aill[0]).val(aill[1]);
@@ -716,6 +716,7 @@ $(document).ready(function (){
       } else {
         $("#divDiv").hide();
       }
+      /*
     $('#eeUsee').change(function(){
       if ($('#eeUsee').val()==='true'){
         $("#divDiv").show();
@@ -723,6 +724,7 @@ $(document).ready(function (){
         $("#divDiv").hide();
       }
     });
+    */
 
     if ($('#disminucio').val()==='true'){
         $("#divDim").show();
@@ -806,8 +808,8 @@ $(document).ready(function (){
     var mdal = $(this);
     mdal.find(".modal-body #cdEscola").val(escola);
     mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
-    mdal.find('.modal-body #o_use1').text(t_use1).val(v_use1);
-    mdal.find('.modal-body #o_use2').text(t_use2).val(v_use2);
+    //mdal.find('.modal-body #o_use1').text(t_use1).val(v_use1);
+    //mdal.find('.modal-body #o_use2').text(t_use2).val(v_use2);
 
     $('#dadesAlumne').on('submit', function(e){
         e.preventDefault();
