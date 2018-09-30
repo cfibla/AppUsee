@@ -28,7 +28,6 @@
 
   <body>
   <%
-  //console.log ('SESSION VIEW: ' + JSON.stringify(session));
   if (session.user){
     var horari = session.user.horari;
       var ruta;
@@ -55,18 +54,6 @@
           <a class="nav-link navhover" id="btnEntra" href="/home">Inici</a>
           <a class="nav-link navhover" id="btnBloc" href="/bloc">Bloc</a>
           <a class="nav-link navhover" data-toggle="modal" id="btnUsr" href="/javascripts/modals/mail.ejs" data-target="#mailModal">Contacte</a>
-        <!--
-          <li class="nav-item dropdown btn-group">
-            <a class="nav-link dropdown-toggle" id="nouUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Nou usuari/a </a>
-            <div class="dropdown-menu dropdown" aria-labelledby="nouUser">-->
-              <!--
-              <a class="dropdown-item" data-toggle="modal" id="btnEscola" href="/javascripts/modals/nouEscola.ejs" data-target="#escolaModal" role="button">Nova escola</a>
-              -->
-              <!--
-              <a class="dropdown-item" data-toggle="modal" id="btnUser" href="/javascripts/modals/nouRegistre.ejs" data-target="#userModal" role="button">Nou tutor/a</a>
-              <a class="dropdown-item" data-toggle="modal" id="btnUsee" href="/javascripts/modals/nouRegistreEe.ejs" data-target="#useeModal" role="button">Nou tutor/a EE-SIEI</a>
-            </div>
-          </li>-->
         </ul>
         <ul>
           <li class="nav-item ml-auto">
@@ -133,6 +120,12 @@
             <%}%>
           </ul>
           <ul class="navbar-nav">
+            <li class="nav-item">
+              <form class="form-inline active-cyan-3 active-cyan-4">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Cerca per cognom..." aria-label="Cerca per cognom...">
+              </form>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=" "+ "Hola, " + session.user.nom +" "+ session.user.cognom%></a>
               <div class="dropdown-menu" aria-labelledby="userDropdown">

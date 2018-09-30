@@ -349,6 +349,22 @@ nav a{
     font-weight: bold;
 }
 
+.active-cyan-4 input[type=text]:focus:not([readonly]) {
+    border: 1px solid #fff;
+    height: 7px;
+    line-height: 14px;
+    border-radius: 3px;
+}
+.active-cyan-3 input[type=text] {
+    border: 1px solid #fff;
+    height: 7px;
+    line-height: 14px;
+    border-radius: 3px;
+}
+.active-cyan-3 .fa, .active-cyan-4 .fa {
+    color: #4dd0e1;
+}
+
 .hidDrop{
      display: none;
 }
