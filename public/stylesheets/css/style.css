@@ -365,6 +365,9 @@ nav a{
     background: #fff;
     color: #ccc;
 }
+.active-cyan-3 .active-cyan-4 input[type=text]::placeholder {
+    color: #ccc; !important
+}
 .active-cyan-3 .fa, .active-cyan-4 .fa {
     color: #fff;
 }

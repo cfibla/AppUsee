@@ -11,6 +11,7 @@ Afegir valoració EE:
 	5. Añadir en dades.js el "Valorat"
 	6. Añadir en nouAlumne.js el "Valorat"
 	7. Afegir buscar alumnes???
+	modal dades: at. diversitat no carrega el Valorat
 Afegir "last login" users
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Bootstrap 4 + mdb4.5
