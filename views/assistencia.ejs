@@ -24,11 +24,13 @@
           <thead>
             <tr  class="row m-0">
               <th class="d-inline-block col-1">Núm.</th>
-              <th class="d-inline-block col-6">Cognoms i nom</th>
-              <th class="d-inline-block col-1">F matí</th>
-              <th class="d-inline-block col-1">R matí</th>
-              <th class="d-inline-block col-1">F tarda</th>
-              <th class="d-inline-block col-1">R tarda</th>
+              <th class="d-inline-block col-4">Cognoms i nom</th>
+              <th class="d-inline-block col-1">Falta matí</th>
+              <th class="d-inline-block col-1">Retard matí</th>
+              <th class="d-inline-block col-1">Just. matí</th>
+              <th class="d-inline-block col-1">Falta tarda</th>
+              <th class="d-inline-block col-1">Retard tarda</th>
+              <th class="d-inline-block col-1">Just. tarda</th>
               <th class="d-inline-block col-1">Imprimir</th>
             </tr>
           </thead>
@@ -65,7 +67,7 @@
               <form role="form" method="post" action="/assistenciaN?_method=put" id="assisForm" name="assis">
                 <tr id="tradios">
                   <td class="d-inline-block col-1"><%=i+1%></td>
-                  <td class="d-inline-block col-6"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
+                  <td class="d-inline-block col-4"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%>
                   </td>
 
                   <input type="hidden" form="assisForm" name="alumneId.<%=i%>" value ="<%=Alumnes[i]._id%>">
@@ -73,8 +75,10 @@
                   <input type="hidden" form="assisForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
                   <td class="d-inline-block col-1"><input id="aMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
                   <td class="d-inline-block col-1"><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
+                  <td class="d-inline-block col-1"><input id="jMat" type="checkbox" form="assisForm" name="assist.justiMati.<%=i%>" value = "si" <%= %>></td>
                   <td class="d-inline-block col-1"><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
                   <td class="d-inline-block col-1"><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
+                  <td class="d-inline-block col-1"><input id="jTar" type="checkbox" form="assisForm" name="assist.justiTarda.<%=i%>" value = "si" <%= %>></td>
             <!-- Imprimir -->
                   <td class="d-inline-block col-1">
                     <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
