@@ -351,23 +351,23 @@ nav a{
 .form-inline{
     margin-top: 7px;
 }
+.navbar-dark form input[type=text] {
+    border-bottom: 1px solid black;
+}
 
 .active-cyan-4 input[type=text]:focus:not([readonly]) {
-    border: 1px solid #fff;
+    border: 1px solid black;
     height: 7px;
     border-radius: 3px;
-    color: #ccc;
+    box-shadow: none;
 } 
 .active-cyan-3 input[type=text] {
-    border: 1px solid #fff;
+    border: 1px solid black;
     height: 7px;
     border-radius: 3px;
-    background: #fff;
-    color: #ccc;
+    background: #ccc;
 }
-.active-cyan-3 .active-cyan-4 input[type=text]::placeholder {
-    color: #ccc; !important
-}
+
 .active-cyan-3 .fa, .active-cyan-4 .fa {
     color: #fff;
 }
