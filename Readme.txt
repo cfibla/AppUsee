@@ -1,7 +1,9 @@
 
 Beta 1.0.3
+MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB
 Afegir valoració EE:
 	1. Modificar eeusee boolean a string en DB
+	
 		db.Alumnes.update({eeUsee: true}, {$set: {eeUsee: "true"}}, {multi:true});
 		db.Alumnes.update({eeUsee: false}, {$set: {eeUsee: "false"}}, {multi:true});
 

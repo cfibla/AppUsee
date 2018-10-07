@@ -34,7 +34,11 @@ exports.create = function (req, res){
 	var scola = req.session.user.centre;
 	var alum = req.body;
 	var alumNom = alum.nom;
+	var alumCog1 = alum.cognom1;
+	var alumCog2 = alum.cognom2;
 	var alumNomUp = alumNom.toUpperCase();
+	var alumCog1Up = alumCog1.toUpperCase();
+	var alumCog2Up = alumCog2.toUpperCase();
 	var rep = alum['radios.0'];
 	var aill = alum['checks.2'];
 	var sersoc = alum['checks.29'];
@@ -43,12 +47,15 @@ exports.create = function (req, res){
 		res.json('Alguns camps són obligatoris')
 	} else {
 		models.Alumne.find({
-			nomAlumne: alumNomUp
+			nomAlumne: alumNomUp,
+			cognomAlumne1: alumCog1Up,
+			cognomAlumne2: alumCog2Up
 			})
 		.exec(function(error, alumne){
 			if (error) throw error;
-			//Si troba l'alumne, fer UPDATE
+			
 			if (alumne[0]===undefined) {
+			//L'alumne NO existeix
 				//TODAY
 				var today = new Date();
 				var dd = today.getDate();
@@ -74,7 +81,6 @@ exports.create = function (req, res){
 					dataNaixement: alum.naixement,
 					seguretatSoc: alum.sSocial,
 
-					//codialumneola: req.session.user.centre._id,
 					curs: alum.curs,
 					eeUsee: alum.eeUsee,
 
@@ -123,7 +129,8 @@ exports.create = function (req, res){
 					}
 				});
 			} else {
-				console.log('ALUMNE TROBAT: ' + alumne[0].nomAlumne);
+			//L'alumne JA existeix
+				console.log('ALUMNE TROBAT: '+ alumne[0].nomAlumne + alumne[0].cognomAlumne1 + alumne[0].cognomAlumne2);
 				res.json(alumne);
 			}
 /*

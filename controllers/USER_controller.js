@@ -11,7 +11,6 @@ exports.createUser = function (req, res){
 	var user = req.body;
 	var escolaId = user.escola;
 	if (user.email && user.nom && user.cognom && user.password && user.escola){
-
 		console.log('SI USER: '+user.email);
 		console.log('SI USER: '+user.password);
 		console.log('SI USER: '+user.nom);
@@ -123,15 +122,15 @@ exports.createUser = function (req, res){
 			}
 		});
 	}else{
-		console.log('NO USER: '+user.email);
-		console.log('NO USER: '+user.password);
-		console.log('NO USER: '+user.nom);
-		console.log('NO USER: '+user.cognom);
-		console.log('NO USER: '+user.escola);
+		console.log('NO USER: ' + user.email);
+		console.log('NO USER: ' + user.password);
+		console.log('NO USER: ' + user.nom);
+		console.log('NO USER: ' + user.cognom);
+		console.log('NO USER: ' + user.escola);
 	};
 };
 
-//GET USER / USER-EE PROFILE 
+//GET USER PROFILE 
 exports.profile = function (req, res){
 
 	var userId = req.session.user._id;
