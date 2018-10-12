@@ -528,7 +528,7 @@ $(document).ready(function (){
 
 //SELECTS
     var piAl = funcSel(pi);
-    var aDiv = funcSel(atdiv);
+    var aDiv = funcDiv(atdiv);
     var repe = funcSel(rep);
     var aill = funcSel(ail);
     var sersoc = funcSel(ss);
@@ -550,7 +550,7 @@ $(document).ready(function (){
         op1="No"; val1=false;
         op2="Si"; val2=true;        
       }
-      return[op1,val1,op2,val2]
+      return[op1, val1, op2, val2]
     };
 
     function funcSeg (v){
@@ -562,8 +562,29 @@ $(document).ready(function (){
         op1="Indirecte"; val1=false;
         op2="Directe"; val2=true;        
       }
-      return[op1,val1,op2,val2]
+      return[op1, val1, op2, val2]
     };
+
+    function funcDiv (v){
+      console.log(v);
+      var op1, val1, op2, val2, op3, val3;
+      if (v==="false"){
+        op1="No"; val1="false";
+        op2="Si"; val2="true";
+        op3="Valorat"; val3="valorat";
+      }
+      if (v==="true"){
+        op1="Si"; val1="true";
+        op2="No"; val2="false";
+        op3="Valorat"; val3="valorat";
+      }
+      if (v==="valorat"){
+        op1="Valorat"; val1="valorat";
+        op2="Si"; val2="true";
+        op3="No"; val3="false";
+      }
+      return[op1, val1, op2, val2, op3, val3]
+    }
 
     var mdal = $(this);
     mdal.find('.modal-body #nom_alumne').val(alumneNom);
@@ -577,8 +598,9 @@ $(document).ready(function (){
     mdal.find('.modal-body #nom_escola').val(nomescola);
     mdal.find('.modal-body #cursval').text(alumneCurs);
     mdal.find('.modal-body #obs_alumne').text(obs);
-    //mdal.find('.modal-body #ad_alumne1').text(aDiv[0]).val(aDiv[1]);
-    //mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
+    mdal.find('.modal-body #ad_alumne1').text(aDiv[0]).val(aDiv[1]);
+    mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
+    mdal.find('.modal-body #ad_alumne3').text(aDiv[4]).val(aDiv[5]);
     mdal.find('.modal-body #rep_alumne1').text(repe[0]).val(repe[1]);
     mdal.find('.modal-body #rep_alumne2').text(repe[2]).val(repe[3]);
     mdal.find('.modal-body #aill_alumne1').text(aill[0]).val(aill[1]);
