@@ -38,7 +38,7 @@ module.exports = new mongoose.Schema ({
 	passwordAl: String,
 	telefon: String,
 	codiEscola: Number,
-	eeUsee: String,
+	eeUsee: Boolean,
 	curs: String,
 //REUNIONS PARES
 	reunionsPares:[{

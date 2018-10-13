@@ -7,13 +7,15 @@ Afegir valoració EE:
 		db.Alumnes.update({eeUsee: true}, {$set: {eeUsee: "true"}}, {multi:true});
 		db.Alumnes.update({eeUsee: false}, {$set: {eeUsee: "false"}}, {multi:true});
 
-+	2. Modificar eeUsee boolean a string en modelo
-+	3. Modificar eeUsee boolean a string en index.ejs
-+	4. Añadir en global.js el "Valorat"
-+	5. Añadir en dades.js el "Valorat"
-+	6. Añadir en nouAlumne.js el "Valorat"
+++	2. Modificar eeUsee boolean a string en modelo
+++	3. Modificar eeUsee boolean a string en index.ejs
+++	4. Añadir en global.js el "Valorat"
+++	5. Añadir en dades.js el "Valorat"
+++	6. Añadir en nouAlumne.js el "Valorat"
 +	7. Afegir buscar alumnes???
 +	modal dades: at. diversitat no carrega el Valorat
+
+si USER === ee => select default SI en valorat i atès en eeUsee
 Afegir "last login" users
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Bootstrap 4 + mdb4.5

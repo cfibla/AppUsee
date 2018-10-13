@@ -500,6 +500,7 @@ $(document).ready(function (){
     var fder = actg.data('fder');
     var der = actg.data('der');
     var motder = actg.data('motder');
+    var valorat = actg.data('valorat');
     var eeusee = actg.data('eeusee');
     var segdiv = actg.data('segdiv');
     var becaa = actg.data('beca');
@@ -528,7 +529,8 @@ $(document).ready(function (){
 
 //SELECTS
     var piAl = funcSel(pi);
-    var aDiv = funcDiv(atdiv);
+    var valorat = funcSel(valorat);
+    var aDiv = funcSel(atdiv);
     var repe = funcSel(rep);
     var aill = funcSel(ail);
     var sersoc = funcSel(ss);
@@ -564,7 +566,7 @@ $(document).ready(function (){
       }
       return[op1, val1, op2, val2]
     };
-
+/*
     function funcDiv (v){
       console.log(v);
       var op1, val1, op2, val2, op3, val3;
@@ -585,7 +587,7 @@ $(document).ready(function (){
       }
       return[op1, val1, op2, val2, op3, val3]
     }
-
+*/
     var mdal = $(this);
     mdal.find('.modal-body #nom_alumne').val(alumneNom);
     mdal.find('.modal-body #cnom_alumne1').val(alumneC1);
@@ -600,7 +602,8 @@ $(document).ready(function (){
     mdal.find('.modal-body #obs_alumne').text(obs);
     mdal.find('.modal-body #ad_alumne1').text(aDiv[0]).val(aDiv[1]);
     mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
-    mdal.find('.modal-body #ad_alumne3').text(aDiv[4]).val(aDiv[5]);
+    mdal.find('.modal-body #val_ad_alumne1').text(valorat[0]).val(valorat[1]);
+    mdal.find('.modal-body #val_ad_alumne2').text(valorat[2]).val(valorat[3]);
     mdal.find('.modal-body #rep_alumne1').text(repe[0]).val(repe[1]);
     mdal.find('.modal-body #rep_alumne2').text(repe[2]).val(repe[3]);
     mdal.find('.modal-body #aill_alumne1').text(aill[0]).val(aill[1]);
@@ -808,30 +811,28 @@ $(document).ready(function (){
 //MODAL AFEGIR ALUMNES
   $('#afegirModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
+    var mdal = $(this);
     var escola = actg.data('escola');
     var alumneCurs = actg.data('curs');
     var usr = actg.data('usr');
-    var t_use1, v_use1, t_use2, v_use2;
+    var t_use1, v_use1, t_use2, v_use2, v_alumneCurs;
     if (usr === "ee") {
-      t_use1 = "Si";
-      v_use1 = true;
-      t_use2 = "No";
-      v_use2 = null;
+//      t_use1 = "Si";
+//      v_use1 = true;
+//      t_use2 = "No";
+//      v_use2 = null;
+//      mdal.find(".modal-body #valorat").text('Si').val(true);
       alumneCurs = "Seleccioneu curs";
       v_alumneCurs = null;
     } else {
-      t_use1 = "No";
-      v_use1 = null;
-      t_use2 = "Si";
-      v_use2 = true;
+//      t_use1 = "No";
+//      v_use1 = null;
+//      t_use2 = "Si";
+//      v_use2 = true;
       v_alumneCurs = alumneCurs;
     };
-
-    var mdal = $(this);
     mdal.find(".modal-body #cdEscola").val(escola);
     mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
-    //mdal.find('.modal-body #o_use1').text(t_use1).val(v_use1);
-    //mdal.find('.modal-body #o_use2').text(t_use2).val(v_use2);
 
     $('#dadesAlumne').on('submit', function(e){
         e.preventDefault();

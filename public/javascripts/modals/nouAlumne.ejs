@@ -49,13 +49,13 @@
               <input type="text" class="form-control" id="targeta_SS" name="sSocial" style="text-transform:uppercase">
             </div>
             <div class="md-form col-md-4">
-              <label class="active" for="codi_escola">Codi escola *</label>
+              <label class="active" for="cdEscola">Codi escola *</label>
               <input type="text" class="form-control" id="cdEscola" name="codiEscola" disabled="true">
             </div>
           </div>
 
             <div class="row">
-              <div class="md-form col-md-3" id="aCurs">
+              <div class="md-form col-md-4" id="aCurs">
                 <label class="active" for="selCurs">Curs *</label>
                   <select class ="form-control validate" id="selCurs" name="curs" required ="true">
                     <option id="opc" class="margetopmini"></option>
@@ -79,7 +79,7 @@
                     <option value="6è B">6è B</option>
                   </select>
               </div>
-              <div class="form-group col-md-2" style="clear:both;">
+              <div class="form-group col-md-4" style="clear:both;">
                 <label class="active" for="selecRep">Repetidor</label>
                 <select class="form-control" id="selecRep" name="radios.0">
                   <option value="">No</option>
@@ -87,26 +87,37 @@
                 </select>
               </div>
 
-              <div class="form-group col-md-3">
-                <label class="active" for="eeUsee">Atenció a la diversitat</label>
-                <select class="form-control" id="eeUsee" name="eeUsee">
-                  <option value="false">No</option>
-                  <option value="true">Si</option>
-                  <option value="valorat">Valorat</option>
-                </select>
-              </div>
-
-              <div class="form-group col-md-2">
-                <label class="active" for="aill">Atès a AiLL</label>
-                <select class="form-control" id="aill" name="checks.2">
+              <div class="form-group col-md-4">
+                <label class="active" for="selecSs">Seguiment Serveis Socials</label>
+                <select class="form-control" id="selecSs" name="checks.29">
                   <option value="">No</option>
                   <option value="true">Si</option>
                 </select>
               </div>
 
-              <div class="form-group col-md-2">
-                <label class="active" for="selecSs">Serveis socials</label>
-                <select class="form-control" id="selecSs" name="checks.29">
+              <div class="form-group col-md-4">
+                <label class="active" for="eeUsee">Valorat per Atenció a la diversitat</label>
+                <select class="form-control" id="valorat" name="valorat">
+                  <option value="false">No</option>
+                  <option value="true">Si</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label class="active" for="eeUsee">Atès a Atenció a la diversitat</label>
+                <select class="form-control" id="eeUsee" name="eeUsee">
+                  <% if session.user.mestre==="ee" {%>
+                    <option value="true">Si</option>
+                  <%} else {%>
+                  <option value="false">No</option>
+                  <option value="true">Si</option>
+                  <%}%>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label class="active" for="aill">Atès a AiLL</label>
+                <select class="form-control" id="aill" name="checks.2">
                   <option value="">No</option>
                   <option value="true">Si</option>
                 </select>
