@@ -821,7 +821,8 @@ $(document).ready(function (){
 //      v_use1 = true;
 //      t_use2 = "No";
 //      v_use2 = null;
-//      mdal.find(".modal-body #valorat").text('Si').val(true);
+      mdal.find(".modal-body #val-1").text('Si').val(true);
+      mdal.find(".modal-body #val-2").text('No').val(false);
       alumneCurs = "Seleccioneu curs";
       v_alumneCurs = null;
     } else {
