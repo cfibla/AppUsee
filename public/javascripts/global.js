@@ -823,6 +823,8 @@ $(document).ready(function (){
 //      v_use2 = null;
       mdal.find(".modal-body #val-1").text('Si').val(true);
       mdal.find(".modal-body #val-2").text('No').val(false);
+      mdal.find(".modal-body #ad-1").text('Si').val(true);
+      mdal.find(".modal-body #ad-2").text('No').val(false);
       alumneCurs = "Seleccioneu curs";
       v_alumneCurs = null;
     } else {
@@ -830,6 +832,10 @@ $(document).ready(function (){
 //      v_use1 = null;
 //      t_use2 = "Si";
 //      v_use2 = true;
+      mdal.find(".modal-body #val-1").text('No').val(false);
+      mdal.find(".modal-body #val-2").text('Si').val(true);
+      mdal.find(".modal-body #ad-1").text('No').val(false);
+      mdal.find(".modal-body #ad-2").text('Si').val(true);
       v_alumneCurs = alumneCurs;
     };
     mdal.find(".modal-body #cdEscola").val(escola);
