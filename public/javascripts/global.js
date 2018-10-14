@@ -815,12 +815,8 @@ $(document).ready(function (){
     var escola = actg.data('escola');
     var alumneCurs = actg.data('curs');
     var usr = actg.data('usr');
-    var t_use1, v_use1, t_use2, v_use2, v_alumneCurs;
+    var v_alumneCurs;
     if (usr === "ee") {
-//      t_use1 = "Si";
-//      v_use1 = true;
-//      t_use2 = "No";
-//      v_use2 = null;
       mdal.find(".modal-body #val-1").text('Si').val(true);
       mdal.find(".modal-body #val-2").text('No').val(false);
       mdal.find(".modal-body #ad-1").text('Si').val(true);
@@ -828,27 +824,42 @@ $(document).ready(function (){
       alumneCurs = "Seleccioneu curs";
       v_alumneCurs = null;
     } else {
-//      t_use1 = "No";
-//      v_use1 = null;
-//      t_use2 = "Si";
-//      v_use2 = true;
       mdal.find(".modal-body #val-1").text('No').val(false);
       mdal.find(".modal-body #val-2").text('Si').val(true);
       mdal.find(".modal-body #ad-1").text('No').val(false);
       mdal.find(".modal-body #ad-2").text('Si').val(true);
       v_alumneCurs = alumneCurs;
     };
+
     mdal.find(".modal-body #cdEscola").val(escola);
     mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
-
+//comprova si existeix l'alumne
+/*
+    $(function(){
+        $('#dadesAlumne').on('submit', function(e) {
+            e.preventDefault();
+            var data =  $(this).serialize();
+            $.get('/localLogin', data, function(result) {
+                if(result.valid == true)
+                {
+                    window.location.href = '/profile';
+                }
+                else
+                {
+                    $('#loginPopup').html(result);
+                }
+            });
+        });
+    });
+*/
     $('#dadesAlumne').on('submit', function(e){
         e.preventDefault();
         $.LoadingOverlay("show");
         var urlPost = "/alumneNou";
         var data = $('#dadesAlumne').serialize();
         aPost(urlPost, data);
-        });
-      });
+    });
+  });
 
 //MODAL DELETE ALUMNES
   $('#deleteModal').on('shown.bs.modal', function (e) {

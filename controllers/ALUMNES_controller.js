@@ -131,87 +131,8 @@ exports.create = function (req, res){
 			} else {
 			//L'alumne JA existeix
 				console.log('ALUMNE TROBAT: '+ alumne[0].nomAlumne + alumne[0].cognomAlumne1 + alumne[0].cognomAlumne2);
-				res.json(alumne);
+				res.json(alumne, {exist: true});
 			}
-/*
-			if (error){
-				console.log('error: '+ error);
-			} else {
-			//TODAY
-				var today = new Date();
-				var dd = today.getDate();
-				var mm = today.getMonth()+1; //January is 0!
-				var yyyy = today.getFullYear();
-
-				if(dd<10) {
-					dd='0'+dd
-				} 
-				if(mm<10) {
-					mm='0'+mm
-				} 
-				today = dd+'/'+mm+'/'+yyyy;
-
-				if(!alum.naixement){
-					alum.naixement = new Date();
-				};
-				//CREATE
-				var nouAlumne = new models.Alumne({
-					nomAlumne: alum.nom,
-					cognomAlumne1: alum.cognom1,
-					cognomAlumne2: alum.cognom2,
-					dataNaixement: alum.naixement,
-					seguretatSoc: alum.sSocial,
-
-					//codialumneola: req.session.user.centre._id,
-					curs: alum.curs,
-					eeUsee: alum.eeUsee,
-
-					tutor: req.session.user,
-					centre:req.session.user.centre,
-
-					assist: [{
-						date: today,
-						mati: null,
-						tarda: null,
-						dataIso: new Date()
-					}],
-					checks: [false, false, aill, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, sersoc, 
-					false, false, false, false, false],
-
-					radios: [rep, false, false, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, false, 
-					false, false, false, false, false],
-
-					observacions: "",
-					mailAlum: "",
-					passwordAl: "",
-					telefon: "",
-					altresEsp: "",
-					atServPrivats: "",
-					percentDim: "",
-					motiuDic: "",
-					anyVal: "",
-					derivacio: "",
-					motiuDer: ""
-				});
-				nouAlumne.save(function(error){
-					if (error) {
-						return res.json(error);
-					} else{
-						return res.json(nouAlumne);
-					}
-				});
-console.log(nouAlumne);
-			};*/
 		});
 	}
 };
