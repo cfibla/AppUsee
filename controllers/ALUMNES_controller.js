@@ -42,6 +42,7 @@ exports.create = function (req, res){
 	var rep = alum['radios.0'];
 	var aill = alum['checks.2'];
 	var sersoc = alum['checks.29'];
+	console.log('ALUMNE: ' + alumNomUp + ' ' + alumCog1Up + ' ' + alumCog2Up);
 
 	if (!alum.nom||!alum.cognom1||!alum.curs){
 		res.json('Alguns camps són obligatoris')
@@ -125,13 +126,19 @@ exports.create = function (req, res){
 					if (error) {
 						return res.json(error);
 					} else{
-						return res.json(nouAlumne);
+						if (session.user.mestre === "tutor"){
+								res.send('/list');
+							}
+							if (session.user.mestre === "ee"){
+								res.send('/list_EE');
+							}
+						//return res.json(nouAlumne);
 					}
 				});
 			} else {
 			//L'alumne JA existeix
 				console.log('ALUMNE TROBAT: '+ alumne[0].nomAlumne + alumne[0].cognomAlumne1 + alumne[0].cognomAlumne2);
-				res.json(alumne, {exist: true});
+				res.send('existeix');
 			}
 		});
 	}

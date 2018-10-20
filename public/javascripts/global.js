@@ -808,7 +808,7 @@ $(document).ready(function (){
     });
   });
 
-//MODAL AFEGIR ALUMNES
+//MODAL NOU ALUMNE
   $('#afegirModal').on('shown.bs.modal', function (e) {
     var actg = $(e.relatedTarget);
     var mdal = $(this);
@@ -833,6 +833,43 @@ $(document).ready(function (){
 
     mdal.find(".modal-body #cdEscola").val(escola);
     mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
+
+//NOU ALUMNE -- Validación
+
+  $('#dadesAlumne').on('submit', function(e){
+    var nom = $("#nom_alumne").val();
+    var cognom1 = $("#cognom1_alumne").val();
+    var cognom2 = $("#cognom2_alumne").val();
+    //var alumneData ={'nom': nom, 'cognom1': cognom1, 'cognom2': cognom2};
+    var alumneData =$('#dadesAlumne').serialize();
+    console.log('alumneDATA: ' + alumneData);
+
+    if( nom =='' || cognom ==''){
+      e.preventDefault();
+      $('#nouAlumne-alert').removeClass('hidDrop');
+      $('#nouAlumne-alert').html("Falta el nom o el cognom!");
+    } else {
+      e.preventDefault();
+      $.ajax({
+        type : 'POST',
+        url : '/alumneNou',
+        data : alumneData,
+        success: function(text){
+          if(text == "existeix"){
+            $('#nouAlumne-alert').removeClass('hidDrop').fadeIn('slow');;
+            $('#nouAlumne-alert').html('Aquest alumne ja existeix. Feu la cerca pel cognom en la barra superior');
+          } else {
+            e.preventDefault();
+        $.LoadingOverlay("show");
+        var urlPost = "/alumneNou";
+        var data = $('#dadesAlumne').serialize();
+        aPost(urlPost, data);
+          }
+        }
+      });
+    }
+  })
+
 //comprova si existeix l'alumne
 /*
     $(function(){
@@ -852,6 +889,7 @@ $(document).ready(function (){
         });
     });
 */
+/*
     $('#dadesAlumne').on('submit', function(e){
         e.preventDefault();
         $.LoadingOverlay("show");
@@ -859,6 +897,7 @@ $(document).ready(function (){
         var data = $('#dadesAlumne').serialize();
         aPost(urlPost, data);
     });
+*/
   });
 
 //MODAL DELETE ALUMNES
