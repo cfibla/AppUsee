@@ -4,8 +4,9 @@ var models = require('../models/index');
 exports.list = function (req, res) {
 	models.Alumne.find({
 		eeUsee: true,
-		centre: req.session.user.centre}
-		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+		centre: req.session.user.centre
+		}, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}
+	})
 	.populate('centre ee')
 	.exec(function(error, docs){
 		if (error){

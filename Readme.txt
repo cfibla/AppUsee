@@ -1,6 +1,7 @@
 
 Beta 1.0.3
-MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB
+MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)
+bcrypt -> de 1.0.3 a 2.0.1
 +Afegir valoració EE
 +Si USER === ee => select default SI en valorat i atès en eeUsee
 Afegir "last login" users
