@@ -837,6 +837,7 @@ $(document).ready(function (){
 //NOU ALUMNE -- Validación
 
   $('#dadesAlumne').on('submit', function(e){
+    console.log('HOLA');
     var nom = $("#nom_alumne").val();
     var cognom1 = $("#cognom1_alumne").val();
     var cognom2 = $("#cognom2_alumne").val();
