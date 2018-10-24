@@ -126,10 +126,10 @@ exports.create = function (req, res){
 					if (error) {
 						return res.json(error);
 					} else{
-						if (session.user.mestre === "tutor"){
+						if (req.session.user.mestre === "tutor"){
 								res.send('/list');
 							}
-							if (session.user.mestre === "ee"){
+							if (req.session.user.mestre === "ee"){
 								res.send('/list_EE');
 							}
 						//return res.json(nouAlumne);

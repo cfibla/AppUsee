@@ -837,33 +837,29 @@ $(document).ready(function (){
 
 //NOU ALUMNE -- Validación
   $('#dadesAlumne').on('submit', function(e){
-    console.log('HOLA 2');
     var nom = $("#nom_alumne").val();
     var cognom1 = $("#cognom1_alumne").val();
     var cognom2 = $("#cognom2_alumne").val();
-    //var alumneData ={'nom': nom, 'cognom1': cognom1, 'cognom2': cognom2};
     var alumneData = $('#dadesAlumne').serialize();
-    console.log('alumneDATA: ' + alumneData);
 
-    if( nom =='' || cognom1 ==''){
+    if( !nom|| !cognom1){
       e.preventDefault();
       $('#nouAlumne-alert').removeClass('hidDrop');
       $('#nouAlumne-alert').html("Falta el nom o el cognom!");
     } else {
       e.preventDefault();
       $.ajax({
-        type : 'POST',
-        url : '/alumneNou',
-        data : alumneData,
+        type: 'POST',
+        url: '/alumneNou',
+        data: alumneData,
         success: function(text){
           if(text == "existeix"){
             $('#nouAlumne-alert').removeClass('hidDrop').fadeIn('slow');;
             $('#nouAlumne-alert').html('Aquest alumne ja existeix. Feu la cerca pel cognom en la barra superior');
           } else {
-           // $.LoadingOverlay("hide");
-           // $('.modal').removeClass('show');
-           // location.href = text;
-           console.log('HELOO');
+           $.LoadingOverlay("hide");
+           $('.modal').removeClass('show');
+           location.href = text;
           }
         }
       });
