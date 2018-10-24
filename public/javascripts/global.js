@@ -358,7 +358,7 @@ $(document).ready(function (){
         }
       });
     }
-  })
+  });
 ///// CREATE USER -- Registro
     $('#formUser').on('submit', function(e){
       console.log('formUser');
@@ -810,6 +810,7 @@ $(document).ready(function (){
 
 //MODAL NOU ALUMNE
   $('#afegirModal').on('shown.bs.modal', function (e) {
+    console.log('HOLA 1');
     var actg = $(e.relatedTarget);
     var mdal = $(this);
     var escola = actg.data('escola');
@@ -835,17 +836,16 @@ $(document).ready(function (){
     mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
 
 //NOU ALUMNE -- Validación
-
   $('#dadesAlumne').on('submit', function(e){
-    console.log('HOLA');
+    console.log('HOLA 2');
     var nom = $("#nom_alumne").val();
     var cognom1 = $("#cognom1_alumne").val();
     var cognom2 = $("#cognom2_alumne").val();
     //var alumneData ={'nom': nom, 'cognom1': cognom1, 'cognom2': cognom2};
-    var alumneData =$('#dadesAlumne').serialize();
+    var alumneData = $('#dadesAlumne').serialize();
     console.log('alumneDATA: ' + alumneData);
 
-    if( nom =='' || cognom ==''){
+    if( nom =='' || cognom1 ==''){
       e.preventDefault();
       $('#nouAlumne-alert').removeClass('hidDrop');
       $('#nouAlumne-alert').html("Falta el nom o el cognom!");
@@ -860,17 +860,16 @@ $(document).ready(function (){
             $('#nouAlumne-alert').removeClass('hidDrop').fadeIn('slow');;
             $('#nouAlumne-alert').html('Aquest alumne ja existeix. Feu la cerca pel cognom en la barra superior');
           } else {
-            e.preventDefault();
-        $.LoadingOverlay("show");
-        var urlPost = "/alumneNou";
-        var data = $('#dadesAlumne').serialize();
-        aPost(urlPost, data);
+           // $.LoadingOverlay("hide");
+           // $('.modal').removeClass('show');
+           // location.href = text;
+           console.log('HELOO');
           }
         }
       });
     }
-  })
-
+  });
+});
 //comprova si existeix l'alumne
 /*
     $(function(){
@@ -899,7 +898,7 @@ $(document).ready(function (){
         aPost(urlPost, data);
     });
 */
-  });
+
 
 //MODAL DELETE ALUMNES
   $('#deleteModal').on('shown.bs.modal', function (e) {
