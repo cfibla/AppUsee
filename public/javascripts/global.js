@@ -71,15 +71,15 @@ $(document).ready(function (){
     $("#areasDrop").addClass("hidDrop");
   }
 
-  if(pth==="/list_EE"){
+  if(pth==="/list_EE"||pth==="/list-valorats"){
     $("#llista").addClass("navcolor");
     //$("#horari-menu").removeClass("navcolor");
     $("#situ").html("Atenció a la diversitat");
-    $("#a1ee").html("Tots els alumnes").attr('href', "/list_EE");
+    $("#a1ee").html("Alumnes SIEI").attr('href', "/list_EE");
+    $("#a2ee").html("Valorats").attr('href', "/list-valorats");
     $("#a1div").addClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
     $("#cursosDrop").removeClass("hidDrop");
-    //$("#cursosDrop").addClass("navcolorside");
   }
 
   if(pth.match("/list_EE/")){
@@ -91,7 +91,8 @@ $(document).ready(function (){
     //$("#horari-menu").addClass("navcolor");
     $("#situ").html("Atenció a la diversitat");
     $("#situ2").html(decodeUrl);
-    $("#a1ee").html("Tots els alumnes").attr('href', "/list_EE");
+    $("#a1ee").html("Alumnes SIEI").attr('href', "/list_EE");
+    $("#a2ee").html("Valorats").attr('href', "/list-valorats");
     $("#a2").addClass("hidBig");
     $("#a1div").addClass("hidBig hidden");
     $("#a2div").addClass("hidBig");

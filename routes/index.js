@@ -78,6 +78,7 @@ router.get('/menjadorA/:id',		sessionController.loginRequired, alumController.me
 
 //rutas ALUMNE EE
 router.get('/list_EE',						sessionController.loginRequired, alumEeController.list);
+router.get('/list-valorats',				sessionController.loginRequired, alumEeController.valorats);
 router.get('/seguiment-EE/actuacions/:id',	sessionController.loginRequired, alumEeController.actuaGet);
 router.get('/seguiment-EE/cad/:id',			sessionController.loginRequired, alumEeController.cadGet);
 router.get('/seguiment-EE/altres/:id',		sessionController.loginRequired, alumEeController.altresGet);
