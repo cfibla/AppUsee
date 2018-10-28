@@ -1,10 +1,11 @@
 
 Beta 1.0.3
+CASI  --  Afegir "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
+Fer funcionar el buscador
+Faltes Justificades
 +MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)
 +bcrypt -> de 1.0.3 a 2.0.1
 +Afegir valoració EE
-Afegir "valorats" al menu EE
-Fer funcionar el buscador
 +Si USER === ee => select default SI en valorat i atès en eeUsee
 Afegir "last login" users
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
