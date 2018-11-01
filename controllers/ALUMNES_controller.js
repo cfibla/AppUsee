@@ -2,7 +2,6 @@ var models = require('../models/index');
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
-	console.log('LIST');
 	models.Alumne.find({
 		centre: req.session.user.centre,
 		curs: req.session.user.curs}, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
@@ -12,7 +11,35 @@ exports.list = function (req, res) {
 			console.log(error);
 		} else {
 			if(req.session.user.horari){
-				console.log('LIST TIENE HORARI');
+				horariId = req.session.user.horari;
+				models.Horari.find({_id: horariId}, function(err, horariUser){
+					if(err){
+						console.log(err);
+					} else {
+						res.render('index',{Alumnes: docs, horari: horariUser});
+					}
+				});
+			} else {
+				res.render('index',{Alumnes: docs});
+			}
+		}
+	});
+};
+
+//GET alumnes CERCA-Cognom
+exports.cercaList = function (req, res) {
+	console.log('cerca-NAV');
+	var cognom = req.body.cognom;
+	console.log(req.body);
+	models.Alumne.find({
+		centre: req.session.user.centre,
+		cognomAlumne1: cognom}, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+	.populate('centre tutor')
+	.exec(function(error, docs){
+		if (error){
+			console.log(error);
+		} else {
+			if(req.session.user.horari){
 				horariId = req.session.user.horari;
 				models.Horari.find({_id: horariId}, function(err, horariUser){
 					if(err){

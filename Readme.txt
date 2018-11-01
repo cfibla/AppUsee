@@ -1,8 +1,8 @@
 
 Beta 1.0.3
-CASI  --  Afegir "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
 Fer funcionar el buscador
 Faltes Justificades
++Afegir "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
 +MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)
 +bcrypt -> de 1.0.3 a 2.0.1
 +Afegir valoració EE

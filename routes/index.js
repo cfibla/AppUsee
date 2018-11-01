@@ -57,6 +57,7 @@ router.put('/usuari_ee_D/:id',		sessionController.loginRequired, userEeControlle
 
 //rutas ALUMNE
 router.get('/list',					sessionController.loginRequired, alumController.list);
+router.get('/cerca-cognom',			sessionController.loginRequired, alumController.cercaList);
 router.post('/alumneNou', 			sessionController.loginRequired, alumController.create);
 router.put('/dadesUpdate/:id', 		sessionController.loginRequired, alumController.update);
 router.put('/dades_suprD/:id', 		sessionController.loginRequired, alumController.suprD);
