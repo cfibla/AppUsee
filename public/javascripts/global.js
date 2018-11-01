@@ -567,28 +567,7 @@ $(document).ready(function (){
       }
       return[op1, val1, op2, val2]
     };
-/*
-    function funcDiv (v){
-      console.log(v);
-      var op1, val1, op2, val2, op3, val3;
-      if (v==="false"){
-        op1="No"; val1="false";
-        op2="Si"; val2="true";
-        op3="Valorat"; val3="valorat";
-      }
-      if (v==="true"){
-        op1="Si"; val1="true";
-        op2="No"; val2="false";
-        op3="Valorat"; val3="valorat";
-      }
-      if (v==="valorat"){
-        op1="Valorat"; val1="valorat";
-        op2="Si"; val2="true";
-        op3="No"; val3="false";
-      }
-      return[op1, val1, op2, val2, op3, val3]
-    }
-*/
+
     var mdal = $(this);
     mdal.find('.modal-body #nom_alumne').val(alumneNom);
     mdal.find('.modal-body #cnom_alumne1').val(alumneC1);
@@ -825,6 +804,12 @@ $(document).ready(function (){
       mdal.find(".modal-body #ad-2").text('No').val(false);
       alumneCurs = "Seleccioneu curs";
       v_alumneCurs = null;
+      if(pth==="/list-valorats"){
+        mdal.find(".modal-body #val-1").text('Si').val(true);
+        mdal.find(".modal-body #val-2").text('No').val(false);
+        mdal.find(".modal-body #ad-1").text('No').val(false);
+        mdal.find(".modal-body #ad-2").text('False').val(true);
+      }
     } else {
       mdal.find(".modal-body #val-1").text('No').val(false);
       mdal.find(".modal-body #val-2").text('Si').val(true);

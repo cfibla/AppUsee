@@ -53,7 +53,7 @@ exports.valorats = function (req, res) {
 					}
 				});
 			} else {
-				res.render('index',{Alumnes: docs});
+				res.render('valorats',{Alumnes: docs});
 			}
 		}
 	});
