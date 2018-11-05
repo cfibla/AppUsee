@@ -29,11 +29,13 @@ exports.list = function (req, res) {
 //GET alumnes CERCA-Cognom
 exports.cercaList = function (req, res) {
 	console.log('cerca-NAV');
-	var cognom = req.body.cognom;
-	console.log(req.body);
+	var alum = req.query;
+	var alumCog1 = alum.cognom;
+	console.log(alumCog1);
+	var alumCog1Up = alumCog1.toUpperCase();
 	models.Alumne.find({
 		centre: req.session.user.centre,
-		cognomAlumne1: cognom}, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+		cognomAlumne1: alumCog1Up})
 	.populate('centre tutor')
 	.exec(function(error, docs){
 		if (error){
