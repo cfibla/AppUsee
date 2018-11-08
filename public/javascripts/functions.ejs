@@ -56,10 +56,20 @@ radioTrueRT = function(){
   return rt;
   }
 };
+//RADIOTRUE-Justificant Matí
+radioTrueJM = function(){
+  var rt='';
+  if (dataObj[0].mati === 'justimati') {
+    rt ="checked";
+    return rt;
+  } else {
+  return rt;
+  }
+};
 //RADIOTRUE-Justificant Tarda
 radioTrueJT = function(){
   var rt='';
-  if (dataObj[0].tarda === 'just') {
+  if (dataObj[0].tarda === 'justitarda') {
     rt ="checked";
     return rt;
   } else {

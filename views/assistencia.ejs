@@ -42,9 +42,11 @@
               } else {
                 var segonC = " " +Alumnes[i].cognomAlumne2;
               }
+
               //ARRAY ASSIST
               var arraylng = Alumnes[i].assist.length;
               var arraymn = arraylng - 1;
+
               //FILTRE DATA
               function filtreData(obj){
                 if (obj.date === DataV){
@@ -56,12 +58,13 @@
               dataSelec = Alumnes[i].assist.filter(filtreData);
               var dataObj = JSON.parse(JSON.stringify(dataSelec));
               if (dataObj[0] === undefined){
-                ddoo ={
+                var ddoo ={
                   date: today,
                   mati: null,
                   tarda: null,
-                  dataIso: new Date()}
-                dataObj = JSON.stringify(ddoo)
+                  dataIso: new Date()
+                }
+                dataObj = JSON.stringify(ddoo);
               }
             %>
               <form role="form" method="post" action="/assistenciaN?_method=put" id="assisForm" name="assis">
@@ -75,10 +78,10 @@
                   <input type="hidden" form="assisForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
                   <td class="d-inline-block col-1"><input id="aMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
                   <td class="d-inline-block col-1"><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
-                  <td class="d-inline-block col-1"><input id="jMat" type="checkbox" form="assisForm" name="assist.justiMati.<%=i%>" value = "si" <%= %>></td>
+                  <td class="d-inline-block col-1"><input id="jMat" type="checkbox" form="assisForm" name="assist.justiMati.<%=i%>" value = "justimati" <%= %>></td>
                   <td class="d-inline-block col-1"><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
                   <td class="d-inline-block col-1"><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
-                  <td class="d-inline-block col-1"><input id="jTar" type="checkbox" form="assisForm" name="assist.justiTarda.<%=i%>" value = "si" <%= %>></td>
+                  <td class="d-inline-block col-1"><input id="jTar" type="checkbox" form="assisForm" name="assist.justiTarda.<%=i%>" value = "justitarda" <%= %>></td>
             <!-- Imprimir -->
                   <td class="d-inline-block col-1">
                     <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;

@@ -28,11 +28,11 @@ exports.list = function (req, res) {
 
 //GET alumnes CERCA-Cognom
 exports.cercaList = function (req, res) {
-	console.log('cerca-NAV');
+
 	var alum = req.query;
 	var alumCog1 = alum.cognom;
-	console.log(alumCog1);
 	var alumCog1Up = alumCog1.toUpperCase();
+	
 	models.Alumne.find({
 		centre: req.session.user.centre,
 		cognomAlumne1: alumCog1Up})

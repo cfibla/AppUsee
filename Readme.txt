@@ -1,7 +1,8 @@
 
 Beta 1.0.3
-Fer funcionar el buscador
+
 Faltes Justificades
++Fer funcionar el buscador
 +Afegir "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
 +MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)
 +bcrypt -> de 1.0.3 a 2.0.1

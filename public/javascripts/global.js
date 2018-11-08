@@ -841,7 +841,7 @@ $(document).ready(function (){
         success: function(text){
           if(text == "existeix"){
             $('#nouAlumne-alert').removeClass('hidDrop').fadeIn('slow');;
-            $('#nouAlumne-alert').html('Aquest alumne ja existeix. Feu la cerca pel cognom en la barra superior');
+            $('#nouAlumne-alert').html('Aquest alumne ja existeix. Feu la cerca pel cognom en la barra superior i podreu modificar les seves dades');
           } else {
            $.LoadingOverlay("hide");
            $('.modal').removeClass('show');
