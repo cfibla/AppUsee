@@ -1,6 +1,7 @@
 
 Beta 1.0.3
 
+aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
 Faltes Justificades
 +Fer funcionar el buscador
 +Afegir "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO

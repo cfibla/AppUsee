@@ -27,6 +27,18 @@
   </head>
 
   <body>
+    <!-- check for user on page load --> 
+    <% if (typeof session.user != "undefined") { %>
+      <!-- make user available to script tag -->
+      <% var user = session.user.mestre %>
+      <!-- use script tag to access ejs data and local storage -->
+      <script>
+        let user = <%- JSON.stringify(user) %>;
+        localStorage.setItem('userMestre', JSON.stringify(user));
+        var localS = localStorage.getItem('userMestre');
+        console.log(localS);
+      </script>
+    <% } %>
   <%
   if (session.user){
     var horari = session.user.horari;

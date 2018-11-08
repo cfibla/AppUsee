@@ -4,7 +4,7 @@ $(document).ready(function (){
   var pth = window.location.pathname; 
   var unsaved = false;//FALSE no pide confirmación para cerrar
   var changeData = localStorage.getItem('changeData');
-  console.log('CHANGEDATA alert-changes INIT: ' + changeData);
+  //console.log('CHANGEDATA alert-changes INIT: ' + changeData);
 
   //Anula el efecto en el login
   $('.noSave').click(function() {
@@ -30,7 +30,7 @@ $(document).ready(function (){
 
   // Monitor dynamic inputs
   $(document).on('change', ':input', function(){
-    console.log('CHANGEDATA alert-changes CHANGE: ' + localStorage.getItem('changeData'));
+    //console.log('CHANGEDATA alert-changes CHANGE: ' + localStorage.getItem('changeData'));
     //triggers change in all input fields including text type
     if (localStorage.getItem('changeData') === 'true') {
       console.log('changeData ES TRUE');
@@ -54,7 +54,7 @@ $(document).ready(function (){
       if('#loginModal'){
         unsaved = false;
         changeData = false;
-        console.log('login modal abierto');
+        //console.log('login modal abierto');
       } else {
         e.preventDefault();
         $("#alertaDades").removeClass("hidDrop");
@@ -62,8 +62,8 @@ $(document).ready(function (){
       $('.modal').animate({
         scrollTop: $("#alertaDades").offset().top
       }, 2000);
-      console.log('on hide.bs.modal unsaved: ' + unsaved); 
-      console.log('on hide.bs.modal changeData: ' + changeData);
+      //console.log('on hide.bs.modal unsaved: ' + unsaved); 
+      //console.log('on hide.bs.modal changeData: ' + changeData);
       changeData =false;
       }
       
