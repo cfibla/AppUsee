@@ -1,8 +1,8 @@
 
 Beta 1.0.3
 
-aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
 Faltes Justificades
++aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
 +Fer funcionar el buscador
 +Afegir "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
 +MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)

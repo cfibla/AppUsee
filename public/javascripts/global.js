@@ -81,30 +81,36 @@ $(document).ready(function (){
     $("#cursosDrop").removeClass("hidDrop");
   }
 
-  if(pth.match("/cerca-cognom/" && userMestre == "tutor")){
-    $("#llista").addClass("navcolor");
-    $("#horari-menu").removeClass("navcolor");
-    $("#situ").html("Llista tutoria");
-    $("#a1tutor").html("Tutoria").attr('href', "/list");
-    $("#a2tutor").html("Assistència").attr('href', "/assistencia");
-    $("#a3tutor").html("Menjador").attr('href', "/menjador");
-    $("#a1div").removeClass("navcolorside");
-    $("#a2div").removeClass("navcolorside");
-    $("#a3div").removeClass("navcolorside");
-    $("#a4div").removeClass("navcolorside");
-    $("#areasDrop").addClass("hidDrop");
+  if(pth === "/cerca-cognom") {
+    if (userMestre == '"tutor"'){
+      console.log("HOLA tutor");
+      $("#llista").addClass("navcolor");
+      $("#horari-menu").removeClass("navcolor");
+      $("#situ").html("Llista tutoria");
+      $("#a1tutor").html("Tutoria").attr('href', "/list");
+      $("#a2tutor").html("Assistència").attr('href', "/assistencia");
+      $("#a3tutor").html("Menjador").attr('href', "/menjador");
+      $("#a1div").removeClass("navcolorside");
+      $("#a2div").removeClass("navcolorside");
+      $("#a3div").removeClass("navcolorside");
+      $("#a4div").removeClass("navcolorside");
+      $("#areasDrop").addClass("hidDrop");
+    }
+    if (userMestre == '"ee"') {
+      console.log("HOLA ee");
+      $("#llista").addClass("navcolor");
+      //$("#horari-menu").removeClass("navcolor");
+      $("#situ").html("Atenció a la diversitat");
+      $("#a1ee").html("Alumnes SIEI").attr('href', "/list_EE");
+      $("#a2ee").html("Valorats").attr('href', "/list-valorats");
+      $("#a1div").addClass("navcolorside");
+      $("#areasDrop").addClass("hidDrop");
+      $("#cursosDrop").removeClass("hidDrop");
+    }
+    
   }
 
-  if(pth.match("/cerca-cognom/" && userMestre == "EE")){
-    $("#llista").addClass("navcolor");
-    //$("#horari-menu").removeClass("navcolor");
-    $("#situ").html("Atenció a la diversitat");
-    $("#a1ee").html("Alumnes SIEI").attr('href', "/list_EE");
-    $("#a2ee").html("Valorats").attr('href', "/list-valorats");
-    $("#a1div").addClass("navcolorside");
-    $("#areasDrop").addClass("hidDrop");
-    $("#cursosDrop").removeClass("hidDrop");
-  }
+  
 
   if(pth.match("/list_EE/")){
     var areaUrl = pth.split("/");
