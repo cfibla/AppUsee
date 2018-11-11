@@ -1,7 +1,7 @@
 
 Beta 1.0.3
-
-Faltes Justificades
+FALTA INCLOURE LES JUSTIFICADES AL PDF
++Faltes Justificades
 +aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
 +Fer funcionar el buscador
 +Afegir "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
