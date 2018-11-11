@@ -266,11 +266,15 @@ exports.assisPost = function (req, res) {
 			var alumDate = alum['assist.date.'+index];
 			var alumMati = alum['assist.mati.'+index];
 			var alumTarda = alum['assist.tarda.'+index];
+			var alumJustiMati = alum['assist.justiMati.'+index];
+			var alumJustiTarda = alum['assist.justiTarda.'+index];
 
 			var alumAssist = {};
 			alumAssist['date']= alumDate;
 			alumAssist['mati']= alumMati;
 			alumAssist['tarda'] = alumTarda;
+			alumAssist['justiMati']= alumJustiMati;
+			alumAssist['justiTarda'] = alumJustiTarda;
 
 			if (!alumAssist['dataIso']){
 				//TO ISODATE

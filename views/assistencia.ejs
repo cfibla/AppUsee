@@ -78,10 +78,10 @@
                   <input type="hidden" form="assisForm" name="arraylng.<%=i%>" value ="<%=arraylng%>">
                   <td class="d-inline-block col-1"><input id="aMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value ="falta" <%=radioTrueFM()%>></td>
                   <td class="d-inline-block col-1"><input id="rMat" type="radio" form="assisForm" name="assist.mati.<%=i%>" value = "retard" <%=radioTrueRM()%>></td>
-                  <td class="d-inline-block col-1"><input id="jMat" type="checkbox" form="assisForm" name="assist.justiMati.<%=i%>" value = "justimati" <%= %>></td>
+                  <td class="d-inline-block col-1"><input id="jMat" type="checkbox" form="assisForm" name="assist.justiMati.<%=i%>" value = "justimati" <%=radioTrueJM()%>></td>
                   <td class="d-inline-block col-1"><input id="aTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value ="falta" <%=radioTrueFT()%>></td>
                   <td class="d-inline-block col-1"><input id="rTar" type="radio" form="assisForm" name="assist.tarda.<%=i%>" value = "retard" <%=radioTrueRT()%>></td>
-                  <td class="d-inline-block col-1"><input id="jTar" type="checkbox" form="assisForm" name="assist.justiTarda.<%=i%>" value = "justitarda" <%= %>></td>
+                  <td class="d-inline-block col-1"><input id="jTar" type="checkbox" form="assisForm" name="assist.justiTarda.<%=i%>" value = "justitarda" <%=radioTrueJT()%>></td>
             <!-- Imprimir -->
                   <td class="d-inline-block col-1">
                     <% var nomAlumne = Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2;
