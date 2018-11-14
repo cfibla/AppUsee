@@ -1,6 +1,7 @@
 
 Beta 1.0.3
-FALTA INCLOURE LES JUSTIFICADES AL PDF
+/assisData falta menú aside
+Faltes i retards ORDENATS PER DATA AL PDF
 +Faltes Justificades
 +aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
 +Fer funcionar el buscador

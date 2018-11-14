@@ -73,59 +73,101 @@ exports.PDF = function (req, res) {
 				doc.text('Des del ' + dt1 + ' fins el ' + dt2);
 				doc.moveDown(1.5);
 
+				var faltesJusti = 0;
+				var retardJusti = 0;
+				var faltes = 0;
+				var retards = 0;
+
 				//TOTAL FALTES
 				doc.text("FALTES D'ASSISTÈNCIA");
 				doc.moveDown(0.5);
 		
-				var faltes = 0;
 	            for (var i = 0; i < alumne.assist.length; i++) {
 	              	if (alumne.assist[i].mati == 'falta' && alumne.assist[i].tarda == 'falta'){
-	               		faltes += 1;
-	                	doc.text(alumne.assist[i].date + ': falta tot el dia');
+	               		
+	                	if (alumne.assist[i].justiMati == 'justimati' && alumne.assist[i].justiTarda == 'justitarda'){
+		                	faltesJusti +=1
+		                	doc.text(alumne.assist[i].date + ': falta dia sencer justificada');
+		                } else if (alumne.assist[i].justiMati == 'justimati' && alumne.assist[i].justiTarda == undefined) {
+		                	faltesJusti +=0.5
+		                	doc.text(alumne.assist[i].date + ': falta matí justificada, falta tarda sense justificar');
+		                } else if (alumne.assist[i].justiMati == undefined && alumne.assist[i].justiTarda == 'justitarda') {
+		                	faltesJusti +=0.5
+		                	doc.text(alumne.assist[i].date + ': falta matí sense justificar, falta tarda justificada');
+		                } else {
+		                	faltes += 1;
+		                	doc.text(alumne.assist[i].date + ': falta dia sencer');
+		                }
 
-	                } else{
+	                } else {
 
 	                	if (alumne.assist[i].mati == 'falta'){
-	                		faltes += 0.5;
-	               		    doc.text(alumne.assist[i].date + ': falta matí');
-	               		}
-	               		if (alumne.assist[i].tarda == 'falta') {
-	               		    faltes += 0.5;
-	               		    doc.text(alumne.assist[i].date + ': falta tarda');
-	               		}
-	               	}
-	            };
+
+	                		if (alumne.assist[i].justiMati == 'justimati'){
+			                	faltesJusti +=0.5
+			                	doc.text(alumne.assist[i].date + ': falta matí justificada');
+			                } else {
+		                		faltes += 0.5;
+		               		    doc.text(alumne.assist[i].date + ': falta matí');
+		               		}
+		               	}
+
+
+	               		if (alumne.assist[i].tarda == 'falta'){
+
+	                		if (alumne.assist[i].justiTarda == 'justitarda'){
+			                	faltesJusti +=0.5
+			                	doc.text(alumne.assist[i].date + ': falta tarda justificada');
+			                } else {
+		                		faltes += 0.5;
+		               		    doc.text(alumne.assist[i].date + ': falta tarda');
+		               		}
+		               	}
+		            };
+		        }
 					
 				doc.moveDown(0.5);
-	            doc.text('Total faltes: ' + faltes);
+	            doc.text('Faltes justificades: ' + faltesJusti);
+	            doc.moveDown(0.5);
+	            doc.text('Faltes sense justificar: ' + faltes);
 	            doc.moveDown(3);
 		
 				//TOTAL RETARDS
 				doc.text("RETARDS");
 				doc.moveDown(0.5);
 		
-	            var retards = 0;
 	            for (var i = 0; i < alumne.assist.length; i++) {
-	              	if (alumne.assist[i].mati == 'retard' && alumne.assist[i].tarda == 'retard'){
-	                	retards += 2;
-	                	doc.text(alumne.assist[i].date + ': retard matí i tarda');
 
-	                } else{
-	                	
-		                if (alumne.assist[i].mati == 'retard'){
-		               		retards += 1;
-		               		doc.text(alumne.assist[i].date + ': retard matí');
+	                	if (alumne.assist[i].mati == 'retard'){
+
+	                		if (alumne.assist[i].justiMati == 'justimati'){
+			                	retardJusti += 1;
+			                	doc.text(alumne.assist[i].date + ': retard matí justificat');
+			                } else {
+		                		retards += 1;
+		               		    doc.text(alumne.assist[i].date + ': retard matí');
+		               		}
 		               	}
-		          		if (alumne.assist[i].tarda == 'retard') {
-		               		retards += 1;
-		               		doc.text(alumne.assist[i].date + ': retard tarda');
+
+
+	               		if (alumne.assist[i].tarda == 'retard'){
+
+	                		if (alumne.assist[i].justiTarda == 'justitarda'){
+			                	retardJusti += 1;
+			                	doc.text(alumne.assist[i].date + ': retard tarda justificat');
+			                } else {
+		                		retards += 1;
+		               		    doc.text(alumne.assist[i].date + ': retard tarda');
+		               		}
 		               	}
-		            }
-	            };
+		            };
 					
 				doc.moveDown(0.5);
-	            doc.text('Total retards: ' + retards);
-
+	            doc.text('Retards justificats: ' + retardJusti);
+	            doc.moveDown(0.5);
+	            doc.text('Retards sense justificar: ' + retards);
+	            doc.moveDown(3);
+		
 				doc.end(); //we end the document writing.
 		}
 
