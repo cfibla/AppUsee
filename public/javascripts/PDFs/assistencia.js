@@ -11,9 +11,6 @@ exports.PDF = function (req, res) {
 	var dt1 = alum.alumneAssistU;
 	var dt2 = alum.alumneAssistD;
 
-		console.log(alumneId);
-
-
 
 //BUSCA EL ALUMNO
 	models.Alumne.findOne({_id:alumneId},
