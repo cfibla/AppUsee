@@ -81,10 +81,8 @@ exports.PDF = function (req, res) {
 				doc.moveDown(0.5);
 
 				let alumArray = alumne.assist;
-				let sorted = _.sortBy(alumArray, alumArray.dataIso);
-
-
-				console.log(sorted);
+				//Sort por date
+				let sorted = _.sortBy(alumArray, ['dataIso']);
 		
 	            for (var i = 0; i < sorted.length; i++) {
 	              	if (sorted[i].mati == 'falta' && sorted[i].tarda == 'falta'){
