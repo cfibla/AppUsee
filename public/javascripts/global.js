@@ -110,8 +110,6 @@ $(document).ready(function (){
     
   }
 
-  
-
   if(pth.match("/list_EE/")){
     var areaUrl = pth.split("/");
     var decodeUrl = decodeURIComponent(areaUrl[2]);
@@ -132,7 +130,7 @@ $(document).ready(function (){
     $("#cursosDrop").addClass("navcolorside");
   }
 
-  if(pth==="/assistencia"){
+  if(pth==="/assistencia"||pth==="/assisData"){
     $("#llista").addClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
     $("#assistencia").addClass("navcolor");

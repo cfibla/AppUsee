@@ -1,7 +1,9 @@
 
 Beta 1.0.3
-/assisData falta menú aside
-Faltes i retards ORDENATS PER DATA AL PDF
+Fer Buscador no visible en horaris
+accés usuaris DEMO
++/assisData falta menú aside
++Faltes i retards ORDENATS PER DATA AL PDF
 +Faltes Justificades
 +aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
 +Fer funcionar el buscador
@@ -10,6 +12,7 @@ Faltes i retards ORDENATS PER DATA AL PDF
 +bcrypt -> de 1.0.3 a 2.0.1
 +Afegir valoració EE
 +Si USER === ee => select default SI en valorat i atès en eeUsee
+
 Afegir "last login" users
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Bootstrap 4 + mdb4.5
