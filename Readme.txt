@@ -14,6 +14,7 @@ accés usuaris DEMO
 +Si USER === ee => select default SI en valorat i atès en eeUsee
 
 Afegir "last login" users
+Poder canviar objectius, sessió, etc en horari diari
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Bootstrap 4 + mdb4.5
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies

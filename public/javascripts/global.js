@@ -107,7 +107,6 @@ $(document).ready(function (){
       $("#areasDrop").addClass("hidDrop");
       $("#cursosDrop").removeClass("hidDrop");
     }
-    
   }
 
   if(pth.match("/list_EE/")){
