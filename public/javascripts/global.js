@@ -41,6 +41,7 @@ $(document).ready(function (){
     $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
+    $("#form-nav").addClass("hidden");
   }
 
   if(pth==="/admin-users"){
@@ -54,6 +55,7 @@ $(document).ready(function (){
     $("#a2div").addClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
     $("#a4div").removeClass("navcolorside");
+    $("#form-nav").addClass("hidden");
   }
 
   if(pth==="/list"){
@@ -97,9 +99,7 @@ $(document).ready(function (){
       $("#areasDrop").addClass("hidDrop");
     }
     if (userMestre == '"ee"') {
-      console.log("HOLA ee");
       $("#llista").addClass("navcolor");
-      //$("#horari-menu").removeClass("navcolor");
       $("#situ").html("Atenció a la diversitat");
       $("#a1ee").html("Alumnes SIEI").attr('href', "/list_EE");
       $("#a2ee").html("Valorats").attr('href', "/list-valorats");
@@ -165,6 +165,7 @@ $(document).ready(function (){
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
+    $("#form-nav").addClass("hidden");
   }
   if(pth==="/contrasenya"){
     $("#llista").removeClass("navcolor");
@@ -175,17 +176,11 @@ $(document).ready(function (){
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
+    $("#form-nav").addClass("hidden");
   }
   if(pth.match("/reunions-pares")){
     $("#llista").removeClass("navcolor");
     $("#situ").html("Reunions pares");
-  /*$("#a1").html("Dades personals").attr('href', "/usuari");
-    $("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
-    $("#a2div").addClass("navcolorside");
-    $("#assistencia").removeClass("navcolor");
-    $("#menjador").removeClass("navcolor");
-    $("#areasDrop").addClass("hidDrop");
-  */
   }
   if(pth.match("/seguiment-EE/actuacions/")){
     var areaUrl = pth.split("/");
@@ -268,6 +263,7 @@ $(document).ready(function (){
     $("#areasDrop").removeClass("hidDrop");
     $("#desaButton").removeClass("hidBig").attr('form', "horari_post");
     $("#horariDiariPost_2").removeClass("hidDrop");
+    $("#form-nav").addClass("hidden");
   }
     if(pth==="/horari-diari"){
     $("#llista").removeClass("navcolor");
@@ -284,6 +280,7 @@ $(document).ready(function (){
     $("#areasDrop").removeClass("hidDrop");
     $("#desaButton").removeClass("hidBig").attr('form', "horari_post");
     $("#horariDiariPost_2").removeClass("hidDrop");
+    $("#form-nav").addClass("hidden");
   }
   if(pth.match("/horari-area/")){
     var areaUrl = pth.split("/");
@@ -304,6 +301,7 @@ $(document).ready(function (){
     $("#areasDrop").addClass("navcolorside");
     $("#desaButton").removeClass("hidBig").attr('form', "areas_post");
     $("#areasPost_2").removeClass("hidDrop");
+    $("#form-nav").addClass("hidden");
   }
 
 
@@ -422,6 +420,40 @@ $(document).ready(function (){
       }
     });
 });
+
+//LOGIN DEMO
+  $('#login-mestre').on('submit', function(e){
+    var name = 'demo@demo.cat';
+    var pwd = 'demo';
+    var loginData ={'email': name, 'password': pwd};
+    console.log('LOGINDATA: ' + JSON.stringify (loginData));
+    e.preventDefault();
+    $.ajax({
+      type : 'POST',
+      url : '/login',
+      data : loginData,
+      success: function(text){
+          location.href = text;
+      }
+    });
+  });
+
+//LOGIN DEMO-EE
+  $('#login-ee').on('submit', function(e){
+    var name = 'demoee@demo.cat';
+    var pwd = 'demo';
+    var loginData ={'email': name, 'password': pwd};
+    console.log('LOGINDATA: ' + JSON.stringify (loginData));
+    e.preventDefault();
+    $.ajax({
+      type : 'POST',
+      url : '/login',
+      data : loginData,
+      success: function(text){
+          location.href = text;
+      }
+    });
+  });
 
 ///////////////////// M O D A L S ///////////////////// 
   $('body').on('click.modal.data-api', '[data-toggle="modal"]', function(){

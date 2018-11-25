@@ -13,7 +13,7 @@ Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Beta 1.0.3
 Millorar HOME
 Fer Buscador no visible en horaris
-accés usuaris DEMO
++accés usuaris DEMO
 +/assisData falta menú aside
 +Faltes i retards ORDENATS PER DATA AL PDF
 +Faltes Justificades
