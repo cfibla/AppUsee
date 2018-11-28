@@ -1,5 +1,5 @@
 var models = require('../models/index');
-var bcrypt = require ('bcrypt');
+var bcrypt = require ('bcryptjs');
 
 // Nou user GET
 exports.nouUser = function(req, res) {

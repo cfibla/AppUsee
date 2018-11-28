@@ -1,6 +1,6 @@
 'use strict';
 var models = require('../models/index');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 //var jwt = require('jsonwebtoken');
 
 /* GET home page. */

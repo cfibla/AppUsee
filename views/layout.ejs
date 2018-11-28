@@ -57,13 +57,14 @@
     } else {
       ruta = "";
     }
-  %>  
+  %>
+      <header class="col-md-12 head">
+      app<strong>escola</strong>
+    </header> 
   <%if (!session.user){%>
-    <header class="col-md-12 head">
-      appEscola
-    </header>
+
 <!--Navbar NO USER-->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav0" aria-controls="navbarNav0" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
