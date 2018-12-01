@@ -163,7 +163,7 @@ body {
 }
 
 .mainsection {
-    margin-bottom: 10em;
+    margin-bottom: 15em;
 }
 .containerMain {
     padding-bottom: 2em;
@@ -187,11 +187,13 @@ body {
     width: 100%;
     padding: 60px;
     background: #7bdfd4;
+    border-radius: 20px;
 }
 .containerintro{
     width: 100%;
     padding: 60px;
     background: #2BBBAD;
+    border-radius: 20px;
 }
 .margintop {
     margin-top: 30px;
