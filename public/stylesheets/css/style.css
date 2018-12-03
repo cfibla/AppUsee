@@ -352,7 +352,7 @@ nav a{
     font-weight: bold;
 }
 .form-inline{
-    margin-top: 7px;
+    /*margin-top: 7px;*/
 }
 .navbar-dark form input[type=text] {
     border-bottom: 1px solid black;
@@ -360,13 +360,13 @@ nav a{
 
 .active-cyan-4 input[type=text]:focus:not([readonly]) {
     border: 1px solid black;
-    height: 7px;
+    /*height: 7px;*/
     border-radius: 3px;
     box-shadow: none;
 } 
 .active-cyan-3 input[type=text] {
     border: 1px solid black;
-    height: 7px;
+   /* height: 7px;*/
     border-radius: 3px;
     background: #ccc;
 }
@@ -409,6 +409,16 @@ nav a{
     margin-left: 3px;
     margin-right: 3px;
 }
+
+.nav-white {
+    color: white;
+    font-size: 110%;
+}
+
+.nav-white :hover{
+    color: #2BBBAD;
+}
+
 .seconnav {
     width: 100%;
     background-color: #2BBBAD;
@@ -418,7 +428,7 @@ nav a{
     opacity: 0.5;
 }
 .navcolor{
-    border-bottom: 5px solid #2BBBAD;
+    background: #2BBBAD;
 }
 .navcolor a{
     color: white !important;
