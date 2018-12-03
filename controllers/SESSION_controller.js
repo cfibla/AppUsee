@@ -36,7 +36,7 @@ exports.new = function(req, res) {
 	}
 };
 
-exports.login = function (req, res){
+exports.login = function (req, res, next){
 	var email = req.body.email;
 	var password = req.body.password;
 	console.log('EMAIL: ' + email);
@@ -49,9 +49,9 @@ exports.login = function (req, res){
 			console.log(error);
 		}
 		if(!user) {
-			res.send("error login");
+			//res.send("error login");
 			//QUAN HI HAGI ESCOLES
-			//next();
+			next();
 		}
 		if(user) {
 			//console.log('USER OK');
@@ -103,7 +103,7 @@ exports.loginCentre = function(req, res){
 		if(user) {
 			if(bcrypt.compareSync(password, user.password)){
 				req.session.user = user;
-				res.redirect('/centre');
+				res.send('/centre');
 			} else {
 				res.redirect('/');
 			}

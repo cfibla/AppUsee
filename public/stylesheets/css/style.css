@@ -31,7 +31,7 @@ body {
     .sidebarnav
     {
         position: fixed;
-        z-index: 10;
+        /*z-index: 0;*/
         width: 200px;
         height: 100%;
         padding-top: 50px;
@@ -81,6 +81,7 @@ body {
 @media (min-width: 992px) {
      nav {
         height: 45px;
+        z-index: -10;
     }
     .hidBig{
         display: none;
@@ -89,7 +90,7 @@ body {
     .sidebar
     {
         position: fixed;
-        z-index: 10;
+        /*z-index: 0;*/
         width: 200px;
         height: 100%;
         padding-top: 50px;
@@ -323,14 +324,15 @@ body {
     background: #4dccbe;
     color: #fff;
     font-size: 3em;
+    z-index:1000;
 }
 .navbar {
     background: #0AAD9C;
-    margin: 0PX;
+    margin: 0px;
 }
 
 nav {
-    z-index:1000;
+   /*z-index:1000;*/
 
 }
 nav .container{
