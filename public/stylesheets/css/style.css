@@ -80,7 +80,7 @@ body {
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
      nav {
-        height: 45px;
+        /*height: 45px;*/
         z-index: -10;
     }
     .hidBig{
@@ -90,13 +90,12 @@ body {
     .sidebar
     {
         position: fixed;
-        /*z-index: 0;*/
         width: 200px;
         height: 100%;
         padding-top: 50px;
         top: 0;
         left: 0;
-        background: #2BBBAD;
+     /*   background: #2BBBAD;*/
     }
     .sidebar a
     {
@@ -135,10 +134,10 @@ body {
     }
 
     #situ {
-        padding-top: 1em;
+        padding-top: 5em;
         font-size: 150%;
         text-transform: uppercase;
-        color: #fff;
+       
     }
 
     #situee {
@@ -324,7 +323,7 @@ body {
     background: #4dccbe;
     color: #fff;
     font-size: 3em;
-    z-index:1000;
+    z-index:1;
 }
 .navbar {
     background: #0AAD9C;
@@ -332,7 +331,7 @@ body {
 }
 
 nav {
-   /*z-index:1000;*/
+   z-index:2;*/
 
 }
 nav .container{
@@ -577,7 +576,7 @@ span.glyphicon-user {
     text-align: left;
     font-size: 3em;
     font-weight: bold;
-    color: #fff;
+    color: #ccc;
 }
 .curs-t2{
     text-align: left;

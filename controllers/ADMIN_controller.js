@@ -40,7 +40,7 @@ exports.users = function (req, res) {
 			} else {
 				res.render('admin-users',{Users: docs});
 			}
-		});
+	});
 }
 
 exports.canviCurs = function (req, res) {
@@ -91,7 +91,6 @@ exports.canviCurs = function (req, res) {
 				};
 
 				console.log(alumnes[i].nomAlumne +' '+ alumnes[i].cognomAlumne1 +': '+ alumnes[i].curs);
-				//FALTA EL SAVE
 				alumnes[i].save(function(error){
 					if (error) {
 						res.json(error);
