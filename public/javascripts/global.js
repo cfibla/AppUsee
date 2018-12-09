@@ -61,10 +61,37 @@ $(document).ready(function (){
   if(pth==="/list"){
     $("#llista").addClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
-    $("#situ").html("Llista tutoria");
-    $("#a1tutor").html("Tutoria").attr('href', "/list");
+    $("#situ").html("Llista");
+    $("#a1tutor").html("Tutoria").attr('href', "/list").addClass("navcolorside");
     $("#a2tutor").html("Assistència").attr('href', "/assistencia");
     $("#a3tutor").html("Menjador").attr('href', "/menjador");
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
+    $("#a3div").removeClass("navcolorside");
+    $("#a4div").removeClass("navcolorside");
+    $("#areasDrop").addClass("hidDrop");
+  }
+  if(pth==="/assistencia"||pth==="/assisData"){
+    $("#llista").addClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
+    $("#assistencia").addClass("navcolor");
+    $("#situ").html("Llista");
+    $("#a1tutor").html("Tutoria").attr('href', "/list");
+    $("#a2tutor").html("Assistència").attr('href', "/assistencia").addClass("navcolorside");
+    $("#a3tutor").html("Menjador").attr('href', "/menjador");
+    $("#a1div").removeClass("navcolorside");
+    $("#a2div").removeClass("navcolorside");
+    $("#a3div").removeClass("navcolorside");
+    $("#a4div").removeClass("navcolorside");
+    $("#areasDrop").addClass("hidDrop");
+  }
+  if(pth==="/menjador"){
+    $("#llista").addClass("navcolor");
+    $("#horari-menu").removeClass("navcolor");
+    $("#situ").html("Llista");
+    $("#a1tutor").html("Tutoria").attr('href', "/list");
+    $("#a2tutor").html("Assistència").attr('href', "/assistencia");
+    $("#a3tutor").html("Menjador").attr('href', "/menjador").addClass("navcolorside");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
@@ -85,7 +112,6 @@ $(document).ready(function (){
 
   if(pth === "/cerca-cognom") {
     if (userMestre == '"tutor"'){
-      console.log("HOLA tutor");
       $("#llista").addClass("navcolor");
       $("#horari-menu").removeClass("navcolor");
       $("#situ").html("Llista tutoria");
@@ -129,33 +155,6 @@ $(document).ready(function (){
     $("#cursosDrop").addClass("navcolorside");
   }
 
-  if(pth==="/assistencia"||pth==="/assisData"){
-    $("#llista").addClass("navcolor");
-    $("#horari-menu").removeClass("navcolor");
-    $("#assistencia").addClass("navcolor");
-    $("#situ").html("Llista assistència");
-    $("#a1tutor").html("Tutoria").attr('href', "/list");
-    $("#a2tutor").html("Assistència").attr('href', "/assistencia");
-    $("#a3tutor").html("Menjador").attr('href', "/menjador");
-    $("#a1div").removeClass("navcolorside");
-    $("#a2div").removeClass("navcolorside");
-    $("#a3div").removeClass("navcolorside");
-    $("#a4div").removeClass("navcolorside");
-    $("#areasDrop").addClass("hidDrop");
-  }
-  if(pth==="/menjador"){
-    $("#llista").addClass("navcolor");
-    $("#horari-menu").removeClass("navcolor");
-    $("#situ").html("Llista menjador");
-    $("#a1tutor").html("Tutoria").attr('href', "/list");
-    $("#a2tutor").html("Assistència").attr('href', "/assistencia");
-    $("#a3tutor").html("Menjador").attr('href', "/menjador");
-    $("#a1div").removeClass("navcolorside");
-    $("#a2div").removeClass("navcolorside");
-    $("#a3div").removeClass("navcolorside");
-    $("#a4div").removeClass("navcolorside");
-    $("#areasDrop").addClass("hidDrop");
-  }
     if(pth==="/usuari"){
     $("#llista").removeClass("navcolor");
     $("#situ").html("El meu perfil");

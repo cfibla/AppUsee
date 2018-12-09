@@ -148,11 +148,13 @@ body {
     }
 
     .navcolorside {
-        background: #008577;
+        font-size: 150%;
+        /*font-weight: bold;*/
+        color: #464646;
     }
 
-    .navcolorside a {
-        color: #000;
+    .navcolorside a:hover {
+        color: #464646;
     }
 
 }
@@ -351,11 +353,9 @@ nav a{
     /*font-size:105%;*/
     font-weight: bold;
 }
+
 .form-inline{
     /*margin-top: 7px;*/
-}
-.navbar-dark form input[type=text] {
-    border-bottom: 1px solid black;
 }
 
 .active-cyan-4 input[type=text]:focus:not([readonly]) {

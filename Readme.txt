@@ -1,6 +1,7 @@
 
 Beta 2.0.0
 Bootstrap 4 + mdb4.5
+Re-disseny horaris
 Crear pàgina escola
 Afegir "last login" users
 Poder canviar objectius, sessió, etc en horari diari
