@@ -30,21 +30,21 @@
         <div class="col-md-12 <%=mes%>" id="<%='div_' + daata%>" style="margin-top: 20px;">
           <input type="hidden" name="data" value="<%=[horari[i].data]%>">
           <input type="hidden" name="hora" value="<%=[horari[i].hora]%>">
-          <div class="horesDiari" id="<%=mes%>">
+          <div class="horesDiari col-md-12" id="<%=mes%>">
             <div class="row">
-              <div class="col-md-10 titlearea"><strong><%=horari[i].data%> </strong><%=dia%></div>
-              <div class="col-md-10 firstline">
+              <div class="col-md-12 titlearea"><strong><%=horari[i].data%> </strong><%=dia%></div>
+              <div class="col-md-11 firstline">
                 <label for="<%='tema_'+ i%>">Tema/UD</label>
-                <input mdbActive type="text" name="tema" id="<%='tema_'+ i%>" value="<%=[horari[i].tema]%>">
+                <input class="border-10 col-md-12" type="text" name="tema" id="<%='tema_'+ i%>" value="<%=[horari[i].tema]%>">
               </div>
-              <div class="col-md-2 firstline">
+              <div class="col-md-1 firstline">
                 <label for="<%='sessio_'+ i%>">Sessió</label>
-                <input mdbActive type="text" name="sessio" id="<%='sessio_'+ i%>" value="<%=[horari[i].sessio]%>">
+                <input class="border-10 col-md-12" type="text" name="sessio" id="<%='sessio_'+ i%>" value="<%=[horari[i].sessio]%>">
               </div>
-              <div class="col-md-12">
+              <div class="col-md-12 firstline">
                 <textarea id="<%=dia%>obj" class="objtext" name="objectius" placeholder="Objectius"><%=[horari[i].objectius]%></textarea>
               </div>
-              <div class="col-md-12">
+              <div class="col-md-12 firstline">
                 <textarea id="<%=dia%>h1" class="areestext" name="prog" placeholder="Activitats"><%=[horari[i].prog]%></textarea>
               </div>
             </div>

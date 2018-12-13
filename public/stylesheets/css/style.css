@@ -699,6 +699,8 @@ span.glyphicon-user {
 /*DIARI*/
 .horaritext{
     min-height: 100px;
+    width: 100%;
+    border-radius: 20px;
 }
 .link {
     color:#464646;
@@ -720,7 +722,12 @@ span.glyphicon-user {
 .horesDiari {
     padding:.5em;
     border: 1px solid #bbb;
+    border-radius: 20px;
     min-height: 100px;
+}
+
+.border-10 {
+    border-radius: 10px;
 }
 
 .horesBottom {
@@ -731,9 +738,13 @@ span.glyphicon-user {
 /*ÀREES*/
 .areestext{
     min-height: 100px;
+    width: 100%;
+    border-radius: 20px;
 }
 .objtext{
     min-height: 50px;
+    width: 100%;
+    border-radius: 20px;
 }
 
 .firstline {
