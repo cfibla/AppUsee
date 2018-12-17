@@ -33,7 +33,6 @@ exports.list = function (req, res) {
 exports.valorats = function (req, res) {
 	models.Alumne.find({
 		valorat: true,
-		eeUsee: false,
 		centre: req.session.user.centre
 		}, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}
 	})

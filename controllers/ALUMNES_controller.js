@@ -113,6 +113,7 @@ exports.create = function (req, res){
 
 					curs: alum.curs,
 					eeUsee: alum.eeUsee,
+					valorat: alum.valorat,
 
 					tutor: req.session.user,
 					centre:req.session.user.centre,
