@@ -8,7 +8,7 @@ exports.new = function(req, res) {
 	if(req.session.user){
 		console.log('HOME PAGE NEW');
 		if(req.session.user.horari){
-			horariId = req.session.user.horari;
+			let horariId = req.session.user.horari;
 			models.Horari.find({_id: horariId}, function(err, horari){
 				if(err){
 					console.log(err);
@@ -65,7 +65,7 @@ exports.login = function (req, res, next){
 							console.log(err);
 						} else {
 							if (user.mestre === "tutor"){
-								res.send('/list');
+								res.send('/');
 							}
 							if (user.mestre === "ee"){
 								res.send('/list_EE');
@@ -74,7 +74,7 @@ exports.login = function (req, res, next){
 					})
 				} else {
 					if (user.mestre === "tutor"){
-						res.send('/list');
+						res.send('/');
 					}
 					if (user.mestre === "ee"){
 						res.send('/list_EE');
@@ -121,6 +121,7 @@ exports.loginRequired = function(req, res, next){
 };
 
 exports.destroy = function(req, res){
+	console.log('destroy session');
 	delete req.session.user;
 	res.redirect('/');
 }
