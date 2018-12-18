@@ -65,7 +65,10 @@ $(document).ready(function (){
       console.log('DATA JQUERY: '+data);
     });
   });
+
+
 //UPDATE HORARI
+ //TimePICKER
   $('#iniciHorari .input-group.date').datepicker({
     format: "dd/mm/yyyy",
     setDate: new Date(),
@@ -87,7 +90,13 @@ $(document).ready(function (){
     todayHighlight: true,
     language: "ca"
   });
-  //TimePICKER
+ //POST
+  $('#horari_post').on('submit', function(){
+    var urlPost = "/horari-diari-post?_method=put";
+    var data = $('#horari_post').serialize();
+    aPost(urlPost, data);
+  })
+    
 
 //DELETE HORARIS
   $('#deleteHorariModal').on('shown.bs.modal', function (e) {
@@ -159,13 +168,6 @@ $(document).ready(function (){
       }
     }
 
-    //POST
-/*    $('#horariDiariPost').on('click', function(){
-      var urlPost = "/horari-diari-post?_method=put";
-      var data = $('#horari_post').serialize();
-      aPost(urlPost, data);
-    })
-    */
 ///AJAX FUNCTIONS///
    function aPost(path, obj){
      return   $.ajax({

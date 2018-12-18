@@ -1,20 +1,19 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var partials = require('express-partials');
-var methodOverride = require ('method-override');
-var session = require ('express-session');
-var flash = require('req-flash');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const partials = require('express-partials');
+const methodOverride = require ('method-override');
+const session = require ('express-session');
+const flash = require('req-flash');
 
+const routes = require('./routes/index');
 
-var routes = require('./routes/index');
+//const users = require('./routes/users');
 
-//var users = require('./routes/users');
-
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
