@@ -277,7 +277,7 @@ $(document).ready(function (){
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop");
-    $("#desaButton").removeClass("hidBig").attr('form', "horari_post");
+    $("#desaButton").removeClass("hidBig").attr('form', "horari_diari_post");
     $("#horariDiariPost_2").removeClass("hidDrop");
     $("#form-nav").addClass("hidden");
   }

@@ -91,12 +91,14 @@ $(document).ready(function (){
     language: "ca"
   });
  //POST
-  $('#horari_post').on('submit', function(){
+ /*
+  $('#desabutton').on('click', function(){
     var urlPost = "/horari-diari-post?_method=put";
-    var data = $('#horari_post').serialize();
+    var data = $('#horari_diari_post').serialize();
+    console.log('click en DESABUTTON')
     aPost(urlPost, data);
   })
-    
+    */
 
 //DELETE HORARIS
   $('#deleteHorariModal').on('shown.bs.modal', function (e) {
