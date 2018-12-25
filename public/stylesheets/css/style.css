@@ -68,7 +68,7 @@ body {
         border:2px solid #008577;
         background: #008577 !important;
         color: black !important;
-        box-shadow: none;    
+        box-shadow: none;
     }
 
 }
@@ -108,14 +108,14 @@ body {
         color: #7BDFD4;
     }
     .sidelink {
-        padding: 20px;
+        padding: 2px;
     }
 
     .buttonSide {
         margin: 0;
         width: 100%;
         border:2px solid #0aa29c;
-        padding: 20px;
+        padding: 2px;
         background: #0aa29c;
         box-shadow: none;
     }
@@ -134,7 +134,7 @@ body {
     }
 
     #situ {
-        padding-top: 5em;
+        padding-top: 2em;
         font-size: 150%;
         text-transform: uppercase;
        

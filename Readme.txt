@@ -1,6 +1,6 @@
 
 Beta 2.0.0
-Bootstrap 4 + mdb4.5
++Bootstrap 4 + mdb4.5
 repassar SESSION
 login entrada: avisar si no existeix usuari
 Re-disseny horaris
