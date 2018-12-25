@@ -1,7 +1,58 @@
 'use strict';
-var models = require('../models/index');
-var bcrypt = require('bcryptjs');
-//var jwt = require('jsonwebtoken');
+const models = require('../models/index');
+const bcrypt = require('bcryptjs');
+//const jwt = require('jsonwebtoken');
+
+exports.login = function (req, res, next){
+	let email = req.body.email;
+	let password = req.body.password;
+	console.log('EMAIL: ' + email);
+	console.log('PWD: ' + password);
+
+	models.User.findOne({email: email})
+	.populate('horari centre')
+	.exec(function(error, user){
+		if (error){
+			console.log(error);
+		}
+		if(!user) {
+			//res.send("error login");
+			//QUAN HI HAGI ESCOLES
+			next();
+		}
+		if(user) {
+			//console.log('USER OK');
+			if(bcrypt.compareSync(password, user.password)){
+				//console.log('PWD OK');
+				req.session.user = user;
+				if(req.session.user.horari){
+					let horariId = req.session.user.horari;
+					models.Horari.find({_id: horariId}, function(err, horari){
+						if(err){
+							console.log(err);
+						} else {
+							if (user.mestre === "tutor"){
+								res.send('/');
+							}
+							if (user.mestre === "ee"){
+								res.send('/list_EE');
+							}
+						}
+					})
+				} else {
+					if (user.mestre === "tutor"){
+						res.send('/');
+					}
+					if (user.mestre === "ee"){
+						res.send('/list_EE');
+					}
+				}
+			} else {
+				res.send("error login");
+			}
+		}
+	});
+};
 
 /* GET home page. */
 exports.new = function(req, res) {
@@ -31,65 +82,14 @@ exports.new = function(req, res) {
 			}	
 		}
 	} else {
-		var msg =  req.flash('loginMsg');
+		let msg =  req.flash('loginMsg');
 		res.render('home', { loginMsg: msg, title: 'AppEscola',  page_name:'home'});
 	}
 };
 
-exports.login = function (req, res, next){
-	var email = req.body.email;
-	var password = req.body.password;
-	console.log('EMAIL: ' + email);
-	console.log('PWD: ' + password);
-
-	models.User.findOne({email: email})
-	.populate('horari centre')
-	.exec(function(error, user){
-		if (error){
-			console.log(error);
-		}
-		if(!user) {
-			//res.send("error login");
-			//QUAN HI HAGI ESCOLES
-			next();
-		}
-		if(user) {
-			//console.log('USER OK');
-			if(bcrypt.compareSync(password, user.password)){
-				//console.log('PWD OK');
-				req.session.user = user;
-				if(req.session.user.horari){
-					var horariId = req.session.user.horari;
-					models.Horari.find({_id: horariId}, function(err, horari){
-						if(err){
-							console.log(err);
-						} else {
-							if (user.mestre === "tutor"){
-								res.send('/');
-							}
-							if (user.mestre === "ee"){
-								res.send('/list_EE');
-							}
-						}
-					})
-				} else {
-					if (user.mestre === "tutor"){
-						res.send('/');
-					}
-					if (user.mestre === "ee"){
-						res.send('/list_EE');
-					}
-				}
-			} else {
-				res.send("error login");
-			}
-		}
-	});
-};
-
 exports.loginCentre = function(req, res){
-	var email = req.body.email;
-	var password = req.body.password;
+	let email = req.body.email;
+	let password = req.body.password;
 
 	models.Centre.findOne({email: email})
 //	.populate('horari centre')
