@@ -1,8 +1,8 @@
 $(document).ready(function (){
 ///////// LABEL ACTIVE ///////////////
   function checkForInput(element) {
-    var $label = $(element).siblings('label');
-    var labelOBj = JSON.stringify($label);
+    let $label = $(element).siblings('label');
+    let labelOBj = JSON.stringify($label);
     if ($(element).val().length > 0) {
 
       $label.addClass('active');
@@ -27,8 +27,8 @@ $(document).ready(function (){
   });
 
   //NAVBAR
-  var pth = window.location.pathname; // Returns path only
-  var userMestre = localStorage.getItem('userMestre');
+  let pth = window.location.pathname; // Returns path only
+  let userMestre = localStorage.getItem('userMestre');
 
   if(pth==="/admin"){
     //$("#llista").addClass("navcolor");
@@ -136,8 +136,8 @@ $(document).ready(function (){
   }
 
   if(pth.match("/list_EE/")){
-    var areaUrl = pth.split("/");
-    var decodeUrl = decodeURIComponent(areaUrl[2]);
+    let areaUrl = pth.split("/");
+    let decodeUrl = decodeURIComponent(areaUrl[2]);
     $("#llista").addClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -182,8 +182,8 @@ $(document).ready(function (){
     $("#situ").html("Reunions pares");
   }
   if(pth.match("/seguiment-EE/actuacions/")){
-    var areaUrl = pth.split("/");
-    var id = decodeURIComponent(areaUrl[3]);
+    let areaUrl = pth.split("/");
+    let id = decodeURIComponent(areaUrl[3]);
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -204,8 +204,8 @@ $(document).ready(function (){
     $("#a3divnav").removeClass("hidBig hidDrop");
   }
   if(pth.match("/seguiment-EE/cad/")){
-    var areaUrl = pth.split("/");
-    var id = decodeURIComponent(areaUrl[3]);
+    let areaUrl = pth.split("/");
+    let id = decodeURIComponent(areaUrl[3]);
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -226,8 +226,8 @@ $(document).ready(function (){
     $("#a3divnav").removeClass("hidBig hidDrop");
   }
   if(pth.match("/seguiment-EE/altres/")){
-    var areaUrl = pth.split("/");
-    var id = decodeURIComponent(areaUrl[3]);
+    let areaUrl = pth.split("/");
+    let id = decodeURIComponent(areaUrl[3]);
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -282,8 +282,8 @@ $(document).ready(function (){
     $("#form-nav").addClass("hidden");
   }
   if(pth.match("/horari-area/")){
-    var areaUrl = pth.split("/");
-    var decodeUrl = decodeURIComponent(areaUrl[2]);
+    let areaUrl = pth.split("/");
+    let decodeUrl = decodeURIComponent(areaUrl[2]);
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -320,7 +320,7 @@ $(document).ready(function (){
           // bind event to reset state after click is completed
           $(this).mouseup(function() {  
               // bind param, because "this" will point somewhere else in setTimeout
-              var radio = this;
+              let radio = this;
               // apparently if you do it immediatelly, it will be overriden, hence wait a tiny bit
               setTimeout(function() { 
                   radio.checked = false; 
@@ -333,10 +333,10 @@ $(document).ready(function (){
 
 ////////////////////LOGIN MODAL///////////////////////////
   $('#loginModal').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    //var userId = actg.data('id');
-    //var mestre = actg.data('mestre');
-    var mdal = $(this);
+    let actg = $(e.relatedTarget);
+    //let userId = actg.data('id');
+    //let mestre = actg.data('mestre');
+    let mdal = $(this);
 
     $('#loginModal #login-form-link').click(function(e) {
       console.log('login-form');
@@ -356,9 +356,9 @@ $(document).ready(function (){
   });
 //LOGIN FORM -- Validación
   $('#login-form').on('submit', function(e){
-    var name = $("#usrname").val();
-    var pwd = $("#psw").val();
-    var loginData ={'email': name, 'password': pwd};
+    let name = $("#usrname").val();
+    let pwd = $("#psw").val();
+    let loginData ={'email': name, 'password': pwd};
     console.log('LOGINDATA: ' + JSON.stringify (loginData));
 
     if( name =='' || pwd ==''){
@@ -389,10 +389,10 @@ $(document).ready(function (){
       console.log('formUser');
       e.preventDefault();
       $.LoadingOverlay("show");
-      var urlPost = "/usuari_crear";
-      var data = $('#formUser').serialize();
+      let urlPost = "/usuari_crear";
+      let data = $('#formUser').serialize();
 
-      var destUrl;
+      let destUrl;
       if(($('#mestres').val()) === "tutor"){
         destUrl = "/list";
       }
@@ -422,9 +422,9 @@ $(document).ready(function (){
 
 //LOGIN DEMO
   $('#login-mestre').on('submit', function(e){
-    var name = 'demo@demo.cat';
-    var pwd = 'demo';
-    var loginData ={'email': name, 'password': pwd};
+    let name = 'demo@demo.cat';
+    let pwd = 'demo';
+    let loginData ={'email': name, 'password': pwd};
     console.log('LOGINDATA: ' + JSON.stringify (loginData));
     e.preventDefault();
     $.ajax({
@@ -439,9 +439,9 @@ $(document).ready(function (){
 
 //LOGIN DEMO-EE
   $('#login-ee').on('submit', function(e){
-    var name = 'demoee@demo.cat';
-    var pwd = 'demo';
-    var loginData ={'email': name, 'password': pwd};
+    let name = 'demoee@demo.cat';
+    let pwd = 'demo';
+    let loginData ={'email': name, 'password': pwd};
     console.log('LOGINDATA: ' + JSON.stringify (loginData));
     e.preventDefault();
     $.ajax({
@@ -481,20 +481,20 @@ $(document).ready(function (){
 
 //DELETE USERS
   $('#deleteUserModal').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var userId = actg.data('id');
-    var mestre = actg.data('mestre');
+    let actg = $(e.relatedTarget);
+    let userId = actg.data('id');
+    let mestre = actg.data('mestre');
   
     $('#del_user').on('submit', function(e){
       e.preventDefault();
       $.LoadingOverlay("show");
       if (mestre==="tutor"){
-      var urlPost = "/usuariD/" + userId + "?_method=put";
+      let urlPost = "/usuariD/" + userId + "?_method=put";
       }
       if (mestre==="ee"){
-      var urlPost = "/usuari_ee_D/" + userId + "?_method=put";
+      let urlPost = "/usuari_ee_D/" + userId + "?_method=put";
       }
-      var data = $('#del_user').serialize();
+      let data = $('#del_user').serialize();
       aPost(urlPost, data);
       });
     });
@@ -522,88 +522,88 @@ $(document).ready(function (){
       language: "ca"  
     });
 
-    var actg = $(e.relatedTarget);
+    let actg = $(e.relatedTarget);
 //CHECKS
-    var alumneId = actg.data('id');
-    var alumneNom = actg.data('nom');
-    var alumneC1 = actg.data('cognom');
-    var alumneC2 = actg.data('scognom');
-    var naix = actg.data('dtan');
-    var segsoc = actg.data('segsoc');
-    var mail = actg.data('mail');
-    var tel = actg.data('tel');
-    var escola = actg.data('escola');
-    var nomescola = actg.data('nomescola');
-    var alumneCurs = actg.data('curs');
-    var atdiv = actg.data('atdiv');
-    var rep = actg.data('rep');
-    var ail = actg.data('ail');
-    var ss = actg.data('ss');
-    var obs = actg.data('obs');
-    var pi = actg.data('pi');
-    var curri = actg.data('curri');
-    var met = actg.data('met');
-    var cond = actg.data('cond');
-    var cat = actg.data('cat');
-    var cast = actg.data('cast');
-    var mat = actg.data('mat');
-    var medin = actg.data('medin');
-    var medis = actg.data('medis');
-    var efis = actg.data('efis');
-    var art = actg.data('art');
-    var mtrl = actg.data('mtrl');
-    var adeq = actg.data('adeq');
-    var mat2 = actg.data('mat2');
-    var cat2 = actg.data('cat2');
-    var med2 = actg.data('med2');
-    var fder = actg.data('fder');
-    var der = actg.data('der');
-    var motder = actg.data('motder');
-    var valorat = actg.data('valorat');
-    var eeusee = actg.data('eeusee');
-    var segdiv = actg.data('segdiv');
-    var becaa = actg.data('beca');
-    var cdm = actg.data('cdim');
-    var pdm = actg.data('pdim');
-    var veap = actg.data('eap');
-    var aval = actg.data('anyval');
-    var dict = actg.data('dic');
-    var mdic = actg.data('mdic');
-    var ceap = actg.data('ceap');
-    var tseap = actg.data('tseap');
-    var credag = actg.data('credag');
-    var credv = actg.data('credv');
-    var csmij = actg.data('csmij');
-    var seetdic = actg.data('seetdic');
-    var cdiap = actg.data('cdiap');
-    var ped = actg.data('ped');
-    var nped = actg.data('nped');
-    var altresesp = actg.data('altresesp');
-    var esp = actg.data('esp');
-    var serpriv = actg.data('serpriv');
+    let alumneId = actg.data('id');
+    let alumneNom = actg.data('nom');
+    let alumneC1 = actg.data('cognom');
+    let alumneC2 = actg.data('scognom');
+    let naix = actg.data('dtan');
+    let segsoc = actg.data('segsoc');
+    let mail = actg.data('mail');
+    let tel = actg.data('tel');
+    let escola = actg.data('escola');
+    let nomescola = actg.data('nomescola');
+    let alumneCurs = actg.data('curs');
+    let atdiv = actg.data('atdiv');
+    let rep = actg.data('rep');
+    let ail = actg.data('ail');
+    let ss = actg.data('ss');
+    let obs = actg.data('obs');
+    let pi = actg.data('pi');
+    let curri = actg.data('curri');
+    let met = actg.data('met');
+    let cond = actg.data('cond');
+    let cat = actg.data('cat');
+    let cast = actg.data('cast');
+    let mat = actg.data('mat');
+    let medin = actg.data('medin');
+    let medis = actg.data('medis');
+    let efis = actg.data('efis');
+    let art = actg.data('art');
+    let mtrl = actg.data('mtrl');
+    let adeq = actg.data('adeq');
+    let mat2 = actg.data('mat2');
+    let cat2 = actg.data('cat2');
+    let med2 = actg.data('med2');
+    let fder = actg.data('fder');
+    let der = actg.data('der');
+    let motder = actg.data('motder');
+    let valorat = actg.data('valorat');
+    let eeusee = actg.data('eeusee');
+    let segdiv = actg.data('segdiv');
+    let becaa = actg.data('beca');
+    let cdm = actg.data('cdim');
+    let pdm = actg.data('pdim');
+    let veap = actg.data('eap');
+    let aval = actg.data('anyval');
+    let dict = actg.data('dic');
+    let mdic = actg.data('mdic');
+    let ceap = actg.data('ceap');
+    let tseap = actg.data('tseap');
+    let credag = actg.data('credag');
+    let credv = actg.data('credv');
+    let csmij = actg.data('csmij');
+    let seetdic = actg.data('seetdic');
+    let cdiap = actg.data('cdiap');
+    let ped = actg.data('ped');
+    let nped = actg.data('nped');
+    let altresesp = actg.data('altresesp');
+    let esp = actg.data('esp');
+    let serpriv = actg.data('serpriv');
 
     if (der === ""){
       der = "Seleccioneu"
     };
 
 //SELECTS
-    var piAl = funcSel(pi);
-    var valorat = funcSel(valorat);
-    var aDiv = funcSel(atdiv);
-    var repe = funcSel(rep);
-    var aill = funcSel(ail);
-    var sersoc = funcSel(ss);
-    var mtrl = funcSel(mtrl);
-    var adeq = funcSel(adeq);
-    var fderiv = funcSel(fder);
-    var seg = funcSeg(segdiv);
-    var beca = funcSel(becaa);
-    var cdim = funcSel(cdm);
-    var eap = funcSel(veap);
-    var dic = funcSel(dict);
+    let piAl = funcSel(pi);
+    let valorat = funcSel(valorat);
+    let aDiv = funcSel(atdiv);
+    let repe = funcSel(rep);
+    let aill = funcSel(ail);
+    let sersoc = funcSel(ss);
+    let mtrl = funcSel(mtrl);
+    let adeq = funcSel(adeq);
+    let fderiv = funcSel(fder);
+    let seg = funcSeg(segdiv);
+    let beca = funcSel(becaa);
+    let cdim = funcSel(cdm);
+    let eap = funcSel(veap);
+    let dic = funcSel(dict);
 
     function funcSel (v){
-      var op1, val1, op2, val2;
+      let op1, val1, op2, val2;
       if (v===true){
         op1="Si"; val1=true;
         op2="No"; val2=false;
@@ -615,7 +615,7 @@ $(document).ready(function (){
     };
 
     function funcSeg (v){
-      var op1, val1, op2, val2;
+      let op1, val1, op2, val2;
       if (v===true){
         op1="Directe"; val1=true;
         op2="Indirecte"; val2=false;
@@ -626,7 +626,7 @@ $(document).ready(function (){
       return[op1, val1, op2, val2]
     };
 
-    var mdal = $(this);
+    let mdal = $(this);
     mdal.find('.modal-body #nom_alumne').val(alumneNom);
     mdal.find('.modal-body #cnom_alumne1').val(alumneC1);
     mdal.find('.modal-body #cnom_alumne2').val(alumneC2);
@@ -697,8 +697,8 @@ $(document).ready(function (){
     mdal.find('.modal-body #serpriv').val(serpriv);
 
 //ALTRES
-    var derivArray =[der, "Tutor", "Família", "Atenció a la diversitat"];
-    var divder = $("#qui_fa_derivacio");
+    let derivArray =[der, "Tutor", "Família", "Atenció a la diversitat"];
+    let divder = $("#qui_fa_derivacio");
     $.each(derivArray, function(){
       divder.append($("<option />").val(this).text(this));
     });
@@ -706,8 +706,8 @@ $(document).ready(function (){
     $('#alumne_dades').on('submit', function(e){
       e.preventDefault();
       $.LoadingOverlay("show");
-      var urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
-      var data = $('#alumne_dades').serialize();
+      let urlPost = "/dadesUpdate/" + alumneId + "?_method=put";
+      let data = $('#alumne_dades').serialize();
       aPost(urlPost, data);
     });
 
@@ -849,12 +849,12 @@ $(document).ready(function (){
 //MODAL NOU ALUMNE
   $('#afegirModal').on('shown.bs.modal', function (e) {
     console.log('HOLA 1');
-    var actg = $(e.relatedTarget);
-    var mdal = $(this);
-    var escola = actg.data('escola');
-    var alumneCurs = actg.data('curs');
-    var usr = actg.data('usr');
-    var v_alumneCurs;
+    let actg = $(e.relatedTarget);
+    let mdal = $(this);
+    let escola = actg.data('escola');
+    let alumneCurs = actg.data('curs');
+    let usr = actg.data('usr');
+    let v_alumneCurs;
     if (usr === "ee") {
       mdal.find(".modal-body #val-1").text('Si').val(true);
       mdal.find(".modal-body #val-2").text('No').val(false);
@@ -881,10 +881,10 @@ $(document).ready(function (){
 
 //NOU ALUMNE -- Validación
   $('#dadesAlumne').on('submit', function(e){
-    var nom = $("#nom_alumne").val();
-    var cognom1 = $("#cognom1_alumne").val();
-    var cognom2 = $("#cognom2_alumne").val();
-    var alumneData = $('#dadesAlumne').serialize();
+    let nom = $("#nom_alumne").val();
+    let cognom1 = $("#cognom1_alumne").val();
+    let cognom2 = $("#cognom2_alumne").val();
+    let alumneData = $('#dadesAlumne').serialize();
 
     if( !nom|| !cognom1){
       e.preventDefault();
@@ -915,7 +915,7 @@ $(document).ready(function (){
     $(function(){
         $('#dadesAlumne').on('submit', function(e) {
             e.preventDefault();
-            var data =  $(this).serialize();
+            let data =  $(this).serialize();
             $.get('/localLogin', data, function(result) {
                 if(result.valid == true)
                 {
@@ -933,8 +933,8 @@ $(document).ready(function (){
     $('#dadesAlumne').on('submit', function(e){
         e.preventDefault();
         $.LoadingOverlay("show");
-        var urlPost = "/alumneNou";
-        var data = $('#dadesAlumne').serialize();
+        let urlPost = "/alumneNou";
+        let data = $('#dadesAlumne').serialize();
         aPost(urlPost, data);
     });
 */
@@ -942,32 +942,32 @@ $(document).ready(function (){
 
 //MODAL DELETE ALUMNES
   $('#deleteModal').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var alumneId = actg.data('id');
-    var alumneNom = actg.data('nom');
-    var mdal = $(this);
+    let actg = $(e.relatedTarget);
+    let alumneId = actg.data('id');
+    let alumneNom = actg.data('nom');
+    let mdal = $(this);
     mdal.find(".modal-body #nomAlDel").text(alumneNom);
     $('#del_alum').on('submit', function(e){
       e.preventDefault();
       $.LoadingOverlay("show");
-      var urlPost = "/dades_suprD/" + alumneId + "?_method=put";
-      var data = $('#del_alum').serialize();
+      let urlPost = "/dades_suprD/" + alumneId + "?_method=put";
+      let data = $('#del_alum').serialize();
       aPost(urlPost, data);
     });
   });
 
 //MODAL alta ALUMNES
   $('#altaModal').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var alumneId = actg.data('id');
-    var alumneNom = actg.data('nom');
-    var mdal = $(this);
+    let actg = $(e.relatedTarget);
+    let alumneId = actg.data('id');
+    let alumneNom = actg.data('nom');
+    let mdal = $(this);
     mdal.find(".modal-body #nomAlAl").text(alumneNom);
     $('#alt_alum').on('submit', function(e){
       e.preventDefault();
       $.LoadingOverlay("show");
-      var urlPost = "/dades_alta/" + alumneId + "?_method=put";
-      var data = $('#alt_alum').serialize();
+      let urlPost = "/dades_alta/" + alumneId + "?_method=put";
+      let data = $('#alt_alum').serialize();
       aPost(urlPost, data);
       });
     });
@@ -1011,11 +1011,11 @@ $(document).ready(function (){
         todayHighlight: true,
         language: "ca"
     });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneId = actg.data('id');
-    var today = actg.data('today');
-    var mdal =  $(this);
+    let actg = $(e.relatedTarget);
+    let alumneNom = actg.data('nom');
+    let alumneId = actg.data('id');
+    let today = actg.data('today');
+    let mdal =  $(this);
       mdal.find("#nomAl").text(alumneNom);
       mdal.find("#idAl").val(alumneId);
       mdal.find("#today1").val(today);
@@ -1060,20 +1060,20 @@ $(document).ready(function (){
       todayHighlight: true,
       language: "ca"  
     });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneId = actg.data('id');
-    var creat = actg.data('creat');
-    var mail = actg.data('mail');
-    var i = actg.data('i');
-    var today = actg.data('today');
+    let actg = $(e.relatedTarget);
+    let alumneNom = actg.data('nom');
+    let alumneCurs = actg.data('curs');
+    let alumneId = actg.data('id');
+    let creat = actg.data('creat');
+    let mail = actg.data('mail');
+    let i = actg.data('i');
+    let today = actg.data('today');
 
     if (typeof(i)=== "undefined"){
       i = 0;
     }
 
-    var mdal = $(this);
+    let mdal = $(this);
     mdal.find('.modal-body #nomAl').text(alumneNom);
     mdal.find('.modal-body #cursAl').text(alumneCurs)
     mdal.find('.modal-body #cursAlVal').val(alumneCurs).attr("name", "reunionsPares." + i + ".curs");
@@ -1089,8 +1089,8 @@ $(document).ready(function (){
     mdal.find('.modal-body #reuData').val(today);
     $('#reunions_Pares').on('submit', function(e){
       e.preventDefault();
-      var urlPost = "/reunions-pares/post/" + alumneId + "?_method=put";
-      var data = $('#reunions_Pares').serialize();
+      let urlPost = "/reunions-pares/post/" + alumneId + "?_method=put";
+      let data = $('#reunions_Pares').serialize();
  
       $.LoadingOverlay("show");
       aPost (urlPost, data);
@@ -1099,17 +1099,17 @@ $(document).ready(function (){
 
 //READ MODAL
     $('#reuParesModalGet').on('shown.bs.modal', function (e) {
-      var actg = $(e.relatedTarget);
-      var alumneNom = actg.data('nom');
-      var alumneCurs = actg.data('curs');
-      var dta = actg.data('dta');
-      var mestre = actg.data('creat');
-      var convo = actg.data('convo');
-      var assist = actg.data('assist');
-      var compo = actg.data('compo');
-      var body = actg.data('body');
-      var conclu = actg.data('concl');
-      var mdal = $(this);
+      let actg = $(e.relatedTarget);
+      let alumneNom = actg.data('nom');
+      let alumneCurs = actg.data('curs');
+      let dta = actg.data('dta');
+      let mestre = actg.data('creat');
+      let convo = actg.data('convo');
+      let assist = actg.data('assist');
+      let compo = actg.data('compo');
+      let body = actg.data('body');
+      let conclu = actg.data('concl');
+      let mdal = $(this);
       mdal.find('.modal-body #nomAeAl').text(alumneNom);
       mdal.find('.modal-body #cursAeAl').text(alumneCurs);
       mdal.find('.modal-body #reuDataGet').text(dta);
@@ -1142,19 +1142,19 @@ $(document).ready(function (){
       todayHighlight: true,
       language: "ca"  
     });
-    var actg = $(e.relatedTarget);
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var alumneId = actg.data('id');
-    var i = actg.data('i')
-    var dta = actg.data('dta');
-    var convo = actg.data('convo');
-    var comp = actg.data('comp');
-    var assist = actg.data('assist');
-    var body = actg.data('body');
-    var concl = actg.data('concl');
+    let actg = $(e.relatedTarget);
+    let alumneNom = actg.data('nom');
+    let alumneCurs = actg.data('curs');
+    let alumneId = actg.data('id');
+    let i = actg.data('i')
+    let dta = actg.data('dta');
+    let convo = actg.data('convo');
+    let comp = actg.data('comp');
+    let assist = actg.data('assist');
+    let body = actg.data('body');
+    let concl = actg.data('concl');
 
-    var mdal = $(this);
+    let mdal = $(this);
     mdal.find('.modal-body #nomAlUpd').text(alumneNom);
     mdal.find('.modal-body #cursAlUpd').text(alumneCurs);
     mdal.find('.modal-body #reuDataUpd').val(dta);
@@ -1195,8 +1195,8 @@ $(document).ready(function (){
 
     $('#reunions_pares_upd').on('submit', function(e){
       e.preventDefault();
-      var urlPost = "/reunions-pares/upd/" + i +"/" + alumneId + "?_method=put";
-      var data = $('#reunions_pares_upd').serialize();
+      let urlPost = "/reunions-pares/upd/" + i +"/" + alumneId + "?_method=put";
+      let data = $('#reunions_pares_upd').serialize();
       
       $.LoadingOverlay("show");
       aPost (urlPost, data);
@@ -1206,16 +1206,16 @@ $(document).ready(function (){
 
 //DELETE MODAL (ACTUACIONS)
   $('#reuParesModalDel').on('shown.bs.modal', function (e) {
-    var actg = $(e.relatedTarget);
-    var alumneId = actg.data('id');
-    var alumneNom = actg.data('nom');
-    var alumneCurs = actg.data('curs');
-    var i = actg.data('i');
-    var alumneDta = actg.data('dta');
-    var alumneBody = actg.data('body');
-    var alumneConcl = actg.data('concl');
+    let actg = $(e.relatedTarget);
+    let alumneId = actg.data('id');
+    let alumneNom = actg.data('nom');
+    let alumneCurs = actg.data('curs');
+    let i = actg.data('i');
+    let alumneDta = actg.data('dta');
+    let alumneBody = actg.data('body');
+    let alumneConcl = actg.data('concl');
 
-    var mdal = $(this);
+    let mdal = $(this);
     mdal.find('.modal-body #nomAlDel').text(alumneNom);
     mdal.find('.modal-body #cursAlDel').text(alumneCurs);
     mdal.find('.modal-body #reuDataDel').text(alumneDta);
@@ -1223,8 +1223,8 @@ $(document).ready(function (){
     mdal.find('.modal-body #reuConclDel').text(alumneConcl);
     $('#reunions_pares_del').on('submit', function(e){
       e.preventDefault();
-      var urlPost = "/reunions-pares/del/" + i +"/" + alumneId + "?_method=put";
-      var data = $('#reunions_pares_del').serialize(); 
+      let urlPost = "/reunions-pares/del/" + i +"/" + alumneId + "?_method=put";
+      let data = $('#reunions_pares_del').serialize(); 
 
       $.LoadingOverlay("show");
       aPost (urlPost, data);
@@ -1234,7 +1234,7 @@ $(document).ready(function (){
 
   //Control dates
   /*
-  var inici = $('#inici'),
+  let inici = $('#inici'),
       final = $('#final');
       $(document).on('change', '#final', function(){
         unsaved = false;

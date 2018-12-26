@@ -1,7 +1,7 @@
 
 Beta 2.0.0
 +Bootstrap 4 + mdb4.5
-repassar SESSION
+repassar Horari controller --> update Funciona, areaPost y diariPost NO
 login entrada: avisar si no existeix usuari
 Re-disseny horaris
 Crear pàgina escola
