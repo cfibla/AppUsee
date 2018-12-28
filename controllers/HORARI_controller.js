@@ -642,27 +642,6 @@ exports.update = function (req, res){
 	});
 };
 
-//DELETE horari
-exports.delete = function (req, res) {
-	var userHo = req.session.user;
-	var userId = req.params.id;
-	var horari = userHo.horari._id;
-
-	models.Horari.findByIdAndRemove(horari, function(error, horari){
-		if (error){
-			return res.json(error);
-		} else {
-			models.User.findByIdAndUpdate(userId, {$unset:{horari:1}}, function(error, user){
-				if (error){
-					return res.json(error);
-				} else {
-					delete userHo.horari;
-					res.redirect('/list');
-				}		
-			})
-		}
-	});
-};
 
 //HORARI DIARI - GET
 exports.diariGet = function (req, res) {
@@ -683,10 +662,11 @@ exports.diariGet = function (req, res) {
 	});
 };
 
-//HORARI DIARI - POST
+//HORARI DIARI - POST - NO FUNCIONA
 exports.diariPost = function (req, res){
 	console.log('DIARI POST');
-	var horariReq = req.body;
+	res.send('Hola');
+/*	var horariReq = req.body;
 	var user = req.session.user;
 	var horariId = user.horari;
 
@@ -716,6 +696,7 @@ exports.diariPost = function (req, res){
 	  		});
 		}
 	});
+*/
 };
 
 
@@ -760,7 +741,7 @@ exports.areaGet = function(req,res){
 
 }
 
-//HORARI AREES - UPDATE
+//HORARI AREES - UPDATE - NO FUNCIONA
 exports.areaPost = function (req, res){
 	var areaReq = req.body;
 	var user = req.session.user;
@@ -871,3 +852,25 @@ exports.cursGet = function (req, res){
 	});
 
 }
+
+//DELETE horari
+exports.delete = function (req, res) {
+	var userHo = req.session.user;
+	var userId = req.params.id;
+	var horari = userHo.horari._id;
+
+	models.Horari.findByIdAndRemove(horari, function(error, horari){
+		if (error){
+			return res.json(error);
+		} else {
+			models.User.findByIdAndUpdate(userId, {$unset:{horari:1}}, function(error, user){
+				if (error){
+					return res.json(error);
+				} else {
+					delete userHo.horari;
+					res.redirect('/list');
+				}		
+			})
+		}
+	});
+};
