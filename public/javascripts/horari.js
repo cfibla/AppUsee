@@ -91,14 +91,13 @@ $(document).ready(function (){
     language: "ca"
   });
  //POST
- /*
-  $('#desabutton').on('click', function(){
-    var urlPost = "/horari-diari-post?_method=put";
-    var data = $('#horari_diari_post').serialize();
+
+  $('#horari_diari_post').on('submit', function(){
+    //var urlPost = "/horari-diari-post";
+    //var data = $('#horari_diari_post').serialize();
     console.log('click en DESABUTTON')
-    aPost(urlPost, data);
+    //aPut(urlPost, data);
   })
-    */
 
 //DELETE HORARIS
   $('#deleteHorariModal').on('shown.bs.modal', function (e) {
@@ -177,6 +176,22 @@ $(document).ready(function (){
          type: 'POST',
          data: obj
      }).done(function(){
+       location.reload();
+        $.LoadingOverlay("hide");
+        $('.modal').removeClass('show');
+     });
+   }
+
+   function aPut(path, obj){
+      console.log('aPut');
+     return   $.ajax({
+         url: path, //this is the submit URL
+         type: 'PUT',
+         data: obj,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json"
+     }).done(function(){
+        console.log('aPut DONE');
        location.reload();
         $.LoadingOverlay("hide");
         $('.modal').removeClass('show');
