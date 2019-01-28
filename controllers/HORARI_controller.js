@@ -665,7 +665,7 @@ exports.diariGet = function (req, res) {
 //HORARI DIARI - POST - NO FUNCIONA
 exports.diariPost = function (req, res){
 	console.log('DIARI POST CONTROLLER');
-	res.send('/horari-diari');
+	res.send('hola hola');
 /*	var horariReq = req.body;
 	var user = req.session.user;
 	var horariId = user.horari;

@@ -90,14 +90,14 @@ $(document).ready(function (){
     todayHighlight: true,
     language: "ca"
   });
- //POST
 
-  $('#horari_diari_post').on('submit', function(){
+ //POST
+  $('#desaButtonDiv').on('click', function(e){
     //ACTIVAR ESTO PARA PROBAR
-    //var urlPost = "/horari-diari-post";
-    //var data = $('#horari_diari_post').serialize();
-    console.log('click en DESABUTTON')
-    //aPut(urlPost, data);
+    var urlPost = "/horari-diari-post";
+    var data = $('#horari_diari_post').serialize();
+    console.log('click en DESABUTTON');
+    aPut(urlPost, data);
   })
 
 //DELETE HORARIS

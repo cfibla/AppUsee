@@ -120,6 +120,9 @@
                 </div>
               </li>
             <%}%>
+
+<!--
+
             <% if (!session.user.horari) {%>
               <li id="crearHoraris" class="nav-item"><a class="nav-link navhover" data-toggle="modal" id="btnCreaHorari" href="/javascripts/modals/creaHorari.ejs" data-target="#creaHorariModal">Crear Horari</a></li>
             <%} else {%>
@@ -135,6 +138,9 @@
                 </div>
               </li>
             <%}%>
+
+-->
+
             <% if(session.user.admin === "ADMIN"){%>
                 <li id="admin" class="nav-item"><a class="nav-link navhover" href="/admin">Administrador</a></li>
             <%}%>

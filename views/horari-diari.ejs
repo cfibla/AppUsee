@@ -1,114 +1,113 @@
-<!DOCTYPE html>
-  <form role="form" id="horari_diari_post">
-    <div class="container margetop clear col-md-10 offset-md-2" id="horariDiari">
-      <div class="row" id="horariMain">
-        <%
-        console.log('hola desde horari-diari');
-        var dia;
-        for (var i=0; i < horari.dades.length; i++) {
-          if (horari.dades[i].dia === 1) {
-            var dia = "DILLUNS";
-            }
-          if (horari.dades[i].dia === 2) {
-            var dia = "DIMARTS";
-            }
-          if (horari.dades[i].dia === 3) {
-            var dia = "DIMECRES";
-            }
-          if (horari.dades[i].dia === 4) {
-            var dia = "DIJOUS";
-            }
-          if (horari.dades[i].dia === 5) {
-            var dia = "DIVENDRES";
-            }
-        var daata = horari.dades[i].data.replace(/\//g, "");
-        //console.log('DAATA DIARI: '+ daata);
-        %>
-          <div class="col-md-6" id="<%='div_' + daata%>" style="margin-top: 20px;">
-            <input type="hidden" name="diaData" value=<%=[horari.dades[i].data]%>>
-            <div class="diaDiari">
-              <%=dia%> <strong><%=horari.dades[i].data%></strong>
-            </div>
-              <div class="horesDiari">
-                <div class="row">
-                  <span class="col-md-10 titleHora"><strong>9:00 <%=horari.dades[i].hora_1.area%></strong></span>
-                  <div class="col-md-12">
-                    <div class="row">
+<form role="form" id="horariDiari_post">
+  <div class="container margetop clear col-md-10 offset-md-2" id="horariDiari">
+    <div class="row" id="horariMain">
+      <%
+      console.log('hola desde horari-diari.ejs');
+      var dia;
+      for (var i=0; i < horari.dades.length; i++) {
+        if (horari.dades[i].dia === 1) {
+          var dia = "DILLUNS";
+          }
+        if (horari.dades[i].dia === 2) {
+          var dia = "DIMARTS";
+          }
+        if (horari.dades[i].dia === 3) {
+          var dia = "DIMECRES";
+          }
+        if (horari.dades[i].dia === 4) {
+          var dia = "DIJOUS";
+          }
+        if (horari.dades[i].dia === 5) {
+          var dia = "DIVENDRES";
+          }
+      var daata = horari.dades[i].data.replace(/\//g, "");
+      //console.log('DAATA DIARI: '+ daata);
+      %>
+        <div class="col-md-6" id="<%='div_' + daata%>" style="margin-top: 20px;">
+          <input type="hidden" name="diaData" value=<%=[horari.dades[i].data]%>>
+          <div class="diaDiari">
+            <%=dia%> <strong><%=horari.dades[i].data%></strong>
+          </div>
+            <div class="horesDiari">
+              <div class="row">
+                <span class="col-md-10 titleHora"><strong>9:00 <%=horari.dades[i].hora_1.area%></strong></span>
+                <div class="col-md-12">
+                  <div class="row">
 <!--
-                    <label for="<%='tema_'+ i%>">Tema/UD</label>
-                <input class="border-10 col-md-12" type="text" name="tema" id="<%='tema_'+ i%>" value="<%=[horari.dades[i].tema]%>">
-              -->
-                    <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_1.sessio]%></span>
-                    <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_1.objectius]%></span>
-                  </div>
-                    <textarea id="<%=dia%>h1" class="horaritext" name="prog1" placeholder="Activitats"><%=[horari.dades[i].hora_1.prog]%></textarea>
-                  </div>
+                  <label for="<%='tema_'+ i%>">Tema/UD</label>
+              <input class="border-10 col-md-12" type="text" name="tema" id="<%='tema_'+ i%>" value="<%=[horari.dades[i].tema]%>">
+            -->
+                  <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_1.sessio]%></span>
+                  <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_1.objectius]%></span>
                 </div>
-              </div>
-
-            <div class="horesDiari">
-              <div class="row">
-                <span class="col-md-10 titleHora"><strong>10:00 <%=horari.dades[i].hora_2.area%></strong></span>
-                <div class="col-md-12">
-                  <div class="row">
-                    <span class="col-md-9"><strong>Tema: </strong><%=[horari.dades[i].hora_2.tema]%></span>
-                    <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_2.sessio]%></span>
-                    <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_2.objectius]%></span>
-                  </div>
-                  <textarea id="<%=dia%>h2" class="horaritext" name="prog2" placeholder="Activitats"><%=[horari.dades[i].hora_2.prog]%></textarea>
+                  <textarea id="<%=dia%>h1" class="horaritext" name="prog1" placeholder="Activitats"><%=[horari.dades[i].hora_1.prog]%></textarea>
                 </div>
               </div>
             </div>
 
-            <div class="fila2">
-              <strong>ESBARJO</strong>
-            </div>
-
-            <div class="horesDiari">
-              <div class="row">
-                <span class="col-md-10 titleHora"><strong>11:30 <%=horari.dades[i].hora_3.area%></strong></span>
-                <div class="col-md-12">
-                  <div class="row">
-                    <span class="col-md-9"><strong>Tema: </strong><%=[horari.dades[i].hora_3.tema]%></span>
-                    <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_3.sessio]%></span>
-                    <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_3.objectius]%></span>
-                  </div>
-                  <textarea id="<%=dia%>h3" class="horaritext" name="prog3" placeholder="Activitats"><%=[horari.dades[i].hora_3.prog]%></textarea>
+          <div class="horesDiari">
+            <div class="row">
+              <span class="col-md-10 titleHora"><strong>10:00 <%=horari.dades[i].hora_2.area%></strong></span>
+              <div class="col-md-12">
+                <div class="row">
+                  <span class="col-md-9"><strong>Tema: </strong><%=[horari.dades[i].hora_2.tema]%></span>
+                  <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_2.sessio]%></span>
+                  <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_2.objectius]%></span>
                 </div>
+                <textarea id="<%=dia%>h2" class="horaritext" name="prog2" placeholder="Activitats"><%=[horari.dades[i].hora_2.prog]%></textarea>
               </div>
             </div>
+          </div>
 
-            <div class="horesDiari">
-              <div class="row">
-                <span class="col-md-10 titleHora"><strong>12:30 <%=horari.dades[i].hora_4.area%></strong></span>
-                <div class="col-md-12">
-                  <div class="row">
-                    <span class="col-md-9"><strong>Tema: </strong><%=[horari.dades[i].hora_4.tema]%></span>
-                    <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_4.sessio]%></span>
-                    <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_4.objectius]%></span>
-                  </div>
-                  <textarea id="<%=dia%>h4" class="horaritext" name="prog4" placeholder="Activitats"><%=[horari.dades[i].hora_4.prog]%></textarea>
+          <div class="fila2">
+            <strong>ESBARJO</strong>
+          </div>
+
+          <div class="horesDiari">
+            <div class="row">
+              <span class="col-md-10 titleHora"><strong>11:30 <%=horari.dades[i].hora_3.area%></strong></span>
+              <div class="col-md-12">
+                <div class="row">
+                  <span class="col-md-9"><strong>Tema: </strong><%=[horari.dades[i].hora_3.tema]%></span>
+                  <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_3.sessio]%></span>
+                  <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_3.objectius]%></span>
                 </div>
+                <textarea id="<%=dia%>h3" class="horaritext" name="prog3" placeholder="Activitats"><%=[horari.dades[i].hora_3.prog]%></textarea>
               </div>
             </div>
+          </div>
 
-            <div class="fila3"><strong>DINAR</strong></div>
-
-            <div class="horesBottom">
-              <div class="row">
-                <span class="col-md-10 titleHora"><strong>15:00 <%=horari.dades[i].hora_5.area%></strong></span>
-                <div class="col-md-12">
-                  <div class="row">
-                    <span class="col-md-9"><strong>Tema: </strong><%=[horari.dades[i].hora_5.tema]%></span>
-                    <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_5.sessio]%></span>
-                    <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_5.objectius]%></span>
-                  </div>
-                  <textarea id="<%=dia%>h5" class="horaritext" name="prog5" placeholder="Activitats"><%=[horari.dades[i].hora_5.prog]%></textarea>
+          <div class="horesDiari">
+            <div class="row">
+              <span class="col-md-10 titleHora"><strong>12:30 <%=horari.dades[i].hora_4.area%></strong></span>
+              <div class="col-md-12">
+                <div class="row">
+                  <span class="col-md-9"><strong>Tema: </strong><%=[horari.dades[i].hora_4.tema]%></span>
+                  <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_4.sessio]%></span>
+                  <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_4.objectius]%></span>
                 </div>
+                <textarea id="<%=dia%>h4" class="horaritext" name="prog4" placeholder="Activitats"><%=[horari.dades[i].hora_4.prog]%></textarea>
               </div>
             </div>
-          </div> 
-      <%}%>
-      </div>
+          </div>
+
+          <div class="fila3"><strong>DINAR</strong></div>
+
+          <div class="horesBottom">
+            <div class="row">
+              <span class="col-md-10 titleHora"><strong>15:00 <%=horari.dades[i].hora_5.area%></strong></span>
+              <div class="col-md-12">
+                <div class="row">
+                  <span class="col-md-9"><strong>Tema: </strong><%=[horari.dades[i].hora_5.tema]%></span>
+                  <span class="col-md-3"><strong>Sessió: </strong><%=[horari.dades[i].hora_5.sessio]%></span>
+                  <span class="col-md-12"><strong>Objectius: </strong><%=[horari.dades[i].hora_5.objectius]%></span>
+                </div>
+                <textarea id="<%=dia%>h5" class="horaritext" name="prog5" placeholder="Activitats"><%=[horari.dades[i].hora_5.prog]%></textarea>
+              </div>
+            </div>
+          </div>
+        </div> 
+    <%}%>
     </div>
-  </form>
+  </div>
+</form>
