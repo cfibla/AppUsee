@@ -586,6 +586,8 @@ $(document).ready(function (){
       der = "Seleccioneu"
     };
 
+    //console.log('NAIXEMENT: '+naix);
+
 //SELECTS
     var piAl = funcSel(pi);
     var valorat = funcSel(valorat);

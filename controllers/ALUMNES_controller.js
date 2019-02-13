@@ -100,15 +100,24 @@ exports.create = function (req, res){
 				} 
 				today = dd+'/'+mm+'/'+yyyy;
 
-				if(!alum.naixement){
-					alum.naixement = new Date();
+				if(!alum.dataNaixement){
+					alum.dataNaixement = new Date();
+				} else {
+					var alumDataNa = alum.dataNaixement
+
+					//DATA Naixement toISOString 
+					dateSplit = alumDataNa.split("/");    // ["29", "1", "2016"]
+					var data1 = new Date(parseInt(dateSplit[2]),parseInt(dateSplit[1])-1,parseInt(dateSplit[0]));
+					var data1Iso = data1.toISOString();
+					alum.dataNaixement = data1Iso;
+
 				};
 				//CREATE
 				var nouAlumne = new models.Alumne({
 					nomAlumne: alum.nom,
 					cognomAlumne1: alum.cognom1,
 					cognomAlumne2: alum.cognom2,
-					dataNaixement: alum.naixement,
+					dataNaixement: alum.dataNaixement,
 					seguretatSoc: alum.sSocial,
 
 					curs: alum.curs,
@@ -179,32 +188,22 @@ exports.update = function (req, res){
 
 	var alumneId = req.params.id;
 	var alum = req.body;
+	var alumDataNa = alum.dataNaixement
 
-	models.Alumne.findByIdAndUpdate(alumneId,
-									{$set:{
-										'checks':[],
-										'radios':[]},
-										altresEsp:'',
-										atServPrivats:'',
-										percentDim:'',
-										motiuDic:'',
-										anyVal:'',
-										derivacio:'',
-										motiuDer:''
-									}, function(error, alumne){
-										if (error){
-											return res.json(error);
-										}
-									});
+	//DATA Naixement toISOString 
+	dateSplit = alumDataNa.split("/");    // ["29", "1", "2016"]
+	var data1 = new Date(parseInt(dateSplit[2]),parseInt(dateSplit[1])-1,parseInt(dateSplit[0]));
+	var data1Iso = data1.toISOString();
+	alum.dataNaixement = data1Iso;
 
-	delete alum.id;
-	delete alum._id;
-
-	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
+	models.Alumne.findByIdAndUpdate(alumneId, alum, 
 	function (error, alumne){
+		console.log('ALUMNE_ID-1: ', alumneId);
+		
 		if (error) {
 			return res.json(error);
 		} else {
+			console.log('ALUMNE: ', alumne);
 			res.json({type:true, Alumne: JSON.stringify(alumne)});
 		}
 	});
