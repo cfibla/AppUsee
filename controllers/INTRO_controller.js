@@ -1,3 +1,5 @@
+'use strict';
+
 exports.inici = function (req, res) {
   res.render('home');
 }

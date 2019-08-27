@@ -1,7 +1,10 @@
+'use strict';
+
 var models = require('../models/index');
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
+	var horariId;
 	models.Alumne.find({
 		centre: req.session.user.centre,
 		curs: req.session.user.curs}, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
@@ -188,19 +191,25 @@ exports.update = function (req, res){
 
 	var alumneId = req.params.id;
 	var alum = req.body;
-	var alumDataNa = alum.dataNaixement
+	var alumDataNa = alum.dataNaixement;
+
+	console.log("ALUMNE UPDATE");
+	console.log(alum);
 
 	//DATA Naixement toISOString 
-	dateSplit = alumDataNa.split("/");    // ["29", "1", "2016"]
+/*	dateSplit = alumDataNa.split("/");    // ["29", "1", "2016"]
 	var data1 = new Date(parseInt(dateSplit[2]),parseInt(dateSplit[1])-1,parseInt(dateSplit[0]));
 	var data1Iso = data1.toISOString();
 	alum.dataNaixement = data1Iso;
-
+*/
 	models.Alumne.findByIdAndUpdate(alumneId, alum, 
 	function (error, alumne){
+		console.log("ALUMNE UPDATE function");
 		console.log('ALUMNE_ID-1: ', alumneId);
+		console.log(alumne);
 		
 		if (error) {
+			console.log("ALUMNE UPDATE error");
 			return res.json(error);
 		} else {
 			console.log('ALUMNE: ', alumne);

@@ -46,9 +46,10 @@ exports.users = function (req, res) {
 exports.canviCurs = function (req, res) {
 	models.Alumne.find({}, function(error, alumnes){
 		if (error){
+			console.log('canvi de curs ERROR');
 			console.log(error);
 		} else {
-			console.log('canvi de curs');
+			console.log('canvi de curs OK');
 			for(var i=0; i < alumnes.length; i++) {
 				console.log(alumnes[i].nomAlumne +' '+ alumnes[i].cognomAlumne1 +': '+ alumnes[i].curs);
 

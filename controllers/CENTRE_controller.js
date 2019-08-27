@@ -1,3 +1,5 @@
+'use strict';
+
 var models = require('../models/index');
 
 // Nova escola GET
