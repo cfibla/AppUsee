@@ -44,6 +44,7 @@ exports.users = function (req, res) {
 }
 
 exports.canviCurs = function (req, res) {
+	console.log('canvi de curs');
 	models.Alumne.find({}, function(error, alumnes){
 		if (error){
 			console.log('canvi de curs ERROR');

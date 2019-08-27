@@ -303,7 +303,15 @@ $(document).ready(function (){
     $("#form-nav").addClass("hidden");
   }
 
-
+//CANVI DE CURS
+  $('#canviDeCurs').on('click', function(e){
+    e.preventDefault();
+    $.ajax({
+      type : 'GET',
+      url : '/canvi-curs'
+    }); 
+  });
+  
 //TOOLTIPS
   $(function () {
     $('[data-tggle="tooltip"]').tooltip();

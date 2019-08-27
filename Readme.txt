@@ -2,7 +2,7 @@
 Beta 2.0.0
 +Bootstrap 4 + mdb4.5
 ARREGLAR ALUMNE UPDATE (Maisae no funciona i la data tampoc)
-Botó canvi de curs no funciona
++Botó canvi de curs no funciona
 repassar Horari controller --> update Funciona, areaPost y diariPost NO
 	provar en el router amb un altre controller
 login entrada: avisar si no existeix usuari
