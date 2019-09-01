@@ -109,7 +109,7 @@ exports.create = function (req, res){
 					var alumDataNa = alum.dataNaixement
 
 					//DATA Naixement toISOString 
-					dateSplit = alumDataNa.split("/");    // ["29", "1", "2016"]
+					var dateSplit = alumDataNa.split("/");    // ["29", "1", "2016"]
 					var data1 = new Date(parseInt(dateSplit[2]),parseInt(dateSplit[1])-1,parseInt(dateSplit[0]));
 					var data1Iso = data1.toISOString();
 					alum.dataNaixement = data1Iso;
@@ -197,7 +197,7 @@ exports.update = function (req, res){
 	console.log(alum);
 
 	//DATA Naixement toISOString 
-/*	dateSplit = alumDataNa.split("/");    // ["29", "1", "2016"]
+/*	var dateSplit = alumDataNa.split("/");    // ["29", "1", "2016"]
 	var data1 = new Date(parseInt(dateSplit[2]),parseInt(dateSplit[1])-1,parseInt(dateSplit[0]));
 	var data1Iso = data1.toISOString();
 	alum.dataNaixement = data1Iso;
@@ -210,7 +210,7 @@ exports.update = function (req, res){
 		
 		if (error) {
 			console.log("ALUMNE UPDATE error");
-			return res.json(error);
+			res.json(error);
 		} else {
 			console.log('ALUMNE: ', alumne);
 			res.json({type:true, Alumne: JSON.stringify(alumne)});
@@ -286,7 +286,7 @@ exports.assisPost = function (req, res) {
 
 			if (!alumAssist['dataIso']){
 				//TO ISODATE
-				darr1 = alumDate.split("/");    // ["29", "1", "2016"]
+				var darr1 = alumDate.split("/");    // ["29", "1", "2016"]
 				var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
 				                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
 				//var data1Iso = data1.toISOString();
@@ -413,7 +413,7 @@ exports.menjaPost = function (req, res) {
 
 			//TO ISODATE
 
-			darr1 = alumDateM.split("/");    // ["29", "1", "2016"]
+			var darr1 = alumDateM.split("/");    // ["29", "1", "2016"]
 			var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
 			alumMenjador['dataIsoMen'] = dataI;
 		}
