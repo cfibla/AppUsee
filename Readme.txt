@@ -1,3 +1,4 @@
+BETA 2.0.0
 Bootstrap 4 + mdb4.5
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
