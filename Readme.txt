@@ -1,5 +1,4 @@
 Beta 2.0.0
-Bootstrap 4 + mdb4.5
 --?? ARREGLAR ALUMNE UPDATE (Maisae no funciona i la data tampoc)
 Botó canvi de curs no funciona
 repassar Horari controller --> update Funciona, areaPost y diariPost NO
@@ -10,13 +9,10 @@ Crear pàgina CENTRE
 Afegir "last login" users
 Poder canviar objectius, sessió, etc en horari diari
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
-
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
 Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
-
-1.3.0
 Fer Buscador no visible en horaris
 accés usuaris DEMO
 /assisData falta menú aside
@@ -29,6 +25,8 @@ MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar de
 ?? bcrypt -> de 1.0.3 a 2.0.1
 Afegir valoració EE
 Si USER === ee => select default SI en valorat i atès en eeUsee
+
++ Bootstrap 4 + mdb4.5
 
 
 BETA 1.2.0
