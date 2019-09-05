@@ -1,11 +1,37 @@
-BETA 2.0.0
+Beta 2.0.0
 Bootstrap 4 + mdb4.5
+--?? ARREGLAR ALUMNE UPDATE (Maisae no funciona i la data tampoc)
+Botó canvi de curs no funciona
+repassar Horari controller --> update Funciona, areaPost y diariPost NO
+	provar en el router amb un altre controller
+login entrada: avisar si no existeix usuari
+Re-disseny horaris
+Crear pàgina CENTRE
+Afegir "last login" users
+Poder canviar objectius, sessió, etc en horari diari
+quan els alumnes acaben 6e, passen a ser "ex-alumnes"
+
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
 Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
 
-BETA 1.0.2
+1.3.0
+Fer Buscador no visible en horaris
+accés usuaris DEMO
+/assisData falta menú aside
+Faltes i retards ORDENATS PER DATA AL PDF
+Faltes Justificades
+aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
+Fer funcionar el buscador
+Afegir "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
+MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)
+?? bcrypt -> de 1.0.3 a 2.0.1
+Afegir valoració EE
+Si USER === ee => select default SI en valorat i atès en eeUsee
+
+
+BETA 1.2.0
 +Secció al Home "Com funciona?"
 +Uppercase modificació dades
 +Horari-config: Afegir boton "borrar horari" 
@@ -13,7 +39,7 @@ BETA 1.0.2
 +Registre "mestre -ee -escola"
 
 
-BETA 1.0.1
+BETA 1.1.0
 +Crear usuari ADMIN - botó canvi de curs
 +Open Graph Facebook
 +Fer apartat "Entra"
