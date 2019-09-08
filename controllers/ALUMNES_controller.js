@@ -34,11 +34,18 @@ exports.list = function (req, res) {
 exports.create = function (req, res){
 
 	var scola = req.session.user.centre;
-
 	var alum = req.body;
+	var alumNom = alum.nom;
+	var alumCog1 = alum.cognom1;
+	var alumCog2 = alum.cognom2;
+	var alumNomUp = alumNom.toUpperCase();
+	var alumCog1Up = alumCog1.toUpperCase();
+	var alumCog2Up = alumCog2.toUpperCase();
 	var rep = alum['radios.0'];
 	var aill = alum['checks.2'];
 	var sersoc = alum['checks.29'];
+
+	console.log('ALUMNE: ' + alumNomUp + ' ' + alumCog1Up + ' ' + alumCog2Up);
 
 	if (!alum.nom||!alum.cognom1||!alum.curs){
 		res.json('Alguns camps són obligatoris')
@@ -66,15 +73,16 @@ exports.create = function (req, res){
 				};
 
 				var nouAlumne = new models.Alumne({
-					nomAlumne: alum.nom,
-					cognomAlumne1: alum.cognom1,
-					cognomAlumne2: alum.cognom2,
+					nomAlumne: alumNomUp,
+					cognomAlumne1: alumCog1Up,
+					cognomAlumne2: alumCog2Up,
 					dataNaixement: alum.naixement,
 					seguretatSoc: alum.sSocial,
 
 					codialumneola: req.session.user.centre._id,
 					curs: alum.curs,
 					eeUsee: alum.eeUsee,
+					valorat: alum.valorat,
 
 					tutor: req.session.user,
 					centre:req.session.user.centre,
@@ -117,8 +125,14 @@ exports.create = function (req, res){
 				nouAlumne.save(function(error){
 					if (error) {
 						return res.json(error);
-					} else{
-						return res.json(nouAlumne);
+					} else {
+						if (req.session.user.mestre === "tutor"){
+								res.send('/list');
+							}
+						if (req.session.user.mestre === "ee"){
+								res.send('/list_EE');
+							}
+						//return res.json(nouAlumne);
 					}
 				});
 			};
