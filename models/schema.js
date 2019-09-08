@@ -71,6 +71,8 @@ module.exports = new mongoose.Schema ({
 	checks:[Boolean],
 	radios:[Boolean],
 //ATENCIÓ DIVERSITAT
+	valorat: Boolean,
+	valoratAny: String,
 	altresEsp: String,
 	atServPrivats: String,
 	percentDim: String,

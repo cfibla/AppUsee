@@ -79,7 +79,7 @@ exports.create = function (req, res){
 					dataNaixement: alum.naixement,
 					seguretatSoc: alum.sSocial,
 
-					codialumneola: req.session.user.centre._id,
+//no sé si serveix	codialumneola: req.session.user.centre._id,
 					curs: alum.curs,
 					eeUsee: alum.eeUsee,
 					valorat: alum.valorat,
