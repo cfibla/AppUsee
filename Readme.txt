@@ -26,7 +26,7 @@ MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar de
 Afegir valoració EE
 Si USER === ee => select default SI en valorat i atès en eeUsee
 
-+ Bootstrap 4 + mdb4.5
++ Bootstrap 4.3.1 + mdb 4.8.9
 
 
 BETA 1.2.0
