@@ -500,6 +500,7 @@ $(document).ready(function (){
     var fder = actg.data('fder');
     var der = actg.data('der');
     var motder = actg.data('motder');
+    var valorat = actg.data('valorat');
     var eeusee = actg.data('eeusee');
     var segdiv = actg.data('segdiv');
     var becaa = actg.data('beca');
@@ -528,6 +529,7 @@ $(document).ready(function (){
 
 //SELECTS
     var piAl = funcSel(pi);
+    var valorat = funcSel(valorat);
     var aDiv = funcSel(atdiv);
     var repe = funcSel(rep);
     var aill = funcSel(ail);
@@ -579,6 +581,8 @@ $(document).ready(function (){
     mdal.find('.modal-body #obs_alumne').text(obs);
     mdal.find('.modal-body #ad_alumne1').text(aDiv[0]).val(aDiv[1]);
     mdal.find('.modal-body #ad_alumne2').text(aDiv[2]).val(aDiv[3]);
+    mdal.find('.modal-body #val_ad_alumne1').text(valorat[0]).val(valorat[1]);
+    mdal.find('.modal-body #val_ad_alumne2').text(valorat[2]).val(valorat[3]);
     mdal.find('.modal-body #rep_alumne1').text(repe[0]).val(repe[1]);
     mdal.find('.modal-body #rep_alumne2').text(repe[2]).val(repe[3]);
     mdal.find('.modal-body #aill_alumne1').text(aill[0]).val(aill[1]);
