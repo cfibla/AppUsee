@@ -23,9 +23,7 @@ Fer funcionar el buscador
 Afegir llistat "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
 MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)
 
-Si USER === ee => select default SI en valorat i atès en eeUsee
-	Refer modal nouAlumne
-
++ Si USER === ee => select default SI en valorat i atès en eeUsee
 + Afegir valoració EE
 + Bootstrap 4.3.1 + mdb 4.8.9
 
