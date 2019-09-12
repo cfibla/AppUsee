@@ -789,31 +789,46 @@ $(document).ready(function (){
 
 //MODAL AFEGIR ALUMNES
   $('#afegirModal').on('shown.bs.modal', function (e) {
+
     var actg = $(e.relatedTarget);
+    var mdal = $(this);
     var escola = actg.data('escola');
     var alumneCurs = actg.data('curs');
     var usr = actg.data('usr');
-    var t_use1, v_use1, t_use2, v_use2;
+    var v_alumneCurs;
+
     if (usr === "ee") {
-      t_use1 = "Si";
-      v_use1 = true;
-      t_use2 = "No";
-      v_use2 = null;
+
+      mdal.find(".modal-body #val-1").text('Si').val(true);
+      mdal.find(".modal-body #val-2").text('No').val(false);
+      mdal.find(".modal-body #ad-1").text('Si').val(true);
+      mdal.find(".modal-body #ad-2").text('No').val(false);
+
       alumneCurs = "Seleccioneu curs";
       v_alumneCurs = null;
+
+      if(pth === "/list-valorats"){
+
+        mdal.find(".modal-body #val-1").text('Si').val(true);
+        mdal.find(".modal-body #val-2").text('No').val(false);
+        mdal.find(".modal-body #ad-1").text('Si').val(true);
+        mdal.find(".modal-body #ad-2").text('No').val(false);
+
+      }
     } else {
-      t_use1 = "No";
-      v_use1 = null;
-      t_use2 = "Si";
-      v_use2 = true;
+      
+      mdal.find(".modal-body #val-1").text('No').val(false);
+      mdal.find(".modal-body #val-2").text('Si').val(true);
+      mdal.find(".modal-body #ad-1").text('No').val(false);
+      mdal.find(".modal-body #ad-2").text('Si').val(true);
+
       v_alumneCurs = alumneCurs;
     };
 
-    var mdal = $(this);
+    
     mdal.find(".modal-body #cdEscola").val(escola);
     mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
-    mdal.find('.modal-body #o_use1').text(t_use1).val(v_use1);
-    mdal.find('.modal-body #o_use2').text(t_use2).val(v_use2);
+
 
     $('#dadesAlumne').on('submit', function(e){
         e.preventDefault();
