@@ -3,39 +3,6 @@ var models = require('../models/index');
 var bcrypt = require('bcrypt');
 //var jwt = require('jsonwebtoken');
 
-/* GET home page. */
-exports.new = function(req, res) {
-	if(req.session.user){
-		console.log('HOME PAGE NEW');
-		if(req.session.user.horari){
-			horariId = req.session.user.horari;
-			models.Horari.find({_id: horariId}, function(err, horari){
-				if(err){
-					console.log(err);
-				} else {
-					console.log('sessionControllerNEW');
-					if(req.session.user.mestre === "tutor"){
-						res.redirect('/list');
-					}
-					if(req.session.user.mestre === "ee"){
-						res.redirect('/list_EE');
-					}
-				}
-			})
-		} else {
-			if(req.session.user.mestre === "tutor"){
-				res.redirect('/list');
-			}
-			if(req.session.user.mestre === "ee"){
-				res.redirect('/list_EE');
-			}	
-		}
-	} else {
-		var msg =  req.flash('loginMsg');
-		res.render('home', { loginMsg: msg, title: 'AppEscola',  page_name:'home'});
-	}
-};
-
 exports.login = function (req, res){
 	var email = req.body.email;
 	var password = req.body.password;
@@ -86,6 +53,40 @@ exports.login = function (req, res){
 		}
 	});
 };
+
+/* GET home page. */
+exports.new = function(req, res) {
+	if(req.session.user){
+		console.log('HOME PAGE NEW');
+		if(req.session.user.horari){
+			horariId = req.session.user.horari;
+			models.Horari.find({_id: horariId}, function(err, horari){
+				if(err){
+					console.log(err);
+				} else {
+					console.log('sessionControllerNEW');
+					if(req.session.user.mestre === "tutor"){
+						res.redirect('/list');
+					}
+					if(req.session.user.mestre === "ee"){
+						res.redirect('/list_EE');
+					}
+				}
+			})
+		} else {
+			if(req.session.user.mestre === "tutor"){
+				res.redirect('/list');
+			}
+			if(req.session.user.mestre === "ee"){
+				res.redirect('/list_EE');
+			}	
+		}
+	} else {
+		var msg =  req.flash('loginMsg');
+		res.render('home', { loginMsg: msg, title: 'AppEscola',  page_name:'home'});
+	}
+};
+
 
 exports.loginCentre = function(req, res){
 	var email = req.body.email;

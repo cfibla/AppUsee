@@ -6,12 +6,10 @@ $(document).ready(function (){
     if ($(element).val().length > 0) {
 
       $label.addClass('active');
-      console.log(labelOBj + ' label ACTIVE');
 
     } else {
 
       $label.removeClass('active');
-      console.log(labelOBj + ' label NOOO ACTIVE');
       
     }
   }
@@ -527,8 +525,6 @@ $(document).ready(function (){
       der = "Seleccioneu"
     };
 
-    console.log('Actg',actg.data());
-
 //SELECTS
     var piAl = funcSel(pi);
     var valDiv = funcSel(valorat);
@@ -829,15 +825,46 @@ $(document).ready(function (){
     mdal.find(".modal-body #cdEscola").val(escola);
     mdal.find(".modal-body #opc").text(alumneCurs).val(v_alumneCurs);
 
-
     $('#dadesAlumne').on('submit', function(e){
+      //NOU ALUMNE - VALIDACIÓ
+      let nom = $('#nom_alumne').val();
+      let cognom1 = $('#cognom1_alumne').val();
+      let cognom2 = $('#cognom2_alumne').val();
+      let alumneData = $('#dadesAlumne').serialize();
+
+      if(!nom || !cognom1){
+
         e.preventDefault();
-        $.LoadingOverlay("show");
-        var urlPost = "/alumneNou";
-        var data = $('#dadesAlumne').serialize();
-        aPost(urlPost, data);
-        });
-      });
+        $('#nouAlumne-alert').removeClass('hidDrop').fadeIn('slow');
+        $('#nouAlumne-alert'). html("Falta el nom o el primer cognom de l'alumne");
+
+      } else {
+        
+        e.preventDefault();
+
+        $.ajax({
+          type: 'POST',
+          url: '/alumneNou',
+          data: alumneData,
+          success: function(text){
+
+            if (text == 'existeix'){
+
+              $('#nouAlumne-alert').removeClass('hidDrop').fadeIn('slow');
+              $('#nouAlumne-alert'). html("Aquest alumne ja existeix. Feu la cerca pel cognom en el buscador i podreu modificar les seves dades.");
+
+            } else {
+
+              $.LoadingOverlay('hide');
+              $('.modal').removeClass('show');
+              location.href = text;
+
+            }
+          }
+        })
+      }
+    });
+  });
 
 //MODAL DELETE ALUMNES
   $('#deleteModal').on('shown.bs.modal', function (e) {

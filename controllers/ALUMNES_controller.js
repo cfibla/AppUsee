@@ -30,31 +30,37 @@ exports.list = function (req, res) {
 
 };
 
-//Altes d'alumnes - POST
+//Altes d'alumnes - CREATE
 exports.create = function (req, res){
 
-	var scola = req.session.user.centre;
-	var alum = req.body;
-	var alumNom = alum.nom;
-	var alumCog1 = alum.cognom1;
-	var alumCog2 = alum.cognom2;
-	var alumNomUp = alumNom.toUpperCase();
-	var alumCog1Up = alumCog1.toUpperCase();
-	var alumCog2Up = alumCog2.toUpperCase();
-	var rep = alum['radios.0'];
-	var aill = alum['checks.2'];
-	var sersoc = alum['checks.29'];
+	let scola = req.session.user.centre;
+	let alum = req.body;
+	let alumNom = alum.nom;
+	let alumCog1 = alum.cognom1;
+	let alumCog2 = alum.cognom2;
+	let alumNomUp = alumNom.toUpperCase();
+	let alumCog1Up = alumCog1.toUpperCase();
+	let alumCog2Up = alumCog2.toUpperCase();
+	let rep = alum['radios.0'];
+	let aill = alum['checks.2'];
+	let sersoc = alum['checks.29'];
+	let alumDataNa = alum.dataNaixement;
 
-	console.log('ALUMNE: ' + alumNomUp + ' ' + alumCog1Up + ' ' + alumCog2Up);
 
 	if (!alum.nom||!alum.cognom1||!alum.curs){
 		res.json('Alguns camps són obligatoris')
 	} else {
-		models.Alumne.find(function(error, alumne){
-			if (error){
-				console.log('error: '+ error);
-			} else {
+		models.Alumne.find({
+			nomAlumne: alumNomUp,
+			cognomAlumne1: alumCog1Up,
+			cognomAlumne2: alumCog2Up
+		}).exec(function(error, alumne){
+			if (error) throw error;
+
+			if (alumne[0] === undefined){
+			//Si l'alumne NO existeix	
 			//TODAY
+
 				var today = new Date();
 				var dd = today.getDate();
 				var mm = today.getMonth()+1; //January is 0!
@@ -68,15 +74,25 @@ exports.create = function (req, res){
 				} 
 				today = dd+'/'+mm+'/'+yyyy;
 
-				if(!alum.naixement){
-					alum.naixement = new Date();
-				};
+				if(!alum.dataNaixement || alum.dataNaixement == ''){
 
-				var nouAlumne = new models.Alumne({
+					alumDataNa = new Date();
+
+				} else {
+
+					//Data Naixement toISOString
+					let dateSplit = alumDataNa.split("/");
+					let data1 = new Date (parseInt(dateSplit[2]), parseInt(dateSplit[1])-1, parseInt(dateSplit[0]));
+					let data1Iso = data1.toISOString();
+					alumDataNa = data1Iso;
+
+				};
+				//CREATE
+				let nouAlumne = new models.Alumne({
 					nomAlumne: alumNomUp,
 					cognomAlumne1: alumCog1Up,
 					cognomAlumne2: alumCog2Up,
-					dataNaixement: alum.naixement,
+					dataNaixement: alumDataNa,
 					seguretatSoc: alum.sSocial,
 
 //no sé si serveix	codialumneola: req.session.user.centre._id,
@@ -123,8 +139,10 @@ exports.create = function (req, res){
 
 				});
 				nouAlumne.save(function(error){
+
 					if (error) {
 						return res.json(error);
+
 					} else {
 						if (req.session.user.mestre === "tutor"){
 								res.send('/list');
@@ -135,7 +153,12 @@ exports.create = function (req, res){
 						//return res.json(nouAlumne);
 					}
 				});
-			};
+			} else {
+
+				//Si l'alumne SI existeix
+				console.log('Alumne trobat: ', alumne[0].nomAlumne, alumne[0].cognomAlumne1, alumne[0].cognomAlumne2);
+				res.send('existeix');
+			}
 		});
 	}
 };
