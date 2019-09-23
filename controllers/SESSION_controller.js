@@ -1,11 +1,12 @@
 'use strict';
-var models = require('../models/index');
-var bcrypt = require('bcrypt');
-//var jwt = require('jsonwebtoken');
+
+const models = require('../models/index');
+const bcrypt = require('bcrypt');
+//let jwt = require('jsonwebtoken');
 
 exports.login = function (req, res){
-	var email = req.body.email;
-	var password = req.body.password;
+	let email = req.body.email;
+	let password = req.body.password;
 	console.log('EMAIL: ' + email);
 	console.log('PWD: ' + password);
 
@@ -26,7 +27,7 @@ exports.login = function (req, res){
 				//console.log('PWD OK');
 				req.session.user = user;
 				if(req.session.user.horari){
-					var horariId = req.session.user.horari;
+					let horariId = req.session.user.horari;
 					models.Horari.find({_id: horariId}, function(err, horari){
 						if(err){
 							console.log(err);
@@ -82,15 +83,15 @@ exports.new = function(req, res) {
 			}	
 		}
 	} else {
-		var msg =  req.flash('loginMsg');
+		let msg =  req.flash('loginMsg');
 		res.render('home', { loginMsg: msg, title: 'AppEscola',  page_name:'home'});
 	}
 };
 
 
 exports.loginCentre = function(req, res){
-	var email = req.body.email;
-	var password = req.body.password;
+	let email = req.body.email;
+	let password = req.body.password;
 
 	models.Centre.findOne({email: email})
 //	.populate('horari centre')

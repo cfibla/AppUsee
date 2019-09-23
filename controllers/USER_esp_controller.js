@@ -1,4 +1,4 @@
-var models = require('../models/index');
+const models = require('../models/index');
 
 // Nou user GET
 exports.nouUser = function(req, res) {
@@ -8,7 +8,7 @@ exports.nouUser = function(req, res) {
 // Nou user POST
 exports.createUser = function (req, res){
 
-	var user_ESP = req.body;
+	let user_ESP = req.body;
 	
 	if (!user.email||!user.nom||!user.cognom||!user.password){
 		models.User.find(function(error, docs){
@@ -20,7 +20,7 @@ exports.createUser = function (req, res){
 		});
 	} else {
 
-	var nouUser_ESP = new models.UserEsp({
+	let nouUser_ESP = new models.UserEsp({
 		email: user_ESP.email,
 		nom: user_ESP.nom,
 		cognom: user_ESP.cognom,

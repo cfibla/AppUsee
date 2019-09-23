@@ -1,5 +1,6 @@
 'use strict';
-var models = require('../models/index');
+
+const models = require('../models/index');
 
 exports.main = function (req, res) {
 	console.log('admin main');
@@ -48,7 +49,7 @@ exports.canviCurs = function (req, res) {
 			console.log(error);
 		} else {
 			console.log('canvi de curs');
-			for(var i=0; i < alumnes.length; i++) {
+			for(let i=0; i < alumnes.length; i++) {
 				console.log(alumnes[i].nomAlumne +' '+ alumnes[i].cognomAlumne1 +': '+ alumnes[i].curs);
 
 				if (alumnes[i].curs=='P3 A'){

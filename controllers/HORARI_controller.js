@@ -1,11 +1,11 @@
-var models = require('../models/index');
-var moment = require('moment');
+const models = require('../models/index');
+const moment = require('moment');
 
 //CONF. HORARI - GET
 exports.config = function (req, res) {
-	var msg =  req.flash('horariMsg');
-	var usr=req.session.user;
-	var usrId = usr;
+	let msg =  req.flash('horariMsg');
+	let usr=req.session.user;
+	let usrId = usr;
 
 	models.User.findById(usrId)
 		.populate('horari centre')
@@ -14,7 +14,7 @@ exports.config = function (req, res) {
 			res.json(error);
 		} else {
 			req.session.user = user;
-			var horariId = user.horari;
+			let horariId = user.horari;
 			models.Horari.findById(horariId, function(error, horariFind){
 				if (error) {
 					return res.json(error);
@@ -29,30 +29,30 @@ exports.config = function (req, res) {
 
 //HORARI - CREATE
 exports.create = function (req, res) {
-	var horari = req.body;
-	var usr=req.session.user;
-	var nom = usr.nom + " " + usr.cognom;
-	var usrId = usr._id;
-	var mestre = req.session.user.mestre;
+	let horari = req.body;
+	let usr=req.session.user;
+	let nom = usr.nom + " " + usr.cognom;
+	let usrId = usr._id;
+	let mestre = req.session.user.mestre;
 
-	var inici = moment(horari.horariInici, 'DD/MM/YYYY');
-	var final = moment(horari.horariFinal, 'DD/MM/YYYY');
-	var dataI = moment(inici).format('DD/MM/YYYY');
-	var dataF = moment(final).format('DD/MM/YYYY');
+	let inici = moment(horari.horariInici, 'DD/MM/YYYY');
+	let final = moment(horari.horariFinal, 'DD/MM/YYYY');
+	let dataI = moment(inici).format('DD/MM/YYYY');
+	let dataF = moment(final).format('DD/MM/YYYY');
 	//MENOS DE UNA SEMANA
 	//console.log(final.diff(inici, 'days'));
 	if (final.diff(inici, 'days')<13){
 		console.log("ERROR: MENOS DE DOS SEMANAS");
 		final = moment(inici).add(14,'days');
 	}
-	var nouHorari = new models.Horari(
+	let nouHorari = new models.Horari(
 		{ dataIni: dataI,
 			dataFi: dataF
 		}
 	);
 	for(i=inici; i<=final; i=moment(i).add(1,'days')){
-		var momentData = moment(i).format('DD/MM/YYYY');
-		var iDia = i.day();
+		let momentData = moment(i).format('DD/MM/YYYY');
+		let iDia = i.day();
 		nouHorari.dades.push({
 			data: momentData,
 			dia: iDia,
@@ -114,8 +114,8 @@ exports.create = function (req, res) {
 		});
 	};
 	/*ELIMINAR SABADOS Y DOMINGOS*/
-	var horariLength = nouHorari.dades.length;
-	for (var i = horariLength - 1; i >= 0; i--) {
+	let horariLength = nouHorari.dades.length;
+	for (let i = horariLength - 1; i >= 0; i--) {
 	    if (nouHorari.dades[i].dia==0 || nouHorari.dades[i].dia==6) {
 			nouHorari.dades.splice(i,1);
 		}
@@ -147,31 +147,31 @@ exports.create = function (req, res) {
 
 //CONF. HORARI - UPDATE
 exports.update = function (req, res){
-	var horariReq = req.body;
-	var usr=req.session.user;
-	var nom = usr.nom + " " + usr.cognom;
-	var horariId = usr.horari;
-	var iniciReq = moment(horariReq.horariInici, 'DD/MM/YYYY');
-	var finalReq = moment(horariReq.horariFinal, 'DD/MM/YYYY');
+	let horariReq = req.body;
+	let usr=req.session.user;
+	let nom = usr.nom + " " + usr.cognom;
+	let horariId = usr.horari;
+	let iniciReq = moment(horariReq.horariInici, 'DD/MM/YYYY');
+	let finalReq = moment(horariReq.horariFinal, 'DD/MM/YYYY');
 
 	models.Horari.findById(horariId, function(error, horari){
-		var lgt = horari.dades.length-1;
-		var inici = moment(horari.dades[0].data, 'DD/MM/YYYY');
-		var iniciAnt = moment(inici).subtract(1,'days');
-		var final = moment(horari.dades[lgt].data, 'DD/MM/YYYY');
-		var finalPost = moment(final).add(1,'days');
+		let lgt = horari.dades.length-1;
+		let inici = moment(horari.dades[0].data, 'DD/MM/YYYY');
+		let iniciAnt = moment(inici).subtract(1,'days');
+		let final = moment(horari.dades[lgt].data, 'DD/MM/YYYY');
+		let finalPost = moment(final).add(1,'days');
 
 		function upd(){
 			horari.nom = nom;
-			var dataI = moment(iniciReq).format('DD/MM/YYYY');
-			var dataF = moment(finalReq).format('DD/MM/YYYY');
+			let dataI = moment(iniciReq).format('DD/MM/YYYY');
+			let dataF = moment(finalReq).format('DD/MM/YYYY');
 			horari.dataIni = dataI;
 			horari.dataFi = dataF;
 			horari.areasArray = [];
 			//console.log(horariReq);
 			console.log('INICI: '+ dataI);
 			console.log('FINAL: ' + dataF);
-			for (var i=0; i < horari.dades.length; i++) {
+			for (let i=0; i < horari.dades.length; i++) {
 		        if (horari.dades[i].dia === 1) {
 		        	horari.dades[i].hora_1.h_inici = horariReq.horaIni_1dll;
 		        	horari.dades[i].hora_1.h_final = horariReq.horaFinal_1dll;
@@ -474,8 +474,8 @@ exports.update = function (req, res){
 		        }
 		    }
 	    	//ELIMINAR SABADOS Y DOMINGOS
-			var horariLength = horari.dades.length;
-			for (var i = horariLength - 1; i >= 0; i--) {
+			let horariLength = horari.dades.length;
+			for (let i = horariLength - 1; i >= 0; i--) {
 			    if (horari.dades[i].dia==0 || horari.dades[i].dia==6) {
 					horari.dades.splice(i,1);
 				}
@@ -485,8 +485,8 @@ exports.update = function (req, res){
 			Array.prototype.unique=function(a){
 				return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
 				});
-			var areasArray = [];
-			for (var i=0; i < 8; i++) {
+			let areasArray = [];
+			for (let i=0; i < 8; i++) {
 				areasArray.push	(horari.dades[i].hora_1.area);
 				areasArray.push	(horari.dades[i].hora_2.area);
 				areasArray.push	(horari.dades[i].hora_3.area);
@@ -644,9 +644,9 @@ exports.update = function (req, res){
 
 //DELETE horari
 exports.delete = function (req, res) {
-	var userHo = req.session.user;
-	var userId = req.params.id;
-	var horari = userHo.horari._id;
+	let userHo = req.session.user;
+	let userId = req.params.id;
+	let horari = userHo.horari._id;
 
 	models.Horari.findByIdAndRemove(horari, function(error, horari){
 		if (error){
@@ -666,8 +666,8 @@ exports.delete = function (req, res) {
 
 //HORARI DIARI - GET
 exports.diariGet = function (req, res) {
-	var usr = req.session.user;
-	var horariId = usr.horari;
+	let usr = req.session.user;
+	let horariId = usr.horari;
 /*
 		models.tweets.find({created_at: {$lt: last_displayed_date}}).
           sort({created_at: -1}).limit(20);
@@ -685,15 +685,15 @@ exports.diariGet = function (req, res) {
 
 //HORARI DIARI - POST
 exports.diariPost = function (req, res){
-	var horariReq = req.body;
-	var user = req.session.user;
-	var horariId = user.horari;
+	let horariReq = req.body;
+	let user = req.session.user;
+	let horariId = user.horari;
 
 	models.Horari.findById(horariId, function(error, horari){
-		var lgt = horari.dades.length-1;
+		let lgt = horari.dades.length-1;
 
 		function upd(){
-			for (var i=0; i < horari.dades.length; i++) {
+			for (let i=0; i < horari.dades.length; i++) {
 		        if (horari.dades[i].data == horariReq.diaData[i]) {
 		        	horari.dades[i].hora_1.prog = horariReq.prog1[i];
 		        	horari.dades[i].hora_2.prog = horariReq.prog2[i];
@@ -720,17 +720,17 @@ exports.diariPost = function (req, res){
 
 //HORARI ÀREES - GET
 exports.areaGet = function(req,res){
-	var user = req.session.user;
-	var horariId = user.horari;
-	var area = req.params.area;
+	let user = req.session.user;
+	let horariId = user.horari;
+	let area = req.params.area;
 	models.Horari.findById(horariId, function(err, hores){
 		if (err){
 			return res.json(err)
 		} else {
 			//Buscar aquí las clases
 			function search(nameKey, myArray){
-				var nouArray = [];
-			    for (var i=0; i < myArray.length; i++) {
+				let nouArray = [];
+			    for (let i=0; i < myArray.length; i++) {
 			        if (myArray[i].hora_1.area == nameKey) {
 			        	nouArray.push(myArray[i].hora_1);
 			        }
@@ -750,7 +750,7 @@ exports.areaGet = function(req,res){
 			    return nouArray;
 			}
 
-			var sessionsArea = search(area, hores.dades);
+			let sessionsArea = search(area, hores.dades);
 			//console.log('sessionsArea:' + sessionsArea);
 			console.log('area:' + area);
 			res.render('horari-arees', {horari:sessionsArea, area:area});
@@ -761,16 +761,16 @@ exports.areaGet = function(req,res){
 
 //HORARI AREES - UPDATE
 exports.areaPost = function (req, res){
-	var areaReq = req.body;
-	var user = req.session.user;
-	var horariId = user.horari;
-	var area = areaReq.area;
-	var areaJson=[];
+	let areaReq = req.body;
+	let user = req.session.user;
+	let horariId = user.horari;
+	let area = areaReq.area;
+	let areaJson=[];
 
 	console.log('AREA POST');
 
-	for (var i=0; i < areaReq.data.length; i++){
-		var aJson = {};
+	for (let i=0; i < areaReq.data.length; i++){
+		let aJson = {};
 
 		aJson.data = areaReq.data[i];
 		aJson.tema = areaReq.tema[i];
@@ -787,7 +787,7 @@ exports.areaPost = function (req, res){
 		if (error){
 			console.log(error);
 		} else {
-			for(var i=0; i < areaJson.length; i++){
+			for(let i=0; i < areaJson.length; i++){
 				if(areaJson[i].data){
 					for (h=0; h < horari.dades.length; h++) {
 						if(areaJson[i].data == horari.dades[h].hora_1.data && areaJson[i].area == horari.dades[h].hora_1.area){
@@ -839,9 +839,9 @@ exports.areaPost = function (req, res){
 
 //HORARI EE CURSOS-GET
 exports.cursGet = function (req, res){
-	var curs = req.params.curs;
-	var cursA = curs + ' A';
-	var cursB = curs + ' B';
+	let curs = req.params.curs;
+	let cursA = curs + ' A';
+	let cursB = curs + ' B';
 	models.Alumne.find({
 		'eeUsee': true,
 		centre: req.session.user.centre,

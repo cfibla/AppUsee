@@ -1,12 +1,14 @@
-var nodemailer = require('nodemailer');
+'use strict';
+
+const nodemailer = require('nodemailer');
 
 exports.sendEmail = function (req, res) {
 
-  var mail = req.body.mail;
-  var msg = req.body.msg;
-  var missatge = 'TEXT: ' + msg + '\n' + 'EMAIL: ' + mail;
+  let mail = req.body.mail;
+  let msg = req.body.msg;
+  let missatge = 'TEXT: ' + msg + '\n' + 'EMAIL: ' + mail;
 
-  var transporter = nodemailer.createTransport({
+  let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'charliesuper@gmail.com',
@@ -14,7 +16,7 @@ exports.sendEmail = function (req, res) {
     }
   });
 
-  var mailOptions = {
+  let mailOptions = {
     from: mail,
     to: 'charliesuper@gmail.com',
     subject: 'AppEscola',

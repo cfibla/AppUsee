@@ -1,5 +1,5 @@
 Beta 2.0.0
---?? ARREGLAR ALUMNE UPDATE (Maisae no funciona i la data tampoc)
+
 Botó canvi de curs no funciona
 repassar Horari controller --> update Funciona, areaPost y diariPost NO
 	provar en el router amb un altre controller
@@ -20,9 +20,10 @@ Faltes i retards ORDENATS PER DATA AL PDF
 Faltes Justificades
 aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
 Fer funcionar el buscador
-Afegir llistat "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
-MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)
 
+Afegir llistat "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
+
++ MODALS: Comprovar si User - Alumne existeix abans de posar-lo a la DB (copiar del loginModal)
 + Si USER === ee => select default SI en valorat i atès en eeUsee
 + Afegir valoració EE
 + Bootstrap 4.3.1 + mdb 4.8.9

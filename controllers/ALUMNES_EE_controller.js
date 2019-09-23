@@ -1,4 +1,6 @@
-var models = require('../models/index');
+'use strict';
+
+const models = require('../models/index');
 
 //Llstat d'alumnes EE- GET
 exports.list = function (req, res) {
@@ -33,7 +35,7 @@ exports.list = function (req, res) {
 
 //SEG_ACTUACIONS GET
 exports.actuaGet = function (req, res) {
-	var alumneId = req.params.id;
+	let alumneId = req.params.id;
 	models.Alumne.findById(alumneId)
 	.populate('centre')
 	.exec(function(error, alumne){
@@ -48,7 +50,7 @@ exports.actuaGet = function (req, res) {
 
 //SEG_CAD GET
 exports.cadGet = function (req, res) {
-	var alumneId = req.params.id;
+	let alumneId = req.params.id;
 	models.Alumne.findById(alumneId)
 	.populate('centre')
 	.exec(function(error, alumne){
@@ -63,7 +65,7 @@ exports.cadGet = function (req, res) {
 
 //SEG_ALTRES-REUNIONS GET
 exports.altresGet = function (req, res) {
-	var alumneId = req.params.id;
+	let alumneId = req.params.id;
 	models.Alumne.findById(alumneId)
 	.populate('centre')
 	.exec(function(error, alumne){
@@ -78,8 +80,8 @@ exports.altresGet = function (req, res) {
 
 //SEG_ACTUACIONS POST
 exports.actuaPost = function (req, res) {
-	var alumneId = req.params.id;
-	var alum = req.body;
+	let alumneId = req.params.id;
+	let alum = req.body;
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 	function (error, alumne){
 		if (error) res.json(error);
@@ -90,9 +92,9 @@ exports.actuaPost = function (req, res) {
 
 //SEG_ACTUACIONS UPDATE
 exports.actuaUpdate = function (req, res) {
-	var alumneId = req.params.id;
-	var alumneI = req.params.i;
-	var alum = req.body;
+	let alumneId = req.params.id;
+	let alumneI = req.params.i;
+	let alum = req.body;
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
 
@@ -105,8 +107,8 @@ exports.actuaUpdate = function (req, res) {
 
 //SEG_ACTUACIONS DELETE
 exports.actuaDelete = function (req, res) {
-	var alumneId = req.params.id;
-	var alumneI = req.params.i;
+	let alumneId = req.params.id;
+	let alumneI = req.params.i;
 
 	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
 		if (error) res.json(error);
@@ -123,8 +125,8 @@ exports.actuaDelete = function (req, res) {
 
 //CAD DELETE
 exports.cadDelete = function (req, res) {
-	var alumneId = req.params.id;
-	var alumneI = req.params.i;
+	let alumneId = req.params.id;
+	let alumneI = req.params.i;
 
 	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
 		if (error) res.json(error);
@@ -141,8 +143,8 @@ exports.cadDelete = function (req, res) {
 
 //ALTRES COORDINACIONS DELETE
 exports.altresDelete = function (req, res) {
-	var alumneId = req.params.id;
-	var alumneI = req.params.i;
+	let alumneId = req.params.id;
+	let alumneI = req.params.i;
 
 	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
 		if (error) res.json(error);
@@ -160,7 +162,7 @@ exports.altresDelete = function (req, res) {
 //Alta alumne - DELETE
 exports.alta = function (req, res) {
 
-	var alumneId = req.params.id;
+	let alumneId = req.params.id;
 	models.Alumne.findByIdAndUpdate(alumneId, {'eeUsee': false}, {new: true}, function(error, alumne){
 		if (error){
 			return res.json(error);

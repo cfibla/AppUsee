@@ -1,4 +1,6 @@
-var models = require('../models/index');
+'use strict';
+
+const models = require('../models/index');
 
 // Nova escola GET
 exports.nouCentre = function(req, res) {
@@ -8,7 +10,7 @@ exports.nouCentre = function(req, res) {
 // Nova escola POST
 exports.createCentre = function (req, res){
 
-	var escola = req.body;
+	let escola = req.body;
 	
 	if (!escola.codi||!escola.password||!escola.nom||!escola.telefon
 		||!escola.email||!escola.adreca||!escola.codiPostal||!escola.poblacio||!escola.provincia){
@@ -21,7 +23,7 @@ exports.createCentre = function (req, res){
 		});
 	} else {
 
-	var nouEscola = new models.Centre({
+	let nouEscola = new models.Centre({
 		codi: escola.codi,
 		password: escola.password,
 		nom: escola.nom,

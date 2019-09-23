@@ -1,4 +1,6 @@
-var models = require('../models/index');
+'use strict';
+
+const models = require('../models/index');
 
 //Llstat d'alumnes - GET
 exports.list = function (req, res) {
@@ -61,10 +63,10 @@ exports.create = function (req, res){
 			//Si l'alumne NO existeix	
 			//TODAY
 
-				var today = new Date();
-				var dd = today.getDate();
-				var mm = today.getMonth()+1; //January is 0!
-				var yyyy = today.getFullYear();
+				let today = new Date();
+				let dd = today.getDate();
+				let mm = today.getMonth()+1; //January is 0!
+				let yyyy = today.getFullYear();
 
 				if(dd<10) {
 					dd='0'+dd
@@ -167,8 +169,8 @@ exports.create = function (req, res){
 //Modificar dades - PUT
 exports.update = function (req, res){
 
-	var alumneId = req.params.id;
-	var alum = req.body;
+	let alumneId = req.params.id;
+	let alum = req.body;
 
 	models.Alumne.findByIdAndUpdate(alumneId,
 									{$set:{
@@ -205,7 +207,7 @@ exports.update = function (req, res){
 //Suprimir alumne - DELETE
 exports.suprD = function (req, res) {
 
-	var alumneId = req.params.id;
+	let alumneId = req.params.id;
 	models.Alumne.findByIdAndRemove(alumneId, function(error, alumne){
 		if (error){
 			return res.json(error);
@@ -218,10 +220,10 @@ exports.suprD = function (req, res) {
 //Assistència d'alumnes - GET
 exports.assisGet = function (req, res) {
 
-	var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
+	let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1; //January is 0!
+    let yyyy = today.getFullYear();
 
     if(dd<10) {
         dd='0'+dd
@@ -249,18 +251,18 @@ exports.assisGet = function (req, res) {
 
 //Assistència d'alumnes - POST
 exports.assisPost = function (req, res) {
-	var alum = req.body;
-	var alumI = alum.i;
+	let alum = req.body;
+	let alumI = alum.i;
 
 	function queryAssist(index,callback){
 		if (index < alumI){
-			var alumneId = alum['alumneId.'+index];
-			var alumArray = alum['arraylng.'+index];
-			var alumDate = alum['assist.date.'+index];
-			var alumMati = alum['assist.mati.'+index];
-			var alumTarda = alum['assist.tarda.'+index];
+			let alumneId = alum['alumneId.'+index];
+			let alumArray = alum['arraylng.'+index];
+			let alumDate = alum['assist.date.'+index];
+			let alumMati = alum['assist.mati.'+index];
+			let alumTarda = alum['assist.tarda.'+index];
 
-			var alumAssist = {};
+			let alumAssist = {};
 			alumAssist['date']= alumDate;
 			alumAssist['mati']= alumMati;
 			alumAssist['tarda'] = alumTarda;
@@ -268,10 +270,10 @@ exports.assisPost = function (req, res) {
 			if (!alumAssist['dataIso']){
 				//TO ISODATE
 				darr1 = alumDate.split("/");    // ["29", "1", "2016"]
-				var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
+				let dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
 				                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
-				//var data1Iso = data1.toISOString();
-				//var data1IsoFull = 'ISODate("'+ data1Iso +'")';
+				//let data1Iso = data1.toISOString();
+				//let data1IsoFull = 'ISODate("'+ data1Iso +'")';
 				                         //2016-01-28T18:30:00.000Z
 				alumAssist['dataIso'] = dataI;
 			}
@@ -310,7 +312,7 @@ exports.assisPost = function (req, res) {
 //Assistència DATA
 exports.assisData = function (req, res) {
 
-	var dataA = req.body.dataAssis;
+	let dataA = req.body.dataAssis;
 
 	models.Alumne.find({
 		centre: req.session.user.centre,
@@ -331,7 +333,7 @@ exports.assisData = function (req, res) {
 
 //IMPRIMIR ASSISTÈNCIA ENTRE 2 DATES - GET
 exports.assisAlumne = function (req, res) {
-	var alumneId = req.params.id;
+	let alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
 			return res.json(error);
@@ -344,10 +346,10 @@ exports.assisAlumne = function (req, res) {
 //Menjador - GET
 exports.menjaGet = function (req, res) {
 
-	var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
+	let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1; //January is 0!
+    let yyyy = today.getFullYear();
 
     if(dd<10) {
         dd='0'+dd
@@ -374,18 +376,18 @@ exports.menjaGet = function (req, res) {
 //Menjador - POST
 exports.menjaPost = function (req, res) {
 
-	var alum = req.body;
-	var alumI = alum.i;
+	let alum = req.body;
+	let alumI = alum.i;
 
-	for (var i =0; i < alumI; i ++) {
-		var alumneId = alum['alumneId.'+i];
-		var alumArray = alum['arraylng.'+i];
+	for (let i =0; i < alumI; i ++) {
+		let alumneId = alum['alumneId.'+i];
+		let alumArray = alum['arraylng.'+i];
 
-		var alumDateM = alum['menjador.dataMen.'+i];
-		var alumMenu = alum['menjador.menu.'+i];
+		let alumDateM = alum['menjador.dataMen.'+i];
+		let alumMenu = alum['menjador.menu.'+i];
 		
 
-		var alumMenjador = {};
+		let alumMenjador = {};
 
 		alumMenjador['dataMen']= alumDateM;
 		alumMenjador['menu']= alumMenu;
@@ -395,7 +397,7 @@ exports.menjaPost = function (req, res) {
 			//TO ISODATE
 
 			darr1 = alumDateM.split("/");    // ["29", "1", "2016"]
-			var dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
+			let dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
 			alumMenjador['dataIsoMen'] = dataI;
 		}
 		//ELIMINA menjador amb mateixa data
@@ -417,7 +419,7 @@ exports.menjaPost = function (req, res) {
 //Menjador DATA
 exports.menjaData = function (req, res) {
 
-	var dataM = req.body.dataMenja;
+	let dataM = req.body.dataMenja;
 
 	models.Alumne.find({
 		centre: req.session.user.centre,
@@ -438,7 +440,7 @@ exports.menjaData = function (req, res) {
 
 //Menjador - IMPRIMIR ASSISTÈNCIA ENTRE 2 DATES - GET
 exports.menjaAlumne = function (req, res) {
-	var alumneId = req.params.id;
+	let alumneId = req.params.id;
 	models.Alumne.findById(alumneId, function(error, alumne){
 		if (error) {
 			return res.json(error);
@@ -450,7 +452,7 @@ exports.menjaAlumne = function (req, res) {
 
 //REUNIONS PARES GET
 exports.reunioGet = function (req, res) {
-	var alumneId = req.params.id;
+	let alumneId = req.params.id;
 	models.Alumne.findById(alumneId)
 	.populate('centre')
 	.exec(function(error, alumne){
@@ -464,8 +466,8 @@ exports.reunioGet = function (req, res) {
 
 //REUNIONS POST
 exports.reunioPost = function (req, res) {
-	var alumneId = req.params.id;
-	var alum = req.body;
+	let alumneId = req.params.id;
+	let alum = req.body;
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {new: true, safe: true, upsert: true},
 	function (error, alumne){
 		if (error) res.json(error);
@@ -476,9 +478,9 @@ exports.reunioPost = function (req, res) {
 
 //REUNIONS UPDATE
 exports.reunioUpdate = function (req, res) {
-	var alumneId = req.params.id;
-	var alumneI = req.params.i;
-	var alum = req.body;
+	let alumneId = req.params.id;
+	let alumneI = req.params.i;
+	let alum = req.body;
 
 	models.Alumne.findByIdAndUpdate(alumneId, alum, {multi: true, safe: true, upsert: true},
 
@@ -494,8 +496,8 @@ exports.reunioUpdate = function (req, res) {
 
 //REUNIONS DELETE
 exports.reunioDel = function (req, res) {
-	var alumneId = req.params.id;
-	var alumneI = req.params.i;
+	let alumneId = req.params.id;
+	let alumneI = req.params.i;
 
 	models.Alumne.findOne({_id: alumneId}, function (error, alumne){
 		if (error) res.json(error);

@@ -1,5 +1,5 @@
-var models = require('../models/index');
-var bcrypt = require ('bcrypt');
+const models = require('../models/index');
+const bcrypt = require ('bcrypt');
 
 // Nou user GET
 exports.nouUser = function(req, res) {
@@ -8,8 +8,8 @@ exports.nouUser = function(req, res) {
 
 // Nou user POST
 exports.createUser = function (req, res){
-	var user = req.body;
-	var escolaId = user.escola;
+	let user = req.body;
+	let escolaId = user.escola;
 	if (user.email && user.nom && user.cognom && user.password && user.escola){
 
 		console.log('SI USER: '+user.email);
@@ -20,7 +20,7 @@ exports.createUser = function (req, res){
 	//crea escola
 		models.Centre.findOne({codi:escolaId}, function(error, eskola){
 			if (!eskola){
-			var nouEscola = new models.Centre({
+			let nouEscola = new models.Centre({
 				codi: user.escola,
 				nom: user.escolanom,
 				password: "",
@@ -39,7 +39,7 @@ exports.createUser = function (req, res){
 					if (error){
 						res.json(error);
 					} else {
-						var nouUser = new models.User({
+						let nouUser = new models.User({
 							email: user.email,
 							nom: user.nom,
 							cognom: user.cognom,
@@ -55,8 +55,8 @@ exports.createUser = function (req, res){
 								res.json(error);
 							} else {
 							//login
-								var email = user.email;
-								var password = user.password;
+								let email = user.email;
+								let password = user.password;
 								models.User.findOne({email: email, password: password}, function(error, user){
 									if(error){
 										res.json(error);
@@ -82,7 +82,7 @@ exports.createUser = function (req, res){
 					if (error){
 						res.json(error);
 					} else {
-						var nouUser = new models.User({
+						let nouUser = new models.User({
 							email: user.email,
 							nom: user.nom,
 							cognom: user.cognom,
@@ -99,8 +99,8 @@ exports.createUser = function (req, res){
 								
 							} else {
 							//login
-								var email = user.email;
-								var password = user.password;
+								let email = user.email;
+								let password = user.password;
 
 								models.User.findOne({email: email, password: password}, function(error, user){
 									if(error){
@@ -134,8 +134,8 @@ exports.createUser = function (req, res){
 //GET USER / USER-EE PROFILE 
 exports.profile = function (req, res){
 
-	var userId = req.session.user._id;
-	var msg =  req.flash('passwordMsg');
+	let userId = req.session.user._id;
+	let msg =  req.flash('passwordMsg');
 	
 	models.User.findById(userId, function(error, usuari){
 		if (usuari) {
@@ -156,8 +156,8 @@ exports.profile = function (req, res){
 //UPDATE user profile
 exports.update = function (req, res){
 
-	var userId = req.params.id;
-	var usuari = req.body;
+	let userId = req.params.id;
+	let usuari = req.body;
 
 	models.User.findByIdAndUpdate(userId, usuari, {new: true, safe: true, upsert: true},
 	function (error, usuari){
@@ -170,14 +170,14 @@ exports.update = function (req, res){
 };
 //UPDATE contrasenya - GET
 exports.updPwdGet = function (req, res){
-	var msg =  req.flash('passwordMsg');
+	let msg =  req.flash('passwordMsg');
 	res.render('contrasenya', {passwordMsg: msg});
 }
 
 //UPDATE contrasenya - POST
 exports.updPwdPost = function (req, res){
-	var pwd = req.body;
-	var userId = req.session.user._id;
+	let pwd = req.body;
+	let userId = req.session.user._id;
 
 	if(pwd.password1 != pwd.password2){
 		req.flash('passwordMsg', 'Les dues contrasenyes no coincideixen');
@@ -203,7 +203,7 @@ exports.updPwdPost = function (req, res){
 
 //DELETE user
 exports.delUser = function (req, res) {
-	var userId = req.params.id;
+	let userId = req.params.id;
 	models.User.findByIdAndRemove(userId, function(error, user){
 		if (error){
 			return res.json(error);

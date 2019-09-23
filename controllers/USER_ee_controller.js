@@ -1,4 +1,4 @@
-var models = require('../models/index');
+const models = require('../models/index');
 
 // Nou user GET
 exports.nouUser = function(req, res) {
@@ -7,13 +7,13 @@ exports.nouUser = function(req, res) {
 
 // Nou user POST
 exports.createUser = function (req, res){
-	var user = req.body;
-	var escolaId = user.escola;
+	let user = req.body;
+	let escolaId = user.escola;
 	if (user.email && user.nom && user.cognom && user.password && user.escola){
 	//crea escola
 		models.Centre.findOne({codi:escolaId}, function(error, eskola){
 			if (!eskola){
-			var nouEscola = new models.Centre({
+			let nouEscola = new models.Centre({
 				codi: user.escola,
 				nom: user.escolanom,
 				password: "",
@@ -32,7 +32,7 @@ exports.createUser = function (req, res){
 					if (error){
 						res.json(error);
 					} else {
-						var nouUser = new models.UserEe({
+						let nouUser = new models.UserEe({
 							email: user.email,
 							nom: user.nom,
 							cognom: user.cognom,
@@ -47,8 +47,8 @@ exports.createUser = function (req, res){
 								res.json(error);
 							} else {
 							//login
-								var email = user.email;
-								var password = user.password;
+								let email = user.email;
+								let password = user.password;
 
 								models.UserEe.findOne({email: email, password: password}, function(error, user){
 									if(error){
@@ -75,7 +75,7 @@ exports.createUser = function (req, res){
 					if (error){
 						res.json(error);
 					} else {
-						var nouUser = new models.UserEe({
+						let nouUser = new models.UserEe({
 							email: user.email,
 							nom: user.nom,
 							cognom: user.cognom,
@@ -90,8 +90,8 @@ exports.createUser = function (req, res){
 								res.json(error);					
 							} else {
 							//login
-								var email = user.email;
-								var password = user.password;
+								let email = user.email;
+								let password = user.password;
 
 								models.UserEe.findOne({email: email, password: password}, function(error, user){
 									if(error){
@@ -121,8 +121,8 @@ exports.createUser = function (req, res){
 //UPDATE user profile
 exports.update = function (req, res){
 
-	var userId = req.params.id;
-	var usuari = req.body;
+	let userId = req.params.id;
+	let usuari = req.body;
 
 	models.UserEe.findByIdAndUpdate(userId, usuari, {new: true, safe: true, upsert: true},
 	function (error, usuari){
@@ -137,7 +137,7 @@ exports.update = function (req, res){
 //DELETE user
 exports.delUser = function (req, res) {
 
-	var userId = req.params.id;
+	let userId = req.params.id;
 	models.UserEe.findByIdAndRemove(userId, function(error, user){
 		if (error){
 			return res.json(error);
