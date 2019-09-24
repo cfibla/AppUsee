@@ -35,7 +35,7 @@
     <script>
       let user = <%- JSON.stringify(user) %>;
       localStorage.setItem('userMestre', JSON.stringify(user));
-      var localS = localStorage.getItem('userMestre');
+      let localS = localStorage.getItem('userMestre');
       console.log(localS);
     </script>
   <% } %>

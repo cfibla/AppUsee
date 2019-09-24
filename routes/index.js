@@ -1,24 +1,26 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
 
-var adminController = require('../controllers/ADMIN_controller');
+const express = require('express');
+const router = express.Router();
 
-var alumController = require('../controllers/ALUMNES_controller');
-var alumEeController = require('../controllers/ALUMNES_EE_controller');
-var escolaController = require('../controllers/ESCOLA_controller');
-var centreController = require('../controllers/CENTRE_controller');
-var userController = require('../controllers/USER_controller');
-var userEeController = require('../controllers/USER_ee_controller');
-var horariController = require('../controllers/HORARI_controller');
-var sessionController = require('../controllers/SESSION_controller');
-var introController = require('../controllers/INTRO_controller');
-var emailController = require('../controllers/EMAIL_controller');
-var assistPDF = require('../public/javascripts/PDFs/assistencia');
-var segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
-var reunionsPDF = require('../public/javascripts/PDFs/reunionsPares');
-var actuacionsPDF = require('../public/javascripts/PDFs/actuacions');
-var infoCadPDF = require('../public/javascripts/PDFs/infocad');
-var altresCoordPDF = require('../public/javascripts/PDFs/altresCoord');
+const adminController = require('../controllers/ADMIN_controller');
+
+const alumController = require('../controllers/ALUMNES_controller');
+const alumEeController = require('../controllers/ALUMNES_EE_controller');
+const escolaController = require('../controllers/ESCOLA_controller');
+const centreController = require('../controllers/CENTRE_controller');
+const userController = require('../controllers/USER_controller');
+const userEeController = require('../controllers/USER_ee_controller');
+const horariController = require('../controllers/HORARI_controller');
+const sessionController = require('../controllers/SESSION_controller');
+const introController = require('../controllers/INTRO_controller');
+const emailController = require('../controllers/EMAIL_controller');
+const assistPDF = require('../public/javascripts/PDFs/assistencia');
+const segUseePDF = require('../public/javascripts/PDFs/seguimentUsee');
+const reunionsPDF = require('../public/javascripts/PDFs/reunionsPares');
+const actuacionsPDF = require('../public/javascripts/PDFs/actuacions');
+const infoCadPDF = require('../public/javascripts/PDFs/infocad');
+const altresCoordPDF = require('../public/javascripts/PDFs/altresCoord');
 
 //rutas LOGIN
 router.get('/home',					introController.inici);
@@ -26,19 +28,13 @@ router.get('/bloc',					introController.bloc);
 
 //rutas SESSION
 router.get('/',						sessionController.new);
-router.post('/login',				sessionController.login,
-									//sessionController.login_EE,
-									sessionController.loginCentre);
+router.post('/login',				sessionController.login, sessionController.loginCentre);
 router.get('/logout',				sessionController.loginRequired, sessionController.destroy);
 
-//Rutas ADMIN
+//rutas ADMIN
 router.get('/admin',				sessionController.loginRequired, adminController.main);
 router.get('/admin-users',			sessionController.loginRequired, adminController.users);
 router.get('/canvi-curs',			sessionController.loginRequired, adminController.canviCurs);
-
-//rutas ESCOLA
-//router.get('/escola_nou',			escolaController.nouEscola);
-//router.post('/escola_crear',		escolaController.createEscola);
 
 //rutas CENTRE
 router.get('/escola_nou',			centreController.nouCentre);
@@ -83,6 +79,7 @@ router.get('/menjadorA/:id',		sessionController.loginRequired, alumController.me
 
 //rutas ALUMNE EE
 router.get('/list_EE',						sessionController.loginRequired, alumEeController.list);
+router.get('/list-valorats',				sessionController.loginRequired, alumEeController.valorats);
 router.get('/seguiment-EE/actuacions/:id',	sessionController.loginRequired, alumEeController.actuaGet);
 router.get('/seguiment-EE/cad/:id',			sessionController.loginRequired, alumEeController.cadGet);
 router.get('/seguiment-EE/altres/:id',		sessionController.loginRequired, alumEeController.altresGet);

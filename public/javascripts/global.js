@@ -27,7 +27,8 @@ $(document).ready(function (){
   });
 
   //NAVBAR
-  var pth = window.location.pathname; // Returns path only
+  let pth = window.location.pathname; // Returns path only
+  let userMestre = localStorage.getItem('userMestre');
 
   if(pth==="/admin"){
     //$("#llista").addClass("navcolor");
@@ -68,18 +69,18 @@ $(document).ready(function (){
     $("#a4div").removeClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
   }
-
-  if(pth==="/list_EE" || pth === "/list-valorats"){
+/*
+  if(pth === "/list_EE" || pth === "/list-valorats"){
     $("#llista").addClass("navcolor");
     //$("#horari-menu").removeClass("navcolor");
     $("#situ").html("Atenció a la diversitat");
     $("#a1ee").html("Tots els alumnes").attr('href', "/list_EE");
-    $("a2ee").html("Valorats").attr("href", "/list-valorats");
+    $("#a2ee").html("Valorats").attr("href", "/list-valorats");
     $("#a1div").addClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
     $("#cursosDrop").removeClass("hidDrop");
   }
-
+*/
   if(pth.match("/list_EE/")){
     var areaUrl = pth.split("/");
     var decodeUrl = decodeURIComponent(areaUrl[2]);
@@ -99,15 +100,17 @@ $(document).ready(function (){
     $("#cursosDrop").addClass("navcolorside");
   }
 
+
   if(userMestre == '"ee"'){
     $("#llista").addClass("navcolor");
     $("#situ").html("Atenció a la diversitat");
     $("#a1ee").html("Tots els alumnes").attr('href', "/list_EE");
-    $("a2ee").html("Valorats").attr("href", "/list-valorats");
+    $("#a2ee").html("Valorats").attr("href", "/list-valorats");
     $("#a1div").addClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
     $("#cursosDrop").removeClass("hidDrop");
   }
+
 
   if(pth==="/assistencia"){
     $("#llista").addClass("navcolor");

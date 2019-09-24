@@ -33,6 +33,37 @@ exports.list = function (req, res) {
 
 };
 
+//Llstat d'alumnes EE- GET
+exports.valorats = function (req, res) {
+	console.log('LIST_EE');
+	console.log('CENTRE: ' + req.session.user.centre);
+	models.Alumne.find({
+		valorat: true,
+		centre: req.session.user.centre
+	}, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+	.populate('centre ee')
+	.exec(function(error, docs){
+		if (error){
+			console.log(error);
+		} else {
+			if(req.session.user.horari){
+				console.log('LIST_EE TIENE HORARI');
+				horariId = req.session.user.horari;
+				models.Horari.find({_id: horariId}, function(err, horariUser){
+					if(err){
+						console.log(err);
+					} else {
+						res.render('valorats',{Alumnes: docs, horari: horariUser});
+					}
+				});
+			} else {
+				res.render('valorats',{Alumnes: docs});
+			}
+		}
+	});
+
+};
+
 //SEG_ACTUACIONS GET
 exports.actuaGet = function (req, res) {
 	let alumneId = req.params.id;
