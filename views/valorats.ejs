@@ -1,159 +1,150 @@
 <% include ../public/javascripts/functions.ejs %>
 <div class="container containerMain col-md-10 offset-md-2">
   <div class="row">
-  <div class="container margetop clear" id="llista">
-    <%  if (Alumnes.length === 0) { %>
-      <p><br />
-        Encara no hi ha alumnes valorats
-      </p>
-    <% } else { %> 
-      <table class="table table-hover">
-        <thead>
-          <tr id="tutoriaRow" class="row m-0">
-            <th class="d-inline-block col-1">Núm.</th>
-            <th class="d-inline-block col-6">Cognoms i nom</th>
-            <th class="d-inline-block col-2">Curs</th>
-            <th class="d-inline-block col-3 centered"><span class="col-md-1"></span></th>
-            <%if(session.user.mestre === "tutor"){ %>
-          </tr>
-        </thead>
-        <tbody>
-          <%  var i;
-              for (i = 0; i < Alumnes.length; i++) {
-                var segonC;
-                if (Alumnes[i].cognomAlumne2 === ""){
-                  segonC = "";
-                } else {
-                  var segonC = " " + Alumnes[i].cognomAlumne2;
-                };
-                //DATA NAIXEMENT
-                var dataNa = Alumnes[i].dataNaixement;
-                var dd = dataNa.getDate();
-                var mm = dataNa.getMonth()+1; //January is 0!
-                var yyyy = dataNa.getFullYear();
+    <div class="container margetop clear" id="llista">
+      <%  if (Alumnes.length === 0) { %>
+        <p><br />
+          Encara no hi ha alumnes valorats
+        </p>
+      <% } else { %> 
+        <table class="table table-hover">
+          <thead>
+            <tr id="tutoriaRow" class="row m-0">
+              <th class="d-inline-block col-1">Núm.</th>
+              <th class="d-inline-block col-6">Cognoms i nom</th>
+              <th class="d-inline-block col-2">Curs</th>
+              <th class="d-inline-block col-3 centered"><span class="col-md-1"></span></th>
+          
+            </tr>
+          </thead>
+          <tbody>
+            <%  var i;
+                for (i = 0; i < Alumnes.length; i++) {
+                  var segonC;
+                  if (Alumnes[i].cognomAlumne2 === ""){
+                    segonC = "";
+                  } else {
+                    var segonC = " " + Alumnes[i].cognomAlumne2;
+                  };
+                  //DATA NAIXEMENT
+                  var dataNa = Alumnes[i].dataNaixement;
+                  var dd = dataNa.getDate();
+                  var mm = dataNa.getMonth()+1; //January is 0!
+                  var yyyy = dataNa.getFullYear();
 
-                if(dd < 10) {
-                    dd = '0' + dd
-                    } 
-                if(mm < 10) {
-                    mm = '0' + mm
-                    } 
-                dataNa = dd + '/' + mm + '/' + yyyy;
+                  if(dd < 10) {
+                      dd = '0' + dd
+                      } 
+                  if(mm < 10) {
+                      mm = '0' + mm
+                      } 
+                  dataNa = dd + '/' + mm + '/' + yyyy;
 
-                var dataISO = Alumnes[i].dataNaixement.toISOString() %>
+                  var dataISO = Alumnes[i].dataNaixement.toISOString() %>
 
-                <tr class="row m-0">
-                  <%
-                    var ample;
-                    if(session.user.mestre === "tutor"){
-                      var ample=8;
-                    }
-                    if(session.user.mestre === "ee"){
-                      var ample=6;
-                    }
-                  %>
-                  <td class="d-inline-block col-1"><%=i+1%></td>
-                  <td class="d-inline-block col-<%=ample%>">
-                    <a class="nom-link" id="btnDades" data-toggle="modal" data-tggle="tooltip" data-placement="top" title="Dades personals" href="/javascripts/modals/dades.ejs"
-                     data-nom="<%=Alumnes[i].nomAlumne%>"
-                     data-cognom="<%=Alumnes[i].cognomAlumne1%>"
-                     data-scognom="<%=Alumnes[i].cognomAlumne2%>"
-                     data-id="<%=Alumnes[i]._id%>"
-                     data-dtan="<%=dataNa%>"
-                     data-segsoc="<%=Alumnes[i].seguretatSoc%>"
-                     data-mail="<%=Alumnes[i].mailAlum%>"
-                     data-tel="<%=Alumnes[i].telefon%>"
-                     data-escola="<%=Alumnes[i].centre.codi%>"
-                     data-nomescola="<%=Alumnes[i].centre.nom%>"
-                     data-curs="<%=Alumnes[i].curs%>"
-                     data-atdiv="<%=Alumnes[i].eeUsee%>"
-                     data-rep="<%=Alumnes[i].radios[0]%>"
-                     data-ail="<%=Alumnes[i].checks[2]%>"
-                     data-ss="<%=Alumnes[i].checks[29]%>"
-                     data-obs="<%=Alumnes[i].observacions%>"
-                     data-pi="<%=Alumnes[i].radios[15]%>"
-                     data-curri="<%=Alumnes[i].checks[16]%>"
-                     data-met="<%=Alumnes[i].checks[17]%>"
-                     data-cond="<%=Alumnes[i].checks[18]%>"
-                     data-cat="<%=Alumnes[i].checks[19]%>"
-                     data-cast="<%=Alumnes[i].checks[20]%>"
-                     data-mat="<%=Alumnes[i].checks[21]%>"
-                     data-medin="<%=Alumnes[i].checks[22]%>"
-                     data-medis="<%=Alumnes[i].checks[23]%>"
-                     data-efis="<%=Alumnes[i].checks[24]%>"
-                     data-art="<%=Alumnes[i].checks[25]%>"
-                     data-mtrl="<%=Alumnes[i].radios[5]%>"
-                     data-adeq="<%=Alumnes[i].radios[6]%>"
-                     data-mat2="<%=Alumnes[i].checks[26]%>"
-                     data-cat2="<%=Alumnes[i].checks[27]%>"
-                     data-med2="<%=Alumnes[i].checks[28]%>"
-                     data-fder="<%=Alumnes[i].radios[7]%>"
-                     data-der="<%=Alumnes[i].derivacio%>"
-                     data-motder="<%=Alumnes[i].motiuDer%>"
-                     data-eeusee="<%=Alumnes[i].eeUsee%>"
-                     data-valorat="<%=Alumnes[i].valorat%>"
-                     data-segdiv="<%=Alumnes[i].checks[0]%>"
-                     data-beca="<%=Alumnes[i].radios[1]%>"
-                     data-cdim="<%=Alumnes[i].radios[2]%>"
-                     data-pdim="<%=Alumnes[i].percentDim%>"
-                     data-eap="<%=Alumnes[i].radios[4]%>"
-                     data-anyval="<%=Alumnes[i].anyVal%>"
-                     data-dic="<%=Alumnes[i].radios[3]%>"
-                     data-mdic="<%=Alumnes[i].motiuDic%>"
-                     data-ceap="<%=Alumnes[i].checks[5]%>"
-                     data-tseap="<%=Alumnes[i].checks[6]%>"
-                     data-credag="<%=Alumnes[i].checks[7]%>"
-                     data-credv="<%=Alumnes[i].checks[8]%>"
-                     data-csmij="<%=Alumnes[i].checks[9]%>"
-                     data-seetdic="<%=Alumnes[i].checks[10]%>"
-                     data-cdiap="<%=Alumnes[i].checks[11]%>"
-                     data-ped="<%=Alumnes[i].checks[12]%>"
-                     data-nped="<%=Alumnes[i].checks[13]%>"
-                     data-altresesp="<%=Alumnes[i].checks[14]%>"
-                     data-esp="<%=Alumnes[i].altresEsp%>"
-                     data-serpriv="<%=Alumnes[i].atServPrivats%>"
-                     data-valorat="<%=Alumnes[i].valorat%>"
+                  <tr class="row m-0">
+                    <%
+                      var ample;
+                      if(session.user.mestre === "tutor"){
+                        var ample=8;
+                      }
+                      if(session.user.mestre === "ee"){
+                        var ample=6;
+                      }
+                    %>
+                    <td class="d-inline-block col-1"><%=i+1%></td>
+                    <td class="d-inline-block col-<%=ample%>">
+                      <a class="nom-link" id="btnDades" data-toggle="modal" data-tggle="tooltip" data-placement="top" title="Dades personals" href="/javascripts/modals/dades.ejs"
+                       data-nom="<%=Alumnes[i].nomAlumne%>"
+                       data-cognom="<%=Alumnes[i].cognomAlumne1%>"
+                       data-scognom="<%=Alumnes[i].cognomAlumne2%>"
+                       data-id="<%=Alumnes[i]._id%>"
+                       data-dtan="<%=dataNa%>"
+                       data-segsoc="<%=Alumnes[i].seguretatSoc%>"
+                       data-mail="<%=Alumnes[i].mailAlum%>"
+                       data-tel="<%=Alumnes[i].telefon%>"
+                       data-escola="<%=Alumnes[i].centre.codi%>"
+                       data-nomescola="<%=Alumnes[i].centre.nom%>"
+                       data-curs="<%=Alumnes[i].curs%>"
+                       data-atdiv="<%=Alumnes[i].eeUsee%>"
+                       data-rep="<%=Alumnes[i].radios[0]%>"
+                       data-ail="<%=Alumnes[i].checks[2]%>"
+                       data-ss="<%=Alumnes[i].checks[29]%>"
+                       data-obs="<%=Alumnes[i].observacions%>"
+                       data-pi="<%=Alumnes[i].radios[15]%>"
+                       data-curri="<%=Alumnes[i].checks[16]%>"
+                       data-met="<%=Alumnes[i].checks[17]%>"
+                       data-cond="<%=Alumnes[i].checks[18]%>"
+                       data-cat="<%=Alumnes[i].checks[19]%>"
+                       data-cast="<%=Alumnes[i].checks[20]%>"
+                       data-mat="<%=Alumnes[i].checks[21]%>"
+                       data-medin="<%=Alumnes[i].checks[22]%>"
+                       data-medis="<%=Alumnes[i].checks[23]%>"
+                       data-efis="<%=Alumnes[i].checks[24]%>"
+                       data-art="<%=Alumnes[i].checks[25]%>"
+                       data-mtrl="<%=Alumnes[i].radios[5]%>"
+                       data-adeq="<%=Alumnes[i].radios[6]%>"
+                       data-mat2="<%=Alumnes[i].checks[26]%>"
+                       data-cat2="<%=Alumnes[i].checks[27]%>"
+                       data-med2="<%=Alumnes[i].checks[28]%>"
+                       data-fder="<%=Alumnes[i].radios[7]%>"
+                       data-der="<%=Alumnes[i].derivacio%>"
+                       data-motder="<%=Alumnes[i].motiuDer%>"
+                       data-eeusee="<%=Alumnes[i].eeUsee%>"
+                       data-valorat="<%=Alumnes[i].valorat%>"
+                       data-segdiv="<%=Alumnes[i].checks[0]%>"
+                       data-beca="<%=Alumnes[i].radios[1]%>"
+                       data-cdim="<%=Alumnes[i].radios[2]%>"
+                       data-pdim="<%=Alumnes[i].percentDim%>"
+                       data-eap="<%=Alumnes[i].radios[4]%>"
+                       data-anyval="<%=Alumnes[i].anyVal%>"
+                       data-dic="<%=Alumnes[i].radios[3]%>"
+                       data-mdic="<%=Alumnes[i].motiuDic%>"
+                       data-ceap="<%=Alumnes[i].checks[5]%>"
+                       data-tseap="<%=Alumnes[i].checks[6]%>"
+                       data-credag="<%=Alumnes[i].checks[7]%>"
+                       data-credv="<%=Alumnes[i].checks[8]%>"
+                       data-csmij="<%=Alumnes[i].checks[9]%>"
+                       data-seetdic="<%=Alumnes[i].checks[10]%>"
+                       data-cdiap="<%=Alumnes[i].checks[11]%>"
+                       data-ped="<%=Alumnes[i].checks[12]%>"
+                       data-nped="<%=Alumnes[i].checks[13]%>"
+                       data-altresesp="<%=Alumnes[i].checks[14]%>"
+                       data-esp="<%=Alumnes[i].altresEsp%>"
+                       data-serpriv="<%=Alumnes[i].atServPrivats%>"
+                       data-valorat="<%=Alumnes[i].valorat%>"
 
-                     data-target="#dadesModal"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></a></td>
+                       data-target="#dadesModal"><%=Alumnes[i].cognomAlumne1 + segonC + ", " + Alumnes[i].nomAlumne%></a>
+                    </td>
 
-                  <td class="d-inline-block col-2"><%=Alumnes[i].curs%></td>
-                  <td class="d-inline-block col-3">
-
-                    <span class="col-md-1">
-                      <a data-tggle="tooltip" data-placement="top" title="Entrevistes pares" href="/reunions-pares/<%=Alumnes[i].id%>"><i class="fa fa-file-text-o gris" aria-hidden="true"></i></a>
-                    </span>
-                    <span class="col-md-1">
-                      <a data-tggle="tooltip" data-placement="top" title="Reunions seguiment" href="/seguiment-EE/actuacions/<%=Alumnes[i].id%>"><i class="fa fa-pencil gris" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                    <span class="col-md-1">
-                      <a data-tggle="tooltip" data-placement="top" title="Imprimir seguiment" href="/print_EE/<%=Alumnes[i].id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                  </td>
-                </tr> 
-              <% } %>
-            
-                
-        </tbody>
-      </table>
-<% } %>
-      <!-- BUTTON AFEGIR -->
-      <%var cursMestre;
-        if (session.user.mestre === "tutor") {
-            var cursMestre = session.user.curs
-          };
-        if (session.user.mestre === "ee") {
-            var cursMestre = ""
-          };
-        %>
-      <div class="clearfix">
-        <a data-toggle="modal" class="btn btn-default float-right" id="btnAfegir" role="button" href="/javascripts/modals/nouAlumne.ejs"
-        data-escola="<%=session.user.escola%>"
-        data-curs="<%=cursMestre%>"
-        data-usr="<%=session.user.mestre%>"
-        data-target="#afegirModal"><i class="fa fa-plus"></i> Afegir alumnes</a>
-      </div>
+                    <td class="d-inline-block col-2"><%=Alumnes[i].curs%></td>
+                    <td class="d-inline-block col-3">
+                      <span class="col-md-1">
+                        <a data-tggle="tooltip" data-placement="top" title="Entrevistes pares" href="/reunions-pares/<%=Alumnes[i].id%>"><i class="fa fa-file-text-o gris" aria-hidden="true"></i></a>
+                      </span>
+                      <span class="col-md-1">
+                        <a data-tggle="tooltip" data-placement="top" title="Reunions seguiment" href="/seguiment-EE/actuacions/<%=Alumnes[i].id%>"><i class="fa fa-pencil gris" aria-hidden="true"></i>
+                        </a>
+                      </span>
+                      <span class="col-md-1">
+                        <a data-tggle="tooltip" data-placement="top" title="Imprimir seguiment" href="/print_EE/<%=Alumnes[i].id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true"></i>
+                        </a>
+                      </span>
+                    </td>
+                  </tr> 
+                <% } %>
+          </tbody>
+        </table>
+    <% } %>
+        <!-- BUTTON AFEGIR -->
+        <%var cursMestre = ""; %>
+        <div class="clearfix">
+          <a data-toggle="modal" class="btn btn-default float-right" id="btnAfegir" role="button" href="/javascripts/modals/nouAlumne.ejs"
+          data-escola="<%=session.user.escola%>"
+          data-curs="<%=cursMestre%>"
+          data-usr="<%=session.user.mestre%>"
+          data-target="#afegirModal"><i class="fa fa-plus"></i> Afegir alumnes</a>
+        </div>
     </div>
   </div>
 </div>
