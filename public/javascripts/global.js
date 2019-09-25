@@ -100,7 +100,6 @@ $(document).ready(function (){
     $("#cursosDrop").addClass("navcolorside");
   }
 
-
   if(userMestre == '"ee"'){
     $("#llista").addClass("navcolor");
     $("#situ").html("Atenció a la diversitat");
@@ -110,7 +109,6 @@ $(document).ready(function (){
     $("#areasDrop").addClass("hidDrop");
     $("#cursosDrop").removeClass("hidDrop");
   }
-
 
   if(pth==="/assistencia"){
     $("#llista").addClass("navcolor");
@@ -126,6 +124,7 @@ $(document).ready(function (){
     $("#a4div").removeClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
   }
+
   if(pth==="/menjador"){
     $("#llista").addClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
@@ -139,7 +138,8 @@ $(document).ready(function (){
     $("#a4div").removeClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
   }
-    if(pth==="/usuari"){
+
+  if(pth==="/usuari"){
     $("#llista").removeClass("navcolor");
     $("#situ").html("El meu perfil");
     $("#a1").html("Dades personals").attr('href', "/usuari");
@@ -149,6 +149,7 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
   }
+
   if(pth==="/contrasenya"){
     $("#llista").removeClass("navcolor");
     $("#situ").html("El meu perfil");
@@ -159,6 +160,7 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
   }
+
   if(pth.match("/reunions-pares")){
     $("#llista").removeClass("navcolor");
     $("#situ").html("Reunions pares");
@@ -170,6 +172,7 @@ $(document).ready(function (){
     $("#areasDrop").addClass("hidDrop");
   */
   }
+
   if(pth.match("/seguiment-EE/actuacions/")){
     var areaUrl = pth.split("/");
     var id = decodeURIComponent(areaUrl[3]);
@@ -192,6 +195,7 @@ $(document).ready(function (){
     $("#a2divnav").removeClass("navcolorside hidDrop");
     $("#a3divnav").removeClass("hidBig hidDrop");
   }
+
   if(pth.match("/seguiment-EE/cad/")){
     var areaUrl = pth.split("/");
     var id = decodeURIComponent(areaUrl[3]);
@@ -214,6 +218,7 @@ $(document).ready(function (){
     $("#a2divnav").addClass("navcolorside").removeClass("hidDrop");
     $("#a3divnav").removeClass("hidBig hidDrop");
   }
+
   if(pth.match("/seguiment-EE/altres/")){
     var areaUrl = pth.split("/");
     var id = decodeURIComponent(areaUrl[3]);
@@ -236,6 +241,7 @@ $(document).ready(function (){
     $("#a2divnav").removeClass("navcolorside hidDrop");
     $("#a3divnav").removeClass("hidBig hidDrop").addClass("navcolorside");
   }
+
   if(pth==="/horari-config"){
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
@@ -252,7 +258,8 @@ $(document).ready(function (){
     $("#desaButton").removeClass("hidBig").attr('form', "horari_post");
     $("#horariDiariPost_2").removeClass("hidDrop");
   }
-    if(pth==="/horari-diari"){
+
+  if(pth==="/horari-diari"){
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -268,6 +275,7 @@ $(document).ready(function (){
     $("#desaButton").removeClass("hidBig").attr('form', "horari_post");
     $("#horariDiariPost_2").removeClass("hidDrop");
   }
+
   if(pth.match("/horari-area/")){
     var areaUrl = pth.split("/");
     var decodeUrl = decodeURIComponent(areaUrl[2]);
@@ -288,6 +296,32 @@ $(document).ready(function (){
     $("#desaButton").removeClass("hidBig").attr('form', "areas_post");
     $("#areasPost_2").removeClass("hidDrop");
   }
+
+  //CERCADOR D'ALUMNES
+  if(pth === "/cerca-cognom"){
+    if(userMestre == '"tutor"') {
+      $("#llista").addClass("navcolor");
+      $("#horari-menu").removeClass("navcolor");
+      $("#situ").html("Cercar alumnes");
+      $("#a1tutor").html("Tutoria").attr('href', "/list");
+      $("#a2tutor").html("Assistència").attr('href', "/assistencia");
+      $("#a3tutor").html("Menjador").attr('href', "/menjador");
+      $("#a1div").removeClass("navcolorside");
+      $("#a2div").removeClass("navcolorside");
+      $("#a3div").removeClass("navcolorside");
+      $("#a4div").removeClass("navcolorside");
+      $("#areasDrop").removeClass("hidDrop");
+    }
+    if(userMestre == '"ee"') {
+      $("#llista").addClass("navcolor");
+      $("#situ").html("Cercar alumnes");
+      $("#a1ee").html("Tots els alumnes").attr('href', "/list_EE");
+      $("#a2ee").html("Valorats").attr("href", "/list-valorats");
+      $("#a1div").addClass("navcolorside");
+      $("#areasDrop").addClass("hidDrop");
+      $("#cursosDrop").removeClass("hidDrop");
+    }
+  } 
 
 
 //TOOLTIPS
