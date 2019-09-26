@@ -349,6 +349,14 @@ nav a{
     font-weight: bold;
 }
 
+.lupa {
+     color:#fff;
+}
+
+.lupa:hover {
+    opacity: .5;
+}
+
 .hidDrop{
      display: none;
 }
