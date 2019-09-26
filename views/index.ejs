@@ -20,18 +20,21 @@
         <%}%>
         <th class="d-inline-block col-3 centered"><span class="col-md-1"></span></th>
         <%if(session.user.mestre === "tutor"){ %>
+
 <!--        <th class="col-md-2">
           <div class="btn-group">
             <button type="button" class="btn btn-default btn-sm" aria-haspopup="true" aria-expanded="false" onclick="afegirCol()"><span class="glyphicon glyphicon-plus"></span>
               Afegir
             </button>
           </div>
-        </th>
+        </th>-->
+
 <!--    <th>Pagament material</th>
         <th>Pagament sortides</th>
         <th>Drets d'imatge</th>
         <th>Piscina</th>
         <th>Al·lèrgies</th>-->
+
         <% } %>
       </tr>
     </thead>
@@ -39,10 +42,10 @@
     <% var i;
     for (i=0; i < Alumnes.length; i++) {
       var segonC;
-      if (Alumnes[i].cognomAlumne2===""){
+      if (Alumnes[i].cognomAlumne2 === ""){
         segonC = "";
       } else {
-        var segonC = " " +Alumnes[i].cognomAlumne2;
+        var segonC = " " + Alumnes[i].cognomAlumne2;
       };
       //DATA NAIXEMENT
     var dataNa = Alumnes[i].dataNaixement;
@@ -50,12 +53,12 @@
     var mm = dataNa.getMonth()+1; //January is 0!
     var yyyy = dataNa.getFullYear();
 
-    if(dd<10) {
-        dd='0'+dd
-        } 
-    if(mm<10) {
-        mm='0'+mm
-        } 
+    if(dd < 10) {
+        dd ='0' + dd
+    } 
+    if(mm < 10) {
+        mm ='0' + mm
+    } 
     dataNa = dd+'/'+mm+'/'+yyyy;
 
     var dataISO = Alumnes[i].dataNaixement.toISOString() %>
@@ -64,10 +67,10 @@
       <%
         var ample;
         if(session.user.mestre === "tutor"){
-          var ample=8;
+          var ample = 8;
         }
         if(session.user.mestre === "ee"){
-          var ample=6;
+          var ample = 6;
         }
       %>
       <td class="d-inline-block col-1"><%=i+1%></td>
