@@ -37,7 +37,8 @@ body {
         padding-top: 50px;
         top: 0;
         left: 0;
-        background: #2BBBAD;
+/*        background: #2BBBAD;*/
+        background: #fff;
     }
     .sidebarnav a
     {
@@ -95,7 +96,8 @@ body {
         padding-top: 50px;
         top: 0;
         left: 0;
-        background: #2BBBAD;
+ /*       background: #2BBBAD;*/
+        background: #fff;
     }
     .sidebar a
     {
@@ -137,14 +139,14 @@ body {
         padding-top: 1em;
         font-size: 150%;
         text-transform: uppercase;
-        color: #fff;
+        color: #2BBBAD;
     }
 
     #situee {
         padding-top: 1em;
         font-size: 180%;
         text-transform: uppercase;
-        color: #fff;
+        color: #2BBBAD;
     }
 
     .navcolorside {
@@ -554,7 +556,7 @@ span.glyphicon-user {
     text-align: left;
     font-size: 3em;
     font-weight: bold;
-    color: #fff;
+    color: #2BBBAD;
 }
 .curs-t2{
     text-align: left;

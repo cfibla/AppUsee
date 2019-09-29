@@ -149,18 +149,18 @@
       <td class="d-inline-block col-3">
         <% if(session.user.mestre === "tutor"){%>
         <span class="col-md-1">
-          <a data-tggle="tooltip" data-placement="top" title="Assistència" data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal"><i class="fa fa-calendar gris" aria-hidden="true"></i></a>
+          <a data-tggle="tooltip" data-placement="top" title="Assistència" data-toggle="modal" id="btnAssist" href="/javascripts/modals/assistencia.ejs" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-id="<%=Alumnes[i]._id%>" data-today="<%=today()%>" data-target="#assistModal"><i class="material-icons gris">date_range</i></a>
         </span>
         <span class="col-md-1">
-          <a data-tggle="tooltip" data-placement="top" title="Entrevistes pares" href="/reunions-pares/<%=Alumnes[i].id%>"><i class="fa fa-file-text-o gris" aria-hidden="true"></i></a>
+          <a data-tggle="tooltip" data-placement="top" title="Entrevistes pares" href="/reunions-pares/<%=Alumnes[i].id%>"><i class="material-icons gris">import_contacts</i></a>
         </span>
         <span class="col-md-1">
           <% if(Alumnes[i].eeUsee === true) {%>
-           <a data-tggle="tooltip" data-placement="top" title="Atenció a la diversitat" href="/seguiment-EE/actuacions/<%=Alumnes[i].id%>"><i class="fa fa-user-plus gris" aria-hidden="true"></i></a>
-          <%} else{%><i class="fa fa-user-plus grisfluix" aria-hidden="true"></i><% } %>
+           <a data-tggle="tooltip" data-placement="top" title="Atenció a la diversitat" href="/seguiment-EE/actuacions/<%=Alumnes[i].id%>"><i class="material-icons gris">people</i></a>
+          <%} else{%><i class="material-icons grisfluix">people</i><% } %>
         </span>
         <span class="col-md-1">
-          <a data-tggle="tooltip" data-placement="top" title="Elimina dades" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal"><i class="fa fa-close verm" aria-hidden="true"></i></a><% } %>
+          <a data-tggle="tooltip" data-placement="top" title="Elimina dades" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal"><i class="material-icons verm">delete_forever</i></a><% } %>
         </span>
         <% if(session.user.mestre === "ee"){ %>
           <span class="col-md-1">

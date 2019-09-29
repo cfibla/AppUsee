@@ -20,7 +20,6 @@ Faltes i retards ORDENATS PER DATA AL PDF
 Faltes Justificades
 
 aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
-LIST corregir view
 
 + Fer funcionar el buscador
 + Afegir llistat "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO
