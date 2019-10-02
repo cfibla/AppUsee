@@ -306,7 +306,7 @@ exports.assisPost = function (req, res) {
 
 			if (!alumAssist['dataIso']){
 				//TO ISODATE
-				darr1 = alumDate.split("/");    // ["29", "1", "2016"]
+				let darr1 = alumDate.split("/");    // ["29", "1", "2016"]
 				let dataI = new Date(parseInt(darr1[2]),parseInt(darr1[1])-1,parseInt(darr1[0]));
 				                         // Date {Fri Jan 29 2016 00:00:00 GMT+0530(utopia standard time)
 				//let data1Iso = data1.toISOString();

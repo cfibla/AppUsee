@@ -57,6 +57,7 @@ $(document).ready(function (){
   }
 
   if(pth==="/list"){
+    $("#div1tutor").addClass("divAsideSelected");
     $("#llista").addClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
     $("#situ").html("Llista tutoria");
@@ -84,6 +85,7 @@ $(document).ready(function (){
   if(pth.match("/list_EE/")){
     var areaUrl = pth.split("/");
     var decodeUrl = decodeURIComponent(areaUrl[2]);
+    $("#div1ee").addClass("divAsideSelected");
     $("#llista").addClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -112,6 +114,7 @@ $(document).ready(function (){
 
   if(pth==="/assistencia"){
     $("#llista").addClass("navcolor");
+    $("#div2tutor").addClass("divAsideSelected");
     $("#horari-menu").removeClass("navcolor");
     $("#assistencia").addClass("navcolor");
     $("#situ").html("Llista assistència");
@@ -127,6 +130,7 @@ $(document).ready(function (){
 
   if(pth==="/menjador"){
     $("#llista").addClass("navcolor");
+    $("#div3tutor").addClass("divAsideSelected");
     $("#horari-menu").removeClass("navcolor");
     $("#situ").html("Llista menjador");
     $("#a1tutor").html("Tutoria").attr('href', "/list");

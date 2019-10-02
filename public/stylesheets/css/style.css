@@ -96,8 +96,7 @@ body {
         padding-top: 50px;
         top: 0;
         left: 0;
- /*       background: #2BBBAD;*/
-        background: #fff;
+        border-right: 1px solid #2BBBAD;
     }
     .sidebar a
     {
@@ -155,6 +154,19 @@ body {
 
     .navcolorside a {
         color: #000;
+    }
+
+    .divAside {
+        padding-top: 6px;
+    }
+
+    .divAside:hover {
+        
+        border-right: 5px solid #008577 !important;
+    }
+    .divAsideSelected {
+        background: #7BDFD4;
+        border-right: 5px solid #008577;
     }
 
 }
@@ -459,7 +471,7 @@ table a:hover{
 /*FOOTER */
 .footer {
     position: absolute;
-    /*z-index: 9990;*/
+    z-index: 9990;
     right: 0;
     bottom: 0;
     left: 0;

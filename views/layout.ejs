@@ -156,14 +156,14 @@
   </nav>
   <!--ASIDE-->
   <% if (session.user) {%>
-    <aside class="col-md-2 sidebar hid">
+    <aside class="sidebar hid">
       <div class="col-md-12 curs-t" id="situ"></div>
       <div class="col-md-12 curs-t" id="situ2"></div>
       <% if (session.user.mestre==="tutor") {%>
         <div class="col-md-12 curs-t"><%=session.user.curs%></div>
-        <div class="nav-item" id="div1tutor"><a class="nav-link" id="a1tutor"></a></div>
-        <div class="nav-item" id="div2tutor"><a class="nav-link" id="a2tutor"></a></div>
-        <div class="nav-item" id="div3tutor"><a class="nav-link" id="a3tutor"></a></div>
+        <div class="nav-item divAside" id="div1tutor"><a class="nav-link" id="a1tutor"></a></div>
+        <div class="nav-item divAside" id="div2tutor"><a class="nav-link" id="a2tutor"></a></div>
+        <div class="nav-item divAside" id="div3tutor"><a class="nav-link" id="a3tutor"></a></div>
       <%}%>
       <% if (session.user.mestre==="ee") {%>
         <div class="nav-item" id="div1ee"><a class="nav-link" id="a1ee"></a></div>
