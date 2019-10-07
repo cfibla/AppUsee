@@ -15,11 +15,14 @@ Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
 Fer Buscador no visible en horaris
 accés usuaris DEMO
-/assisData falta menú aside
+
 Faltes i retards ORDENATS PER DATA AL PDF
 Faltes Justificades
 
 aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
+			En seguiment, iluminar menu actiu
+			No funcionen Modals seguiment
+			/assisData falta menú aside
 
 + Fer funcionar el buscador
 + Afegir llistat "valorats" al menu EE --> VIGILAR "Afegir alumnes" perquè SIEI sigui NO

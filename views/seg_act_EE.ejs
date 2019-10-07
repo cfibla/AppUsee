@@ -66,7 +66,7 @@
                       <td class="d-inline-block col-3">
                         <span class="col-md-1">
                           <a id="btnActuGet" href="/javascripts/modals/actuacionsEeGet.ejs" data-target="#actuModalGet" data-toggle="modal" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segActuacions[i].date%>"
-                            data-body = "<%=alumne.segActuacions[i].body%>" data-tggle="tooltip" data-placement="top" title="Veure"><i class="fa fa-eye gris" aria-hidden="true"></i>
+                            data-body = "<%=alumne.segActuacions[i].body%>" data-tggle="tooltip" data-placement="top" title="Veure"><i class="material-icons gris">delete_forever</i>
                           </a>
                         </span>
                         <% if(session.user.mestre === "ee"){ %>

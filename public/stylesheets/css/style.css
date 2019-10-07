@@ -98,16 +98,17 @@ body {
         left: 0;
         border-right: 1px solid #2BBBAD;
     }
-    .sidebar a
-    {
+
+    .sidebar a {
         color: #000;
         text-transform: uppercase;
         text-decoration: none;
     }
-    .sidebar a:hover
-    {
-        color: #7BDFD4;
+
+    .sidebar a:hover {
+        font-weight: 500;
     }
+
     .sidelink {
         padding: 20px;
     }
@@ -161,9 +162,9 @@ body {
     }
 
     .divAside:hover {
-        
         border-right: 5px solid #008577 !important;
     }
+
     .divAsideSelected {
         background: #7BDFD4;
         border-right: 5px solid #008577;
@@ -336,6 +337,7 @@ body {
     color: #fff;
     font-size: 3em;
 }
+
 .navbar {
     background: #0AAD9C;
     margin: 0PX;
@@ -373,6 +375,10 @@ nav a{
 
 .hidDrop{
      display: none;
+}
+
+.hidHidden{
+    visibility: hidden;
 }
 
 .jumbotron{
@@ -564,27 +570,34 @@ span.glyphicon-user {
     padding-bottom: 1em;
 }
 
-.curs-t{
+.curs-t {
     text-align: left;
     font-size: 3em;
     font-weight: bold;
     color: #2BBBAD;
 }
-.curs-t2{
+
+.curs-t-ee {
+    text-align: left;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+.curs-t2 {
     text-align: left;
     font-size: 1.2em;
     font-weight: bold;
 }
 
-.datep-t{
+.datep-t {
     margin-top:.5em;
 }
 
-.tablemarge{
+.tablemarge {
     margin-top:1em;
 }
 
-.textcenter{
+.textcenter {
     text-align: center;
 }
 

@@ -48,42 +48,42 @@
                       {punts="..."};
                     %>  
                     <tr class="row m-0">
-                      <td class="d-inline-block col-3">
+                      <td class="d-inline-block col-2">
                         <%=alumne.segActuacions[i].date%>
                       </td>
                       <td class="d-inline-block col-6">
                         <a href="#" title="<%=alumne.segActuacions[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segActuacions[i].body.substring(0,80) + punts%></a>
                       </td>
-                      <td class="d-inline-block col-3">
+                      <td class="d-inline-block col-4">
                         <span class="col-md-1">
                           <a id="btnActuGet" href="/javascripts/modals/actuacionsEeGet.ejs" data-target="#actuModalGet" data-toggle="modal" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segActuacions[i].date%>"
-                            data-body = "<%=alumne.segActuacions[i].body%>" data-tggle="tooltip" data-placement="top" title="Veure"><i class="fa fa-eye gris" aria-hidden="true"></i>
+                            data-body = "<%=alumne.segActuacions[i].body%>" data-tggle="tooltip" data-placement="top" title="Veure"><i class="material-icons gris">remove_red_eye</i>
                           </a>
                         </span>
                         <% if(session.user.mestre === "ee"){ %>
                         <span class="col-md-1">
-                          <a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                          <a id = "btnActuUpd" data-toggle="modal" href="/javascripts/modals/actuacionsEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalUpd" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="material-icons gris">edit</i>
                           </a>
                         </span>
                         <span class="col-md-1">
-                          <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="/actuacions/<%=i%>/<%=alumne._id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true" class="disabled"></i>
+                          <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="/actuacions/<%=i%>/<%=alumne._id%>" target="_blank"><i class="material-icons gris">printer</i>
                           </a>
                         </span>
                         <span class="col-md-1">
-                          <a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                          <a id = "btnActuDel" data-toggle="modal" href="/javascripts/modals/actuacionsEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>"   data-i="<%=i%>" data-dta = "<%=alumne.segActuacions[i].date%>" data-body = "<%=alumne.segActuacions[i].body%>" data-target="#actuModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="material-icons verm">delete_forever</i>
                           </a>
                         </span>
                         <% } else {%>
                             <span class="col-md-1">
-                            <a class="disabled" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                            <a class="disabled" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="material-icons grisfluix">edit</i>
                             </a>
                           </span> 
                           <span class="col-md-1">
-                            <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="/actuacions/<%=i%>/<%=alumne._id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true" class="disabled"></i>
+                            <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="/actuacions/<%=i%>/<%=alumne._id%>" target="_blank"><i class="material-icons gris">printer</i>
                           </a>
                           </span>
                           <span class="col-md-1">
-                            <a class="disabled" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                            <a class="disabled" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="material-icons grisfluix">delete_forever</i>
                             </a>
                           </span>
                         <% } %>

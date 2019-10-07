@@ -70,9 +70,11 @@ $(document).ready(function (){
     $("#a4div").removeClass("navcolorside");
     $("#areasDrop").addClass("hidDrop");
   }
-/*
-  if(pth === "/list_EE" || pth === "/list-valorats"){
+
+  if(pth === "/list_EE"){
     $("#llista").addClass("navcolor");
+    $("#div1ee").addClass("divAsideSelected");
+    $("#div3ee").addClass("hidHidden");
     //$("#horari-menu").removeClass("navcolor");
     $("#situ").html("Atenció a la diversitat");
     $("#a1ee").html("Tots els alumnes").attr('href', "/list_EE");
@@ -81,11 +83,24 @@ $(document).ready(function (){
     $("#areasDrop").addClass("hidDrop");
     $("#cursosDrop").removeClass("hidDrop");
   }
-*/
+
+  if(pth === "/list-valorats"){
+    $("#llista").addClass("navcolor");
+    $("#div2ee").addClass("divAsideSelected");
+    $("#div3ee").addClass("hidHidden");
+    //$("#horari-menu").removeClass("navcolor");
+    $("#situ").html("Atenció a la diversitat");
+    $("#a1ee").html("Tots els alumnes").attr('href', "/list_EE");
+    $("#a2ee").html("Valorats").attr("href", "/list-valorats");
+    $("#a1div").addClass("navcolorside");
+    $("#areasDrop").addClass("hidDrop");
+    $("#cursosDrop").removeClass("hidDrop");
+  }
+
   if(pth.match("/list_EE/")){
     var areaUrl = pth.split("/");
     var decodeUrl = decodeURIComponent(areaUrl[2]);
-    $("#div1ee").addClass("divAsideSelected");
+    $("#cursosDrop").addClass("divAsideSelected");
     $("#llista").addClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");

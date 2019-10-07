@@ -160,18 +160,19 @@
           <%} else{%><i class="material-icons grisfluix">people</i><% } %>
         </span>
         <span class="col-md-1">
-          <a data-tggle="tooltip" data-placement="top" title="Elimina dades" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal"><i class="material-icons verm">delete_forever</i></a><% } %>
+          <a data-tggle="tooltip" data-placement="top" title="Elimina dades" data-toggle="modal" id="btnDelete" href="/javascripts/modals/deleteAlumne.ejs" data-id="<%=Alumnes[i]._id%>" data-nom="<%=Alumnes[i].nomAlumne + " " + Alumnes[i].cognomAlumne1 + " " +Alumnes[i].cognomAlumne2%>" data-target="#deleteModal"><i class="material-icons verm">delete_forever</i></a>
         </span>
+        <% } %>
         <% if(session.user.mestre === "ee"){ %>
           <span class="col-md-1">
-            <a data-tggle="tooltip" data-placement="top" title="Reunions pares" href="/reunions-pares/<%=Alumnes[i].id%>"><i class="fa fa-file-text-o gris" aria-hidden="true"></i></a>
+            <a data-tggle="tooltip" data-placement="top" title="Reunions pares" href="/reunions-pares/<%=Alumnes[i].id%>"><i class="material-icons gris">import_contacts</i></a>
           </span>
           <span class="col-md-1">
-            <a data-tggle="tooltip" data-placement="top" title="Reunions seguiment" href="/seguiment-EE/actuacions/<%=Alumnes[i].id%>"><i class="fa fa-pencil gris" aria-hidden="true"></i>
+            <a data-tggle="tooltip" data-placement="top" title="Reunions seguiment" href="/seguiment-EE/actuacions/<%=Alumnes[i].id%>"><i class="material-icons gris">rss_feed</i></i>
             </a>
           </span>
           <span class="col-md-1">
-            <a data-tggle="tooltip" data-placement="top" title="Imprimir seguiment" href="/print_EE/<%=Alumnes[i].id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true"></i>
+            <a data-tggle="tooltip" data-placement="top" title="Imprimir seguiment" href="/print_EE/<%=Alumnes[i].id%>" target="_blank"><i class="material-icons gris">printer</i>
             </a>
           </span>
           <span class="col-md-1">
