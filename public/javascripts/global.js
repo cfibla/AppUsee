@@ -127,7 +127,7 @@ $(document).ready(function (){
     $("#cursosDrop").removeClass("hidDrop");
   }
 
-  if(pth==="/assistencia"){
+  if(pth === "/assistencia" || pth === "/assisData"){
     $("#llista").addClass("navcolor");
     $("#div2tutor").addClass("divAsideSelected");
     $("#horari-menu").removeClass("navcolor");
@@ -199,6 +199,7 @@ $(document).ready(function (){
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
+    $("#div1ee").addClass("divAsideSelected");
     $("#situ").html("Actuacions");
     $("#a1ee").html("Actuacions");
     $("#a2ee").html("Reunions CAD").attr('href', "/seguiment-EE/cad/" + id);
@@ -222,6 +223,7 @@ $(document).ready(function (){
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
+    $("#div2ee").addClass("divAsideSelected");
     $("#situ").html("Reunions CAD");
     $("#a1ee").html("Actuacions").attr('href', "/seguiment-EE/actuacions/" + id);
     $("#a2ee").html("Reunions CAD");
@@ -245,6 +247,7 @@ $(document).ready(function (){
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").removeClass("navcolor");
+    $("#div3ee").addClass("divAsideSelected");
     $("#situ").html("Altres Coord.");
     $("#a1ee").html("Actuacions").attr('href', "/seguiment-EE/actuacions/" + id);
     $("#a2ee").html("Reunions CAD").attr('href', "/seguiment-EE/cad/" + id);

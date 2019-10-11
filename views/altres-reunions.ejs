@@ -47,42 +47,42 @@
                       {punts="..."};
                     %>  
                     <tr class="row m-0">
-                      <td class="d-inline-block col-3">
+                      <td class="d-inline-block col-2">
                         <%=alumne.segAltresCoord[i].date%>
                       </td>
                       <td class="d-inline-block col-6">
                         <a href="#" title="<%=alumne.segAltresCoord[i].body%>" data-toggle="popover" data-trigger="hover"><%=alumne.segAltresCoord[i].body.substring(0,80) + punts%></a>
                         
                       </td>
-                      <td class="d-inline-block col-3">
+                      <td class="d-inline-block col-4">
                         <span class="col-md-1">
-                          <a id = "btnAltresCoordGet" data-toggle="modal" href="/javascripts/modals/altresCoordEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalGet" data-tggle="tooltip" data-placement="top" title="Veure"><i class="fa fa-eye gris" aria-hidden="true"></i>
+                          <a id = "btnAltresCoordGet" data-toggle="modal" href="/javascripts/modals/altresCoordEeGet.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-curs="<%=alumne.curs%>" data-dta = "<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalGet" data-tggle="tooltip" data-placement="top" title="Veure"><i class="material-icons gris">remove_red_eye</i>
                           </a>
                         </span>
                         <% if(session.user.mestre === "ee"){%>
                           <span class="col-md-1">
-                            <a id = "btnAltresUpd" data-toggle="modal" href="/javascripts/modals/altresCoordEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segAltresCoord[i].date%>" data-body="<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalUpd"data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                            <a id = "btnAltresUpd" data-toggle="modal" href="/javascripts/modals/altresCoordEeEdit.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segAltresCoord[i].date%>" data-body="<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalUpd"data-tggle="tooltip" data-placement="top" title="Modificar"><i class="material-icons gris">edit</i>
                             </a>
                           </span>
                           <span class="col-md-1">
-                            <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="/altresCoord/<%=i%>/<%=alumne._id%>" target="_blank"><i class="fa fa-print gris" aria-hidden="true" class="disabled"></i>
+                            <a data-tggle="tooltip" data-placement="top" title="Imprimir" href="/altresCoord/<%=i%>/<%=alumne._id%>" target="_blank"><i class="material-icons gris">printer</i>
                             </a>
                           </span>
                           <span class="col-md-1">
-                            <a id = "btnaltresCoordDel" data-toggle="modal" href="/javascripts/modals/altresCoordEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                            <a id = "btnaltresCoordDel" data-toggle="modal" href="/javascripts/modals/altresCoordEeDel.ejs" data-nom="<%=alumne.nomAlumne + " " + alumne.cognomAlumne1 + " " + alumne.cognomAlumne2%>" data-id="<%=alumne._id%>" data-curs="<%=alumne.curs%>" data-i="<%=i%>" data-dta="<%=alumne.segAltresCoord[i].date%>" data-body = "<%=alumne.segAltresCoord[i].body%>" data-target="#altresCoordModalDel" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="material-icons verm">delete_forever</i>
                             </a>
                           </span>
                           <% } else {%>
                               <span class="col-md-1">
-                              <a class="disabled" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="fa fa-pencil-square-o gris" aria-hidden="true"></i>
+                              <a class="disabled" data-tggle="tooltip" data-placement="top" title="Modificar"><i class="material-icons gris">edit</i>
                               </a>
                             </span> 
                             <span class="col-md-1">
-                              <a class="disabled" data-tggle="tooltip" data-placement="top" title="Imprimir" href="#" target="_blank"><i class="fa fa-print gris" aria-hidden="true"></i>
+                              <a class="disabled" data-tggle="tooltip" data-placement="top" title="Imprimir" href="#" target="_blank"><i class="material-icons gris">printer</i>
                               </a>
                             </span>
                             <span class="col-md-1">
-                              <a class="disabled" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="fa fa-close verm" aria-hidden="true"></i>
+                              <a class="disabled" data-tggle="tooltip" data-placement="top" title="Elimina"><i class="material-icons verm">delete_forever</i>
                               </a>
                             </span>
                             <% } %>
