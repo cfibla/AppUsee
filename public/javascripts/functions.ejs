@@ -20,7 +20,7 @@ today = function(){
 radioTrueFM = function(){
   var rt='';
   if (dataObj[0].mati === 'falta') {
-    rt ="checked";
+    rt = "checked";
     return rt;
   } else {
   return rt;
@@ -30,7 +30,18 @@ radioTrueFM = function(){
 radioTrueRM = function(){
   var rt='';
   if (dataObj[0].mati === 'retard') {
-    rt ="checked";
+    rt = "checked";
+    return rt;
+  } else {
+  return rt;
+  }
+};
+//RADIOTRUE-Justificant Tarda
+radioTrueJM = function(){
+  var rt='';
+  if (dataObj[0].justiMati === 'justimati') {
+    rt = "checked";
+    console.log('justificant MATI');
     return rt;
   } else {
   return rt;
@@ -40,7 +51,7 @@ radioTrueRM = function(){
 radioTrueFT = function(){
   var rt='';
   if (dataObj[0].tarda === 'falta') {
-    rt ="checked";
+    rt = "checked";
     return rt;
   } else {
   return rt;
@@ -50,7 +61,7 @@ radioTrueFT = function(){
 radioTrueRT = function(){
   var rt='';
   if (dataObj[0].tarda === 'retard') {
-    rt ="checked";
+    rt = "checked";
     return rt;
   } else {
   return rt;
@@ -59,8 +70,9 @@ radioTrueRT = function(){
 //RADIOTRUE-Justificant Tarda
 radioTrueJT = function(){
   var rt='';
-  if (dataObj[0].tarda === 'just') {
-    rt ="checked";
+  if (dataObj[0].justiTarda === 'justitarda') {
+    rt = "checked";
+    console.log('justificant TARDA');
     return rt;
   } else {
   return rt;

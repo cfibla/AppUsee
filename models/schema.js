@@ -58,7 +58,8 @@ module.exports = new mongoose.Schema ({
 		date: String,
 		mati: String,
 		tarda: String,
-		justificant: String,
+		justiMati: String,
+		justiTarda: String,
 		dataIso: Date
 	}],
 //MENJADOR

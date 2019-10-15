@@ -272,9 +272,8 @@ exports.assisGet = function (req, res) {
 
 	models.Alumne.find({
 		centre: req.session.user.centre,
-	/*	tutor: req.session.user, */
-		curs: req.session.user.curs}
-		, null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
+		curs: req.session.user.curs
+	} , null, {sort: {cognomAlumne1: 1, cognomAlumne2: 1, nomAlumne: 1}})
 	.populate('centre tutor')
 	.exec(function(error, alumnes){
 		if (error){
@@ -293,16 +292,20 @@ exports.assisPost = function (req, res) {
 
 	function queryAssist(index,callback){
 		if (index < alumI){
-			let alumneId = alum['alumneId.'+index];
-			let alumArray = alum['arraylng.'+index];
-			let alumDate = alum['assist.date.'+index];
-			let alumMati = alum['assist.mati.'+index];
-			let alumTarda = alum['assist.tarda.'+index];
+			let alumneId = alum['alumneId.' + index];
+			let alumArray = alum['arraylng.' + index];
+			let alumDate = alum['assist.date.' + index];
+			let alumMati = alum['assist.mati.' + index];
+			let alumTarda = alum['assist.tarda.' + index];
+			let alumJustiMati = alum['assist.justiMati.' + index];
+			let alumJustiTarda = alum['assist.justiTarda.' + index];
 
 			let alumAssist = {};
 			alumAssist['date']= alumDate;
 			alumAssist['mati']= alumMati;
 			alumAssist['tarda'] = alumTarda;
+			alumAssist['justiMati'] = alumJustiMati;
+			alumAssist['justiTarda'] = alumJustiTarda;
 
 			if (!alumAssist['dataIso']){
 				//TO ISODATE
@@ -325,23 +328,18 @@ exports.assisPost = function (req, res) {
 						models.Alumne.findByIdAndUpdate(alumneId, {$push: {assist: alumAssist}},{multi: true},
 							function (error, pushalumne){
 								if (error) res.json(error);
-								console.log('ALUMASSIST UPDATE '+alumneId+ ": " + JSON.stringify(alumAssist));
+								/*console.log('ALUMASSIST UPDATE '+alumneId+ ": " + JSON.stringify(alumAssist));*/
 						});
 					}
 				}
 			);
-			console.log('IF '+index);
 			queryAssist(index+1, callback);
 		} else {
 			callback();
-			console.log('ELSE');
 		}
 	}
 	queryAssist(0, function(){
-		console.log('PRE ASSISTENCIA');
 		setTimeout(function(){ res.redirect('/assistencia'); }, 3000);
-		
-		console.log('POST ASSISTENCIA');
 	})
 };
 
