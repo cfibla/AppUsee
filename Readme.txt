@@ -14,12 +14,11 @@ Protecció de dades
 Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
 Fer Buscador no visible en horaris
-accés usuaris DEMO
 
-Faltes i retards ORDENATS PER DATA AL PDF
-Faltes Justificades
++ Accés usuaris DEMO
 
-
++ Retards JUSTIFICATS ORDENATS PER DATA AL PDF
++ Faltes Justificades
 + graphics seguiment
 + aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
 + En seguiment, iluminar menu actiu
@@ -33,30 +32,30 @@ Faltes Justificades
 
 
 BETA 1.2.0
-+Secció al Home "Com funciona?"
-+Uppercase modificació dades
-+Horari-config: Afegir boton "borrar horari" 
-+Quan es crea un horari no funciona apartat "ÀREES" (1st call)
-+Registre "mestre -ee -escola"
++ Secció al Home "Com funciona?"
++ Uppercase modificació dades
++ Horari-config: Afegir boton "borrar horari" 
++ Quan es crea un horari no funciona apartat "ÀREES" (1st call)
++ Registre "mestre -ee -escola"
 
 
 BETA 1.1.0
-+Crear usuari ADMIN - botó canvi de curs
-+Open Graph Facebook
-+Fer apartat "Entra"
-+Fer que el nom de l'alumne sigui link
++ Crear usuari ADMIN - botó canvi de curs
++ Open Graph Facebook
++ Fer apartat "Entra"
++ Fer que el nom de l'alumne sigui link
 
 
 BETA 1.0.0
-+Button 'desa horari' treure avis de canvis
-+ARREGLAR 'desa horari' en horari-arees
-+Etiquetes actives - LABELS
-+Curs i Tots els alumnes en NAV-collapse en la pantalla petita
-+Avís de guardar canvis
-+A Horaris i seguiment: Un botó general "Desa els canvis" a l'aside
-+Comunicar errors SIGN UP
-+Enviar mail a l'admin
-+Juntar "Mestres - EE"
-+Dades personals alumnes: Canviar "codi escola" pel nom de l'escola
-+Treure 'escola' de tots els usuaris-alumnes (DB)
-+Apartat reunions i reunions seguiment: títol i apartats a l'aside
++ Button 'desa horari' treure avis de canvis
++ ARREGLAR 'desa horari' en horari-arees
++ Etiquetes actives - LABELS
++ Curs i Tots els alumnes en NAV-collapse en la pantalla petita
++ Avís de guardar canvis
++ A Horaris i seguiment: Un botó general "Desa els canvis" a l'aside
++ Comunicar errors SIGN UP
++ Enviar mail a l'admin
++ Juntar "Mestres - EE"
++ Dades personals alumnes: Canviar "codi escola" pel nom de l'escola
++ Treure 'escola' de tots els usuaris-alumnes (DB)
++ Apartat reunions i reunions seguiment: títol i apartats a l'aside
