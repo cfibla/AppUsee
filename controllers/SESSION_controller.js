@@ -18,6 +18,7 @@ exports.login = function (req, res){
 		}
 		if(!user) {
 			res.send("error login");
+			console.log('Usuari inexsistent');
 			//QUAN HI HAGI ESCOLES
 			//next();
 		}
@@ -27,29 +28,43 @@ exports.login = function (req, res){
 				//console.log('PWD OK');
 				req.session.user = user;
 				if(req.session.user.horari){
+					console.log('usuari amb horari');
 					let horariId = req.session.user.horari;
 					models.Horari.find({_id: horariId}, function(err, horari){
 						if(err){
 							console.log(err);
 						} else {
 							if (user.mestre === "tutor"){
+								console.log('usuari amb horari TUTOR');
 								res.send('/list');
 							}
 							if (user.mestre === "ee"){
+								console.log('usuari amb horari EE');
 								res.send('/list_EE');
 							}
 						}
 					})
 				} else {
-					if (user.mestre === "tutor"){
+					if (user.mestre === "tutor" && email != "demo@demo.cat"){
+						console.log('usuari sense horari TUTOR');
 						res.send('/list');
 					}
-					if (user.mestre === "ee"){
+					if (user.mestre === "ee" && email != "demoee@demo.cat"){
+						console.log('usuari sense horari EE');
 						res.send('/list_EE');
+					}
+					if (email === "demo@demo.cat"){
+						console.log('usuari DEMO TUTOR');
+						res.redirect('/list');
+					}
+					if (email === "demoee@demo.cat"){
+						console.log('usuari DEMO EE');
+						res.redirect('/list_EE');
 					}
 				}
 			} else {
 				res.send("error login");
+				console.log('ERROR LOGIN');
 			}
 		}
 	});

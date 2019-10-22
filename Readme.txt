@@ -1,6 +1,7 @@
 Beta 2.0.0
 
 Botó canvi de curs no funciona
+Accés usuaris DEMO (REPASSAR)
 repassar Horari controller --> update Funciona, areaPost y diariPost NO
 	provar en el router amb un altre controller
 login entrada: avisar si no existeix usuari
@@ -15,8 +16,9 @@ Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
 Fer Buscador no visible en horaris
 
-+ Accés usuaris DEMO
++ Millorar footer
 
++ Accés usuaris DEMO
 + Retards JUSTIFICATS ORDENATS PER DATA AL PDF
 + Faltes Justificades
 + graphics seguiment
