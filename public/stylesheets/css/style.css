@@ -495,8 +495,14 @@ table a:hover{
 .footertext{
     margin-bottom: 2.5em;
 }
+.img-footer{
+    width: 32px;
+    height: 32px;
+}
+.img-footer:hover{
+    opacity: 80%;
+}
 .md-form .prefix.active {
-/*     color: inherit; */
      color: #0AAD9C;
 }
 .fons{

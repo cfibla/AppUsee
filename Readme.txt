@@ -16,8 +16,7 @@ Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
 Fer Buscador no visible en horaris
 
-+ Millorar footer
-
++ Millorar footer (Comprovar que funcionen els links)
 + Accés usuaris DEMO
 + Retards JUSTIFICATS ORDENATS PER DATA AL PDF
 + Faltes Justificades

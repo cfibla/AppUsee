@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>appEscola</title>
     <!-- Font Awesome -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Material Design Bootstrap -->
@@ -224,33 +223,39 @@
   <footer class="footer">
     <div class="container-fluid">
       <div class="row">
+        <!--First column-->
+        <div class="col-md-4 footertext">
+          <h5 class="title">Segueix l'appEscola</h5>
+          <div class="row">
+            <div class="col-md-4 footertext">
+              <a href="https://www.facebook.com/AppEscola-1238038613007072/" target="_blank"><img src="/images/logo-facebook.png" class="img-footer"></a>
 
-          <!--First column-->
-          <div class="col-md-5 offset-md-2 footertext">
-              <h5 class="title">Segueix l'appEscola</h5>
-              <div class="row">
-              <div class="col-md-3 footertext">
-              <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
-
-              <a href="https://twitter.com/appescola" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-              </div>
-              </div>
+              <a href="https://twitter.com/appescola" target="_blank"><img src="/images/logo-twitter.png" class="img-footer"></a>
+            </div>
           </div>
-          <!--/.First column-->
-
-          <!--Second column-->
-          <!--/.Footer Links-->
-          <div class="col-md-5 footertext">
-            <h5 class="title">Tens algun dubte o suggerència?</h5>
-              <a data-toggle="modal" id="btnUser" href="/javascripts/modals/mail.ejs" data-target="#mailModal" role="button">
-                <i class="fa fa-envelope prefix"></i> Escriu-me!</a>
-          </div>
-          <!--/.Second column-->
+        </div>
+        <!--/.First column-->
+        <!--Second column-->
+        <div class="col-md-4 footertext">
+          <h5 class="title">Tens algun dubte o suggerència?</h5>
+          <a data-toggle="modal" id="btnUser" href="/javascripts/modals/mail.ejs" data-target="#mailModal" role="button">
+            <span><i class="material-icons" style="font-size: 16px;">mail_outline</i></span><span> Escriu-me!</span>
+          </a>
+        </div>
+        <!--/.Second column-->
+        <!--Third column-->
+        <div class="col-md-4 footertext">
+          <h5 class="title">Enllaços</h5>
+          <div><a href="/www.xtec.cat" target="_blank" role="button">Xtec</a></div>
+          <div><a href="/www.edu365.cat" target="_blank" role="button">Edu365</a></div>
+          <div><a href="/www.gencat.cat" target="_blank" role="button">GenCat</a></div>
+        </div>
+        <!--/.Third column-->
       </div>
 <!--Copyright-->
       <div class="footer-copyright">
         <div class="row">
-          <div class="col-md-5 offset-md-2">
+          <div class="col-md-5">
             Versió Beta 2.0.0 - © 2019 <a href="https://twitter.com/appescola"> appEscola </a>
           </div>
         </div>      
