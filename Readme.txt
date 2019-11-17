@@ -4,10 +4,7 @@ Botó canvi de curs no funciona
 Accés usuaris DEMO (REPASSAR)
 repassar Horari controller --> update Funciona, areaPost y diariPost NO
 	provar en el router amb un altre controller
-login entrada: avisar si no existeix usuari
 Re-disseny horaris
-Crear pàgina CENTRE
-Afegir "last login" users
 Poder canviar objectius, sessió, etc en horari diari
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
@@ -15,8 +12,13 @@ Protecció de dades
 Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
 Fer Buscador no visible en horaris
+login entrada: avisar si no existeix usuari
+Crear pàgina CENTRE
 
-+ Millorar footer (Comprovar que funcionen els links)
+CANVI D'ESCOLA
+
++ Fer funcionar ADMIN-PAGE - Afegir "last login" users
++ Millorar footer ===> Comprovar que funcionen els links xtec, edu365, etc
 + Accés usuaris DEMO
 + Retards JUSTIFICATS ORDENATS PER DATA AL PDF
 + Faltes Justificades

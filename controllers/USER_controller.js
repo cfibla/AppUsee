@@ -159,15 +159,40 @@ exports.update = function (req, res){
 	let userId = req.params.id;
 	let usuari = req.body;
 
-	models.User.findByIdAndUpdate(userId, usuari, {new: true, safe: true, upsert: true},
-	function (error, usuari){
-		if (error) {
-			return res.json(error);
-		} else {
-			res.redirect('/usuari');
-		}
+	models.User.findOne({_id:userId},
+		function (error, user){
+			if (error) {
+				return res.json(error);
+			} else {
+
+				console.log ("ESCOLA ENVIADA: ", usuari.codiEscola);
+				console.log("ESCOLA DB: ", user.codiEscola);
+				console.log ("DADES VISTA: ", usuari);
+				console.log ("DADES USUARI: ", user);
+
+				if (usuari.codiEscola == user.codiEscola) {
+					user.nom = usuari.nom;
+					user.cognom = usuari.cognom;
+					user.email = usuari.email;
+					user.escola = usuari.escola;
+					user.mestre = usuari.mestre;
+					user.curs = usuari.curs;
+					console.log("NOU USER: ", user);
+					user.save(function (error, user){
+						if (error) {
+							res.json(error);
+						} else {
+							res.redirect('/usuari');
+						}
+					});
+				} else {
+					console.log('canvi escola');
+					res.redirect('/usuari');
+				}
+			}
 	});
 };
+
 //UPDATE contrasenya - GET
 exports.updPwdGet = function (req, res){
 	let msg =  req.flash('passwordMsg');

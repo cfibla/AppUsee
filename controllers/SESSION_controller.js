@@ -2,6 +2,7 @@
 
 const models = require('../models/index');
 const bcrypt = require('bcrypt');
+const moment = require ('moment');
 //let jwt = require('jsonwebtoken');
 
 exports.login = function (req, res){
@@ -24,9 +25,17 @@ exports.login = function (req, res){
 		}
 		if(user) {
 			//console.log('USER OK');
+			let dataAvui = moment().format('L');
+			
 			if(bcrypt.compareSync(password, user.password)){
 				//console.log('PWD OK');
 				req.session.user = user;
+				user.lastLogin = dataAvui;
+				user.save(function (error, user){
+							if (error) {
+								res.json(error);
+							}
+				});
 				if(req.session.user.horari){
 					console.log('usuari amb horari');
 					let horariId = req.session.user.horari;

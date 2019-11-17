@@ -34,9 +34,9 @@ $(document).ready(function (){
     //$("#llista").addClass("navcolor");
     //$("#horari-menu").removeClass("navcolor");
     $("#situ").html("ADMIN");
-    $("#a1").html("General").attr('href', "/admin");
-    $("#a2").html("Usuaris").attr('href', "/admin-users");
-    $("#a3").html("Escoles").attr('href', "/admin-escoles");
+    $("#a1tutor").html("General").attr('href', "/admin");
+    $("#a2tutor").html("Usuaris").attr('href', "/admin-users");
+    $("#a3tutor").html("Escoles").attr('href', "/admin-escoles");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").removeClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
@@ -47,9 +47,9 @@ $(document).ready(function (){
     //$("#llista").addClass("navcolor");
     //$("#horari-menu").removeClass("navcolor");
     $("#situ").html("ADMIN");
-    $("#a1").html("General").attr('href', "/admin");
-    $("#a2").html("Usuaris").attr('href', "/admin-users");
-    $("#a3").html("Escoles").attr('href', "/admin-escoles");
+    $("#a1tutor").html("General").attr('href', "/admin");
+    $("#a2tutor").html("Usuaris").attr('href', "/admin-users");
+    $("#a3tutor").html("Escoles").attr('href', "/admin-escoles");
     $("#a1div").removeClass("navcolorside");
     $("#a2div").addClass("navcolorside");
     $("#a3div").removeClass("navcolorside");
@@ -161,8 +161,8 @@ $(document).ready(function (){
   if(pth==="/usuari"){
     $("#llista").removeClass("navcolor");
     $("#situ").html("El meu perfil");
-    $("#a1").html("Dades personals").attr('href', "/usuari");
-    $("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
+    $("#a1tutor").html("Dades personals").attr('href', "/usuari");
+    $("#a2tutor").html("Canviar contrasenya").attr('href', "/contrasenya");
     $("#a1div").addClass("navcolorside");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
@@ -172,8 +172,8 @@ $(document).ready(function (){
   if(pth==="/contrasenya"){
     $("#llista").removeClass("navcolor");
     $("#situ").html("El meu perfil");
-    $("#a1").html("Dades personals").attr('href', "/usuari");
-    $("#a2").html("Canviar contrasenya").attr('href', "/contrasenya");
+    $("#a1tutor").html("Dades personals").attr('href', "/usuari");
+    $("#a2tutor").html("Canviar contrasenya").attr('href', "/contrasenya");
     $("#a2div").addClass("navcolorside");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
