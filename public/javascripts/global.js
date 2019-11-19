@@ -163,7 +163,8 @@ $(document).ready(function (){
     $("#situ").html("El meu perfil");
     $("#a1tutor").html("Dades personals").attr('href', "/usuari");
     $("#a2tutor").html("Canviar contrasenya").attr('href', "/contrasenya");
-    $("#a1div").addClass("navcolorside");
+    $("#a3tutor").html("Canviar escola").attr('href', "/canvi-escola");
+    $("#div1tutor").addClass("divAsideSelected");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");
@@ -174,7 +175,20 @@ $(document).ready(function (){
     $("#situ").html("El meu perfil");
     $("#a1tutor").html("Dades personals").attr('href', "/usuari");
     $("#a2tutor").html("Canviar contrasenya").attr('href', "/contrasenya");
-    $("#a2div").addClass("navcolorside");
+    $("#a3tutor").html("Canviar escola").attr('href', "/canvi-escola");
+    $("#div2tutor").addClass("divAsideSelected");
+    $("#assistencia").removeClass("navcolor");
+    $("#menjador").removeClass("navcolor");
+    $("#areasDrop").addClass("hidDrop");
+  }
+
+    if(pth==="/canvi-escola"){
+    $("#llista").removeClass("navcolor");
+    $("#situ").html("El meu perfil");
+    $("#a1tutor").html("Dades personals").attr('href', "/usuari");
+    $("#a2tutor").html("Canviar contrasenya").attr('href', "/contrasenya");
+    $("#a3tutor").html("Canviar escola").attr('href', "/canvi-escola");
+    $("#div3tutor").addClass("divAsideSelected");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#areasDrop").addClass("hidDrop");

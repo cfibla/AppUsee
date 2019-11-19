@@ -49,3 +49,7 @@ exports.createCentre = function (req, res){
 exports.centreMain = function(req, res) {
 		res.render('centre-main');
 	};
+
+exports.canviEscola = function(req, res) {
+		res.render('canvi-escola');
+	};

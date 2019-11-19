@@ -9,13 +9,13 @@ Poder canviar objectius, sessió, etc en horari diari
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
-Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 Àrees - Diari - Configuració
 Fer Buscador no visible en horaris
 login entrada: avisar si no existeix usuari
 Crear pàgina CENTRE
 
-CANVI D'ESCOLA
+
+CANVI D'ESCOLA -> Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
 
 + Fer funcionar ADMIN-PAGE - Afegir "last login" users
 + Millorar footer ===> Comprovar que funcionen els links xtec, edu365, etc

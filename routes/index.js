@@ -40,6 +40,7 @@ router.get('/canvi-curs',			sessionController.loginRequired, adminController.can
 router.get('/escola_nou',			centreController.nouCentre);
 router.post('/escola_crear',		centreController.createCentre);
 router.get('/centre',				centreController.centreMain);
+router.get('/canvi-escola',			centreController.canviEscola);
 
 //rutas USER
 router.get('/usuari_nou',			userController.nouUser);

@@ -1,0 +1,55 @@
+<form role="form" method="post" action="/escola-upd?_method=put" id="escola-upd">
+  <div class="container margetop col-md-10 offset-md-2">
+    <div class="row">
+      <div class="md-form col-4">
+        <div class="row">
+          <div class="md-form col-md-6">
+            <label for="codi_esc_tutor">Codi escola nova</label>
+            <input type="number" class="form-control" id="codi_esc_tutor" name="escola" required="true">
+          </div>
+          <div class="md-form col-md-12">
+            <label for="nom_esc_tutor">Nom escola nova (sense "Escola")</label>
+            <input type="text" class="form-control" id="nom_esc_tutor" name="escolanom" required="true"  autocomplete="name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="md-form col-md-7">Sóc
+            <select class="form-control" id="mestres" name="mestre" required="true">
+              <option value="tutor">Tutor/a</option>
+              <option value="ee">EE-SIEI</option>
+            </select>
+          </div>
+          <div class="md-form col-md-7">Curs
+            <select class="form-control" id="curs_act" name="curs" required="true">
+              <option value=""></option>
+              <option value="P3 A">P3 A</option>
+              <option value="P3 B">P3 B</option>
+              <option value="P4 A">P4 A</option>
+              <option value="P4 B">P4 B</option>
+              <option value="P5 A">P5 A</option>
+              <option value="P5 B">P5 B</option>
+              <option value="1r A">1r A</option>
+              <option value="1r B">1r B</option>
+              <option value="2n A">2n A</option>
+              <option value="2n B">2n B</option>
+              <option value="3r A">3r A</option>
+              <option value="3r B">3r B</option>
+              <option value="4t A">4t A</option>
+              <option value="4t B">4t B</option>
+              <option value="5è A">5è A</option>
+              <option value="5è B">5è B</option>
+              <option value="6è A">6è A</option>
+              <option value="6è B">6è B</option>
+            </select>
+          </div>
+          <div class="col-md-10"style="padding: 30px 30px 30px 10px;">
+		    <button type="submit" form="escola-upd" class="btn btn-primary">Desa els canvis</button>
+		  </div>
+        </div>
+      </div>
+      
+		  
+		
+    </div>
+  </div>
+</form>
