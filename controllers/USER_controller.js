@@ -46,7 +46,6 @@ exports.createUser = function (req, res){
 							password: user.password,
 							mestre: user.mestre,
 							curs: user.curs,
-							escola: user.escola,
 							centre: scl._id
 						});
 						nouUser.password = bcrypt.hashSync(req.body.password, 10);
@@ -89,7 +88,6 @@ exports.createUser = function (req, res){
 							password: user.password,
 							mestre: user.mestre,
 							curs: user.curs,
-							escola: user.escola,
 							centre: eskola._id
 						});
 						nouUser.password = bcrypt.hashSync(req.body.password, 10);

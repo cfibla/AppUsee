@@ -47,9 +47,69 @@ exports.createCentre = function (req, res){
 };
 
 exports.centreMain = function(req, res) {
-		res.render('centre-main');
-	};
+	res.render('centre-main');
+};
 
 exports.canviEscola = function(req, res) {
-		res.render('canvi-escola');
-	};
+	res.render('canvi-escola');
+};
+
+
+exports.updateEscola = function(req, res) {
+	
+	const dades = req.body;
+	const userId = req.session.user._id;
+	const escolaId = dades.escola;
+
+	models.Centre.findOne({codi:escolaId}, function(error, escola){
+
+		if (escola) {
+			console.log('escola EXISTENT');
+			const dadesNoves = {
+				mestre: dades.mestre,
+				curs: dades.curs,
+				codiEscola: escolaId,
+				centre: escola._id
+			}
+			models.User.findByIdAndUpdate(userId, dadesNoves, {new: true}, (err, user) => {
+			    if (err){
+			    	return console.log(err)
+			    } else {
+					return res.redirect('/usuari');
+			    }
+			})    
+		} else {
+			console.log('escola NOVA');
+			const nouEscola = new models.Centre({
+				codi: dades.escola,
+				nom: dades.escolanom,
+				password: "",
+				telefon: 0,
+				email:"",
+				adreca: "",
+				codiPostal: 0,
+				poblacio: "",
+				provincia: ""
+			});
+			nouEscola.save(function(error, scl){
+				if (error) {
+					res.json(error);
+				} else {
+					const dadesNoves = {
+						mestre: dades.mestre,
+						curs: dades.curs,
+						codiEscola: escolaId,
+						centre: scl._id
+					}
+					models.User.findByIdAndUpdate(userId, dadesNoves, {new: true}, (err, user) => {
+					    if (err){
+					    	return console.log(err)
+					    } else {
+							return res.redirect('/usuari');
+					    }
+					})
+				}
+			});
+		}
+	});
+}
