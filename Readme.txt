@@ -11,19 +11,19 @@ quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Protecció de dades
 Àrees - Diari - Configuració
 Fer Buscador no visible en horaris
-login entrada: avisar si no existeix usuari
 Crear pàgina CENTRE
 Els meus companys
 
-CANVI D'ESCOLA -> Perfil usuari -> Escola (crear nova si canvia)
-
++ Canvi d'escola
++ Canviar pagina usuari
 + Fer funcionar ADMIN-PAGE - Afegir "last login" users
 + Millorar footer ===> Comprovar que funcionen els links xtec, edu365, etc
 + Accés usuaris DEMO
 + Retards JUSTIFICATS ORDENATS PER DATA AL PDF
 + Faltes Justificades
-+ graphics seguiment
-+ aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
++ Graphics seguiment
++ Aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
++ Login entrada: avisar si no existeix usuari
 + En seguiment, iluminar menu actiu
 + /assisData falta menú aside
 + Fer funcionar el buscador

@@ -41,6 +41,7 @@
   <%
   //console.log ('SESSION VIEW: ' + JSON.stringify(session));
   if (session.user){
+    console.log(session.user);
     var horari = session.user.horari;
       var ruta;
       if(session.user.mestre === "ee"){

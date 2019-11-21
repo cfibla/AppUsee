@@ -73,10 +73,11 @@ exports.updateEscola = function(req, res) {
 			}
 			models.User.findByIdAndUpdate(userId, dadesNoves, {new: true}, (err, user) => {
 			    if (err){
-			    	return console.log(err)
+			    	console.log(err)
 			    } else {
-					return res.redirect('/usuari');
-			    }
+			    	req.session.user=user;
+        			res.redirect('/usuari');
+				}
 			})    
 		} else {
 			console.log('escola NOVA');
@@ -103,9 +104,10 @@ exports.updateEscola = function(req, res) {
 					}
 					models.User.findByIdAndUpdate(userId, dadesNoves, {new: true}, (err, user) => {
 					    if (err){
-					    	return console.log(err)
+					    	console.log(err)
 					    } else {
-							return res.redirect('/usuari');
+					    	req.session.user=user;
+        					res.redirect('/usuari');
 					    }
 					})
 				}

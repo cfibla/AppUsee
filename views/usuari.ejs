@@ -19,23 +19,33 @@
     var mestre = usuari.mestre;
     var mst;
     var usuariUpd;
+    var optiTxt;
+    var optiVal;
 
-    if (mestre==="ee"){
+    if (mestre === "ee"){
       mst = "At. diversitat"
       usr = "At. diversitat";
       usuariUpd = "usuari_ee";
     }
 
-    if (mestre==="tutor"){
-      mst = "Tutor"
+    if (mestre === "tutor"){
+      mst = "Tutor/a"
       usuariUpd = "usuari"
+    }
+
+    if (mestre === "tutor") {
+      optiTxt = "At. diversitat";
+      optiVal = "ee";
+    } else {
+      optiTxt = "Tutor/a";
+      optiVal = "tutor";
     }
   %>  
   
 <form role="form" method="post" action="/<%=usuariUpd%>/<%=usuari._id%>?_method=put" id="usuari_dades">
-  <div class="container margetop clear col-md-10 offset-md-2">
+  <div class="container margetop clear col-md-12 offset-md-2">
     <div class="row">
-      <div class="md-form col-12">
+      <div class="md-form col-4">
         <div class="row">
           <% if (typeof passwordMsg !='undefined' && passwordMsg){ %>
             <div class="alert alert-success col-md-6">
@@ -45,39 +55,33 @@
             </div>
           <% } %>
 
-          <div class="md-form col-md-3">
+          <div class="md-form col-md-12">
             <label for="nom_usuari">Nom</label>
             <input type="text" class="form-control" id="nom_usuari" name="nom"
                    value="<%=usuari.nom%>">
           </div>
 
-          <div class="md-form col-md-3">
+          <div class="md-form col-md-12">
             <label for="cognom_usuari">Primer Cognom</label>
             <input type="text" class="form-control" id="cognom_usuari" name="cognom"
                    value="<%=usuari.cognom%>">
           </div>
 
-          <div class="md-form col-md-3">
+          <div class="md-form col-md-7">
             <label for="email_usuari">Correu electrònic</label>
             <input type="text" class="form-control" id="cognom_usuari" name="email"
                    value="<%=usuari.email%>">
           </div>
 
-           <div class="form-group col-md-2">
-            <label for="codi_escola">Codi de l'escola</label>
-            <input type="text" class="form-control" id="codi_escola" name="codiEscola" value = "<%=usuari.codiEscola%>">
-          </div>
-
-          <div class="form-group col-md-2" id="curs">
-            <label class="active" for="curs_act">Categoria</label>
+          <div class="form-group col-md-7" id="curs" style="padding-top: 30px;">
+            <label class="active" for="categoria">Mestre</label>
             <select class="form-control" id="categoria" name="mestre">
               <option value="<%=mestre%>" selected><%=mst%></option>
-              <option value="tutor">Tutor</option>
-              <option value="ee">At. diversitat</option>
+              <option value="<%=optiVal%>"><%=optiTxt%></option>
             </select>
           </div>
 
-          <div class="form-group col-md-2" id="usrCurs">
+          <div class="form-group col-md-7" id="usrCurs" style="padding-top: 30px;padding-bottom: 10px;">
             <label class="active" for="curs_act">Curs actual</label>
             <select class="form-control" id="curs_act" name="curs">
               <option value="<%=usr%>" selected><%=usr%></option>
@@ -93,16 +97,15 @@
               <option value="5è B">5è B</option>
               <option value="6è A">6è A</option>
               <option value="6è B">6è B</option>
-              <option value="At. diversitat">At. diversitat</option>
             </select>
           </div>
-          <div class="container">
-            <span class="col-md-5 float-right">
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" href="/javascripts/modals/deleteUser.ejs" data-id="<%=usuari._id%>" data-mestre="<%=mestre%>">Donar-me de baixa</button>
-              <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
-            </span>
-          </div>
         </div>
+      </div>
+      <div class="container" style="padding-bottom: 30px;">
+        <span class="col-md-5 float-right">
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" href="/javascripts/modals/deleteUser.ejs" data-id="<%=usuari._id%>" data-mestre="<%=mestre%>">Donar-me de baixa</button>
+          <button type="submit" form="usuari_dades" class="btn btn-primary">Desa</button>
+        </span>
       </div>
     </div>
   </div>

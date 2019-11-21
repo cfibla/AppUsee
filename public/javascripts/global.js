@@ -487,19 +487,33 @@ $(document).ready(function (){
 ///////// U S E R S //////////////
 
 //UPDATE USERS
-    // USUARI CURS
+  // USUARI CURS
+  if ($('#categoria').val()==='tutor'){
+      $("#usrCurs").show();
+    } else {
+      $("#usrCurs").hide();
+    }
+  $('#categoria').change(function(){
     if ($('#categoria').val()==='tutor'){
-        $("#usrCurs").show();
-      } else {
-        $("#usrCurs").hide();
-      }
-    $('#categoria').change(function(){
-      if ($('#categoria').val()==='tutor'){
-        $("#usrCurs").fadeIn('slow');
-      } else {
-        $("#usrCurs").hide('slow');
-      }
-    });
+      $("#usrCurs").fadeIn('slow');
+    } else {
+      $("#usrCurs").hide('slow');
+    }
+  });
+
+  if ($('#escola-upd #ce-mestres').val()==='tutor'){
+      $("#escola-upd #ce-curs_act").show();
+    } else {
+      $("#escola-upd #ce-curs_act").hide().prop('required', false);
+    }
+  $('#escola-upd #ce-mestres').change(function(){
+    if ($('#escola-upd #ce-mestres').val()==='tutor'){
+      $("#escola-upd #ce-curs_act").fadeIn('slow');
+    } else {
+      $("#escola-upd #ce-curs_act").hide('slow').prop('required', false);
+    }
+  });
+
 
 //DELETE USERS
   $('#deleteUserModal').on('shown.bs.modal', function (e) {
@@ -529,7 +543,7 @@ $(document).ready(function (){
       function(){
         unsaved = false;
         e.preventDefault();
-       location.reload();
+        location.reload();
         $('.modal').removeClass('show');
      });
 //datepicker//

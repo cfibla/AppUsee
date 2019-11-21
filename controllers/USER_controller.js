@@ -180,11 +180,13 @@ exports.update = function (req, res){
 						if (error) {
 							res.json(error);
 						} else {
+							req.session.user=user;
 							res.redirect('/usuari');
 						}
 					});
 				} else {
 					console.log('canvi escola');
+					req.session.user=user;
 					res.redirect('/usuari');
 				}
 			}
