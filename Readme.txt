@@ -13,9 +13,9 @@ Protecció de dades
 Fer Buscador no visible en horaris
 login entrada: avisar si no existeix usuari
 Crear pàgina CENTRE
+Els meus companys
 
-
-CANVI D'ESCOLA -> Perfil usuari -> Escola (crear nova si canvia) - Els meus companys
+CANVI D'ESCOLA -> Perfil usuari -> Escola (crear nova si canvia)
 
 + Fer funcionar ADMIN-PAGE - Afegir "last login" users
 + Millorar footer ===> Comprovar que funcionen els links xtec, edu365, etc
