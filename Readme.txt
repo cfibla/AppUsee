@@ -10,9 +10,11 @@ quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
 Àrees - Diari - Configuració
-Fer Buscador no visible en horaris
+Fer Buscador no visible en horaris 
 Crear pàgina CENTRE
 Els meus companys
+
+REPASSAR HORARI
 
 + Canvi d'escola
 + Canviar pagina usuari

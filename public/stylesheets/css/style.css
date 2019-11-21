@@ -176,6 +176,17 @@ body {
 @media (min-width: 1200px) {
 
 }
+.logo-barra {
+    color: white;
+    text-decoration: none;
+    opacity: .9;
+}
+
+.logo-barra:hover {
+    opacity: .99999;
+    color: white;
+    text-decoration: none;
+}
 
 .mainsection {
     margin-bottom: 10em;
