@@ -14,7 +14,7 @@ Fer Buscador no visible en horaris
 Crear pàgina CENTRE
 Els meus companys
 
-REPASSAR HORARI
+REPASSAR HORARI - Aside
 
 + Canvi d'escola
 + Canviar pagina usuari

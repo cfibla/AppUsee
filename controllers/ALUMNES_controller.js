@@ -15,8 +15,9 @@ exports.list = function (req, res) {
 			console.log(error);
 		} else {
 			if(req.session.user.horari){
+				console.log(req.session.user.horari);
 				console.log('LIST TIENE HORARI');
-				horariId = req.session.user.horari;
+				let horariId = req.session.user.horari;
 				models.Horari.find({_id: horariId}, function(err, horariUser){
 					if(err){
 						console.log(err);
