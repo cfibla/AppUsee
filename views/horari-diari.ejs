@@ -3,27 +3,26 @@
     <div class="container margetop clear col-md-10 offset-md-2" id="horariDiari">
       <div class="row" id="horariMain">
         <%
-        var dia;
-        for (var i=0; i < horari.dades.length; i++) {
-          if (horari.dades[i].dia === 1) {
-            var dia = "DILLUNS";
-            }
-          if (horari.dades[i].dia === 2) {
-            var dia = "DIMARTS";
-            }
-          if (horari.dades[i].dia === 3) {
-            var dia = "DIMECRES";
-            }
-          if (horari.dades[i].dia === 4) {
-            var dia = "DIJOUS";
-            }
-          if (horari.dades[i].dia === 5) {
-            var dia = "DIVENDRES";
-            }
-        var daata = horari.dades[i].data.replace(/\//g, "");
-        //console.log('DAATA DIARI: '+ daata);
+          var dia;
+          for (var i=0; i < horari.dades.length; i++) {
+            if (horari.dades[i].dia === 1) {
+              var dia = "DILLUNS";
+              }
+            if (horari.dades[i].dia === 2) {
+              var dia = "DIMARTS";
+              }
+            if (horari.dades[i].dia === 3) {
+              var dia = "DIMECRES";
+              }
+            if (horari.dades[i].dia === 4) {
+              var dia = "DIJOUS";
+              }
+            if (horari.dades[i].dia === 5) {
+              var dia = "DIVENDRES";
+              }
+          var daata = horari.dades[i].data.replace(/\//g, "");
         %>
-          <div class="col-md-6" id="<%='div_' + daata%>" style="margin-top: 20px;">
+          <div class="md-form col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
             <input type="hidden" name="diaData" value=<%=[horari.dades[i].data]%>>
             <div class="diaDiari">
               <%=dia%> <strong><%=horari.dades[i].data%></strong>

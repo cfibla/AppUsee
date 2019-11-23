@@ -279,15 +279,17 @@ $(document).ready(function (){
   }
 
   if(pth==="/horari-config"){
+    $("#div1tutor").addClass("divAsideSelected");
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").addClass("navcolor");
     $("#situ").html("Configurar horari");
-    $("#a1").html("Configuració").attr('href', "/horari-config");
-    $("#a2").html("Horari diari").attr('href', "/horari-diari");
-    $("#a1div").addClass("navcolorside");
-    $("#a2div").removeClass("navcolorside");
+    $("#a1tutor").html("Configuració").attr('href', "/horari-config");
+    $("#a2tutor").html("Horari diari").attr('href', "/horari-diari");
+    $("#a3tutor").addClass("hidBig");
+    $("#a1div").addClass("hidBig");
+    $("#a2div").addClass("hidBig");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop");
@@ -296,15 +298,17 @@ $(document).ready(function (){
   }
 
   if(pth==="/horari-diari"){
+    $("#div2tutor").addClass("divAsideSelected");
     $("#llista").removeClass("navcolor");
     $("#assistencia").removeClass("navcolor");
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").addClass("navcolor");
     $("#situ").html("Horari diari");
-    $("#a1").html("Configuració").attr('href', "/horari-config");
-    $("#a2").html("Horari diari").attr('href', "/horari-diari");
-    $("#a1div").removeClass("navcolorside");
-    $("#a2div").addClass("navcolorside");
+    $("#a1tutor").html("Configuració").attr('href', "/horari-config");
+    $("#a2tutor").html("Horari diari").attr('href', "/horari-diari");
+    $("#a3tutor").addClass("hidBig");
+    $("#a1div").addClass("hidBig");
+    $("#a2div").addClass("hidBig");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop");
@@ -320,15 +324,14 @@ $(document).ready(function (){
     $("#menjador").removeClass("navcolor");
     $("#horari-menu").addClass("navcolor");
     $("#situ").html(decodeUrl);
-    $("#a1").html("Configuració").attr('href', "/horari-config");
-    $("#a2").html("Horari diari").attr('href', "/horari-diari");
-    $("#a1div").removeClass("navcolorside");
-    $("#a2div").removeClass("navcolorside");
-    $("#areasdiv").addClass("navcolorside");
+    $("#a1tutor").html("Configuració").attr('href', "/horari-config");
+    $("#a2tutor").html("Horari diari").attr('href', "/horari-diari");
+    $("#a3tutor").addClass("hidBig");
+    $("#a1div").addClass("hidBig");
+    $("#a2div").addClass("hidBig");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
-    $("#areasDrop").removeClass("hidDrop");
-    $("#areasDrop").addClass("navcolorside");
+    $("#areasDrop").removeClass("hidDrop").addClass("divAsideSelected");
     $("#desaButton").removeClass("hidBig").attr('form', "areas_post");
     $("#areasPost_2").removeClass("hidDrop");
   }
