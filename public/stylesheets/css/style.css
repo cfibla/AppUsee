@@ -722,7 +722,6 @@ span.glyphicon-user {
 .diaDiari {
     margin-top: 2em;
     padding: .5em;
-    border: 1px solid #bbb;
     font-size: 150%;
     background: #008577;
     border-radius: 20px 20px 0 0;
@@ -731,13 +730,18 @@ span.glyphicon-user {
 
 .horesDiari {
     padding:.5em;
-    border: 0px 1px 1px 1px solid #bbb;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: #bbb;
     min-height: 100px;
 }
 
 .horesBottom {
     padding: .5em;
-    border: 1px solid #bbb;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: #bbb;
+    border-radius: 0px 0px 20px 20px;
     min-height: 100px;
 }
 /*ÀREES*/
