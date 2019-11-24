@@ -686,10 +686,10 @@ span.glyphicon-user {
 }
 
 .fila3 {
-    padding-top: .5em;
-    height: 80px;
+    padding-top: .2em;
+    height: 60px;
     text-align: center;
-    background: #aaa;
+    background: #ccc;
     font-size: 2em;
     color: white;
 }

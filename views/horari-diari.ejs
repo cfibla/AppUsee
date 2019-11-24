@@ -22,7 +22,7 @@
               }
           var daata = horari[i].data.replace(/\//g, "");
         %>
-          <div class="md-form col-md-12" id="<%='div_' + daata%>" style="margin-top: 20px;">
+          <div class="md-form col-md-6" id="<%='div_' + daata%>" style="margin-top: 20px;">
             <input type="hidden" name="diaData" value=<%=[horari[i].data]%>>
             <div class="diaDiari">
               <%=dia%> <strong><%=horari[i].data%></strong>
@@ -87,7 +87,7 @@
               </div>
             </div>
 
-            <div class="fila3"><strong>DINAR</strong></div>
+            <div class="fila2"><strong>DINAR</strong></div>
 
             <div class="horesBottom">
               <div class="row">
@@ -95,25 +95,28 @@
                 <div class="col-md-12">
                   <div class="row">
 
-                    <div class="col-md-6 firstline">
+                    <div class="col-md-4 firstline">
                       <label for="<%='tema_'+ i%>">Tema/UD</label>
-                      <input class="col-md-6" type="text" name="tema" id="<%='tema_'+ i%>" value="<%=[horari[i].hora_5.tema]%>">
+                      <input class="col-md-10" type="text" name="tema" id="<%='tema_'+ i%>" value="<%=[horari[i].hora_5.tema]%>">
                     </div>
 
                     <div class="col-md-1 firstline2">
                       <label for="<%='sessio_'+ i%>">Sessió</label>
-                      <input class="col-md-11" type="text" name="sessio" id="<%='sessio_'+ i%>" value="<%=[horari[i].hora_5.sessio]%>">
+                      <input class="col-md-10" type="text" name="sessio" id="<%='sessio_'+ i%>" value="<%=[horari[i].hora_5.sessio]%>">
                     </div>
 
                     <div class="w-100"></div>
 
                     <div class="col-md-6">
+                      <span>Objectius</span>
                       <textarea id="<%=dia%>obj" class="col-md-12 objtext" name="objectius" placeholder="Objectius"><%=[horari[i].hora_5.objectius]%></textarea>
                     </div>
                     <div class="col-md-6">
+                      <span>Continguts</span>
                       <textarea id="<%=dia%>cont" class="col-md-12 objtext" name="continguts" placeholder="Continguts"><%=[horari[i].hora_5.continguts]%></textarea>
                     </div>
                   </div>
+                  <span>Activitats</span>
                   <textarea id="<%=dia%>h5" class="col-md-12 horaritext" name="prog5" placeholder="Activitats"><%=[horari[i].hora_5.prog]%></textarea>
                 </div>
               </div>
