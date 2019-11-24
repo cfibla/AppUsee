@@ -674,11 +674,11 @@ exports.diariGet = function (req, res) {
 */
 
 	console.log('HORARI-DIARI GET');
-	models.Horari.findById(horariId, function(err, horariUser){
+	models.Horari.findById(horariId, function(err, horari){
 		if(err){
 			console.log(err);
 		} else {
-			res.render('horari-diari', {horari: horariUser});
+			res.render('horari-diari', {horari: horari.dades});
 		};
 	});
 };
@@ -752,7 +752,7 @@ exports.areaGet = function(req,res){
 
 			let sessionsArea = search(area, hores.dades);
 			//console.log('sessionsArea:' + sessionsArea);
-			console.log('area:' + area);
+			//console.log('area:' + area);
 			res.render('horari-arees', {horari:sessionsArea, area:area});
 		}
 	})

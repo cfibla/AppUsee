@@ -711,6 +711,8 @@ span.glyphicon-user {
 /*DIARI*/
 .horaritext{
     min-height: 100px;
+    border-radius: 10px;
+    border-color: #bbb;
 }
 .link {
     color:#464646;
@@ -749,11 +751,24 @@ span.glyphicon-user {
     min-height: 100px;
 }
 .objtext{
+    clear: both;
+    padding: .5em;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #bbb;
+    border-radius: 10px 10px 10px 10px;
     min-height: 50px;
 }
 
 .firstline {
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-left: 15px;
+    padding: 15px;
+}
+.firstline2 {
+    margin-top: 10px;
+    margin-left: 0px;
+    padding: 15px 15px 15px 0px;
 }
 .titlearea {
     font-size: 150%;

@@ -5,17 +5,18 @@ Accés usuaris DEMO (REPASSAR)
 repassar Horari controller --> update Funciona, areaPost y diariPost NO
 	provar en el router amb un altre controller
 Re-disseny horaris
-Poder canviar objectius, sessió, etc en horari diari
+Menú negre
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
-Àrees - Diari - Configuració
++ Àrees - Diari - Configuració
 Fer Buscador no visible en horaris 
 Crear pàgina CENTRE
 Els meus companys
 
-REPASSAR HORARI - Aside
+Poder canviar objectius, sessió, etc en horari diari - Crear continguts (MODEL)
 
++ REPASSAR HORARI - Aside
 + Canvi d'escola
 + Canviar pagina usuari
 + Fer funcionar ADMIN-PAGE - Afegir "last login" users
