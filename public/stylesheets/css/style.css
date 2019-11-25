@@ -665,6 +665,10 @@ span.glyphicon-user {
     padding-left: 0px
 }
 
+.horaritext::placeholder{
+color: #d6d6d6;
+}
+
 .fila1 {
     margin: 5px;
     padding-top: .5em;
@@ -712,7 +716,7 @@ span.glyphicon-user {
 .horaritext{
     min-height: 100px;
     border-radius: 10px;
-    border-color: #bbb;
+    border-color: #d6d6d6;
 }
 .link {
     color:#464646;
@@ -751,13 +755,16 @@ span.glyphicon-user {
     min-height: 100px;
 }
 .objtext{
-    clear: both;
     padding: .5em;
     border-width: 1px 1px 1px 1px;
     border-style: solid;
-    border-color: #bbb;
+    border-color: #d6d6d6;
     border-radius: 10px 10px 10px 10px;
     min-height: 50px;
+}
+
+.objtext::placeholder{
+color: #d6d6d6;
 }
 
 .firstline {

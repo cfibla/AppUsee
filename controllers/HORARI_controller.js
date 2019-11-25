@@ -689,6 +689,8 @@ exports.diariPost = function (req, res){
 	let user = req.session.user;
 	let horariId = user.horari;
 
+	console.log (horariReq);
+
 	models.Horari.findById(horariId, function(error, horari){
 		let lgt = horari.dades.length-1;
 
