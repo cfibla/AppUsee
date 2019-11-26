@@ -665,10 +665,6 @@ span.glyphicon-user {
     padding-left: 0px
 }
 
-.horaritext::placeholder{
-color: #d6d6d6;
-}
-
 .fila1 {
     margin: 5px;
     padding-top: .5em;
@@ -713,11 +709,7 @@ color: #d6d6d6;
     padding-bottom: 1em;
 }
 /*DIARI*/
-.horaritext{
-    min-height: 100px;
-    border-radius: 10px;
-    border-color: #d6d6d6;
-}
+
 .link {
     color:#464646;
 }
@@ -751,9 +743,38 @@ color: #d6d6d6;
     min-height: 100px;
 }
 /*ÀREES*/
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+     outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
 .areestext{
     min-height: 100px;
 }
+
+.horaritext{
+    padding: .5em;
+    min-height: 100px;
+    border-radius: 10px;
+    border-color: #d6d6d6;
+}
+
+.horaritext::placeholder{
+color: #d6d6d6;
+}
+
 .objtext{
     padding: .5em;
     border-width: 1px 1px 1px 1px;

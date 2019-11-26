@@ -697,11 +697,37 @@ exports.diariPost = function (req, res){
 		function upd(){
 			for (let i=0; i < horari.dades.length; i++) {
 		        if (horari.dades[i].data == horariReq.diaData[i]) {
+		        	
+		        	horari.dades[i].hora_1.tema = horariReq.tema1[i];
+		        	horari.dades[i].hora_1.sessio = horariReq.sessio1[i];
+		        	horari.dades[i].hora_1.objectius = horariReq.objectius1[i];
+		        	horari.dades[i].hora_1.continguts = horariReq.continguts1[i];
 		        	horari.dades[i].hora_1.prog = horariReq.prog1[i];
+
+		        	horari.dades[i].hora_2.tema = horariReq.tema2[i];
+		        	horari.dades[i].hora_2.sessio = horariReq.sessio2[i];
+		        	horari.dades[i].hora_2.objectius = horariReq.objectius2[i];
+		        	horari.dades[i].hora_2.continguts = horariReq.continguts2[i];
 		        	horari.dades[i].hora_2.prog = horariReq.prog2[i];
+
+		        	horari.dades[i].hora_3.tema = horariReq.tema3[i];
+		        	horari.dades[i].hora_3.sessio = horariReq.sessio3[i];
+		        	horari.dades[i].hora_3.objectius = horariReq.objectius3[i];
+		        	horari.dades[i].hora_3.continguts = horariReq.continguts3[i];
 		        	horari.dades[i].hora_3.prog = horariReq.prog3[i];
+/*
+		        	horari.dades[i].hora_4.tema = horariReq.tema4[i];
+		        	horari.dades[i].hora_4.sessio = horariReq.sessio4[i];
+		        	horari.dades[i].hora_4.objectius = horariReq.objectius4[i];
+		        	horari.dades[i].hora_4.continguts = horariReq.continguts4[i];
 		        	horari.dades[i].hora_4.prog = horariReq.prog4[i];
+*/
+		        	horari.dades[i].hora_5.tema = horariReq.tema5[i];
+		        	horari.dades[i].hora_5.sessio = horariReq.sessio5[i];
+		        	horari.dades[i].hora_5.objectius = horariReq.objectius5[i];
+		        	horari.dades[i].hora_5.continguts = horariReq.continguts5[i];
 		        	horari.dades[i].hora_5.prog = horariReq.prog5[i];
+
 		        }
 		    }
 		};

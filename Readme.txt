@@ -2,20 +2,17 @@ Beta 2.0.0
 
 Botó canvi de curs no funciona
 Accés usuaris DEMO (REPASSAR)
-repassar Horari controller --> update Funciona, areaPost y diariPost NO
-	provar en el router amb un altre controller
-Re-disseny horaris
-Menú negre
+Re-disseny horaris-area
+Menú negre?
 quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 ??Button 'Elimina horari' i horari auto-eliminat en 15 dies
 Protecció de dades
-+ Àrees - Diari - Configuració
-Fer Buscador no visible en horaris 
 Crear pàgina CENTRE
 Els meus companys
 
-Poder canviar objectius, sessió, etc en horari diari - Crear continguts (MODEL)
++ Fer Buscador no visible en horaris (corregir horariId)
 
++ Poder canviar objectius, sessió, etc en horari diari - Crear continguts (MODEL)
 + REPASSAR HORARI - Aside
 + Canvi d'escola
 + Canviar pagina usuari
@@ -25,7 +22,7 @@ Poder canviar objectius, sessió, etc en horari diari - Crear continguts (MODEL)
 + Retards JUSTIFICATS ORDENATS PER DATA AL PDF
 + Faltes Justificades
 + Graphics seguiment
-+ Aside => si el user es EE, menu EE. Sino, menu tutor GLOBAL
++ Aside => si user es EE, menu EE. Sino, menu tutor GLOBAL
 + Login entrada: avisar si no existeix usuari
 + En seguiment, iluminar menu actiu
 + /assisData falta menú aside
