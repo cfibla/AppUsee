@@ -278,6 +278,15 @@ $(document).ready(function (){
     $("#a3divnav").removeClass("hidBig hidDrop").addClass("navcolorside");
   }
 
+  if (pth ==="/horari-config"||
+      pth==="/horari-diari"||
+      pth.match("/horari-area/")||
+      pth==="/usuari"||
+      pth==="/contrasenya"||
+      pth==="/canvi-escola") {
+    $("#form-nav").addClass("hidBig");
+  }
+
   if(pth==="/horari-config"){
     $("#div1tutor").addClass("divAsideSelected");
     $("#llista").removeClass("navcolor");
