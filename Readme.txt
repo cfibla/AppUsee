@@ -8,10 +8,11 @@ quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Protecció de dades
 Crear pàgina CENTRE
 Els meus companys
-Re-disseny horaris-area
+Afegir lupa al buscador
 
-+ Fer buscador no visible en horaris (corregir horariId)
++ Re-disseny horaris-area
 
++ Fer buscador no visible en horaris
 + Poder canviar objectius, sessió, etc en horari diari - Crear continguts (MODEL)
 + REPASSAR HORARI - Aside
 + Canvi d'escola

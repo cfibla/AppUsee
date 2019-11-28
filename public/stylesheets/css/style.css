@@ -157,6 +157,11 @@ body {
         color: #000;
     }
 
+    .lupa-white{
+        color: white;
+        cursor: pointer;
+    }
+
     .divAside {
         padding-top: 6px;
     }
@@ -175,6 +180,10 @@ body {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
+}
+
+.no-margin {
+    margin-top: 0;
 }
 .logo-barra {
     color: white;
@@ -516,6 +525,7 @@ table a:hover{
 .md-form .prefix.active {
      color: #0AAD9C;
 }
+
 .fons{
     padding-top:5em;
 }
@@ -740,6 +750,24 @@ span.glyphicon-user {
     border-style: solid;
     border-color: #bbb;
     border-radius: 0px 0px 20px 20px;
+    min-height: 100px;
+}
+
+.diaArea {
+    margin-top: 2em;
+    padding: .5em;
+    font-size: 150%;
+    background: #008577;
+    border-radius: 20px 20px 0 0;
+    color: white;
+}
+
+.horesArea {
+    padding:.5em;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 0px 0px 20px 20px;
+    border-style: solid;
+    border-color: #bbb;
     min-height: 100px;
 }
 /*ÀREES*/

@@ -15,8 +15,8 @@ exports.list = function (req, res) {
 			console.log(error);
 		} else {
 			if(req.session.user.horari){
-				console.log(req.session.user.horari);
-				console.log('LIST TIENE HORARI');
+				//console.log(req.session.user.horari);
+				//console.log('LIST TIENE HORARI');
 				let horariId = req.session.user.horari;
 				models.Horari.find({_id: horariId}, function(err, horariUser){
 					if(err){
@@ -39,8 +39,7 @@ exports.cercaList = function (req, res) {
 	let alum = req.query;
 	let alumCog1 = alum.cognom;
 	let alumCog1Up = alumCog1.toUpperCase();
-
-	console.log('LIST - Cerca pel cognom');
+	//console.log('LIST - Cerca pel cognom');
 
 	models.Alumne.find({
 		centre: req.session.user.centre,
@@ -53,8 +52,8 @@ exports.cercaList = function (req, res) {
 			console.log(error);
 		} else {
 			if(req.session.user.horari){
-				console.log('LIST TIENE HORARI');
-				horariId = req.session.user.horari;
+				//console.log('LIST TIENE HORARI');
+				let horariId = req.session.user.horari;
 				models.Horari.find({_id: horariId}, function(err, horariUser){
 					if(err){
 						console.log(err);

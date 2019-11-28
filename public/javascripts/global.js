@@ -301,6 +301,7 @@ $(document).ready(function (){
     $("#a2div").addClass("hidBig");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
+    $("#div3tutor").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop");
     $("#desaButton").removeClass("hidBig").attr('form', "horari_post");
     $("#horariDiariPost_2").removeClass("hidDrop");
@@ -316,6 +317,7 @@ $(document).ready(function (){
     $("#a1tutor").html("Configuració").attr('href', "/horari-config");
     $("#a2tutor").html("Horari diari").attr('href', "/horari-diari");
     $("#a3tutor").addClass("hidBig");
+    $("#div3tutor").addClass("hidBig");
     $("#a1div").addClass("hidBig");
     $("#a2div").addClass("hidBig");
     $("#a3div").addClass("hidBig");
@@ -340,6 +342,7 @@ $(document).ready(function (){
     $("#a2div").addClass("hidBig");
     $("#a3div").addClass("hidBig");
     $("#a4div").addClass("hidBig");
+    $("#div3tutor").addClass("hidBig");
     $("#areasDrop").removeClass("hidDrop").addClass("divAsideSelected");
     $("#desaButton").removeClass("hidBig").attr('form', "areas_post");
     $("#areasPost_2").removeClass("hidDrop");
@@ -358,7 +361,7 @@ $(document).ready(function (){
       $("#a2div").removeClass("navcolorside");
       $("#a3div").removeClass("navcolorside");
       $("#a4div").removeClass("navcolorside");
-      $("#areasDrop").removeClass("hidDrop");
+      $("#areasDrop").addClass("hidDrop");
     }
     if(userMestre == '"ee"') {
       $("#llista").addClass("navcolor");
@@ -370,7 +373,6 @@ $(document).ready(function (){
       $("#cursosDrop").removeClass("hidDrop");
     }
   } 
-
 
 //TOOLTIPS
   $(function () {
