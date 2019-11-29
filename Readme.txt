@@ -1,4 +1,4 @@
-Beta 2.0.0
+
 
 Botó canvi de curs no funciona
 Accés usuaris DEMO (REPASSAR)
@@ -8,10 +8,12 @@ quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Protecció de dades
 Crear pàgina CENTRE
 Els meus companys
-Afegir lupa al buscador
 
+Beta 2.0.0
+
++ Re-disseny seguiment
 + Re-disseny horaris-area
-
++ Afegir lupa al buscador
 + Fer buscador no visible en horaris
 + Poder canviar objectius, sessió, etc en horari diari - Crear continguts (MODEL)
 + REPASSAR HORARI - Aside

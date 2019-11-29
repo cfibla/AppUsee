@@ -80,9 +80,11 @@ body {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    /*
      nav {
         height: 45px;
     }
+    */
     .hidBig{
         display: none;
     }
@@ -222,11 +224,22 @@ body {
     width: 100%;
     padding: 60px;
     background: #7bdfd4;
+    border-radius: 20px;
 }
+
+.containerfin{
+    width: 100%;
+    padding: 0 60px 60px 60px;
+    background: #7bdfd4;
+    border-radius: 20px;
+    margin-bottom: 200px;
+}
+
 .containerintro{
     width: 100%;
     padding: 60px;
     background: #2BBBAD;
+    border-radius: 20px;
 }
 .margintop {
     margin-top: 30px;
@@ -345,6 +358,7 @@ body {
 .titleHome{
     font-size: 200%;
     margin-bottom: 10px;
+    padding-top: 0px;
 }
 
 .titleContainer{
@@ -360,22 +374,27 @@ body {
 
 .navbar {
     background: #0AAD9C;
-    margin: 0PX;
+}
+
+.muted:hover {
+    color:white !important;
 }
 
 nav {
     z-index:1000;
 
 }
+/*
 nav .container{
     width: 100%;
     margin: 0;
     display: block;
 }
+*/
 nav .dropdown-item:hover {
-    color: #616161;
+    color: #fff;
     text-decoration: none;
-    background-color: #424242;
+    background-color: #0AAD9C;
 }
 nav a{
 }
@@ -435,9 +454,17 @@ nav a{
     z-index: 1000;
     opacity: 0.5;
 }
+
 .navcolor{
-    border-bottom: 5px solid #2BBBAD;
+    background: #2BBBAD;
+    border-radius: 100px;
 }
+
+.navcolor:hover {
+    background: #2BBBAD;
+    border-radius: 100px;
+}
+
 .navcolor a{
     color: white !important;
 }
