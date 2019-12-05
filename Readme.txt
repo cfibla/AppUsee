@@ -1,5 +1,9 @@
 
 
+Beta 3.0.0 (PREVISIÓ)
+Angular
+Refactoritzar
+Avaluacions
 Botó canvi de curs no funciona
 Accés usuaris DEMO (REPASSAR)
 Menú negre (?)
@@ -8,8 +12,11 @@ quan els alumnes acaben 6e, passen a ser "ex-alumnes"
 Protecció de dades
 Crear pàgina CENTRE
 Els meus companys
+EE -> data d'inici de seguiment i data d'alta
 
 Beta 2.0.0
+
++ Re-disseny modals dades i nou alumne
 
 + Re-disseny seguiment
 + Re-disseny horaris-area

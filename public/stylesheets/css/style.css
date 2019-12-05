@@ -201,6 +201,7 @@ body {
 
 .mainsection {
     margin-bottom: 10em;
+    min-height: 45em;
 }
 .containerMain {
     padding-bottom: 2em;
@@ -519,7 +520,7 @@ table a:hover{
     font-weight: bold;
 }
 .margin-footer{
-    padding-bottom: 5em;
+    padding-bottom: 4em;
 }
 /*FOOTER */
 .footer {

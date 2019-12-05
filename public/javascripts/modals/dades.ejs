@@ -40,7 +40,7 @@
                   <label for="cnom_alumne1">Primer Cognom *</label>
                 </div>
                 <div class="md-form col-md-3">
-                  <input type="text" class="form-control" id="cnom_alumne2" style="text-transform:uppercase" name="cognomAlumne2" style="text-transform:uppercase">
+                  <input type="text" class="form-control" id="cnom_alumne2" name="cognomAlumne2" style="text-transform:uppercase">
                   <label for="cnom_alumne2">Segon Cognom</label>
                 </div>
                 <div class="md-form col-md-3" id="dataNaix">
@@ -67,8 +67,7 @@
                   <input type="text" class="form-control" id="tel_alumne" name="telefon" data-error="Format incorrecte">
                   <label for="tel_alumne1">Telèfon</label>
                 </div>
-                <div class="md-form col-md-4" id="curs">
-              <label class="active" for="curs_act">Curs actual</label>
+                <div class="md-form col-md-4" id="curs">Curs actual
               <select class="form-control" id="curs_act" name="curs" required="true">
                 <option id="cursval" class="margetopmini"></option>
                 <option value="P3 A">P3 A</option>
@@ -91,36 +90,31 @@
                 <option value="6è B">6è B</option>
               </select>
             </div>
-              <div class="md-form col-md-4">
-              <label class="active" for="selecRep">Repetidor</label>
+              <div class="md-form col-md-4">Repetidor
               <select class="form-control" id="selecRep" name="radios.0">
                 <option id="rep_alumne1"></option>
                 <option id="rep_alumne2"></option>
               </select>
             </div>
-            <div class="md-form col-md-4">
-              <label class="active" for="serSoc">Seguiment Serveis Socials</label>
+            <div class="md-form col-md-4">Seguiment Serveis Socials
               <select class="form-control" id="serSoc" name="checks.29">
                 <option id="ss_alumne1"></option>
                 <option id="ss_alumne2"></option>
               </select>
             </div>
-            <div class="md-form col-md-4">
-              <label class="active" for="valorat-id">Valorat per Atenció a la diversitat</label>
+            <div class="md-form col-md-4">Valorat per At. diversitat
               <select class="form-control" id="valorat-id" name="valorat">
                 <option id="val_ad_alumne1"></option>
                 <option id="val_ad_alumne2"></option>
               </select>
             </div>
-            <div class="md-form col-md-4">
-              <label class="active" for="eeUsee">Atès a Atenció a la diversitat</label>
+            <div class="md-form col-md-4">Atès a Atenció a la diversitat
               <select class="form-control" id="eeUsee" name="eeUsee">
                 <option id="ad_alumne1"></option>
                 <option id="ad_alumne2"></option>
               </select>
             </div>
-            <div class="md-form col-md-4">
-              <label class="active" for="sAill">Atès a AiLL</label>
+            <div class="md-form col-md-4">Atès a AiLL
               <select class="form-control" id="sAill" name="checks.2">
                 <option id="aill_alumne1"></option>
                 <option id="aill_alumne2"></option>
@@ -128,12 +122,6 @@
             </div>
           </div>
         </div>
-                  <!--
-                  <div class="md-form col-md-12">
-                    <input type="text" class="form-control" id="nom_escola" name="nomEscola" required="true" disabled>
-                    <label class="active" for="nom_escola">Escola</label>
-                  </div>
-                  -->
             <div class="md-form col-12">
               <div class="row">
                 <div class="md-form col-md-12" style="height:100px;">
@@ -142,103 +130,130 @@
                 </div>
               </div>
             </div>
-
-            
     <!--ADAPTACIONS ALUMNE -->
             <div class="form-group col-md-12 centered">
-              <a class="btn btn-light-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1" href="#collapse1">Adaptacions <i class="fa fa-plus" aria-hidden="true"></i></a>
+              <a class="btn btn-light-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse1" href="#collapse1">Adaptacions <i class="material-icons">add</i></a>
                 <div id="collapse1" class="collapse">
                   <div class="card card-block">
                   <div class="row">
                     <div class="form-group col-md-12 left">
-                      <div class="form-group">
-                        <label for="programació_individualitzada">Pla individualitzat (PI)</label>
-                          <select class="form-control" id="programació_individualitzada" name="radios.15">
-                            <option  id="pi_alumne1"></option>
-                            <option  id="pi_alumne2"></option>
-                          </select>
+                      <div class="form-group col-md-12">Pla individualitzat (PI)
+                        <select class="form-control" id="programació_individualitzada" name="radios.15">
+                          <option  id="pi_alumne1"></option>
+                          <option  id="pi_alumne2"></option>
+                        </select>
                       </div>
                       <div id="divPi">
-                        <div class="form-group">
-                          <label class="checkbox-inline">
-                          <input id="curr" type="checkbox" value="true" name="checks.16"> Curricular </label>
-                          <label class="checkbox-inline">
-                          <input id="met" type="checkbox" value="true" name="checks.17"> Metodològic </label>
-                          <label class="checkbox-inline">
-                          <input id="cond" type="checkbox" value="true" name="checks.18"> Conductual </label>
+                        <div class="form-group col-md-12 alturaBox">
+                     
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="curr" type="checkbox" value="true" name="checks.16" class="custom-control-input">
+                          <label class="custom-control-label" for="curr">Curricular</label>
                         </div>
-                        <div class="form-group alturaBox">
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="met" type="checkbox" value="true" name="checks.17" class="custom-control-input">
+                          <label class="custom-control-label" for="met">Metodològic</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="cond" type="checkbox" value="true" name="checks.18" class="custom-control-input">
+                          <label class="custom-control-label" for="cond">Conductual</label>
+                        </div>
+
+                      </div>
+                      
+                        <div class="form-group alturaBox col-md-12">
                         <label for="arees_adaptades">Àrees adaptades PI</label><br>
-                        <label class="checkbox-inline">
-                          <input id="cat" type="checkbox" value="true" name="checks.19">Català</label>
-                        <label class="checkbox-inline">
-                          <input id="cast" type="checkbox" value="true" name="checks.20">Castellà</label>
-                        <label class="checkbox-inline">
-                          <input id="mat" type="checkbox" value="true" name="checks.21">Matemàtiques</label>
-                        <label class="checkbox-inline">
-                          <input id="mediN" type="checkbox" value="true" name="checks.22">Medi natural</label>
-                        <label class="checkbox-inline">
-                          <input id="mediS" type="checkbox" value="true" name="checks.23">Medi social</label>
-                        <label class="checkbox-inline">
-                          <input id="efis" type="checkbox" value="true" name="checks.24">Educació Física</label>
-                        <label class="checkbox-inline">
-                          <input id="art" type="checkbox" value="true" name="checks.25">Àrea artística</label>
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="cat" type="checkbox" value="true" name="checks.19" class="custom-control-input">
+                          <label class="custom-control-label" for="cat">Català</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="cast" type="checkbox" value="true" name="checks.20" class="custom-control-input">
+                          <label class="custom-control-label" for="cast">Castellà</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="mat" type="checkbox" value="true" name="checks.21" class="custom-control-input">
+                          <label class="custom-control-label" for="mat">Matemàtiques</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="mediN" type="checkbox" value="true" name="checks.22" class="custom-control-input">
+                          <label class="custom-control-label" for="mediN">Medi Natural</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="mediS" type="checkbox" value="true" name="checks.23" class="custom-control-input">
+                          <label class="custom-control-label" for="mediS">Medi Social</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="efis" type="checkbox" value="true" name="checks.24" class="custom-control-input">
+                          <label class="custom-control-label" for="efis">Educació Física</label>
+                        </div>
+                        <div class="custom-control custom-checkbox col-md-3">
+                          <input id="art" type="checkbox" value="true" name="checks.25" class="custom-control-input">
+                          <label class="custom-control-label" for="art">Àrea artística</label>
+                        </div>
                       </div>
-                      <div class="form-group alturaBox">
+                      <div class="form-group alturaBox col-md-12">
                         <label for="material_diferenciat">Material diferenciat a les àrees adaptades</label>
-                          <select class="form-control" id="material_diferenciat" name="radios.5">
-                            <option id="mtr_alumne1"></option>
-                            <option id="mtr_alumne2"></option>
-                          </select>
+                        <select class="form-control" id="material_diferenciat" name="radios.5">
+                          <option id="mtr_alumne1"></option>
+                          <option id="mtr_alumne2"></option>
+                        </select>
                       </div>
                     </div>
-                  </div></div>
 
-                  <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="adequacio_continguts">Adequació de continguts</label>
-                    <select class="form-control" id="adequacio_continguts" name="radios.6">
-                      <option id="adeq_alumne1"></option>
-                      <option id="adeq_alumne2"></option>
-                    </select>
-                  
-                  <div id="divAde">
-                    <div class="form-group">
-                      <label class="checkbox-inline" for="mat2">
-                      <input id="mat2" type="checkbox" value="true" name="checks.26">Matemàtiques</label><br>
-                      <label class="checkbox-inline" for="mat2">
-                      <input id="cat2" type="checkbox" value="true" name="checks.27">Català</label><br>
-                      <label class="checkbox-inline" for="mat2">
-                      <input id="med2" type="checkbox" value="true" name="checks.28">Medi</label><br>
-                    </div>
-                  </div>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label for="full_derivacio">Full de derivació</label>
-                    <select class="form-control" id="full_derivacio" name="radios.7">
-                      <option id="fder_alumne1"></option>
-                      <option id="fder_alumne2"></option>
-                    </select>
-                  
-                  <div class="form-group" id="divDer">
-                    <div class="form-group">
-                      <label for="qui_fa_derivacio">Qui el fa?</label>
-                      <select class="form-control" id="qui_fa_derivacio" name="derivacio">
+                    <div class="form-group col-md-12">
+                      <label for="adequacio_continguts">Adequació de continguts</label>
+                      <select class="form-control" id="adequacio_continguts" name="radios.6">
+                        <option id="adeq_alumne1"></option>
+                        <option id="adeq_alumne2"></option>
                       </select>
+                    
+                      <div id="divAde">
+                        <div class="custom-control custom-checkbox">
+                          <input id="mat2" type="checkbox" value="true" name="checks.26" class="custom-control-input">
+                          <label class="custom-control-label" for="mat2">Matemàtiques</label><br>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input id="cat2" type="checkbox" value="true" name="checks.27" class="custom-control-input">
+                          <label class="custom-control-label" for="cat2">Català</label><br>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input id="med2" type="checkbox" value="true" name="checks.28" class="custom-control-input"> 
+                          <label class="custom-control-label" for="med2">Medi</label><br>
+                        </div>
+                      </div>
                     </div>
-                    <div class="form-group" style="height:100px;">
-                      <label class="active" for="motiu_derivacio">Motiu</label>
-                      <textarea class="form-control" style="height:100%;" id="motiu_derivacio" name="motiuDer"></textarea>
-                    </div></div>
-                  </div></div>
+
+                    <div class="form-group col-md-12">
+                      <label for="full_derivacio">Full de derivació</label>
+                      <select class="form-control" id="full_derivacio" name="radios.7">
+                        <option id="fder_alumne1"></option>
+                        <option id="fder_alumne2"></option>
+                      </select>
+                    
+                      <div class="form-group" id="divDer">
+                        <div class="form-group">
+                          <label for="qui_fa_derivacio">Qui el fa?</label>
+                          <select class="form-control" id="qui_fa_derivacio" name="derivacio">
+                          </select>
+                        </div>
+                        <div class="form-groupcol-md-12">
+                          <label class="active" for="motiu_derivacio">Motiu</label>
+                          <textarea class="form-control" style="height:100%;" id="motiu_derivacio" name="motiuDer"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
     <!--ATENCIÓ DIVERSITAT ALUMNE-->
             <div class="form-group col-md-12 centered" id="divDiv">
-              <a class="btn btn-dark-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2" href="#collapse2">Atenció a la diversitat  <i class="fa fa-plus" aria-hidden="true"></i></a>
+              <a class="btn btn-dark-green" data-toggle="collapse" aria-expanded="false" aria-controls="collapse2" href="#collapse2">Atenció a la diversitat  <i class="material-icons">add</i></a>
                 <div id="collapse2" class="collapse left">
                   <div class="card card-block">
                   <div class="row">
