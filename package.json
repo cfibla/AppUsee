@@ -20,7 +20,7 @@
     "express-partials": "^0.3.0",
     "express-session": "^1.15.6",
     "gasparesganga-jquery-loading-overlay": "^1.6.0",
-    "lodash": ">=4.17.12",
+    "lodash": "4.17.15",
     "method-override": "^2.3.10",
     "moment": "^2.22.2",
     "mongodb": "^2.2.36",
