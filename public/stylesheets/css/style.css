@@ -511,16 +511,18 @@ table a:hover{
     min-height: 100%;
 }
 .nom-link {
-    color: gray;
+    color: black;
 }
 .nom-link:link {
-    color: green;
+    color: black;
 }
+/*
 .nom-link:visited {
     background-color: red;
 }
+*/
 .nom-link:hover {
-    color: black;
+    color: green;
     font-weight: bold;
 }
 .margin-footer{
