@@ -17,6 +17,100 @@
     <div class="modal-body" id="modalAfegir">
         <form role="form" id="dadesAlumne">
         <div class="container">
+            <div class="md-form col-12">
+              <div class="row">
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="nom_alumne" name="nom" required="true" style="text-transform:uppercase">
+                  <label for="nom_alumne">Nom *</label>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="cognom1_alumne" name="cognom1" required="true" style="text-transform:uppercase">
+                  <label for="cognom1_alumne">Primer Cognom *</label>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="cognom2_alumne" name="cognom2" style="text-transform:uppercase">
+                  <label for="cognom2_alumne">Segon Cognom</label>
+                </div>
+                <div class="md-form col-md-3" id="dataNaix">
+                  <label class="active" for="data_naixement">Data naixement</label>
+                  <div class="input-group date alturabox" data-provide="datepicker">
+                    <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control textcenter" id="data_naixement" name="dataNaixement">
+                  </div>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="targeta_SS" name="sSocial">
+                  <label for="targeta_SS">Targeta SS</label>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="cdEscola" name="codiEscola" required="true" disabled="true">
+                  <label for="codi_escola" class="active">Codi escola *</label>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="email" class="form-control validate" id="email_alumne" name="mailAlum" data-error="Format incorrecte">
+                  <label for="email_alumne">Correu electrònic</label>
+                </div>
+                <div class="md-form col-md-3">
+                  <input type="text" class="form-control" id="tel_alumne" name="telefon" data-error="Format incorrecte">
+                  <label for="tel_alumne1">Telèfon</label>
+                </div>
+                <div class="md-form col-md-4" id="aCurs">Curs actual
+              <select class="form-control" id="selCurs" name="curs" required="true">
+                <option id="opc" class="margetopmini"></option>
+                <option value="P3 A">P3 A</option>
+                <option value="P3 B">P3 B</option>
+                <option value="P4 A">P4 A</option>
+                <option value="P4 B">P4 B</option>
+                <option value="P5 A">P5 A</option>
+                <option value="P5 B">P5 B</option>
+                <option value="1r A">1r A</option>
+                <option value="1r B">1r B</option>
+                <option value="2n A">2n A</option>
+                <option value="2n B">2n B</option>
+                <option value="3r A">3r A</option>
+                <option value="3r B">3r B</option>
+                <option value="4t A">4t A</option>
+                <option value="4t B">4t B</option>
+                <option value="5è A">5è A</option>
+                <option value="5è B">5è B</option>
+                <option value="6è A">6è A</option>
+                <option value="6è B">6è B</option>
+              </select>
+            </div>
+              <div class="md-form col-md-4">Repetidor
+              <select class="form-control" id="selecRep" name="radios.0">
+                <option value="">No</option>
+                <option value="true">Si</option>
+              </select>
+            </div>
+            <div class="md-form col-md-4">Seguiment Serveis Socials
+              <select class="form-control" id="selecSs" name="checks.29">
+                <option value="">No</option>
+                <option value="true">Si</option>
+              </select>
+            </div>
+            <div class="md-form col-md-4">Valorat per At. diversitat
+              <select class="form-control" id="valor" name="valorat">
+                <option id="val-1">No</option>
+                <option id="val-2">Si</option>
+              </select>
+            </div>
+            <div class="md-form col-md-4">Atès a At. a la diversitat
+              <select class="form-control" id="eeUsee" name="eeUsee">
+                <option id="ad-1"></option>
+                <option id="ad-2"></option>
+              </select>
+            </div>
+            <div class="md-form col-md-4">Atès a AiLL
+              <select class="form-control" id="aill" name="checks.2">
+                <option value="">No</option>
+                <option value="true">Si</option>
+              </select>
+            </div>
+          </div>
+        </div>
+          <!--
           <div class="md-form col-12">
           <div class="row">
             <div class="md-form col-md-4" style="clear:both;">
@@ -122,7 +216,7 @@
               </div>
             </div>
 
-              
+              -->
 
             <div class="form-group col-md-12" style="clear:both;">
               <small>Els camps marcats amb l'asterisc (*) són obligatoris</small>

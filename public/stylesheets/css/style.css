@@ -356,6 +356,10 @@ body {
     border-color: #1CA347;
 }
 
+.paddingDiv {
+    padding-top: 20px;
+}
+
 .titleHome{
     font-size: 200%;
     margin-bottom: 10px;
@@ -525,7 +529,7 @@ table a:hover{
 /*FOOTER */
 .footer {
     position: absolute;
-    z-index: 9990;
+    z-index: 1000;
     right: 0;
     bottom: 0;
     left: 0;
