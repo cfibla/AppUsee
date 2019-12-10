@@ -141,7 +141,8 @@ body {
         padding-top: 1em;
         font-size: 150%;
         text-transform: uppercase;
-        color: #2BBBAD;
+ /*       color: #2BBBAD;*/
+        color: #353a3f;
     }
 
     #situee {
@@ -379,7 +380,9 @@ body {
 
 .navbar {
     background: #0AAD9C;
+ /*   background: #353a3f;*/
 }
+
 
 .muted:hover {
     color:white !important;
@@ -469,10 +472,10 @@ nav a{
     background: #2BBBAD;
     border-radius: 100px;
 }
-
+/*
 .navcolor a{
     color: white !important;
-}
+}*/
 
 table a:hover{
     opacity: .5;
@@ -536,7 +539,8 @@ table a:hover{
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: #008577;
+/*    background-color: #008577;*/
+    background-color: #353a3f;
     color: #fff;
     text-align: left;
 }
@@ -635,7 +639,8 @@ span.glyphicon-user {
     text-align: left;
     font-size: 3em;
     font-weight: bold;
-    color: #2BBBAD;
+/*    color: #2BBBAD;*/
+    color: #353a3f;
 }
 
 .curs-t-ee {
